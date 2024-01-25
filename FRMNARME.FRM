@@ -1,4 +1,4 @@
-VERSION 4.00
+VERSION 5.00
 Begin VB.Form frmNeueArmee 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Neue Armee"
@@ -6,19 +6,16 @@ Begin VB.Form frmNeueArmee
    ClientLeft      =   2805
    ClientTop       =   3315
    ClientWidth     =   4080
-   Height          =   2370
-   Left            =   2745
    LinkTopic       =   "0 none"
    MaxButton       =   0   'False
    MDIChild        =   -1  'True
    MinButton       =   0   'False
+   PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   2471.698
    ScaleMode       =   0  'User
    ScaleWidth      =   1929.079
    ShowInTaskbar   =   0   'False
-   Top             =   2970
    Visible         =   0   'False
-   Width           =   4200
    Begin VB.CommandButton comOK 
       Caption         =   "OK"
       Default         =   -1  'True
@@ -75,13 +72,13 @@ Begin VB.Form frmNeueArmee
    End
    Begin VB.Label labPunkte 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   14.25
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   330
@@ -93,13 +90,13 @@ Begin VB.Form frmNeueArmee
    Begin VB.Label labtxtMaximalpunkte 
       Caption         =   "Maximalpunkte:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   14.25
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   330
       Left            =   105
@@ -110,13 +107,13 @@ Begin VB.Form frmNeueArmee
    Begin VB.Label labtxtArmee 
       Caption         =   "Armee:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   14.25
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   330
       Left            =   105
@@ -126,7 +123,9 @@ Begin VB.Form frmNeueArmee
    End
 End
 Attribute VB_Name = "frmNeueArmee"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 
@@ -149,7 +148,7 @@ Do
 Loop Until Farbe <> 7
 Farbe = QBColor(Farbe)
 
-If CobArmeeAuswahl.Text = "" Then
+If cobArmeeAuswahl.Text = "" Then
     MsgBox "Es muß noch eine Armee ausgewählt werden", 0, "Keine Armee"
 Else
     'Mauszeiger in Sanduhr umwandeln
@@ -158,7 +157,7 @@ Else
     frmNeueArmee.Visible = False
     'Schwertmeister anzeigen
     With frmLaden
-        If CobArmeeAuswahl.Text = "Dunkelelfen" Then
+        If cobArmeeAuswahl.Text = "Dunkelelfen" Then
             .ImgLaden.Picture = LoadPicture(App.Path & "\tullaris.bmp")
         Else
             .ImgLaden.Picture = LoadPicture(App.Path & "\swordmas.bmp")
@@ -180,7 +179,7 @@ Else
     frmStart.picStatuszeile.Print " Charaktermodelle einlesen"
     frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
     frmStart.picStatuszeile.Line (4000, 30)-(4500, 190), Farbe, BF
-    Name = "SELECT * From [Charakter] WHERE [Charakter].Armee='" & CobArmeeAuswahl.Text & "' ORDER BY [Charakter].Truppenname"
+    Name = "SELECT * From [Charakter] WHERE [Charakter].Armee='" & cobArmeeAuswahl.Text & "' ORDER BY [Charakter].Truppenname"
     Set dsCharakter = Datenbank.CreateDynaset(Name)
     'Listenfeld füllen
     dsCharakter.MoveFirst
@@ -198,7 +197,7 @@ Else
     frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
     frmStart.picStatuszeile.Line (4000, 30)-(5000, 190), Farbe, BF
     'SQL-Abfrage erstellen
-    Name = "SELECT * From [Regimenter] WHERE [Regimenter].Armee='" & CobArmeeAuswahl.Text & "' ORDER BY [Regimenter].Truppenname"
+    Name = "SELECT * From [Regimenter] WHERE [Regimenter].Armee='" & cobArmeeAuswahl.Text & "' ORDER BY [Regimenter].Truppenname"
     Set dsRegimenter = Datenbank.CreateDynaset(Name)
     'Listenfeld füllen
     dsRegimenter.MoveFirst
@@ -211,29 +210,29 @@ Else
     frmHauptmenü.labRegimenterpunkte.Caption = Regimenterpunkte
         
     'KRIEGSGERÄT
-    If CobArmeeAuswahl.Text <> "Waldelfen" And CobArmeeAuswahl.Text <> "Echsenmenschen" And CobArmeeAuswahl.Text <> "Bretonen" And CobArmeeAuswahl.Text <> "Tiermenschen" And CobArmeeAuswahl.Text <> "Chaoskrieger" And CobArmeeAuswahl.Text <> "Dämonen" Then
+    If cobArmeeAuswahl.Text <> "Waldelfen" And cobArmeeAuswahl.Text <> "Echsenmenschen" And cobArmeeAuswahl.Text <> "Bretonen" And cobArmeeAuswahl.Text <> "Tiermenschen" And cobArmeeAuswahl.Text <> "Chaoskrieger" And cobArmeeAuswahl.Text <> "Dämonen" Then
         frmStart.picStatuszeile.Cls
-        If CobArmeeAuswahl.Text = "Chaos" Then
+        If cobArmeeAuswahl.Text = "Chaos" Then
             frmStart.picStatuszeile.Print " Dämonen einlesen"
             frmHauptmenü.labtxtKriegsgerät.Caption = "Dämonen:"
             frmHauptmenü.lstKriegsgerätoben.DragIcon = LoadPicture(App.Path & "\daemon.ico")
-            frmHauptmenü.lstkriegsgerätunten.DragIcon = LoadPicture(App.Path & "\daemon.ico")
+            frmHauptmenü.lstKriegsgerätunten.DragIcon = LoadPicture(App.Path & "\daemon.ico")
         Else
             frmStart.picStatuszeile.Print " Kriegsgerät einlesen"
             frmHauptmenü.labtxtKriegsgerät.Caption = "Kriegsgerät:"
             frmHauptmenü.lstKriegsgerätoben.DragIcon = LoadPicture(App.Path & "\kriegsge.ico")
-            frmHauptmenü.lstkriegsgerätunten.DragIcon = LoadPicture(App.Path & "\kriegsge.ico")
+            frmHauptmenü.lstKriegsgerätunten.DragIcon = LoadPicture(App.Path & "\kriegsge.ico")
         End If
         frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
         frmStart.picStatuszeile.Line (4000, 30)-(5500, 190), Farbe, BF
         'SQL-Abfrage erstellen
-        Name = "SELECT * From [Kriegsgerät] WHERE [Kriegsgerät].Armee='" & CobArmeeAuswahl.Text & "' ORDER BY [Kriegsgerät].Truppenname"
+        Name = "SELECT * From [Kriegsgerät] WHERE [Kriegsgerät].Armee='" & cobArmeeAuswahl.Text & "' ORDER BY [Kriegsgerät].Truppenname"
         Set dsKriegsgerät = Datenbank.CreateDynaset(Name)
         'Listenfeld füllen
         dsKriegsgerät.MoveFirst
         Do Until dsKriegsgerät.EOF
             Name = dsKriegsgerät.Fields("Truppenname")
-            frmHauptmenü.lstkriegsgerätunten.AddItem Name
+            frmHauptmenü.lstKriegsgerätunten.AddItem Name
             dsKriegsgerät.MoveNext
         Loop
     End If
@@ -247,7 +246,7 @@ Else
     frmStart.picStatuszeile.Line (4000, 30)-(6000, 190), Farbe, BF
     'Dynaset erstellen
     'SQL-Abfrage erstellen
-    Name = "SELECT * From [Monster und Reittiere] WHERE [Monster und Reittiere].Monster =-1 AND ([Monster und Reittiere].Armee='" & CobArmeeAuswahl.Text & "' OR [Monster und Reittiere].Armee='Alle') ORDER BY [Monster und Reittiere].Truppenname"
+    Name = "SELECT * From [Monster und Reittiere] WHERE [Monster und Reittiere].Monster =-1 AND ([Monster und Reittiere].Armee='" & cobArmeeAuswahl.Text & "' OR [Monster und Reittiere].Armee='Alle') ORDER BY [Monster und Reittiere].Truppenname"
     Set dsMonster = Datenbank.CreateDynaset(Name)
     'Listenfeld füllen
     dsMonster.MoveFirst
@@ -271,7 +270,7 @@ Else
     frmStart.picStatuszeile.Print " Magische Spruchrollen einlesen"
     frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
     frmStart.picStatuszeile.Line (4000, 30)-(6500, 190), Farbe, BF
-    Name = "SELECT * FROM [Magische Spruchrollen] WHERE [Magische Spruchrollen].Armeeliste='" & CobArmeeAuswahl.Text & "' OR [Magische Spruchrollen].Armeeliste='Alle' ORDER BY [Magische Spruchrollen].Spruchrollenname"
+    Name = "SELECT * FROM [Magische Spruchrollen] WHERE [Magische Spruchrollen].Armeeliste='" & cobArmeeAuswahl.Text & "' OR [Magische Spruchrollen].Armeeliste='Alle' ORDER BY [Magische Spruchrollen].Spruchrollenname"
     Set dsSpruchrollen = Datenbank.CreateDynaset(Name)
     frmMagische_Gegenstände.lstMagische_Spruchrollen.AddItem "(keine)"
     Do Until dsSpruchrollen.EOF
@@ -286,7 +285,7 @@ Else
     frmStart.picStatuszeile.Print " Homunkulis einlesen"
     frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
     frmStart.picStatuszeile.Line (4000, 30)-(7000, 190), Farbe, BF
-    Name = "SELECT * FROM [Homunkuli] WHERE [Homunkuli].Armeeliste='" & CobArmeeAuswahl.Text & "' OR [Homunkuli].Armeeliste='Alle' ORDER BY [Homunkuli].Homunkuliname"
+    Name = "SELECT * FROM [Homunkuli] WHERE [Homunkuli].Armeeliste='" & cobArmeeAuswahl.Text & "' OR [Homunkuli].Armeeliste='Alle' ORDER BY [Homunkuli].Homunkuliname"
     Set dsHomunkuli = Datenbank.CreateDynaset(Name)
     frmMagische_Gegenstände.lstHomunkuli.AddItem "(keinen)"
     Do Until dsHomunkuli.EOF
@@ -297,7 +296,7 @@ Else
     Loop
         
     'Liste der Mutationen füllen
-    If CobArmeeAuswahl.Text = "Chaos" Or CobArmeeAuswahl.Text = "Chaoskrieger" Or CobArmeeAuswahl.Text = "Tiermenschen" Or CobArmeeAuswahl.Text = "Dämonen" Then
+    If cobArmeeAuswahl.Text = "Chaos" Or cobArmeeAuswahl.Text = "Chaoskrieger" Or cobArmeeAuswahl.Text = "Tiermenschen" Or cobArmeeAuswahl.Text = "Dämonen" Then
         frmStart.picStatuszeile.Cls
         frmStart.picStatuszeile.Print " Chaos Mutationen einlesen"
         frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
@@ -318,13 +317,13 @@ Else
     frmStart.picStatuszeile.Print " Magische Standarten einlesen"
     frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
     frmStart.picStatuszeile.Line (4000, 30)-(7500, 190), Farbe, BF
-    Name = "SELECT * FROM [Magische Standarten] WHERE [Magische Standarten].Armeeliste='" & CobArmeeAuswahl.Text & "' OR [Magische Standarten].Armeeliste='Alle' ORDER BY [Magische Standarten].Standartenname"
+    Name = "SELECT * FROM [Magische Standarten] WHERE [Magische Standarten].Armeeliste='" & cobArmeeAuswahl.Text & "' OR [Magische Standarten].Armeeliste='Alle' ORDER BY [Magische Standarten].Standartenname"
     Set dsStandarten = Datenbank.CreateDynaset(Name)
-    frmMagische_Gegenstände.lstmagische_standarten.AddItem "(keine)"
+    frmMagische_Gegenstände.lstMagische_Standarten.AddItem "(keine)"
     Do Until dsStandarten.EOF
         Name = dsStandarten.Fields("Standartenname")
         Wandler = dsStandarten.Fields("Punktwert")
-        frmMagische_Gegenstände.lstmagische_standarten.AddItem Name & " (" & Wandler & ")"
+        frmMagische_Gegenstände.lstMagische_Standarten.AddItem Name & " (" & Wandler & ")"
         dsStandarten.MoveNext
     Loop
                 
@@ -333,7 +332,7 @@ Else
     frmStart.picStatuszeile.Print " Magische Waffen einlesen"
     frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
     frmStart.picStatuszeile.Line (4000, 30)-(8000, 190), Farbe, BF
-    Name = "SELECT * FROM [Magische Waffen] WHERE [Magische Waffen].Armeeliste='" & CobArmeeAuswahl.Text & "' OR [Magische Waffen].Armeeliste='Alle' ORDER BY [Magische Waffen].Waffenname"
+    Name = "SELECT * FROM [Magische Waffen] WHERE [Magische Waffen].Armeeliste='" & cobArmeeAuswahl.Text & "' OR [Magische Waffen].Armeeliste='Alle' ORDER BY [Magische Waffen].Waffenname"
     Set dsMagische_Waffen = Datenbank.CreateDynaset(Name)
     frmMagische_Gegenstände.lstMagische_Waffen.AddItem "(keine)"
     Do Until dsMagische_Waffen.EOF
@@ -348,7 +347,7 @@ Else
     frmStart.picStatuszeile.Print " Magische Rüstungen einlesen"
     frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
     frmStart.picStatuszeile.Line (4000, 30)-(8500, 190), Farbe, BF
-    Name = "SELECT * FROM [Magische Rüstungen] WHERE [Magische Rüstungen].Armeeliste='" & CobArmeeAuswahl.Text & "' OR [Magische Rüstungen].Armeeliste='Alle' ORDER BY [Magische Rüstungen].Rüstungsname"
+    Name = "SELECT * FROM [Magische Rüstungen] WHERE [Magische Rüstungen].Armeeliste='" & cobArmeeAuswahl.Text & "' OR [Magische Rüstungen].Armeeliste='Alle' ORDER BY [Magische Rüstungen].Rüstungsname"
     Set dsMagische_Rüstungen = Datenbank.CreateDynaset(Name)
     frmMagische_Gegenstände.lstMagische_Rüstungen.AddItem "(keine)"
     Do Until dsMagische_Rüstungen.EOF
@@ -363,7 +362,7 @@ Else
     frmStart.picStatuszeile.Print " Magische Schilder einlesen"
     frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
     frmStart.picStatuszeile.Line (4000, 30)-(9000, 190), Farbe, BF
-    Name = "SELECT * FROM [Magische Schilder] WHERE [Magische Schilder].Armeeliste='" & CobArmeeAuswahl.Text & "' OR [Magische Schilder].Armeeliste='Alle' ORDER BY [Magische Schilder].Schildname"
+    Name = "SELECT * FROM [Magische Schilder] WHERE [Magische Schilder].Armeeliste='" & cobArmeeAuswahl.Text & "' OR [Magische Schilder].Armeeliste='Alle' ORDER BY [Magische Schilder].Schildname"
     Set dsMagische_Schilder = Datenbank.CreateDynaset(Name)
     frmMagische_Gegenstände.lstMagische_Schilder.AddItem "(keine)"
     Do Until dsMagische_Schilder.EOF
@@ -378,7 +377,7 @@ Else
     frmStart.picStatuszeile.Print " Verschiedene magische Gegenstände einlesen"
     frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
     frmStart.picStatuszeile.Line (4000, 30)-(9500, 190), Farbe, BF
-    Name = "SELECT * FROM [Verschiedene Magische Gegenstände] WHERE [Verschiedene Magische Gegenstände].Armeeliste='" & CobArmeeAuswahl.Text & "' Or [Verschiedene Magische Gegenstände].Armeeliste='Alle' ORDER BY [Verschiedene Magische Gegenstände].Gegenstandsname"
+    Name = "SELECT * FROM [Verschiedene Magische Gegenstände] WHERE [Verschiedene Magische Gegenstände].Armeeliste='" & cobArmeeAuswahl.Text & "' Or [Verschiedene Magische Gegenstände].Armeeliste='Alle' ORDER BY [Verschiedene Magische Gegenstände].Gegenstandsname"
     Set dsVerschiedene_mag_Gegenstände = Datenbank.CreateDynaset(Name)
     frmMagische_Gegenstände.lstVerschiedene_Magische_Gegenstände.AddItem "(keine)"
     Do Until dsVerschiedene_mag_Gegenstände.EOF
@@ -390,7 +389,7 @@ Else
     
     
     'ZWERGENRUNEN
-    If CobArmeeAuswahl.Text = "Zwerge" Then
+    If cobArmeeAuswahl.Text = "Zwerge" Then
         'Anzeigen das Zwergenrunen eingelesen werden
         frmStart.picStatuszeile.Cls
         frmStart.picStatuszeile.Print " Zwergenrunen einlesen"
@@ -454,7 +453,7 @@ Else
     frmStart.picStatuszeile.Print " Reittiere einlesen"
     frmStart.picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
     frmStart.picStatuszeile.Line (4000, 30)-(10000, 190), Farbe, BF
-    Name = "SELECT * From [Monster und Reittiere] WHERE [Monster und Reittiere].Reittier =-1 and ([Monster und Reittiere].Armee='" & CobArmeeAuswahl.Text & "' OR [Monster und Reittiere].Armee='Alle') ORDER BY [Monster und Reittiere].Truppenname"
+    Name = "SELECT * From [Monster und Reittiere] WHERE [Monster und Reittiere].Reittier =-1 and ([Monster und Reittiere].Armee='" & cobArmeeAuswahl.Text & "' OR [Monster und Reittiere].Armee='Alle') ORDER BY [Monster und Reittiere].Truppenname"
     Set dsReittiere = Datenbank.CreateDynaset(Name)
     frmReittiere.cobReittiere.AddItem "(keines)"
     Do Until dsReittiere.EOF
@@ -480,7 +479,7 @@ Else
         .Left = -60
         .Height = frmStart.ScaleHeight + 345
         .Width = frmStart.ScaleWidth + 60
-        .Caption = CobArmeeAuswahl.Text
+        .Caption = cobArmeeAuswahl.Text
         .Visible = True
     End With
     'Magische Gegenstände Fenster ausrichten
@@ -491,7 +490,7 @@ Else
         .Height = frmHauptmenü.linTrennstrich.Y1 + 300
     End With
     'Bei Zwergenarmee Zwergenrunen Fenster ausrichten
-    If CobArmeeAuswahl.Text = "Zwerge" Then
+    If cobArmeeAuswahl.Text = "Zwerge" Then
         With frmZwergenrunen
             .Top = -345
             .Left = 0
@@ -507,20 +506,20 @@ End Sub
 Private Sub Form_Load()
 frmNeueArmee.Height = 2475
 frmNeueArmee.Width = 4170
-CobArmeeAuswahl.AddItem "Bretonen"
-CobArmeeAuswahl.AddItem "Chaos"
-CobArmeeAuswahl.AddItem "Chaoskrieger"
-CobArmeeAuswahl.AddItem "Dunkelelfen"
-CobArmeeAuswahl.AddItem "Dämonen"
-CobArmeeAuswahl.AddItem "Echsenmenschen"
-CobArmeeAuswahl.AddItem "Hochelfen"
-CobArmeeAuswahl.AddItem "Imperium"
-CobArmeeAuswahl.AddItem "Orks & Goblins"
-CobArmeeAuswahl.AddItem "Skaven"
-CobArmeeAuswahl.AddItem "Tiermenschen"
-CobArmeeAuswahl.AddItem "Untote"
-CobArmeeAuswahl.AddItem "Waldelfen"
-CobArmeeAuswahl.AddItem "Zwerge"
+cobArmeeAuswahl.AddItem "Bretonen"
+cobArmeeAuswahl.AddItem "Chaos"
+cobArmeeAuswahl.AddItem "Chaoskrieger"
+cobArmeeAuswahl.AddItem "Dunkelelfen"
+cobArmeeAuswahl.AddItem "Dämonen"
+cobArmeeAuswahl.AddItem "Echsenmenschen"
+cobArmeeAuswahl.AddItem "Hochelfen"
+cobArmeeAuswahl.AddItem "Imperium"
+cobArmeeAuswahl.AddItem "Orks & Goblins"
+cobArmeeAuswahl.AddItem "Skaven"
+cobArmeeAuswahl.AddItem "Tiermenschen"
+cobArmeeAuswahl.AddItem "Untote"
+cobArmeeAuswahl.AddItem "Waldelfen"
+cobArmeeAuswahl.AddItem "Zwerge"
 Maximalpunkte = 3000
 labPunkte.Caption = Maximalpunkte
 End Sub
@@ -543,7 +542,7 @@ End Sub
 Private Sub imghochelfen_Click()
 MsgBox "Die Armeeliste der Hochelfen ist noch nicht vorhanden", 0, "Hochelfen"
 imghochelfen.Visible = False
-CobArmeeAuswahl.Visible = True
+cobArmeeAuswahl.Visible = True
 comOK.Visible = True
 comAbbrechen.Visible = True
 frmNeueArmee.Height = 2475

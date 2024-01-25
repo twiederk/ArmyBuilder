@@ -1,4 +1,4 @@
-VERSION 4.00
+VERSION 5.00
 Begin VB.Form frmInfo 
    BackColor       =   &H00C0C0C0&
    BorderStyle     =   3  'Fixed Dialog
@@ -7,18 +7,15 @@ Begin VB.Form frmInfo
    ClientLeft      =   3090
    ClientTop       =   2550
    ClientWidth     =   5115
-   Height          =   5580
-   Left            =   3030
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MDIChild        =   -1  'True
    MinButton       =   0   'False
+   PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   5175
    ScaleWidth      =   5115
    ShowInTaskbar   =   0   'False
-   Top             =   2205
    Visible         =   0   'False
-   Width           =   5235
    Begin VB.CommandButton comInfoOK 
       Caption         =   "OK"
       Height          =   330
@@ -30,13 +27,13 @@ Begin VB.Form frmInfo
    Begin VB.Label labtxtVersion1_1_Neuigkeiten4 
       Caption         =   "- Berechnung des Profilbonus für Charakter"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   10.5
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   10.5
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   300
       Left            =   672
@@ -47,13 +44,13 @@ Begin VB.Form frmInfo
    Begin VB.Label labtxtVersion1_1_Neuigkeiten3 
       Caption         =   "- Berechnung des  RW für Charakter"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   10.5
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   10.5
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   300
       Left            =   672
@@ -64,13 +61,13 @@ Begin VB.Form frmInfo
    Begin VB.Label labtxtVersion1_1_Neuigkeiten2 
       Caption         =   "- Ergänzungen in der Ausrüstung für Regimenter"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   10.5
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   10.5
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   300
       Left            =   675
@@ -81,13 +78,13 @@ Begin VB.Form frmInfo
    Begin VB.Label labtxtVersion1_1_Neuigkeiten1 
       Caption         =   "- Punktezähler für Verbündete"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   10.5
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   10.5
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   204
       Left            =   672
@@ -107,13 +104,13 @@ Begin VB.Form frmInfo
    Begin VB.Label labtxtVersion1_1_Datum 
       Caption         =   "3. April 97"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   12
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   300
       Left            =   3456
@@ -124,13 +121,13 @@ Begin VB.Form frmInfo
    Begin VB.Label labtxtVersion1_1 
       Caption         =   "Version 1.1"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   12
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   315
       Left            =   570
@@ -185,13 +182,13 @@ Begin VB.Form frmInfo
       Alignment       =   2  'Center
       Caption         =   "Programmiert von Torsten Wiederkehr"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   14.25
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   360
       Left            =   288
@@ -211,13 +208,13 @@ Begin VB.Form frmInfo
       Alignment       =   2  'Center
       Caption         =   "Warhammer Armeelisten"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   18
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   18
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   336
@@ -228,7 +225,9 @@ Begin VB.Form frmInfo
    End
 End
 Attribute VB_Name = "frmInfo"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 Private Sub comInfoOK_Click()

@@ -1,41 +1,38 @@
-VERSION 4.00
+VERSION 5.00
 Begin VB.Form frmZwergenrunen 
    Caption         =   "Zwergenrunen"
-   ClientHeight    =   4128
-   ClientLeft      =   24
-   ClientTop       =   8124
-   ClientWidth     =   12024
-   Height          =   4464
-   Left            =   -24
+   ClientHeight    =   4125
+   ClientLeft      =   30
+   ClientTop       =   8130
+   ClientWidth     =   12015
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   4128
-   ScaleWidth      =   12024
-   Top             =   7836
-   Width           =   12120
+   PaletteMode     =   1  'UseZOrder
+   ScaleHeight     =   4125
+   ScaleWidth      =   12015
    Begin VB.ListBox lstWaffenrunen 
-      Height          =   1584
+      Height          =   1425
       Left            =   96
       TabIndex        =   25
       Top             =   384
       Width           =   2300
    End
    Begin VB.ListBox lstTalismanrunen 
-      Height          =   1584
+      Height          =   1425
       Left            =   9696
       TabIndex        =   24
       Top             =   384
       Width           =   2300
    End
    Begin VB.ListBox lstRüstungsrunen 
-      Height          =   1584
+      Height          =   1425
       Left            =   2496
       TabIndex        =   23
       Top             =   384
       Width           =   2300
    End
    Begin VB.ListBox lstSchutzrunen 
-      Height          =   1584
+      Height          =   1425
       Left            =   4896
       TabIndex        =   22
       Top             =   384
@@ -59,7 +56,7 @@ Begin VB.Form frmZwergenrunen
    End
    Begin VB.ListBox lstMaschinenrunen 
       DragIcon        =   "FRMZWERG.frx":0000
-      Height          =   1584
+      Height          =   1425
       Left            =   7296
       MouseIcon       =   "FRMZWERG.frx":030A
       TabIndex        =   0
@@ -110,13 +107,13 @@ Begin VB.Form frmZwergenrunen
    Begin VB.Label labGesamtkosten 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   700
-         size            =   16.2
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   16.5
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000000FF&
       Height          =   396
@@ -142,13 +139,13 @@ Begin VB.Form frmZwergenrunen
    End
    Begin VB.Label labRune3_Kosten 
       BeginProperty Font 
-         name            =   "MS Sans Serif"
-         charset         =   1
-         weight          =   700
-         size            =   7.8
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000000FF&
       Height          =   300
@@ -183,13 +180,13 @@ Begin VB.Form frmZwergenrunen
    End
    Begin VB.Label labRune2_Kosten 
       BeginProperty Font 
-         name            =   "MS Sans Serif"
-         charset         =   1
-         weight          =   700
-         size            =   7.8
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000000FF&
       Height          =   300
@@ -216,13 +213,13 @@ Begin VB.Form frmZwergenrunen
    End
    Begin VB.Label labRune1_Kosten 
       BeginProperty Font 
-         name            =   "MS Sans Serif"
-         charset         =   1
-         weight          =   700
-         size            =   7.8
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000000FF&
       Height          =   300
@@ -240,13 +237,13 @@ Begin VB.Form frmZwergenrunen
    End
    Begin VB.Label labaktuelle_Rune_Kosten 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   700
-         size            =   16.2
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   16.5
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000000FF&
       Height          =   396
@@ -257,13 +254,13 @@ Begin VB.Form frmZwergenrunen
    End
    Begin VB.Label labaktuelle_Rune_Kurzinfo 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   12
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   300
       Left            =   3648
@@ -273,13 +270,13 @@ Begin VB.Form frmZwergenrunen
    End
    Begin VB.Label labaktuelle_Rune 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   16.2
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   16.5
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   396
       Left            =   96
@@ -315,7 +312,9 @@ Begin VB.Form frmZwergenrunen
    End
 End
 Attribute VB_Name = "frmZwergenrunen"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
@@ -346,7 +345,7 @@ End Sub
 
 Private Sub labRune1_DragDrop(Source As Control, X As Single, Y As Single)
 labRune1 = labaktuelle_Rune
-labRune1_Kosten = labaktuelle_rune_kosten
+labRune1_Kosten = labaktuelle_Rune_Kosten
 labRune1_Kurzinfo = labaktuelle_Rune_Kurzinfo
 labRune1_Kategorie = labaktuelle_Rune_Kategorie
 End Sub
@@ -363,7 +362,7 @@ End Sub
 
 Private Sub labRune2_DragDrop(Source As Control, X As Single, Y As Single)
 labRune2 = labaktuelle_Rune
-labRune2_Kosten = labaktuelle_rune_kosten
+labRune2_Kosten = labaktuelle_Rune_Kosten
 labRune2_Kurzinfo = labaktuelle_Rune_Kurzinfo
 labRune2_Kategorie = labaktuelle_Rune_Kategorie
 End Sub
@@ -379,7 +378,7 @@ End Sub
 
 Private Sub labRune3_DragDrop(Source As Control, X As Single, Y As Single)
 labRune3 = labaktuelle_Rune
-labRune3_Kosten = labaktuelle_rune_kosten
+labRune3_Kosten = labaktuelle_Rune_Kosten
 labRune3_Kurzinfo = labaktuelle_Rune_Kurzinfo
 labRune3_Kategorie = labaktuelle_Rune_Kategorie
 End Sub
@@ -404,7 +403,7 @@ Do Until dsMaschinenrunen.Fields("Runenname") = Name_der_Rune
     dsMaschinenrunen.MoveNext
 Loop
 labaktuelle_Rune = Name_der_Rune
-labaktuelle_rune_kosten = dsMaschinenrunen.Fields("Punktwert")
+labaktuelle_Rune_Kosten = dsMaschinenrunen.Fields("Punktwert")
 If IsNull(dsMaschinenrunen.Fields("Kurzinfo")) Then
     labaktuelle_Rune_Kurzinfo = ""
 Else
@@ -520,7 +519,7 @@ Select Case Slotnummer
     Case 0
         'aktuelle Rune
         frmZwergenrunen.labaktuelle_Rune = ""
-        frmZwergenrunen.labaktuelle_rune_kosten = ""
+        frmZwergenrunen.labaktuelle_Rune_Kosten = ""
         frmZwergenrunen.labaktuelle_Rune_Kurzinfo = ""
         frmZwergenrunen.labaktuelle_Rune_Kategorie = ""
     Case 1
@@ -556,7 +555,7 @@ Do Until dsSchutzrunen.Fields("Runenname") = Name_der_Rune
     dsSchutzrunen.MoveNext
 Loop
 labaktuelle_Rune = Name_der_Rune
-labaktuelle_rune_kosten = dsSchutzrunen.Fields("Punktwert")
+labaktuelle_Rune_Kosten = dsSchutzrunen.Fields("Punktwert")
 If IsNull(dsSchutzrunen.Fields("Kurzinfo")) Then
     labaktuelle_Rune_Kurzinfo = ""
 Else
@@ -573,13 +572,13 @@ If labGesamtkosten = "0" Then
     'In frmHauptmenü Zwergenrunen löschen
     frmHauptmenü.labOption2_Kosten = ""
     frmHauptmenü.labOption2 = ""
-    frmHauptmenü.laboption2_Kategorie = ""
+    frmHauptmenü.labOption2_Kategorie = ""
 Else
     'In frmHauptmenü Standardwerte setzen
     frmHauptmenü.labOption2_Kosten = labGesamtkosten
     frmHauptmenü.labOption2 = ""
     frmHauptmenü.labOption2 = "Zwergenrunen"
-    frmHauptmenü.laboption2_Kategorie = "Maschinenrunen"
+    frmHauptmenü.labOption2_Kategorie = "Maschinenrunen"
 End If
         
 'Slots von oben nach unten füllen

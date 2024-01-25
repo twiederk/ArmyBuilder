@@ -1,4 +1,4 @@
-VERSION 4.00
+VERSION 5.00
 Begin VB.Form frmMagische_Gegenstände 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Magische Gegestände"
@@ -6,18 +6,15 @@ Begin VB.Form frmMagische_Gegenstände
    ClientLeft      =   30
    ClientTop       =   1395
    ClientWidth     =   11895
-   Height          =   5355
-   Left            =   -30
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MDIChild        =   -1  'True
    MinButton       =   0   'False
+   PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   4950
    ScaleWidth      =   11895
    ShowInTaskbar   =   0   'False
-   Top             =   1050
    Visible         =   0   'False
-   Width           =   12015
    Begin VB.CommandButton comRunensystem 
       Caption         =   "Runensystem"
       Height          =   330
@@ -28,7 +25,7 @@ Begin VB.Form frmMagische_Gegenstände
       Width           =   1260
    End
    Begin VB.ListBox lstMagische_Standarten 
-      Height          =   1200
+      Height          =   1035
       Left            =   8928
       Sorted          =   -1  'True
       TabIndex        =   9
@@ -36,7 +33,7 @@ Begin VB.Form frmMagische_Gegenstände
       Width           =   2850
    End
    Begin VB.ListBox lstChaos_Mutationen 
-      Height          =   1200
+      Height          =   1035
       Left            =   5988
       Sorted          =   -1  'True
       TabIndex        =   8
@@ -44,7 +41,7 @@ Begin VB.Form frmMagische_Gegenstände
       Width           =   2850
    End
    Begin VB.ListBox lstHomunkuli 
-      Height          =   1200
+      Height          =   1035
       Left            =   3048
       Sorted          =   -1  'True
       TabIndex        =   7
@@ -52,7 +49,7 @@ Begin VB.Form frmMagische_Gegenstände
       Width           =   2850
    End
    Begin VB.ListBox lstMagische_Spruchrollen 
-      Height          =   1200
+      Height          =   1035
       Left            =   108
       Sorted          =   -1  'True
       TabIndex        =   6
@@ -60,7 +57,7 @@ Begin VB.Form frmMagische_Gegenstände
       Width           =   2850
    End
    Begin VB.ListBox lstVerschiedene_Magische_Gegenstände 
-      Height          =   1395
+      Height          =   1230
       Left            =   8928
       Sorted          =   -1  'True
       TabIndex        =   5
@@ -68,7 +65,7 @@ Begin VB.Form frmMagische_Gegenstände
       Width           =   2850
    End
    Begin VB.ListBox lstMagische_Schilder 
-      Height          =   1395
+      Height          =   1230
       Left            =   5988
       Sorted          =   -1  'True
       TabIndex        =   4
@@ -76,7 +73,7 @@ Begin VB.Form frmMagische_Gegenstände
       Width           =   2850
    End
    Begin VB.ListBox lstMagische_Rüstungen 
-      Height          =   1395
+      Height          =   1230
       Left            =   3048
       Sorted          =   -1  'True
       TabIndex        =   3
@@ -102,7 +99,7 @@ Begin VB.Form frmMagische_Gegenstände
       Width           =   960
    End
    Begin VB.ListBox lstMagische_Waffen 
-      Height          =   1395
+      Height          =   1230
       Left            =   108
       Sorted          =   -1  'True
       TabIndex        =   0
@@ -120,13 +117,13 @@ Begin VB.Form frmMagische_Gegenstände
    Begin VB.Label labKosten 
       Alignment       =   1  'Right Justify
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   700
-         size            =   15.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000000FF&
       Height          =   336
@@ -138,13 +135,13 @@ Begin VB.Form frmMagische_Gegenstände
    Begin VB.Label labKurzinfo 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   12
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   336
       Left            =   108
@@ -154,13 +151,13 @@ Begin VB.Form frmMagische_Gegenstände
    End
    Begin VB.Label labMagischer_Gegenstand 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   15.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   336
       Left            =   108
@@ -234,7 +231,9 @@ Begin VB.Form frmMagische_Gegenstände
    End
 End
 Attribute VB_Name = "frmMagische_Gegenstände"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
@@ -261,38 +260,38 @@ comRunensystem.Visible = False
 'Auswählen welche Option oder Standarte den frmMagische_Gegenstände aufgerufen hat
 Select Case frmMagische_Gegenstände.Tag
     Case "Option1"
-        If labKategorie.Caption <> "" And labKategorie.Caption <> "Spruchrolle" And labKategorie.Caption <> "Mutation" And (labKategorie.Caption = frmHauptmenü.laboption2_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.laboption3_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.laboption4_Kategorie.Caption) Then
+        If labKategorie.Caption <> "" And labKategorie.Caption <> "Spruchrolle" And labKategorie.Caption <> "Mutation" And (labKategorie.Caption = frmHauptmenü.labOption2_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.labOption3_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.labOption4_Kategorie.Caption) Then
             MsgBox "Der Charakter besitzt schon eine/einen " & labKategorie.Caption & " !", 16, "Doppelter Gegenstand"
             Doppelter_Gegenstand = -1
         Else
-            frmHauptmenü.laboption1_Kategorie.Caption = labKategorie.Caption
+            frmHauptmenü.labOption1_Kategorie.Caption = labKategorie.Caption
             frmHauptmenü.labOption1_Kosten.Caption = labKosten.Caption
             frmHauptmenü.labOption1.Caption = labMagischer_Gegenstand.Caption
         End If
     Case "Option2"
-        If labKategorie.Caption <> "" And labKategorie.Caption <> "Spruchrolle" And labKategorie.Caption <> "Mutation" And (labKategorie.Caption = frmHauptmenü.laboption1_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.laboption3_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.laboption4_Kategorie.Caption) Then
+        If labKategorie.Caption <> "" And labKategorie.Caption <> "Spruchrolle" And labKategorie.Caption <> "Mutation" And (labKategorie.Caption = frmHauptmenü.labOption1_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.labOption3_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.labOption4_Kategorie.Caption) Then
             MsgBox "Der Charakter besitzt schon eine/einen " & labKategorie.Caption & " !", 16, "Doppelter Gegenstand"
             Doppelter_Gegenstand = -1
         Else
-            frmHauptmenü.laboption2_Kategorie.Caption = labKategorie.Caption
+            frmHauptmenü.labOption2_Kategorie.Caption = labKategorie.Caption
             frmHauptmenü.labOption2_Kosten.Caption = labKosten.Caption
             frmHauptmenü.labOption2.Caption = labMagischer_Gegenstand.Caption
         End If
     Case "Option3"
-        If labKategorie.Caption <> "" And labKategorie.Caption <> "Spruchrolle" And labKategorie.Caption <> "Mutation" And (labKategorie.Caption = frmHauptmenü.laboption1_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.laboption2_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.laboption4_Kategorie.Caption) Then
+        If labKategorie.Caption <> "" And labKategorie.Caption <> "Spruchrolle" And labKategorie.Caption <> "Mutation" And (labKategorie.Caption = frmHauptmenü.labOption1_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.labOption2_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.labOption4_Kategorie.Caption) Then
             MsgBox "Der Charakter besitzt schon eine/einen " & labKategorie.Caption & " !", 16, "Doppelter Gegenstand"
             Doppelter_Gegenstand = -1
         Else
-            frmHauptmenü.laboption3_Kategorie.Caption = labKategorie.Caption
+            frmHauptmenü.labOption3_Kategorie.Caption = labKategorie.Caption
             frmHauptmenü.labOption3_Kosten.Caption = labKosten.Caption
             frmHauptmenü.labOption3.Caption = labMagischer_Gegenstand.Caption
         End If
     Case "Option4"
-        If labKategorie.Caption <> "" And labKategorie.Caption <> "Spruchrolle" And labKategorie.Caption <> "Mutation" And (labKategorie.Caption = frmHauptmenü.laboption1_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.laboption2_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.laboption3_Kategorie.Caption) Then
+        If labKategorie.Caption <> "" And labKategorie.Caption <> "Spruchrolle" And labKategorie.Caption <> "Mutation" And (labKategorie.Caption = frmHauptmenü.labOption1_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.labOption2_Kategorie.Caption Or labKategorie.Caption = frmHauptmenü.labOption3_Kategorie.Caption) Then
             MsgBox "Der Charakter besitzt schon eine/einen " & labKategorie.Caption & " !", 16, "Doppelter Gegenstand"
             Doppelter_Gegenstand = -1
         Else
-            frmHauptmenü.laboption4_Kategorie.Caption = labKategorie.Caption
+            frmHauptmenü.labOption4_Kategorie.Caption = labKategorie.Caption
             frmHauptmenü.labOption4_Kosten.Caption = labKosten.Caption
             frmHauptmenü.labOption4.Caption = labMagischer_Gegenstand.Caption
         End If
@@ -313,7 +312,7 @@ Else
         Select Case Aktive_zuletzt
             Case "lstmagische_standarten"
                 If labMagischer_Gegenstand <> "" Then
-                    lstmagische_standarten.RemoveItem lstmagische_standarten.ListIndex
+                    lstMagische_Standarten.RemoveItem lstMagische_Standarten.ListIndex
                     If Fokus_zuletzt = "lstRegimenterunten" Or Fokus_zuletzt = "lstCharakterunten" Then
                         Select Case frmMagische_Gegenstände.Tag
                             Case "Standarte"
@@ -430,7 +429,7 @@ Else
                     dsStandarten.FindFirst Wandler
                     If Not dsStandarten.NoMatch Then
                         Wandler = Letzte_Auswahl & " (" & dsStandarten.Fields("Punktwert") & ")"
-                        lstmagische_standarten.AddItem Wandler
+                        lstMagische_Standarten.AddItem Wandler
                     End If
                 End If
             Case "Waffe"
@@ -657,14 +656,14 @@ End Sub
 Private Sub lstmagische_standarten_Click()
 Dim Länge As Integer
 Dim Name_der_Standarte As String
-If lstmagische_standarten.Text = "(keine)" Then
+If lstMagische_Standarten.Text = "(keine)" Then
     labMagischer_Gegenstand.Caption = ""
     labKosten.Caption = ""
     labKurzinfo.Caption = ""
     labKategorie.Caption = ""
 Else
-    Länge = InStr(lstmagische_standarten.Text, "(")
-    Name_der_Standarte = Left(lstmagische_standarten.Text, Länge - 2)
+    Länge = InStr(lstMagische_Standarten.Text, "(")
+    Name_der_Standarte = Left(lstMagische_Standarten.Text, Länge - 2)
     dsStandarten.MoveFirst
     Do Until dsStandarten.Fields("Standartenname") = Name_der_Standarte
         dsStandarten.MoveNext

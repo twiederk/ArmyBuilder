@@ -1,19 +1,16 @@
-VERSION 4.00
+VERSION 5.00
 Begin VB.Form frmHauptmenü 
    Caption         =   "Hauptmenü"
    ClientHeight    =   7875
    ClientLeft      =   165
    ClientTop       =   825
    ClientWidth     =   12000
-   Height          =   8565
-   Left            =   105
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
+   PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   7875
    ScaleWidth      =   12000
-   Top             =   195
    Visible         =   0   'False
-   Width           =   12120
    Begin VB.ListBox lstCharakterunten 
       DragIcon        =   "FRMHAUPT.frx":0000
       Height          =   1815
@@ -192,13 +189,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labAnz 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   10.5
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   10.5
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   228
       Left            =   7440
@@ -210,13 +207,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "Anz."
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   10.5
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   10.5
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   228
       Left            =   7464
@@ -228,13 +225,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   1  'Right Justify
       BorderStyle     =   1  'Fixed Single
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   228
       Left            =   11208
@@ -245,13 +242,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtVerbündete 
       Caption         =   "Verbündete:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   228
       Left            =   10272
@@ -308,13 +305,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtFernwaffe 
       Caption         =   "Fernwaffe:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3780
@@ -383,13 +380,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtStandartenträger 
       Caption         =   "Standartenträger"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   228
       Left            =   8280
@@ -400,13 +397,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtMusiker 
       Caption         =   "Musiker"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   228
       Left            =   8280
@@ -442,13 +439,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label lab2Schaden 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3990
@@ -459,13 +456,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label lab1Schaden 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3990
@@ -476,13 +473,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label lab2Rettungswurf 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   2625
@@ -495,13 +492,13 @@ Begin VB.Form frmHauptmenü
       BackColor       =   &H00C0C0C0&
       BackStyle       =   0  'Transparent
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   2625
@@ -512,13 +509,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label lab2Stärke 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   1260
@@ -529,13 +526,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label lab1Stärke 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   1260
@@ -546,13 +543,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label lab2Reichweite 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   105
@@ -563,13 +560,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label lab1Reichweite 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   96
@@ -581,13 +578,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "Schaden"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3990
@@ -599,13 +596,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "Rettungswurf"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   330
       Left            =   2625
@@ -617,13 +614,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "Stärke"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   1260
@@ -635,13 +632,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "Reichweite"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   108
@@ -659,13 +656,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label labOption3 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   276
       Left            =   8280
@@ -709,13 +706,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "Kosten"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   11025
@@ -725,13 +722,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label labOption5 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   276
       Left            =   8280
@@ -741,13 +738,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label labOption4 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   276
       Left            =   8280
@@ -757,13 +754,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label labOption2 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   276
       Left            =   8280
@@ -773,13 +770,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label labOption1 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   276
       Left            =   8280
@@ -790,13 +787,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtOptionen 
       Caption         =   "Optionen/Magische Gegenstände"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   228
       Left            =   8040
@@ -806,13 +803,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label labRüstung 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   276
       Left            =   948
@@ -823,13 +820,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtRüstung 
       Caption         =   "Rüstung:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   105
@@ -840,13 +837,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labWaffe 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   270
       Left            =   735
@@ -857,13 +854,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtWaffe 
       Caption         =   "Waffe:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   105
@@ -874,13 +871,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labB3 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3255
@@ -891,13 +888,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labRW3 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   7035
@@ -908,13 +905,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labMW3 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   6615
@@ -925,13 +922,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labA3 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   6195
@@ -942,13 +939,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labI3 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5775
@@ -959,13 +956,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labLP3 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5355
@@ -976,13 +973,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labW3 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4935
@@ -993,13 +990,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labS3 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4515
@@ -1010,13 +1007,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labBF3 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4095
@@ -1027,13 +1024,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labKG3 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3675
@@ -1043,13 +1040,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label lab3Truppenname_klein 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   105
@@ -1060,13 +1057,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labRW2 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   7035
@@ -1077,13 +1074,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labMW2 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   6615
@@ -1094,13 +1091,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labA2 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   6195
@@ -1111,13 +1108,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labI2 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5775
@@ -1128,13 +1125,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labLP2 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5355
@@ -1145,13 +1142,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labW2 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4935
@@ -1162,13 +1159,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labS2 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4515
@@ -1179,13 +1176,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labBF2 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4095
@@ -1196,13 +1193,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labKG2 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3675
@@ -1213,13 +1210,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labB2 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3255
@@ -1229,13 +1226,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label lab2Truppenname_klein 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   276
       Left            =   96
@@ -1245,13 +1242,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label labTruppenname_klein 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   228
       Left            =   108
@@ -1278,13 +1275,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label labSonderregeln 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   540
       Left            =   1368
@@ -1295,13 +1292,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtSonderregeln 
       Caption         =   "Sonderregeln:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   105
@@ -1312,13 +1309,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labPunkte 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   700
-         size            =   15.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000000FF&
       Height          =   330
@@ -1330,13 +1327,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labRW 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   10.5
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   10.5
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   7035
@@ -1347,13 +1344,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labMW 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   6615
@@ -1364,13 +1361,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labA 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   6195
@@ -1381,13 +1378,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labI 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5775
@@ -1398,13 +1395,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labLP 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5355
@@ -1415,13 +1412,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labW 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4935
@@ -1432,13 +1429,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labS 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4515
@@ -1449,13 +1446,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labBF 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4095
@@ -1466,13 +1463,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labKG 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3675
@@ -1483,13 +1480,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labB 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3255
@@ -1501,13 +1498,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "Punkte"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   15.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   330
       Left            =   8295
@@ -1519,13 +1516,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "RW"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   10.5
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   10.5
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   7035
@@ -1537,13 +1534,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "MW"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   6615
@@ -1555,13 +1552,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "A"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   6195
@@ -1573,13 +1570,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "I"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5775
@@ -1591,13 +1588,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "LP"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5355
@@ -1609,13 +1606,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "W"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4935
@@ -1627,13 +1624,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "S"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4515
@@ -1645,13 +1642,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "BF"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4095
@@ -1663,13 +1660,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "KG"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3675
@@ -1681,13 +1678,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   2  'Center
       Caption         =   "B"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3255
@@ -1698,13 +1695,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtProfil 
       Caption         =   "Profil:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   12
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   330
       Left            =   105
@@ -1714,13 +1711,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label labTruppentyp 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   14.25
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   330
       Left            =   6195
@@ -1731,13 +1728,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtTruppentyp 
       Caption         =   "Typ:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5775
@@ -1747,13 +1744,13 @@ Begin VB.Form frmHauptmenü
    End
    Begin VB.Label labTruppenname_groß 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   14.25
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00FF0000&
       Height          =   330
@@ -1765,13 +1762,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtTruppenname 
       Caption         =   "Name:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   105
@@ -1791,13 +1788,13 @@ Begin VB.Form frmHauptmenü
       Alignment       =   1  'Right Justify
       BackStyle       =   0  'Transparent
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   228
       Left            =   9600
@@ -1808,13 +1805,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labtxtMonster 
       Caption         =   "Monster:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   8925
@@ -1825,13 +1822,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labRestpunkte 
       Alignment       =   1  'Right Justify
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   700
-         size            =   15.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   330
       Left            =   9870
@@ -1842,13 +1839,13 @@ Begin VB.Form frmHauptmenü
    Begin VB.Label labRestpunktzahl 
       Caption         =   "Restpunktzahl"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   15.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   330
       Left            =   9870
@@ -1893,7 +1890,9 @@ Begin VB.Form frmHauptmenü
    End
 End
 Attribute VB_Name = "frmHauptmenü"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 Private Sub ckbMusiker_Click()
@@ -2109,7 +2108,7 @@ Else
         End If
         .labPunkte.Caption = Wandler
         If .labMagische_Standarte.Caption <> "" Then
-            frmMagische_Gegenstände.lstmagische_standarten.AddItem .labMagische_Standarte.Caption
+            frmMagische_Gegenstände.lstMagische_Standarten.AddItem .labMagische_Standarte.Caption
             Zwischenspeicher.Standarte = 0
         End If
         .labMagische_Standarte.Caption = ""
@@ -2235,11 +2234,11 @@ End Sub
 Private Sub lab2truppenname_klein_Change()
 If Optionen_Initalisieren Then
 Else
-    If -lab2truppenname_klein.BorderStyle Then
+    If -lab2Truppenname_klein.BorderStyle Then
         Charakterkosten_Berechnung
         Rüstungsrettungswurf_einstellen
         If Fokus_zuletzt = "lstCharakteroben" Then
-            Charakterfeld(lstcharakteroben.ListIndex).Reittier = lab2truppenname_klein.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).Reittier = lab2Truppenname_klein.Caption
         End If
     End If
 End If
@@ -2247,12 +2246,12 @@ End Sub
 
 Private Sub lab2truppenname_klein_Click()
 Dim Zähler As Integer
-If -lab2truppenname_klein.BorderStyle Then
+If -lab2Truppenname_klein.BorderStyle Then
     If Fokus_zuletzt = "lstCharakteroben" Then
         Charakterbearbeitung = -1
     End If
-    If lab2truppenname_klein.Caption <> "" Then
-        Wandler = Left(lab2truppenname_klein.Caption, InStr(lab2truppenname_klein.Caption, "(") - 2)
+    If lab2Truppenname_klein.Caption <> "" Then
+        Wandler = Left(lab2Truppenname_klein.Caption, InStr(lab2Truppenname_klein.Caption, "(") - 2)
         Zähler = 0
         Do Until frmReittiere.cobReittiere.List(Zähler) = Wandler
             Zähler = Zähler + 1
@@ -2368,17 +2367,17 @@ End Sub
 Private Sub labfernwaffe_Change()
 If Optionen_Initalisieren Then
 Else
-    If -labfernwaffe.BorderStyle Then
+    If -labFernwaffe.BorderStyle Then
         Charakterkosten_Berechnung
         If Fokus_zuletzt = "lstCharakteroben" Then
-            Charakterfeld(lstcharakteroben.ListIndex).Fernwaffe = labfernwaffe.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).Fernwaffe = labFernwaffe.Caption
         End If
     End If
 End If
 End Sub
 
 Private Sub labfernwaffe_Click()
-If -labfernwaffe.BorderStyle Then
+If -labFernwaffe.BorderStyle Then
     If Fokus_zuletzt = "lstCharakteroben" Then
         Charakterbearbeitung = -1
     End If
@@ -2513,7 +2512,7 @@ If -labMagische_Standarte.BorderStyle Then
             .lstMagische_Spruchrollen.Enabled = False
             .lstHomunkuli.Enabled = False
             .lstChaos_Mutationen.Enabled = False
-            .lstmagische_standarten.Enabled = True
+            .lstMagische_Standarten.Enabled = True
             .lstMagische_Waffen.Enabled = False
             .lstMagische_Rüstungen.Enabled = False
             .lstMagische_Schilder.Enabled = False
@@ -2639,9 +2638,9 @@ Else
     If -labOption1.BorderStyle Then
         Charakterkosten_Berechnung
         If Fokus_zuletzt = "lstCharakteroben" Then
-            Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand1 = labOption1.Caption
-            Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand1_Kosten = labOption1_Kosten.Caption
-            Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand1_Kategorie = laboption1_Kategorie.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand1 = labOption1.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand1_Kosten = labOption1_Kosten.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand1_Kategorie = labOption1_Kategorie.Caption
        End If
     End If
 End If
@@ -2659,7 +2658,7 @@ If -labOption1.BorderStyle Then
             Else
                 .lstChaos_Mutationen.Enabled = False
             End If
-            .lstmagische_standarten.Enabled = False
+            .lstMagische_Standarten.Enabled = False
             .lstMagische_Waffen.Enabled = True
             .lstMagische_Schilder.Enabled = False
             .lstMagische_Rüstungen.Enabled = False
@@ -2673,9 +2672,9 @@ If -labOption1.BorderStyle Then
                 .lstChaos_Mutationen.Enabled = False
             End If
             If dsCharakter.Fields("Armeestandarte") Then
-                .lstmagische_standarten.Enabled = True
+                .lstMagische_Standarten.Enabled = True
             Else
-                .lstmagische_standarten.Enabled = False
+                .lstMagische_Standarten.Enabled = False
             End If
             .lstMagische_Waffen.Enabled = True
             .lstMagische_Schilder.Enabled = True
@@ -2690,7 +2689,7 @@ If -labOption1.BorderStyle Then
         Letzte_Auswahl = labOption1.Caption
         If labOption1.Caption <> "" Then
             'Kategorie des Magischen Gegenstandes feststellen
-            Select Case laboption1_Kategorie.Caption
+            Select Case labOption1_Kategorie.Caption
                 Case "Spruchrolle"
                     'SPRUCHROLLEN
                     SQL_Abfrage = "[Spruchrollenname] = '" & labOption1.Caption & "'"
@@ -2825,9 +2824,9 @@ Else
         Else
             Charakterkosten_Berechnung
             If Fokus_zuletzt = "lstCharakteroben" Then
-                Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand2 = labOption2.Caption
-                Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand2_Kosten = labOption2_Kosten.Caption
-                Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand2_Kategorie = laboption2_Kategorie.Caption
+                Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand2 = labOption2.Caption
+                Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand2_Kosten = labOption2_Kosten.Caption
+                Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand2_Kategorie = labOption2_Kategorie.Caption
             End If
         End If
     End If
@@ -2901,7 +2900,7 @@ If -labOption2.BorderStyle Then
                 Else
                     .lstChaos_Mutationen.Enabled = False
                 End If
-                .lstmagische_standarten.Enabled = False
+                .lstMagische_Standarten.Enabled = False
                 .lstMagische_Waffen.Enabled = True
                 .lstMagische_Schilder.Enabled = False
                 .lstMagische_Rüstungen.Enabled = False
@@ -2915,9 +2914,9 @@ If -labOption2.BorderStyle Then
                     .lstChaos_Mutationen.Enabled = False
                 End If
                 If dsCharakter.Fields("Armeestandarte") Then
-                    .lstmagische_standarten.Enabled = True
+                    .lstMagische_Standarten.Enabled = True
                 Else
-                 .lstmagische_standarten.Enabled = False
+                 .lstMagische_Standarten.Enabled = False
                 End If
                 .lstMagische_Waffen.Enabled = True
                 .lstMagische_Schilder.Enabled = True
@@ -2932,7 +2931,7 @@ If -labOption2.BorderStyle Then
             Letzte_Auswahl = labOption2.Caption
             If labOption2.Caption <> "" Then
                 'Kategorie des Magischen Gegenstandes feststellen
-                Select Case laboption2_Kategorie.Caption
+                Select Case labOption2_Kategorie.Caption
                     Case "Spruchrolle"
                         'SPRUCHROLLEN
                         SQL_Abfrage = "[Spruchrollenname] = '" & labOption2.Caption & "'"
@@ -3088,9 +3087,9 @@ Else
     If -labOption3.BorderStyle Then
         Charakterkosten_Berechnung
         If Fokus_zuletzt = "lstCharakteroben" Then
-            Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand3 = labOption3.Caption
-            Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand3_Kosten = labOption3_Kosten.Caption
-            Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand3_Kategorie = laboption3_Kategorie.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand3 = labOption3.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand3_Kosten = labOption3_Kosten.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand3_Kategorie = labOption3_Kategorie.Caption
         End If
     End If
 End If
@@ -3107,7 +3106,7 @@ If -labOption3.BorderStyle Then
             Else
                 .lstChaos_Mutationen.Enabled = False
             End If
-            .lstmagische_standarten.Enabled = False
+            .lstMagische_Standarten.Enabled = False
             .lstMagische_Waffen.Enabled = True
             .lstMagische_Schilder.Enabled = False
             .lstMagische_Rüstungen.Enabled = False
@@ -3121,9 +3120,9 @@ If -labOption3.BorderStyle Then
                 .lstChaos_Mutationen.Enabled = False
             End If
             If dsCharakter.Fields("Armeestandarte") Then
-                .lstmagische_standarten.Enabled = True
+                .lstMagische_Standarten.Enabled = True
             Else
-                .lstmagische_standarten.Enabled = False
+                .lstMagische_Standarten.Enabled = False
             End If
             .lstMagische_Waffen.Enabled = True
             .lstMagische_Schilder.Enabled = True
@@ -3138,7 +3137,7 @@ If -labOption3.BorderStyle Then
         Letzte_Auswahl = labOption3.Caption
         If labOption3.Caption <> "" Then
             'Kategorie des Magischen Gegenstandes feststellen
-            Select Case laboption3_Kategorie.Caption
+            Select Case labOption3_Kategorie.Caption
                 Case "Spruchrolle"
                     'SPRUCHROLLEN
                     SQL_Abfrage = "[Spruchrollenname] = '" & labOption3.Caption & "'"
@@ -3255,9 +3254,9 @@ Else
     If -labOption4.BorderStyle Then
         Charakterkosten_Berechnung
         If Fokus_zuletzt = "lstCharakteroben" Then
-            Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand4 = labOption4.Caption
-            Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand4_Kosten = labOption4_Kosten.Caption
-            Charakterfeld(lstcharakteroben.ListIndex).mag_Gegenstand4_Kategorie = laboption4_Kategorie.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand4 = labOption4.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand4_Kosten = labOption4_Kosten.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).mag_Gegenstand4_Kategorie = labOption4_Kategorie.Caption
         End If
     End If
 End If
@@ -3274,7 +3273,7 @@ If -labOption4.BorderStyle Then
             Else
                 .lstChaos_Mutationen.Enabled = False
             End If
-            .lstmagische_standarten.Enabled = False
+            .lstMagische_Standarten.Enabled = False
             .lstMagische_Waffen.Enabled = True
             .lstMagische_Schilder.Enabled = False
             .lstMagische_Rüstungen.Enabled = False
@@ -3288,9 +3287,9 @@ If -labOption4.BorderStyle Then
                 .lstChaos_Mutationen.Enabled = False
             End If
             If dsCharakter.Fields("Armeestandarte") Then
-                .lstmagische_standarten.Enabled = True
+                .lstMagische_Standarten.Enabled = True
             Else
-                .lstmagische_standarten.Enabled = False
+                .lstMagische_Standarten.Enabled = False
             End If
             .lstMagische_Waffen.Enabled = True
             .lstMagische_Schilder.Enabled = True
@@ -3305,7 +3304,7 @@ If -labOption4.BorderStyle Then
         Letzte_Auswahl = labOption4.Caption
         If labOption4.Caption <> "" Then
             'Kategorie des Magischen Gegenstandes feststellen
-            Select Case laboption4_Kategorie.Caption
+            Select Case labOption4_Kategorie.Caption
                 Case "Spruchrolle"
                     'SPRUCHROLLEN
                     SQL_Abfrage = "[Spruchrollenname] = '" & labOption4.Caption & "'"
@@ -3494,7 +3493,7 @@ Else
         End If
         Charakterkosten_Berechnung
         If Fokus_zuletzt = "lstCharakteroben" Then
-            Charakterfeld(lstcharakteroben.ListIndex).Rüstung = labRüstung.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).Rüstung = labRüstung.Caption
         End If
     End If
 End If
@@ -3552,7 +3551,7 @@ Else
         End If
         Charakterkosten_Berechnung
         If Fokus_zuletzt = "lstCharakteroben" Then
-            Charakterfeld(lstcharakteroben.ListIndex).Waffe = labWaffe.Caption
+            Charakterfeld(lstCharakteroben.ListIndex).Waffe = labWaffe.Caption
         End If
     End If
 End If
@@ -3583,7 +3582,7 @@ If (TypeOf Source Is ListBox) And (Source.Name = "lstCharakterunten") Then
                 'Indexnummer des Charakters merken
                 Alter_Index = lstCharakterunten.ListIndex
                 'Charakter als Listeneintrag ergänzen
-                lstcharakteroben.AddItem lstCharakterunten.List(lstCharakterunten.ListIndex)
+                lstCharakteroben.AddItem lstCharakterunten.List(lstCharakterunten.ListIndex)
                 'Einzigartige Charakter aus Auswahlliste entfernen
                 lstCharakterunten.RemoveItem lstCharakterunten.ListIndex
                 'Charakter in Charakterliste hinzufügen
@@ -3611,7 +3610,7 @@ If (TypeOf Source Is ListBox) And (Source.Name = "lstCharakterunten") Then
                     'Indexnummer des Charakters merken
                     Alter_Index = lstCharakterunten.ListIndex
                     'Charakter als Listeneintrag ergänzen
-                    lstcharakteroben.AddItem lstCharakterunten.List(lstCharakterunten.ListIndex)
+                    lstCharakteroben.AddItem lstCharakterunten.List(lstCharakterunten.ListIndex)
                     'Einzigartige Charakter aus Auswahlliste entfernen
                     lstCharakterunten.RemoveItem lstCharakterunten.ListIndex
                     'Charakter in Charakterliste hinzufügen
@@ -3634,7 +3633,7 @@ If (TypeOf Source Is ListBox) And (Source.Name = "lstCharakterunten") Then
                 'Indexnummer des Charakters merken
                 Alter_Index = lstCharakterunten.ListIndex
                 'Charakter als Listeneintrag ergänzen
-                lstcharakteroben.AddItem lstCharakterunten.List(lstCharakterunten.ListIndex)
+                lstCharakteroben.AddItem lstCharakterunten.List(lstCharakterunten.ListIndex)
                 'Einzigartige Charakter aus Auswahlliste entfernen
                 If dsCharakter.Fields("Einzigartig") Then
                     lstCharakterunten.RemoveItem lstCharakterunten.ListIndex
@@ -3669,9 +3668,9 @@ If Button = 1 Then
     'Fokus auf lstCharakteroben setzen
     Fokus_zuletzt = "lstCharakteroben"
     'Info anzeigen
-    Charakter_anzeigen dsCharakter, lstcharakteroben.Text, lstcharakteroben.ListIndex
+    Charakter_anzeigen dsCharakter, lstCharakteroben.Text, lstCharakteroben.ListIndex
     'Drag & Drop
-    lstcharakteroben.Drag
+    lstCharakteroben.Drag
 End If
 End Sub
 
@@ -3683,7 +3682,7 @@ End Sub
 Private Sub lstCharakterunten_DragDrop(Source As Control, X As Single, Y As Single)
 Dim Alter_Index As Integer
 If (TypeOf Source Is ListBox) And (Source.Name = "lstCharakteroben") Then
-    If lstcharakteroben.ListIndex <> -1 Then
+    If lstCharakteroben.ListIndex <> -1 Then
         'Punktekosten von Charakterpunkte abziehen
         Charakterpunkte = Charakterpunkte - labPunkte.Caption
         labCharakterpunkte.Caption = Charakterpunkte
@@ -3693,7 +3692,7 @@ If (TypeOf Source Is ListBox) And (Source.Name = "lstCharakteroben") Then
         'Magische Gegenstände zurückgeben
         'Magischer Gegenstand Nr.1
         If -labOption1.BorderStyle And labOption1.Caption <> "" Then
-            Select Case laboption1_Kategorie.Caption
+            Select Case labOption1_Kategorie.Caption
                 Case "Spruchrolle"
                 Case "Homunkuli"
                 Case "Mutation"
@@ -3715,7 +3714,7 @@ If (TypeOf Source Is ListBox) And (Source.Name = "lstCharakteroben") Then
         End If
         'Magischer Gegenstand Nr.2
         If -labOption2.BorderStyle And labOption2.Caption <> "" Then
-            Select Case laboption2_Kategorie.Caption
+            Select Case labOption2_Kategorie.Caption
                 Case "Spruchrolle"
                 Case "Homunkuli"
                 Case "Mutation"
@@ -3737,7 +3736,7 @@ If (TypeOf Source Is ListBox) And (Source.Name = "lstCharakteroben") Then
         End If
         'Magischer Gegenstand Nr.3
         If -labOption3.BorderStyle And labOption3.Caption <> "" Then
-            Select Case laboption3_Kategorie.Caption
+            Select Case labOption3_Kategorie.Caption
                 Case "Spruchrolle"
                 Case "Homunkuli"
                 Case "Mutation"
@@ -3759,7 +3758,7 @@ If (TypeOf Source Is ListBox) And (Source.Name = "lstCharakteroben") Then
         End If
         'Magischer Gegenstand Nr.4
         If -labOption4.BorderStyle And labOption4.Caption <> "" Then
-            Select Case laboption4_Kategorie.Caption
+            Select Case labOption4_Kategorie.Caption
                 Case "Spruchrolle"
                 Case "Homunkuli"
                 Case "Mutation"
@@ -3780,10 +3779,10 @@ If (TypeOf Source Is ListBox) And (Source.Name = "lstCharakteroben") Then
             End Select
         End If
         'Charakter aus Charakterliste streichen
-        Charakterliste_herausnehmen lstcharakteroben.ListIndex
+        Charakterliste_herausnehmen lstCharakteroben.ListIndex
         'Überprüfen ob einzigartiger Charakter wieder in Auswahlliste hinzugefügt werden muß
         If dsCharakter.Fields("Einzigartig") Or dsCharakter.Fields("General") Or dsCharakter.Fields("Armeestandarte") Then
-            lstCharakterunten.AddItem lstcharakteroben.Text
+            lstCharakterunten.AddItem lstCharakteroben.Text
             If dsCharakter.Fields("General") Then
                 General = 0
             End If
@@ -3792,20 +3791,20 @@ If (TypeOf Source Is ListBox) And (Source.Name = "lstCharakteroben") Then
             End If
         End If
         'Indexnummer des zu entfernen Charakters merken
-        Alter_Index = lstcharakteroben.ListIndex
+        Alter_Index = lstCharakteroben.ListIndex
         'Charakter aus Listenfeld streichen
-        lstcharakteroben.RemoveItem lstcharakteroben.ListIndex
+        lstCharakteroben.RemoveItem lstCharakteroben.ListIndex
         'Nachfolgenden Charakter oder Charakter von unten anzeigen
         If Alter_Index > Charakterzähler - 1 Then
             If Alter_Index - 1 = -1 Then
                 Alles_leeren
             Else
-                lstcharakteroben.ListIndex = Alter_Index - 1
-                Charakter_anzeigen dsCharakter, lstcharakteroben.Text, lstcharakteroben.ListIndex
+                lstCharakteroben.ListIndex = Alter_Index - 1
+                Charakter_anzeigen dsCharakter, lstCharakteroben.Text, lstCharakteroben.ListIndex
             End If
         Else
-            lstcharakteroben.ListIndex = Alter_Index
-            Charakter_anzeigen dsCharakter, lstcharakteroben.Text, lstcharakteroben.ListIndex
+            lstCharakteroben.ListIndex = Alter_Index
+            Charakter_anzeigen dsCharakter, lstCharakteroben.Text, lstCharakteroben.ListIndex
         End If
     Else
         MsgBox "Es muß ein Charakter ausgewählt werden", 0, "Kein Charakter ausgewählt"
@@ -3831,11 +3830,11 @@ End Sub
 
 Private Sub lstKriegsgerätoben_DragDrop(Source As Control, X As Single, Y As Single)
 If (TypeOf Source Is ListBox) And (Source.Name = "lstKriegsgerätunten") Then
-    If lstkriegsgerätunten.ListIndex <> -1 Then
+    If lstKriegsgerätunten.ListIndex <> -1 Then
         'Indexnummer des Kriegsgeräts merken
-        Alter_Index = lstkriegsgerätunten.ListIndex
+        Alter_Index = lstKriegsgerätunten.ListIndex
         'Kriegsgerät als Listeneintrag ergänzen
-        lstKriegsgerätoben.AddItem lstkriegsgerätunten.List(lstkriegsgerätunten.ListIndex)
+        lstKriegsgerätoben.AddItem lstKriegsgerätunten.List(lstKriegsgerätunten.ListIndex)
         Kriegsgerätliste_hinzufügen
         'Punktekosten zu Kriegsgerätpunkte hinzuzählen
         Kriegsgerätpunkte = Kriegsgerätpunkte + labPunkte.Caption
@@ -3844,8 +3843,8 @@ If (TypeOf Source Is ListBox) And (Source.Name = "lstKriegsgerätunten") Then
         Restpunkte = Restpunkte - labPunkte.Caption
         labRestpunkte.Caption = Restpunkte
         'Kriegsgerätanzeige neu anzeigen
-        lstkriegsgerätunten.ListIndex = Alter_Index
-        Kriegsgerätinfo_anzeigen dsKriegsgerät, lstkriegsgerätunten.Text, -1
+        lstKriegsgerätunten.ListIndex = Alter_Index
+        Kriegsgerätinfo_anzeigen dsKriegsgerät, lstKriegsgerätunten.Text, -1
     Else
         MsgBox "Es muß ein Kriegsgerät ausgewählt werden", 0, "Kein Kriegsgerät ausgewählt"
     End If
@@ -3869,7 +3868,7 @@ End Sub
 
 
 Private Sub lstkriegsgerätunten_DblClick()
-Kriegsgerätinfo_anzeigen dsKriegsgerät, lstkriegsgerätunten.Text, -1
+Kriegsgerätinfo_anzeigen dsKriegsgerät, lstKriegsgerätunten.Text, -1
 End Sub
 
 Private Sub lstkriegsgerätunten_DragDrop(Source As Control, X As Single, Y As Single)
@@ -3914,16 +3913,16 @@ Private Sub lstkriegsgerätunten_MouseDown(Button As Integer, Shift As Integer, X
 'Überprüfen ob die linke Maustaste gedrückt wurde
 If Button = 1 Then
     'Überprüfen ob Info angezeigt werden muß
-    If labTruppenname_groß.Caption <> lstkriegsgerätunten.Text Or Fokus_zuletzt <> "lstKriegsgerätunten" Then
+    If labTruppenname_groß.Caption <> lstKriegsgerätunten.Text Or Fokus_zuletzt <> "lstKriegsgerätunten" Then
         'Fokus auf lstKriegsgerätunten setzen
         Fokus_zuletzt = "lstKriegsgerätunten"
         'Info anzeigen
-        Kriegsgerätinfo_anzeigen dsKriegsgerät, lstkriegsgerätunten.Text, -1
+        Kriegsgerätinfo_anzeigen dsKriegsgerät, lstKriegsgerätunten.Text, -1
     End If
     'Fokus auf lstKriegsgerätunten setzen
     Fokus_zuletzt = "lstKriegsgerätunten"
     'Drag & Drop
-    lstkriegsgerätunten.Drag
+    lstKriegsgerätunten.Drag
 End If
 End Sub
 Private Sub lstMonsteroben_DragDrop(Source As Control, X As Single, Y As Single)
@@ -4125,7 +4124,7 @@ If (TypeOf Source Is ListBox) And (Source.Name = "lstRegimenteroben") Then
             If dsStandarten.NoMatch Then
                 MsgBox "Standarte nicht gefunden", 0, "Rückgabefehler"
             Else
-                frmMagische_Gegenstände.lstmagische_standarten.AddItem Name_der_Standarte & " (" & dsStandarten.Fields("Punktwert") & ")"
+                frmMagische_Gegenstände.lstMagische_Standarten.AddItem Name_der_Standarte & " (" & dsStandarten.Fields("Punktwert") & ")"
             End If
         End If
         'Regiment aus Regimenterliste streichen
@@ -4256,12 +4255,12 @@ With frmLaden
 End With
 
 'Listenfelder im Hauptmenü leeren
-lstcharakteroben.Clear
+lstCharakteroben.Clear
 lstCharakterunten.Clear
 lstRegimenteroben.Clear
 lstRegimenterunten.Clear
 lstKriegsgerätoben.Clear
-lstkriegsgerätunten.Clear
+lstKriegsgerätunten.Clear
 lstMonsteroben.Clear
 lstMonsterunten.Clear
 
@@ -4270,7 +4269,7 @@ With frmMagische_Gegenstände
     .lstMagische_Spruchrollen.Clear
     .lstHomunkuli.Clear
     .lstChaos_Mutationen.Clear
-    .lstmagische_standarten.Clear
+    .lstMagische_Standarten.Clear
     .lstMagische_Waffen.Clear
     .lstMagische_Rüstungen.Clear
     .lstMagische_Schilder.Clear
@@ -4431,8 +4430,8 @@ With frmDrucken
     Fokus_zuletzt = ""
 
     'Auswahlfeld füllen
-    For i = 0 To lstcharakteroben.ListCount - 1
-        .lstAuswahl.AddItem "[Charakter] " & lstcharakteroben.List(i) & " (" & (i + 1) & ")"
+    For i = 0 To lstCharakteroben.ListCount - 1
+        .lstAuswahl.AddItem "[Charakter] " & lstCharakteroben.List(i) & " (" & (i + 1) & ")"
     Next
     For i = 0 To lstRegimenteroben.ListCount - 1
         .lstAuswahl.AddItem "[Regiment] " & lstRegimenteroben.List(i) & " (" & (i + 1) & ")"
@@ -4566,9 +4565,9 @@ If Position <> 0 Then
     Kosten = Kosten + Wandler
 End If
 'Fernwaffekosten hinzuzählen
-Position = InStr(labfernwaffe.Caption, "(")
+Position = InStr(labFernwaffe.Caption, "(")
 If Position <> 0 Then
-    Kosten = Kosten + Mid(labfernwaffe.Caption, Position + 1, 1)
+    Kosten = Kosten + Mid(labFernwaffe.Caption, Position + 1, 1)
 End If
 'Kosten für den Magischen Gegenstand Nr.1 hinzuzählen
 If -labOption1.BorderStyle And labOption1.Caption <> "" Then
@@ -4587,10 +4586,10 @@ If -labOption4.BorderStyle And labOption4.Caption <> "" Then
     Kosten = Kosten + labOption4_Kosten.Caption
 End If
 'Kosten für Reittier hinzuzählen
-If -lab2truppenname_klein.BorderStyle And lab2truppenname_klein.Caption <> "" Then
-    Position = InStr(lab2truppenname_klein.Caption, "(") + 1
-    Länge = InStr(lab2truppenname_klein.Caption, ")")
-    Wandler = Mid(lab2truppenname_klein.Caption, Position, Länge - Position)
+If -lab2Truppenname_klein.BorderStyle And lab2Truppenname_klein.Caption <> "" Then
+    Position = InStr(lab2Truppenname_klein.Caption, "(") + 1
+    Länge = InStr(lab2Truppenname_klein.Caption, ")")
+    Wandler = Mid(lab2Truppenname_klein.Caption, Position, Länge - Position)
     Kosten = Kosten + Wandler
 End If
 'Gesamtkosten ausgeben
@@ -4599,8 +4598,8 @@ Charakterbearbeitung = 0
 End Sub
 
 Public Sub Charakterliste_hinzufügen()
-If -lab2truppenname_klein.BorderStyle And lab2truppenname_klein.Caption <> "" Then
-    Charakterfeld(Charakterzähler).Reittier = lab2truppenname_klein.Caption
+If -lab2Truppenname_klein.BorderStyle And lab2Truppenname_klein.Caption <> "" Then
+    Charakterfeld(Charakterzähler).Reittier = lab2Truppenname_klein.Caption
 End If
 If IsNull(dsCharakter.Fields("Waffe")) Then
     Charakterfeld(Charakterzähler).Waffe = labWaffe.Caption
@@ -4609,30 +4608,30 @@ If IsNull(dsCharakter.Fields("Rüstung")) Then
     Charakterfeld(Charakterzähler).Rüstung = labRüstung.Caption
 End If
 If IsNull(dsCharakter.Fields("Fernwaffe")) Then
-    Charakterfeld(Charakterzähler).Fernwaffe = labfernwaffe.Caption
+    Charakterfeld(Charakterzähler).Fernwaffe = labFernwaffe.Caption
 End If
 If IsNull(dsCharakter.Fields("mag_Gegenstand1")) Then
     Charakterfeld(Charakterzähler).mag_Gegenstand1 = labOption1.Caption
     Charakterfeld(Charakterzähler).mag_Gegenstand1_Kosten = labOption1_Kosten.Caption
-    Charakterfeld(Charakterzähler).mag_Gegenstand1_Kategorie = laboption1_Kategorie.Caption
+    Charakterfeld(Charakterzähler).mag_Gegenstand1_Kategorie = labOption1_Kategorie.Caption
     Zwischenspeicher.Option1 = 0
 End If
 If IsNull(dsCharakter.Fields("mag_Gegenstand2")) Then
     Charakterfeld(Charakterzähler).mag_Gegenstand2 = labOption2.Caption
     Charakterfeld(Charakterzähler).mag_Gegenstand2_Kosten = labOption2_Kosten.Caption
-    Charakterfeld(Charakterzähler).mag_Gegenstand2_Kategorie = laboption2_Kategorie.Caption
+    Charakterfeld(Charakterzähler).mag_Gegenstand2_Kategorie = labOption2_Kategorie.Caption
     Zwischenspeicher.Option2 = 0
 End If
 If IsNull(dsCharakter.Fields("mag_Gegenstand3")) Then
     Charakterfeld(Charakterzähler).mag_Gegenstand3 = labOption3.Caption
     Charakterfeld(Charakterzähler).mag_Gegenstand3_Kosten = labOption3_Kosten.Caption
-    Charakterfeld(Charakterzähler).mag_Gegenstand3_Kategorie = laboption3_Kategorie.Caption
+    Charakterfeld(Charakterzähler).mag_Gegenstand3_Kategorie = labOption3_Kategorie.Caption
     Zwischenspeicher.Option3 = 0
 End If
 If IsNull(dsCharakter.Fields("mag_Gegenstand4")) Then
     Charakterfeld(Charakterzähler).mag_Gegenstand4 = labOption4.Caption
     Charakterfeld(Charakterzähler).mag_Gegenstand4_Kosten = labOption4_Kosten.Caption
-    Charakterfeld(Charakterzähler).mag_Gegenstand4_Kategorie = laboption4_Kategorie.Caption
+    Charakterfeld(Charakterzähler).mag_Gegenstand4_Kategorie = labOption4_Kategorie.Caption
     Zwischenspeicher.Option4 = 0
 End If
 
@@ -4659,10 +4658,10 @@ With frmStart
     .Common_Dialog.DialogTitle = "Speichern unter..."
     .Common_Dialog.Filter = "Armee (*.arm)|*.arm|Alle Dateien (*.*)|*.*"
     .Common_Dialog.DefaultExt = "ARM"
-    .Common_Dialog.filename = ""
+    .Common_Dialog.FileName = ""
     If Speichern_unter Or Dateiname = "" Then
         .Common_Dialog.Action = 2
-        Dateiname = .Common_Dialog.filename
+        Dateiname = .Common_Dialog.FileName
     End If
 End With
 If Dateiname <> "" Then
@@ -4703,8 +4702,8 @@ If Dateiname <> "" Then
     Print #1, "lstCharakterunten"
     'lstCharateroben speichern
     i = 0
-    Do Until i = lstcharakteroben.ListCount
-        Print #1, lstcharakteroben.List(i)
+    Do Until i = lstCharakteroben.ListCount
+        Print #1, lstCharakteroben.List(i)
         Print #1, Charakterfeld(i).Reittier
         Print #1, Charakterfeld(i).Waffe
         Print #1, Charakterfeld(i).Rüstung
@@ -4808,8 +4807,8 @@ If Dateiname <> "" Then
         
         'lstMagische_Standarten
         i = 0
-        Do Until i = .lstmagische_standarten.ListCount
-            Print #1, .lstmagische_standarten.List(i)
+        Do Until i = .lstMagische_Standarten.ListCount
+            Print #1, .lstMagische_Standarten.List(i)
             i = i + 1
         Loop
         Zwischenspeicher_speichern "Standarte"
@@ -4868,43 +4867,43 @@ Public Sub Zwischenspeicher_speichern(Kategorie As String)
 Select Case Kategorie
     Case "Mutation"
         If Zwischenspeicher.Option1 Then
-            If laboption1_Kategorie.Caption = "Mutation" Then
+            If labOption1_Kategorie.Caption = "Mutation" Then
                 Print #1, labOption1.Caption & " (" & labOption1_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option2 Then
-            If laboption2_Kategorie.Caption = "Mutation" Then
+            If labOption2_Kategorie.Caption = "Mutation" Then
                 Print #1, labOption2.Caption & " (" & labOption2_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option3 Then
-            If laboption3_Kategorie.Caption = "Mutation" Then
+            If labOption3_Kategorie.Caption = "Mutation" Then
                 Print #1, labOption3.Caption & " (" & labOption3_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option4 Then
-            If laboption4_Kategorie.Caption = "Mutation" Then
+            If labOption4_Kategorie.Caption = "Mutation" Then
                 Print #1, labOption4.Caption & " (" & labOption4_Kosten.Caption; ")"
             End If
         End If
     Case "Standarte"
         If Zwischenspeicher.Option1 Then
-            If laboption1_Kategorie.Caption = "Standarte" Then
+            If labOption1_Kategorie.Caption = "Standarte" Then
                 Print #1, labOption1.Caption & " (" & labOption1_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option2 Then
-            If laboption2_Kategorie.Caption = "Standarte" Then
+            If labOption2_Kategorie.Caption = "Standarte" Then
                 Print #1, labOption2.Caption & " (" & labOption2_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option3 Then
-            If laboption3_Kategorie.Caption = "Standarte" Then
+            If labOption3_Kategorie.Caption = "Standarte" Then
                 Print #1, labOption3.Caption & " (" & labOption3_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option4 Then
-            If laboption4_Kategorie.Caption = "Standarte" Then
+            If labOption4_Kategorie.Caption = "Standarte" Then
                 Print #1, labOption4.Caption & " (" & labOption4_Kosten.Caption; ")"
             End If
         End If
@@ -4913,85 +4912,85 @@ Select Case Kategorie
         End If
     Case "Waffe"
         If Zwischenspeicher.Option1 Then
-            If laboption1_Kategorie.Caption = "Waffe" Then
+            If labOption1_Kategorie.Caption = "Waffe" Then
                 Print #1, labOption1.Caption & " (" & labOption1_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option2 Then
-            If laboption2_Kategorie.Caption = "Waffe" Then
+            If labOption2_Kategorie.Caption = "Waffe" Then
                 Print #1, labOption2.Caption & " (" & labOption2_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option3 Then
-            If laboption3_Kategorie.Caption = "Waffe" Then
+            If labOption3_Kategorie.Caption = "Waffe" Then
                 Print #1, labOption3.Caption & " (" & labOption3_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option4 Then
-            If laboption4_Kategorie.Caption = "Waffe" Then
+            If labOption4_Kategorie.Caption = "Waffe" Then
                 Print #1, labOption4.Caption & " (" & labOption4_Kosten.Caption; ")"
             End If
         End If
     Case "Rüstung"
         If Zwischenspeicher.Option1 Then
-            If laboption1_Kategorie.Caption = "Rüstung" Then
+            If labOption1_Kategorie.Caption = "Rüstung" Then
                 Print #1, labOption1.Caption & " (" & labOption1_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option2 Then
-            If laboption2_Kategorie.Caption = "Rüstung" Then
+            If labOption2_Kategorie.Caption = "Rüstung" Then
                 Print #1, labOption2.Caption & " (" & labOption2_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option3 Then
-            If laboption3_Kategorie.Caption = "Rüstung" Then
+            If labOption3_Kategorie.Caption = "Rüstung" Then
                 Print #1, labOption3.Caption & " (" & labOption3_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option4 Then
-            If laboption4_Kategorie.Caption = "Rüstung" Then
+            If labOption4_Kategorie.Caption = "Rüstung" Then
                 Print #1, labOption4.Caption & " (" & labOption4_Kosten.Caption; ")"
             End If
         End If
     Case "Schild"
         If Zwischenspeicher.Option1 Then
-            If laboption1_Kategorie.Caption = "Schild" Then
+            If labOption1_Kategorie.Caption = "Schild" Then
                 Print #1, labOption1.Caption & " (" & labOption1_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option2 Then
-            If laboption2_Kategorie.Caption = "Schild" Then
+            If labOption2_Kategorie.Caption = "Schild" Then
                 Print #1, labOption2.Caption & " (" & labOption2_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option3 Then
-            If laboption3_Kategorie.Caption = "Schild" Then
+            If labOption3_Kategorie.Caption = "Schild" Then
                 Print #1, labOption3.Caption & " (" & labOption3_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option4 Then
-            If laboption4_Kategorie.Caption = "Schild" Then
+            If labOption4_Kategorie.Caption = "Schild" Then
                 Print #1, labOption4.Caption & " (" & labOption4_Kosten.Caption; ")"
             End If
         End If
     Case "Sonstige"
         If Zwischenspeicher.Option1 Then
-            If laboption1_Kategorie.Caption <> "Spruchrolle" And laboption1_Kategorie.Caption <> "Homunkuli" And laboption1_Kategorie.Caption <> "Mutation" And laboption1_Kategorie.Caption <> "Standarte" And laboption1_Kategorie.Caption <> "Waffe" And laboption1_Kategorie.Caption <> "Rüstung" And laboption1_Kategorie.Caption <> "Schild" Then
+            If labOption1_Kategorie.Caption <> "Spruchrolle" And labOption1_Kategorie.Caption <> "Homunkuli" And labOption1_Kategorie.Caption <> "Mutation" And labOption1_Kategorie.Caption <> "Standarte" And labOption1_Kategorie.Caption <> "Waffe" And labOption1_Kategorie.Caption <> "Rüstung" And labOption1_Kategorie.Caption <> "Schild" Then
                 Print #1, labOption1.Caption & " (" & labOption1_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option2 Then
-            If laboption2_Kategorie.Caption <> "Spruchrolle" And laboption2_Kategorie.Caption <> "Homunkuli" And laboption2_Kategorie.Caption <> "Mutation" And laboption2_Kategorie.Caption <> "Standarte" And laboption2_Kategorie.Caption <> "Waffe" And laboption2_Kategorie.Caption <> "Rüstung" And laboption2_Kategorie.Caption <> "Schild" Then
+            If labOption2_Kategorie.Caption <> "Spruchrolle" And labOption2_Kategorie.Caption <> "Homunkuli" And labOption2_Kategorie.Caption <> "Mutation" And labOption2_Kategorie.Caption <> "Standarte" And labOption2_Kategorie.Caption <> "Waffe" And labOption2_Kategorie.Caption <> "Rüstung" And labOption2_Kategorie.Caption <> "Schild" Then
                 Print #1, labOption2.Caption & " (" & labOption2_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option3 Then
-            If laboption3_Kategorie.Caption <> "Spruchrolle" And laboption3_Kategorie.Caption <> "Homunkuli" And laboption3_Kategorie.Caption <> "Mutation" And laboption3_Kategorie.Caption <> "Standarte" And laboption3_Kategorie.Caption <> "Waffe" And laboption3_Kategorie.Caption <> "Rüstung" And laboption3_Kategorie.Caption <> "Schild" Then
+            If labOption3_Kategorie.Caption <> "Spruchrolle" And labOption3_Kategorie.Caption <> "Homunkuli" And labOption3_Kategorie.Caption <> "Mutation" And labOption3_Kategorie.Caption <> "Standarte" And labOption3_Kategorie.Caption <> "Waffe" And labOption3_Kategorie.Caption <> "Rüstung" And labOption3_Kategorie.Caption <> "Schild" Then
                 Print #1, labOption3.Caption & " (" & labOption3_Kosten.Caption; ")"
             End If
         End If
         If Zwischenspeicher.Option4 Then
-            If laboption4_Kategorie.Caption <> "Spruchrolle" And laboption4_Kategorie.Caption <> "Homunkuli" And laboption4_Kategorie.Caption <> "Mutation" And laboption4_Kategorie.Caption <> "Standarte" And laboption4_Kategorie.Caption <> "Waffe" And laboption4_Kategorie.Caption <> "Rüstung" And laboption4_Kategorie.Caption <> "Schild" Then
+            If labOption4_Kategorie.Caption <> "Spruchrolle" And labOption4_Kategorie.Caption <> "Homunkuli" And labOption4_Kategorie.Caption <> "Mutation" And labOption4_Kategorie.Caption <> "Standarte" And labOption4_Kategorie.Caption <> "Waffe" And labOption4_Kategorie.Caption <> "Rüstung" And labOption4_Kategorie.Caption <> "Schild" Then
                 Print #1, labOption4.Caption & " (" & labOption4_Kosten.Caption; ")"
             End If
         End If
@@ -5003,67 +5002,67 @@ End Sub
 Public Sub Rüstungsrettungswurf_einstellen()
 Select Case labRüstung.Caption
     Case "keine", ""
-        If lab2truppenname_klein.Caption = "Chaospferd (4)" Or lab2truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2truppenname_klein.Caption = "Elfenroß (3)" Or lab2truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2truppenname_klein.Caption = "Kampfechse (10)" Or lab2truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2truppenname_klein.Caption = "Kriegspferd (3)" Or lab2truppenname_klein.Caption = "Riesenspinne (4)" Or lab2truppenname_klein.Caption = "Riesenwolf (4)" Or lab2truppenname_klein.Caption = "Skelettpferd (3)" Or lab2truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2truppenname_klein.Caption = "Wildschwein (8)" Then
+        If lab2Truppenname_klein.Caption = "Chaospferd (4)" Or lab2Truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2Truppenname_klein.Caption = "Elfenroß (3)" Or lab2Truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2Truppenname_klein.Caption = "Kampfechse (10)" Or lab2Truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2Truppenname_klein.Caption = "Kriegspferd (3)" Or lab2Truppenname_klein.Caption = "Riesenspinne (4)" Or lab2Truppenname_klein.Caption = "Riesenwolf (4)" Or lab2Truppenname_klein.Caption = "Skelettpferd (3)" Or lab2Truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2Truppenname_klein.Caption = "Wildschwein (8)" Then
             labRW.Caption = "6"
             labB.Caption = dsCharakter.Fields("KG_Bewegung")
             labB2.Caption = dsReittiere.Fields("Bewegung")
         Else
             labRW.Caption = "-"
             labB.Caption = dsCharakter.Fields("KG_Bewegung")
-            If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+            If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
                 labB2.Caption = dsReittiere.Fields("Bewegung")
             End If
         End If
     Case "Schild (1)"
-        If lab2truppenname_klein.Caption = "Chaospferd (4)" Or lab2truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2truppenname_klein.Caption = "Elfenroß (3)" Or lab2truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2truppenname_klein.Caption = "Kampfechse (10)" Or lab2truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2truppenname_klein.Caption = "Kriegspferd (3)" Or lab2truppenname_klein.Caption = "Riesenspinne (4)" Or lab2truppenname_klein.Caption = "Riesenwolf (4)" Or lab2truppenname_klein.Caption = "Skelettpferd (3)" Or lab2truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2truppenname_klein.Caption = "Wildschwein (8)" Then
+        If lab2Truppenname_klein.Caption = "Chaospferd (4)" Or lab2Truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2Truppenname_klein.Caption = "Elfenroß (3)" Or lab2Truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2Truppenname_klein.Caption = "Kampfechse (10)" Or lab2Truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2Truppenname_klein.Caption = "Kriegspferd (3)" Or lab2Truppenname_klein.Caption = "Riesenspinne (4)" Or lab2Truppenname_klein.Caption = "Riesenwolf (4)" Or lab2Truppenname_klein.Caption = "Skelettpferd (3)" Or lab2Truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2Truppenname_klein.Caption = "Wildschwein (8)" Then
             labRW.Caption = "5+"
             labB.Caption = dsCharakter.Fields("KG_Bewegung")
             labB2.Caption = dsReittiere.Fields("Bewegung")
         Else
             labRW.Caption = "6"
             labB.Caption = dsCharakter.Fields("KG_Bewegung")
-            If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+            If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
                 labB2.Caption = dsReittiere.Fields("Bewegung")
             End If
         End If
     Case "leichte Rüstung (2)"
-        If lab2truppenname_klein.Caption = "Chaospferd (4)" Or lab2truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2truppenname_klein.Caption = "Elfenroß (3)" Or lab2truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2truppenname_klein.Caption = "Kampfechse (10)" Or lab2truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2truppenname_klein.Caption = "Kriegspferd (3)" Or lab2truppenname_klein.Caption = "Riesenspinne (4)" Or lab2truppenname_klein.Caption = "Riesenwolf (4)" Or lab2truppenname_klein.Caption = "Skelettpferd (3)" Or lab2truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2truppenname_klein.Caption = "Wildschwein (8)" Then
+        If lab2Truppenname_klein.Caption = "Chaospferd (4)" Or lab2Truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2Truppenname_klein.Caption = "Elfenroß (3)" Or lab2Truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2Truppenname_klein.Caption = "Kampfechse (10)" Or lab2Truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2Truppenname_klein.Caption = "Kriegspferd (3)" Or lab2Truppenname_klein.Caption = "Riesenspinne (4)" Or lab2Truppenname_klein.Caption = "Riesenwolf (4)" Or lab2Truppenname_klein.Caption = "Skelettpferd (3)" Or lab2Truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2Truppenname_klein.Caption = "Wildschwein (8)" Then
             labRW.Caption = "5+"
             labB.Caption = dsCharakter.Fields("KG_Bewegung")
             labB2.Caption = dsReittiere.Fields("Bewegung")
         Else
             labRW.Caption = "6"
             labB.Caption = dsCharakter.Fields("KG_Bewegung")
-            If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+            If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
                 labB2.Caption = dsReittiere.Fields("Bewegung")
             End If
         End If
     Case "leichte Rüstung und Schild (3)"
-        If lab2truppenname_klein.Caption = "Chaospferd (4)" Or lab2truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2truppenname_klein.Caption = "Elfenroß (3)" Or lab2truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2truppenname_klein.Caption = "Kampfechse (10)" Or lab2truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2truppenname_klein.Caption = "Kriegspferd (3)" Or lab2truppenname_klein.Caption = "Riesenspinne (4)" Or lab2truppenname_klein.Caption = "Riesenwolf (4)" Or lab2truppenname_klein.Caption = "Skelettpferd (3)" Or lab2truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2truppenname_klein.Caption = "Wildschwein (8)" Then
+        If lab2Truppenname_klein.Caption = "Chaospferd (4)" Or lab2Truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2Truppenname_klein.Caption = "Elfenroß (3)" Or lab2Truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2Truppenname_klein.Caption = "Kampfechse (10)" Or lab2Truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2Truppenname_klein.Caption = "Kriegspferd (3)" Or lab2Truppenname_klein.Caption = "Riesenspinne (4)" Or lab2Truppenname_klein.Caption = "Riesenwolf (4)" Or lab2Truppenname_klein.Caption = "Skelettpferd (3)" Or lab2Truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2Truppenname_klein.Caption = "Wildschwein (8)" Then
             labRW.Caption = "4+"
             labB.Caption = dsCharakter.Fields("KG_Bewegung")
             labB2.Caption = dsReittiere.Fields("Bewegung")
         Else
             labRW.Caption = "5+"
             labB.Caption = dsCharakter.Fields("KG_Bewegung")
-            If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+            If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
                 labB2.Caption = dsReittiere.Fields("Bewegung")
             End If
         End If
     Case "schwere Rüstung (3)"
-        If lab2truppenname_klein.Caption = "Chaospferd (4)" Or lab2truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2truppenname_klein.Caption = "Elfenroß (3)" Or lab2truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2truppenname_klein.Caption = "Kampfechse (10)" Or lab2truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2truppenname_klein.Caption = "Kriegspferd (3)" Or lab2truppenname_klein.Caption = "Riesenspinne (4)" Or lab2truppenname_klein.Caption = "Riesenwolf (4)" Or lab2truppenname_klein.Caption = "Skelettpferd (3)" Or lab2truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2truppenname_klein.Caption = "Wildschwein (8)" Then
+        If lab2Truppenname_klein.Caption = "Chaospferd (4)" Or lab2Truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2Truppenname_klein.Caption = "Elfenroß (3)" Or lab2Truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2Truppenname_klein.Caption = "Kampfechse (10)" Or lab2Truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2Truppenname_klein.Caption = "Kriegspferd (3)" Or lab2Truppenname_klein.Caption = "Riesenspinne (4)" Or lab2Truppenname_klein.Caption = "Riesenwolf (4)" Or lab2Truppenname_klein.Caption = "Skelettpferd (3)" Or lab2Truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2Truppenname_klein.Caption = "Wildschwein (8)" Then
             labRW.Caption = "4+"
             labB.Caption = dsCharakter.Fields("KG_Bewegung")
             labB2.Caption = dsReittiere.Fields("Bewegung")
         Else
             labRW.Caption = "5+"
             labB.Caption = dsCharakter.Fields("KG_Bewegung")
-            If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+            If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
                 labB2.Caption = dsReittiere.Fields("Bewegung")
             End If
         End If
     Case "schwere Rüstung und Schild (4)"
-        If lab2truppenname_klein.Caption = "Chaospferd (4)" Or lab2truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2truppenname_klein.Caption = "Elfenroß (3)" Or lab2truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2truppenname_klein.Caption = "Kampfechse (10)" Or lab2truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2truppenname_klein.Caption = "Kriegspferd (3)" Or lab2truppenname_klein.Caption = "Riesenspinne (4)" Or lab2truppenname_klein.Caption = "Riesenwolf (4)" Or lab2truppenname_klein.Caption = "Skelettpferd (3)" Or lab2truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2truppenname_klein.Caption = "Wildschwein (8)" Then
+        If lab2Truppenname_klein.Caption = "Chaospferd (4)" Or lab2Truppenname_klein.Caption = "Dunkelelfenroß (3)" Or lab2Truppenname_klein.Caption = "Elfenroß (3)" Or lab2Truppenname_klein.Caption = "Flugdämon des Tzeentch (4)" Or lab2Truppenname_klein.Caption = "Kampfechse (10)" Or lab2Truppenname_klein.Caption = "Kriegsfalke (20)" Or lab2Truppenname_klein.Caption = "Kriegspferd (3)" Or lab2Truppenname_klein.Caption = "Riesenspinne (4)" Or lab2Truppenname_klein.Caption = "Riesenwolf (4)" Or lab2Truppenname_klein.Caption = "Skelettpferd (3)" Or lab2Truppenname_klein.Caption = "Slaaneshpferd (5)" Or lab2Truppenname_klein.Caption = "Wildschwein (8)" Then
             labRW.Caption = "3+"
             Wandler = dsCharakter.Fields("KG_Bewegung") - 1
             labB.Caption = Wandler
@@ -5074,7 +5073,7 @@ Select Case labRüstung.Caption
             If frmHauptmenü.Caption <> "Zwerge" Then
                 Wandler = dsCharakter.Fields("KG_Bewegung") - 1
                 labB.Caption = Wandler
-                If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+                If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
                     Wandler = dsReittiere.Fields("Bewegung") - 1
                     labB2.Caption = Wandler
                 End If
@@ -5084,35 +5083,35 @@ Select Case labRüstung.Caption
     Case "Harnisch (4)"
         labRW.Caption = "5+"
         labB.Caption = dsCharakter.Fields("KG_Bewegung")
-        If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+        If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
             Wandler = dsReittiere.Fields("Bewegung") - 1
             labB2.Caption = Wandler
         End If
     Case "Schild, Harnisch (5)"
         labRW.Caption = "4+"
         labB.Caption = dsCharakter.Fields("KG_Bewegung")
-        If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+        If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
             Wandler = dsReittiere.Fields("Bewegung") - 1
             labB2.Caption = Wandler
         End If
     Case "leichte Rüstung, Harnisch (6)"
         labRW.Caption = "4+"
         labB.Caption = dsCharakter.Fields("KG_Bewegung")
-        If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+        If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
             Wandler = dsReittiere.Fields("Bewegung") - 1
             labB2.Caption = Wandler
         End If
     Case "leichte Rüstung und Schild, Harnisch (7)"
         labRW.Caption = "3+"
         labB.Caption = dsCharakter.Fields("KG_Bewegung")
-        If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+        If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
             Wandler = dsReittiere.Fields("Bewegung") - 1
             labB2.Caption = Wandler
         End If
     Case "schwere Rüstung, Harnisch (7)"
         labRW.Caption = "3+"
         labB.Caption = dsCharakter.Fields("KG_Bewegung")
-        If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+        If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
             Wandler = dsReittiere.Fields("Bewegung") - 1
             labB2.Caption = Wandler
         End If
@@ -5120,7 +5119,7 @@ Select Case labRüstung.Caption
         labRW.Caption = "2+"
         Wandler = dsCharakter.Fields("KG_Bewegung") - 1
         labB.Caption = Wandler
-        If lab2truppenname_klein.Caption <> "" And lab2truppenname_klein.BorderStyle = 1 Then
+        If lab2Truppenname_klein.Caption <> "" And lab2Truppenname_klein.BorderStyle = 1 Then
             Wandler = dsReittiere.Fields("Bewegung") - 2
             labB2.Caption = Wandler
         End If

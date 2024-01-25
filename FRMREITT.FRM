@@ -1,18 +1,15 @@
-VERSION 4.00
+VERSION 5.00
 Begin VB.Form frmReittiere 
    Caption         =   "Reittiere"
-   ClientHeight    =   2196
-   ClientLeft      =   1128
-   ClientTop       =   2916
-   ClientWidth     =   6936
-   Height          =   2580
-   Left            =   1080
+   ClientHeight    =   2205
+   ClientLeft      =   1125
+   ClientTop       =   2910
+   ClientWidth     =   6945
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   2196
-   ScaleWidth      =   6936
-   Top             =   2580
-   Width           =   7032
+   PaletteMode     =   1  'UseZOrder
+   ScaleHeight     =   2205
+   ScaleWidth      =   6945
    Begin VB.ComboBox cobReittiere 
       Height          =   300
       Left            =   1290
@@ -43,13 +40,13 @@ Begin VB.Form frmReittiere
       Alignment       =   2  'Center
       Caption         =   "Punkte:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   15.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   330
       Left            =   4725
@@ -60,13 +57,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labPunkte 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   700
-         size            =   15.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000000FF&
       Height          =   330
@@ -78,13 +75,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labtxtTruppenname 
       Caption         =   "Reittier:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   15.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   285
       Left            =   210
@@ -95,13 +92,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labtxtSonderregeln 
       Caption         =   "Sonderregeln:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   210
@@ -111,13 +108,13 @@ Begin VB.Form frmReittiere
    End
    Begin VB.Label labSonderregeln 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   645
       Left            =   1365
@@ -128,13 +125,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labtxtProfil 
       Caption         =   "Profil:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   12
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   330
       Left            =   315
@@ -146,13 +143,13 @@ Begin VB.Form frmReittiere
       Alignment       =   2  'Center
       Caption         =   "B"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   2100
@@ -164,13 +161,13 @@ Begin VB.Form frmReittiere
       Alignment       =   2  'Center
       Caption         =   "KG"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   2520
@@ -182,13 +179,13 @@ Begin VB.Form frmReittiere
       Alignment       =   2  'Center
       Caption         =   "BF"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   2940
@@ -200,13 +197,13 @@ Begin VB.Form frmReittiere
       Alignment       =   2  'Center
       Caption         =   "S"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3360
@@ -218,13 +215,13 @@ Begin VB.Form frmReittiere
       Alignment       =   2  'Center
       Caption         =   "W"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3780
@@ -236,13 +233,13 @@ Begin VB.Form frmReittiere
       Alignment       =   2  'Center
       Caption         =   "LP"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4200
@@ -254,13 +251,13 @@ Begin VB.Form frmReittiere
       Alignment       =   2  'Center
       Caption         =   "I"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4620
@@ -272,13 +269,13 @@ Begin VB.Form frmReittiere
       Alignment       =   2  'Center
       Caption         =   "A"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5040
@@ -290,13 +287,13 @@ Begin VB.Form frmReittiere
       Alignment       =   2  'Center
       Caption         =   "MW"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5460
@@ -308,13 +305,13 @@ Begin VB.Form frmReittiere
       Alignment       =   2  'Center
       Caption         =   "RW"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5880
@@ -325,13 +322,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labB 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   2100
@@ -342,13 +339,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labKG 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   2520
@@ -359,13 +356,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labBF 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   2940
@@ -376,13 +373,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labS 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3360
@@ -393,13 +390,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labW 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   3780
@@ -410,13 +407,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labLP 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4200
@@ -427,13 +424,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labI 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   4620
@@ -444,13 +441,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labA 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5040
@@ -461,13 +458,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labMW 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5460
@@ -478,13 +475,13 @@ Begin VB.Form frmReittiere
    Begin VB.Label labRW 
       Alignment       =   2  'Center
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   5880
@@ -494,13 +491,13 @@ Begin VB.Form frmReittiere
    End
    Begin VB.Label labTruppenname_klein 
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.6
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   315
@@ -510,7 +507,9 @@ Begin VB.Form frmReittiere
    End
 End
 Attribute VB_Name = "frmReittiere"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
@@ -530,7 +529,7 @@ If cobReittiere.Text <> "" Then
         labA.Caption = ""
         labMW.Caption = ""
         labRW.Caption = ""
-        labsonderregeln = ""
+        labSonderregeln = ""
     Else
         Wandler = "[Truppenname] = '" & cobReittiere.Text & "'"
         dsReittiere.MoveFirst
@@ -605,9 +604,9 @@ If cobReittiere.Text <> "" Then
         End If
         'SONDERREGELN
         If IsNull(dsReittiere.Fields("Sonderregeln")) Then
-            labsonderregeln.Caption = ""
+            labSonderregeln.Caption = ""
         Else
-            labsonderregeln.Caption = dsReittiere.Fields("Sonderregeln")
+            labSonderregeln.Caption = dsReittiere.Fields("Sonderregeln")
         End If
     End If
 End If
@@ -627,19 +626,19 @@ With frmHauptmenü
     'Bewegung wird zuerst übertragen, wegen RW-Berechnung
     .labB2.Caption = labB.Caption
     If labTruppenname_klein <> "" Then
-        .lab2truppenname_klein.Caption = labTruppenname_klein.Caption & " (" & labPunkte.Caption & ")"
+        .lab2Truppenname_klein.Caption = labTruppenname_klein.Caption & " (" & labPunkte.Caption & ")"
     Else
-        .lab2truppenname_klein.Caption = ""
+        .lab2Truppenname_klein.Caption = ""
     End If
     .labKG2.Caption = labKG.Caption
     .labBF2.Caption = labBF.Caption
     .labS2.Caption = labS.Caption
     .labW2.Caption = labW.Caption
-    .lablp2.Caption = labLP.Caption
-    .labi2.Caption = labI.Caption
-    .laba2.Caption = labA.Caption
-    .labmw2.Caption = labMW.Caption
-    .labrw2.Caption = labRW.Caption
+    .labLP2.Caption = labLP.Caption
+    .labI2.Caption = labI.Caption
+    .labA2.Caption = labA.Caption
+    .labMW2.Caption = labMW.Caption
+    .labRW2.Caption = labRW.Caption
 End With
 End Sub
 

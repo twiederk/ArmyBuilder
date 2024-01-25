@@ -1,18 +1,15 @@
-VERSION 4.00
+VERSION 5.00
 Begin VB.Form frmDB 
    Caption         =   "Datenbanken:"
    ClientHeight    =   2340
    ClientLeft      =   1125
    ClientTop       =   1440
    ClientWidth     =   2490
-   Height          =   2745
-   Left            =   1065
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
+   PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   2340
    ScaleWidth      =   2490
-   Top             =   1095
-   Width           =   2610
    Begin VB.CommandButton comOK 
       Caption         =   "OK"
       Height          =   375
@@ -38,7 +35,9 @@ Begin VB.Form frmDB
    End
 End
 Attribute VB_Name = "frmDB"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub comOK_Click()
 If lstDatenbanken.ListIndex = -1 Then

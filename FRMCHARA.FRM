@@ -1,4 +1,4 @@
-VERSION 4.00
+VERSION 5.00
 Begin VB.Form frmCharakter 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Charakter"
@@ -6,18 +6,15 @@ Begin VB.Form frmCharakter
    ClientLeft      =   2370
    ClientTop       =   2910
    ClientWidth     =   2595
-   Height          =   2580
-   Left            =   2310
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MDIChild        =   -1  'True
    MinButton       =   0   'False
+   PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   2175
    ScaleWidth      =   2595
    ShowInTaskbar   =   0   'False
-   Top             =   2565
    Visible         =   0   'False
-   Width           =   2715
    Begin VB.CommandButton comAbbrechen 
       Cancel          =   -1  'True
       Caption         =   "Abbrechen"
@@ -45,7 +42,9 @@ Begin VB.Form frmCharakter
    End
 End
 Attribute VB_Name = "frmCharakter"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
@@ -61,7 +60,7 @@ Case "Waffe"
 Case "Rüstung"
     frmHauptmenü.labRüstung.Caption = lstAusrüstung.Text
 Case "Fernwaffe"
-    frmHauptmenü.labfernwaffe.Caption = lstAusrüstung.Text
+    frmHauptmenü.labFernwaffe.Caption = lstAusrüstung.Text
 End Select
 Unload frmCharakter
 frmHauptmenü.Enabled = True

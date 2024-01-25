@@ -1,20 +1,17 @@
-VERSION 4.00
+VERSION 5.00
 Begin VB.Form frmVerbündete 
    BorderStyle     =   0  'None
    Caption         =   "Punkte für Verbündete"
-   ClientHeight    =   1872
-   ClientLeft      =   1032
-   ClientTop       =   1392
-   ClientWidth     =   2592
-   Height          =   2196
-   Left            =   984
+   ClientHeight    =   1875
+   ClientLeft      =   1035
+   ClientTop       =   1395
+   ClientWidth     =   2595
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   1872
-   ScaleWidth      =   2592
+   PaletteMode     =   1  'UseZOrder
+   ScaleHeight     =   1875
+   ScaleWidth      =   2595
    ShowInTaskbar   =   0   'False
-   Top             =   1116
-   Width           =   2688
    Begin VB.CommandButton comAbbrechen 
       Cancel          =   -1  'True
       Caption         =   "Abbrechen"
@@ -34,29 +31,29 @@ Begin VB.Form frmVerbündete
       Width           =   1068
    End
    Begin VB.Image ImgGrosserPfeilunten 
-      Height          =   324
-      Left            =   1776
+      Height          =   405
+      Left            =   1770
       Picture         =   "FRMVERB.frx":0000
       Top             =   960
-      Width           =   312
+      Width           =   390
    End
    Begin VB.Image ImgGrosserPfeiloben 
-      Height          =   336
-      Left            =   1776
+      Height          =   420
+      Left            =   1770
       Picture         =   "FRMVERB.frx":08B2
-      Top             =   576
-      Width           =   312
+      Top             =   570
+      Width           =   390
    End
    Begin VB.Label labtxtVerbündetepunkte 
       Caption         =   "Verbündetepunkte:"
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   14.4
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   336
       Left            =   192
@@ -67,13 +64,13 @@ Begin VB.Form frmVerbündete
    Begin VB.Label labVerbündetepunkte 
       Alignment       =   1  'Right Justify
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   14.4
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   336
@@ -83,36 +80,38 @@ Begin VB.Form frmVerbündete
       Width           =   648
    End
    Begin VB.Image imgEinzelPfeiloben 
-      Height          =   336
-      Left            =   1104
+      Height          =   420
+      Left            =   1110
       Picture         =   "FRMVERB.frx":11B4
-      Top             =   576
-      Width           =   312
+      Top             =   570
+      Width           =   390
    End
    Begin VB.Image imgEinzelpfeilunten 
-      Height          =   324
-      Left            =   1104
+      Height          =   405
+      Left            =   1110
       Picture         =   "FRMVERB.frx":1AB6
       Top             =   960
-      Width           =   312
+      Width           =   390
    End
    Begin VB.Image ImgDoppelpeiloben 
-      Height          =   336
+      Height          =   420
       Left            =   1440
       Picture         =   "FRMVERB.frx":2368
-      Top             =   576
-      Width           =   312
+      Top             =   570
+      Width           =   390
    End
    Begin VB.Image imgDoppelpfeilunten 
-      Height          =   324
+      Height          =   405
       Left            =   1440
       Picture         =   "FRMVERB.frx":2ABA
       Top             =   960
-      Width           =   312
+      Width           =   390
    End
 End
 Attribute VB_Name = "frmVerbündete"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 

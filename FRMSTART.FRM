@@ -1,4 +1,5 @@
-VERSION 4.00
+VERSION 5.00
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Begin VB.MDIForm frmStart 
    AutoShowChildren=   0   'False
    BackColor       =   &H00FFFFFF&
@@ -7,23 +8,19 @@ Begin VB.MDIForm frmStart
    ClientLeft      =   2175
    ClientTop       =   2655
    ClientWidth     =   6900
-   Height          =   6825
    Icon            =   "FRMSTART.frx":0000
-   Left            =   2115
    LinkTopic       =   "MDIForm1"
    ScrollBars      =   0   'False
-   Top             =   2025
-   Width           =   7020
    Begin VB.PictureBox picStatuszeile 
       Align           =   2  'Align Bottom
       BeginProperty Font 
-         name            =   "Times New Roman"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Times New Roman"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   285
       Left            =   0
@@ -36,10 +33,9 @@ Begin VB.MDIForm frmStart
    Begin MSComDlg.CommonDialog Common_Dialog 
       Left            =   1155
       Top             =   840
-      _version        =   65536
-      _extentx        =   847
-      _extenty        =   847
-      _stockprops     =   0
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
    End
    Begin VB.Menu mnuDatei 
       Caption         =   "&Datei"
@@ -67,7 +63,9 @@ Begin VB.MDIForm frmStart
    End
 End
 Attribute VB_Name = "frmStart"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 
@@ -179,9 +177,9 @@ Dim Armeename As String
 'PROZEDURSTART
 Common_Dialog.DialogTitle = "Armee laden"
 Common_Dialog.Filter = "Armee (*.arm)|*.arm|Alle Dateien (*.*)|*.*"
-Common_Dialog.filename = ""
+Common_Dialog.FileName = ""
 Common_Dialog.Action = 1
-Dateiname = Common_Dialog.filename
+Dateiname = Common_Dialog.FileName
 If Dateiname <> "" Then
     'Mauspointer Sanduhr
     Screen.MousePointer = 11
@@ -251,42 +249,42 @@ If Dateiname <> "" Then
     'Listenfeldoben füllen
     Line Input #1, Datenzeile
     Do Until Datenzeile = "lstCharakteroben"
-            frmHauptmenü.lstcharakteroben.AddItem Datenzeile
+            frmHauptmenü.lstCharakteroben.AddItem Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).Reittier = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).Reittier = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).Waffe = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).Waffe = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).Rüstung = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).Rüstung = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).Fernwaffe = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).Fernwaffe = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand1 = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand1 = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand1_Kosten = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand1_Kosten = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand1_Kategorie = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand1_Kategorie = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand2 = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand2 = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand2_Kosten = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand2_Kosten = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand2_Kategorie = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand2_Kategorie = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand3 = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand3 = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand3_Kosten = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand3_Kosten = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand3_Kategorie = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand3_Kategorie = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand4 = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand4 = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand4_Kosten = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand4_Kosten = Datenzeile
             Line Input #1, Datenzeile
-            Charakterfeld(frmHauptmenü.lstcharakteroben.ListCount - 1).mag_Gegenstand4_Kategorie = Datenzeile
+            Charakterfeld(frmHauptmenü.lstCharakteroben.ListCount - 1).mag_Gegenstand4_Kategorie = Datenzeile
             Line Input #1, Datenzeile
     Loop
-    Charakterzähler = frmHauptmenü.lstcharakteroben.ListCount
+    Charakterzähler = frmHauptmenü.lstCharakteroben.ListCount
     'Punkte eintragen
     Line Input #1, Datenzeile
     Charakterpunkte = Datenzeile - 0
@@ -348,12 +346,12 @@ If Dateiname <> "" Then
             picStatuszeile.Print " Dämonen einlesen"
             frmHauptmenü.labtxtKriegsgerät.Caption = "Dämonen:"
             frmHauptmenü.lstKriegsgerätoben.DragIcon = LoadPicture(App.Path & "\daemon.ico")
-            frmHauptmenü.lstkriegsgerätunten.DragIcon = LoadPicture(App.Path & "\daemon.ico")
+            frmHauptmenü.lstKriegsgerätunten.DragIcon = LoadPicture(App.Path & "\daemon.ico")
         Else
             picStatuszeile.Print " Kriegsgerät einlesen"
             frmHauptmenü.labtxtKriegsgerät.Caption = "Kriegsgerät:"
             frmHauptmenü.lstKriegsgerätoben.DragIcon = LoadPicture(App.Path & "\kriegsge.ico")
-            frmHauptmenü.lstkriegsgerätunten.DragIcon = LoadPicture(App.Path & "\kriegsge.ico")
+            frmHauptmenü.lstKriegsgerätunten.DragIcon = LoadPicture(App.Path & "\kriegsge.ico")
         End If
         picStatuszeile.Line (4000, 30)-(10500, 190), QBColor(0), B
         picStatuszeile.Line (4000, 30)-(5500, 190), Farbe, BF
@@ -364,7 +362,7 @@ If Dateiname <> "" Then
         dsKriegsgerät.MoveFirst
         Do Until dsKriegsgerät.EOF
             Name = dsKriegsgerät.Fields("Truppenname")
-            frmHauptmenü.lstkriegsgerätunten.AddItem Name
+            frmHauptmenü.lstKriegsgerätunten.AddItem Name
             dsKriegsgerät.MoveNext
         Loop
     End If
@@ -500,7 +498,7 @@ If Dateiname <> "" Then
     'Listenfeld füllen
     Line Input #1, Datenzeile
     Do Until Datenzeile = "lstMagische_Standarten"
-            frmMagische_Gegenstände.lstmagische_standarten.AddItem Datenzeile
+            frmMagische_Gegenstände.lstMagische_Standarten.AddItem Datenzeile
             Line Input #1, Datenzeile
     Loop
     

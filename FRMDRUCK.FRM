@@ -1,4 +1,4 @@
-VERSION 4.00
+VERSION 5.00
 Begin VB.Form frmDrucken 
    AutoRedraw      =   -1  'True
    BorderStyle     =   0  'None
@@ -8,25 +8,22 @@ Begin VB.Form frmDrucken
    ClientTop       =   870
    ClientWidth     =   11595
    BeginProperty Font 
-      name            =   "Arial"
-      charset         =   1
-      weight          =   400
-      size            =   12
-      underline       =   0   'False
-      italic          =   0   'False
-      strikethrough   =   0   'False
+      Name            =   "Arial"
+      Size            =   12
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
    EndProperty
-   Height          =   8670
-   Left            =   150
    LinkTopic       =   "Form2"
    MaxButton       =   0   'False
    MDIChild        =   -1  'True
    MinButton       =   0   'False
+   PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   7980
    ScaleWidth      =   11595
    ShowInTaskbar   =   0   'False
-   Top             =   240
-   Width           =   11715
    Begin VB.CommandButton comTrennlinie 
       Caption         =   "-----"
       Height          =   435
@@ -59,13 +56,13 @@ Begin VB.Form frmDrucken
    Begin VB.CommandButton labtxtAlle_nicht_drucken 
       Caption         =   "<<"
       BeginProperty Font 
-         name            =   "Courier New"
-         charset         =   1
-         weight          =   700
-         size            =   15
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Courier New"
+         Size            =   15
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   435
       Left            =   5775
@@ -76,13 +73,13 @@ Begin VB.Form frmDrucken
    Begin VB.CommandButton labtxtAusgewählte_nicht_Drucken 
       Caption         =   "<"
       BeginProperty Font 
-         name            =   "Courier New"
-         charset         =   1
-         weight          =   700
-         size            =   15
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Courier New"
+         Size            =   15
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   435
       Left            =   5775
@@ -93,13 +90,13 @@ Begin VB.Form frmDrucken
    Begin VB.CommandButton labtxtAusgewählte_Drucken 
       Caption         =   ">"
       BeginProperty Font 
-         name            =   "Courier New"
-         charset         =   1
-         weight          =   700
-         size            =   15
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Courier New"
+         Size            =   15
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   435
       Left            =   5775
@@ -110,13 +107,13 @@ Begin VB.Form frmDrucken
    Begin VB.CommandButton labtxtAlle_Drucken 
       Caption         =   ">>"
       BeginProperty Font 
-         name            =   "Courier New"
-         charset         =   1
-         weight          =   700
-         size            =   15
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "Courier New"
+         Size            =   15
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   435
       Left            =   5775
@@ -127,15 +124,15 @@ Begin VB.Form frmDrucken
    Begin VB.ListBox lstDrucken 
       DragIcon        =   "FRMDRUCK.frx":0000
       BeginProperty Font 
-         name            =   "MS Sans Serif"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
-      Height          =   7230
+      Height          =   7020
       Left            =   6405
       MultiSelect     =   2  'Extended
       TabIndex        =   1
@@ -145,15 +142,15 @@ Begin VB.Form frmDrucken
    Begin VB.ListBox lstAuswahl 
       DragIcon        =   "FRMDRUCK.frx":030A
       BeginProperty Font 
-         name            =   "MS Sans Serif"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
-      Height          =   7230
+      Height          =   7020
       Left            =   210
       MultiSelect     =   2  'Extended
       Sorted          =   -1  'True
@@ -165,13 +162,13 @@ Begin VB.Form frmDrucken
       BackStyle       =   0  'Transparent
       Caption         =   "Druckreihenfolge:"
       BeginProperty Font 
-         name            =   "MS Sans Serif"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   330
       Left            =   6405
@@ -182,13 +179,13 @@ Begin VB.Form frmDrucken
    Begin VB.Label labtxtArmee 
       Caption         =   "Armee:"
       BeginProperty Font 
-         name            =   "MS Sans Serif"
-         charset         =   1
-         weight          =   400
-         size            =   9.75
-         underline       =   0   'False
-         italic          =   0   'False
-         strikethrough   =   0   'False
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
       Height          =   225
       Left            =   210
@@ -309,7 +306,9 @@ Begin VB.Form frmDrucken
    End
 End
 Attribute VB_Name = "frmDrucken"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
@@ -501,14 +500,14 @@ Dim SQL_Abfrage As String
 Dim i As Integer
 i = 0
 With frmHauptmenü
-    If .lstcharakteroben.ListCount > 0 Then
-        Do Until i = .lstcharakteroben.ListCount
-            Charakter_anzeigen dsCharakter, .lstcharakteroben.List(i), i
+    If .lstCharakteroben.ListCount > 0 Then
+        Do Until i = .lstCharakteroben.ListCount
+            Charakter_anzeigen dsCharakter, .lstCharakteroben.List(i), i
             If Größe_überprüfen(Schrifthöhe, -1) Then
                 Drucker.NewPage
                 Schrifthöhe = 100
             End If
-            If .lab2truppenname_klein.Caption = "" Then
+            If .lab2Truppenname_klein.Caption = "" Then
                 Tabelle "Charakter", 1, -1
             Else
                 If .lab3Truppenname_klein.Caption = "" Then
@@ -642,7 +641,7 @@ With frmHauptmenü
                 Drucker.NewPage
                 Schrifthöhe = 100
             End If
-            If .lab2truppenname_klein.Caption = "" Then
+            If .lab2Truppenname_klein.Caption = "" Then
                 Tabelle "Kriegsgerät", 1, -1
             Else
                 If .lab3Truppenname_klein.Caption = "" Then
@@ -688,7 +687,7 @@ With frmHauptmenü
                 Drucker.NewPage
                 Schrifthöhe = 100
             End If
-            If .lab2truppenname_klein.Caption = "" Then
+            If .lab2Truppenname_klein.Caption = "" Then
                 Tabelle "Regimenter", 1, -1
             Else
                 If .lab3Truppenname_klein.Caption = "" Then
@@ -760,14 +759,14 @@ If Not picDruckvorschau.Visible Then
 End If
 i = 0
 With frmHauptmenü
-    If .lstcharakteroben.ListCount > 0 Then
-        Do Until i = .lstcharakteroben.ListCount
-            Charakter_anzeigen dsCharakter, .lstcharakteroben.List(i), i
+    If .lstCharakteroben.ListCount > 0 Then
+        Do Until i = .lstCharakteroben.ListCount
+            Charakter_anzeigen dsCharakter, .lstCharakteroben.List(i), i
             If Größe_überprüfen(Schrifthöhe, 0) Then
                 picDruckvorschau.Cls
                 Schrifthöhe = 100
             End If
-            If .lab2truppenname_klein.Caption = "" Then
+            If .lab2Truppenname_klein.Caption = "" Then
                 Tabelle "Charakter", 1, 0
             Else
                 If .lab3Truppenname_klein.Caption = "" Then
@@ -871,7 +870,7 @@ With frmHauptmenü
                 picDruckvorschau.Cls
                 Schrifthöhe = 100
             End If
-            If .lab2truppenname_klein.Caption = "" Then
+            If .lab2Truppenname_klein.Caption = "" Then
                 Tabelle "Kriegsgerät", 1, 0
             Else
                 If .lab3Truppenname_klein.Caption = "" Then
@@ -923,7 +922,7 @@ With frmHauptmenü
                 picDruckvorschau.Cls
                 Schrifthöhe = 100
             End If
-            If .lab2truppenname_klein.Caption = "" Then
+            If .lab2Truppenname_klein.Caption = "" Then
                 Tabelle "Regimenter", 1, 0
             Else
                 If .lab3Truppenname_klein.Caption = "" Then
@@ -1029,7 +1028,7 @@ Do Until i > Zeilenanzahl
 Loop
 
 'Ausrüstung anzeigen
-If (frmHauptmenü.labWaffe <> "" And frmHauptmenü.labWaffe <> "Handwaffe" And frmHauptmenü.labWaffe <> "keine") Or (frmHauptmenü.labRüstung <> "" And frmHauptmenü.labRüstung <> "keine" And frmHauptmenü.labRüstung <> "keine erlaubt") Or (frmHauptmenü.labfernwaffe <> "" And frmHauptmenü.labfernwaffe <> "keine") Then
+If (frmHauptmenü.labWaffe <> "" And frmHauptmenü.labWaffe <> "Handwaffe" And frmHauptmenü.labWaffe <> "keine") Or (frmHauptmenü.labRüstung <> "" And frmHauptmenü.labRüstung <> "keine" And frmHauptmenü.labRüstung <> "keine erlaubt") Or (frmHauptmenü.labFernwaffe <> "" And frmHauptmenü.labFernwaffe <> "keine") Then
     Ausrüstung_anhängen Schrifthöhe + (i - 1) * Zeilenhöhe, Versatz, Drucken
     'Eine Zeile nach unten
     Schrifthöhe = Schrifthöhe + TextHeight("N") + 40
@@ -1079,7 +1078,7 @@ If Truppentyp = "Kriegsgerät" Then
 End If
 
 'Sonderregeln anzeigen
-If frmHauptmenü.labsonderregeln.Caption <> "" Then
+If frmHauptmenü.labSonderregeln.Caption <> "" Then
     Sonderregeln_anzeigen Schrifthöhe + (i - 1) * Zeilenhöhe, Versatz, Drucken
     'Eine Zeile nach unten
     Schrifthöhe = Schrifthöhe + TextHeight("N") + 40
@@ -1172,17 +1171,17 @@ With frmHauptmenü
                 Schreibe .labMW, Schrifthöhe, 9, Drucken
                 Schreibe .labRW, Schrifthöhe, 10, Drucken
             Case Is = 2
-                Schreibe .lab2truppenname_klein, Schrifthöhe, 0, Drucken
+                Schreibe .lab2Truppenname_klein, Schrifthöhe, 0, Drucken
                 Schreibe .labB2, Schrifthöhe, 1, Drucken
                 Schreibe .labKG2, Schrifthöhe, 2, Drucken
                 Schreibe .labBF2, Schrifthöhe, 3, Drucken
                 Schreibe .labS2, Schrifthöhe, 4, Drucken
                 Schreibe .labW2, Schrifthöhe, 5, Drucken
-                Schreibe .lablp2, Schrifthöhe, 6, Drucken
-                Schreibe .labi2, Schrifthöhe, 7, Drucken
-                Schreibe .laba2, Schrifthöhe, 8, Drucken
-                Schreibe .labmw2, Schrifthöhe, 9, Drucken
-                Schreibe .labrw2, Schrifthöhe, 10, Drucken
+                Schreibe .labLP2, Schrifthöhe, 6, Drucken
+                Schreibe .labI2, Schrifthöhe, 7, Drucken
+                Schreibe .labA2, Schrifthöhe, 8, Drucken
+                Schreibe .labMW2, Schrifthöhe, 9, Drucken
+                Schreibe .labRW2, Schrifthöhe, 10, Drucken
             Case Is = 3
                 Schreibe .lab3Truppenname_klein, Schrifthöhe, 0, Drucken
                 Schreibe .labB3, Schrifthöhe, 1, Drucken
@@ -1211,17 +1210,17 @@ With frmHauptmenü
                 Schreibe .labMW, Schrifthöhe, 9, Drucken
                 Schreibe .labRW, Schrifthöhe, 10, Drucken
             Case Is = 2
-                Schreibe .lab2truppenname_klein, Schrifthöhe, 0, Drucken
+                Schreibe .lab2Truppenname_klein, Schrifthöhe, 0, Drucken
                 Schreibe .labB2, Schrifthöhe, 1, Drucken
                 Schreibe .labKG2, Schrifthöhe, 2, Drucken
                 Schreibe .labBF2, Schrifthöhe, 3, Drucken
                 Schreibe .labS2, Schrifthöhe, 4, Drucken
                 Schreibe .labW2, Schrifthöhe, 5, Drucken
-                Schreibe .lablp2, Schrifthöhe, 6, Drucken
-                Schreibe .labi2, Schrifthöhe, 7, Drucken
-                Schreibe .laba2, Schrifthöhe, 8, Drucken
-                Schreibe .labmw2, Schrifthöhe, 9, Drucken
-                Schreibe .labrw2, Schrifthöhe, 10, Drucken
+                Schreibe .labLP2, Schrifthöhe, 6, Drucken
+                Schreibe .labI2, Schrifthöhe, 7, Drucken
+                Schreibe .labA2, Schrifthöhe, 8, Drucken
+                Schreibe .labMW2, Schrifthöhe, 9, Drucken
+                Schreibe .labRW2, Schrifthöhe, 10, Drucken
             Case Is = 3
                 Schreibe .lab3Truppenname_klein, Schrifthöhe, 0, Drucken
                 Schreibe .labB3, Schrifthöhe, 1, Drucken
@@ -1325,8 +1324,8 @@ With frmHauptmenü
     If .labRüstung <> "" And .labRüstung <> "keine" And .labRüstung <> "keine erlaubt" Then
         Abstand_vom_Rand = Ausrüstung_anzeigen(.labRüstung, Abstand_vom_Rand, Schrifthöhe, Drucken)
     End If
-    If .labfernwaffe <> "" And .labfernwaffe <> "keine" Then
-        Abstand_vom_Rand = Ausrüstung_anzeigen(.labfernwaffe, Abstand_vom_Rand, Schrifthöhe, Drucken)
+    If .labFernwaffe <> "" And .labFernwaffe <> "keine" Then
+        Abstand_vom_Rand = Ausrüstung_anzeigen(.labFernwaffe, Abstand_vom_Rand, Schrifthöhe, Drucken)
     End If
 End With
 Senkrechte Rechterrand, Schrifthöhe - Versatz, 1, 4, Drucken
@@ -1339,27 +1338,27 @@ With frmHauptmenü
         Case 1
             If .labOption1.Caption <> "" Then
                 Senkrechte 0, Schrifthöhe - Versatz, 1, 4, Drucken
-                mag_Gegenstand_anzeigen .labOption1, .laboption1_Kategorie, Schrifthöhe, Drucken
+                mag_Gegenstand_anzeigen .labOption1, .labOption1_Kategorie, Schrifthöhe, Drucken
                 mag_Gegenstand_anhängen = 1
                 Senkrechte Rechterrand, Schrifthöhe - Versatz, 1, 4, Drucken
             End If
         Case 2
             If .labOption2.Caption <> "" Then
-                mag_Gegenstand_anzeigen .labOption2, .laboption2_Kategorie, Schrifthöhe, Drucken
+                mag_Gegenstand_anzeigen .labOption2, .labOption2_Kategorie, Schrifthöhe, Drucken
                 Senkrechte 0, Schrifthöhe - Versatz, 1, 4, Drucken
                 mag_Gegenstand_anhängen = 1
                 Senkrechte Rechterrand, Schrifthöhe - Versatz, 1, 4, Drucken
             End If
         Case 3
             If .labOption3.Caption <> "" Then
-                mag_Gegenstand_anzeigen .labOption3, .laboption3_Kategorie, Schrifthöhe, Drucken
+                mag_Gegenstand_anzeigen .labOption3, .labOption3_Kategorie, Schrifthöhe, Drucken
                 Senkrechte 0, Schrifthöhe - Versatz, 1, 4, Drucken
                 mag_Gegenstand_anhängen = 1
                 Senkrechte Rechterrand, Schrifthöhe - Versatz, 1, 4, Drucken
             End If
         Case 4
             If .labOption4.Caption <> "" Then
-                mag_Gegenstand_anzeigen .labOption4, .laboption4_Kategorie, Schrifthöhe, Drucken
+                mag_Gegenstand_anzeigen .labOption4, .labOption4_Kategorie, Schrifthöhe, Drucken
                 Senkrechte 0, Schrifthöhe - Versatz, 1, 4, Drucken
                 mag_Gegenstand_anhängen = 1
                 Senkrechte Rechterrand, Schrifthöhe - Versatz, 1, 4, Drucken
@@ -1560,13 +1559,13 @@ If Drucken Then
     Senkrechte 0, Schrifthöhe - Versatz, 1, 4, Drucken
     Drucker.CurrentX = Drucker.TextWidth("i")
     Drucker.CurrentY = Schrifthöhe
-    Drucker.Print frmHauptmenü.labsonderregeln.Caption
+    Drucker.Print frmHauptmenü.labSonderregeln.Caption
     Senkrechte Rechterrand, Schrifthöhe - Versatz, 1, 4, Drucken
 Else
     Senkrechte 0, Schrifthöhe - Versatz, 1, 4, Drucken
     picDruckvorschau.CurrentX = Drucker.TextWidth("i")
     picDruckvorschau.CurrentY = Schrifthöhe
-    picDruckvorschau.Print frmHauptmenü.labsonderregeln.Caption
+    picDruckvorschau.Print frmHauptmenü.labSonderregeln.Caption
     Senkrechte Rechterrand, Schrifthöhe - Versatz, 1, 4, Drucken
 End If
 End Sub
@@ -1749,14 +1748,14 @@ Dim Anzunehmende_Schrifthöhe As Integer
 Zeilenanzahl = 3
 With frmHauptmenü
     'Zeilen für zweite und dritte Charakteristik
-    If .lab2truppenname_klein.Caption <> "" Then
+    If .lab2Truppenname_klein.Caption <> "" Then
         Zeilenanzahl = Zeilenanzahl + 1
         If .lab3Truppenname_klein.Caption <> "" Then
             Zeilenanzahl = Zeilenanzahl + 1
         End If
     End If
     'Zeile für Standardausrüstung
-    If (.labWaffe <> "" And .labWaffe <> "Handwaffe" And .labWaffe <> "Keule") Or (.labRüstung <> "" And .labRüstung <> "keine" And .labRüstung <> "keine erlaubt") Or (.labfernwaffe <> "" And .labfernwaffe <> "keine") Then
+    If (.labWaffe <> "" And .labWaffe <> "Handwaffe" And .labWaffe <> "Keule") Or (.labRüstung <> "" And .labRüstung <> "keine" And .labRüstung <> "keine erlaubt") Or (.labFernwaffe <> "" And .labFernwaffe <> "keine") Then
         Zeilenanzahl = Zeilenanzahl + 1
     End If
     'Zeile  Für Zusatzausrüstung
@@ -1775,19 +1774,19 @@ With frmHauptmenü
         Zeilenanzahl = Zeilenanzahl + 1
     End If
     'Zeilen für magische Gegenstände
-    If .laboption1_Kategorie <> "" Then
+    If .labOption1_Kategorie <> "" Then
         Zeilenanzahl = Zeilenanzahl + 1
     End If
-    If .laboption2_Kategorie <> "" Then
+    If .labOption2_Kategorie <> "" Then
         Zeilenanzahl = Zeilenanzahl + 1
     End If
-    If .laboption3_Kategorie <> "" Then
+    If .labOption3_Kategorie <> "" Then
         Zeilenanzahl = Zeilenanzahl + 1
     End If
-    If .laboption4_Kategorie <> "" Then
+    If .labOption4_Kategorie <> "" Then
         Zeilenanzahl = Zeilenanzahl + 1
     End If
-    If .labsonderregeln.Caption <> "" Then
+    If .labSonderregeln.Caption <> "" Then
         Zeilenanzahl = Zeilenanzahl + 1
     End If
     'Zeilen für Zwergenrunen
@@ -1920,14 +1919,14 @@ Do Until i = lstDrucken.ListCount Or Seitenumbruch
             PosRechteKlammer = InStr(lstDrucken.List(i), ")")
             Truppennummer = Mid(lstDrucken.List(i), PosLinkeKlammer + 1, PosRechteKlammer - PosLinkeKlammer - 1)
             
-            Charakter_anzeigen dsCharakter, frmHauptmenü.lstcharakteroben.List(Truppennummer - 1), Truppennummer - 1
+            Charakter_anzeigen dsCharakter, frmHauptmenü.lstCharakteroben.List(Truppennummer - 1), Truppennummer - 1
             If Größe_überprüfen(Schrifthöhe, 0) Then
                 Seitenumbruch = -1
             End If
             If Seitenumbruch Then
                 i = i - 1
             Else
-                If frmHauptmenü.lab2truppenname_klein.Caption = "" Then
+                If frmHauptmenü.lab2Truppenname_klein.Caption = "" Then
                     Tabelle "Charakter", 1, 0
                 Else
                     If frmHauptmenü.lab3Truppenname_klein.Caption = "" Then
@@ -1948,7 +1947,7 @@ Do Until i = lstDrucken.ListCount Or Seitenumbruch
             If Seitenumbruch Then
                 i = i - 1
             Else
-                If frmHauptmenü.lab2truppenname_klein.Caption = "" Then
+                If frmHauptmenü.lab2Truppenname_klein.Caption = "" Then
                     Tabelle "Regimenter", 1, 0
                 Else
                     If frmHauptmenü.lab3Truppenname_klein.Caption = "" Then
@@ -1969,7 +1968,7 @@ Do Until i = lstDrucken.ListCount Or Seitenumbruch
             If Seitenumbruch Then
                 i = i - 1
             Else
-                If frmHauptmenü.lab2truppenname_klein.Caption = "" Then
+                If frmHauptmenü.lab2Truppenname_klein.Caption = "" Then
                     Tabelle "Kriegsgerät", 1, 0
                 Else
                     If frmHauptmenü.lab3Truppenname_klein.Caption = "" Then
@@ -2036,12 +2035,12 @@ Do Until i = lstDrucken.ListCount
             PosLinkeKlammer = InStr(lstDrucken.List(i), "(")
             PosRechteKlammer = InStr(lstDrucken.List(i), ")")
             Truppennummer = Mid(lstDrucken.List(i), PosLinkeKlammer + 1, PosRechteKlammer - PosLinkeKlammer - 1)
-            Charakter_anzeigen dsCharakter, frmHauptmenü.lstcharakteroben.List(Truppennummer - 1), (Truppennummer - 1)
+            Charakter_anzeigen dsCharakter, frmHauptmenü.lstCharakteroben.List(Truppennummer - 1), (Truppennummer - 1)
             If Größe_überprüfen(Schrifthöhe, -1) Then
                 Drucker.NewPage
                 Schrifthöhe = 100
             End If
-            If frmHauptmenü.lab2truppenname_klein.Caption = "" Then
+            If frmHauptmenü.lab2Truppenname_klein.Caption = "" Then
                 Tabelle "Charakter", 1, -1
             Else
                 If frmHauptmenü.lab3Truppenname_klein.Caption = "" Then
@@ -2059,7 +2058,7 @@ Do Until i = lstDrucken.ListCount
                 Drucker.NewPage
                 Schrifthöhe = 100
             End If
-            If frmHauptmenü.lab2truppenname_klein.Caption = "" Then
+            If frmHauptmenü.lab2Truppenname_klein.Caption = "" Then
                 Tabelle "Regimenter", 1, -1
             Else
                 If frmHauptmenü.lab3Truppenname_klein.Caption = "" Then
@@ -2077,7 +2076,7 @@ Do Until i = lstDrucken.ListCount
                 Drucker.NewPage
                 Schrifthöhe = 100
             End If
-            If frmHauptmenü.lab2truppenname_klein.Caption = "" Then
+            If frmHauptmenü.lab2Truppenname_klein.Caption = "" Then
                 Tabelle "Kriegsgerät", 1, -1
             Else
                 If frmHauptmenü.lab3Truppenname_klein.Caption = "" Then

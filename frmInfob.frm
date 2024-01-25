@@ -1,4 +1,4 @@
-VERSION 4.00
+VERSION 5.00
 Begin VB.Form frmInfobox 
    BackColor       =   &H00800000&
    BorderStyle     =   0  'None
@@ -8,17 +8,14 @@ Begin VB.Form frmInfobox
    ClientTop       =   3780
    ClientWidth     =   2340
    FillColor       =   &H00004080&
-   Height          =   1455
-   Left            =   5775
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MDIChild        =   -1  'True
    MinButton       =   0   'False
+   PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   1050
    ScaleWidth      =   2340
    ShowInTaskbar   =   0   'False
-   Top             =   3435
-   Width           =   2460
    Begin VB.Label labRune3 
       BackColor       =   &H00800000&
       ForeColor       =   &H00E0E0E0&
@@ -48,7 +45,9 @@ Begin VB.Form frmInfobox
    End
 End
 Attribute VB_Name = "frmInfobox"
+Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
