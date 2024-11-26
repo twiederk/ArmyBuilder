@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="Warhammer Armeelisten (v0.1.0.0)" Height="450" Width="800">
     <Grid>
+        <Menu>
+            <MenuItem Header="_Datei">
+                <MenuItem Header="_Neu..." Padding="0,0,0,0" Margin="0,0,0,0" Click="NewMenuItem_Click"/>
+            </MenuItem>
+        </Menu>
 
     </Grid>
 </Window>
