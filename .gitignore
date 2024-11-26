@@ -364,3 +364,8 @@ FodyWeavers.xsd
 
 # Sqlite
 sqlite3.exe
+
+# Visual Studio Code
+ArmyBuilder/.vscode/
+ArmyBuilder/ArmyBuilder.sln
+
