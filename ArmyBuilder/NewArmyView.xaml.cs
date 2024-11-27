@@ -1,28 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ArmyBuilder
 {
-    /// <summary>
-    /// Interaction logic for NewArmyView.xaml
-    /// </summary>
     public partial class NewArmyView : UserControl
     {
         public NewArmyView()
         {
             InitializeComponent();
+            ArmyListBox.Items.Add("Hochelfen");
+            ArmyListBox.Items.Add("Zwerge");
         }
+
+        private void Ok_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = Window.GetWindow(this);
+            window.Content = new ArmyView();
+        }
+
     }
+
+
 }
