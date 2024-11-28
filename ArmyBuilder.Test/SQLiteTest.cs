@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Data.SQLite;
 using Dapper.Contrib.Extensions;
-using ArmyBuilder;
+using ArmyBuilder.Domain;
 
 namespace ArmyBuilder.Test
 {
@@ -23,13 +23,5 @@ namespace ArmyBuilder.Test
             armyLists.Should().HaveCount(15);
         }
     }
-
-    [Table("Army")]
-    internal class ArmyList
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-
 
 }
