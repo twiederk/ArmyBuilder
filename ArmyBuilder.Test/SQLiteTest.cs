@@ -1,9 +1,8 @@
 using FluentAssertions;
-using System.Data.SqlClient;
 using System.Data;
 using System.Data.SQLite;
 using Dapper.Contrib.Extensions;
-using ArmyBuilder.Domain;
+using ArmyBuilder.Domain ;
 
 namespace ArmyBuilder.Test
 {
