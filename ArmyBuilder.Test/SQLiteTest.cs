@@ -1,5 +1,9 @@
 using FluentAssertions;
+using System.Data.SqlClient;
+using System.Data;
 using System.Data.SQLite;
+using Dapper.Contrib.Extensions;
+using ArmyBuilder;
 
 namespace ArmyBuilder.Test
 {
@@ -10,17 +14,22 @@ namespace ArmyBuilder.Test
         {
             // arrange
             string connectionString = "Data Source=db/ArmyBuilderTest.db";
-            SQLiteConnection connection = new SQLiteConnection(connectionString);
-            connection.Open();
+            IDbConnection db = new SQLiteConnection(connectionString);
 
             // act
-            SQLiteCommand command = new SQLiteCommand("SELECT * FROM Army", connection);
-            SQLiteDataReader reader = command.ExecuteReader();
+            var armyLists = db.GetAll<ArmyList>().ToList();
 
             // assert
-
-            // tear down
-            connection.Close();
+            armyLists.Should().HaveCount(15);
         }
     }
+
+    [Table("Army")]
+    internal class ArmyList
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
+
 }
