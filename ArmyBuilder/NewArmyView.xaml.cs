@@ -9,13 +9,10 @@ namespace ArmyBuilder
 {
     public partial class NewArmyView : UserControl
     {
-        public NewArmyView()
+        public NewArmyView(IArmyBuilderRepository repository)
         {
             InitializeComponent();
 
-            string connectionString = "Data Source=db/ArmyBuilder.db";
-            IDbConnection dbConnection = new SQLiteConnection(connectionString);
-            IArmyBuilderRepository repository = new ArmyBuilderRepositorySqlite(dbConnection);
 
             List<ArmyList> armyLists = repository.ArmyLists();
 

@@ -5,10 +5,10 @@ namespace ArmyBuilder
 {
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(StartView startView)
         {
             InitializeComponent();
-            MainContent.Content = new StartView();
+            MainContent.Content = startView;
         }
     }
 }
