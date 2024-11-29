@@ -1,4 +1,5 @@
 ﻿using ArmyBuilder.Dao;
+using ArmyBuilder.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System.Data;
 using System.Data.SQLite;
@@ -20,6 +21,7 @@ namespace ArmyBuilder
 
             collection.AddSingleton(dbConnection);
             collection.AddSingleton<IArmyBuilderRepository,ArmyBuilderRepositorySqlite>();
+            collection.AddSingleton<ArmyViewModel>();
             collection.AddSingleton<MainWindow>();
 
             collection.AddTransient<StartView>();
