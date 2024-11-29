@@ -1,4 +1,4 @@
-﻿PRAGMA foreign_keys=OFF;
+﻿PRAGMA foreign_keys=ON;
 BEGIN TRANSACTION;
 CREATE TABLE IF NOT EXISTS "ArmyList"("Id" integer,"Name" varchar(50));
 INSERT INTO ArmyList VALUES(0,'Bretonnen');
