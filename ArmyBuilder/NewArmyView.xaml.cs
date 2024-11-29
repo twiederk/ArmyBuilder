@@ -1,9 +1,8 @@
-﻿using System.Data;
-using System.Data.SQLite;
+﻿using ArmyBuilder.Dao;
+using ArmyBuilder.Domain;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using ArmyBuilder.Dao;
-using ArmyBuilder.Domain;
 
 namespace ArmyBuilder
 {

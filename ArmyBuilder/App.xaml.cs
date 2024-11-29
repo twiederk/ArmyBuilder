@@ -1,6 +1,5 @@
 ﻿using ArmyBuilder.Dao;
 using Microsoft.Extensions.DependencyInjection;
-using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
 using System.Windows;
@@ -19,9 +18,10 @@ namespace ArmyBuilder
             string connectionString = "Data Source=db/ArmyBuilder.db";
             IDbConnection dbConnection = new SQLiteConnection(connectionString);
 
-            collection.AddSingleton<IDbConnection>(dbConnection);
+            collection.AddSingleton(dbConnection);
             collection.AddSingleton<IArmyBuilderRepository,ArmyBuilderRepositorySqlite>();
             collection.AddSingleton<MainWindow>();
+
             collection.AddTransient<StartView>();
             collection.AddTransient<NewArmyView>();
             collection.AddTransient<ArmyView>();
