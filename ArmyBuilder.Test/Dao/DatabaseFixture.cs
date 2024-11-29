@@ -11,18 +11,15 @@ namespace ArmyBuilder.Test.Dao
 
         public DatabaseFixture()
         {
-            // Open the database connection
             string connectionString = "Data Source=db/ArmyBuilderTest.db";
             DbConnection = new SQLiteConnection(connectionString);
             DbConnection.Open();
 
-            // Initialize the repository
             Repository = new ArmyBuilderRepositorySqlite(DbConnection);
         }
 
         public void Dispose()
         {
-            // Close the database connection
             DbConnection.Close();
             DbConnection.Dispose();
         }
