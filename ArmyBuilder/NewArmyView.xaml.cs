@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System.Data;
+using System.Data.SQLite;
+using System.Windows;
 using System.Windows.Controls;
+using ArmyBuilder.Dao;
+using ArmyBuilder.Domain;
 
 namespace ArmyBuilder
 {
@@ -8,8 +12,16 @@ namespace ArmyBuilder
         public NewArmyView()
         {
             InitializeComponent();
-            ArmyListBox.Items.Add("Hochelfen");
-            ArmyListBox.Items.Add("Zwerge");
+
+            string connectionString = "Data Source=db/ArmyBuilder.db";
+            IDbConnection dbConnection = new SQLiteConnection(connectionString);
+            IArmyBuilderRepository repository = new ArmyBuilderRepositorySqlite(dbConnection);
+
+            List<ArmyList> armyLists = repository.ArmyLists();
+
+            var sortedArmyLists = armyLists.OrderBy(al => al.Name).ToList();
+            ArmyListBox.ItemsSource = sortedArmyLists;
+            ArmyListBox.DisplayMemberPath = "Name";
         }
 
         private void Ok_Click(object sender, RoutedEventArgs e)
