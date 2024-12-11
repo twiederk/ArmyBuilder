@@ -2,7 +2,7 @@ using Dapper.Contrib.Extensions;
 
 namespace ArmyBuilder.Domain {
 
-    [Table("ArmyList")]
+    [Table("army_list")]
     public class ArmyList
     {
         public int Id { get; set; }
