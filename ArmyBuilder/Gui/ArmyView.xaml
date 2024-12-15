@@ -8,5 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Label Content="{Binding SelectedArmyList.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10"/>
+        <ListBox ItemsSource="{Binding MainModels}" DisplayMemberPath="Name" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,40,10,10"/>
     </Grid>
 </UserControl>
+
