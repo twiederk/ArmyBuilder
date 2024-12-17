@@ -20,16 +20,17 @@
             <ColumnDefinition Width = "10" />
             <ColumnDefinition Width = "*" />
             <ColumnDefinition Width = "10" />
+            <ColumnDefinition Width = "*" />
+            <ColumnDefinition Width = "10" />
         </Grid.ColumnDefinitions>
         
         <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedArmyList.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10"/>
-        <ListBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding MainModels}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,40,10,10"/>
-        <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Margin="10,150,10,10">
-            <Label Content="{Binding SelectedMainModel.Name}" HorizontalAlignment="Center" Margin="10"/>
-            <Label Content="{Binding SelectedMainModel.Description}" HorizontalAlignment="Center" Margin="10"/>
-            <Label Content="{Binding SelectedMainModel.Points}" HorizontalAlignment="Center" Margin="10"/>
-        </StackPanel>
-    </Grid>
+        <ListBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding MainModels}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Label Content="{Binding SelectedMainModel.Name}" Margin="10"/>
+            <Label Content="{Binding SelectedMainModel.Description}" Margin="10"/>
+            <Label Content="{Binding SelectedMainModel.Points}" Margin="10"/>
+        </StackPanel>    </Grid>
 </UserControl>
 
 
