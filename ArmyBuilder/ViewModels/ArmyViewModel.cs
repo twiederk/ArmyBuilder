@@ -10,6 +10,7 @@ namespace ArmyBuilder.ViewModels
         private readonly IArmyBuilderRepository _repository;
         private ArmyList _selectedArmyList;
         private List<MainModel> _mainModels;
+        private MainModel _selectedMainModel;
 
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
@@ -37,6 +38,16 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
+        public MainModel SelectedMainModel
+        {
+            get => _selectedMainModel;
+            set
+            {
+                _selectedMainModel = value;
+                OnPropertyChanged(nameof(SelectedMainModel));
+            }
+        }
+
         private void LoadMainModels()
         {
             if (_selectedArmyList != null)
@@ -57,4 +68,5 @@ namespace ArmyBuilder.ViewModels
         }
     }
 }
+
 
