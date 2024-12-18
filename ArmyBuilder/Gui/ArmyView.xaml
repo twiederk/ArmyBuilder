@@ -26,18 +26,32 @@
 
         <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedArmyList.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <ListBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding MainModels}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
-        <ItemsControl Grid.Row="3" Grid.Column="1" ItemsSource="{Binding SelectedMainModel.SingleModels}" Margin="10">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding Name}" Margin="5"/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Label Content="{Binding SelectedMainModel.Name}" Margin="10"/>
-            <Label Content="{Binding SelectedMainModel.Description}" Margin="10"/>
-            <Label Content="{Binding SelectedMainModel.Points}" Margin="10"/>
-        </StackPanel>
+        
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Label Content="{Binding SelectedMainModel.Name}" Margin="10"/>
+                <Label Content="{Binding SelectedMainModel.Description}" Margin="10"/>
+                <Label Content="{Binding SelectedMainModel.Points}" Margin="10"/>
+            </StackPanel>
+
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding SelectedMainModel.SingleModels}" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Name}" Margin="5"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </Grid>
+
     </Grid>
 </UserControl>
 
