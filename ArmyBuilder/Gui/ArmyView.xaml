@@ -9,26 +9,27 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height = "10" />
-            <RowDefinition Height = "30" />
-            <RowDefinition Height = "*" />
-            <RowDefinition Height = "*" />
-            <RowDefinition Height = "10" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width = "10" />
-            <ColumnDefinition Width = "*" />
-            <ColumnDefinition Width = "10" />
-            <ColumnDefinition Width = "*" />
-            <ColumnDefinition Width = "10" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedArmyList.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <ListBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding MainModels}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
-        
+
         <Grid Grid.Row="3" Grid.Column="1">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
@@ -36,16 +37,72 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                 <Label Content="{Binding SelectedMainModel.Name}" Margin="10"/>
                 <Label Content="{Binding SelectedMainModel.Description}" Margin="10"/>
                 <Label Content="{Binding SelectedMainModel.Points}" Margin="10"/>
             </StackPanel>
 
-            <ItemsControl Grid.Row="1" ItemsSource="{Binding SelectedMainModel.SingleModels}" Margin="10">
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Name" />
+                <Label Grid.Row="0" Grid.Column="1" Content="B" />
+                <Label Grid.Row="0" Grid.Column="2" Content="KG" />
+                <Label Grid.Row="0" Grid.Column="3" Content="BF" />
+                <Label Grid.Row="0" Grid.Column="4" Content="S" />
+                <Label Grid.Row="0" Grid.Column="5" Content="W" />
+                <Label Grid.Row="0" Grid.Column="6" Content="LP" />
+                <Label Grid.Row="0" Grid.Column="7" Content="I" />
+                <Label Grid.Row="0" Grid.Column="8" Content="A" />
+                <Label Grid.Row="0" Grid.Column="9" Content="MW" />
+            </Grid>
+
+            <ItemsControl Grid.Row="2" Grid.Column="0" ItemsSource="{Binding SelectedMainModel.SingleModels}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Label Content="{Binding Name}" Margin="5"/>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Name}" />
+                            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Profile.Movement}" />
+                            <Label Grid.Row="1" Grid.Column="2" Content="{Binding Profile.WeaponSkill}" />
+                            <Label Grid.Row="1" Grid.Column="3" Content="{Binding Profile.BallisticSkill}" />
+                            <Label Grid.Row="1" Grid.Column="4" Content="{Binding Profile.Strength}" />
+                            <Label Grid.Row="1" Grid.Column="5" Content="{Binding Profile.Toughness}" />
+                            <Label Grid.Row="1" Grid.Column="6" Content="{Binding Profile.Wounds}" />
+                            <Label Grid.Row="1" Grid.Column="7" Content="{Binding Profile.Initiative}" />
+                            <Label Grid.Row="1" Grid.Column="8" Content="{Binding Profile.Attacks}" />
+                            <Label Grid.Row="1" Grid.Column="9" Content="{Binding Profile.Moral}" />
+                        </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
