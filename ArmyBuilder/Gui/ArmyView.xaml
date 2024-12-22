@@ -39,8 +39,8 @@
             <TabItem Header="Monster">
                 <ListBox ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
             </TabItem>
-        </TabControl>        
-        
+        </TabControl>
+
         <Grid Grid.Row="3" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -106,7 +106,7 @@
                                 <ColumnDefinition Width="35" />
                                 <ColumnDefinition Width="35" />
                             </Grid.ColumnDefinitions>
-                            
+
                             <Label Grid.Row="1" Grid.Column="0" Content="{Binding Name}" />
                             <Label Grid.Row="1" Grid.Column="1" Content="{Binding Profile.Movement}" />
                             <Label Grid.Row="1" Grid.Column="2" Content="{Binding Profile.WeaponSkill}" />
@@ -118,7 +118,7 @@
                             <Label Grid.Row="1" Grid.Column="8" Content="{Binding Profile.Attacks}" />
                             <Label Grid.Row="1" Grid.Column="9" Content="{Binding Profile.Moral}" />
                         </Grid>
-                        
+
 
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
@@ -129,22 +129,34 @@
         </Grid>
 
         <ScrollViewer Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <TreeView>
-                <TreeViewItem Header="Army List">
-                    <TreeViewItem Header="Infantry">
-                        <TreeViewItem Header="Spearmen"/>
-                        <TreeViewItem Header="Archers"/>
-                    </TreeViewItem>
-                    <TreeViewItem Header="Cavalry">
-                        <TreeViewItem Header="Knights"/>
-                        <TreeViewItem Header="Light Horsemen"/>
-                    </TreeViewItem>
-                </TreeViewItem>
+            
+            <TreeView ItemsSource="{Binding TreeViewModel.RootItems}">
+                
+                <TreeView.Resources>
+                    <DataTemplate x:Key="TreeViewItemTemplate">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" />
+                            <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" />
+                        </Grid>
+                    </DataTemplate>
+                </TreeView.Resources>
+                
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Children}" ItemTemplate="{StaticResource TreeViewItemTemplate}">
+                        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TreeViewItemTemplate}" />
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+                
             </TreeView>
+            
         </ScrollViewer>
-        
+
     </Grid>
-    
+
 </UserControl>
 
 
