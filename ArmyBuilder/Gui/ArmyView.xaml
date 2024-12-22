@@ -27,16 +27,16 @@
         <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedArmyList.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" />
 
         <TabControl Grid.Row="2" Grid.Column="1" >
-            <TabItem Header="Characters">
+            <TabItem Header="Charaktere">
                 <ListBox ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
             </TabItem>
-            <TabItem Header="Troopers">
+            <TabItem Header="Regimenter">
                 <ListBox ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
             </TabItem>
-            <TabItem Header="War Machines">
+            <TabItem Header="Kriegsgeräte">
                 <ListBox ItemsSource="{Binding WarMachines}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
             </TabItem>
-            <TabItem Header="Monsters">
+            <TabItem Header="Monster">
                 <ListBox ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
             </TabItem>
         </TabControl>        
