@@ -128,7 +128,23 @@
 
         </Grid>
 
+        <ScrollViewer Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <TreeView>
+                <TreeViewItem Header="Army List">
+                    <TreeViewItem Header="Infantry">
+                        <TreeViewItem Header="Spearmen"/>
+                        <TreeViewItem Header="Archers"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Cavalry">
+                        <TreeViewItem Header="Knights"/>
+                        <TreeViewItem Header="Light Horsemen"/>
+                    </TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
+        </ScrollViewer>
+        
     </Grid>
+    
 </UserControl>
 
 
