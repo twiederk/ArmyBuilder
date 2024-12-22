@@ -31,13 +31,18 @@ namespace ArmyBuilder
 
         private void Ok_Click(object sender, RoutedEventArgs e)
         {
+            if (ArmyListBox.SelectedItem == null)
+            {
+                MessageBox.Show("Bitte eine Armeeliste auswählen!", "Auswahl erforderlich");
+                return;
+            }
+
             if (ArmyListBox.SelectedItem is ArmyList selectedArmyList)
             {
                 _armyViewModel.SelectedArmyList = selectedArmyList;
+                Window window = Window.GetWindow(this);
+                window.Content = _serviceProvider.GetRequiredService<ArmyView>();
             }
-
-            Window window = Window.GetWindow(this);
-            window.Content = _serviceProvider.GetRequiredService<ArmyView>();
         }
     }
 }

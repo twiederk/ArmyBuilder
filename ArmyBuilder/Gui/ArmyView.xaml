@@ -5,10 +5,130 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ArmyBuilder"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="1200">
     <Grid>
-        <Label Content="{Binding SelectedArmyList.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10"/>
-        <ListBox ItemsSource="{Binding MainModels}" DisplayMemberPath="Name" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,40,10,10"/>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedArmyList.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" />
+
+        <TabControl Grid.Row="2" Grid.Column="1" >
+            <TabItem Header="Charaktere">
+                <ListBox ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+            </TabItem>
+            <TabItem Header="Regimenter">
+                <ListBox ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+            </TabItem>
+            <TabItem Header="Kriegsgeräte">
+                <ListBox ItemsSource="{Binding WarMachines}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+            </TabItem>
+            <TabItem Header="Monster">
+                <ListBox ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+            </TabItem>
+        </TabControl>        
+        
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="{Binding SelectedMainModel.Name}" HorizontalAlignment="Left" />
+            <Label Grid.Row="0" Grid.Column="0" Content="{Binding SelectedMainModel.Points}" HorizontalAlignment="Right" />
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="35" />
+                    <ColumnDefinition Width="35" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Name" Background="DarkGray"/>
+                <Label Grid.Row="0" Grid.Column="1" Content="B" Background="DarkGray" />
+                <Label Grid.Row="0" Grid.Column="2" Content="KG" Background="DarkGray" />
+                <Label Grid.Row="0" Grid.Column="3" Content="BF" Background="DarkGray" />
+                <Label Grid.Row="0" Grid.Column="4" Content="S" Background="DarkGray" />
+                <Label Grid.Row="0" Grid.Column="5" Content="W" Background="DarkGray" />
+                <Label Grid.Row="0" Grid.Column="6" Content="LP" Background="DarkGray" />
+                <Label Grid.Row="0" Grid.Column="7" Content="I" Background="DarkGray" />
+                <Label Grid.Row="0" Grid.Column="8" Content="A" Background="DarkGray" />
+                <Label Grid.Row="0" Grid.Column="9" Content="MW" Background="DarkGray" />
+                <Label Grid.Row="0" Grid.Column="10" Content="RW" Background="DarkGray" />
+            </Grid>
+
+            <ItemsControl Grid.Row="2" Grid.Column="0" ItemsSource="{Binding SelectedMainModel.SingleModels}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="35" />
+                                <ColumnDefinition Width="35" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Name}" />
+                            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Profile.Movement}" />
+                            <Label Grid.Row="1" Grid.Column="2" Content="{Binding Profile.WeaponSkill}" />
+                            <Label Grid.Row="1" Grid.Column="3" Content="{Binding Profile.BallisticSkill}" />
+                            <Label Grid.Row="1" Grid.Column="4" Content="{Binding Profile.Strength}" />
+                            <Label Grid.Row="1" Grid.Column="5" Content="{Binding Profile.Toughness}" />
+                            <Label Grid.Row="1" Grid.Column="6" Content="{Binding Profile.Wounds}" />
+                            <Label Grid.Row="1" Grid.Column="7" Content="{Binding Profile.Initiative}" />
+                            <Label Grid.Row="1" Grid.Column="8" Content="{Binding Profile.Attacks}" />
+                            <Label Grid.Row="1" Grid.Column="9" Content="{Binding Profile.Moral}" />
+                        </Grid>
+                        
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="{Binding SelectedMainModel.Description}" />
+
+        </Grid>
+
     </Grid>
 </UserControl>
+
 
