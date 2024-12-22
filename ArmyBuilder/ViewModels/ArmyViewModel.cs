@@ -86,10 +86,10 @@ namespace ArmyBuilder.ViewModels
             if (_selectedArmyList != null)
             {
                 var mainModels = _repository.MainModels(_selectedArmyList.Id);
-                Characters = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Character);
-                Troopers = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Trooper);
-                WarMachines = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.WarMachine);
-                Monsters = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Monster);
+                Characters = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
+                Troopers = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
+                WarMachines = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).ToList();
+                Monsters = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Monster).OrderBy(mm => mm.Name).ToList();
             }
             else
             {
