@@ -25,8 +25,22 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedArmyList.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" />
-        <ListBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding MainModels}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
 
+        <TabControl Grid.Row="2" Grid.Column="1" >
+            <TabItem Header="Characters">
+                <ListBox ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+            </TabItem>
+            <TabItem Header="Troopers">
+                <ListBox ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+            </TabItem>
+            <TabItem Header="War Machines">
+                <ListBox ItemsSource="{Binding WarMachines}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+            </TabItem>
+            <TabItem Header="Monsters">
+                <ListBox ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+            </TabItem>
+        </TabControl>        
+        
         <Grid Grid.Row="3" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
