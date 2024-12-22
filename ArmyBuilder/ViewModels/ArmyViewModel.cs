@@ -9,7 +9,6 @@ namespace ArmyBuilder.ViewModels
     {
         private readonly IArmyBuilderRepository _repository;
         private ArmyList _selectedArmyList;
-        private List<MainModel> _mainModels;
         private List<MainModel> _characters;
         private List<MainModel> _troopers;
         private List<MainModel> _warMachines;
@@ -30,16 +29,6 @@ namespace ArmyBuilder.ViewModels
                 _selectedArmyList = value;
                 OnPropertyChanged(nameof(SelectedArmyList));
                 LoadMainModels();
-            }
-        }
-
-        public List<MainModel> MainModels
-        {
-            get => _mainModels;
-            private set
-            {
-                _mainModels = value;
-                OnPropertyChanged(nameof(MainModels));
             }
         }
 
@@ -96,15 +85,14 @@ namespace ArmyBuilder.ViewModels
         {
             if (_selectedArmyList != null)
             {
-                MainModels = _repository.MainModels(_selectedArmyList.Id);
-                Characters = MainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Character);
-                Troopers = MainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Trooper);
-                WarMachines = MainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.WarMachine);
-                Monsters = MainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Monster);
+                var mainModels = _repository.MainModels(_selectedArmyList.Id);
+                Characters = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Character);
+                Troopers = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Trooper);
+                WarMachines = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.WarMachine);
+                Monsters = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Monster);
             }
             else
             {
-                MainModels = new List<MainModel>();
                 Characters = new List<MainModel>();
                 Troopers = new List<MainModel>();
                 WarMachines = new List<MainModel>();
