@@ -1,4 +1,5 @@
-﻿namespace ArmyBuilder.Test.Domain
+﻿
+namespace ArmyBuilder.Test.Domain
 {
     public class Army
     {
@@ -9,5 +10,9 @@
             this.Name = name;
         }
 
+        public int Points()
+        {
+            return 100;
+        }
     }
 }

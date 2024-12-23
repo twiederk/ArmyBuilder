@@ -16,5 +16,18 @@ namespace ArmyBuilder.Test.Domain
             army.Name.Should().Be("Test Army");
 
         }
+
+        [Fact]
+        public void should_calculate_points_of_army()
+        {
+            // arrange
+            var army = new Army("Test Army");
+
+            // act
+            var points = army.Points();
+
+            // assert
+            points.Should().Be(100);
+        }
     }
 }
