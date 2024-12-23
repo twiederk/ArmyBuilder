@@ -130,7 +130,7 @@
 
         <ScrollViewer Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             
-            <TreeView Name="trvArmy" ItemsSource="{Binding ArmyTreeViewModel.RootItems}">
+            <TreeView Name="trvArmy" ItemsSource="{Binding ArmyTreeViewModel.Root}">
                 
                 <TreeView.Resources>
                     <HierarchicalDataTemplate  DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Children}">

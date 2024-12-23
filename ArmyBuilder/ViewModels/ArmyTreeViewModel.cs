@@ -6,7 +6,7 @@ namespace ArmyBuilder.ViewModels
 {
     public class ArmyTreeViewModel
     {
-        public ObservableCollection<ArmyTreeNode> RootItems { get; set; }
+        public ObservableCollection<ArmyTreeNode> Root { get; set; }
 
         public ArmyTreeViewModel()
         {
@@ -131,7 +131,7 @@ namespace ArmyBuilder.ViewModels
                     }
                 }
             };
-            RootItems = new ObservableCollection<ArmyTreeNode>
+            Root = new ObservableCollection<ArmyTreeNode>
             {
                 new ArmyTreeNode(army)
             };
