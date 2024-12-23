@@ -15,9 +15,9 @@ namespace ArmyBuilder.ViewModels
             {
                 new Unit("Generalseinheit")
                 {
-                    MainModels = new List<Pair<int, MainModel>>
+                    MainModels = new List<MainModelCount>
                     {
-                        new Pair<int, MainModel>(1, new MainModel()
+                        new MainModelCount(1, new MainModel()
                         {
                             Name = "General",
                             Points = 100,
@@ -41,7 +41,7 @@ namespace ArmyBuilder.ViewModels
                                 }
                             }
                         }),
-                        new Pair<int, MainModel>(20, new MainModel()
+                        new MainModelCount(20, new MainModel()
                         {
                             Name = "Speerträger",
                             Points = 10,
@@ -70,9 +70,9 @@ namespace ArmyBuilder.ViewModels
                 },
                 new Unit("Streitwagen")
                 {
-                    MainModels = new List<Pair<int, MainModel>>
+                    MainModels = new List<MainModelCount>
                     {
-                        new Pair<int, MainModel>(1, new MainModel()
+                        new MainModelCount(1, new MainModel()
                         {
                             Name = "Streitwagen",
                             Points = 70,

@@ -28,7 +28,7 @@ namespace ArmyBuilder.ViewModels
         public void AddUnit(MainModel mainModel)
         {
             var unit = new Unit(mainModel.Name);
-            unit.MainModels.Add(new Pair<int, MainModel>(1, mainModel));
+            unit.MainModels.Add(new MainModelCount(1, mainModel));
             _army.Units.Add(unit);
 
             Children.Add(new UnitTreeNode(unit));

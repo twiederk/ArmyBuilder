@@ -35,7 +35,7 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             Unit unit1 = new Unit("Unit1");
-            unit1.MainModels.Add(new Pair<int, MainModel>(3, new MainModel() { Points = 75 }));
+            unit1.MainModels.Add(new MainModelCount(3, new MainModel() { Points = 75 }));
             Army army = new Army("Army1");
             army.Units.Add(unit1);
 
@@ -52,9 +52,9 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             Unit unit1 = new Unit("Unit1");
-            unit1.MainModels.Add(new Pair<int, MainModel>(3, new MainModel() { Points = 75 }));
+            unit1.MainModels.Add(new MainModelCount(3, new MainModel() { Points = 75 }));
             Unit unit2 = new Unit("Unit2");
-            unit1.MainModels.Add(new Pair<int, MainModel>(4, new MainModel() { Points = 10 }));
+            unit1.MainModels.Add(new MainModelCount(4, new MainModel() { Points = 10 }));
             Army army = new Army("Army1");
             army.Units.Add(unit1);
 
