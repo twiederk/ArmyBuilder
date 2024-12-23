@@ -13,7 +13,12 @@
 
         public int Points()
         {
-            return 75;
+            int totalPoints = 0;
+            foreach (var pair in MainModels)
+            {
+                totalPoints += pair.First * (int)pair.Second.Points;
+            }
+            return totalPoints;
         }
     }
 }
