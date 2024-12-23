@@ -18,7 +18,7 @@ namespace ArmyBuilder.ViewModels
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
             _repository = repository;
-            TreeViewModel = new TreeViewViewModel();
+            TreeViewModel = new ArmyTreeViewModel();
         }
 
         public ArmyList SelectedArmyList
@@ -81,7 +81,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public TreeViewViewModel TreeViewModel { get; }
+        public ArmyTreeViewModel TreeViewModel { get; }
 
         private void LoadMainModels()
         {

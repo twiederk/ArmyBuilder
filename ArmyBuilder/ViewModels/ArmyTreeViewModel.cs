@@ -2,11 +2,11 @@ using System.Collections.ObjectModel;
 
 namespace ArmyBuilder.ViewModels
 {
-    public class TreeViewViewModel
+    public class ArmyTreeViewModel
     {
         public ObservableCollection<TreeViewItemViewModel> RootItems { get; set; }
 
-        public TreeViewViewModel()
+        public ArmyTreeViewModel()
         {
             RootItems = new ObservableCollection<TreeViewItemViewModel>
             {
