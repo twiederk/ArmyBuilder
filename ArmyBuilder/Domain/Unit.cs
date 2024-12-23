@@ -1,4 +1,5 @@
-﻿namespace ArmyBuilder.Domain
+﻿
+namespace ArmyBuilder.Domain
 {
     public class Unit
     {
@@ -19,6 +20,13 @@
                 totalPoints += pair.count * (int)pair.mainModel.Points;
             }
             return totalPoints;
+        }
+
+        public MainModelCount CreateMainModelCount(MainModel mainModel)
+        {
+            var mainModelCount = new MainModelCount(1, mainModel);
+            MainModels.Add(mainModelCount);
+            return mainModelCount;
         }
     }
 }

@@ -58,5 +58,19 @@ namespace ArmyBuilder.Test.Domain
             // assert
             points.Should().Be(180);
         }
+
+        [Fact]
+        public void should_create_main_model_count_when_main_model_is_given()
+        {
+            // arrange
+            var unit = new Unit("Test Unit");
+            var mainModel = new MainModel() { Points = 75 };
+
+            // act
+            var mainModelCount = unit.CreateMainModelCount(mainModel);
+
+            // assert
+            unit.MainModels.Should().Contain(mainModelCount);
+        }
     }
 }

@@ -67,7 +67,7 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
-        public void should_add_unit_to_army_when_unit_is_given()
+        public void should_create_unit_to_army_when_unit_is_given()
         {
             // arrange
             var army = new Army("Test Army");

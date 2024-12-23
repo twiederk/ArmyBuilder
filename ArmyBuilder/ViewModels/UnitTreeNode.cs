@@ -27,10 +27,8 @@ namespace ArmyBuilder.ViewModels
 
         public void AddMainModel(MainModel mainModel)
         {
-            var pair = new MainModelCount(1, mainModel);
-            _unit.MainModels.Add(pair);
-            var mainModelTreeNode = new MainModelTreeNode(pair.mainModel, pair.count);
-            Children.Add(mainModelTreeNode);
+            MainModelCount mainModelCount=  _unit.CreateMainModelCount(mainModel);
+            Children.Add(new MainModelTreeNode(mainModelCount.mainModel, mainModelCount.count));
         }
     }
 }
