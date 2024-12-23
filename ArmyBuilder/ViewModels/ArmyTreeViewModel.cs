@@ -4,59 +4,59 @@ namespace ArmyBuilder.ViewModels
 {
     public class ArmyTreeViewModel
     {
-        public ObservableCollection<ArmyTreeNodeViewModel> RootItems { get; set; }
+        public ObservableCollection<ArmyTreeNode> RootItems { get; set; }
 
         public ArmyTreeViewModel()
         {
-            RootItems = new ObservableCollection<ArmyTreeNodeViewModel>
+            RootItems = new ObservableCollection<ArmyTreeNode>
             {
-                new ArmyTreeNodeViewModel
+                new ArmyTreeNode
                 {
                     Name = "Armee der Hochelfen von Tyr",
                     Value = 0,
-                    Children = new ObservableCollection<UnitTreeNodeViewModel>
+                    Children = new ObservableCollection<UnitTreeNode>
                     {
-                        new UnitTreeNodeViewModel
+                        new UnitTreeNode
                         {
                             Name = "Generalseinheit",
                             Value = 0,
-                            Children = new ObservableCollection<MainModelTreeNodeViewModel>
+                            Children = new ObservableCollection<MainModelTreeNode>
                             {
-                                new MainModelTreeNodeViewModel { 
+                                new MainModelTreeNode { 
                                     Name = "General",
                                     Value = 100,
                                     Count = 1,
-                                    Children = new ObservableCollection<SingleModelTreeNodeViewModel>
+                                    Children = new ObservableCollection<SingleModelTreeNode>
                                     {
-                                        new SingleModelTreeNodeViewModel { Name = "General", Value = 100 },
+                                        new SingleModelTreeNode { Name = "General", Value = 100 },
                                     }
                                 },
-                                new MainModelTreeNodeViewModel {
+                                new MainModelTreeNode {
                                     Name = "Spearmen",
                                     Value = 10,
                                     Count = 20,
-                                    Children = new ObservableCollection<SingleModelTreeNodeViewModel>
+                                    Children = new ObservableCollection<SingleModelTreeNode>
                                     {
-                                        new SingleModelTreeNodeViewModel { Name = "Spearmen", Value = 10 },
+                                        new SingleModelTreeNode { Name = "Spearmen", Value = 10 },
                                     }
                                 },
                             }
                         },
-                        new UnitTreeNodeViewModel
+                        new UnitTreeNode
                         {
                             Name = "Streitwagen",
                             Value = 70,
-                            Children = new ObservableCollection<MainModelTreeNodeViewModel>
+                            Children = new ObservableCollection<MainModelTreeNode>
                             {
-                                new MainModelTreeNodeViewModel {
+                                new MainModelTreeNode {
                                     Name = "Streitwagen",
                                     Value = 70,
                                     Count = 1,
-                                    Children = new ObservableCollection<SingleModelTreeNodeViewModel>
+                                    Children = new ObservableCollection<SingleModelTreeNode>
                                     {
-                                        new SingleModelTreeNodeViewModel { Name = "Streitwagen", Value = 40 },
-                                        new SingleModelTreeNodeViewModel { Name = "Streitwagenlenker", Value = 20 },
-                                        new SingleModelTreeNodeViewModel { Name = "Streitwagenzugtier", Value = 10 },
+                                        new SingleModelTreeNode { Name = "Streitwagen", Value = 40 },
+                                        new SingleModelTreeNode { Name = "Streitwagenlenker", Value = 20 },
+                                        new SingleModelTreeNode { Name = "Streitwagenzugtier", Value = 10 },
                                     }
                                 },
                             }

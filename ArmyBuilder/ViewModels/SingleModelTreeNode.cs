@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 
 namespace ArmyBuilder.ViewModels
 {
-    public class SingleModelTreeNodeViewModel
+    public class SingleModelTreeNode
     {
         public string Name { get; set; }
         public int Value { get; set; }
