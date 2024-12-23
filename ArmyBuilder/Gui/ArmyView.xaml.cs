@@ -67,7 +67,8 @@ namespace ArmyBuilder
                     var armyTreeNode = ((FrameworkElement)sender).DataContext as ArmyTreeNode;
                     if (armyTreeNode != null)
                     {
-                        armyTreeNode.AddUnit(droppedMainModel);
+                        MainModel clonedMainModel = droppedMainModel.Clone();
+                        armyTreeNode.AddUnit(clonedMainModel);
                     }
                 }
             }
@@ -85,7 +86,8 @@ namespace ArmyBuilder
                     var unitTreeNode = ((FrameworkElement)sender).DataContext as UnitTreeNode;
                     if (unitTreeNode != null)
                     {
-                        unitTreeNode.AddMainModel(droppedMainModel);
+                        MainModel clonedMainModel = droppedMainModel.Clone();
+                        unitTreeNode.AddMainModel(clonedMainModel);
                     }
                 }
             }

@@ -8,5 +8,36 @@ namespace ArmyBuilder.Domain
         public string Description { get; set; }
         public float Points { get; set; }
         public List<SingleModel> SingleModels { get; set; } = new List<SingleModel>();
+
+        public MainModel Clone()
+        {
+            return new MainModel
+            {
+                Id = this.Id,
+                ArmyCategory = this.ArmyCategory,
+                Name = this.Name,
+                Description = this.Description,
+                Points = this.Points,
+                SingleModels = this.SingleModels.Select(sm => new SingleModel
+                {
+                    Id = sm.Id,
+                    Name = sm.Name,
+                    Description = sm.Description,
+                    ProfileId = sm.ProfileId,
+                    Profile = new Profile
+                    {
+                        Movement = sm.Profile.Movement,
+                        WeaponSkill = sm.Profile.WeaponSkill,
+                        BallisticSkill = sm.Profile.BallisticSkill,
+                        Strength = sm.Profile.Strength,
+                        Toughness = sm.Profile.Toughness,
+                        Wounds = sm.Profile.Wounds,
+                        Initiative = sm.Profile.Initiative,
+                        Attacks = sm.Profile.Attacks,
+                        Moral = sm.Profile.Moral
+                    }
+                }).ToList()
+            };
+        }
     }
 }
