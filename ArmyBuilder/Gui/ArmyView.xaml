@@ -28,7 +28,7 @@
 
         <TabControl Grid.Row="2" Grid.Column="1" >
             <TabItem Header="Charaktere">
-                <ListBox ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+                <ListBox Name="listCharacters" ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="listCharacters_MouseMove"/>
             </TabItem>
             <TabItem Header="Regimenter">
                 <ListBox ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
@@ -129,12 +129,13 @@
         </Grid>
 
         <ScrollViewer Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            
+
             <TreeView Name="trvArmy" ItemsSource="{Binding ArmyTreeViewModel.Root}">
                 
                 <TreeView.Resources>
-                    <HierarchicalDataTemplate  DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Children}">
-                        <Grid>
+                    
+                    <HierarchicalDataTemplate DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Children}">
+                        <Grid AllowDrop="True" Drop="armyTreeNode_Drop">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
@@ -143,8 +144,9 @@
                             <Label Content="{Binding Points}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Green"/>
                         </Grid>
                     </HierarchicalDataTemplate>
+                    
                     <HierarchicalDataTemplate  DataType="{x:Type viewModels:UnitTreeNode}" ItemsSource="{Binding Children}">
-                        <Grid>
+                        <Grid AllowDrop="True" Drop="unitTreeNode_Drop">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
@@ -153,6 +155,7 @@
                             <Label Content="{Binding Points}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Blue"/>
                         </Grid>
                     </HierarchicalDataTemplate>
+                    
                     <HierarchicalDataTemplate  DataType="{x:Type viewModels:MainModelTreeNode}" ItemsSource="{Binding Children}">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -165,6 +168,7 @@
                             <Label Content="{Binding Points}" Grid.Column="2" HorizontalAlignment="Right" Foreground="Magenta"/>
                         </Grid>
                     </HierarchicalDataTemplate>
+                    
                     <DataTemplate  DataType="{x:Type viewModels:SingleModelTreeNode}" >
                         <Grid>
                             <Grid.RowDefinitions>
