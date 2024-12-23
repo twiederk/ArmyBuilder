@@ -130,7 +130,7 @@
 
         <ScrollViewer Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             
-            <TreeView ItemsSource="{Binding TreeViewModel.RootItems}">
+            <TreeView ItemsSource="{Binding ArmyTreeViewModel.RootItems}">
                 
                 <TreeView.Resources>
                     <DataTemplate x:Key="TreeViewItemTemplate">

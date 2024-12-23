@@ -15,10 +15,12 @@ namespace ArmyBuilder.ViewModels
         private List<MainModel> _monsters;
         private MainModel _selectedMainModel;
 
+        public ArmyTreeViewModel ArmyTreeViewModel { get; }
+
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
             _repository = repository;
-            TreeViewModel = new ArmyTreeViewModel();
+            ArmyTreeViewModel = new ArmyTreeViewModel();
         }
 
         public ArmyList SelectedArmyList
@@ -81,7 +83,6 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public ArmyTreeViewModel TreeViewModel { get; }
 
         private void LoadMainModels()
         {
