@@ -139,8 +139,8 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" />
-                            <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" />
+                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Green"/>
+                            <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Green"/>
                         </Grid>
                     </HierarchicalDataTemplate>
                     <HierarchicalDataTemplate  DataType="{x:Type viewModels:UnitTreeNodeViewModel}" ItemsSource="{Binding Children}">
@@ -149,8 +149,8 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" />
-                            <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" />
+                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Blue"/>
+                            <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Blue"/>
                         </Grid>
                     </HierarchicalDataTemplate>
                     <HierarchicalDataTemplate  DataType="{x:Type viewModels:MainModelTreeNodeViewModel}" ItemsSource="{Binding Children}">
@@ -159,8 +159,8 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" />
-                            <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" />
+                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Magenta"/>
+                            <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Magenta"/>
                         </Grid>
                     </HierarchicalDataTemplate>
                 </TreeView.Resources>
