@@ -16,75 +16,44 @@ namespace ArmyBuilder
 
         private void listCharacters_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                // Get the selected item from listAnimals
-                var selectedItem = listCharacters.SelectedItem;
-
-                if (selectedItem != null)
-                {
-                    // Create a DataObject containing the selected item
-                    DataObject dataObject = new DataObject(selectedItem);
-
-                    // Initialize the drag & drop operation
-                    DragDrop.DoDragDrop(listCharacters, dataObject, DragDropEffects.Move);
-                }
-            }
+            ListBox_MouseMove(sender, e);
         }
 
         private void listTroopers_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                // Get the selected item from listAnimals
-                var selectedItem = listTroopers.SelectedItem;
-
-                if (selectedItem != null)
-                {
-                    // Create a DataObject containing the selected item
-                    DataObject dataObject = new DataObject(selectedItem);
-
-                    // Initialize the drag & drop operation
-                    DragDrop.DoDragDrop(listTroopers, dataObject, DragDropEffects.Move);
-                }
-            }
+            ListBox_MouseMove(sender, e);
         }
 
         private void listWarMachines_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                // Get the selected item from listAnimals
-                var selectedItem = listWarMachines.SelectedItem;
-
-                if (selectedItem != null)
-                {
-                    // Create a DataObject containing the selected item
-                    DataObject dataObject = new DataObject(selectedItem);
-
-                    // Initialize the drag & drop operation
-                    DragDrop.DoDragDrop(listWarMachines, dataObject, DragDropEffects.Move);
-                }
-            }
+            ListBox_MouseMove(sender, e);
         }
 
         private void listMonsters_MouseMove(object sender, MouseEventArgs e)
         {
+            ListBox_MouseMove(sender, e);
+        }
+
+
+        private void ListBox_MouseMove(object sender, MouseEventArgs e)
+        {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                // Get the selected item from listAnimals
-                var selectedItem = listMonsters.SelectedItem;
-
-                if (selectedItem != null)
+                ListBox listBox = sender as ListBox;
+                if (listBox != null)
                 {
-                    // Create a DataObject containing the selected item
-                    DataObject dataObject = new DataObject(selectedItem);
+                    var selectedItem = listBox.SelectedItem;
 
-                    // Initialize the drag & drop operation
-                    DragDrop.DoDragDrop(listMonsters, dataObject, DragDropEffects.Move);
+                    if (selectedItem != null)
+                    {
+                        DataObject dataObject = new DataObject(selectedItem);
+                        DragDrop.DoDragDrop(listBox, dataObject, DragDropEffects.Move);
+                    }
                 }
             }
         }
+
+
 
         private void armyTreeNode_Drop(object sender, DragEventArgs dragEvent)
         {
