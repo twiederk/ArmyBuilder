@@ -46,10 +46,9 @@ namespace ArmyBuilder.ViewModels
                                                 }
                                             }
                                         }
-                                    }
-                                    ) {
-                                    Count = 1
-                                },
+                                    },
+                                    1
+                                ),
                                 new MainModelTreeNode(
                                     new MainModel()
                                     {
@@ -74,10 +73,9 @@ namespace ArmyBuilder.ViewModels
                                                 }
                                             }
                                         }
-                                    }
-                                    ) {
-                                    Count = 20,
-                                },
+                                    },
+                                    20
+                                )
                             }
                         },
                         new UnitTreeNode(
@@ -141,11 +139,10 @@ namespace ArmyBuilder.ViewModels
                                                     Moral = 5
                                                 }
                                             }
-                                        }
-                                        }
-                                    ) {
-                                    Count = 1,
-                                },
+                                        },
+                                    },
+                                    1
+                                )
                             }
                         }
                     }

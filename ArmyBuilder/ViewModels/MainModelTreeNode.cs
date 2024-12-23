@@ -13,9 +13,10 @@ namespace ArmyBuilder.ViewModels
 
         public ObservableCollection<SingleModelTreeNode> Children { get; set; } = new ObservableCollection<SingleModelTreeNode>();
 
-        public MainModelTreeNode(MainModel mainModel)
+        public MainModelTreeNode(MainModel mainModel, int count)
         {
             _mainModel = mainModel;
+            Count = count;
             SetChildren();
         }
 
