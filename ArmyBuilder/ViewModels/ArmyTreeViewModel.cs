@@ -12,28 +12,50 @@ namespace ArmyBuilder.ViewModels
             {
                 new ArmyTreeNodeViewModel
                 {
-                    Name = "Army List",
+                    Name = "Armee der Hochelfen von Tyr",
                     Value = 0,
                     Children = new ObservableCollection<UnitTreeNodeViewModel>
                     {
                         new UnitTreeNodeViewModel
                         {
-                            Name = "Infantry",
+                            Name = "Generalseinheit",
                             Value = 0,
                             Children = new ObservableCollection<MainModelTreeNodeViewModel>
                             {
-                                new MainModelTreeNodeViewModel { Name = "Spearmen", Value = 10 },
-                                new MainModelTreeNodeViewModel { Name = "Archers", Value = 15 }
+                                new MainModelTreeNodeViewModel { 
+                                    Name = "General",
+                                    Value = 100,
+                                    Children = new ObservableCollection<SingleModelTreeNodeViewModel>
+                                    {
+                                        new SingleModelTreeNodeViewModel { Name = "General", Value = 100 },
+                                    }
+                                },
+                                new MainModelTreeNodeViewModel {
+                                    Name = "Spearmen",
+                                    Value = 10,
+                                    Children = new ObservableCollection<SingleModelTreeNodeViewModel>
+                                    {
+                                        new SingleModelTreeNodeViewModel { Name = "Spearmen", Value = 10 },
+                                    }
+                                },
                             }
                         },
                         new UnitTreeNodeViewModel
                         {
-                            Name = "Cavalry",
-                            Value = 0,
+                            Name = "Streitwagen",
+                            Value = 70,
                             Children = new ObservableCollection<MainModelTreeNodeViewModel>
                             {
-                                new MainModelTreeNodeViewModel { Name = "Knights", Value = 20 },
-                                new MainModelTreeNodeViewModel { Name = "Light Horsemen", Value = 25 }
+                                new MainModelTreeNodeViewModel {
+                                    Name = "Streitwagen",
+                                    Value = 70,
+                                    Children = new ObservableCollection<SingleModelTreeNodeViewModel>
+                                    {
+                                        new SingleModelTreeNodeViewModel { Name = "Streitwagen", Value = 40 },
+                                        new SingleModelTreeNodeViewModel { Name = "Streitwagenlenker", Value = 20 },
+                                        new SingleModelTreeNodeViewModel { Name = "Streitwagenzugtier", Value = 10 },
+                                    }
+                                },
                             }
                         }
                     }

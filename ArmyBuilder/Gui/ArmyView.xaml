@@ -163,6 +163,16 @@
                             <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Magenta"/>
                         </Grid>
                     </HierarchicalDataTemplate>
+                    <DataTemplate  DataType="{x:Type viewModels:SingleModelTreeNodeViewModel}" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Black"/>
+                            <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Black"/>
+                        </Grid>
+                    </DataTemplate>
                 </TreeView.Resources>
                                 
             </TreeView>
