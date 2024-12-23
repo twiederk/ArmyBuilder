@@ -1,14 +1,14 @@
 ﻿using ArmyBuilder.Domain;
 public class MainModelCount
 {
-    public int First { get; }
-    public MainModel Second { get; }
+    public int count { get; }
+    public MainModel mainModel { get; }
 
-    public MainModelCount(int first, MainModel second)
+    public MainModelCount(int count, MainModel mainModel)
     {
-        First = first;
-        Second = second;
+        this.count = count;
+        this.mainModel = mainModel;
     }
 
-    public override string ToString() => $"({First}, {Second})";
+    public override string ToString() => $"({count}, {mainModel})";
 }

@@ -21,7 +21,7 @@ namespace ArmyBuilder.ViewModels
         {
             foreach (var mainModel in _unit.MainModels)
             {
-                Children.Add(new MainModelTreeNode(mainModel.Second, mainModel.First));
+                Children.Add(new MainModelTreeNode(mainModel.mainModel, mainModel.count));
             }
         }
 
@@ -29,7 +29,7 @@ namespace ArmyBuilder.ViewModels
         {
             var pair = new MainModelCount(1, mainModel);
             _unit.MainModels.Add(pair);
-            var mainModelTreeNode = new MainModelTreeNode(pair.Second, pair.First);
+            var mainModelTreeNode = new MainModelTreeNode(pair.mainModel, pair.count);
             Children.Add(mainModelTreeNode);
         }
     }

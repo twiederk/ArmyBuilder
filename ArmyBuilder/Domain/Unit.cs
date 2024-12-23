@@ -16,7 +16,7 @@
             int totalPoints = 0;
             foreach (var pair in MainModels)
             {
-                totalPoints += pair.First * (int)pair.Second.Points;
+                totalPoints += pair.count * (int)pair.mainModel.Points;
             }
             return totalPoints;
         }
