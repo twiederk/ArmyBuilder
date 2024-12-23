@@ -16,6 +16,15 @@ namespace ArmyBuilder.ViewModels
         public MainModelTreeNode(MainModel mainModel)
         {
             _mainModel = mainModel;
+            SetChildren();
+        }
+
+        private void SetChildren()
+        {
+            foreach (var singleModel in _mainModel.SingleModels)
+            {
+                Children.Add(new SingleModelTreeNode(singleModel));
+            }
         }
     }
 }
