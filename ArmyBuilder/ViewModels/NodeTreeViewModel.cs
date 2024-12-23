@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace ArmyBuilder
+namespace ArmyBuilder.ViewModels
 {
     public class NodeTreeViewModel
     {
