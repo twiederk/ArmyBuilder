@@ -6,8 +6,8 @@ namespace ArmyBuilder.ViewModels
     public class ArmyTreeNode
     {
         public string Name => _army.Name;
-        private Army _army;
         public int Points => _army.Points();
+        private Army _army;
 
         public ArmyTreeNode(Army army)
         {
