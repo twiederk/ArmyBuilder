@@ -42,6 +42,11 @@ namespace ArmyBuilder
                 if (droppedMainModel != null)
                 {
                     MessageBox.Show("Dropped on ArmyTreeNode " + droppedMainModel.Name);
+                    var armyTreeNode = ((FrameworkElement)sender).DataContext as ArmyTreeNode;
+                    if (armyTreeNode != null)
+                    {
+                        armyTreeNode.AddUnit(droppedMainModel);
+                    }
                 }
             }
         }
