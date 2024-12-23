@@ -133,7 +133,7 @@
             <TreeView Name="trvArmy" ItemsSource="{Binding ArmyTreeViewModel.RootItems}">
                 
                 <TreeView.Resources>
-                    <HierarchicalDataTemplate  DataType="{x:Type viewModels:NodeTreeViewModel}" ItemsSource="{Binding Children}">
+                    <HierarchicalDataTemplate  DataType="{x:Type viewModels:UnitTreeNodeViewModel}" ItemsSource="{Binding Children}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
