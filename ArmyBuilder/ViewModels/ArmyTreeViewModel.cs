@@ -17,10 +17,9 @@ namespace ArmyBuilder.ViewModels
                 {
                     Children = new ObservableCollection<UnitTreeNode>
                     {
-                        new UnitTreeNode
+                        new UnitTreeNode(
+                            new Unit("Generalseinheit"))
                         {
-                            Name = "Generalseinheit",
-                            Value = 0,
                             Children = new ObservableCollection<MainModelTreeNode>
                             {
                                 new MainModelTreeNode(
@@ -81,10 +80,10 @@ namespace ArmyBuilder.ViewModels
                                 },
                             }
                         },
-                        new UnitTreeNode
+                        new UnitTreeNode(
+                            new Unit("Streitwagen")
+                            )
                         {
-                            Name = "Streitwagen",
-                            Value = 70,
                             Children = new ObservableCollection<MainModelTreeNode>
                             {
                                 new MainModelTreeNode(

@@ -1,17 +1,17 @@
 ﻿namespace ArmyBuilder.Domain
 {
-    public class Unit
+    public class Army
     {
         public string Name;
 
-        public Unit(string name)
+        public Army(string name)
         {
             this.Name = name;
         }
 
         public int Points()
         {
-            return 75;
+            return 100;
         }
     }
 }
