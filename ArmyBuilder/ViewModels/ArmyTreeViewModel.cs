@@ -4,13 +4,13 @@ namespace ArmyBuilder.ViewModels
 {
     public class ArmyTreeViewModel
     {
-        public ObservableCollection<UnitTreeNodeViewModel> RootItems { get; set; }
+        public ObservableCollection<ArmyTreeNodeViewModel> RootItems { get; set; }
 
         public ArmyTreeViewModel()
         {
-            RootItems = new ObservableCollection<UnitTreeNodeViewModel>
+            RootItems = new ObservableCollection<ArmyTreeNodeViewModel>
             {
-                new UnitTreeNodeViewModel
+                new ArmyTreeNodeViewModel
                 {
                     Name = "Army List",
                     Value = 0,
@@ -20,20 +20,20 @@ namespace ArmyBuilder.ViewModels
                         {
                             Name = "Infantry",
                             Value = 0,
-                            Children = new ObservableCollection<UnitTreeNodeViewModel>
+                            Children = new ObservableCollection<MainModelTreeNodeViewModel>
                             {
-                                new UnitTreeNodeViewModel { Name = "Spearmen", Value = 10 },
-                                new UnitTreeNodeViewModel { Name = "Archers", Value = 15 }
+                                new MainModelTreeNodeViewModel { Name = "Spearmen", Value = 10 },
+                                new MainModelTreeNodeViewModel { Name = "Archers", Value = 15 }
                             }
                         },
                         new UnitTreeNodeViewModel
                         {
                             Name = "Cavalry",
                             Value = 0,
-                            Children = new ObservableCollection<UnitTreeNodeViewModel>
+                            Children = new ObservableCollection<MainModelTreeNodeViewModel>
                             {
-                                new UnitTreeNodeViewModel { Name = "Knights", Value = 20 },
-                                new UnitTreeNodeViewModel { Name = "Light Horsemen", Value = 25 }
+                                new MainModelTreeNodeViewModel { Name = "Knights", Value = 20 },
+                                new MainModelTreeNodeViewModel { Name = "Light Horsemen", Value = 25 }
                             }
                         }
                     }

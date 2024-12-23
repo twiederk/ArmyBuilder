@@ -133,7 +133,27 @@
             <TreeView Name="trvArmy" ItemsSource="{Binding ArmyTreeViewModel.RootItems}">
                 
                 <TreeView.Resources>
+                    <HierarchicalDataTemplate  DataType="{x:Type viewModels:ArmyTreeNodeViewModel}" ItemsSource="{Binding Children}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" />
+                            <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" />
+                        </Grid>
+                    </HierarchicalDataTemplate>
                     <HierarchicalDataTemplate  DataType="{x:Type viewModels:UnitTreeNodeViewModel}" ItemsSource="{Binding Children}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" />
+                            <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" />
+                        </Grid>
+                    </HierarchicalDataTemplate>
+                    <HierarchicalDataTemplate  DataType="{x:Type viewModels:MainModelTreeNodeViewModel}" ItemsSource="{Binding Children}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />

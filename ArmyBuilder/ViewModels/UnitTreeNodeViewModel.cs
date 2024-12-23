@@ -6,7 +6,7 @@ namespace ArmyBuilder.ViewModels
     {
         public string Name { get; set; }
         public int Value { get; set; }
-        public ObservableCollection<UnitTreeNodeViewModel> Children { get; set; } = new ObservableCollection<UnitTreeNodeViewModel>();
+        public ObservableCollection<MainModelTreeNodeViewModel> Children { get; set; } = new ObservableCollection<MainModelTreeNodeViewModel>();
     }
 }
 
