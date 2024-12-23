@@ -24,6 +24,14 @@ namespace ArmyBuilder.ViewModels
                 Children.Add(new MainModelTreeNode(mainModel.Second, mainModel.First));
             }
         }
+
+        public void AddMainModel(MainModel mainModel)
+        {
+            var pair = new Pair<int, MainModel>(1, mainModel);
+            _unit.MainModels.Add(pair);
+            var mainModelTreeNode = new MainModelTreeNode(pair.Second, pair.First);
+            Children.Add(mainModelTreeNode);
+        }
     }
 }
 
