@@ -1,4 +1,6 @@
 using System.Collections.ObjectModel;
+using ArmyBuilder.Domain;
+
 
 namespace ArmyBuilder.ViewModels
 {
@@ -8,12 +10,11 @@ namespace ArmyBuilder.ViewModels
 
         public ArmyTreeViewModel()
         {
+            Army army = new Army("Armee der Hochelfen von Tyr");
             RootItems = new ObservableCollection<ArmyTreeNode>
             {
-                new ArmyTreeNode
+                new ArmyTreeNode(army)
                 {
-                    Name = "Armee der Hochelfen von Tyr",
-                    Value = 0,
                     Children = new ObservableCollection<UnitTreeNode>
                     {
                         new UnitTreeNode

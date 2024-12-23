@@ -140,7 +140,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Green"/>
-                            <Label Content="{Binding Value}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Green"/>
+                            <Label Content="{Binding Points}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Green"/>
                         </Grid>
                     </HierarchicalDataTemplate>
                     <HierarchicalDataTemplate  DataType="{x:Type viewModels:UnitTreeNode}" ItemsSource="{Binding Children}">
