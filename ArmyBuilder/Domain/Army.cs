@@ -1,4 +1,5 @@
-﻿namespace ArmyBuilder.Domain
+﻿
+namespace ArmyBuilder.Domain
 {
     public class Army
     {
@@ -18,6 +19,15 @@
                 totalPoints += unit.Points();
             }
             return totalPoints;
+        }
+
+        public Unit CreateUnit(MainModel mainModel)
+        {
+            Unit unit = new Unit(mainModel.Name);
+            unit.MainModels.Add(new MainModelCount(1, mainModel));
+            Units.Add(unit);
+            return unit;
+
         }
     }
 }

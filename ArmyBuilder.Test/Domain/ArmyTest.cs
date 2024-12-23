@@ -66,5 +66,21 @@ namespace ArmyBuilder.Test.Domain
             points.Should().Be(265);
         }
 
+        [Fact]
+        public void should_add_unit_to_army_when_unit_is_given()
+        {
+            // arrange
+            var army = new Army("Test Army");
+            var mainModel = new MainModel() { Name = "Test MainModel" };
+
+            // act
+            army.CreateUnit(mainModel);
+
+            // assert
+            army.Units.Count.Should().Be(1);
+            army.Units[0].MainModels.Count.Should().Be(1);
+            army.Units[0].MainModels[0].mainModel.Name.Should().Be("Test MainModel");
+        }
+
     }
 }
