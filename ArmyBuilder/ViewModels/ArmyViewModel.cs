@@ -15,10 +15,12 @@ namespace ArmyBuilder.ViewModels
         private List<MainModel> _monsters;
         private MainModel _selectedMainModel;
 
+        public ArmyTreeViewModel ArmyTreeViewModel { get; }
 
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
             _repository = repository;
+            ArmyTreeViewModel = new ArmyTreeViewModel();
         }
 
         public ArmyList SelectedArmyList
@@ -81,15 +83,16 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
+
         private void LoadMainModels()
         {
             if (_selectedArmyList != null)
             {
                 var mainModels = _repository.MainModels(_selectedArmyList.Id);
-                Characters = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
-                Troopers = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
-                WarMachines = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).ToList();
-                Monsters = mainModels.FindAll(mm => mm.ArmyCategory == ArmyCategory.Monster).OrderBy(mm => mm.Name).ToList();
+                Characters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
+                Troopers = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
+                WarMachines = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).ToList();
+                Monsters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Monster).OrderBy(mm => mm.Name).ToList();
             }
             else
             {
@@ -108,5 +111,7 @@ namespace ArmyBuilder.ViewModels
         }
     }
 }
+
+
 
 
