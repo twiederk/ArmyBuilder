@@ -162,7 +162,7 @@
                             </Grid.ColumnDefinitions>
                             <Label Content="{Binding Count}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Magenta"/>
                             <Label Content="{Binding Name}" Grid.Column="1" HorizontalAlignment="Left" Foreground="Magenta"/>
-                            <Label Content="{Binding Value}" Grid.Column="2" HorizontalAlignment="Right" Foreground="Magenta"/>
+                            <Label Content="{Binding Points}" Grid.Column="2" HorizontalAlignment="Right" Foreground="Magenta"/>
                         </Grid>
                     </HierarchicalDataTemplate>
                     <DataTemplate  DataType="{x:Type viewModels:SingleModelTreeNode}" >
