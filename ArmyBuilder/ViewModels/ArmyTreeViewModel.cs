@@ -18,12 +18,11 @@ namespace ArmyBuilder.ViewModels
                     Children = new ObservableCollection<UnitTreeNode>
                     {
                         new UnitTreeNode(
-                            new Unit("Generalseinheit"))
-                        {
-                            Children = new ObservableCollection<MainModelTreeNode>
+                            new Unit("Generalseinheit")
                             {
-                                new MainModelTreeNode(
-                                    new MainModel()
+                                MainModels = new List<Pair<int, MainModel>>
+                                {
+                                    new Pair<int, MainModel>(1, new MainModel()
                                     {
                                         Name = "General",
                                         Points = 100,
@@ -46,11 +45,8 @@ namespace ArmyBuilder.ViewModels
                                                 }
                                             }
                                         }
-                                    },
-                                    1
-                                ),
-                                new MainModelTreeNode(
-                                    new MainModel()
+                                    }),
+                                    new Pair<int, MainModel>(20, new MainModel()
                                     {
                                         Name = "Speerträger",
                                         Points = 10,
@@ -73,11 +69,11 @@ namespace ArmyBuilder.ViewModels
                                                 }
                                             }
                                         }
-                                    },
-                                    20
-                                )
+                                    })
+                                }
+
                             }
-                        },
+                        ),
                         new UnitTreeNode(
                             new Unit("Streitwagen")
                             )
