@@ -25,6 +25,7 @@ namespace ArmyBuilder.ViewModels
                                 new MainModelTreeNodeViewModel { 
                                     Name = "General",
                                     Value = 100,
+                                    Count = 1,
                                     Children = new ObservableCollection<SingleModelTreeNodeViewModel>
                                     {
                                         new SingleModelTreeNodeViewModel { Name = "General", Value = 100 },
@@ -33,6 +34,7 @@ namespace ArmyBuilder.ViewModels
                                 new MainModelTreeNodeViewModel {
                                     Name = "Spearmen",
                                     Value = 10,
+                                    Count = 20,
                                     Children = new ObservableCollection<SingleModelTreeNodeViewModel>
                                     {
                                         new SingleModelTreeNodeViewModel { Name = "Spearmen", Value = 10 },
@@ -49,6 +51,7 @@ namespace ArmyBuilder.ViewModels
                                 new MainModelTreeNodeViewModel {
                                     Name = "Streitwagen",
                                     Value = 70,
+                                    Count = 1,
                                     Children = new ObservableCollection<SingleModelTreeNodeViewModel>
                                     {
                                         new SingleModelTreeNodeViewModel { Name = "Streitwagen", Value = 40 },
