@@ -31,13 +31,13 @@
                 <ListBox Name="listCharacters" ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="listCharacters_MouseMove"/>
             </TabItem>
             <TabItem Header="Regimenter">
-                <ListBox ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+                <ListBox Name="listTroopers" ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="listTroopers_MouseMove"/>
             </TabItem>
             <TabItem Header="Kriegsgeräte">
-                <ListBox ItemsSource="{Binding WarMachines}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+                <ListBox Name="listWarMachines" ItemsSource="{Binding WarMachines}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="listWarMachines_MouseMove"/>
             </TabItem>
             <TabItem Header="Monster">
-                <ListBox ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" />
+                <ListBox Name="listMonsters" ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="listMonsters_MouseMove"/>
             </TabItem>
         </TabControl>
 

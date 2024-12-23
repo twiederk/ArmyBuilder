@@ -32,6 +32,60 @@ namespace ArmyBuilder
             }
         }
 
+        private void listTroopers_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                // Get the selected item from listAnimals
+                var selectedItem = listTroopers.SelectedItem;
+
+                if (selectedItem != null)
+                {
+                    // Create a DataObject containing the selected item
+                    DataObject dataObject = new DataObject(selectedItem);
+
+                    // Initialize the drag & drop operation
+                    DragDrop.DoDragDrop(listTroopers, dataObject, DragDropEffects.Move);
+                }
+            }
+        }
+
+        private void listWarMachines_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                // Get the selected item from listAnimals
+                var selectedItem = listWarMachines.SelectedItem;
+
+                if (selectedItem != null)
+                {
+                    // Create a DataObject containing the selected item
+                    DataObject dataObject = new DataObject(selectedItem);
+
+                    // Initialize the drag & drop operation
+                    DragDrop.DoDragDrop(listWarMachines, dataObject, DragDropEffects.Move);
+                }
+            }
+        }
+
+        private void listMonsters_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                // Get the selected item from listAnimals
+                var selectedItem = listMonsters.SelectedItem;
+
+                if (selectedItem != null)
+                {
+                    // Create a DataObject containing the selected item
+                    DataObject dataObject = new DataObject(selectedItem);
+
+                    // Initialize the drag & drop operation
+                    DragDrop.DoDragDrop(listMonsters, dataObject, DragDropEffects.Move);
+                }
+            }
+        }
+
         private void armyTreeNode_Drop(object sender, DragEventArgs dragEvent)
         {
             if (dragEvent.Data.GetDataPresent(typeof(MainModel)))
