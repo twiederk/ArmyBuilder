@@ -3,6 +3,7 @@
     public class Army
     {
         public string Name;
+        public List<Unit> Units { get; set; } = new List<Unit>();
 
         public Army(string name)
         {
@@ -11,7 +12,12 @@
 
         public int Points()
         {
-            return 100;
+            int totalPoints = 0;
+            foreach (var unit in Units)
+            {
+                totalPoints += unit.Points();
+            }
+            return totalPoints;
         }
     }
 }
