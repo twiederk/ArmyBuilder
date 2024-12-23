@@ -76,12 +76,10 @@ namespace ArmyBuilder.ViewModels
                         ),
                         new UnitTreeNode(
                             new Unit("Streitwagen")
-                            )
-                        {
-                            Children = new ObservableCollection<MainModelTreeNode>
                             {
-                                new MainModelTreeNode(
-                                    new MainModel()
+                                MainModels = new List<Pair<int, MainModel>>
+                                {
+                                    new Pair<int, MainModel>(1, new MainModel()
                                     {
                                         Name = "Streitwagen",
                                         Points = 70,
@@ -135,12 +133,12 @@ namespace ArmyBuilder.ViewModels
                                                     Moral = 5
                                                 }
                                             }
-                                        },
-                                    },
-                                    1
-                                )
+                                        }
+                                    })
+                                }
+
                             }
-                        }
+                        )
                     }
                 }
             };
