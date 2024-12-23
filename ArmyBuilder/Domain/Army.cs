@@ -1,0 +1,13 @@
+﻿namespace ArmyBuilder.Test.Domain
+{
+    public class Army
+    {
+        public string Name;
+
+        public Army(string name)
+        {
+            this.Name = name;
+        }
+
+    }
+}
