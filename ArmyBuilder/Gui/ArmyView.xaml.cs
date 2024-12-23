@@ -41,7 +41,6 @@ namespace ArmyBuilder
 
                 if (droppedMainModel != null)
                 {
-                    MessageBox.Show("Dropped on ArmyTreeNode " + droppedMainModel.Name);
                     var armyTreeNode = ((FrameworkElement)sender).DataContext as ArmyTreeNode;
                     if (armyTreeNode != null)
                     {
@@ -60,7 +59,6 @@ namespace ArmyBuilder
 
                 if (droppedMainModel != null)
                 {
-                    MessageBox.Show("Dropped on UnitTreeNode " + droppedMainModel.Name);
                     var unitTreeNode = ((FrameworkElement)sender).DataContext as UnitTreeNode;
                     if (unitTreeNode != null)
                     {
