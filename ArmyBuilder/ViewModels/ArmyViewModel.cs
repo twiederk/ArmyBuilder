@@ -90,9 +90,9 @@ namespace ArmyBuilder.ViewModels
             {
                 var mainModels = _repository.MainModels(_selectedArmyList.Id);
                 Characters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
-                Troopers = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).ToList();
-                WarMachines = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.WarMachine).ToList();
-                Monsters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Monster).ToList();
+                Troopers = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
+                WarMachines = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).ToList();
+                Monsters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Monster).OrderBy(mm => mm.Name).ToList();
             }
             else
             {
