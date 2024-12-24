@@ -45,6 +45,7 @@ namespace ArmyBuilder.ViewModels
                         {
                             Name = "Speerträger",
                             Points = 10,
+                            Count = 20,
                             SingleModels = new List<SingleModel>
                             {
                                 new SingleModel()
