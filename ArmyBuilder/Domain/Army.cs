@@ -11,9 +11,9 @@ namespace ArmyBuilder.Domain
             this.Name = name;
         }
 
-        public int Points()
+        public float Points()
         {
-            int totalPoints = 0;
+            float totalPoints = 0;
             foreach (var unit in Units)
             {
                 totalPoints += unit.Points();
@@ -24,7 +24,7 @@ namespace ArmyBuilder.Domain
         public Unit CreateUnit(MainModel mainModel)
         {
             Unit unit = new Unit(mainModel.Name);
-            unit.MainModels.Add(new MainModelCount(1, mainModel));
+            unit.MainModels.Add(mainModel);
             Units.Add(unit);
             return unit;
 

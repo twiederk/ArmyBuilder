@@ -67,7 +67,7 @@ namespace ArmyBuilder.Test.Domain
             var mainModel = new MainModel() { Points = 75 };
 
             // act
-            var mainModelCount = unit.CreateMainModelCount(mainModel);
+            var mainModelCount = unit.AddMainModel(mainModel);
 
             // assert
             unit.MainModels.Should().Contain(mainModelCount);

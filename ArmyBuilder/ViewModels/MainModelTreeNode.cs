@@ -7,16 +7,15 @@ namespace ArmyBuilder.ViewModels
     {
         public string Name => _mainModel.Name;
         public float Points => _mainModel.Points;
-        public int Count { get; set; }
+        public int Count => _mainModel.Count;
 
         private MainModel _mainModel;
 
         public ObservableCollection<SingleModelTreeNode> Children { get; set; } = new ObservableCollection<SingleModelTreeNode>();
 
-        public MainModelTreeNode(MainModel mainModel, int count)
+        public MainModelTreeNode(MainModel mainModel)
         {
             _mainModel = mainModel;
-            Count = count;
             SetChildren();
         }
 

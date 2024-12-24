@@ -15,9 +15,9 @@ namespace ArmyBuilder.ViewModels
             {
                 new Unit("Generalseinheit")
                 {
-                    MainModels = new List<MainModelCount>
+                    MainModels = new List<MainModel>
                     {
-                        new MainModelCount(1, new MainModel()
+                        new MainModel()
                         {
                             Name = "General",
                             Points = 100,
@@ -40,8 +40,8 @@ namespace ArmyBuilder.ViewModels
                                     }
                                 }
                             }
-                        }),
-                        new MainModelCount(20, new MainModel()
+                        },
+                        new MainModel()
                         {
                             Name = "Speerträger",
                             Points = 10,
@@ -64,15 +64,15 @@ namespace ArmyBuilder.ViewModels
                                     }
                                 }
                             }
-                        })
+                        }
                     }
 
                 },
                 new Unit("Streitwagen")
                 {
-                    MainModels = new List<MainModelCount>
+                    MainModels = new List<MainModel>
                     {
-                        new MainModelCount(1, new MainModel()
+                        new MainModel()
                         {
                             Name = "Streitwagen",
                             Points = 70,
@@ -127,7 +127,7 @@ namespace ArmyBuilder.ViewModels
                                     }
                                 }
                             }
-                        })
+                        }
                     }
                 }
             };
