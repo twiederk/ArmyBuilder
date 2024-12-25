@@ -24,7 +24,7 @@ namespace ArmyBuilder.Test.Domain
             var army = new Army("Test Army");
 
             // act
-            var points = army.Points();
+            var points = army.TotalPoints();
 
             // assert
             points.Should().Be(0);
@@ -41,7 +41,7 @@ namespace ArmyBuilder.Test.Domain
 
 
             // act
-            var points = army.Points();
+            var points = army.TotalPoints();
 
             // assert
             points.Should().Be(225);
@@ -60,7 +60,7 @@ namespace ArmyBuilder.Test.Domain
 
 
             // act
-            var points = army.Points();
+            var points = army.TotalPoints();
 
             // assert
             points.Should().Be(265);

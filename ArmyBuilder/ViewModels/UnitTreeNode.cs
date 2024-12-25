@@ -7,7 +7,7 @@ namespace ArmyBuilder.ViewModels
     public class UnitTreeNode
     {
         public string Name => _unit.Name;
-        public float Points => _unit.Points();
+        public float Points => _unit.TotalPoints();
         public ObservableCollection<MainModelTreeNode> Children { get; set; } = new ObservableCollection<MainModelTreeNode>();
         private Unit _unit;
 

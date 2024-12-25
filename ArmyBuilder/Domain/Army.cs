@@ -11,14 +11,9 @@ namespace ArmyBuilder.Domain
             this.Name = name;
         }
 
-        public float Points()
+        public float TotalPoints()
         {
-            float totalPoints = 0;
-            foreach (var unit in Units)
-            {
-                totalPoints += unit.Points();
-            }
-            return totalPoints;
+            return Units.Sum(unit => unit.TotalPoints());
         }
 
         public Unit CreateUnit(MainModel mainModel)

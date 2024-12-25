@@ -8,6 +8,7 @@ namespace ArmyBuilder.ViewModels
         public string Name => _mainModel.Name;
         public float Points => _mainModel.Points;
         public int Count => _mainModel.Count;
+        public float TotalPoints => _mainModel.TotalPoints();
 
         private MainModel _mainModel;
 

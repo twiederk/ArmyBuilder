@@ -24,7 +24,7 @@ namespace ArmyBuilder.Test.Domain
             unit.MainModels.Add(new MainModel() { Points = 75, Count = 1 });
 
             // act
-            var points = unit.Points();
+            var points = unit.TotalPoints();
 
             // assert
             points.Should().Be(75);
@@ -38,7 +38,7 @@ namespace ArmyBuilder.Test.Domain
             unit.MainModels.Add(new MainModel() { Points = 75, Count = 2 });
 
             // act
-            var points = unit.Points();
+            var points = unit.TotalPoints();
 
             // assert
             points.Should().Be(150);
@@ -53,7 +53,7 @@ namespace ArmyBuilder.Test.Domain
             unit.MainModels.Add(new MainModel() { Points = 10, Count = 3 });
 
             // act
-            var points = unit.Points();
+            var points = unit.TotalPoints();
 
             // assert
             points.Should().Be(180);
