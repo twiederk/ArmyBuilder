@@ -35,7 +35,7 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             Unit unit1 = new Unit("Unit1");
-            unit1.MainModels.Add(new MainModelCount(3, new MainModel() { Points = 75 }));
+            unit1.MainModels.Add(new MainModel() { Points = 75, Count = 3 });
             Army army = new Army("Army1");
             army.Units.Add(unit1);
 
@@ -52,9 +52,9 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             Unit unit1 = new Unit("Unit1");
-            unit1.MainModels.Add(new MainModelCount(3, new MainModel() { Points = 75 }));
+            unit1.MainModels.Add(new MainModel() { Points = 75, Count = 3 });
             Unit unit2 = new Unit("Unit2");
-            unit1.MainModels.Add(new MainModelCount(4, new MainModel() { Points = 10 }));
+            unit1.MainModels.Add(new MainModel() { Points = 10, Count = 4 });
             Army army = new Army("Army1");
             army.Units.Add(unit1);
 
@@ -79,7 +79,7 @@ namespace ArmyBuilder.Test.Domain
             // assert
             army.Units.Count.Should().Be(1);
             army.Units[0].MainModels.Count.Should().Be(1);
-            army.Units[0].MainModels[0].mainModel.Name.Should().Be("Test MainModel");
+            army.Units[0].MainModels[0].Name.Should().Be("Test MainModel");
         }
 
     }
