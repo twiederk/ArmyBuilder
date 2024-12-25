@@ -10,6 +10,12 @@ namespace ArmyBuilder.Domain
         public int Count { get; set; } = 1;
         public List<SingleModel> SingleModels { get; set; } = new List<SingleModel>();
 
+        public float TotalPoints()
+        {
+            return Points * Count;
+        }
+
+
         public MainModel Clone()
         {
             return new MainModel

@@ -17,7 +17,7 @@ namespace ArmyBuilder.Domain
             float totalPoints = 0;
             foreach (var mainModel in MainModels)
             {
-                totalPoints += mainModel.Count * mainModel.Points;
+                totalPoints += mainModel.TotalPoints();
             }
             return totalPoints;
         }
