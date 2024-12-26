@@ -9,6 +9,26 @@ namespace ArmyBuilder.ViewModels
         public String Count => $"{_mainModel.Count}x";
         public float TotalPoints => _mainModel.TotalPoints();
 
+        public string DisplayArmyCategory
+        {
+            get
+            {
+                switch (_mainModel.ArmyCategory)
+                {
+                    case ArmyCategory.Character:
+                        return "Charakter";
+                    case ArmyCategory.Trooper:
+                        return "Regiment";
+                    case ArmyCategory.WarMachine:
+                        return "Kriegsgerät";
+                    case ArmyCategory.Monster:
+                        return "Monster";
+                    default:
+                        return "Unbekannt";
+                }
+            }
+        }
+
         private MainModel _mainModel;
 
         public ObservableCollection<SingleModelTreeNode> Children { get; set; } = new ObservableCollection<SingleModelTreeNode>();
@@ -26,6 +46,7 @@ namespace ArmyBuilder.ViewModels
                 Children.Add(new SingleModelTreeNode(singleModel));
             }
         }
+
     }
 }
 

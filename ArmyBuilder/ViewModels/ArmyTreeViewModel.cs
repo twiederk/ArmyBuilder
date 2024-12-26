@@ -20,6 +20,7 @@ namespace ArmyBuilder.ViewModels
                         new MainModel()
                         {
                             Name = "General",
+                            ArmyCategory = ArmyCategory.Character,
                             Points = 100,
                             SingleModels = new List<SingleModel>
                             {
@@ -44,6 +45,7 @@ namespace ArmyBuilder.ViewModels
                         new MainModel()
                         {
                             Name = "Speerträger",
+                            ArmyCategory = ArmyCategory.Trooper,
                             Points = 10,
                             Count = 20,
                             SingleModels = new List<SingleModel>
@@ -76,6 +78,7 @@ namespace ArmyBuilder.ViewModels
                         new MainModel()
                         {
                             Name = "Streitwagen",
+                            ArmyCategory = ArmyCategory.WarMachine,
                             Points = 70,
                             SingleModels = new List<SingleModel>
                             {
