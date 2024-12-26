@@ -51,9 +51,7 @@ namespace ArmyBuilder.ViewModels
 
         public void IncreaseCount()
         {
-            MessageBox.Show("IncreaseCount");
             _mainModel.Count++;
-            MessageBox.Show($"Count increased to {_mainModel.Count}");
         }
 
         public ICommand IncreaseCountCommand => new RelayCommand(IncreaseCount);
@@ -63,7 +61,8 @@ namespace ArmyBuilder.ViewModels
             if (parameter is MainModelTreeNode node)
             {
                 node.IncreaseCount();
-                // Notify property changed if using INotifyPropertyChanged
+                OnPropertyChanged(nameof(Count));
+                OnPropertyChanged(nameof(TotalPoints));
             }
         }
 
