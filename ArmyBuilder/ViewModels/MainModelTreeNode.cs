@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Windows;
 using ArmyBuilder.Domain;
 
 namespace ArmyBuilder.ViewModels
@@ -8,6 +9,7 @@ namespace ArmyBuilder.ViewModels
         public string Name => $"{_mainModel.Name} ({_mainModel.Points})";
         public String Count => $"{_mainModel.Count}x";
         public float TotalPoints => _mainModel.TotalPoints();
+        private MainModel _mainModel;
 
         public string DisplayArmyCategory
         {
@@ -29,8 +31,6 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        private MainModel _mainModel;
-
         public ObservableCollection<SingleModelTreeNode> Children { get; set; } = new ObservableCollection<SingleModelTreeNode>();
 
         public MainModelTreeNode(MainModel mainModel)
@@ -47,6 +47,10 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
+        public void IncreaseCount()
+        {
+            _mainModel.Count++;
+        }
     }
 }
 
