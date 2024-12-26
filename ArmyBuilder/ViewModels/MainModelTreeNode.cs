@@ -1,10 +1,12 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Input;
 using ArmyBuilder.Domain;
 
 namespace ArmyBuilder.ViewModels
 {
-    public class MainModelTreeNode
+    public class MainModelTreeNode : INotifyPropertyChanged
     {
         public string Name => $"{_mainModel.Name} ({_mainModel.Points})";
         public String Count => $"{_mainModel.Count}x";
@@ -53,6 +55,25 @@ namespace ArmyBuilder.ViewModels
             _mainModel.Count++;
             MessageBox.Show($"Count increased to {_mainModel.Count}");
         }
+
+        public ICommand IncreaseCountCommand => new RelayCommand(IncreaseCount);
+
+        private void IncreaseCount(object parameter)
+        {
+            if (parameter is MainModelTreeNode node)
+            {
+                node.IncreaseCount();
+                // Notify property changed if using INotifyPropertyChanged
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }
 

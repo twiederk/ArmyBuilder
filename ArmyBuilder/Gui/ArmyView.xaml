@@ -166,7 +166,7 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Label Content="{Binding Count}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Magenta"/>
-                            <Button Content=" + " Grid.Column="1" Command="{Binding DataContext.IncreaseCountCommand, RelativeSource={RelativeSource AncestorType=TreeView}}" CommandParameter="{Binding}" />
+                            <Button Content=" + " Grid.Column="1" Command="{Binding IncreaseCountCommand}" CommandParameter="{Binding}" />
                             <Label Content="{Binding Name}" Grid.Column="2" HorizontalAlignment="Left" Foreground="Magenta"/>
                             <Label Content="{Binding TotalPoints}" Grid.Column="3" HorizontalAlignment="Right" Foreground="Magenta"/>
                             <Label Content="{Binding DisplayArmyCategory}" Grid.Column="4" HorizontalAlignment="Right" Foreground="Magenta"/>

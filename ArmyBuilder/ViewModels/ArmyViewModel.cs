@@ -111,16 +111,6 @@ namespace ArmyBuilder.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public ICommand IncreaseCountCommand => new RelayCommand(IncreaseCount);
-
-        private void IncreaseCount(object parameter)
-        {
-            if (parameter is MainModelTreeNode node)
-            {
-                node.IncreaseCount();
-                // Notify property changed if using INotifyPropertyChanged
-            }
-        }
     }
 
 }
