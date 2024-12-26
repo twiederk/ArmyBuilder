@@ -5,9 +5,8 @@ namespace ArmyBuilder.ViewModels
 {
     public class MainModelTreeNode
     {
-        public string Name => _mainModel.Name;
-        public float Points => _mainModel.Points;
-        public int Count => _mainModel.Count;
+        public string Name => $"{_mainModel.Name} ({_mainModel.Points})";
+        public String Count => $"{_mainModel.Count}x";
         public float TotalPoints => _mainModel.TotalPoints();
 
         private MainModel _mainModel;
