@@ -49,7 +49,9 @@ namespace ArmyBuilder.ViewModels
 
         public void IncreaseCount()
         {
+            MessageBox.Show("IncreaseCount");
             _mainModel.Count++;
+            MessageBox.Show($"Count increased to {_mainModel.Count}");
         }
     }
 }
