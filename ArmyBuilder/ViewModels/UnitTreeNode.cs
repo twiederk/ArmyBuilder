@@ -11,9 +11,11 @@ namespace ArmyBuilder.ViewModels
         public float TotalPoints => _unit.TotalPoints();
         public ObservableCollection<MainModelTreeNode> Children { get; set; } = new ObservableCollection<MainModelTreeNode>();
         private Unit _unit;
+        private ArmyTreeNode _parent;
 
-        public UnitTreeNode(Unit unit)
+        public UnitTreeNode(Unit unit, ArmyTreeNode parent)
         {
+            _parent = parent;
             _unit = unit;
             SetChildren();
         }
@@ -42,6 +44,7 @@ namespace ArmyBuilder.ViewModels
         public void UpdateTotalPoints()
         {
             OnPropertyChanged("TotalPoints");
+            _parent.UpdateTotalPoints();
         }
     }
 }

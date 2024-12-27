@@ -38,8 +38,8 @@ namespace ArmyBuilder.ViewModels
 
         public MainModelTreeNode(MainModel mainModel, UnitTreeNode parent)
         {
-            _mainModel = mainModel;
             _parent = parent;
+            _mainModel = mainModel;
             SetChildren();
         }
 
@@ -75,6 +75,12 @@ namespace ArmyBuilder.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public void UpdateTotalPoints()
+        {
+            OnPropertyChanged("TotalPoints");
+        }
+
 
     }
 }
