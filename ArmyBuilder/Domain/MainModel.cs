@@ -15,6 +15,20 @@ namespace ArmyBuilder.Domain
             return Points * Count;
         }
 
+        public int IncreaseCount()
+        {
+            return ++Count;
+        }
+
+        public int DecreaseCount()
+        {
+            if (Count > 1)
+            {
+                Count--;
+            }
+            return Count;
+        }
+
 
         public MainModel Clone()
         {
