@@ -8,9 +8,10 @@ namespace ArmyBuilder.ViewModels
     {
         public ObservableCollection<ArmyTreeNode> Root { get; set; }
 
-        public ArmyTreeViewModel()
+        public ArmyTreeViewModel(string armyListName)
         {
-            Army army = new Army("Armee der Hochelfen von Tyr");
+            Army army = new Army($"{armyListName} Armee");
+            /*
             army.Units = new List<Unit>()
             {
                 new Unit("Generalseinheit")
@@ -135,6 +136,7 @@ namespace ArmyBuilder.ViewModels
                     }
                 }
             };
+            */
             Root = new ObservableCollection<ArmyTreeNode>
             {
                 new ArmyTreeNode(army)

@@ -40,6 +40,8 @@ namespace ArmyBuilder
             if (ArmyListBox.SelectedItem is ArmyList selectedArmyList)
             {
                 _armyViewModel.SelectedArmyList = selectedArmyList;
+                _armyViewModel.ArmyTreeViewModel = new ArmyTreeViewModel(selectedArmyList.Name);
+
                 Window window = Window.GetWindow(this);
                 window.Content = _serviceProvider.GetRequiredService<ArmyView>();
             }
