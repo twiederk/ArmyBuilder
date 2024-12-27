@@ -7,7 +7,28 @@ namespace ArmyBuilder.Domain
         public string Name { get; set; }
         public string Description { get; set; }
         public float Points { get; set; }
+        public int Count { get; set; } = 1;
         public List<SingleModel> SingleModels { get; set; } = new List<SingleModel>();
+
+        public float TotalPoints()
+        {
+            return Points * Count;
+        }
+
+        public int IncreaseCount()
+        {
+            return ++Count;
+        }
+
+        public int DecreaseCount()
+        {
+            if (Count > 1)
+            {
+                Count--;
+            }
+            return Count;
+        }
+
 
         public MainModel Clone()
         {

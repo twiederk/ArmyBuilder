@@ -1,18 +1,21 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using ArmyBuilder.Domain;
 
 
 namespace ArmyBuilder.ViewModels
 {
-    public class UnitTreeNode
+    public class UnitTreeNode : INotifyPropertyChanged
     {
         public string Name => _unit.Name;
-        public int Points => _unit.Points();
+        public float TotalPoints => _unit.TotalPoints();
         public ObservableCollection<MainModelTreeNode> Children { get; set; } = new ObservableCollection<MainModelTreeNode>();
         private Unit _unit;
+        private ArmyTreeNode _parent;
 
-        public UnitTreeNode(Unit unit)
+        public UnitTreeNode(Unit unit, ArmyTreeNode parent)
         {
+            _parent = parent;
             _unit = unit;
             SetChildren();
         }
@@ -21,14 +24,28 @@ namespace ArmyBuilder.ViewModels
         {
             foreach (var mainModel in _unit.MainModels)
             {
-                Children.Add(new MainModelTreeNode(mainModel.mainModel, mainModel.count));
+                Children.Add(new MainModelTreeNode(mainModel, this));
             }
         }
 
         public void AddMainModel(MainModel mainModel)
         {
-            MainModelCount mainModelCount=  _unit.CreateMainModelCount(mainModel);
-            Children.Add(new MainModelTreeNode(mainModelCount.mainModel, mainModelCount.count));
+            _unit.AddMainModel(mainModel);
+            Children.Add(new MainModelTreeNode(mainModel, this));
+            UpdateTotalPoints();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void UpdateTotalPoints()
+        {
+            OnPropertyChanged("TotalPoints");
+            _parent.UpdateTotalPoints();
         }
     }
 }

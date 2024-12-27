@@ -4,7 +4,7 @@ namespace ArmyBuilder.Domain
     public class Unit
     {
         public string Name;
-        public List<MainModelCount> MainModels { get; set; } = new List<MainModelCount>();
+        public List<MainModel> MainModels { get; set; } = new List<MainModel>();
 
 
         public Unit(string name)
@@ -12,21 +12,14 @@ namespace ArmyBuilder.Domain
             this.Name = name;
         }
 
-        public int Points()
+        public float TotalPoints()
         {
-            int totalPoints = 0;
-            foreach (var pair in MainModels)
-            {
-                totalPoints += pair.count * (int)pair.mainModel.Points;
-            }
-            return totalPoints;
+            return MainModels.Sum(mainModel => mainModel.TotalPoints());
         }
 
-        public MainModelCount CreateMainModelCount(MainModel mainModel)
+        public void AddMainModel(MainModel mainModel)
         {
-            var mainModelCount = new MainModelCount(1, mainModel);
-            MainModels.Add(mainModelCount);
-            return mainModelCount;
+            MainModels.Add(mainModel);
         }
     }
 }

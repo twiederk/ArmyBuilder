@@ -21,10 +21,10 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             var unit = new Unit("Test Unit");
-            unit.MainModels.Add(new MainModelCount(1, new MainModel() { Points = 75 }));
+            unit.MainModels.Add(new MainModel() { Points = 75, Count = 1 });
 
             // act
-            var points = unit.Points();
+            var points = unit.TotalPoints();
 
             // assert
             points.Should().Be(75);
@@ -35,10 +35,10 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             var unit = new Unit("Test Unit");
-            unit.MainModels.Add(new MainModelCount(2, new MainModel() { Points = 75 }));
+            unit.MainModels.Add(new MainModel() { Points = 75, Count = 2 });
 
             // act
-            var points = unit.Points();
+            var points = unit.TotalPoints();
 
             // assert
             points.Should().Be(150);
@@ -49,11 +49,11 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             var unit = new Unit("Test Unit");
-            unit.MainModels.Add(new MainModelCount(2, new MainModel() { Points = 75 }));
-            unit.MainModels.Add(new MainModelCount(3, new MainModel() { Points = 10 }));
+            unit.MainModels.Add(new MainModel() { Points = 75, Count = 2 });
+            unit.MainModels.Add(new MainModel() { Points = 10, Count = 3 });
 
             // act
-            var points = unit.Points();
+            var points = unit.TotalPoints();
 
             // assert
             points.Should().Be(180);
@@ -67,10 +67,10 @@ namespace ArmyBuilder.Test.Domain
             var mainModel = new MainModel() { Points = 75 };
 
             // act
-            var mainModelCount = unit.CreateMainModelCount(mainModel);
+            unit.AddMainModel(mainModel);
 
             // assert
-            unit.MainModels.Should().Contain(mainModelCount);
+            unit.MainModels.Should().Contain(mainModel);
         }
     }
 }

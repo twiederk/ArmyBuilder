@@ -2,6 +2,7 @@ using ArmyBuilder.Domain;
 using ArmyBuilder.Dao;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace ArmyBuilder.ViewModels
 {
@@ -9,19 +10,18 @@ namespace ArmyBuilder.ViewModels
     {
         private readonly IArmyBuilderRepository _repository;
         private ArmyList _selectedArmyList;
+        private MainModel _selectedMainModel;
         private List<MainModel> _characters;
         private List<MainModel> _troopers;
         private List<MainModel> _warMachines;
         private List<MainModel> _monsters;
-        private MainModel _selectedMainModel;
-
-        public ArmyTreeViewModel ArmyTreeViewModel { get; }
 
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
             _repository = repository;
-            ArmyTreeViewModel = new ArmyTreeViewModel();
         }
+
+        public ArmyTreeViewModel ArmyTreeViewModel { get; set; }
 
         public ArmyList SelectedArmyList
         {
@@ -109,7 +109,9 @@ namespace ArmyBuilder.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
+
 }
 
 
