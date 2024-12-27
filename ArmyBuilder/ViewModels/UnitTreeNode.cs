@@ -32,6 +32,7 @@ namespace ArmyBuilder.ViewModels
         {
             _unit.AddMainModel(mainModel);
             Children.Add(new MainModelTreeNode(mainModel, this));
+            UpdateTotalPoints();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
