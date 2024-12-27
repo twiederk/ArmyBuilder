@@ -62,5 +62,30 @@ CREATE TABLE IF NOT EXISTS "single_model"
 );
 
 
+CREATE TABLE IF NOT EXISTS "army"
+("id"                INTEGER,
+ "name"              VARCHAR(256),
+ PRIMARY KEY(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS "unit"
+("id"                INTEGER,
+ "army_id"           INTEGER,
+ "name"              VARCHAR(256),
+ PRIMARY KEY(id)
+ FOREIGN KEY (army_id) REFERENCES army(id) ON DELETE CASCADE 
+);
+
+
+CREATE TABLE IF NOT EXISTS "unit_main_model"
+("id"                INTEGER,
+ "main_model_id"     INTEGER,
+ "count"             INTEGER,
+ PRIMARY KEY(id)
+ FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
+);
+
+
 COMMIT;
 
