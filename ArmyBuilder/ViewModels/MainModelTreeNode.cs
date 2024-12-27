@@ -12,6 +12,7 @@ namespace ArmyBuilder.ViewModels
         public String Count => $"{_mainModel.Count}x";
         public float TotalPoints => _mainModel.TotalPoints();
         private MainModel _mainModel;
+        private UnitTreeNode _parent;
 
         public string DisplayArmyCategory
         {
@@ -35,9 +36,10 @@ namespace ArmyBuilder.ViewModels
 
         public ObservableCollection<SingleModelTreeNode> Children { get; set; } = new ObservableCollection<SingleModelTreeNode>();
 
-        public MainModelTreeNode(MainModel mainModel)
+        public MainModelTreeNode(MainModel mainModel, UnitTreeNode parent)
         {
             _mainModel = mainModel;
+            _parent = parent;
             SetChildren();
         }
 
@@ -63,6 +65,7 @@ namespace ArmyBuilder.ViewModels
                 node.IncreaseCount();
                 OnPropertyChanged(nameof(Count));
                 OnPropertyChanged(nameof(TotalPoints));
+                _parent.UpdateTotalPoints();
             }
         }
 

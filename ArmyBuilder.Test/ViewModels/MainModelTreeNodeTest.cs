@@ -13,7 +13,7 @@ namespace ArmyBuilder.Test.ViewModels
             MainModel mainModel = new MainModel() { ArmyCategory = ArmyCategory.WarMachine };
 
             // act
-            string armyCategory = new MainModelTreeNode(mainModel).DisplayArmyCategory;
+            string armyCategory = new MainModelTreeNode(mainModel, null).DisplayArmyCategory;
 
             // assert
             armyCategory.Should().Be("Kriegsgerät");
@@ -27,7 +27,7 @@ namespace ArmyBuilder.Test.ViewModels
             MainModel mainModel = new MainModel() { Count = 1 };
 
             // act
-            new MainModelTreeNode(mainModel).IncreaseCount();
+            new MainModelTreeNode(mainModel, null).IncreaseCount();
 
             // assert
             mainModel.Count.Should().Be(2);
