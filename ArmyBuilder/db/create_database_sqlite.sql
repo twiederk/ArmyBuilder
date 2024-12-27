@@ -80,9 +80,11 @@ CREATE TABLE IF NOT EXISTS "unit"
 
 CREATE TABLE IF NOT EXISTS "unit_main_model"
 ("id"                INTEGER,
+ "unit_id"           INTEGER,
  "main_model_id"     INTEGER,
  "count"             INTEGER,
  PRIMARY KEY(id)
+ FOREIGN KEY (unit_id) REFERENCES unit(id) ON DELETE CASCADE 
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
 );
 
