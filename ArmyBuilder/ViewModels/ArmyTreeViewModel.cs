@@ -12,6 +12,7 @@ namespace ArmyBuilder.ViewModels
         {
             Army army = new Army($"{armyListName} Armee");
             /*
+            Army army = new Army("Armee der Hochelfen von Tyr");
             army.Units = new List<Unit>()
             {
                 new Unit("Generalseinheit")
