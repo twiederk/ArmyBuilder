@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using ArmyBuilder.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,6 +13,7 @@ namespace ArmyBuilder
         {
             _serviceProvider = serviceProvider;
             InitializeComponent();
+            DataContext = _serviceProvider.GetRequiredService<StartViewModel>();
         }
 
         private void NewMenuItem_Click(object sender, RoutedEventArgs e)

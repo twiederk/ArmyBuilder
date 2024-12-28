@@ -6,7 +6,7 @@ namespace ArmyBuilder.Domain
     public class Army
     {
         public int Id { get; set; }
-        public string Name;
+        public string Name { get; set; }
         public List<Unit> Units { get; set; } = new List<Unit>();
 
         public Army()

@@ -22,6 +22,7 @@ namespace ArmyBuilder
             collection.AddSingleton(dbConnection);
             collection.AddSingleton<IArmyBuilderRepository,ArmyBuilderRepositorySqlite>();
             collection.AddSingleton<ArmyViewModel>();
+            collection.AddSingleton<StartViewModel>();
             collection.AddSingleton<MainWindow>();
 
             collection.AddTransient<StartView>();
