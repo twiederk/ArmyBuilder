@@ -33,6 +33,7 @@ namespace ArmyBuilder
         {
             if (lstArmies.SelectedItem is Army selectedArmy)
             {
+                _armyViewModel.SelectedArmyList = selectedArmy.ArmyList;
                 Army army = _repository.Army(selectedArmy.Id);
                 _armyViewModel.ArmyTreeViewModel = new ArmyTreeViewModel(army);
 

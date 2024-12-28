@@ -111,6 +111,8 @@ namespace ArmyBuilder.Test.Dao
             armies.Should().HaveCount(1);
             Army army = armies.First();
             army.Name.Should().Be("Armee der Hochelfen von Tyr");
+            army.ArmyList.Id.Should().Be(7);
+            army.ArmyList.Name.Should().Be("Hochelfen");
         }
 
         [Fact]

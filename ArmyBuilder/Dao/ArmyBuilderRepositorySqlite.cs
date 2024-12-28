@@ -143,7 +143,34 @@ namespace ArmyBuilder.Dao
 
         public List<Army> Armies()
         {
-            return _dbConnection.GetAll<Army>().ToList();
+            var sql = @"
+                    SELECT 
+                        a.Id, a.Name,
+                        al.Id, al.Name
+                    FROM 
+                        army a
+                    LEFT JOIN 
+                        army_list al ON a.army_list_id = al.Id";
+
+            var armyDictionary = new Dictionary<int, Army>();
+
+            _dbConnection.Query<Army, ArmyList, Army>(
+                sql,
+                (army, armyList) =>
+                {
+                    if (!armyDictionary.TryGetValue(army.Id, out var currentArmy))
+                    {
+                        currentArmy = army;
+                        currentArmy.ArmyList = armyList;
+                        armyDictionary.Add(currentArmy.Id, currentArmy);
+                    }
+
+                    return currentArmy;
+                },
+                splitOn: "Id"
+            );
+
+            return armyDictionary.Values.ToList();
         }
 
         public Army Army(int id)
