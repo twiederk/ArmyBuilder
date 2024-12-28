@@ -18,6 +18,14 @@ namespace ArmyBuilder.ViewModels
                 new ArmyTreeNode(army)
             };
         }
+
+        public ArmyTreeViewModel(Army army)
+        {
+            Root = new ObservableCollection<ArmyTreeNode>
+            {
+                new ArmyTreeNode(army)
+            };
+        }
     }
 }
 

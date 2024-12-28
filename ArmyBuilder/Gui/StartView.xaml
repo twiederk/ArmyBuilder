@@ -18,6 +18,6 @@
             </MenuItem>
         </Menu>
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding Armies}" DisplayMemberPath="Name" />
+        <ListBox x:Name="lstArmies" Grid.Row="1" ItemsSource="{Binding Armies}" DisplayMemberPath="Name" MouseDoubleClick="lstArmies_MouseDoubleClick"/>
     </Grid>
 </UserControl>

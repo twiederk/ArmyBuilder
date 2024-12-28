@@ -13,6 +13,7 @@ namespace ArmyBuilder.ViewModels
         private List<MainModel> _troopers;
         private List<MainModel> _warMachines;
         private List<MainModel> _monsters;
+        private Army _army;
 
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
@@ -21,6 +22,15 @@ namespace ArmyBuilder.ViewModels
 
         public ArmyTreeViewModel ArmyTreeViewModel { get; set; }
 
+        public Army Army
+        {
+            get => _army;
+            set
+            {
+                _army = value;
+            }
+        }
+        
         public ArmyList SelectedArmyList
         {
             get => _selectedArmyList;
