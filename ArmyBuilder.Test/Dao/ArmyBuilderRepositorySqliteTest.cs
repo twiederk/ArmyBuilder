@@ -20,7 +20,7 @@ namespace ArmyBuilder.Test.Dao
         public void should_read_all_army_lists_when_connected_to_SQLite_database()
         {
             // act
-            var armyLists = _repository.ArmyLists();
+            List<ArmyList> armyLists = _repository.ArmyLists();
 
             // assert
             armyLists.Should().HaveCount(15);
@@ -33,7 +33,7 @@ namespace ArmyBuilder.Test.Dao
             int armyId = 7;
 
             // act
-            var mainModels = _repository.MainModels(armyId);
+            List<MainModel> mainModels = _repository.MainModels(armyId);
 
             // assert
             mainModels.Should().HaveCount(67);
@@ -63,7 +63,7 @@ namespace ArmyBuilder.Test.Dao
         {
 
             // act 
-            var singleModel = _repository.SingleModel(46811);
+            SingleModel singleModel = _repository.SingleModel(46811);
 
             // assert
             singleModel.Name.Should().Be("Schwertmeister");
@@ -83,7 +83,7 @@ namespace ArmyBuilder.Test.Dao
         {
 
             // act 
-            var mainModel = _repository.MainModel(11901);
+            MainModel mainModel = _repository.MainModel(11901);
 
             // assert
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
@@ -99,6 +99,18 @@ namespace ArmyBuilder.Test.Dao
             profile.Initiative.Should().Be(7);
             profile.Attacks.Should().Be(1);
             profile.Moral.Should().Be(8);
+        }
+
+        [Fact]
+        public void should_read_all_armies()
+        {
+            // act
+            List<Army> armies = _repository.Armies();
+
+            // assert
+            armies.Should().HaveCount(1);
+            Army army = armies.First();
+            army.Name.Should().Be("Armee der Hochelfen von Tyr");
         }
     }
 }

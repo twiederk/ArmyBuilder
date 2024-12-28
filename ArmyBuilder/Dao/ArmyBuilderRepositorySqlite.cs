@@ -140,5 +140,10 @@ namespace ArmyBuilder.Dao
 
             return result.FirstOrDefault();
         }
+
+        public List<Army> Armies()
+        {
+            return _dbConnection.GetAll<Army>().ToList();
+        }
     }
 }

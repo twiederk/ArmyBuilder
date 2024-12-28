@@ -1,10 +1,17 @@
-﻿
+﻿using Dapper.Contrib.Extensions;
+
 namespace ArmyBuilder.Domain
 {
+    [Table("army")]
     public class Army
     {
+        public int Id { get; set; }
         public string Name;
         public List<Unit> Units { get; set; } = new List<Unit>();
+
+        public Army()
+        {
+        }
 
         public Army(string name)
         {
