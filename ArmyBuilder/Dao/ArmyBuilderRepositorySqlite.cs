@@ -145,5 +145,47 @@ namespace ArmyBuilder.Dao
         {
             return _dbConnection.GetAll<Army>().ToList();
         }
+
+        public Army Army(int id)
+        {
+            var sql = @"
+                SELECT 
+                    a.Id, a.Name,
+                    u.Id, u.Name
+                FROM 
+                    army a
+                LEFT JOIN 
+                    unit u ON a.Id = u.army_id
+                WHERE 
+                    a.Id = @Id
+                ";
+
+            var armyDictionary = new Dictionary<int, Army>();
+
+            _dbConnection.Query<Army, Unit, Army>(
+                sql,
+                (army, unit) =>
+                {
+                    if (!armyDictionary.TryGetValue(army.Id, out var currentArmy))
+                    {
+                        currentArmy = army;
+                        currentArmy.Units = new List<Unit>();
+                        armyDictionary.Add(currentArmy.Id, currentArmy);
+                    }
+
+                    if (unit != null)
+                    {
+                        currentArmy.Units.Add(unit);
+                    }
+
+                    return currentArmy;
+                },
+                new { Id = id },
+                splitOn: "Id"
+            );
+
+            return armyDictionary.Values.FirstOrDefault();
+
+        }
     }
 }
