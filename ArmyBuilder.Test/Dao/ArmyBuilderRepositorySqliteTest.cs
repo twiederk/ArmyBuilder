@@ -115,7 +115,7 @@ namespace ArmyBuilder.Test.Dao
 
         [Fact]
         public void should_read_army_when_id_is_given()
-        {             
+        {
 
             // act
             Army army = _repository.Army(1);
@@ -124,27 +124,32 @@ namespace ArmyBuilder.Test.Dao
             army.Name.Should().Be("Armee der Hochelfen von Tyr");
             army.Units.Should().HaveCount(2);
 
-            Unit unit = army.Units.First();
+            Unit unit = army.Units[0];
             unit.Name.Should().Be("Generalseinheit");
-            //unit.MainModels.Should().HaveCount(2);
+            unit.MainModels.Should().HaveCount(2);
 
-            //MainModel mainModel = unit.MainModels.First();
-            //mainModel.Name.Should().Be("General");
-            //mainModel.ArmyCategory.Should().Be(ArmyCategory.Character);
-            //mainModel.Points.Should().Be(100);
-            //mainModel.SingleModels.Should().HaveCount(1);
+            MainModel general = unit.MainModels[0];
+            general.Name.Should().Be("General");
+            general.Count.Should().Be(1);
+            general.ArmyCategory.Should().Be(ArmyCategory.Character);
+            general.Points.Should().Be(160);
+            general.SingleModels.Should().HaveCount(1);
 
-            //SingleModel singleModel = mainModel.SingleModels.First();
-            //singleModel.Name.Should().Be("General");
+            SingleModel singleModel = general.SingleModels[0];
+            singleModel.Name.Should().Be("General");
 
-            //Profile profile = singleModel.Profile;
-            //profile.Movement.Should().Be(5);
-            //profile.WeaponSkill.Should().Be(7);
-            //profile.BallisticSkill.Should().Be(7);
-            //profile.Strength.Should().Be(4);
-            //profile.Toughness.Should().Be(4);
-            //profile.Wounds.Should().Be(3);
-            //profile.Initiative.Should().Be(9);
+            Profile profile = singleModel.Profile;
+            profile.Movement.Should().Be(5);
+            profile.WeaponSkill.Should().Be(7);
+            profile.BallisticSkill.Should().Be(7);
+            profile.Strength.Should().Be(4);
+            profile.Toughness.Should().Be(4);
+            profile.Wounds.Should().Be(3);
+            profile.Initiative.Should().Be(9);
+
+            MainModel spearmen = unit.MainModels[1];
+            spearmen.Name.Should().Be("Speerträger");
+            spearmen.Count.Should().Be(20);
         }
     }
 }

@@ -149,22 +149,33 @@ namespace ArmyBuilder.Dao
         public Army Army(int id)
         {
             var sql = @"
-                SELECT 
-                    a.Id, a.Name,
-                    u.Id, u.Name
-                FROM 
-                    army a
-                LEFT JOIN 
-                    unit u ON a.Id = u.army_id
-                WHERE 
-                    a.Id = @Id
-                ";
+        SELECT 
+            a.Id, a.Name,
+            u.Id, u.Name,
+            mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, umm.count as Count,
+            sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId,
+            p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral
+        FROM 
+            army a
+        LEFT JOIN 
+            unit u ON a.Id = u.army_id
+        LEFT JOIN 
+            unit_main_model umm ON u.Id = umm.unit_id
+        LEFT JOIN 
+            main_model mm ON umm.main_model_id = mm.Id
+        LEFT JOIN 
+            single_model sm ON mm.Id = sm.main_model_id
+        LEFT JOIN 
+            profile p ON sm.profile_id = p.Id
+        WHERE 
+            a.Id = @Id";
 
             var armyDictionary = new Dictionary<int, Army>();
+            var unitDictionary = new Dictionary<int, Unit>();
 
-            _dbConnection.Query<Army, Unit, Army>(
+            _dbConnection.Query<Army, Unit, MainModel, SingleModel, Profile, Army>(
                 sql,
-                (army, unit) =>
+                (army, unit, mainModel, singleModel, profile) =>
                 {
                     if (!armyDictionary.TryGetValue(army.Id, out var currentArmy))
                     {
@@ -175,17 +186,37 @@ namespace ArmyBuilder.Dao
 
                     if (unit != null)
                     {
-                        currentArmy.Units.Add(unit);
+                        if (!unitDictionary.TryGetValue(unit.Id, out var currentUnit))
+                        {
+                            currentUnit = unit;
+                            currentUnit.MainModels = new List<MainModel>();
+                            unitDictionary.Add(currentUnit.Id, currentUnit);
+                            currentArmy.Units.Add(currentUnit);
+                        }
+
+                        if (mainModel != null)
+                        {
+                            if (!currentUnit.MainModels.Any(m => m.Id == mainModel.Id))
+                            {
+                                mainModel.SingleModels = new List<SingleModel>();
+                                currentUnit.MainModels.Add(mainModel);
+                            }
+
+                            if (singleModel != null)
+                            {
+                                singleModel.Profile = profile;
+                                mainModel.SingleModels.Add(singleModel);
+                            }
+                        }
                     }
 
                     return currentArmy;
                 },
                 new { Id = id },
-                splitOn: "Id"
+                splitOn: "Id,Id,Id,Id"
             );
 
             return armyDictionary.Values.FirstOrDefault();
-
         }
     }
 }
