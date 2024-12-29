@@ -1,8 +1,6 @@
 using ArmyBuilder.Domain;
 using ArmyBuilder.Dao;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Input;
 
 namespace ArmyBuilder.ViewModels
 {
@@ -22,7 +20,7 @@ namespace ArmyBuilder.ViewModels
         }
 
         public ArmyTreeViewModel ArmyTreeViewModel { get; set; }
-
+        
         public ArmyList SelectedArmyList
         {
             get => _selectedArmyList;

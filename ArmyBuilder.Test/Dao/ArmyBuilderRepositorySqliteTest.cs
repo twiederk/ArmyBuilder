@@ -20,7 +20,7 @@ namespace ArmyBuilder.Test.Dao
         public void should_read_all_army_lists_when_connected_to_SQLite_database()
         {
             // act
-            var armyLists = _repository.ArmyLists();
+            List<ArmyList> armyLists = _repository.ArmyLists();
 
             // assert
             armyLists.Should().HaveCount(15);
@@ -33,7 +33,7 @@ namespace ArmyBuilder.Test.Dao
             int armyId = 7;
 
             // act
-            var mainModels = _repository.MainModels(armyId);
+            List<MainModel> mainModels = _repository.MainModels(armyId);
 
             // assert
             mainModels.Should().HaveCount(67);
@@ -63,7 +63,7 @@ namespace ArmyBuilder.Test.Dao
         {
 
             // act 
-            var singleModel = _repository.SingleModel(46811);
+            SingleModel singleModel = _repository.SingleModel(46811);
 
             // assert
             singleModel.Name.Should().Be("Schwertmeister");
@@ -83,7 +83,7 @@ namespace ArmyBuilder.Test.Dao
         {
 
             // act 
-            var mainModel = _repository.MainModel(11901);
+            MainModel mainModel = _repository.MainModel(11901);
 
             // assert
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
@@ -99,6 +99,65 @@ namespace ArmyBuilder.Test.Dao
             profile.Initiative.Should().Be(7);
             profile.Attacks.Should().Be(1);
             profile.Moral.Should().Be(8);
+        }
+
+        [Fact]
+        public void should_read_all_armies()
+        {
+            // act
+            List<Army> armies = _repository.Armies();
+
+            // assert
+            armies.Should().HaveCount(1);
+            Army army = armies.First();
+            army.Name.Should().Be("Armee der Hochelfen von Tyr");
+            army.Author.Should().Be("Torsten");
+            army.ArmyList.Id.Should().Be(7);
+            army.ArmyList.Name.Should().Be("Hochelfen");
+            army.Points.Should().Be(472);
+        }
+
+        [Fact]
+        public void should_read_army_when_id_is_given()
+        {
+
+            // act
+            Army army = _repository.Army(1);
+
+            // assert
+            army.Name.Should().Be("Armee der Hochelfen von Tyr");
+            army.ArmyList.Id.Should().Be(7);
+            army.ArmyList.Name.Should().Be("Hochelfen");
+            army.Author.Should().Be("Torsten");
+            army.Points.Should().Be(472);
+            army.Units.Should().HaveCount(2);
+
+            Unit unit = army.Units[0];
+            unit.Name.Should().Be("Generalseinheit");
+            unit.MainModels.Should().HaveCount(2);
+
+            MainModel general = unit.MainModels[0];
+            general.Name.Should().Be("General");
+            general.Count.Should().Be(1);
+            general.ArmyCategory.Should().Be(ArmyCategory.Character);
+            general.Points.Should().Be(160);
+            general.SingleModels.Should().HaveCount(1);
+
+            SingleModel singleModel = general.SingleModels[0];
+            singleModel.Name.Should().Be("General");
+
+            Profile profile = singleModel.Profile;
+            profile.Movement.Should().Be(5);
+            profile.WeaponSkill.Should().Be(7);
+            profile.BallisticSkill.Should().Be(7);
+            profile.Strength.Should().Be(4);
+            profile.Toughness.Should().Be(4);
+            profile.Wounds.Should().Be(3);
+            profile.Initiative.Should().Be(9);
+
+            MainModel spearmen = unit.MainModels[1];
+            spearmen.Name.Should().Be("Speerträger");
+            spearmen.Count.Should().Be(20);
         }
     }
 }

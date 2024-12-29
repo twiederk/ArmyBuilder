@@ -62,5 +62,36 @@ CREATE TABLE IF NOT EXISTS "single_model"
 );
 
 
+CREATE TABLE IF NOT EXISTS "army"
+("id"                INTEGER,
+ "name"              VARCHAR(256),
+ "author"            VARCHAR(128),
+ "army_list_id"      INTEGER,
+ "points"            INTEGER,
+ PRIMARY KEY(id)
+ FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
+);
+
+
+CREATE TABLE IF NOT EXISTS "unit"
+("id"                INTEGER,
+ "army_id"           INTEGER,
+ "name"              VARCHAR(256),
+ PRIMARY KEY(id)
+ FOREIGN KEY (army_id) REFERENCES army(id) ON DELETE CASCADE 
+);
+
+
+CREATE TABLE IF NOT EXISTS "unit_main_model"
+("id"                INTEGER,
+ "unit_id"           INTEGER,
+ "main_model_id"     INTEGER,
+ "count"             INTEGER,
+ PRIMARY KEY(id)
+ FOREIGN KEY (unit_id) REFERENCES unit(id) ON DELETE CASCADE 
+ FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
+);
+
+
 COMMIT;
 

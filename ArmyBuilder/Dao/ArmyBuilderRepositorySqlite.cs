@@ -140,5 +140,115 @@ namespace ArmyBuilder.Dao
 
             return result.FirstOrDefault();
         }
+
+        public List<Army> Armies()
+        {
+            var sql = @"
+                    SELECT 
+                        a.Id, a.Name, a.Author, a.Points,
+                        al.Id, al.Name
+                    FROM 
+                        army a
+                    LEFT JOIN 
+                        army_list al ON a.army_list_id = al.Id";
+
+            var armyDictionary = new Dictionary<int, Army>();
+
+            _dbConnection.Query<Army, ArmyList, Army>(
+                sql,
+                (army, armyList) =>
+                {
+                    if (!armyDictionary.TryGetValue(army.Id, out var currentArmy))
+                    {
+                        currentArmy = army;
+                        currentArmy.ArmyList = armyList;
+                        armyDictionary.Add(currentArmy.Id, currentArmy);
+                    }
+
+                    return currentArmy;
+                },
+                splitOn: "Id"
+            );
+
+            return armyDictionary.Values.ToList();
+        }
+
+        public Army Army(int id)
+        {
+            var sql = @"
+        SELECT 
+            a.Id, a.Name, a.Author, a.army_list_id, a.Points,
+            al.Id, al.Name,
+            u.Id, u.Name,
+            mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, umm.count as Count,
+            sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId,
+            p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral
+        FROM 
+            army a
+        LEFT JOIN 
+            army_list al ON a.army_list_id = al.Id
+        LEFT JOIN 
+            unit u ON a.Id = u.army_id
+        LEFT JOIN 
+            unit_main_model umm ON u.Id = umm.unit_id
+        LEFT JOIN 
+            main_model mm ON umm.main_model_id = mm.Id
+        LEFT JOIN 
+            single_model sm ON mm.Id = sm.main_model_id
+        LEFT JOIN 
+            profile p ON sm.profile_id = p.Id
+        WHERE 
+            a.Id = @Id";
+
+            var armyDictionary = new Dictionary<int, Army>();
+            var unitDictionary = new Dictionary<int, Unit>();
+
+            _dbConnection.Query<Army, ArmyList, Unit, MainModel, SingleModel, Profile, Army>(
+                sql,
+                (army, armyList, unit, mainModel, singleModel, profile) =>
+                {
+                    if (!armyDictionary.TryGetValue(army.Id, out var currentArmy))
+                    {
+                        currentArmy = army;
+                        currentArmy.ArmyList = armyList;
+                        currentArmy.Units = new List<Unit>();
+                        armyDictionary.Add(currentArmy.Id, currentArmy);
+                    }
+
+                    if (unit != null)
+                    {
+                        if (!unitDictionary.TryGetValue(unit.Id, out var currentUnit))
+                        {
+                            currentUnit = unit;
+                            currentUnit.MainModels = new List<MainModel>();
+                            unitDictionary.Add(currentUnit.Id, currentUnit);
+                            currentArmy.Units.Add(currentUnit);
+                        }
+
+                        if (mainModel != null)
+                        {
+                            if (!currentUnit.MainModels.Any(m => m.Id == mainModel.Id))
+                            {
+                                mainModel.SingleModels = new List<SingleModel>();
+                                currentUnit.MainModels.Add(mainModel);
+                            }
+
+                            if (singleModel != null)
+                            {
+                                singleModel.Profile = profile;
+                                mainModel.SingleModels.Add(singleModel);
+                            }
+                        }
+                    }
+
+                    return currentArmy;
+                },
+                new { Id = id },
+                splitOn: "Id,Id,Id,Id,Id"
+            );
+
+            return armyDictionary.Values.FirstOrDefault();
+        }
+
     }
 }
