@@ -124,6 +124,8 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             army.Name.Should().Be("Armee der Hochelfen von Tyr");
+            army.ArmyList.Id.Should().Be(7);
+            army.ArmyList.Name.Should().Be("Hochelfen");
             army.Units.Should().HaveCount(2);
 
             Unit unit = army.Units[0];

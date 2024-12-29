@@ -177,13 +177,16 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
         SELECT 
-            a.Id, a.Name,
+            a.Id, a.Name, a.army_list_id,
+            al.Id, al.Name,
             u.Id, u.Name,
             mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, umm.count as Count,
             sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId,
             p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral
         FROM 
             army a
+        LEFT JOIN 
+            army_list al ON a.army_list_id = al.Id
         LEFT JOIN 
             unit u ON a.Id = u.army_id
         LEFT JOIN 
@@ -200,13 +203,14 @@ namespace ArmyBuilder.Dao
             var armyDictionary = new Dictionary<int, Army>();
             var unitDictionary = new Dictionary<int, Unit>();
 
-            _dbConnection.Query<Army, Unit, MainModel, SingleModel, Profile, Army>(
+            _dbConnection.Query<Army, ArmyList, Unit, MainModel, SingleModel, Profile, Army>(
                 sql,
-                (army, unit, mainModel, singleModel, profile) =>
+                (army, armyList, unit, mainModel, singleModel, profile) =>
                 {
                     if (!armyDictionary.TryGetValue(army.Id, out var currentArmy))
                     {
                         currentArmy = army;
+                        currentArmy.ArmyList = armyList;
                         currentArmy.Units = new List<Unit>();
                         armyDictionary.Add(currentArmy.Id, currentArmy);
                     }
@@ -240,10 +244,11 @@ namespace ArmyBuilder.Dao
                     return currentArmy;
                 },
                 new { Id = id },
-                splitOn: "Id,Id,Id,Id"
+                splitOn: "Id,Id,Id,Id,Id"
             );
 
             return armyDictionary.Values.FirstOrDefault();
         }
+
     }
 }
