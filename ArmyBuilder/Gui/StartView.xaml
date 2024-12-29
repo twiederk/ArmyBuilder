@@ -18,6 +18,14 @@
             </MenuItem>
         </Menu>
 
-        <ListBox x:Name="lstArmies" Grid.Row="1" ItemsSource="{Binding Armies}" DisplayMemberPath="Name" MouseDoubleClick="lstArmies_MouseDoubleClick"/>
-    </Grid>
+        <ListBox x:Name="lstArmies" Grid.Row="1" ItemsSource="{Binding Armies}" MouseDoubleClick="lstArmies_MouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding ArmyList.Name}" FontStyle="Italic"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>    </Grid>
 </UserControl>
