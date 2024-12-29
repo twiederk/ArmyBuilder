@@ -177,7 +177,7 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
         SELECT 
-            a.Id, a.Name, a.army_list_id,
+            a.Id, a.Name, a.Author, a.army_list_id, a.Points,
             al.Id, al.Name,
             u.Id, u.Name,
             mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, umm.count as Count,
