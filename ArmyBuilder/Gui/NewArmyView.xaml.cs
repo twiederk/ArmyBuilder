@@ -25,19 +25,19 @@ namespace ArmyBuilder
             List<ArmyList> armyLists = repository.ArmyLists();
             var sortedArmyLists = armyLists.OrderBy(al => al.Name).ToList();
 
-            ArmyListBox.ItemsSource = sortedArmyLists;
-            ArmyListBox.DisplayMemberPath = "Name";
+            lstArmyLists.ItemsSource = sortedArmyLists;
+            lstArmyLists.DisplayMemberPath = "Name";
         }
 
-        private void Ok_Click(object sender, RoutedEventArgs e)
+        private void lstArmies_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            if (ArmyListBox.SelectedItem == null)
+            if (lstArmyLists.SelectedItem == null)
             {
                 MessageBox.Show("Bitte eine Armeeliste auswählen!", "Auswahl erforderlich");
                 return;
             }
 
-            if (ArmyListBox.SelectedItem is ArmyList selectedArmyList)
+            if (lstArmyLists.SelectedItem is ArmyList selectedArmyList)
             {
                 _armyViewModel.SelectedArmyList = selectedArmyList;
                 _armyViewModel.ArmyTreeViewModel = new ArmyTreeViewModel(selectedArmyList.Name);
