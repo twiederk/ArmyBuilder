@@ -14,22 +14,22 @@ namespace ArmyBuilder
             DataContext = armyViewModel;
         }
 
-        private void listCharacters_MouseMove(object sender, MouseEventArgs e)
+        private void lstCharacters_MouseMove(object sender, MouseEventArgs e)
         {
             ListBox_MouseMove(sender, e);
         }
 
-        private void listTroopers_MouseMove(object sender, MouseEventArgs e)
+        private void lstTroopers_MouseMove(object sender, MouseEventArgs e)
         {
             ListBox_MouseMove(sender, e);
         }
 
-        private void listWarMachines_MouseMove(object sender, MouseEventArgs e)
+        private void lstWarMachines_MouseMove(object sender, MouseEventArgs e)
         {
             ListBox_MouseMove(sender, e);
         }
 
-        private void listMonsters_MouseMove(object sender, MouseEventArgs e)
+        private void lstMonsters_MouseMove(object sender, MouseEventArgs e)
         {
             ListBox_MouseMove(sender, e);
         }
