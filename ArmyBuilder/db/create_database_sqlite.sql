@@ -65,7 +65,9 @@ CREATE TABLE IF NOT EXISTS "single_model"
 CREATE TABLE IF NOT EXISTS "army"
 ("id"                INTEGER,
  "name"              VARCHAR(256),
+ "author"            VARCHAR(128),
  "army_list_id"      INTEGER,
+ "points"            INTEGER,
  PRIMARY KEY(id)
  FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
 );
