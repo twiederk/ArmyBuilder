@@ -24,8 +24,11 @@
                     <StackPanel>
                         <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
                         <TextBlock Text="{Binding ArmyList.Name}" FontStyle="Italic"/>
+                        <TextBlock Text="{Binding Author}" />
+                        <TextBlock Text="{Binding Points}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>    </Grid>
+        </ListBox>
+    </Grid>
 </UserControl>

@@ -145,7 +145,7 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                     SELECT 
-                        a.Id, a.Name,
+                        a.Id, a.Name, a.Author, a.Points,
                         al.Id, al.Name
                     FROM 
                         army a
