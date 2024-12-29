@@ -21,14 +21,25 @@
         <ListBox x:Name="lstArmies" Grid.Row="1" ItemsSource="{Binding Armies}" MouseDoubleClick="lstArmies_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding ArmyList.Name}" FontStyle="Italic"/>
-                        <TextBlock Text="{Binding Author}" />
-                        <TextBlock Text="{Binding Points}" />
-                    </StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Name}" FontWeight="Bold"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Author}" HorizontalAlignment="Right" Margin="10,0,0,0"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding ArmyList.Name}" FontStyle="Italic"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Points}" HorizontalAlignment="Right"/>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
 </UserControl>
+
