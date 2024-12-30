@@ -98,5 +98,11 @@ namespace ArmyBuilder
                 }
             }
         }
+
+        private void mainModelTreeNode_IncreaseCount(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Increase Count");
+        }
+
     }
 }

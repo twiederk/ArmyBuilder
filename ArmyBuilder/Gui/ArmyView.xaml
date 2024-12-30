@@ -156,7 +156,7 @@
                         </Grid>
                     </HierarchicalDataTemplate>
                     
-                    <HierarchicalDataTemplate  DataType="{x:Type viewModels:MainModelTreeNode}" ItemsSource="{Binding Children}">
+                    <HierarchicalDataTemplate DataType="{x:Type viewModels:MainModelTreeNode}" ItemsSource="{Binding Children}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -167,7 +167,7 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Label Content="{Binding Count}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Magenta"/>
-                            <Button Content=" + " Grid.Column="1" Command="{Binding IncreaseCountCommand}" CommandParameter="{Binding}" Margin="2 ,2, 2, 2"/>
+                            <Button Content=" + " Grid.Column="1" Click="mainModelTreeNode_IncreaseCount" Command="{Binding IncreaseCountCommand}" CommandParameter="{Binding}" Margin="2 ,2, 2, 2"/>
                             <Button Content=" - " Grid.Column="2" Command="{Binding DecreaseCountCommand}" CommandParameter="{Binding}" Margin="2 ,2, 2,2"/>
                             <Label Content="{Binding Name}" Grid.Column="3" HorizontalAlignment="Left" Foreground="Magenta"/>
                             <Label Content="{Binding TotalPoints}" Grid.Column="4" HorizontalAlignment="Right" Foreground="Magenta"/>

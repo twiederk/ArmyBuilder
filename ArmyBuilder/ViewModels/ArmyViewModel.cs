@@ -1,6 +1,7 @@
 using ArmyBuilder.Domain;
 using ArmyBuilder.Dao;
 using System.ComponentModel;
+using System.Windows;
 
 namespace ArmyBuilder.ViewModels
 {
@@ -102,7 +103,6 @@ namespace ArmyBuilder.ViewModels
         {
             _repository.AddMainModel(unitId, mainModel);
         }
-
 
         private void LoadMainModels()
         {
