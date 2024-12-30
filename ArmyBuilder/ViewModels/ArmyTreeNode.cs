@@ -26,9 +26,8 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public void AddUnit(MainModel mainModel)
+        public void AddUnit(Unit unit)
         {
-            Unit unit = _army.CreateUnit(mainModel);
             Children.Add(new UnitTreeNode(unit, this));
             UpdateTotalPoints();
         }

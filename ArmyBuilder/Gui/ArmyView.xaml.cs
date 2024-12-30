@@ -69,11 +69,8 @@ namespace ArmyBuilder
                     {
                         MainModel clonedMainModel = droppedMainModel.Clone();
                         var armyViewModel = DataContext as ArmyViewModel;
-                        if (armyViewModel != null)
-                        {
-                            armyViewModel.CreateUnit(clonedMainModel);
-                        }
-                        armyTreeNode.AddUnit(clonedMainModel);
+                        Unit unit = armyViewModel.CreateUnit(clonedMainModel);
+                        armyTreeNode.AddUnit(unit);
                     }
                 }
             }
