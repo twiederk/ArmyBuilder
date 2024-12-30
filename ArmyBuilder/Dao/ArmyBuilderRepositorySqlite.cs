@@ -250,5 +250,20 @@ namespace ArmyBuilder.Dao
             return armyDictionary.Values.FirstOrDefault();
         }
 
+        public Army CreateArmy(Army army)
+        {
+            var sql = @"
+                INSERT INTO army (name, author, army_list_id, points)
+                VALUES (@Name, @Author, @ArmyListId, @Points);";
+            var id = _dbConnection.Execute(sql, new
+            {
+                army.Name,
+                army.Author,
+                ArmyListId = army.ArmyList.Id,
+                army.Points
+            });
+            army.Id = id;
+            return army;
+        }
     }
 }

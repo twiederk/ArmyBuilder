@@ -81,6 +81,15 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
+        public Army CreateArmy(string name, ArmyList armyList)
+        {
+            Army army = new Army(name);
+            army.ArmyList = armyList;
+            army.Author = "Torsten";
+            _repository.CreateArmy(army);
+            return army;
+        }
+
 
         private void LoadMainModels()
         {

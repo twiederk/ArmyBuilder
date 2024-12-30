@@ -10,5 +10,6 @@ namespace ArmyBuilder.Dao
         MainModel MainModel(int id);
         List<Army> Armies();
         Army Army(int id);
+        Army CreateArmy(Army army);
     }
 }

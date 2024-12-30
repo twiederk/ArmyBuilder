@@ -159,5 +159,29 @@ namespace ArmyBuilder.Test.Dao
             spearmen.Name.Should().Be("Speerträger");
             spearmen.Count.Should().Be(20);
         }
+
+        [Fact]
+        public void should_create_new_army()
+        {
+            // arrange
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+
+
+            // act
+            _repository.CreateArmy(army);
+
+            // assert
+            List<Army> armies = _repository.Armies();
+            armies.Should().HaveCount(2);
+
+            Army testArmy = armies[1];
+            testArmy.Name.Should().Be("Testarmee");
+            testArmy.Author.Should().Be("Testautor");
+            testArmy.ArmyList.Id.Should().Be(7);
+            testArmy.ArmyList.Name.Should().Be("Hochelfen");
+            testArmy.Points.Should().Be(0);
+        }
     }
 }
