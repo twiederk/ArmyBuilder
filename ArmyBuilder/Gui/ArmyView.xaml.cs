@@ -68,8 +68,9 @@ namespace ArmyBuilder
                     if (armyTreeNode != null)
                     {
                         MainModel clonedMainModel = droppedMainModel.Clone();
+                        Army army = armyTreeNode.Army;
                         var armyViewModel = DataContext as ArmyViewModel;
-                        Unit unit = armyViewModel.CreateUnit(clonedMainModel);
+                        Unit unit = armyViewModel.CreateUnit(army, clonedMainModel);
                         armyTreeNode.AddUnit(unit);
                     }
                 }
@@ -89,6 +90,9 @@ namespace ArmyBuilder
                     if (unitTreeNode != null)
                     {
                         MainModel clonedMainModel = droppedMainModel.Clone();
+                        Unit unit = unitTreeNode.Unit;
+                        var armyViewModel = DataContext as ArmyViewModel;
+                        armyViewModel.AddMainModel(unit.Id, clonedMainModel);
                         unitTreeNode.AddMainModel(clonedMainModel);
                     }
                 }

@@ -90,13 +90,17 @@ namespace ArmyBuilder.ViewModels
             return army;
         }
 
-        public Unit CreateUnit(MainModel mainModel)
+        public Unit CreateUnit(Army army, MainModel mainModel)
         {
-            Army army = ArmyTreeViewModel.Army;
             Unit unit = army.CreateUnit(mainModel);
             _repository.CreateUnit(army.Id, unit);
             _repository.AddMainModel(unit.Id, mainModel);
             return unit;
+        }
+
+        public void AddMainModel(int unitId, MainModel mainModel)
+        {
+            _repository.AddMainModel(unitId, mainModel);
         }
 
 

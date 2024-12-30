@@ -6,21 +6,21 @@ namespace ArmyBuilder.ViewModels
 {
     public class ArmyTreeNode : INotifyPropertyChanged
     {
-        public string Name => _army.Name;
-        public float TotalPoints => _army.TotalPoints();
+        public Army Army;
+        public string Name => Army.Name;
+        public float TotalPoints => Army.TotalPoints();
         public ObservableCollection<UnitTreeNode> Children { get; set; } = new ObservableCollection<UnitTreeNode>();
 
-        private Army _army;
 
         public ArmyTreeNode(Army army)
         {
-            _army = army;
+            Army = army;
             SetChildren();
         }
 
         private void SetChildren()
         {
-            foreach (var unit in _army.Units)
+            foreach (var unit in Army.Units)
             {
                 Children.Add(new UnitTreeNode(unit, this));
             }
