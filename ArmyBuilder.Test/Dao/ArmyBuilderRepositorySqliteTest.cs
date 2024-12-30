@@ -228,5 +228,32 @@ namespace ArmyBuilder.Test.Dao
             // teardown
             _repository.DeleteArmy(army.Id);
         }
+
+        [Fact]
+        public void should_add_main_model_to_unit()
+        {
+            // arrange
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            _repository.CreateArmy(army);
+            Unit unit = new Unit("Testeinheit");
+            _repository.CreateUnit(army.Id, unit);
+            MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
+            unit.MainModels.Add(mainModel);
+
+            // act
+            _repository.AddMainModel(unit.Id, mainModel);
+
+            // assert
+            Army testArmy = _repository.Army(2);
+            testArmy.Units.Should().HaveCount(1);
+
+            Unit testUnit = testArmy.Units[0];
+            testUnit.Name.Should().Be("Testeinheit");
+
+            // teardown
+            _repository.DeleteArmy(army.Id);
+        }
     }
 }

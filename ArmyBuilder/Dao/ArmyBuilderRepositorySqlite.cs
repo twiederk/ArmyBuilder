@@ -269,7 +269,9 @@ namespace ArmyBuilder.Dao
 
         public void DeleteArmy(int id)
         {
-            var sql = "DELETE FROM army WHERE Id = @Id";
+            var sql = "DELETE FROM unit WHERE army_id = @Id";
+            _dbConnection.Execute(sql, new { Id = id });
+            sql = "DELETE FROM army WHERE Id = @Id";
             _dbConnection.Execute(sql, new { Id = id });
         }
 
@@ -288,6 +290,19 @@ namespace ArmyBuilder.Dao
 
             unit.Id = unitId;
             return unit;
+        }
+
+        public void AddMainModel(int unitId, MainModel mainModel)
+        {
+            var sql = @"
+                INSERT INTO unit_main_model (unit_id, main_model_id, count)
+                VALUES (@UnitId, @MainModelId, @Count);";
+            _dbConnection.Execute(sql, new
+            {
+                UnitId = unitId,
+                MainModelId = mainModel.Id,
+                mainModel.Count
+            });
         }
 
     }
