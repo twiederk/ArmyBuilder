@@ -81,9 +81,9 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public Army CreateArmy(string name, ArmyList armyList)
+        public Army CreateArmy(string armyListName, ArmyList armyList)
         {
-            Army army = new Army(name);
+            Army army = new Army($"{armyListName} Armee");
             army.ArmyList = armyList;
             army.Author = "Torsten";
             _repository.CreateArmy(army);
