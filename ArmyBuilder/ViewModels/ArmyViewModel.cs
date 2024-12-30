@@ -13,6 +13,7 @@ namespace ArmyBuilder.ViewModels
         private List<MainModel> _troopers;
         private List<MainModel> _warMachines;
         private List<MainModel> _monsters;
+        private Army _army;
 
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
@@ -88,6 +89,13 @@ namespace ArmyBuilder.ViewModels
             army.Author = "Torsten";
             _repository.CreateArmy(army);
             return army;
+        }
+
+        public Unit CreateUnit(Army army, MainModel mainModel)
+        {
+            Unit unit = army.CreateUnit(mainModel);
+            _repository.CreateUnit(army.Id, unit);
+            return unit;
         }
 
 

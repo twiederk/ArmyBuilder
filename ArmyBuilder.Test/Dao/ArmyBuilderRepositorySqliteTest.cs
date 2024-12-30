@@ -182,6 +182,51 @@ namespace ArmyBuilder.Test.Dao
             testArmy.ArmyList.Id.Should().Be(7);
             testArmy.ArmyList.Name.Should().Be("Hochelfen");
             testArmy.Points.Should().Be(0);
+
+            // teardown
+            _repository.DeleteArmy(testArmy.Id);
+        }
+
+        [Fact]
+        public void should_delete_army()
+        {
+            // arrange
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            _repository.CreateArmy(army);
+
+            // act
+            _repository.DeleteArmy(army.Id);
+
+            // assert
+            List<Army> armies = _repository.Armies();
+            armies.Should().HaveCount(1);
+
+        }
+
+        [Fact]
+        public void should_create_new_unit()
+        {
+            // arrange
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            _repository.CreateArmy(army);
+            Unit unit = new Unit("Testeinheit");
+
+            // act
+            _repository.CreateUnit(army.Id, unit);
+
+            // assert
+            Army testArmy = _repository.Army(2);
+            testArmy.Units.Should().HaveCount(1);
+
+            Unit testUnit = testArmy.Units[0];
+            testUnit.Name.Should().Be("Testeinheit");
+
+            // teardown
+            _repository.DeleteArmy(army.Id);
         }
     }
 }

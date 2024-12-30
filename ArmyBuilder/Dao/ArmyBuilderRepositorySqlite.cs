@@ -254,16 +254,41 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 INSERT INTO army (name, author, army_list_id, points)
-                VALUES (@Name, @Author, @ArmyListId, @Points);";
-            var id = _dbConnection.Execute(sql, new
+                VALUES (@Name, @Author, @ArmyListId, @Points);
+                SELECT last_insert_rowid();";
+            var armyId = _dbConnection.ExecuteScalar<int>(sql, new
             {
                 army.Name,
                 army.Author,
                 ArmyListId = army.ArmyList.Id,
                 army.Points
             });
-            army.Id = id;
+            army.Id = armyId;
             return army;
         }
+
+        public void DeleteArmy(int id)
+        {
+            var sql = "DELETE FROM army WHERE Id = @Id";
+            _dbConnection.Execute(sql, new { Id = id });
+        }
+
+        public Unit CreateUnit(int armyId, Unit unit)
+        {
+            var sql = @"
+                INSERT INTO unit (name, army_id)
+                VALUES (@Name, @ArmyId);
+                SELECT last_insert_rowid();";
+
+            var unitId = _dbConnection.ExecuteScalar<int>(sql, new
+            {
+                unit.Name,
+                ArmyId = armyId
+            });
+
+            unit.Id = unitId;
+            return unit;
+        }
+
     }
 }
