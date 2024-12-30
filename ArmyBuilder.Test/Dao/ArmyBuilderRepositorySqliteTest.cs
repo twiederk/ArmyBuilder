@@ -219,7 +219,7 @@ namespace ArmyBuilder.Test.Dao
             _repository.CreateUnit(army.Id, unit);
 
             // assert
-            Army testArmy = _repository.Army(2);
+            Army testArmy = _repository.Army(army.Id);
             testArmy.Units.Should().HaveCount(1);
 
             Unit testUnit = testArmy.Units[0];
@@ -246,14 +246,43 @@ namespace ArmyBuilder.Test.Dao
             _repository.AddMainModel(unit.Id, mainModel);
 
             // assert
-            Army testArmy = _repository.Army(2);
+            Army testArmy = _repository.Army(army.Id);
             testArmy.Units.Should().HaveCount(1);
 
             Unit testUnit = testArmy.Units[0];
             testUnit.Name.Should().Be("Testeinheit");
+            testUnit.MainModels.Should().HaveCount(1);
+            testUnit.MainModels[0].Count.Should().Be(3);
 
             // teardown
             _repository.DeleteArmy(army.Id);
         }
+
+        [Fact]
+        public void should_update_count_of_main_model_in_unit()
+        {
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            _repository.CreateArmy(army);
+            Unit unit = new Unit("Testeinheit");
+            _repository.CreateUnit(army.Id, unit);
+            MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
+            unit.MainModels.Add(mainModel);
+            _repository.AddMainModel(unit.Id, mainModel);
+
+            // act
+            _repository.UpdateMainModelCount(unit.Id, mainModel.Id, 5);
+
+            // assert
+            Army testArmy = _repository.Army(army.Id);
+            testArmy.Units.Should().HaveCount(1);
+            testArmy.Units[0].MainModels.Should().HaveCount(1);
+            testArmy.Units[0].MainModels[0].Count.Should().Be(5);
+
+            // teardown
+            _repository.DeleteArmy(army.Id);
+        }
+
     }
 }

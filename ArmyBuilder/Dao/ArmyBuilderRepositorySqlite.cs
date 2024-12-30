@@ -305,5 +305,21 @@ namespace ArmyBuilder.Dao
             });
         }
 
+        public void UpdateMainModelCount(int unitId, int mainModelId, int count)
+        {
+            var sql = @"
+                UPDATE unit_main_model
+                SET count = @Count
+                WHERE unit_id = @UnitId AND main_model_id = @MainModelId;";
+
+            _dbConnection.Execute(sql, new
+            {
+                Count = count,
+                UnitId = unitId,
+                MainModelId = mainModelId
+            });
+        }
+
+
     }
 }
