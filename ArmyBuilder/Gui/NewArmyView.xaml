@@ -10,7 +10,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -18,7 +17,6 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="ArmyListBox" Grid.Row="1" Grid.Column="1"/>
-        <Button Content="OK" Grid.Row="2" Grid.Column="1"  Margin="0,0,10,10" Click="Ok_Click"/>
+        <ListBox x:Name="lstArmyLists" Grid.Row="1" Grid.Column="1" MouseDoubleClick="lstArmies_MouseDoubleClick"/>
     </Grid>
 </UserControl>

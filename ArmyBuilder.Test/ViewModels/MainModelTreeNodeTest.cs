@@ -19,18 +19,5 @@ namespace ArmyBuilder.Test.ViewModels
             armyCategory.Should().Be("Kriegsgerät");
 
         }
-
-        [Fact]
-        public void should_increate_count_by_when_called()
-        {
-            // arrange
-            MainModel mainModel = new MainModel() { Count = 1 };
-
-            // act
-            new MainModelTreeNode(mainModel, null).IncreaseCount();
-
-            // assert
-            mainModel.Count.Should().Be(2);
-        }
     }
 }

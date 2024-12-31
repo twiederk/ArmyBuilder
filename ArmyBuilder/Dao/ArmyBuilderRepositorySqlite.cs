@@ -250,5 +250,76 @@ namespace ArmyBuilder.Dao
             return armyDictionary.Values.FirstOrDefault();
         }
 
+        public Army CreateArmy(Army army)
+        {
+            var sql = @"
+                INSERT INTO army (name, author, army_list_id, points)
+                VALUES (@Name, @Author, @ArmyListId, @Points);
+                SELECT last_insert_rowid();";
+            var armyId = _dbConnection.ExecuteScalar<int>(sql, new
+            {
+                army.Name,
+                army.Author,
+                ArmyListId = army.ArmyList.Id,
+                army.Points
+            });
+            army.Id = armyId;
+            return army;
+        }
+
+        public void DeleteArmy(int id)
+        {
+            var sql = "DELETE FROM unit WHERE army_id = @Id";
+            _dbConnection.Execute(sql, new { Id = id });
+            sql = "DELETE FROM army WHERE Id = @Id";
+            _dbConnection.Execute(sql, new { Id = id });
+        }
+
+        public Unit CreateUnit(int armyId, Unit unit)
+        {
+            var sql = @"
+                INSERT INTO unit (name, army_id)
+                VALUES (@Name, @ArmyId);
+                SELECT last_insert_rowid();";
+
+            var unitId = _dbConnection.ExecuteScalar<int>(sql, new
+            {
+                unit.Name,
+                ArmyId = armyId
+            });
+
+            unit.Id = unitId;
+            return unit;
+        }
+
+        public void AddMainModel(int unitId, MainModel mainModel)
+        {
+            var sql = @"
+                INSERT INTO unit_main_model (unit_id, main_model_id, count)
+                VALUES (@UnitId, @MainModelId, @Count);";
+            _dbConnection.Execute(sql, new
+            {
+                UnitId = unitId,
+                MainModelId = mainModel.Id,
+                mainModel.Count
+            });
+        }
+
+        public void UpdateMainModelCount(int unitId, int mainModelId, int count)
+        {
+            var sql = @"
+                UPDATE unit_main_model
+                SET count = @Count
+                WHERE unit_id = @UnitId AND main_model_id = @MainModelId;";
+
+            _dbConnection.Execute(sql, new
+            {
+                Count = count,
+                UnitId = unitId,
+                MainModelId = mainModelId
+            });
+        }
+
+
     }
 }

@@ -28,16 +28,16 @@
 
         <TabControl Grid.Row="2" Grid.Column="1" >
             <TabItem Header="Charaktere">
-                <ListBox Name="listCharacters" ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="listCharacters_MouseMove"/>
+                <ListBox Name="lstCharacters" ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick"/>
             </TabItem>
             <TabItem Header="Regimenter">
-                <ListBox Name="listTroopers" ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="listTroopers_MouseMove"/>
+                <ListBox Name="lstTroopers" ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick"/>
             </TabItem>
             <TabItem Header="Kriegsgeräte">
-                <ListBox Name="listWarMachines" ItemsSource="{Binding WarMachines}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="listWarMachines_MouseMove"/>
+                <ListBox Name="lstWarMachines" ItemsSource="{Binding WarMachines}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick"/>
             </TabItem>
             <TabItem Header="Monster">
-                <ListBox Name="listMonsters" ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="listMonsters_MouseMove"/>
+                <ListBox Name="lstMonsters" ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick"/>
             </TabItem>
         </TabControl>
 
@@ -134,7 +134,7 @@
                 
                 <TreeView.Resources>
                     
-                    <HierarchicalDataTemplate DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Children}">
+                    <HierarchicalDataTemplate DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Units}">
                         <Grid AllowDrop="True" Drop="armyTreeNode_Drop">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -145,7 +145,7 @@
                         </Grid>
                     </HierarchicalDataTemplate>
                     
-                    <HierarchicalDataTemplate  DataType="{x:Type viewModels:UnitTreeNode}" ItemsSource="{Binding Children}">
+                    <HierarchicalDataTemplate  DataType="{x:Type viewModels:UnitTreeNode}" ItemsSource="{Binding MainModels}">
                         <Grid AllowDrop="True" Drop="unitTreeNode_Drop">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -156,7 +156,7 @@
                         </Grid>
                     </HierarchicalDataTemplate>
                     
-                    <HierarchicalDataTemplate  DataType="{x:Type viewModels:MainModelTreeNode}" ItemsSource="{Binding Children}">
+                    <HierarchicalDataTemplate DataType="{x:Type viewModels:MainModelTreeNode}" ItemsSource="{Binding SingleModels}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -167,8 +167,8 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Label Content="{Binding Count}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Magenta"/>
-                            <Button Content=" + " Grid.Column="1" Command="{Binding IncreaseCountCommand}" CommandParameter="{Binding}" Margin="2 ,2, 2, 2"/>
-                            <Button Content=" - " Grid.Column="2" Command="{Binding DecreaseCountCommand}" CommandParameter="{Binding}" Margin="2 ,2, 2,2"/>
+                            <Button Content=" + " Grid.Column="1" Click="mainModelTreeNode_IncreaseCount" Tag="{Binding}" Margin="2 ,2, 2, 2"/>
+                            <Button Content=" - " Grid.Column="2" Click="mainModelTreeNode_DecreaseCount" Tag="{Binding}" Margin="2 ,2, 2,2"/>
                             <Label Content="{Binding Name}" Grid.Column="3" HorizontalAlignment="Left" Foreground="Magenta"/>
                             <Label Content="{Binding TotalPoints}" Grid.Column="4" HorizontalAlignment="Right" Foreground="Magenta"/>
                             <Label Content="{Binding DisplayArmyCategory}" Grid.Column="5" HorizontalAlignment="Right" Foreground="Magenta"/>

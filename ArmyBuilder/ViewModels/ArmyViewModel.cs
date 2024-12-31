@@ -1,6 +1,7 @@
 using ArmyBuilder.Domain;
 using ArmyBuilder.Dao;
 using System.ComponentModel;
+using System.Windows;
 
 namespace ArmyBuilder.ViewModels
 {
@@ -81,6 +82,32 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
+        public Army CreateArmy(string armyListName, ArmyList armyList)
+        {
+            Army army = new Army($"{armyListName} Armee");
+            army.ArmyList = armyList;
+            army.Author = "Torsten";
+            _repository.CreateArmy(army);
+            return army;
+        }
+
+        public Unit CreateUnit(Army army, MainModel mainModel)
+        {
+            Unit unit = army.CreateUnit(mainModel);
+            _repository.CreateUnit(army.Id, unit);
+            _repository.AddMainModel(unit.Id, mainModel);
+            return unit;
+        }
+
+        public void AddMainModel(int unitId, MainModel mainModel)
+        {
+            _repository.AddMainModel(unitId, mainModel);
+        }
+
+        public void UpdateMainModelCount(int unitId, int mainModelId, int count)
+        {
+            _repository.UpdateMainModelCount(unitId, mainModelId, count);
+        }
 
         private void LoadMainModels()
         {

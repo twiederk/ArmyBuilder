@@ -7,31 +7,31 @@ namespace ArmyBuilder.ViewModels
 {
     public class UnitTreeNode : INotifyPropertyChanged
     {
-        public string Name => _unit.Name;
-        public float TotalPoints => _unit.TotalPoints();
-        public ObservableCollection<MainModelTreeNode> Children { get; set; } = new ObservableCollection<MainModelTreeNode>();
-        private Unit _unit;
+        public  Unit Unit { get; set; }
+        public string Name => Unit.Name;
+        public float TotalPoints => Unit.TotalPoints();
+        public ObservableCollection<MainModelTreeNode> MainModels { get; set; } = new ObservableCollection<MainModelTreeNode>();
         private ArmyTreeNode _parent;
 
         public UnitTreeNode(Unit unit, ArmyTreeNode parent)
         {
             _parent = parent;
-            _unit = unit;
+            Unit = unit;
             SetChildren();
         }
 
         private void SetChildren()
         {
-            foreach (var mainModel in _unit.MainModels)
+            foreach (var mainModel in Unit.MainModels)
             {
-                Children.Add(new MainModelTreeNode(mainModel, this));
+                MainModels.Add(new MainModelTreeNode(mainModel, this));
             }
         }
 
         public void AddMainModel(MainModel mainModel)
         {
-            _unit.AddMainModel(mainModel);
-            Children.Add(new MainModelTreeNode(mainModel, this));
+            Unit.AddMainModel(mainModel);
+            MainModels.Add(new MainModelTreeNode(mainModel, this));
             UpdateTotalPoints();
         }
 

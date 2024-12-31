@@ -159,5 +159,130 @@ namespace ArmyBuilder.Test.Dao
             spearmen.Name.Should().Be("Speerträger");
             spearmen.Count.Should().Be(20);
         }
+
+        [Fact]
+        public void should_create_new_army()
+        {
+            // arrange
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+
+
+            // act
+            _repository.CreateArmy(army);
+
+            // assert
+            List<Army> armies = _repository.Armies();
+            armies.Should().HaveCount(2);
+
+            Army testArmy = armies[1];
+            testArmy.Name.Should().Be("Testarmee");
+            testArmy.Author.Should().Be("Testautor");
+            testArmy.ArmyList.Id.Should().Be(7);
+            testArmy.ArmyList.Name.Should().Be("Hochelfen");
+            testArmy.Points.Should().Be(0);
+
+            // teardown
+            _repository.DeleteArmy(testArmy.Id);
+        }
+
+        [Fact]
+        public void should_delete_army()
+        {
+            // arrange
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            _repository.CreateArmy(army);
+
+            // act
+            _repository.DeleteArmy(army.Id);
+
+            // assert
+            List<Army> armies = _repository.Armies();
+            armies.Should().HaveCount(1);
+
+        }
+
+        [Fact]
+        public void should_create_new_unit()
+        {
+            // arrange
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            _repository.CreateArmy(army);
+            Unit unit = new Unit("Testeinheit");
+
+            // act
+            _repository.CreateUnit(army.Id, unit);
+
+            // assert
+            Army testArmy = _repository.Army(army.Id);
+            testArmy.Units.Should().HaveCount(1);
+
+            Unit testUnit = testArmy.Units[0];
+            testUnit.Name.Should().Be("Testeinheit");
+
+            // teardown
+            _repository.DeleteArmy(army.Id);
+        }
+
+        [Fact]
+        public void should_add_main_model_to_unit()
+        {
+            // arrange
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            _repository.CreateArmy(army);
+            Unit unit = new Unit("Testeinheit");
+            _repository.CreateUnit(army.Id, unit);
+            MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
+            unit.MainModels.Add(mainModel);
+
+            // act
+            _repository.AddMainModel(unit.Id, mainModel);
+
+            // assert
+            Army testArmy = _repository.Army(army.Id);
+            testArmy.Units.Should().HaveCount(1);
+
+            Unit testUnit = testArmy.Units[0];
+            testUnit.Name.Should().Be("Testeinheit");
+            testUnit.MainModels.Should().HaveCount(1);
+            testUnit.MainModels[0].Count.Should().Be(3);
+
+            // teardown
+            _repository.DeleteArmy(army.Id);
+        }
+
+        [Fact]
+        public void should_update_count_of_main_model_in_unit()
+        {
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            _repository.CreateArmy(army);
+            Unit unit = new Unit("Testeinheit");
+            _repository.CreateUnit(army.Id, unit);
+            MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
+            unit.MainModels.Add(mainModel);
+            _repository.AddMainModel(unit.Id, mainModel);
+
+            // act
+            _repository.UpdateMainModelCount(unit.Id, mainModel.Id, 5);
+
+            // assert
+            Army testArmy = _repository.Army(army.Id);
+            testArmy.Units.Should().HaveCount(1);
+            testArmy.Units[0].MainModels.Should().HaveCount(1);
+            testArmy.Units[0].MainModels[0].Count.Should().Be(5);
+
+            // teardown
+            _repository.DeleteArmy(army.Id);
+        }
+
     }
 }
