@@ -34,8 +34,6 @@ namespace ArmyBuilder
             Application.Current.Shutdown();
         }
 
-
-
         private void lstArmies_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (lstArmies.SelectedItem is Army selectedArmy)
@@ -50,7 +48,20 @@ namespace ArmyBuilder
 
         }
 
-    }
+        private void DeleteArmyButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.DataContext is Army army)
+            {
+                var result = MessageBox.Show($"Sind Sie sicher, dass Sie die Armee '{army.Name}' löschen möchten?", "Löschung bestätigen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    _repository.DeleteArmy(army.Id);
+                    var startViewModel = DataContext as StartViewModel;
+                    startViewModel.LoadArmies();
+                }
+            }
+        }
 
+    }
 
 }
