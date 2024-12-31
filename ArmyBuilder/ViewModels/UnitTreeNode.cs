@@ -10,7 +10,7 @@ namespace ArmyBuilder.ViewModels
         public  Unit Unit { get; set; }
         public string Name => Unit.Name;
         public float TotalPoints => Unit.TotalPoints();
-        public ObservableCollection<MainModelTreeNode> Children { get; set; } = new ObservableCollection<MainModelTreeNode>();
+        public ObservableCollection<MainModelTreeNode> MainModels { get; set; } = new ObservableCollection<MainModelTreeNode>();
         private ArmyTreeNode _parent;
 
         public UnitTreeNode(Unit unit, ArmyTreeNode parent)
@@ -24,14 +24,14 @@ namespace ArmyBuilder.ViewModels
         {
             foreach (var mainModel in Unit.MainModels)
             {
-                Children.Add(new MainModelTreeNode(mainModel, this));
+                MainModels.Add(new MainModelTreeNode(mainModel, this));
             }
         }
 
         public void AddMainModel(MainModel mainModel)
         {
             Unit.AddMainModel(mainModel);
-            Children.Add(new MainModelTreeNode(mainModel, this));
+            MainModels.Add(new MainModelTreeNode(mainModel, this));
             UpdateTotalPoints();
         }
 

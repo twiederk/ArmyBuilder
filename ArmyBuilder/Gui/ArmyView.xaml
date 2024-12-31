@@ -145,7 +145,7 @@
                         </Grid>
                     </HierarchicalDataTemplate>
                     
-                    <HierarchicalDataTemplate  DataType="{x:Type viewModels:UnitTreeNode}" ItemsSource="{Binding Children}">
+                    <HierarchicalDataTemplate  DataType="{x:Type viewModels:UnitTreeNode}" ItemsSource="{Binding MainModels}">
                         <Grid AllowDrop="True" Drop="unitTreeNode_Drop">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
