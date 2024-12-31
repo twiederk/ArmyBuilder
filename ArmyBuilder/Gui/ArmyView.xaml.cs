@@ -14,27 +14,6 @@ namespace ArmyBuilder
             DataContext = armyViewModel;
         }
 
-        private void lstCharacters_MouseMove(object sender, MouseEventArgs e)
-        {
-            ListBox_MouseMove(sender, e);
-        }
-
-        private void lstTroopers_MouseMove(object sender, MouseEventArgs e)
-        {
-            ListBox_MouseMove(sender, e);
-        }
-
-        private void lstWarMachines_MouseMove(object sender, MouseEventArgs e)
-        {
-            ListBox_MouseMove(sender, e);
-        }
-
-        private void lstMonsters_MouseMove(object sender, MouseEventArgs e)
-        {
-            ListBox_MouseMove(sender, e);
-        }
-
-
         private void ListBox_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -53,7 +32,7 @@ namespace ArmyBuilder
             }
         }
 
-        private void ArmyList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             ListBox listBox = sender as ListBox;
             if (listBox != null)
