@@ -8,17 +8,18 @@ namespace ArmyBuilder.ViewModels
 {
     public class MainModelTreeNode : INotifyPropertyChanged
     {
-        public string Name => $"{_mainModel.Name} ({_mainModel.Points})";
-        public String Count => $"{_mainModel.Count}x";
-        public float TotalPoints => _mainModel.TotalPoints();
-        private MainModel _mainModel;
+        public string Name => $"{MainModel.Name} ({MainModel.Points})";
+        public String Count => $"{MainModel.Count}x";
+        public float TotalPoints => MainModel.TotalPoints();
+        public MainModel MainModel { get; set; }
+        public Unit Unit => _parent.Unit;
         private UnitTreeNode _parent;
 
         public string DisplayArmyCategory
         {
             get
             {
-                switch (_mainModel.ArmyCategory)
+                switch (MainModel.ArmyCategory)
                 {
                     case ArmyCategory.Character:
                         return "Charakter";
@@ -39,41 +40,32 @@ namespace ArmyBuilder.ViewModels
         public MainModelTreeNode(MainModel mainModel, UnitTreeNode parent)
         {
             _parent = parent;
-            _mainModel = mainModel;
+            MainModel = mainModel;
             SetChildren();
         }
 
         private void SetChildren()
         {
-            foreach (var singleModel in _mainModel.SingleModels)
+            foreach (var singleModel in MainModel.SingleModels)
             {
                 Children.Add(new SingleModelTreeNode(singleModel));
             }
         }
 
-        public void IncreaseCount()
-        {
-            _mainModel.IncreaseCount();
-        }
-
         public void DecreaseCount()
         {
-            _mainModel.DecreaseCount();
+            MainModel.DecreaseCount();
         }
 
-        public ICommand IncreaseCountCommand => new RelayCommand(IncreaseCount);
         public ICommand DecreaseCountCommand => new RelayCommand(DecreaseCount);
 
-        private void IncreaseCount(object parameter)
+        public void IncreaseCount()
         {
-            if (parameter is MainModelTreeNode mainModelTreeNode)
-            {
-                mainModelTreeNode.IncreaseCount();
-                OnPropertyChanged(nameof(Count));
-                OnPropertyChanged(nameof(TotalPoints));
-                _parent.UpdateTotalPoints();
-            }
+            OnPropertyChanged(nameof(Count));
+            OnPropertyChanged(nameof(TotalPoints));
+            _parent.UpdateTotalPoints();
         }
+
         private void DecreaseCount(object parameter)
         {
             if (parameter is MainModelTreeNode mainModelTreeNode)

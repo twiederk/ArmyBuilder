@@ -104,6 +104,11 @@ namespace ArmyBuilder.ViewModels
             _repository.AddMainModel(unitId, mainModel);
         }
 
+        public void UpdateMainModelCount(int unitId, int mainModelId, int count)
+        {
+            _repository.UpdateMainModelCount(unitId, mainModelId, count);
+        }
+
         private void LoadMainModels()
         {
             if (_selectedArmyList != null)

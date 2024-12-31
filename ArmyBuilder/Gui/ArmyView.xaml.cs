@@ -59,7 +59,6 @@ namespace ArmyBuilder
         {
             if (dragEvent.Data.GetDataPresent(typeof(MainModel)))
             {
-                // Get the dropped data
                 MainModel droppedMainModel = dragEvent.Data.GetData(typeof(MainModel)) as MainModel;
 
                 if (droppedMainModel != null)
@@ -81,7 +80,6 @@ namespace ArmyBuilder
         {
             if (dragEvent.Data.GetDataPresent(typeof(MainModel)))
             {
-                // Get the dropped data
                 MainModel droppedMainModel = dragEvent.Data.GetData(typeof(MainModel)) as MainModel;
 
                 if (droppedMainModel != null)
@@ -101,7 +99,15 @@ namespace ArmyBuilder
 
         private void mainModelTreeNode_IncreaseCount(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Increase Count");
+            if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
+            {
+                var mainModel = mainModelTreeNode.MainModel;
+                mainModel.IncreaseCount();
+                var armyViewModel = DataContext as ArmyViewModel;
+                armyViewModel.UpdateMainModelCount(mainModelTreeNode.Unit.Id, mainModel.Id, mainModel.Count);
+                mainModelTreeNode.IncreaseCount();
+            }
+
         }
 
     }
