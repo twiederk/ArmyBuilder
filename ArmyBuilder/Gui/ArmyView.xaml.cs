@@ -28,6 +28,10 @@ namespace ArmyBuilder
             army.Points = army.TotalPoints();
             _repository.UpdateArmy(army);
 
+            var startView = _serviceProvider.GetRequiredService<StartView>();
+            var startViewModel = startView.DataContext as StartViewModel;
+            startViewModel.LoadArmies();
+
             Window window = Window.GetWindow(this);
             window.Content = _serviceProvider.GetRequiredService<StartView>();
         }

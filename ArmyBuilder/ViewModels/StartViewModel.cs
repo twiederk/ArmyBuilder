@@ -27,7 +27,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        private void LoadArmies()
+        public void LoadArmies()
         {
             var armies = _repository.Armies();
             Armies = new ObservableCollection<Army>(armies);
