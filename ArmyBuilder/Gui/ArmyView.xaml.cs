@@ -25,7 +25,8 @@ namespace ArmyBuilder
         {
             var armyViewModel = DataContext as ArmyViewModel;
             Army army = armyViewModel.ArmyTreeViewModel.Army;
-            //_repository.UpdateArmy(army);
+            army.Points = army.TotalPoints();
+            _repository.UpdateArmy(army);
 
             Window window = Window.GetWindow(this);
             window.Content = _serviceProvider.GetRequiredService<StartView>();
