@@ -323,6 +323,24 @@ namespace ArmyBuilder.Dao
             });
         }
 
+        public Army UpdateArmy(Army army)
+        {
+            var sql = @"
+                UPDATE army
+                SET name = @Name, author = @Author, points = @Points
+                WHERE Id = @Id";
+
+            _dbConnection.Execute(sql, new
+            {
+                army.Name,
+                army.Author,
+                army.Points,
+                army.Id
+            });
+
+            return army;
+        }
 
     }
+
 }

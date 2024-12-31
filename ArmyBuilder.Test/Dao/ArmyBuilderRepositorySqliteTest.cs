@@ -195,6 +195,27 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
+        public void should_update_army()
+        {
+            // arrange
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            _repository.CreateArmy(army);
+            army.Points = 100;
+
+            // act
+            _repository.UpdateArmy(army);
+
+            // assert
+            Army testArmy = _repository.Army(army.Id);
+            testArmy.Points.Should().Be(100);
+
+            // teardown
+            _repository.DeleteArmy(army.Id);
+        }
+
+        [Fact]
         public void should_delete_army()
         {
             // arrange
@@ -209,7 +230,6 @@ namespace ArmyBuilder.Test.Dao
             // assert
             List<Army> armies = _repository.Armies();
             armies.Should().HaveCount(1);
-
         }
 
         [Fact]

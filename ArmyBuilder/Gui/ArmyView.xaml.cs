@@ -4,22 +4,29 @@ using System.Windows.Input;
 using Microsoft.Extensions.DependencyInjection;
 using ArmyBuilder.ViewModels;
 using ArmyBuilder.Domain;
+using ArmyBuilder.Dao;
 
 namespace ArmyBuilder
 {
     public partial class ArmyView : UserControl
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly IArmyBuilderRepository _repository;
 
         public ArmyView(IServiceProvider serviceProvider, ArmyViewModel armyViewModel)
         {
             _serviceProvider = serviceProvider;
+            _repository = serviceProvider.GetRequiredService<IArmyBuilderRepository>();
             InitializeComponent();
             DataContext = armyViewModel;
         }
 
         private void QuitEditionItem_Click(object sender, RoutedEventArgs e)
         {
+            var armyViewModel = DataContext as ArmyViewModel;
+            Army army = armyViewModel.ArmyTreeViewModel.Army;
+            //_repository.UpdateArmy(army);
+
             Window window = Window.GetWindow(this);
             window.Content = _serviceProvider.GetRequiredService<StartView>();
         }
