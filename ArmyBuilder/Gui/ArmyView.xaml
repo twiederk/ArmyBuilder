@@ -134,7 +134,7 @@
                 
                 <TreeView.Resources>
                     
-                    <HierarchicalDataTemplate DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Children}">
+                    <HierarchicalDataTemplate DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Units}">
                         <Grid AllowDrop="True" Drop="armyTreeNode_Drop">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />

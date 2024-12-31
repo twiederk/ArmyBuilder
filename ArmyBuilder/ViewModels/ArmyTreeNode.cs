@@ -9,7 +9,7 @@ namespace ArmyBuilder.ViewModels
         public Army Army;
         public string Name => Army.Name;
         public float TotalPoints => Army.TotalPoints();
-        public ObservableCollection<UnitTreeNode> Children { get; set; } = new ObservableCollection<UnitTreeNode>();
+        public ObservableCollection<UnitTreeNode> Units { get; set; } = new ObservableCollection<UnitTreeNode>();
 
 
         public ArmyTreeNode(Army army)
@@ -22,13 +22,13 @@ namespace ArmyBuilder.ViewModels
         {
             foreach (var unit in Army.Units)
             {
-                Children.Add(new UnitTreeNode(unit, this));
+                Units.Add(new UnitTreeNode(unit, this));
             }
         }
 
         public void AddUnit(Unit unit)
         {
-            Children.Add(new UnitTreeNode(unit, this));
+            Units.Add(new UnitTreeNode(unit, this));
             UpdateTotalPoints();
         }
 
