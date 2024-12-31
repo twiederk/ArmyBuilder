@@ -8,15 +8,19 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*"/>
-            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
+
+        <ToolBarTray Grid.Row="0">
+            <ToolBar>
+                <Button Content="Back" Click="BackButton_Click"/>
+            </ToolBar>
+        </ToolBarTray>
+        
         <ListBox x:Name="lstArmyLists" Grid.Row="1" Grid.Column="1" MouseDoubleClick="lstArmies_MouseDoubleClick"/>
     </Grid>
 </UserControl>
