@@ -53,6 +53,24 @@ namespace ArmyBuilder
             }
         }
 
+        private void ArmyList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ListBox listBox = sender as ListBox;
+            if (listBox != null)
+            {
+                var selectedMainModel = listBox.SelectedItem as MainModel;
+                if (selectedMainModel != null)
+                {
+                    MainModel clonedMainModel = selectedMainModel.Clone();
+                    ArmyViewModel armyViewModel = DataContext as ArmyViewModel;
+                    ArmyTreeViewModel armyTreeViewModel = armyViewModel.ArmyTreeViewModel;
+                    Army army = armyTreeViewModel.Army;
+                    Unit unit = armyViewModel.CreateUnit(army, clonedMainModel);
+                    ArmyTreeNode armyTreeNode = armyTreeViewModel.Root[0];
+                    armyTreeNode.AddUnit(unit);
+                }
+            }
+        }
 
 
         private void armyTreeNode_Drop(object sender, DragEventArgs dragEvent)

@@ -28,16 +28,16 @@
 
         <TabControl Grid.Row="2" Grid.Column="1" >
             <TabItem Header="Charaktere">
-                <ListBox Name="lstCharacters" ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="lstCharacters_MouseMove"/>
+                <ListBox Name="lstCharacters" ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="lstCharacters_MouseMove" MouseDoubleClick="ArmyList_MouseDoubleClick"/>
             </TabItem>
             <TabItem Header="Regimenter">
-                <ListBox Name="lstTroopers" ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="lstTroopers_MouseMove"/>
+                <ListBox Name="lstTroopers" ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="lstTroopers_MouseMove" MouseDoubleClick="ArmyList_MouseDoubleClick"/>
             </TabItem>
             <TabItem Header="Kriegsgeräte">
-                <ListBox Name="lstWarMachines" ItemsSource="{Binding WarMachines}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="lstWarMachines_MouseMove"/>
+                <ListBox Name="lstWarMachines" ItemsSource="{Binding WarMachines}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="lstWarMachines_MouseMove" MouseDoubleClick="ArmyList_MouseDoubleClick"/>
             </TabItem>
             <TabItem Header="Monster">
-                <ListBox Name="lstMonsters" ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="lstMonsters_MouseMove"/>
+                <ListBox Name="lstMonsters" ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="lstMonsters_MouseMove" MouseDoubleClick="ArmyList_MouseDoubleClick"/>
             </TabItem>
         </TabControl>
 
