@@ -103,11 +103,25 @@ namespace ArmyBuilder
             {
                 var mainModel = mainModelTreeNode.MainModel;
                 mainModel.IncreaseCount();
-                var armyViewModel = DataContext as ArmyViewModel;
-                armyViewModel.UpdateMainModelCount(mainModelTreeNode.Unit.Id, mainModel.Id, mainModel.Count);
-                mainModelTreeNode.IncreaseCount();
+                UpdateMainModelCount(mainModelTreeNode, mainModel);
             }
+        }
 
+        private void mainModelTreeNode_DecreaseCount(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
+            {
+                var mainModel = mainModelTreeNode.MainModel;
+                mainModel.DecreaseCount();
+                UpdateMainModelCount(mainModelTreeNode, mainModel);
+            }
+        }
+
+        private void UpdateMainModelCount(MainModelTreeNode mainModelTreeNode, MainModel mainModel)
+        {
+            var armyViewModel = DataContext as ArmyViewModel;
+            armyViewModel.UpdateMainModelCount(mainModelTreeNode.Unit.Id, mainModel.Id, mainModel.Count);
+            mainModelTreeNode.UpdateCount();
         }
 
     }

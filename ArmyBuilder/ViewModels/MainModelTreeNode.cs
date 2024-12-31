@@ -52,29 +52,12 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public void DecreaseCount()
-        {
-            MainModel.DecreaseCount();
-        }
 
-        public ICommand DecreaseCountCommand => new RelayCommand(DecreaseCount);
-
-        public void IncreaseCount()
+        public void UpdateCount()
         {
             OnPropertyChanged(nameof(Count));
             OnPropertyChanged(nameof(TotalPoints));
             _parent.UpdateTotalPoints();
-        }
-
-        private void DecreaseCount(object parameter)
-        {
-            if (parameter is MainModelTreeNode mainModelTreeNode)
-            {
-                mainModelTreeNode.DecreaseCount();
-                OnPropertyChanged(nameof(Count));
-                OnPropertyChanged(nameof(TotalPoints));
-                _parent.UpdateTotalPoints();
-            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
