@@ -26,7 +26,7 @@ namespace ArmyBuilder
         private void NewMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Window window = Window.GetWindow(this);
-            window.Content = _serviceProvider.GetRequiredService<NewArmyView>(); ;
+            window.Content = _serviceProvider.GetRequiredService<NewArmyView>();
         }
 
         private void lstArmies_MouseDoubleClick(object sender, MouseButtonEventArgs e)

@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Microsoft.Extensions.DependencyInjection;
 using ArmyBuilder.ViewModels;
 using ArmyBuilder.Domain;
 
@@ -8,10 +9,19 @@ namespace ArmyBuilder
 {
     public partial class ArmyView : UserControl
     {
-        public ArmyView(ArmyViewModel armyViewModel)
+        private readonly IServiceProvider _serviceProvider;
+
+        public ArmyView(IServiceProvider serviceProvider, ArmyViewModel armyViewModel)
         {
+            _serviceProvider = serviceProvider;
             InitializeComponent();
             DataContext = armyViewModel;
+        }
+
+        private void QuitEditionItem_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = Window.GetWindow(this);
+            window.Content = _serviceProvider.GetRequiredService<StartView>();
         }
 
         private void ListBox_MouseMove(object sender, MouseEventArgs e)
