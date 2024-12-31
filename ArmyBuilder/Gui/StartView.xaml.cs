@@ -29,6 +29,13 @@ namespace ArmyBuilder
             window.Content = _serviceProvider.GetRequiredService<NewArmyView>();
         }
 
+        private void QuitMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+
+
         private void lstArmies_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (lstArmies.SelectedItem is Army selectedArmy)
