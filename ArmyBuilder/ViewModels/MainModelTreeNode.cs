@@ -35,7 +35,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public ObservableCollection<SingleModelTreeNode> Children { get; set; } = new ObservableCollection<SingleModelTreeNode>();
+        public ObservableCollection<SingleModelTreeNode> SingleModels { get; set; } = new ObservableCollection<SingleModelTreeNode>();
 
         public MainModelTreeNode(MainModel mainModel, UnitTreeNode parent)
         {
@@ -48,7 +48,7 @@ namespace ArmyBuilder.ViewModels
         {
             foreach (var singleModel in MainModel.SingleModels)
             {
-                Children.Add(new SingleModelTreeNode(singleModel));
+                SingleModels.Add(new SingleModelTreeNode(singleModel));
             }
         }
 
