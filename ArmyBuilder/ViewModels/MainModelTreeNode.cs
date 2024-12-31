@@ -66,9 +66,9 @@ namespace ArmyBuilder.ViewModels
 
         private void IncreaseCount(object parameter)
         {
-            if (parameter is MainModelTreeNode node)
+            if (parameter is MainModelTreeNode mainModelTreeNode)
             {
-                node.IncreaseCount();
+                mainModelTreeNode.IncreaseCount();
                 OnPropertyChanged(nameof(Count));
                 OnPropertyChanged(nameof(TotalPoints));
                 _parent.UpdateTotalPoints();
@@ -76,9 +76,9 @@ namespace ArmyBuilder.ViewModels
         }
         private void DecreaseCount(object parameter)
         {
-            if (parameter is MainModelTreeNode node)
+            if (parameter is MainModelTreeNode mainModelTreeNode)
             {
-                node.DecreaseCount();
+                mainModelTreeNode.DecreaseCount();
                 OnPropertyChanged(nameof(Count));
                 OnPropertyChanged(nameof(TotalPoints));
                 _parent.UpdateTotalPoints();
