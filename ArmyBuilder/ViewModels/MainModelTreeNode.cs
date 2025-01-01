@@ -60,6 +60,11 @@ namespace ArmyBuilder.ViewModels
             _parent.UpdateTotalPoints();
         }
 
+        public void RemoveMainModel()
+        {
+            _parent.RemoveMainModel(this);
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)
@@ -70,6 +75,7 @@ namespace ArmyBuilder.ViewModels
         public void UpdateTotalPoints()
         {
             OnPropertyChanged("TotalPoints");
+            _parent.UpdateTotalPoints();
         }
 
 

@@ -362,8 +362,16 @@ namespace ArmyBuilder.Dao
             _dbConnection.Execute(sql, new { Id = unitId });
         }
 
+        public void DeleteMainModelFromUnit(int unitId, int mainModelId)
+        {
+            var sql = @"
+                DELETE FROM unit_main_model
+                WHERE unit_id = @UnitId AND main_model_id = @MainModelId";
+            _dbConnection.Execute(sql, new
+            {
+                UnitId = unitId,
+                MainModelId = mainModelId
+            });
+        }
     }
-
-
-
 }

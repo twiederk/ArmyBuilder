@@ -27,5 +27,10 @@ namespace ArmyBuilder.Domain
         {
             MainModels.Add(mainModel);
         }
+
+        public void RemoveMainModel(MainModel mainModel)
+        {
+            MainModels.Remove(mainModel);
+        }
     }
 }
