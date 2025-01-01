@@ -272,11 +272,21 @@ namespace ArmyBuilder.Dao
 
         public void DeleteArmy(int id)
         {
-            var sql = "DELETE FROM unit WHERE army_id = @Id";
+            // Delete main_model of the units of the army
+            var sql = @"
+                DELETE FROM unit_main_model
+                WHERE unit_id IN (SELECT Id FROM unit WHERE army_id = @Id)";
             _dbConnection.Execute(sql, new { Id = id });
+
+            // Delete units of the army
+            sql = "DELETE FROM unit WHERE army_id = @Id";
+            _dbConnection.Execute(sql, new { Id = id });
+
+            // Delete the army
             sql = "DELETE FROM army WHERE Id = @Id";
             _dbConnection.Execute(sql, new { Id = id });
         }
+
 
         public Unit CreateUnit(int armyId, Unit unit)
         {
