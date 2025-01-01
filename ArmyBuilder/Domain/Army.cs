@@ -34,5 +34,10 @@ namespace ArmyBuilder.Domain
             return unit;
 
         }
+
+        internal void RemoveUnit(Unit unit)
+        {
+            Units.Remove(unit);
+        }
     }
 }

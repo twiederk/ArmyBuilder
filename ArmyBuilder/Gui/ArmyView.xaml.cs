@@ -116,6 +116,22 @@ namespace ArmyBuilder
             }
         }
 
+        private void DeleteUnitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is UnitTreeNode unitTreeNode)
+            {
+                var result = MessageBox.Show($"Die Einheit '{unitTreeNode.Name}' löschen?", "Löschung bestätigen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    var armyViewModel = DataContext as ArmyViewModel;
+                    var unit = unitTreeNode.Unit;
+                    armyViewModel.DeleteUnit(unit.Id);
+                    unitTreeNode.RemoveUnit();
+                    unitTreeNode.UpdateTotalPoints();
+                }
+            }
+        }
+
         private void mainModelTreeNode_IncreaseCount(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)

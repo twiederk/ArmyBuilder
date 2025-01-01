@@ -135,6 +135,10 @@ namespace ArmyBuilder.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        internal void DeleteUnit(int unitId)
+        {
+            _repository.DeleteUnit(unitId);
+        }
     }
 
 }

@@ -43,5 +43,11 @@ namespace ArmyBuilder.ViewModels
         {
             OnPropertyChanged("TotalPoints");
         }
+
+        public void RemoveUnit(UnitTreeNode unitTreeNode)
+        {
+            Army.RemoveUnit(unitTreeNode.Unit);
+            Units.Remove(unitTreeNode);
+        }
     }
 }
