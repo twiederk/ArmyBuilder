@@ -9,7 +9,7 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -23,6 +23,12 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
+
+        <Menu Grid.Row="0" Grid.ColumnSpan="5">
+            <MenuItem Header="Datei">
+                <MenuItem Header="Edition Beenden" Click="QuitEditionItem_Click"/>
+            </MenuItem>
+        </Menu>
 
         <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedArmyList.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" />
 

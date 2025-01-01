@@ -27,13 +27,13 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
-        public void should_read_all_main_models_for_given_army_id()
+        public void should_read_all_main_models_for_given_army_list_id()
         {
             // arrange
-            int armyId = 7;
+            int armyListId = 7;
 
             // act
-            List<MainModel> mainModels = _repository.MainModels(armyId);
+            List<MainModel> mainModels = _repository.MainModels(armyListId);
 
             // assert
             mainModels.Should().HaveCount(67);
@@ -132,11 +132,11 @@ namespace ArmyBuilder.Test.Dao
             army.Points.Should().Be(472);
             army.Units.Should().HaveCount(2);
 
-            Unit unit = army.Units[0];
-            unit.Name.Should().Be("Generalseinheit");
-            unit.MainModels.Should().HaveCount(2);
+            Unit generalUnit = army.Units[0];
+            generalUnit.Name.Should().Be("Generalseinheit");
+            generalUnit.MainModels.Should().HaveCount(2);
 
-            MainModel general = unit.MainModels[0];
+            MainModel general = generalUnit.MainModels[0];
             general.Name.Should().Be("General");
             general.Count.Should().Be(1);
             general.ArmyCategory.Should().Be(ArmyCategory.Character);
@@ -155,9 +155,16 @@ namespace ArmyBuilder.Test.Dao
             profile.Wounds.Should().Be(3);
             profile.Initiative.Should().Be(9);
 
-            MainModel spearmen = unit.MainModels[1];
+            MainModel spearmen = generalUnit.MainModels[1];
             spearmen.Name.Should().Be("Speerträger");
             spearmen.Count.Should().Be(20);
+
+            Unit warChariotUnit = army.Units[1];
+            warChariotUnit.Name.Should().Be("Streitwagen");
+            MainModel warChariot = warChariotUnit.MainModels[0];
+            warChariot.SingleModels.Should().HaveCount(3);
+
+
         }
 
         [Fact]
@@ -188,6 +195,27 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
+        public void should_update_army()
+        {
+            // arrange
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            _repository.CreateArmy(army);
+            army.Points = 100;
+
+            // act
+            _repository.UpdateArmy(army);
+
+            // assert
+            Army testArmy = _repository.Army(army.Id);
+            testArmy.Points.Should().Be(100);
+
+            // teardown
+            _repository.DeleteArmy(army.Id);
+        }
+
+        [Fact]
         public void should_delete_army()
         {
             // arrange
@@ -202,7 +230,6 @@ namespace ArmyBuilder.Test.Dao
             // assert
             List<Army> armies = _repository.Armies();
             armies.Should().HaveCount(1);
-
         }
 
         [Fact]

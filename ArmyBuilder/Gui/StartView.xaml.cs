@@ -26,7 +26,12 @@ namespace ArmyBuilder
         private void NewMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Window window = Window.GetWindow(this);
-            window.Content = _serviceProvider.GetRequiredService<NewArmyView>(); ;
+            window.Content = _serviceProvider.GetRequiredService<NewArmyView>();
+        }
+
+        private void QuitMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
 
         private void lstArmies_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -43,7 +48,20 @@ namespace ArmyBuilder
 
         }
 
-    }
+        private void DeleteArmyButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.DataContext is Army army)
+            {
+                var result = MessageBox.Show($"Sind Sie sicher, dass Sie die Armee '{army.Name}' löschen möchten?", "Löschung bestätigen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    _repository.DeleteArmy(army.Id);
+                    var startViewModel = DataContext as StartViewModel;
+                    startViewModel.LoadArmies();
+                }
+            }
+        }
 
+    }
 
 }

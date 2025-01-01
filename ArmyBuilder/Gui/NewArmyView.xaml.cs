@@ -29,6 +29,12 @@ namespace ArmyBuilder
             lstArmyLists.DisplayMemberPath = "Name";
         }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            var startView = _serviceProvider.GetRequiredService<StartView>();
+            Window window = Window.GetWindow(this);
+            window.Content = startView;
+        }
         private void lstArmies_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             if (lstArmyLists.SelectedItem == null)
