@@ -47,13 +47,15 @@ namespace ArmyBuilder.Print
 
         void ComposeContent(IContainer container)
         {
-            container
-                .PaddingVertical(40)
-                .Height(250)
-                .Background(Colors.Grey.Lighten3)
-                .AlignCenter()
-                .AlignMiddle()
-                .Text("Content").FontSize(16);
+            container.Column(column =>
+            {
+                column.Spacing(10);
+                foreach (var unitName in Model.UnitNames)
+                {
+                    column.Item().Text(unitName);
+                }
+                    
+            });
         }
     }
 }
