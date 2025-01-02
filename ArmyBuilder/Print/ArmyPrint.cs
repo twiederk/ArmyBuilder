@@ -11,11 +11,10 @@ namespace ArmyBuilder
     {
         public void PrintArmy(Army army)
         {
-            // Define the output file path
-            string outputPath = "example.pdf";
             QuestPDF.Settings.License = LicenseType.Community;
 
-            // Create a PDF document
+            string outputPath = "army.pdf";
+
             Document.Create(container =>
             {
                 container.Page(page =>
@@ -26,7 +25,7 @@ namespace ArmyBuilder
                     page.DefaultTextStyle(x => x.FontSize(20));
 
                     page.Header()
-                        .Text("Hello, World!")
+                        .Text(army.Name)
                         .SemiBold().FontSize(36).FontColor(Colors.Blue.Medium);
 
                     page.Content()
@@ -43,9 +42,9 @@ namespace ArmyBuilder
                             // Add header row
                             table.Header(header =>
                             {
-                                header.Cell().Element(CellStyle).Text("Header 1");
-                                header.Cell().Element(CellStyle).Text("Header 2");
-                                header.Cell().Element(CellStyle).Text("Header 3");
+                                header.Cell().Element(CellStyle).Text("Unit Name");
+                                header.Cell().Element(CellStyle).Text("Points");
+                                header.Cell().Element(CellStyle).Text("Count");
 
                                 static IContainer CellStyle(IContainer container)
                                 {
@@ -54,9 +53,9 @@ namespace ArmyBuilder
                             });
 
                             // Add data rows
-                            for (int i = 0; i < 9; i++)
+                            foreach (var unit in army.Units)
                             {
-                                table.Cell().Element(CellStyle).Text($"Cell {i + 1}");
+                                PrintUnit(table, unit);
                             }
 
                             static IContainer CellStyle(IContainer container)
@@ -76,8 +75,19 @@ namespace ArmyBuilder
             })
             .GeneratePdf(outputPath);
 
-            // Start a viewer
             Process.Start(new ProcessStartInfo(outputPath) { UseShellExecute = true });
+        }
+
+        private void PrintUnit(TableDescriptor table, ArmyBuilder.Domain.Unit unit)
+        {
+            table.Cell().Element(CellStyle).Text(unit.Name);
+            table.Cell().Element(CellStyle).Text(unit.TotalPoints().ToString());
+            table.Cell().Element(CellStyle).Text(unit.MainModels.Count.ToString());
+
+            static IContainer CellStyle(IContainer container)
+            {
+                return container.Border(1).BorderColor(Colors.Grey.Lighten2).Padding(5);
+            }
         }
     }
 }
