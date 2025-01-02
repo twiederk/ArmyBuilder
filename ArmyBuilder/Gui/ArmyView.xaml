@@ -26,7 +26,9 @@
 
         <Menu Grid.Row="0" Grid.ColumnSpan="5">
             <MenuItem Header="Datei">
-                <MenuItem Header="Edition Beenden" Click="QuitEditionItem_Click"/>
+                <MenuItem Header="Drucken" Click="Print_Click"/>
+                <Separator />
+                <MenuItem Header="Edition Beenden" Click="QuitEdition_Click"/>
             </MenuItem>
         </Menu>
 
