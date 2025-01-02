@@ -13,26 +13,13 @@ namespace ArmyBuilder
         {
             QuestPDF.Settings.License = LicenseType.Community;
 
-            string outputPath = "invoid.pdf";
-
             var model = InvoiceDocumentDataSource.GetInvoiceDetails();
             var document = new InvoiceDocument(model);
             document.GeneratePdfAndShow();
-            document.GeneratePdf(outputPath);
 
+            //document.GeneratePdf("invoice.pdf");
             // Process.Start(new ProcessStartInfo(outputPath) { UseShellExecute = true });
         }
 
-        private void PrintUnit(TableDescriptor table, ArmyBuilder.Domain.Unit unit)
-        {
-            table.Cell().Element(CellStyle).Text(unit.Name);
-            table.Cell().Element(CellStyle).Text(unit.TotalPoints().ToString());
-            table.Cell().Element(CellStyle).Text(unit.MainModels.Count.ToString());
-
-            static IContainer CellStyle(IContainer container)
-            {
-                return container.Border(1).BorderColor(Colors.Grey.Lighten2).Padding(5);
-            }
-        }
     }
 }
