@@ -4,6 +4,7 @@ using QuestPDF.Infrastructure;
 using System;
 using System.Diagnostics;
 using ArmyBuilder.Domain;
+using ArmyBuilder.Print;
 
 namespace ArmyBuilder
 {
@@ -13,8 +14,10 @@ namespace ArmyBuilder
         {
             QuestPDF.Settings.License = LicenseType.Community;
 
-            var model = InvoiceDocumentDataSource.GetInvoiceDetails();
-            var document = new InvoiceDocument(model);
+            //var model = InvoiceDocumentDataSource.GetInvoiceDetails();
+            //var document = new InvoiceDocument(model);
+            var model = new ArmyPrintModel(army);
+            var document = new ArmyDocument(model);
             document.GeneratePdfAndShow();
 
             //document.GeneratePdf("invoice.pdf");
