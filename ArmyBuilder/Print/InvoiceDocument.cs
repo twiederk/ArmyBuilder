@@ -1,3 +1,4 @@
+using ArmyBuilder.Print;
 using QuestPDF.Drawing;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
@@ -67,7 +68,17 @@ public class InvoiceDocument : IDocument
         {
             column.Spacing(5);
 
+            column.Item().Row(row =>
+            {
+                row.RelativeItem().Component(new AddressComponent("From", Model.SellerAddress));
+                row.ConstantItem(50);
+                row.RelativeItem().Component(new AddressComponent("For", Model.CustomerAddress));
+            });
+
             column.Item().Element(ComposeTable);
+
+            var totalPrice = Model.Items.Sum(x => x.Price * x.Quantity);
+            column.Item().AlignRight().Text($"Grand total: {totalPrice}$").FontSize(14);
 
             if (!string.IsNullOrWhiteSpace(Model.Comments))
                 column.Item().PaddingTop(25).Element(ComposeComments);
