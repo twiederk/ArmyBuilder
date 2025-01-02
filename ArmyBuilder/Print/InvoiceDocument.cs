@@ -76,12 +76,45 @@ public class InvoiceDocument : IDocument
 
     void ComposeTable(IContainer container)
     {
-        container
-            .Height(250)
-            .Background(Colors.Grey.Lighten3)
-            .AlignCenter()
-            .AlignMiddle()
-            .Text("Table").FontSize(16);
+        container.Table(table =>
+        {
+            table.ColumnsDefinition(columns =>
+            {
+                columns.ConstantColumn(25);
+                columns.RelativeColumn(3);
+                columns.RelativeColumn();
+                columns.RelativeColumn();
+                columns.RelativeColumn();
+            });
+
+            table.Header(header =>
+            {
+                header.Cell().Element(CellStyle).Text("#");
+                header.Cell().Element(CellStyle).Text("Product");
+                header.Cell().Element(CellStyle).AlignRight().Text("Unit price");
+                header.Cell().Element(CellStyle).AlignRight().Text("Quantity");
+                header.Cell().Element(CellStyle).AlignRight().Text("Total");
+
+                static IContainer CellStyle(IContainer container)
+                {
+                    return container.DefaultTextStyle(x => x.SemiBold()).PaddingVertical(5).BorderBottom(1).BorderColor(Colors.Black);
+                }
+            });
+
+            foreach (var item in Model.Items)
+            {
+                table.Cell().Element(CellStyle).Text(Model.Items.IndexOf(item) + 1);
+                table.Cell().Element(CellStyle).Text(item.Name);
+                table.Cell().Element(CellStyle).AlignRight().Text($"{item.Price}$");
+                table.Cell().Element(CellStyle).AlignRight().Text(item.Quantity);
+                table.Cell().Element(CellStyle).AlignRight().Text($"{item.Price * item.Quantity}$");
+
+                static IContainer CellStyle(IContainer container)
+                {
+                    return container.BorderBottom(1).BorderColor(Colors.Grey.Lighten2).PaddingVertical(5);
+                }
+            }
+        });
     }
 
     void ComposeComments(IContainer container)
