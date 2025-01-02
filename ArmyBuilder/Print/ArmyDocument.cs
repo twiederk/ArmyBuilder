@@ -23,10 +23,37 @@ namespace ArmyBuilder.Print
                 {
                     page.Margin(50);
 
-                    page.Header().Height(100).Background(Colors.Grey.Lighten1);
-                    page.Content().Background(Colors.Grey.Lighten3);
-                    page.Footer().Height(50).Background(Colors.Grey.Lighten1);
+                    page.Header().Element(ComposeHeader);
+                    page.Content().Element(ComposeContent);
+
+                    page.Footer().AlignCenter().Text(x =>
+                    {
+                        x.CurrentPageNumber();
+                        x.Span(" / ");
+                        x.TotalPages();
+                    });
                 });
-            }
+        }
+
+        void ComposeHeader(IContainer container)
+        {
+            container
+                .Background(Colors.Grey.Lighten5)
+                .AlignCenter()
+                .AlignMiddle()
+                .Text(Model.ArmyName).FontSize(16);
+
+        }
+
+        void ComposeContent(IContainer container)
+        {
+            container
+                .PaddingVertical(40)
+                .Height(250)
+                .Background(Colors.Grey.Lighten3)
+                .AlignCenter()
+                .AlignMiddle()
+                .Text("Content").FontSize(16);
         }
     }
+}
