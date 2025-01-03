@@ -15,13 +15,13 @@ namespace ArmyBuilder.Print
 
         public void Compose(IContainer container)
         {
-            container.Column(column =>
+            container.PaddingLeft(10).Column(column =>
             {
                 column.Spacing(2);
                 column.Item().Text(Heading());
                 foreach (var singleModel in _mainModel.SingleModels)
                 {
-                    column.Item().Text(singleModel.Name);
+                    column.Item().Component(new SingleModelPrintComponent(singleModel));
                 }
             });
         }
