@@ -25,7 +25,7 @@ namespace ArmyBuilder
         {
             var armyViewModel = DataContext as ArmyViewModel;
             var army = armyViewModel.ArmyTreeViewModel.Army;
-            var armyPrint = new ArmyPrint();
+            var armyPrint = new ArmyPrinter();
             armyPrint.PrintArmy(army);
         }
         private void QuitEdition_Click(object sender, RoutedEventArgs e)

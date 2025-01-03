@@ -8,7 +8,7 @@ using ArmyBuilder.Print;
 
 namespace ArmyBuilder
 {
-    public class ArmyPrint
+    public class ArmyPrinter
     {
         public void PrintArmy(Army army)
         {
