@@ -21,7 +21,14 @@ namespace ArmyBuilder
             DataContext = armyViewModel;
         }
 
-        private void QuitEditionItem_Click(object sender, RoutedEventArgs e)
+        private void Print_Click(object sender, RoutedEventArgs e)
+        {
+            var armyViewModel = DataContext as ArmyViewModel;
+            var army = armyViewModel.ArmyTreeViewModel.Army;
+            var armyPrint = new ArmyPrinter();
+            armyPrint.PrintArmy(army);
+        }
+        private void QuitEdition_Click(object sender, RoutedEventArgs e)
         {
             var armyViewModel = DataContext as ArmyViewModel;
             Army army = armyViewModel.ArmyTreeViewModel.Army;
@@ -112,6 +119,40 @@ namespace ArmyBuilder
                         armyViewModel.AddMainModel(unit.Id, clonedMainModel);
                         unitTreeNode.AddMainModel(clonedMainModel);
                     }
+                }
+            }
+        }
+
+        private void DeleteUnitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is UnitTreeNode unitTreeNode)
+            {
+                var result = MessageBox.Show($"Die Einheit '{unitTreeNode.Name}' löschen?", "Löschung bestätigen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    var armyViewModel = DataContext as ArmyViewModel;
+                    var unit = unitTreeNode.Unit;
+                    armyViewModel.DeleteUnit(unit.Id);
+                    unitTreeNode.RemoveUnit();
+                    unitTreeNode.UpdateTotalPoints();
+                }
+            }
+        }
+
+
+        private void DeleteMainModelButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
+            {
+                var result = MessageBox.Show($"Das Model '{mainModelTreeNode.Name}' löschen?", "Löschung bestätigen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    var armyViewModel = DataContext as ArmyViewModel;
+                    var mainModel = mainModelTreeNode.MainModel;
+                    int unitId = mainModelTreeNode.Unit.Id;
+                    armyViewModel.DeleteMainModelFromUnit(unitId, mainModel.Id);
+                    mainModelTreeNode.RemoveMainModel();
+                    mainModelTreeNode.UpdateTotalPoints();
                 }
             }
         }

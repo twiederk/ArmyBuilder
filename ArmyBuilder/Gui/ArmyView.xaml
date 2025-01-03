@@ -26,7 +26,9 @@
 
         <Menu Grid.Row="0" Grid.ColumnSpan="5">
             <MenuItem Header="Datei">
-                <MenuItem Header="Edition Beenden" Click="QuitEditionItem_Click"/>
+                <MenuItem Header="Drucken" Click="Print_Click"/>
+                <Separator />
+                <MenuItem Header="Edition Beenden" Click="QuitEdition_Click"/>
             </MenuItem>
         </Menu>
 
@@ -155,12 +157,13 @@
                         <Grid AllowDrop="True" Drop="unitTreeNode_Drop">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Blue"/>
                             <Label Content="{Binding TotalPoints}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Blue"/>
-                        </Grid>
-                    </HierarchicalDataTemplate>
+                            <Button Content="🗑" Grid.Column="2" Click="DeleteUnitButton_Click" Tag="{Binding}" Margin="5" />
+                        </Grid>                    </HierarchicalDataTemplate>
                     
                     <HierarchicalDataTemplate DataType="{x:Type viewModels:MainModelTreeNode}" ItemsSource="{Binding SingleModels}">
                         <Grid>
@@ -171,6 +174,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Label Content="{Binding Count}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Magenta"/>
                             <Button Content=" + " Grid.Column="1" Click="mainModelTreeNode_IncreaseCount" Tag="{Binding}" Margin="2 ,2, 2, 2"/>
@@ -178,6 +182,7 @@
                             <Label Content="{Binding Name}" Grid.Column="3" HorizontalAlignment="Left" Foreground="Magenta"/>
                             <Label Content="{Binding TotalPoints}" Grid.Column="4" HorizontalAlignment="Right" Foreground="Magenta"/>
                             <Label Content="{Binding DisplayArmyCategory}" Grid.Column="5" HorizontalAlignment="Right" Foreground="Magenta"/>
+                            <Button Content="🗑" Grid.Column="6" Click="DeleteMainModelButton_Click" Tag="{Binding}" Margin="2,2,2,2"/>
                         </Grid>
                     </HierarchicalDataTemplate>
                     
