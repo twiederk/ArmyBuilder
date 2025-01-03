@@ -1,4 +1,5 @@
-﻿using QuestPDF.Fluent;
+﻿using QuestPDF.Elements;
+using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 
@@ -50,9 +51,9 @@ namespace ArmyBuilder.Print
             container.Column(column =>
             {
                 column.Spacing(10);
-                foreach (var unitName in Model.UnitNames)
+                foreach (var unit in Model.Units)
                 {
-                    column.Item().Text(unitName);
+                    column.Item().Component(new UnitPrintComponent(unit));
                 }
                     
             });
