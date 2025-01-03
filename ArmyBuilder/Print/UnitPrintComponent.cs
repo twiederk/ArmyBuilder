@@ -1,5 +1,4 @@
 ﻿using QuestPDF.Infrastructure;
-using ArmyBuilder.Domain;
 using QuestPDF.Fluent;
 
 namespace ArmyBuilder.Print
@@ -23,7 +22,7 @@ namespace ArmyBuilder.Print
                 column.Item().BorderBottom(1).PaddingBottom(5).Text(_unit.Name).SemiBold();
                 foreach (var mainModel in _unit.MainModels)
                 {
-                    column.Item().Text(mainModel.Name);
+                    column.Item().Component(new MainModelPrintComponent(mainModel));
                 }
             });
         }
