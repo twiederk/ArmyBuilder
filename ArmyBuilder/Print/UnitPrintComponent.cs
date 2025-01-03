@@ -17,7 +17,15 @@ namespace ArmyBuilder.Print
 
         public void Compose(IContainer container)
         {
-            container.Text($"Einheit: {_unit.Name}");
+            container.Column(column =>
+            {
+                column.Spacing(2);
+                column.Item().BorderBottom(1).PaddingBottom(5).Text(_unit.Name).SemiBold();
+                foreach (var mainModel in _unit.MainModels)
+                {
+                    column.Item().Text(mainModel.Name);
+                }
+            });
         }
     }
 }
