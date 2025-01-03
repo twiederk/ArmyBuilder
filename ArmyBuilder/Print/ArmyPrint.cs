@@ -14,14 +14,13 @@ namespace ArmyBuilder
         {
             QuestPDF.Settings.License = LicenseType.Community;
 
-            //var model = InvoiceDocumentDataSource.GetInvoiceDetails();
-            //var document = new InvoiceDocument(model);
             var model = new ArmyPrintModel(army);
             var document = new ArmyDocument(model);
             document.GeneratePdfAndShow();
 
-            //document.GeneratePdf("invoice.pdf");
-            // Process.Start(new ProcessStartInfo(outputPath) { UseShellExecute = true });
+            //String filename = "army.pdf";
+            //document.GeneratePdf(filename);
+            //Process.Start(new ProcessStartInfo(filename) { UseShellExecute = true });
         }
 
     }

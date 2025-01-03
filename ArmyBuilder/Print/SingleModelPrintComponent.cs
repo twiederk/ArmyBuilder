@@ -15,7 +15,7 @@ namespace ArmyBuilder.Print
 
         public void Compose(IContainer container)
         {
-            container.Row(row =>
+            container.PaddingLeft(10).Row(row =>
             {
                 row.ConstantItem(150).Text(_singleModel.Name);
                 row.ConstantItem(20).Text(_singleModel.Profile.Movement.ToString());
