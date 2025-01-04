@@ -96,6 +96,7 @@ namespace ArmyBuilder.Test.Domain
             armyCategoryPoints.Trooper.Should().Be(240);
             armyCategoryPoints.WarMachine.Should().Be(72);
             armyCategoryPoints.Monster.Should().Be(0);
+            armyCategoryPoints.Total.Should().Be(472);
         }
 
     }

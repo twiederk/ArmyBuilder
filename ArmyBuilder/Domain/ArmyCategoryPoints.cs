@@ -12,5 +12,6 @@ namespace ArmyBuilder.Domain
         public float Trooper { get; set; }
         public float WarMachine { get; set; }
         public float Monster { get; set; }
+        public float Total => Character + Trooper + WarMachine + Monster;
     }
 }

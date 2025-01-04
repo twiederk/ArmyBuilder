@@ -4,14 +4,14 @@ namespace ArmyBuilder.Print
 {
     public class ArmyPrintModel
     {
-        public string ArmyName => _army.Name;
-        public float ArmyPoints => _army.TotalPoints();
-        public List<Unit> Units => _army.Units;
-        private Army _army { get; }
+        public string ArmyName => Army.Name;
+        public float ArmyPoints => Army.TotalPoints();
+        public List<Unit> Units => Army.Units;
+        public Army Army { get; }
 
         public ArmyPrintModel(Army army)
         {
-            _army = army;
+            Army = army;
         }
     }
 }
