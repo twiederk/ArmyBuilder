@@ -53,45 +53,10 @@
 
             <local:MainModelControl Grid.Row="1" Grid.Column="0" />
 
-            <ItemsControl Grid.Row="2" Grid.Column="0" ItemsSource="{Binding SelectedMainModel.SingleModels}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="35" />
-                                <ColumnDefinition Width="35" />
-                            </Grid.ColumnDefinitions>
-
-                            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Name}" />
-                            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Profile.Movement}" />
-                            <Label Grid.Row="1" Grid.Column="2" Content="{Binding Profile.WeaponSkill}" />
-                            <Label Grid.Row="1" Grid.Column="3" Content="{Binding Profile.BallisticSkill}" />
-                            <Label Grid.Row="1" Grid.Column="4" Content="{Binding Profile.Strength}" />
-                            <Label Grid.Row="1" Grid.Column="5" Content="{Binding Profile.Toughness}" />
-                            <Label Grid.Row="1" Grid.Column="6" Content="{Binding Profile.Wounds}" />
-                            <Label Grid.Row="1" Grid.Column="7" Content="{Binding Profile.Initiative}" />
-                            <Label Grid.Row="1" Grid.Column="8" Content="{Binding Profile.Attacks}" />
-                            <Label Grid.Row="1" Grid.Column="9" Content="{Binding Profile.Moral}" />
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-
             <Label Grid.Row="3" Grid.Column="0" Content="{Binding SelectedMainModel.Description}" />
         </Grid>
 
         <local:ArmyControl Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" />
     </Grid>
 </UserControl>
+
