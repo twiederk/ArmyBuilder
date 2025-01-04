@@ -55,7 +55,8 @@ namespace ArmyBuilder.Print
                 {
                     column.Item().Component(new UnitPrintComponent(unit));
                 }
-                    
+                column.Item().BorderTop(1).PaddingTop(5).Text($"Gesamtkosten der Armee: {Model.ArmyPoints}").SemiBold();
+
             });
         }
     }
