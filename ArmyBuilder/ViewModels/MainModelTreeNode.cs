@@ -15,25 +15,8 @@ namespace ArmyBuilder.ViewModels
         public Unit Unit => _parent.Unit;
         private UnitTreeNode _parent;
 
-        public string DisplayArmyCategory
-        {
-            get
-            {
-                switch (MainModel.ArmyCategory)
-                {
-                    case ArmyCategory.Character:
-                        return "Charakter";
-                    case ArmyCategory.Trooper:
-                        return "Regiment";
-                    case ArmyCategory.WarMachine:
-                        return "Kriegsgerät";
-                    case ArmyCategory.Monster:
-                        return "Monster";
-                    default:
-                        return "Unbekannt";
-                }
-            }
-        }
+        public string DisplayArmyCategory => MainModel.ArmyCategory.Display();
+
 
         public ObservableCollection<SingleModelTreeNode> SingleModels { get; set; } = new ObservableCollection<SingleModelTreeNode>();
 

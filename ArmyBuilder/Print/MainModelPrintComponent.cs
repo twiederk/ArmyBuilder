@@ -18,12 +18,17 @@ namespace ArmyBuilder.Print
         public void Compose(IContainer container)
         {
 
-            container.PaddingLeft(20).Table(table =>
+            container.PaddingLeft(20).Column(column =>
             {
-                columnDefinitions(table);
-                heading(table);
-                singleModels(table);
+                column.Item().Text(Heading());
+                column.Item().PaddingLeft(20).Table(table =>
+                {
+                    columnDefinitions(table);
+                    heading(table);
+                    singleModels(table);
+                });
             });
+
         }
 
         private static void columnDefinitions(TableDescriptor table)
@@ -94,7 +99,7 @@ namespace ArmyBuilder.Print
 
         public string Heading()
         {
-            return $"{_mainModel.Count}x {_mainModel.Name} ({_mainModel.Points}) => {_mainModel.TotalPoints()}";
+            return $"{_mainModel.Count}x {_mainModel.Name} ({_mainModel.Points}) => {_mainModel.TotalPoints()} {_mainModel.ArmyCategory.Display()}";
         }
     }
 }
