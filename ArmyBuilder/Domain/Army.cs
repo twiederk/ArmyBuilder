@@ -35,9 +35,41 @@ namespace ArmyBuilder.Domain
 
         }
 
-        internal void RemoveUnit(Unit unit)
+        public void RemoveUnit(Unit unit)
         {
             Units.Remove(unit);
         }
+
+        public ArmyCategoryPoints ArmyCategoryPoints()
+        {
+            var categoryPoints = new ArmyCategoryPoints();
+
+            foreach (var unit in Units)
+            {
+                foreach (var mainModel in unit.MainModels)
+                {
+                    float pointsToAdd = mainModel.Count * mainModel.Points;
+                    switch (mainModel.ArmyCategory)
+                    {
+                        case ArmyCategory.Character:
+                            categoryPoints.Character += pointsToAdd;
+                            break;
+                        case ArmyCategory.Trooper:
+                            categoryPoints.Trooper += pointsToAdd;
+                            break;
+                        case ArmyCategory.WarMachine:
+                            categoryPoints.WarMachine += pointsToAdd;
+                            break;
+                        case ArmyCategory.Monster:
+                            categoryPoints.Monster += pointsToAdd;
+                            break;
+                    }
+                }
+            }
+
+            return categoryPoints;
+        }
+
+
     }
 }

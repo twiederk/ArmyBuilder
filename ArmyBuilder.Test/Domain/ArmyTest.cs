@@ -82,5 +82,21 @@ namespace ArmyBuilder.Test.Domain
             army.Units[0].MainModels[0].Name.Should().Be("Test MainModel");
         }
 
+        [Fact]
+        public void should_create_points_by_army_category()
+        {
+            // arrange
+            var army = new ArmyExample1();
+
+            // act
+            ArmyCategoryPoints armyCategoryPoints = army.ArmyCategoryPoints();
+
+            // assert
+            armyCategoryPoints.Character.Should().Be(160);
+            armyCategoryPoints.Trooper.Should().Be(240);
+            armyCategoryPoints.WarMachine.Should().Be(72);
+            armyCategoryPoints.Monster.Should().Be(0);
+        }
+
     }
 }

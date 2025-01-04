@@ -20,7 +20,7 @@ namespace ArmyBuilder.Domain
                         {
                             Name = "General",
                             ArmyCategory = ArmyCategory.Character,
-                            Points = 100,
+                            Points = 160,
                             SingleModels = new List<SingleModel>
                             {
                                 new SingleModel()
@@ -45,7 +45,7 @@ namespace ArmyBuilder.Domain
                         {
                             Name = "Speerträger",
                             ArmyCategory = ArmyCategory.Trooper,
-                            Points = 10,
+                            Points = 12,
                             Count = 20,
                             SingleModels = new List<SingleModel>
                             {
@@ -78,7 +78,7 @@ namespace ArmyBuilder.Domain
                         {
                             Name = "Streitwagen",
                             ArmyCategory = ArmyCategory.WarMachine,
-                            Points = 70,
+                            Points = 72,
                             SingleModels = new List<SingleModel>
                             {
                                 new SingleModel()
