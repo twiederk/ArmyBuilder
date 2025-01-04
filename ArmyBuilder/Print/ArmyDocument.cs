@@ -55,7 +55,8 @@ namespace ArmyBuilder.Print
                 {
                     column.Item().Component(new UnitPrintComponent(unit));
                 }
-                    
+                column.Item().Component(new ArmyCategoryPointsPrintComponent(Model.Army.ArmyCategoryPoints()));
+
             });
         }
     }

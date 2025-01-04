@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="ArmyBuilder.ArmyControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:ArmyBuilder.ViewModels"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="400">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <TreeView Name="trvArmy" ItemsSource="{Binding ArmyTreeViewModel.Root}">
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Units}">
+                        <Grid AllowDrop="True" Drop="armyTreeNode_Drop">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Green"/>
+                            <Label Content="{Binding TotalPoints}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Green"/>
+                        </Grid>
+                    </HierarchicalDataTemplate>
+
+                    <HierarchicalDataTemplate DataType="{x:Type viewModels:UnitTreeNode}" ItemsSource="{Binding MainModels}">
+                        <Grid AllowDrop="True" Drop="unitTreeNode_Drop">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Blue"/>
+                            <Label Content="{Binding TotalPoints}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Blue"/>
+                            <Button Content="🗑" Grid.Column="2" Click="DeleteUnitButton_Click" Tag="{Binding}" Margin="5" />
+                        </Grid>
+                    </HierarchicalDataTemplate>
+
+                    <HierarchicalDataTemplate DataType="{x:Type viewModels:MainModelTreeNode}" ItemsSource="{Binding SingleModels}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{Binding Count}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Magenta"/>
+                            <Button Content=" + " Grid.Column="1" Click="mainModelTreeNode_IncreaseCount" Tag="{Binding}" Margin="2 ,2, 2, 2"/>
+                            <Button Content=" - " Grid.Column="2" Click="mainModelTreeNode_DecreaseCount" Tag="{Binding}" Margin="2 ,2, 2,2"/>
+                            <Label Content="{Binding Name}" Grid.Column="3" HorizontalAlignment="Left" Foreground="Magenta"/>
+                            <Label Content="{Binding TotalPoints}" Grid.Column="4" HorizontalAlignment="Right" Foreground="Magenta"/>
+                            <Label Content="{Binding DisplayArmyCategory}" Grid.Column="5" HorizontalAlignment="Right" Foreground="Magenta"/>
+                            <Button Content="🗑" Grid.Column="6" Click="DeleteMainModelButton_Click" Tag="{Binding}" Margin="2,2,2,2"/>
+                        </Grid>
+                    </HierarchicalDataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModels:SingleModelTreeNode}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="35" />
+                                <ColumnDefinition Width="35" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Name}" />
+                            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Movement}" />
+                            <Label Grid.Row="1" Grid.Column="2" Content="{Binding WeaponSkill}" />
+                            <Label Grid.Row="1" Grid.Column="3" Content="{Binding BallisticSkill}" />
+                            <Label Grid.Row="1" Grid.Column="4" Content="{Binding Strength}" />
+                            <Label Grid.Row="1" Grid.Column="5" Content="{Binding Toughness}" />
+                            <Label Grid.Row="1" Grid.Column="6" Content="{Binding Wounds}" />
+                            <Label Grid.Row="1" Grid.Column="7" Content="{Binding Initiative}" />
+                            <Label Grid.Row="1" Grid.Column="8" Content="{Binding Attacks}" />
+                            <Label Grid.Row="1" Grid.Column="9" Content="{Binding Moral}" />
+                        </Grid>
+                    </DataTemplate>
+                </TreeView.Resources>
+            </TreeView>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

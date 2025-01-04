@@ -16,11 +16,11 @@ namespace ArmyBuilder
 
             var model = new ArmyPrintModel(army);
             var document = new ArmyDocument(model);
-            document.GeneratePdfAndShow();
+            //document.GeneratePdfAndShow();
 
-            //String filename = "army.pdf";
-            //document.GeneratePdf(filename);
-            //Process.Start(new ProcessStartInfo(filename) { UseShellExecute = true });
+            String filename = "temp_army.pdf";
+            document.GeneratePdf(filename);
+            Process.Start(new ProcessStartInfo(filename) { UseShellExecute = true });
         }
 
     }
