@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="ArmyBuilder.MainModelControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="100" d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="35" />
+            <ColumnDefinition Width="35" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Name" Background="DarkGray"/>
+        <Label Grid.Row="0" Grid.Column="1" Content="B" Background="DarkGray" />
+        <Label Grid.Row="0" Grid.Column="2" Content="KG" Background="DarkGray" />
+        <Label Grid.Row="0" Grid.Column="3" Content="BF" Background="DarkGray" />
+        <Label Grid.Row="0" Grid.Column="4" Content="S" Background="DarkGray" />
+        <Label Grid.Row="0" Grid.Column="5" Content="W" Background="DarkGray" />
+        <Label Grid.Row="0" Grid.Column="6" Content="LP" Background="DarkGray" />
+        <Label Grid.Row="0" Grid.Column="7" Content="I" Background="DarkGray" />
+        <Label Grid.Row="0" Grid.Column="8" Content="A" Background="DarkGray" />
+        <Label Grid.Row="0" Grid.Column="9" Content="MW" Background="DarkGray" />
+        <Label Grid.Row="0" Grid.Column="10" Content="RW" Background="DarkGray" />
+    </Grid>
+</UserControl>
