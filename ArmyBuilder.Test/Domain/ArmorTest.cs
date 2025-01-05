@@ -14,7 +14,7 @@ namespace ArmyBuilder.Test.Domain
 
             // assert
             armor.Id.Should().Be(1);
-            armor.Name.Should().Be("Test Army");
+            armor.Name.Should().Be("Test Armor");
         }
 
     }
