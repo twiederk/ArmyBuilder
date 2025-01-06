@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ArmyBuilder.Domain
+﻿namespace ArmyBuilder.Domain
 {
     public class ArmyExample1: Army
     {
@@ -37,6 +31,36 @@ namespace ArmyBuilder.Domain
                                         Initiative = 9,
                                         Attacks = 4,
                                         Moral = 10
+                                    },
+                                    Equipment = new Equipment
+                                    {
+                                        Slots = new List<Slot>
+                                        {
+                                            new Slot
+                                            {
+                                                Id = 1,
+                                                Item = new Item
+                                                {
+                                                    Name = "Schwert",
+                                                    Points = 10
+                                                },
+                                                Editable = true,
+                                                AllItems = false,
+                                                SelectableItems = new List<Item>
+                                                {
+                                                    new Item
+                                                    {
+                                                        Name = "Schwert",
+                                                        Points = 10
+                                                    },
+                                                    new Item
+                                                    {
+                                                        Name = "Speer",
+                                                        Points = 5
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -46,7 +70,7 @@ namespace ArmyBuilder.Domain
                             Name = "Speerträger",
                             ArmyCategory = ArmyCategory.Trooper,
                             Points = 12,
-                            Count = 20,
+                            Count = 200,
                             SingleModels = new List<SingleModel>
                             {
                                 new SingleModel()
@@ -63,6 +87,34 @@ namespace ArmyBuilder.Domain
                                         Initiative = 6,
                                         Attacks = 1,
                                         Moral = 8
+                                    },
+                                    Equipment = new Equipment
+                                    {
+                                        Slots = new List<Slot>
+                                        {
+                                            new Slot
+                                            {
+                                                Id = 1,
+                                                Item = new Item
+                                                {
+                                                    Name = "Speer",
+                                                    Points = 5
+                                                },
+                                                Editable = false,
+                                                AllItems = false                                           
+                                            },
+                                            new ArmorSlot
+                                            {
+                                                Id = 2,
+                                                Item = new Armor
+                                                {
+                                                    Name = "leichte Rüstung",
+                                                    Points = 5
+                                                },
+                                                Editable = false,
+                                                AllItems = false
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -95,7 +147,33 @@ namespace ArmyBuilder.Domain
                                         Initiative = 0,
                                         Attacks = 0,
                                         Moral = 0
+                                    },
+                                    Equipment = new Equipment
+                                    {
+                                        Slots = new List<Slot>
+                                        {
+                                            new Slot
+                                            {
+                                                Id = 1,
+                                                Item = new Item
+                                                {
+                                                    Name = "Empty Slot",
+                                                    Points = 0
+                                                },
+                                                Editable = false,
+                                                AllItems = false,
+                                                SelectableItems = new List<Item>
+                                                {
+                                                    new Item
+                                                    {
+                                                        Name = "Sensenräder",
+                                                        Points = 20
+                                                    }
+                                                }
+                                            },
+                                        }
                                     }
+                                    
                                 },
                                 new SingleModel()
                                 {
@@ -111,6 +189,47 @@ namespace ArmyBuilder.Domain
                                         Initiative = 7,
                                         Attacks = 1,
                                         Moral = 8
+                                    },
+                                    Equipment = new Equipment
+                                    {
+                                        Slots = new List<Slot>
+                                        {
+                                            new Slot
+                                            {
+                                                Id = 1,
+                                                Item = new Item
+                                                {
+                                                    Name = "Schwert",
+                                                    Points = 10
+                                                },
+                                                Editable = false,
+                                                AllItems = false,
+                                            },
+                                            new Slot
+                                            {
+                                                Id = 2,
+                                                Item = new Item
+                                                {
+                                                    Name = "Empty Slot",
+                                                    Points = 10
+                                                },
+                                                Editable = true,
+                                                AllItems = false,
+                                                SelectableItems = new List<Item>
+                                                {
+                                                    new Item
+                                                    {
+                                                        Name = "Bogen",
+                                                        Points = 10
+                                                    },
+                                                    new Item
+                                                    {
+                                                        Name = "Armbrust",
+                                                        Points = 10
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 },
                                 new SingleModel()

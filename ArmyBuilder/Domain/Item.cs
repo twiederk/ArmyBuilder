@@ -8,6 +8,6 @@
         public string Description;
         public ArmyList ArmyList;
         public bool Magic;
-        public bool Points;
+        public float Points;
     }
 }
