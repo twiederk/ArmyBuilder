@@ -15,6 +15,8 @@ namespace ArmyBuilder.ViewModels
         public int Initiative  => singleModel.Profile.Initiative;
         public int Attacks => singleModel.Profile.Attacks;
         public int Moral => singleModel.Profile.Moral;
+        public List<Slot> Equipment => singleModel.Equipment.Slots;
+        
 
     }
 }

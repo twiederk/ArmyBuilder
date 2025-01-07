@@ -97,7 +97,7 @@
                             Name = "Speerträger",
                             ArmyCategory = ArmyCategory.Trooper,
                             Points = 12,
-                            Count = 200,
+                            Count = 20,
                             SingleModels = new List<SingleModel>
                             {
                                 new SingleModel()

@@ -59,6 +59,7 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -84,6 +85,14 @@
                             <Label Grid.Row="1" Grid.Column="7" Content="{Binding Initiative}" />
                             <Label Grid.Row="1" Grid.Column="8" Content="{Binding Attacks}" />
                             <Label Grid.Row="1" Grid.Column="9" Content="{Binding Moral}" />
+
+                            <ItemsControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="11" ItemsSource="{Binding Equipment}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Item.Name}" Background="Aqua" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
                         </Grid>
                     </DataTemplate>
                 </TreeView.Resources>

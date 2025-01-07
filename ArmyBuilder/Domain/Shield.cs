@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ArmyBuilder.Domain
 {
-    internal class Shield
+    public class Shield: Item
     {
+        public int Save;
     }
 }
