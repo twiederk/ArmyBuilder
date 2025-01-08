@@ -4,6 +4,12 @@
     {
         public ArmyExample1() : base("Armee der Hochelfen von Tyr")
         {
+            Armor lightArmor = new Armor
+            {
+                Id = 1,
+                Name = "Leichte Rüstung",
+                Points = 2
+            };
             Units = new List<Unit>()
             {
                 new Unit("Generalseinheit")
@@ -146,23 +152,21 @@
                                             new Slot
                                             {
                                                 Id = 3,
-                                                Item = new Armor
-                                                {
-                                                    Id = 2,
-                                                    Name = "Leichte Rüstung",
-                                                    Points = 2,
-                                                },
+                                                Item = lightArmor,
                                                 Editable = true,
                                                 AllItems = false,
                                                 SelectableItems = new List<Item>
                                                 {
+                                                    lightArmor,                                                    
                                                     new Armor
                                                     {
+                                                        Id = 3,
                                                         Name = "Schwere Rüstung",
                                                         Points = 3
                                                     },
                                                     new Armor
                                                     {
+                                                        Id = 4,
                                                         Name = "Kaputte Rüstung",
                                                         Points = 3
                                                     }
@@ -315,11 +319,7 @@
                                             new Slot
                                             {
                                                 Id = 3,
-                                                Item = new Armor
-                                                {
-                                                    Name = "Leichte Rüstung",
-                                                    Points = 2,
-                                                },
+                                                Item = lightArmor,
                                                 Editable = false,
                                                 AllItems = false,
                                             },
