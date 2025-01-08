@@ -48,6 +48,13 @@
             {
                 Id = 4,
                 Name = "Sensenräder",
+                Points = 20,
+                Damage = 1
+            };
+            MeleeWeapon normalWheels = new MeleeWeapon
+            {
+                Id = 5,
+                Name = "Wagenräder",
                 Points = 1,
                 Damage = 1
             };
@@ -258,10 +265,10 @@
                                             new Slot
                                             {
                                                 Id = 1,
-                                                Item = noneMeleeWeapon,
+                                                Item = normalWheels,
                                                 Editable = true,
                                                 AllItems = false,
-                                                SelectableItems = new List<Item> { noneMeleeWeapon, scytheWheels }
+                                                SelectableItems = new List<Item> { normalWheels, scytheWheels }
                                             },
                                         }
                                     }
