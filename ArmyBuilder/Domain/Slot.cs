@@ -10,5 +10,7 @@ namespace ArmyBuilder.Domain
         public bool Editable { get; set; }
         public bool AllItems { get; set; }
         public List<Item> SelectableItems { get; set; }
+
+        public string Name => "SlotName";
     }
 }

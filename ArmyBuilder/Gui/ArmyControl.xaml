@@ -89,37 +89,16 @@
                             <ItemsControl ItemsSource="{Binding Slots}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <ContentControl Content="{Binding}">
-                                            <ContentControl.Style>
-                                                <Style TargetType="ContentControl">
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding Editable}" Value="True">
-                                                            <Setter Property="ContentTemplate">
-                                                                <Setter.Value>
-                                                                    <DataTemplate>
-                                                                        <ComboBox ItemsSource="{Binding SelectableItems}" DisplayMemberPath="Name" SelectedItem="{Binding Item}" Background="Aqua" />
-                                                                    </DataTemplate>
-                                                                </Setter.Value>
-                                                            </Setter>
-                                                        </DataTrigger>
-                                                        <DataTrigger Binding="{Binding Editable}" Value="False">
-                                                            <Setter Property="ContentTemplate">
-                                                                <Setter.Value>
-                                                                    <DataTemplate>
-                                                                        <TextBlock Text="{Binding ItemName}" Background="Aqua" />
-                                                                    </DataTemplate>
-                                                                </Setter.Value>
-                                                            </Setter>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </ContentControl.Style>
-                                        </ContentControl>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="{Binding ItemName}" Background="Aqua" />
+                                            <ComboBox ItemsSource="{Binding SelectableItems}" DisplayMemberPath="Name" SelectedItem="{Binding Item}" SelectionChanged="ComboBox_SelectionChanged" />
+                                        </StackPanel>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
                         </StackPanel>
                     </DataTemplate>
+
                 </TreeView.Resources>
             </TreeView>
         </ScrollViewer>

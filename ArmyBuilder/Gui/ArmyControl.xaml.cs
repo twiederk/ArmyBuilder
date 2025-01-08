@@ -12,6 +12,17 @@ namespace ArmyBuilder
             InitializeComponent();
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Handle the selection change event here
+            ComboBox comboBox = sender as ComboBox;
+            if (comboBox != null)
+            {
+                var selectedItem = comboBox.SelectedItem as Item;
+                MessageBox.Show(selectedItem.Name);
+            }
+        }
+
         private void armyTreeNode_Drop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(MainModel)))
@@ -113,5 +124,7 @@ namespace ArmyBuilder
             armyViewModel.UpdateMainModelCount(mainModelTreeNode.Unit.Id, mainModel.Id, mainModel.Count);
             mainModelTreeNode.UpdateCount();
         }
+
+
     }
 }

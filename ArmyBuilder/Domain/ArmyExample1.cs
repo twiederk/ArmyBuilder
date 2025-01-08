@@ -160,6 +160,11 @@
                                                     {
                                                         Name = "Schwere Rüstung",
                                                         Points = 3
+                                                    },
+                                                    new Armor
+                                                    {
+                                                        Name = "Kaputte Rüstung",
+                                                        Points = 3
                                                     }
                                                 }
                                             },
