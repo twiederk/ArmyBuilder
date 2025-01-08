@@ -9,6 +9,6 @@ namespace ArmyBuilder.Domain
         public string Name { get; set; }
         public string Description { get; set; }
         public Profile Profile { get; set; }
-        public Equipment Equipment { get; set; }
+        public Equipment Equipment { get; set; } = new Equipment();
     }
 }
