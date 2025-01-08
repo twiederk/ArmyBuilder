@@ -219,11 +219,11 @@
                                                 Id = 1,
                                                 Item = new MeleeWeapon
                                                 {
-                                                    Name = "Sturmangriff",
+                                                    Name = "kein",
                                                     Points = 0,
                                                     Damage = 6
                                                 },
-                                                Editable = false,
+                                                Editable = true,
                                                 AllItems = false,
                                                 SelectableItems = new List<Item>
                                                 {
