@@ -23,7 +23,7 @@
                 Points = 3
             };
 
-            MeleeWeapon handWeapon = new MeleeWeapon
+            MeleeWeapon noneMeleeWeapon = new MeleeWeapon
             {
                 Id = 1,
                 Name = "Handwaffe",
@@ -32,13 +32,22 @@
             };
             MeleeWeapon helberd = new MeleeWeapon
             {
+                Id = 2,
                 Name = "Hellebarde",
                 Points = 2,
                 Damage = 1
             };
             MeleeWeapon spear = new MeleeWeapon
             {
+                Id = 3,
                 Name = "Speer",
+                Points = 1,
+                Damage = 1
+            };
+            MeleeWeapon scytheWheels = new MeleeWeapon
+            {
+                Id = 4,
+                Name = "Sensenräder",
                 Points = 1,
                 Damage = 1
             };
@@ -52,22 +61,40 @@
             };
             RangedWeapon bow = new RangedWeapon
             {
+                Id = 2,
                 Name = "Bogen",
                 Points = 2,
                 Damage = 1
             };
             RangedWeapon javelin = new RangedWeapon
             {
+                Id = 3,
                 Name = "Wurfspies",
                 Points = 1,
                 Damage = 1
             };
             RangedWeapon longBow = new RangedWeapon
             {
+                Id = 4,
                 Name = "Langbogen",
                 Points = 3,
                 Damage = 1
-            };            
+            };     
+
+            Shield noneShield = new Shield
+            {
+                Id = 1,
+                Name = "keines",
+                Points = 0,
+                Save = 0
+            };
+            Shield shield = new Shield
+            {
+                Id = 2,
+                Name = "Schild",
+                Points = 1,
+                Save = 1
+            };
 
             Units = new List<Unit>()
             {
@@ -104,7 +131,7 @@
                                             new Slot
                                             {
                                                 Id = 1,
-                                                Item = handWeapon,
+                                                Item = noneMeleeWeapon,
                                                 Editable = true,
                                                 AllItems = true,
                                             },
@@ -125,13 +152,7 @@
                                             new Slot
                                             {
                                                 Id = 3,
-                                                Item = new Shield
-                                                {
-                                                    Id = 1,
-                                                    Name = "keine",
-                                                    Points = 0,
-                                                    Save = 0
-                                                },
+                                                Item = noneShield,
                                                 Editable = true,
                                                 AllItems = true,
                                             }
@@ -192,13 +213,7 @@
                                             new Slot
                                             {
                                                 Id = 3,
-                                                Item = new Shield
-                                                {
-                                                    Id = 2,
-                                                    Name = "Schild",
-                                                    Points = 1,
-                                                    Save = 1
-                                                },
+                                                Item = shield,
                                                 Editable = false,
                                                 AllItems = false,
                                             }
@@ -243,18 +258,10 @@
                                             new Slot
                                             {
                                                 Id = 1,
-                                                Item = handWeapon,
+                                                Item = noneMeleeWeapon,
                                                 Editable = true,
                                                 AllItems = false,
-                                                SelectableItems = new List<Item>
-                                                {
-                                                    new MeleeWeapon
-                                                    {
-                                                        Name = "Sensenräder",
-                                                        Points = 20,
-                                                        Damage = 8
-                                                    }
-                                                }
+                                                SelectableItems = new List<Item> { noneMeleeWeapon, scytheWheels }
                                             },
                                         }
                                     }
@@ -286,8 +293,6 @@
                                                 Editable = true,
                                                 AllItems = false,
                                                 SelectableItems = new List<Item> { helberd, spear }
-
-
                                             },
                                             new Slot
                                             {
@@ -307,24 +312,10 @@
                                             new Slot
                                             {
                                                 Id = 4,
-                                                Item = new Shield
-                                                {
-                                                    Id = 1,
-                                                    Name = "kein",
-                                                    Points = 2,
-                                                },
+                                                Item = noneShield,
                                                 Editable = true,
                                                 AllItems = false,
-                                                SelectableItems = new List<Item>
-                                                {
-                                                    new Shield
-                                                    {
-                                                        Id = 2,
-                                                        Name = "Schild",
-                                                        Points = 1,
-                                                        Save = 1
-                                                    }
-                                                }
+                                                SelectableItems = new List<Item> { noneShield, shield }
                                             }
                                         }
                                     }
