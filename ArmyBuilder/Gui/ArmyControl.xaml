@@ -86,7 +86,7 @@
                                 <Label Grid.Row="1" Grid.Column="8" Content="{Binding Attacks}" />
                                 <Label Grid.Row="1" Grid.Column="9" Content="{Binding Moral}" />
                             </Grid>
-                            <ItemsControl ItemsSource="{Binding Slots}">
+                            <ItemsControl ItemsSource="{Binding SlotViews}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Vertical">
