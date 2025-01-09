@@ -12,16 +12,6 @@ namespace ArmyBuilder
             InitializeComponent();
         }
 
-        private void combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox comboBox = sender as ComboBox;
-            if (comboBox != null)
-            {
-                var itemViewModel = comboBox.SelectedItem as ItemViewModel;
-                MessageBox.Show(itemViewModel.Name);
-            }
-        }
-
         private void armyTreeNode_Drop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(MainModel)))

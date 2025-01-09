@@ -91,7 +91,7 @@
                                     <DataTemplate>
                                         <StackPanel Orientation="Vertical" Margin="0,3,0,3">
                                             <TextBlock x:Name="TextBlock" Text="{Binding ItemName}" />
-                                            <ComboBox x:Name="ComboBox" ItemsSource="{Binding SelectableItems}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}" SelectionChanged="combobox_SelectionChanged" />
+                                            <ComboBox x:Name="ComboBox" ItemsSource="{Binding SelectableItems}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}" />
                                         </StackPanel>
                                         <DataTemplate.Triggers>
                                             <DataTrigger Binding="{Binding Editable}" Value="False">
