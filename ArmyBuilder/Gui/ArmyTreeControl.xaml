@@ -55,7 +55,62 @@
                         </Grid>
                     </HierarchicalDataTemplate>
 
-                    <DataTemplate DataType="{x:Type viewModels:SingleModelTreeNode}">
+                    <HierarchicalDataTemplate DataType="{x:Type viewModels:SingleModelTreeNode}" ItemsSource="{Binding Equipement}">
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="1" Grid.Column="0" Content="{Binding Name}" />
+                                <Label Grid.Row="1" Grid.Column="1" Content="{Binding Movement}" />
+                                <Label Grid.Row="1" Grid.Column="2" Content="{Binding WeaponSkill}" />
+                                <Label Grid.Row="1" Grid.Column="3" Content="{Binding BallisticSkill}" />
+                                <Label Grid.Row="1" Grid.Column="4" Content="{Binding Strength}" />
+                                <Label Grid.Row="1" Grid.Column="5" Content="{Binding Toughness}" />
+                                <Label Grid.Row="1" Grid.Column="6" Content="{Binding Wounds}" />
+                                <Label Grid.Row="1" Grid.Column="7" Content="{Binding Initiative}" />
+                                <Label Grid.Row="1" Grid.Column="8" Content="{Binding Attacks}" />
+                                <Label Grid.Row="1" Grid.Column="9" Content="{Binding Moral}" />
+                            </Grid>
+                            <ItemsControl ItemsSource="{Binding SlotViews}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Vertical" Margin="0,3,0,3">
+                                            <TextBlock x:Name="TextBlock" Text="{Binding ItemName}" />
+                                            <ComboBox x:Name="ComboBox" ItemsSource="{Binding SelectableItems}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}" />
+                                        </StackPanel>
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding Editable}" Value="False">
+                                                <Setter Property="Visibility" TargetName="ComboBox" Value="Collapsed" />
+                                                <Setter Property="Visibility" TargetName="TextBlock" Value="Visible" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Editable}" Value="True">
+                                                <Setter Property="Visibility" TargetName="ComboBox" Value="Visible" />
+                                                <Setter Property="Visibility" TargetName="TextBlock" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+
+<!--
+                    <DataTemplate DataType="{x:Type viewModels:SingleModelTreeNode}" >
                         <StackPanel Orientation="Vertical">
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -108,7 +163,7 @@
                             </ItemsControl>
                         </StackPanel>
                     </DataTemplate>
-
+-->
                 </TreeView.Resources>
             </TreeView>
         </ScrollViewer>
