@@ -19,11 +19,14 @@ namespace ArmyBuilder.ViewModels
 
         private SingleModel _singleModel;
         private EquipmentViewModel _equipmentView;
+        public List<EquipmentTreeNode> Equipment { get; set; } = new List<EquipmentTreeNode>();
 
         public SingleModelTreeNode(SingleModel singleModel) : this()
         {
             _singleModel = singleModel;
             _equipmentView = new EquipmentViewModel(singleModel.Equipment);
+            EquipmentTreeNode equipmentTreeNode = new EquipmentTreeNode(_singleModel.Equipment);
+            Equipment.Add(equipmentTreeNode);
         }
         
 
