@@ -89,7 +89,7 @@
                             <ItemsControl ItemsSource="{Binding SlotViews}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Vertical" Margin="0,3,0,3">
                                             <TextBlock x:Name="TextBlock" Text="{Binding ItemName}" />
                                             <ComboBox x:Name="ComboBox" ItemsSource="{Binding SelectableItems}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}" SelectionChanged="combobox_SelectionChanged" />
                                         </StackPanel>
