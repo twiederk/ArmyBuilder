@@ -90,8 +90,8 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Vertical">
-                                            <TextBlock x:Name="TextBlock" Text="{Binding Item.Name}" Background="Aqua" />
-                                            <ComboBox x:Name="ComboBox" ItemsSource="{Binding SelectableItems}" DisplayMemberPath="Name" SelectedItem="{Binding Item}" SelectionChanged="ComboBox_SelectionChanged" />
+                                            <TextBlock x:Name="TextBlock" Text="{Binding ItemName}" Background="Aqua" />
+                                            <ComboBox x:Name="ComboBox" ItemsSource="{Binding SelectableItems}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}" SelectionChanged="combobox_SelectionChanged" />
                                         </StackPanel>
                                         <DataTemplate.Triggers>
                                             <DataTrigger Binding="{Binding Editable}" Value="False">

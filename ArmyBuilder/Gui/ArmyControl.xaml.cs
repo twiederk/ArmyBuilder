@@ -12,14 +12,13 @@ namespace ArmyBuilder
             InitializeComponent();
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Handle the selection change event here
             ComboBox comboBox = sender as ComboBox;
             if (comboBox != null)
             {
-                var selectedItem = comboBox.SelectedItem as Item;
-                MessageBox.Show(selectedItem.Name);
+                var itemViewModel = comboBox.SelectedItem as ItemViewModel;
+                MessageBox.Show(itemViewModel.Name);
             }
         }
 

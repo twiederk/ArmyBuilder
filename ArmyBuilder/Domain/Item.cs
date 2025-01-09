@@ -9,5 +9,19 @@
         public ArmyList ArmyList { get; set; }
         public bool Magic { get; set; }
         public float Points { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            Item other = (Item)obj;
+            return Id == other.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }

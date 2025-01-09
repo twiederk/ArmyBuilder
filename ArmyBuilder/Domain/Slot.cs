@@ -8,6 +8,6 @@ namespace ArmyBuilder.Domain
         public Item Item { get; set; }
         public bool Editable { get; set; }
         public bool AllItems { get; set; }
-        public List<Item> SelectableItems { get; set; }
+        public List<Item> SelectableItems { get; set; } = new List<Item>();
     }
 }
