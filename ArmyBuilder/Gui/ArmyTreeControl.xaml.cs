@@ -5,9 +5,9 @@ using System.Windows.Controls;
 
 namespace ArmyBuilder
 {
-    public partial class ArmyControl : UserControl
+    public partial class ArmyTreeControl : UserControl
     {
-        public ArmyControl()
+        public ArmyTreeControl()
         {
             InitializeComponent();
         }
@@ -113,5 +113,7 @@ namespace ArmyBuilder
             armyViewModel.UpdateMainModelCount(mainModelTreeNode.Unit.Id, mainModel.Id, mainModel.Count);
             mainModelTreeNode.UpdateCount();
         }
+
+
     }
 }

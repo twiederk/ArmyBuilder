@@ -26,7 +26,7 @@ namespace ArmyBuilder.Print
                     .AlignMiddle()
                     .Text("Gesamtkosten").FontSize(16);
                 column.Item().Text("Charakter: " + _armyCategoryPoints.Character);
-                column.Item().Text("Regimenter: " + _armyCategoryPoints.Trooper);
+                column.Item().Text("Regiment: " + _armyCategoryPoints.Trooper);
                 column.Item().Text("Kriegsgerät: " + _armyCategoryPoints.WarMachine);
                 column.Item().Text("Monster: " + _armyCategoryPoints.Monster);
                 column.Item().BorderTop(1).PaddingTop(5).Text($"Gesamtkosten der Armee: {_armyCategoryPoints.Total}").SemiBold();
