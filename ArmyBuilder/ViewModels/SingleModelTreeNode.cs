@@ -15,16 +15,12 @@ namespace ArmyBuilder.ViewModels
         public int Initiative  => _singleModel.Profile.Initiative;
         public int Attacks => _singleModel.Profile.Attacks;
         public int Moral => _singleModel.Profile.Moral;
-        public List<SlotViewModel> SlotViews => _equipmentView.SlotViews;
-
         private SingleModel _singleModel;
-        private EquipmentViewModel _equipmentView;
         public List<EquipmentTreeNode> Equipment { get; set; } = new List<EquipmentTreeNode>();
 
         public SingleModelTreeNode(SingleModel singleModel) : this()
         {
             _singleModel = singleModel;
-            _equipmentView = new EquipmentViewModel(singleModel.Equipment);
             EquipmentTreeNode equipmentTreeNode = new EquipmentTreeNode(_singleModel.Equipment);
             Equipment.Add(equipmentTreeNode);
         }

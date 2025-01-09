@@ -90,6 +90,26 @@
                     <DataTemplate DataType="{x:Type viewModels:EquipmentTreeNode}">
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="{Binding Name}" />
+                            <ItemsControl ItemsSource="{Binding SlotViews}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Vertical" Margin="0,3,0,3">
+                                            <TextBlock x:Name="TextBlock" Text="{Binding ItemName}" />
+                                            <ComboBox x:Name="ComboBox" ItemsSource="{Binding SelectableItems}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}" />
+                                        </StackPanel>
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding Editable}" Value="False">
+                                                <Setter Property="Visibility" TargetName="ComboBox" Value="Collapsed" />
+                                                <Setter Property="Visibility" TargetName="TextBlock" Value="Visible" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Editable}" Value="True">
+                                                <Setter Property="Visibility" TargetName="ComboBox" Value="Visible" />
+                                                <Setter Property="Visibility" TargetName="TextBlock" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
                         </StackPanel>
                     </DataTemplate>
 

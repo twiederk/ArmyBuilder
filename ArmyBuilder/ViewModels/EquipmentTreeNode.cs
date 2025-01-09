@@ -5,15 +5,13 @@ namespace ArmyBuilder.ViewModels
     public class EquipmentTreeNode
     {
         public string Name => "EquipmentTreeNode";
-        public List<SlotViewModel> SlotViews => _equipmentView.SlotViews;
-
+        public List<SlotViewModel> SlotViews { get; set; } = new List<SlotViewModel>();
         private Equipment _equipment;
-        private EquipmentViewModel _equipmentView;
 
         public EquipmentTreeNode(Equipment equipment)
         {
             _equipment = equipment;
-            _equipmentView = new EquipmentViewModel(equipment);
+            SlotViews = equipment.Slots.Select(slot => new SlotViewModel(slot)).ToList();
         }
     }
 }
