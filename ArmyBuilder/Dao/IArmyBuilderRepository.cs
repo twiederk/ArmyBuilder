@@ -19,5 +19,6 @@ namespace ArmyBuilder.Dao
         void DeleteUnit(int unitId);
         void DeleteMainModelFromUnit(int unitId, int mainModelId);
         List<Armor> AllArmor();
+        Equipment Equipment(int id);
     }
 }

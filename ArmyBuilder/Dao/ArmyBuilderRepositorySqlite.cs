@@ -406,5 +406,10 @@ namespace ArmyBuilder.Dao
             return armorDictionary.Values.ToList();
         }
 
+        public Equipment Equipment(int id)
+        {
+            return new Equipment();
+        }
+
     }
 }

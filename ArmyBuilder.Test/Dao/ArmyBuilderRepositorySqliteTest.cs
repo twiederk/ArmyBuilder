@@ -352,11 +352,22 @@ namespace ArmyBuilder.Test.Dao
             chaosShield.Id.Should().Be(5775);
             chaosShield.Name.Should().Be("Chaos Runenschild");
             chaosShield.Description.Should().Be("Nimmt magischen Waffen alle speziellen Eigenschaften.");
-            chaosShield.ArmyList.Should().Be(new ArmyList() { Id = 1, Name = "Chaos"});
+            chaosShield.ArmyList.Should().Be(new ArmyList() { Id = 1, Name = "Chaos" });
             chaosShield.Magic.Should().BeTrue();
             chaosShield.Points.Should().Be(50);
+        }
 
+        [Fact]
+        public void should_add_equipment_to_single_model()
+        {
+            // arrange
+            int spearmenId = 46814;
 
+            // act
+            Equipment equipment = _repository.Equipment(spearmenId);
+
+            // assert
+            equipment.Slots.Should().HaveCount(4);
         }
     }
 }
