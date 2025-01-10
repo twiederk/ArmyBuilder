@@ -331,5 +331,32 @@ namespace ArmyBuilder.Test.Dao
             // teardown
             _repository.DeleteArmy(army.Id);
         }
+
+        [Fact]
+        public void should_read_all_armor()
+        {
+            // act
+            List<Armor> AllArmor = _repository.AllArmor();
+
+            // assert
+            AllArmor.Should().HaveCount(77);
+            Armor armor = AllArmor[0];
+            armor.Id.Should().Be(30);
+            armor.Name.Should().Be("None");
+            armor.Description.Should().Be("");
+            armor.ArmyList.Should().BeNull();
+            armor.Magic.Should().BeFalse();
+            armor.Points.Should().Be(0);
+
+            Armor chaosShield = AllArmor.FirstOrDefault(a => a.Id == 5775);
+            chaosShield.Id.Should().Be(5775);
+            chaosShield.Name.Should().Be("Chaos Runenschild");
+            chaosShield.Description.Should().Be("Nimmt magischen Waffen alle speziellen Eigenschaften.");
+            chaosShield.ArmyList.Should().Be(new ArmyList() { Id = 1, Name = "Chaos"});
+            chaosShield.Magic.Should().BeTrue();
+            chaosShield.Points.Should().Be(50);
+
+
+        }
     }
 }

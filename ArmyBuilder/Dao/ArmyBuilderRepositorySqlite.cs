@@ -373,5 +373,38 @@ namespace ArmyBuilder.Dao
                 MainModelId = mainModelId
             });
         }
+
+        public List<Armor> AllArmor()
+        {
+            var sql = @"
+        SELECT 
+            a.Id, a.Name, a.Description, a.army_list_id as ArmyListId, a.Magic, a.Points, a.Save,
+            al.Id, al.Name
+        FROM 
+            armor a
+        LEFT JOIN 
+            army_list al ON a.army_list_id = al.Id";
+
+            var armorDictionary = new Dictionary<int, Armor>();
+
+            _dbConnection.Query<Armor, ArmyList, Armor>(
+                sql,
+                (armor, armyList) =>
+                {
+                    if (!armorDictionary.TryGetValue(armor.Id, out var currentArmor))
+                    {
+                        currentArmor = armor;
+                        currentArmor.ArmyList = armyList;
+                        armorDictionary.Add(currentArmor.Id, currentArmor);
+                    }
+
+                    return currentArmor;
+                },
+                splitOn: "Id"
+            );
+
+            return armorDictionary.Values.ToList();
+        }
+
     }
 }
