@@ -3234,12 +3234,12 @@ INSERT INTO single_model VALUES(47598,12627,'Skink-Besatzung Musiker',12627,'Auf
 
 
 INSERT INTO melee_weapon VALUES(0,'None',0,'',-1,0,0);
-INSERT INTO melee_weapon VALUES(1,'Hand Weapon',0,'',-1,0,0);
-INSERT INTO melee_weapon VALUES(2,'Two-Handed Weapon',2,'',-1,0,0);
-INSERT INTO melee_weapon VALUES(3,'Flail',1,'',-1,0,0);
-INSERT INTO melee_weapon VALUES(4,'Halberd',2,'',-1,0,0);
-INSERT INTO melee_weapon VALUES(5,'Spear',1,'',-1,0,0);
-INSERT INTO melee_weapon VALUES(6,'Lance',2,'',-1,0,0);
+INSERT INTO melee_weapon VALUES(1,'Handwaffe',0,'',-1,0,0);
+INSERT INTO melee_weapon VALUES(2,'Zweihändige Waffe',2,'',-1,0,0);
+INSERT INTO melee_weapon VALUES(3,'Flegel',1,'',-1,0,0);
+INSERT INTO melee_weapon VALUES(4,'Hellebarde',2,'',-1,0,0);
+INSERT INTO melee_weapon VALUES(5,'Speer',1,'',-1,0,0);
+INSERT INTO melee_weapon VALUES(6,'Lanze',2,'',-1,0,0);
 INSERT INTO melee_weapon VALUES(7,'Executioner Axe',3,'',5,0,0);
 INSERT INTO melee_weapon VALUES(8,'Hand Weapon',1,'',-1,0,0);
 INSERT INTO melee_weapon VALUES(70,'None',0,'',-1,0,0);
@@ -3440,17 +3440,17 @@ INSERT INTO melee_weapon VALUES(6073,'Stab der Macht',40,'',12,1,1);
 
 
 INSERT INTO ranged_weapon VALUES(10,'None',0,'',-1,0,0,0,0);
-INSERT INTO ranged_weapon VALUES(11,'Bow',2,'',-1,0,0,3,24);
-INSERT INTO ranged_weapon VALUES(12,'Short Bow',1,'',-1,0,0,3,16);
-INSERT INTO ranged_weapon VALUES(13,'Long Bow',3,'',-1,0,0,3,30);
-INSERT INTO ranged_weapon VALUES(14,'Crossbow',3,'',-1,0,0,4,30);
-INSERT INTO ranged_weapon VALUES(15,'Repeating Crossbow',4,'',-1,0,0,3,24);
-INSERT INTO ranged_weapon VALUES(16,'Javelin',1,'',-1,0,0,0,8);
-INSERT INTO ranged_weapon VALUES(17,'Throwing Axe',1,'',-1,0,0,0,4);
-INSERT INTO ranged_weapon VALUES(18,'Throwing Knife',1,'',-1,0,0,0,6);
-INSERT INTO ranged_weapon VALUES(19,'Sling',1,'',-1,0,0,3,18);
-INSERT INTO ranged_weapon VALUES(20,'Musket',3,'',-1,0,0,4,24);
-INSERT INTO ranged_weapon VALUES(21,'Pistol',2,'',-1,0,0,4,6);
+INSERT INTO ranged_weapon VALUES(11,'Bogen',2,'',-1,0,0,3,24);
+INSERT INTO ranged_weapon VALUES(12,'Kurzbogen',1,'',-1,0,0,3,16);
+INSERT INTO ranged_weapon VALUES(13,'Langbogen',3,'',-1,0,0,3,30);
+INSERT INTO ranged_weapon VALUES(14,'Armbrust',3,'',-1,0,0,4,30);
+INSERT INTO ranged_weapon VALUES(15,'Repetierarmbrust',4,'',-1,0,0,3,24);
+INSERT INTO ranged_weapon VALUES(16,'Wurfspeer',1,'',-1,0,0,0,8);
+INSERT INTO ranged_weapon VALUES(17,'Wurfaxt',1,'',-1,0,0,0,4);
+INSERT INTO ranged_weapon VALUES(18,'Wurfmesser',1,'',-1,0,0,0,6);
+INSERT INTO ranged_weapon VALUES(19,'Schleuder',1,'',-1,0,0,3,18);
+INSERT INTO ranged_weapon VALUES(20,'Muskete',3,'',-1,0,0,4,24);
+INSERT INTO ranged_weapon VALUES(21,'Pistole',2,'',-1,0,0,4,6);
 INSERT INTO ranged_weapon VALUES(22,'Blasrohr',0,'',-1,0,0,5,12);
 INSERT INTO ranged_weapon VALUES(23,'Blunderbuss',4,'',3,0,0,3,12);
 INSERT INTO ranged_weapon VALUES(24,'Pellet Musket',3,'',8,0,0,4,20);
@@ -3462,26 +3462,14 @@ INSERT INTO ranged_weapon VALUES(5971,'Drachenbogen',40,'',8,1,1,0,0);
 INSERT INTO ranged_weapon VALUES(6048,'Pfeil des Schicksals',25,'',13,1,1,0,0);
 
 
-INSERT INTO armor VALUES(30,'None',0,'',-1,0,0,0);
-INSERT INTO armor VALUES(31,'Shield',1,'',-1,0,0,1);
 INSERT INTO armor VALUES(40,'None',0,'',-1,0,0,0);
-INSERT INTO armor VALUES(41,'Light Armor',2,'',-1,0,0,1);
-INSERT INTO armor VALUES(42,'Heavy Armor',3,'',-1,0,0,2);
-INSERT INTO armor VALUES(43,'Chaos Armor',10,'',1,0,0,3);
-INSERT INTO armor VALUES(44,'Dragon Cloak',5,'',5,0,0,2);
+INSERT INTO armor VALUES(41,'Leichte Rüstung',2,'',-1,0,0,1);
+INSERT INTO armor VALUES(42,'Schwere Rüstung',3,'',-1,0,0,2);
+INSERT INTO armor VALUES(43,'Chaosrüstung',10,'',1,0,0,3);
+INSERT INTO armor VALUES(44,'Drachenumhang',5,'',5,0,0,2);
 INSERT INTO armor VALUES(45,'Scale Skin',0,'',6,0,0,2);
 INSERT INTO armor VALUES(51,'Harness',4,'',-1,0,0,1);
 INSERT INTO armor VALUES(80,'None',0,'',-1,0,0,0);
-INSERT INTO armor VALUES(5771,'Zauberbannender Schild',100,'1-2 Spruch wirkt, aber um Spruch würfeln. Bei 3+ Spruch gebannt.',-1,0,1,0);
-INSERT INTO armor VALUES(5772,'Zauberspruch Schild',50,'Abweichwürfel bestimmt ob der Spruch gebannt oder abgelengt wird.',-1,0,1,0);
-INSERT INTO armor VALUES(5773,'Schild des Ptolos',10,'Schützt bei 1+ gegen Beschuß.',-1,0,1,0);
-INSERT INTO armor VALUES(5774,'Verzauberter Schild',5,'+1 auf RW.',-1,0,1,0);
-INSERT INTO armor VALUES(5775,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',1,0,1,0);
-INSERT INTO armor VALUES(5776,'Silbura Schild',25,'Bei eigenem RW, erleidet der Gegner einen Treffer der Stärke 4.',7,0,1,0);
-INSERT INTO armor VALUES(5777,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',3,0,1,0);
-INSERT INTO armor VALUES(5778,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',2,0,1,0);
-INSERT INTO armor VALUES(5779,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',11,0,1,0);
-INSERT INTO armor VALUES(5780,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',4,0,1,0);
 INSERT INTO armor VALUES(5781,'Chaosrüstung',10,'Rettungswurf 4+.',1,0,1,0);
 INSERT INTO armor VALUES(5782,'Meteorrüstung',25,'Rettungswurf 2+.',-1,0,1,0);
 INSERT INTO armor VALUES(5783,'Rüstung des Schutzes',50,'Zweiter unmodifizierter RW von 4+',-1,0,1,0);
@@ -3499,7 +3487,6 @@ INSERT INTO armor VALUES(5794,'Warpsteinrüstung',50,'Gibt einen RW von 4+. Erfo
 INSERT INTO armor VALUES(5795,'Chaosrüstung',10,'Rettungswurf 4+.',3,0,1,0);
 INSERT INTO armor VALUES(5796,'Dragans Karmesinrote Rüstung',25,'Nahkampfgegner muß Moraltest bestehen um zuschlagen zu können.',3,0,1,0);
 INSERT INTO armor VALUES(5797,'Helm der vielen Augen',25,'Helmträger attackiert immer zuerst.',3,0,1,0);
-INSERT INTO armor VALUES(5798,'Schild des Glücks',5,'Ersten Treffer ignorieren',-1,0,1,0);
 INSERT INTO armor VALUES(5799,'Chaosrüstung',10,'Rettungswurf 4+.',2,0,1,0);
 INSERT INTO armor VALUES(5800,'Dragans Karmesinrote Rüstung',25,'Nahkampfgegner muß Moraltest bestehen um zuschlagen zu können.',2,0,1,0);
 INSERT INTO armor VALUES(5801,'Helm der vielen Augen',25,'Helmträger attackiert immer zuerst.',2,0,1,0);
@@ -3509,14 +3496,10 @@ INSERT INTO armor VALUES(5804,'Helm der vielen Augen',25,'Helmträger attackiert
 INSERT INTO armor VALUES(5805,'Chaosrüstung',10,'Rettungswurf 4+.',4,0,1,0);
 INSERT INTO armor VALUES(5806,'Dragans Karmesinrote Rüstung',25,'Nahkampfgegner muß Moraltest bestehen um zuschlagen zu können.',4,0,1,0);
 INSERT INTO armor VALUES(5807,'Helm der vielen Augen',25,'Helmträger attackiert immer zuerst.',4,0,1,0);
-INSERT INTO armor VALUES(5873,'Bronzebuckler',10,'',13,1,1,0);
 INSERT INTO armor VALUES(5929,'Skags Helm',30,'',14,1,1,0);
 INSERT INTO armor VALUES(5931,'Snikchs Schattenmantel',75,'',10,1,1,0);
 INSERT INTO armor VALUES(5959,'Aenarions Drachenrüstung',75,'',7,1,1,0);
-INSERT INTO armor VALUES(5964,'Bohemonds Schild',30,'',0,1,1,0);
 INSERT INTO armor VALUES(5967,'Burlocks Rüstung',55,'',14,1,1,0);
-INSERT INTO armor VALUES(5969,'Chaos-Runenschild',50,'',2,1,1,0);
-INSERT INTO armor VALUES(5975,'Gralschild',25,'',0,1,1,0);
 INSERT INTO armor VALUES(5978,'Helm des Drachentöters',10,'',0,1,1,0);
 INSERT INTO armor VALUES(5979,'Helm von Yvresse',10,'',7,1,1,0);
 INSERT INTO armor VALUES(5984,'Königsrüstung von Karak Azul',100,'',14,1,1,0);
@@ -3539,6 +3522,25 @@ INSERT INTO armor VALUES(6054,'Schattenmantel',50,'',12,1,1,0);
 INSERT INTO armor VALUES(6059,'Umhang Ishas',50,'',13,1,1,0);
 INSERT INTO armor VALUES(6074,'Valayas Runenumhang',75,'',14,1,1,0);
 INSERT INTO armor VALUES(6075,'Wappenrock der Könige',75,'',0,1,1,0);
+
+
+INSERT INTO shield VALUES(30,'None',0,'',-1,0,0,0);
+INSERT INTO shield VALUES(31,'Schild',1,'',-1,0,0,1);
+INSERT INTO shield VALUES(5771,'Zauberbannender Schild',100,'1-2 Spruch wirkt, aber um Spruch würfeln. Bei 3+ Spruch gebannt.',-1,0,1,0);
+INSERT INTO shield VALUES(5772,'Zauberspruch Schild',50,'Abweichwürfel bestimmt ob der Spruch gebannt oder abgelengt wird.',-1,0,1,0);
+INSERT INTO shield VALUES(5773,'Schild des Ptolos',10,'Schützt bei 1+ gegen Beschuß.',-1,0,1,0);
+INSERT INTO shield VALUES(5774,'Verzauberter Schild',5,'+1 auf RW.',-1,0,1,0);
+INSERT INTO shield VALUES(5775,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',1,0,1,0);
+INSERT INTO shield VALUES(5776,'Silbura Schild',25,'Bei eigenem RW, erleidet der Gegner einen Treffer der Stärke 4.',7,0,1,0);
+INSERT INTO shield VALUES(5777,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',3,0,1,0);
+INSERT INTO shield VALUES(5778,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',2,0,1,0);
+INSERT INTO shield VALUES(5779,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',11,0,1,0);
+INSERT INTO shield VALUES(5780,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',4,0,1,0);
+INSERT INTO shield VALUES(5798,'Schild des Glücks',5,'Ersten Treffer ignorieren',-1,0,1,0);
+INSERT INTO shield VALUES(5873,'Bronzebuckler',10,'',13,1,1,0);
+INSERT INTO shield VALUES(5964,'Bohemonds Schild',30,'',0,1,1,0);
+INSERT INTO shield VALUES(5969,'Chaos-Runenschild',50,'',2,1,1,0);
+INSERT INTO shield VALUES(5975,'Gralschild',25,'',0,1,1,0);
 
 
 INSERT INTO standard VALUES(100,'None',0,'',-1,0,0);

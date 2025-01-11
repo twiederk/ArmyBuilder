@@ -339,22 +339,22 @@ namespace ArmyBuilder.Test.Dao
             List<Armor> AllArmor = _repository.AllArmor();
 
             // assert
-            AllArmor.Should().HaveCount(77);
+            AllArmor.Should().HaveCount(60);
             Armor armor = AllArmor[0];
-            armor.Id.Should().Be(30);
+            armor.Id.Should().Be(40);
             armor.Name.Should().Be("None");
             armor.Description.Should().Be("");
             armor.ArmyList.Should().BeNull();
             armor.Magic.Should().BeFalse();
             armor.Points.Should().Be(0);
 
-            Armor chaosShield = AllArmor.FirstOrDefault(a => a.Id == 5775);
-            chaosShield.Id.Should().Be(5775);
-            chaosShield.Name.Should().Be("Chaos Runenschild");
-            chaosShield.Description.Should().Be("Nimmt magischen Waffen alle speziellen Eigenschaften.");
-            chaosShield.ArmyList.Should().Be(new ArmyList() { Id = 1, Name = "Chaos" });
+            Armor chaosShield = AllArmor.FirstOrDefault(a => a.Id == 5784);
+            chaosShield.Id.Should().Be(5784);
+            chaosShield.Name.Should().Be("Magische Kriegsbemalung");
+            chaosShield.Description.Should().Be("RW von 3+ gegen Beschuß, 5+ im Nahkampf.");
+            chaosShield.ArmyList.Should().Be(new ArmyList() { Id = 9, Name = "Orks & Goblins" });
             chaosShield.Magic.Should().BeTrue();
-            chaosShield.Points.Should().Be(50);
+            chaosShield.Points.Should().Be(5);
         }
 
         [Fact]
