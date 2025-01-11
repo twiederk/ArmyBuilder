@@ -3598,6 +3598,8 @@ INSERT INTO standard VALUES(5974,'Fleur de Lys Banner',100,'',0,1,1);
 INSERT INTO standard VALUES(6072,'Sonnenstandarte von Hexoatl',50,'',6,1,1);
 
 
+INSERT INTO instrument VALUES(90,'None',0,'',-1,0,0);
+
 -- id, single_model_id, item_id, editable, all_items, item_class
 INSERT INTO slot VALUES(1, 46814, 41, true, false, 'Armor');
 INSERT INTO slot VALUES(2, 46814, 31, false, false, 'Armor');
