@@ -92,6 +92,31 @@ CREATE TABLE IF NOT EXISTS "unit_main_model"
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
 );
 
+
+CREATE TABLE IF NOT EXISTS "melee_weapon"
+("id"           INTEGER,
+ "name"         VARCHAR(50),
+ "points"       INTEGER,
+ "description"  VARCHAR(100),
+ "army_list_id" INTEGER,
+ "unique"       BIT,
+ "magic"        BIT,
+ PRIMARY KEY(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS "ranged_weapon"
+("id"           INTEGER,
+ "name"         VARCHAR(50),
+ "points"       INTEGER,
+ "description"  VARCHAR(100),
+ "army_list_id" INTEGER,
+ "unique"       BIT,
+ "magic"        BIT,
+ PRIMARY KEY(id)
+);
+
+
 CREATE TABLE IF NOT EXISTS "armor"
 ("id"           INTEGER,
  "name"         VARCHAR(50),
@@ -101,6 +126,80 @@ CREATE TABLE IF NOT EXISTS "armor"
  "unique"       BIT,
  "magic"        BIT,
  "save"         INTEGER,
+ PRIMARY KEY(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS "shield"
+("id"           INTEGER,
+ "name"         VARCHAR(50),
+ "points"       INTEGER,
+ "description"  VARCHAR(100),
+ "army_list_id" INTEGER,
+ "unique"       BIT,
+ "magic"        BIT,
+ "save"         INTEGER,
+ PRIMARY KEY(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS "standard"
+("id"           INTEGER,
+ "name"         VARCHAR(50),
+ "points"       INTEGER,
+ "description"  VARCHAR(100),
+ "army_list_id" INTEGER,
+ "unique"       BIT,
+ "magic"        BIT,
+ PRIMARY KEY(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS "instrument"
+("id"           INTEGER,
+ "name"         VARCHAR(50),
+ "points"       INTEGER,
+ "description"  VARCHAR(100),
+ "army_list_id" INTEGER,
+ "unique"       BIT,
+ "magic"        BIT,
+ PRIMARY KEY(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS "misc"
+("id"           INTEGER,
+ "name"         VARCHAR(50),
+ "points"       INTEGER,
+ "description"  VARCHAR(100),
+ "army_list_id" INTEGER,
+ "unique"       BIT,
+ "magic"        BIT,
+ PRIMARY KEY(id)
+);
+
+
+
+CREATE TABLE IF NOT EXISTS "standard"
+("id"           INTEGER,
+ "name"         VARCHAR(50),
+ "points"       INTEGER,
+ "description"  VARCHAR(100),
+ "army_list_id" INTEGER,
+ "unique"       BIT,
+ "magic"        BIT,
+ PRIMARY KEY(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS "misc"
+("id"           INTEGER,
+ "name"         VARCHAR(50),
+ "points"       INTEGER,
+ "description"  VARCHAR(100),
+ "army_list_id" INTEGER,
+ "unique"       BIT,
+ "magic"        BIT,
  PRIMARY KEY(id)
 );
 
