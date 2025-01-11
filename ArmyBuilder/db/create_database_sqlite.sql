@@ -113,6 +113,8 @@ CREATE TABLE IF NOT EXISTS "ranged_weapon"
  "army_list_id" INTEGER,
  "unique"       BIT,
  "magic"        BIT,
+ "strength"     INTEGER,
+ "range"        INTEGER,
  PRIMARY KEY(id)
 );
 
