@@ -3518,6 +3518,29 @@ INSERT INTO melee_weapon VALUES(6070,'Schädel des Katam',35,'',2,1,1);
 INSERT INTO melee_weapon VALUES(6073,'Stab der Macht',40,'',12,1,1);
 
 
+INSERT INTO ranged_weapon VALUES(10,'None',0,'',-1,0,0,0,0);
+INSERT INTO ranged_weapon VALUES(11,'Bow',2,'',-1,0,0,3,24);
+INSERT INTO ranged_weapon VALUES(12,'Short Bow',1,'',-1,0,0,3,16);
+INSERT INTO ranged_weapon VALUES(13,'Long Bow',3,'',-1,0,0,3,30);
+INSERT INTO ranged_weapon VALUES(14,'Crossbow',3,'',-1,0,0,4,30);
+INSERT INTO ranged_weapon VALUES(15,'Repeating Crossbow',4,'',-1,0,0,3,24);
+INSERT INTO ranged_weapon VALUES(16,'Javelin',1,'',-1,0,0,0,8);
+INSERT INTO ranged_weapon VALUES(17,'Throwing Axe',1,'',-1,0,0,0,4);
+INSERT INTO ranged_weapon VALUES(18,'Throwing Knife',1,'',-1,0,0,0,6);
+INSERT INTO ranged_weapon VALUES(19,'Sling',1,'',-1,0,0,3,18);
+INSERT INTO ranged_weapon VALUES(20,'Musket',3,'',-1,0,0,4,24);
+INSERT INTO ranged_weapon VALUES(21,'Pistol',2,'',-1,0,0,4,6);
+INSERT INTO ranged_weapon VALUES(22,'Blasrohr',0,'',-1,0,0,5,12);
+INSERT INTO ranged_weapon VALUES(23,'Blunderbuss',4,'',3,0,0,3,12);
+INSERT INTO ranged_weapon VALUES(24,'Pellet Musket',3,'',8,0,0,4,20);
+INSERT INTO ranged_weapon VALUES(25,'Poison Sphere',3,'',10,0,0,3,6);
+INSERT INTO ranged_weapon VALUES(5908,'Mondbogen',50,'',7,1,1,0,0);
+INSERT INTO ranged_weapon VALUES(5921,'Schwarzer Pfeil',5,'',0,1,1,0,0);
+INSERT INTO ranged_weapon VALUES(5963,'Bogen von Loren',50,'',13,1,1,0,0);
+INSERT INTO ranged_weapon VALUES(5971,'Drachenbogen',40,'',8,1,1,0,0);
+INSERT INTO ranged_weapon VALUES(6048,'Pfeil des Schicksals',25,'',13,1,1,0,0);
+
+
 -- id, single_model_id, item_id, editable, all_items, item_class
 INSERT INTO slot VALUES(1, 46814, 41, true, false, 'Armor');
 INSERT INTO slot VALUES(2, 46814, 31, false, false, 'Armor');
