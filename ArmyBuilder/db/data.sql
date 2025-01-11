@@ -3311,5 +3311,8 @@ INSERT INTO armor VALUES(6059,'Umhang Ishas',50,'',13,1,1,0);
 INSERT INTO armor VALUES(6074,'Valayas Runenumhang',75,'',14,1,1,0);
 INSERT INTO armor VALUES(6075,'Wappenrock der Könige',75,'',0,1,1,0);
 
+-- id, single_model_id, item_id, editable, all_items, item_class
+INSERT INTO slot VALUES(1, 46814, 41, true, false, 'Armor');
+INSERT INTO slot VALUES(2, 46814, 31, false, false, 'Armor');
 
 COMMIT;

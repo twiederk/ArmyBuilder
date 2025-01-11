@@ -105,5 +105,17 @@ CREATE TABLE IF NOT EXISTS "armor"
 );
 
 
+CREATE TABLE IF NOT EXISTS "slot"
+("id"                INTEGER,
+ "single_model_id"   INTEGER,
+ "item_id"           INTEGER,
+ "editable"          BIT,
+ "all_items"         BIT,
+ "item_class"        INTEGER,
+ PRIMARY KEY(id)
+ FOREIGN KEY (single_model_id) REFERENCES single_model(id) ON DELETE CASCADE 
+);
+
+
 COMMIT;
 

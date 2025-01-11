@@ -1,5 +1,3 @@
-using System.Windows.Navigation;
-
 namespace ArmyBuilder.Domain
 {
     public class Slot

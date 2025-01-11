@@ -8,6 +8,7 @@ namespace ArmyBuilder.Dao
     public class ArmyBuilderRepositorySqlite : IArmyBuilderRepository
     {
         private IDbConnection _dbConnection;
+        private List<Armor>? _allArmor = null;
 
         public ArmyBuilderRepositorySqlite(IDbConnection dbConnection)
         {
@@ -376,14 +377,19 @@ namespace ArmyBuilder.Dao
 
         public List<Armor> AllArmor()
         {
+            if (_allArmor != null)
+            {
+                return _allArmor;
+            }
+
             var sql = @"
-        SELECT 
-            a.Id, a.Name, a.Description, a.army_list_id as ArmyListId, a.Magic, a.Points, a.Save,
-            al.Id, al.Name
-        FROM 
-            armor a
-        LEFT JOIN 
-            army_list al ON a.army_list_id = al.Id";
+                SELECT 
+                    a.Id, a.Name, a.Description, a.army_list_id as ArmyListId, a.Magic, a.Points, a.Save,
+                    al.Id, al.Name
+                FROM 
+                    armor a
+                LEFT JOIN 
+                    army_list al ON a.army_list_id = al.Id";
 
             var armorDictionary = new Dictionary<int, Armor>();
 
@@ -403,13 +409,47 @@ namespace ArmyBuilder.Dao
                 splitOn: "Id"
             );
 
-            return armorDictionary.Values.ToList();
+            _allArmor =  armorDictionary.Values.ToList();
+            return _allArmor;
         }
 
         public Equipment Equipment(int id)
         {
-            return new Equipment();
+            var sql = @"
+                SELECT 
+                    s.id, s.item_id as ItemId, s.editable as Editable, s.all_items as AllItems, s.item_class as ItemClass
+                FROM 
+                    slot s
+                WHERE 
+                    s.single_model_id = @Id";
+
+            var slotRdos = _dbConnection.Query<SlotRdo>(sql, new { Id = id }).ToList();
+
+            List<Slot> slots = new List<Slot>();
+            foreach (var slotRdo in slotRdos)
+            {
+                Slot slot = slotRdo.toSlot();
+                slot.Item = SlotItem(slotRdo);
+                slots.Add(slot);
+            }
+            return new Equipment { Slots = slots };
+        }
+
+        private Item SlotItem(SlotRdo slotRdo)
+        {
+            List<Armor> allArmor = AllArmor();
+
+            switch (slotRdo.ItemClass)
+            {
+                case "Armor":
+                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
+                    break;
+                default:
+                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
+                    break;
+            }
         }
 
     }
+
 }
