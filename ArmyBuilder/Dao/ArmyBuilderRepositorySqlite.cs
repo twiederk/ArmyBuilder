@@ -12,6 +12,10 @@ namespace ArmyBuilder.Dao
         private List<RangedWeapon>? _allRangedWeapon = null;
         private List<Shield>? _allShield = null;
         private List<Armor>? _allArmor = null;
+        private List<Standard>? _allStandard = null;
+        private List<Instrument>? _allInstrument = null;
+        private List<Misc>? _allMisc = null;
+
         public ArmyBuilderRepositorySqlite(IDbConnection dbConnection)
         {
             _dbConnection = dbConnection;
@@ -529,6 +533,123 @@ namespace ArmyBuilder.Dao
             return _allArmor;
         }
 
+        public List<Standard> AllStandard()
+        {
+            if (_allStandard != null)
+            {
+                return _allStandard;
+            }
+
+            var sql = @"
+        SELECT 
+            s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points,
+            al.Id, al.Name
+        FROM 
+            standard s
+        LEFT JOIN 
+            army_list al ON s.army_list_id = al.Id";
+
+            var standardDictionary = new Dictionary<int, Standard>();
+
+            _dbConnection.Query<Standard, ArmyList, Standard>(
+                sql,
+                (standard, armyList) =>
+                {
+                    if (!standardDictionary.TryGetValue(standard.Id, out var currentStandard))
+                    {
+                        currentStandard = standard;
+                        currentStandard.ArmyList = armyList;
+                        standardDictionary.Add(currentStandard.Id, currentStandard);
+                    }
+
+                    return currentStandard;
+                },
+                splitOn: "Id"
+            );
+
+            _allStandard = standardDictionary.Values.ToList();
+            return _allStandard;
+        }
+
+        public List<Instrument> AllInstrument()
+        {
+            if (_allInstrument != null)
+            {
+                return _allInstrument;
+            }
+
+            var sql = @"
+        SELECT 
+            i.Id, i.Name, i.Description, i.army_list_id as ArmyListId, i.Magic, i.Points,
+            al.Id, al.Name
+        FROM 
+            instrument i
+        LEFT JOIN 
+            army_list al ON i.army_list_id = al.Id";
+
+            var instrumentDictionary = new Dictionary<int, Instrument>();
+
+            _dbConnection.Query<Instrument, ArmyList, Instrument>(
+                sql,
+                (instrument, armyList) =>
+                {
+                    if (!instrumentDictionary.TryGetValue(instrument.Id, out var currentInstrument))
+                    {
+                        currentInstrument = instrument;
+                        currentInstrument.ArmyList = armyList;
+                        instrumentDictionary.Add(currentInstrument.Id, currentInstrument);
+                    }
+
+                    return currentInstrument;
+                },
+                splitOn: "Id"
+            );
+
+            _allInstrument = instrumentDictionary.Values.ToList();
+            return _allInstrument;
+        }
+
+        public List<Misc> AllMisc()
+        {
+            if (_allMisc != null)
+            {
+                return _allMisc;
+            }
+
+            var sql = @"
+        SELECT 
+            m.Id, m.Name, m.Description, m.army_list_id as ArmyListId, m.Magic, m.Points,
+            al.Id, al.Name
+        FROM 
+            misc m
+        LEFT JOIN 
+            army_list al ON m.army_list_id = al.Id";
+
+            var miscDictionary = new Dictionary<int, Misc>();
+
+            _dbConnection.Query<Misc, ArmyList, Misc>(
+                sql,
+                (misc, armyList) =>
+                {
+                    if (!miscDictionary.TryGetValue(misc.Id, out var currentMisc))
+                    {
+                        currentMisc = misc;
+                        currentMisc.ArmyList = armyList;
+                        miscDictionary.Add(currentMisc.Id, currentMisc);
+                    }
+
+                    return currentMisc;
+                },
+                splitOn: "Id"
+            );
+
+            _allMisc = miscDictionary.Values.ToList();
+            return _allMisc;
+        }
+
+
+
+
 
         public Equipment Equipment(int id)
         {
@@ -558,34 +679,32 @@ namespace ArmyBuilder.Dao
             List<RangedWeapon> allRangedWeapon = AllRangedWeapon();
             List<Armor> allArmor = AllArmor();
             List<Shield> allShield = AllShield();
+            List<Standard> allStandard = AllStandard();
+            List<Instrument> allInstrument = AllInstrument();
+            List<Misc> allMisc = AllMisc();
 
             switch (slotRdo.ItemClass)
             {
                 case ItemClass.MeleeWeapon:
                     return allMeleeWeapon.FirstOrDefault(meleeWeapon => meleeWeapon.Id == slotRdo.ItemId);
-                    break;
                 case ItemClass.Shield:
                     return allShield.FirstOrDefault(shield => shield.Id == slotRdo.ItemId);
-                    break;
                 case ItemClass.RangedWeapon:
                     return allRangedWeapon.FirstOrDefault(rangedWeapon => rangedWeapon.Id == slotRdo.ItemId);
-                    break;
                 case ItemClass.Armor:
                     return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
-                    break;
                 case ItemClass.Misc:
-                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
-                    break;
+                    return allMisc.FirstOrDefault(misc => misc.Id == slotRdo.ItemId);
                 case ItemClass.Standard:
-                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
-                    break;
+                    return allStandard.FirstOrDefault(standard => standard.Id == slotRdo.ItemId);
                 case ItemClass.Instrument:
-                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
-                    break;
+                    return allInstrument.FirstOrDefault(instrument => instrument.Id == slotRdo.ItemId);
                 default:
                     throw new InvalidOperationException($"Unknown item class: {slotRdo.ItemClass}");
             }
         }
+
+
 
     }
 

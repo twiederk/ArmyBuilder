@@ -388,6 +388,36 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
+        public void should_read_all_standards()
+        {
+            // act
+            List<Standard> AllStandards = _repository.AllStandard();
+
+            // assert
+            AllStandards.Should().HaveCount(55);
+        }
+
+        [Fact]
+        public void should_read_all_instruments()
+        {
+            // act
+            List<Instrument> AllInstrument = _repository.AllInstrument();
+
+            // assert
+            AllInstrument.Should().HaveCount(1);
+        }
+
+        [Fact]
+        public void should_read_all_misc()
+        {
+            // act
+            List<Misc> AllMisc = _repository.AllMisc();
+
+            // assert
+            AllMisc.Should().HaveCount(86);
+        }
+
+        [Fact]
         public void should_add_equipment_to_single_model()
         {
             // arrange
