@@ -418,7 +418,7 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
-        public void should_add_equipment_to_single_model()
+        public void should_read_equipment_of_single_model()
         {
             // arrange
             int spearmenId = 46814;
@@ -444,6 +444,19 @@ namespace ArmyBuilder.Test.Dao
             Slot armorSlot = equipment.Slots.First(slot => slot.Id == 2223);
             armorSlot.Item.Should().NotBeNull();
             armorSlot.Item.Name.Should().Be("Leichte Rüstung");
+        }
+
+        [Fact]
+        public void should_read_equipments_of_army_list()
+        {
+            // arrange
+            int armyListId = 7;
+
+            // act
+            List<Equipment> equipments = _repository.ArmyListEquipment(armyListId);
+
+            // assert
+            equipments.Should().HaveCount(74);
         }
     }
 }

@@ -25,6 +25,7 @@ namespace ArmyBuilder.Dao
         List<Standard> AllStandard();
         List<Instrument> AllInstrument();
         List<Misc> AllMisc();
-        Equipment Equipment(int id);
+        Equipment Equipment(int singleModelId);
+        List<Equipment> ArmyListEquipment(int armyListId);
     }
 }

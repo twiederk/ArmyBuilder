@@ -2,6 +2,7 @@
 using System.Data;
 using Dapper.Contrib.Extensions;
 using Dapper;
+using System.Windows.Controls.Primitives;
 
 namespace ArmyBuilder.Dao
 {
@@ -700,8 +701,48 @@ namespace ArmyBuilder.Dao
                 case ItemClass.Instrument:
                     return allInstrument.FirstOrDefault(instrument => instrument.Id == slotRdo.ItemId);
                 default:
-                    throw new InvalidOperationException($"Unknown item class: {slotRdo.ItemClass}");
+                    return new Item
+                    {
+                        Id = slotRdo.ItemId,
+                        Name = $"UNKNOWN ITEM with id: {slotRdo.ItemId}",
+                    };
             }
+        }
+
+        public List<Equipment> ArmyListEquipment(int armyListId)
+        {
+            var sql = @"
+                SELECT
+                    s.id, s.item_id as ItemId, s.editable as Editable, s.all_items as AllItems, s.item_class as ItemClass,
+                    sm.id as SingleModelId
+                FROM
+                    slot s
+                INNER JOIN
+                    single_model sm ON s.single_model_id = sm.id
+                INNER JOIN
+                    main_model mm ON sm.main_model_id = mm.id
+                WHERE
+                    mm.army_list_id = @ArmyListId";
+
+
+            var slotRdos = _dbConnection.Query<SlotRdo>(sql, new { ArmyListId = armyListId }).ToList();
+
+            var equipmentDictionary = new Dictionary<int, Equipment>();
+
+            foreach (var slotRdo in slotRdos)
+            {
+                if (!equipmentDictionary.TryGetValue(slotRdo.SingleModelId, out var equipment))
+                {
+                    equipment = new Equipment { Slots = new List<Slot>() };
+                    equipmentDictionary.Add(slotRdo.SingleModelId, equipment);
+                }
+
+                Slot slot = slotRdo.toSlot();
+                slot.Item = SlotItem(slotRdo);
+                equipment.Slots.Add(slot);
+            }
+
+            return equipmentDictionary.Values.ToList();
         }
 
 

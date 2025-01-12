@@ -12,6 +12,7 @@ namespace ArmyBuilder.Dao
         public bool Editable { get; set; }
         public bool AllItems { get; set; }
         public ItemClass ItemClass { get; set; }
+        public int SingleModelId { get; set; }
         public Slot toSlot()
         {
             Slot slot = new Slot();
