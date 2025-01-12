@@ -40,8 +40,8 @@ namespace ArmyBuilder
             {
                 _armyViewModel.SelectedArmyList = selectedArmy.ArmyList;
                 Army army = _repository.Army(selectedArmy.Id);
-                // _armyViewModel.ArmyTreeViewModel = new ArmyTreeViewModel(army);
-                _armyViewModel.ArmyTreeViewModel = new ArmyTreeViewModel(new ArmyExample1());
+                //_armyViewModel.ArmyTreeViewModel = new ArmyTreeViewModel(new ArmyExample1());
+                _armyViewModel.ArmyTreeViewModel = new ArmyTreeViewModel(army);
 
                 Window window = Window.GetWindow(this);
                 window.Content = _serviceProvider.GetRequiredService<ArmyView>();

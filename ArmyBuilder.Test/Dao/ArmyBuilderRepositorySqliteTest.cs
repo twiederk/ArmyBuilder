@@ -331,5 +331,135 @@ namespace ArmyBuilder.Test.Dao
             // teardown
             _repository.DeleteArmy(army.Id);
         }
+
+        [Fact]
+        public void should_read_all_melee_weapons()
+        {
+            // act
+            List<MeleeWeapon> AllMeleeWeapon = _repository.AllMeleeWeapon();
+
+            // assert
+            AllMeleeWeapon.Should().HaveCount(204);
+        }
+
+        [Fact]
+        public void should_read_all_ranged_weapons()
+        {
+            // act
+            List<RangedWeapon> AllRangedWeapon = _repository.AllRangedWeapon();
+
+            // assert
+            AllRangedWeapon.Should().HaveCount(21);
+        }
+
+        [Fact]
+        public void should_read_all_shields()
+        {
+            // act
+            List<Shield> AllShield = _repository.AllShield();
+
+            // assert
+            AllShield.Should().HaveCount(17);
+        }
+
+        [Fact]
+        public void should_read_all_armor()
+        {
+            // act
+            List<Armor> AllArmor = _repository.AllArmor();
+
+            // assert
+            AllArmor.Should().HaveCount(60);
+            Armor armor = AllArmor[0];
+            armor.Id.Should().Be(40);
+            armor.Name.Should().Be("None");
+            armor.Description.Should().Be("");
+            armor.ArmyList.Should().BeNull();
+            armor.Magic.Should().BeFalse();
+            armor.Points.Should().Be(0);
+
+            Armor chaosShield = AllArmor.FirstOrDefault(a => a.Id == 5784);
+            chaosShield.Id.Should().Be(5784);
+            chaosShield.Name.Should().Be("Magische Kriegsbemalung");
+            chaosShield.Description.Should().Be("RW von 3+ gegen Beschuß, 5+ im Nahkampf.");
+            chaosShield.ArmyList.Should().Be(new ArmyList() { Id = 9, Name = "Orks & Goblins" });
+            chaosShield.Magic.Should().BeTrue();
+            chaosShield.Points.Should().Be(5);
+        }
+
+        [Fact]
+        public void should_read_all_standards()
+        {
+            // act
+            List<Standard> AllStandards = _repository.AllStandard();
+
+            // assert
+            AllStandards.Should().HaveCount(55);
+        }
+
+        [Fact]
+        public void should_read_all_instruments()
+        {
+            // act
+            List<Instrument> AllInstrument = _repository.AllInstrument();
+
+            // assert
+            AllInstrument.Should().HaveCount(1);
+        }
+
+        [Fact]
+        public void should_read_all_misc()
+        {
+            // act
+            List<Misc> AllMisc = _repository.AllMisc();
+
+            // assert
+            AllMisc.Should().HaveCount(86);
+        }
+
+        [Fact]
+        public void should_read_equipment_of_single_model()
+        {
+            // arrange
+            int spearmenId = 46814;
+
+            // act
+            Equipment equipment = _repository.Equipment(spearmenId);
+
+            // assert
+            equipment.Slots.Should().HaveCount(4);
+
+            Slot meleeWeaponSlot = equipment.Slots.First(slot => slot.Id == 2220);
+            meleeWeaponSlot.Item.Should().NotBeNull();
+            meleeWeaponSlot.Item.Name.Should().Be("Speer");
+
+            Slot rangedWeaponSlot = equipment.Slots.First(slot => slot.Id == 2221);
+            rangedWeaponSlot.Item.Should().NotBeNull();
+            rangedWeaponSlot.Item.Name.Should().Be("None");
+
+            Slot shieldSlot = equipment.Slots.First(slot => slot.Id == 2222);
+            shieldSlot.Item.Should().NotBeNull();
+            shieldSlot.Item.Name.Should().Be("Schild");
+
+            Slot armorSlot = equipment.Slots.First(slot => slot.Id == 2223);
+            armorSlot.Item.Should().NotBeNull();
+            armorSlot.Item.Name.Should().Be("Leichte Rüstung");
+        }
+
+        [Fact]
+        public void should_read_equipments_of_army_list()
+        {
+            // arrange
+            int armyListId = 7;
+
+            // act
+            List<Equipment> equipments = _repository.ArmyListEquipment(armyListId);
+
+            // assert
+            equipments.Should().HaveCount(74);
+            Equipment spearmenEquipment = equipments.First(e => e.Id == 46814);
+            spearmenEquipment.Should().NotBeNull();
+            spearmenEquipment.Slots.Should().HaveCount(4);
+        }
     }
 }

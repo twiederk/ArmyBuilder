@@ -2,8 +2,8 @@
 
 namespace ArmyBuilder.Domain
 {
-    [Table("melee_weapon")]
-    public class MeleeWeapon: Item
+    [Table("standard")]
+    public class Standard: Item
     {
     }
 }

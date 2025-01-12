@@ -55,9 +55,25 @@ namespace ArmyBuilder.Domain
                         Initiative = sm.Profile.Initiative,
                         Attacks = sm.Profile.Attacks,
                         Moral = sm.Profile.Moral
+                    },
+                    Equipment = new Equipment
+                    {
+                        Id = sm.Equipment.Id,
+                        Slots = sm.Equipment.Slots.Select(slot => new Slot
+                        {
+                            Id = slot.Id,
+                            Item = slot.Item,
+                            Editable = slot.Editable,
+                            AllItems = slot.AllItems,
+                            Magic = slot.Magic,
+                            SelectableItems = slot.SelectableItems.ToList()
+                        }).ToList()
                     }
                 }).ToList()
             };
         }
+
+
+
     }
 }

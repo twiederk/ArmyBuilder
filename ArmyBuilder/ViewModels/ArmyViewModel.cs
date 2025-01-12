@@ -114,6 +114,9 @@ namespace ArmyBuilder.ViewModels
             if (_selectedArmyList != null)
             {
                 var mainModels = _repository.MainModels(_selectedArmyList.Id);
+                var equipment = _repository.ArmyListEquipment(_selectedArmyList.Id);
+                assignEquipment(mainModels, equipment);
+
                 Characters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
                 Troopers = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
                 WarMachines = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).ToList();
@@ -127,6 +130,23 @@ namespace ArmyBuilder.ViewModels
                 Monsters = new List<MainModel>();
             }
         }
+
+        private void assignEquipment(List<MainModel> mainModels, List<Equipment> equipment)
+        {
+            var equipmentDictionary = equipment.ToDictionary(e => e.Id);
+            foreach (var mainModel in mainModels)
+            {
+                foreach (var singleModel in mainModel.SingleModels)
+                {
+                    if (equipmentDictionary.TryGetValue(singleModel.Id, out var singleModelEquipment))
+                    {
+                        singleModel.Equipment = singleModelEquipment;
+                    }
+                }
+            }
+        }
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
