@@ -367,7 +367,7 @@ namespace ArmyBuilder.Test.Dao
             Equipment equipment = _repository.Equipment(spearmenId);
 
             // assert
-            equipment.Slots.Should().HaveCount(2);
+            equipment.Slots.Should().HaveCount(4);
         }
     }
 }
