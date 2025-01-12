@@ -211,6 +211,7 @@ CREATE TABLE IF NOT EXISTS "slot"
  "single_model_id"   INTEGER,
  "item_id"           INTEGER,
  "editable"          BIT,
+ "magic"             BIT,
  "all_items"         BIT,
  "item_class"        INTEGER,
  PRIMARY KEY(id)
