@@ -206,6 +206,22 @@ CREATE TABLE IF NOT EXISTS "misc"
 );
 
 
+CREATE VIEW item AS
+SELECT id, name, points, description, army_list_id, "unique", magic FROM melee_weapon
+UNION ALL
+SELECT id, name, points, description, army_list_id, "unique", magic FROM ranged_weapon
+UNION ALL
+SELECT id, name, points, description, army_list_id, "unique", magic FROM armor
+UNION ALL
+SELECT id, name, points, description, army_list_id, "unique", magic FROM shield
+UNION ALL
+SELECT id, name, points, description, army_list_id, "unique", magic FROM standard
+UNION ALL
+SELECT id, name, points, description, army_list_id, "unique", magic FROM instrument
+UNION ALL
+SELECT id, name, points, description, army_list_id, "unique", magic FROM misc;
+
+
 CREATE TABLE IF NOT EXISTS "slot"
 ("id"                INTEGER,
  "single_model_id"   INTEGER,
