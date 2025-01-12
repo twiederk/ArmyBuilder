@@ -20,6 +20,7 @@ namespace ArmyBuilder.Dao
         void DeleteMainModelFromUnit(int unitId, int mainModelId);
         List<Armor> AllArmor();
         List<MeleeWeapon> AllMeleeWeapon();
+        List<RangedWeapon> AllRangedWeapon();
         Equipment Equipment(int id);
     }
 }

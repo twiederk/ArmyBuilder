@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArmyBuilder.Dao
+namespace ArmyBuilder.Domain
 {
     public enum ItemClass
     {

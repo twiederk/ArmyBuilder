@@ -10,6 +10,7 @@ namespace ArmyBuilder.Dao
         private IDbConnection _dbConnection;
         private List<Armor>? _allArmor = null;
         private List<MeleeWeapon>? _allMeleeWeapon = null;
+        private List<RangedWeapon>? _allRangedWeapon = null;
 
         public ArmyBuilderRepositorySqlite(IDbConnection dbConnection)
         {
@@ -452,6 +453,45 @@ namespace ArmyBuilder.Dao
         }
 
 
+        public List<RangedWeapon> AllRangedWeapon()
+        {
+            if (_allRangedWeapon != null)
+            {
+                return _allRangedWeapon;
+            }
+
+            var sql = @"
+            SELECT 
+                rw.Id, rw.Name, rw.Description, rw.army_list_id as ArmyListId, rw.Magic, rw.Points,
+                al.Id, al.Name
+            FROM 
+                ranged_weapon rw
+            LEFT JOIN 
+                army_list al ON rw.army_list_id = al.Id";
+
+            var rangedWeaponDictionary = new Dictionary<int, RangedWeapon>();
+
+            _dbConnection.Query<RangedWeapon, ArmyList, RangedWeapon>(
+                sql,
+                (rangedWeapon, armyList) =>
+                {
+                    if (!rangedWeaponDictionary.TryGetValue(rangedWeapon.Id, out var currentRangedWeapon))
+                    {
+                        currentRangedWeapon = rangedWeapon;
+                        currentRangedWeapon.ArmyList = armyList;
+                        rangedWeaponDictionary.Add(currentRangedWeapon.Id, currentRangedWeapon);
+                    }
+
+                    return currentRangedWeapon;
+                },
+                splitOn: "Id"
+            );
+
+            _allRangedWeapon = rangedWeaponDictionary.Values.ToList();
+            return _allRangedWeapon;
+        }
+
+
         public Equipment Equipment(int id)
         {
             var sql = @"
@@ -477,6 +517,7 @@ namespace ArmyBuilder.Dao
         private Item SlotItem(SlotRdo slotRdo)
         {
             List<MeleeWeapon> allMeleeWeapon = AllMeleeWeapon();
+            List<RangedWeapon> allRangedWeapon = AllRangedWeapon();
             List<Armor> allArmor = AllArmor();
 
             switch (slotRdo.ItemClass)
@@ -488,7 +529,7 @@ namespace ArmyBuilder.Dao
                     return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
                     break;
                 case ItemClass.RangedWeapon:
-                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
+                    return allRangedWeapon.FirstOrDefault(rangedWeapon => rangedWeapon.Id == slotRdo.ItemId);
                     break;
                 case ItemClass.Armor:
                     return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
