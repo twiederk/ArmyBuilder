@@ -441,12 +441,29 @@ namespace ArmyBuilder.Dao
 
             switch (slotRdo.ItemClass)
             {
-                case "Armor":
+                case ItemClass.MeleeWeapon:
+                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
+                    break;
+                case ItemClass.Shield:
+                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
+                    break;
+                case ItemClass.RangedWeapon:
+                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
+                    break;
+                case ItemClass.Armor:
+                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
+                    break;
+                case ItemClass.Misc:
+                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
+                    break;
+                case ItemClass.Standard:
+                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
+                    break;
+                case ItemClass.Instrument:
                     return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
                     break;
                 default:
-                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
-                    break;
+                    throw new InvalidOperationException($"Unknown item class: {slotRdo.ItemClass}");
             }
         }
 

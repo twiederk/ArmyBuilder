@@ -369,11 +369,12 @@ namespace ArmyBuilder.Test.Dao
             // assert
             equipment.Slots.Should().HaveCount(4);
 
-            Slot weaponSlot = equipment.Slots.First(slot => slot.Id == 2220);
-            weaponSlot.AllItems.Should().BeFalse();
-            weaponSlot.Editable.Should().BeFalse();
-            weaponSlot.Magic.Should().BeFalse();
-            weaponSlot.Item.Should().NotBeNull();
+            Slot armorSlot = equipment.Slots.First(slot => slot.Id == 2223);
+            armorSlot.AllItems.Should().BeFalse();
+            armorSlot.Editable.Should().BeFalse();
+            armorSlot.Magic.Should().BeFalse();
+            armorSlot.Item.Should().NotBeNull();
+            armorSlot.Item.Name.Should().Be("Leichte Rüstung");
 
 
         }
