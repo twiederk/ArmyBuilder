@@ -8,10 +8,10 @@ namespace ArmyBuilder.Dao
     public class ArmyBuilderRepositorySqlite : IArmyBuilderRepository
     {
         private IDbConnection _dbConnection;
-        private List<Armor>? _allArmor = null;
         private List<MeleeWeapon>? _allMeleeWeapon = null;
         private List<RangedWeapon>? _allRangedWeapon = null;
-
+        private List<Shield>? _allShield = null;
+        private List<Armor>? _allArmor = null;
         public ArmyBuilderRepositorySqlite(IDbConnection dbConnection)
         {
             _dbConnection = dbConnection;
@@ -377,44 +377,6 @@ namespace ArmyBuilder.Dao
             });
         }
 
-        public List<Armor> AllArmor()
-        {
-            if (_allArmor != null)
-            {
-                return _allArmor;
-            }
-
-            var sql = @"
-                SELECT 
-                    a.Id, a.Name, a.Description, a.army_list_id as ArmyListId, a.Magic, a.Points, a.Save,
-                    al.Id, al.Name
-                FROM 
-                    armor a
-                LEFT JOIN 
-                    army_list al ON a.army_list_id = al.Id";
-
-            var armorDictionary = new Dictionary<int, Armor>();
-
-            _dbConnection.Query<Armor, ArmyList, Armor>(
-                sql,
-                (armor, armyList) =>
-                {
-                    if (!armorDictionary.TryGetValue(armor.Id, out var currentArmor))
-                    {
-                        currentArmor = armor;
-                        currentArmor.ArmyList = armyList;
-                        armorDictionary.Add(currentArmor.Id, currentArmor);
-                    }
-
-                    return currentArmor;
-                },
-                splitOn: "Id"
-            );
-
-            _allArmor =  armorDictionary.Values.ToList();
-            return _allArmor;
-        }
-
         public List<MeleeWeapon> AllMeleeWeapon()
         {
             if (_allMeleeWeapon != null)
@@ -491,6 +453,82 @@ namespace ArmyBuilder.Dao
             return _allRangedWeapon;
         }
 
+        public List<Shield> AllShield()
+        {
+            if (_allShield != null)
+            {
+                return _allShield;
+            }
+
+            var sql = @"
+            SELECT 
+                s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points,
+                al.Id, al.Name
+            FROM 
+                shield s
+            LEFT JOIN 
+                army_list al ON s.army_list_id = al.Id";
+
+            var shieldDictionary = new Dictionary<int, Shield>();
+
+            _dbConnection.Query<Shield, ArmyList, Shield>(
+                sql,
+                (shield, armyList) =>
+                {
+                    if (!shieldDictionary.TryGetValue(shield.Id, out var currentShield))
+                    {
+                        currentShield = shield;
+                        currentShield.ArmyList = armyList;
+                        shieldDictionary.Add(currentShield.Id, currentShield);
+                    }
+
+                    return currentShield;
+                },
+                splitOn: "Id"
+            );
+
+            _allShield = shieldDictionary.Values.ToList();
+            return _allShield;
+        }
+
+        public List<Armor> AllArmor()
+        {
+            if (_allArmor != null)
+            {
+                return _allArmor;
+            }
+
+            var sql = @"
+                SELECT 
+                    a.Id, a.Name, a.Description, a.army_list_id as ArmyListId, a.Magic, a.Points, a.Save,
+                    al.Id, al.Name
+                FROM 
+                    armor a
+                LEFT JOIN 
+                    army_list al ON a.army_list_id = al.Id";
+
+            var armorDictionary = new Dictionary<int, Armor>();
+
+            _dbConnection.Query<Armor, ArmyList, Armor>(
+                sql,
+                (armor, armyList) =>
+                {
+                    if (!armorDictionary.TryGetValue(armor.Id, out var currentArmor))
+                    {
+                        currentArmor = armor;
+                        currentArmor.ArmyList = armyList;
+                        armorDictionary.Add(currentArmor.Id, currentArmor);
+                    }
+
+                    return currentArmor;
+                },
+                splitOn: "Id"
+            );
+
+            _allArmor = armorDictionary.Values.ToList();
+            return _allArmor;
+        }
+
 
         public Equipment Equipment(int id)
         {
@@ -519,6 +557,7 @@ namespace ArmyBuilder.Dao
             List<MeleeWeapon> allMeleeWeapon = AllMeleeWeapon();
             List<RangedWeapon> allRangedWeapon = AllRangedWeapon();
             List<Armor> allArmor = AllArmor();
+            List<Shield> allShield = AllShield();
 
             switch (slotRdo.ItemClass)
             {
@@ -526,7 +565,7 @@ namespace ArmyBuilder.Dao
                     return allMeleeWeapon.FirstOrDefault(meleeWeapon => meleeWeapon.Id == slotRdo.ItemId);
                     break;
                 case ItemClass.Shield:
-                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
+                    return allShield.FirstOrDefault(shield => shield.Id == slotRdo.ItemId);
                     break;
                 case ItemClass.RangedWeapon:
                     return allRangedWeapon.FirstOrDefault(rangedWeapon => rangedWeapon.Id == slotRdo.ItemId);

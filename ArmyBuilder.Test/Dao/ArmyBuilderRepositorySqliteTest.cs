@@ -353,6 +353,16 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
+        public void should_read_all_shields()
+        {
+            // act
+            List<Shield> AllShield = _repository.AllShield();
+
+            // assert
+            AllShield.Should().HaveCount(17);
+        }
+
+        [Fact]
         public void should_read_all_armor()
         {
             // act
@@ -396,6 +406,10 @@ namespace ArmyBuilder.Test.Dao
             Slot rangedWeaponSlot = equipment.Slots.First(slot => slot.Id == 2221);
             rangedWeaponSlot.Item.Should().NotBeNull();
             rangedWeaponSlot.Item.Name.Should().Be("None");
+
+            Slot shieldSlot = equipment.Slots.First(slot => slot.Id == 2222);
+            shieldSlot.Item.Should().NotBeNull();
+            shieldSlot.Item.Name.Should().Be("Schild");
 
             Slot armorSlot = equipment.Slots.First(slot => slot.Id == 2223);
             armorSlot.Item.Should().NotBeNull();
