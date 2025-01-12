@@ -333,6 +333,31 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
+        public void should_read_all_melee_weapons()
+        {
+            // act
+            List<MeleeWeapon> AllMeleeWeapon = _repository.AllMeleeWeapon();
+
+            // assert
+            AllMeleeWeapon.Should().HaveCount(204);
+            //Armor armor = AllMeleeWeapon[0];
+            //armor.Id.Should().Be(204);
+            //armor.Name.Should().Be("None");
+            //armor.Description.Should().Be("");
+            //armor.ArmyList.Should().BeNull();
+            //armor.Magic.Should().BeFalse();
+            //armor.Points.Should().Be(0);
+
+            //Armor chaosShield = AllMeleeWeapon.FirstOrDefault(a => a.Id == 5784);
+            //chaosShield.Id.Should().Be(5784);
+            //chaosShield.Name.Should().Be("Magische Kriegsbemalung");
+            //chaosShield.Description.Should().Be("RW von 3+ gegen Beschuß, 5+ im Nahkampf.");
+            //chaosShield.ArmyList.Should().Be(new ArmyList() { Id = 9, Name = "Orks & Goblins" });
+            //chaosShield.Magic.Should().BeTrue();
+            //chaosShield.Points.Should().Be(5);
+        }
+
+        [Fact]
         public void should_read_all_armor()
         {
             // act
@@ -368,6 +393,10 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             equipment.Slots.Should().HaveCount(4);
+
+            Slot weaponSlot = equipment.Slots.First(slot => slot.Id == 2220);
+            weaponSlot.Item.Should().NotBeNull();
+            weaponSlot.Item.Name.Should().Be("Speer");
 
             Slot armorSlot = equipment.Slots.First(slot => slot.Id == 2223);
             armorSlot.AllItems.Should().BeFalse();

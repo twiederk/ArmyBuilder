@@ -9,6 +9,7 @@ namespace ArmyBuilder.Dao
     {
         private IDbConnection _dbConnection;
         private List<Armor>? _allArmor = null;
+        private List<MeleeWeapon>? _allMeleeWeapon = null;
 
         public ArmyBuilderRepositorySqlite(IDbConnection dbConnection)
         {
@@ -413,6 +414,44 @@ namespace ArmyBuilder.Dao
             return _allArmor;
         }
 
+        public List<MeleeWeapon> AllMeleeWeapon()
+        {
+            if (_allMeleeWeapon != null)
+            {
+                return _allMeleeWeapon;
+            }
+
+            var sql = @"
+                SELECT 
+                    mw.Id, mw.Name, mw.Description, mw.army_list_id as ArmyListId, mw.Magic, mw.Points,
+                    al.Id, al.Name
+                FROM 
+                    melee_weapon mw
+                LEFT JOIN 
+                    army_list al ON mw.army_list_id = al.Id";
+
+            var meleeWeaponDictionary = new Dictionary<int, MeleeWeapon>();
+
+            _dbConnection.Query<MeleeWeapon, ArmyList, MeleeWeapon>(
+                sql,
+                (meleeWeapon, armyList) =>
+                {
+                    if (!meleeWeaponDictionary.TryGetValue(meleeWeapon.Id, out var currentMeleeWeapon))
+                    {
+                        currentMeleeWeapon = meleeWeapon;
+                        currentMeleeWeapon.ArmyList = armyList;
+                        meleeWeaponDictionary.Add(currentMeleeWeapon.Id, currentMeleeWeapon);
+                    }
+
+                    return currentMeleeWeapon;
+                },
+                splitOn: "Id"
+            );
+
+            return meleeWeaponDictionary.Values.ToList();
+        }
+
+
         public Equipment Equipment(int id)
         {
             var sql = @"
@@ -437,12 +476,13 @@ namespace ArmyBuilder.Dao
 
         private Item SlotItem(SlotRdo slotRdo)
         {
+            List<MeleeWeapon> allMeleeWeapon = AllMeleeWeapon();
             List<Armor> allArmor = AllArmor();
 
             switch (slotRdo.ItemClass)
             {
                 case ItemClass.MeleeWeapon:
-                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
+                    return allMeleeWeapon.FirstOrDefault(meleeWeapon => meleeWeapon.Id == slotRdo.ItemId);
                     break;
                 case ItemClass.Shield:
                     return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);

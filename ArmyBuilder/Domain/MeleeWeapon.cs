@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dapper.Contrib.Extensions;
 
 namespace ArmyBuilder.Domain
 {
+    [Table("melee_weapon")]
     public class MeleeWeapon: Item
     {
-        public int Damage = 1;
     }
 }

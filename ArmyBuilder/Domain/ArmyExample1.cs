@@ -28,35 +28,30 @@
                 Id = 1,
                 Name = "Handwaffe",
                 Points = 0,
-                Damage = 1
             };
             MeleeWeapon helberd = new MeleeWeapon
             {
                 Id = 2,
                 Name = "Hellebarde",
                 Points = 2,
-                Damage = 1
             };
             MeleeWeapon spear = new MeleeWeapon
             {
                 Id = 3,
                 Name = "Speer",
                 Points = 1,
-                Damage = 1
             };
             MeleeWeapon scytheWheels = new MeleeWeapon
             {
                 Id = 4,
                 Name = "Sensenräder",
                 Points = 20,
-                Damage = 1
             };
             MeleeWeapon normalWheels = new MeleeWeapon
             {
                 Id = 5,
                 Name = "Wagenräder",
                 Points = 1,
-                Damage = 1
             };
 
             RangedWeapon noneRangedWeapon = new RangedWeapon
