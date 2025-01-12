@@ -457,6 +457,9 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             equipments.Should().HaveCount(74);
+            Equipment spearmenEquipment = equipments.First(e => e.Id == 46814);
+            spearmenEquipment.Should().NotBeNull();
+            spearmenEquipment.Slots.Should().HaveCount(4);
         }
     }
 }

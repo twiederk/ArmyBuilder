@@ -733,7 +733,7 @@ namespace ArmyBuilder.Dao
             {
                 if (!equipmentDictionary.TryGetValue(slotRdo.SingleModelId, out var equipment))
                 {
-                    equipment = new Equipment { Slots = new List<Slot>() };
+                    equipment = new Equipment { Id = slotRdo.SingleModelId, Slots = new List<Slot>() };
                     equipmentDictionary.Add(slotRdo.SingleModelId, equipment);
                 }
 
