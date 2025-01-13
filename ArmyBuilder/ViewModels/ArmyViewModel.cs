@@ -132,7 +132,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        private void assignEquipment(List<MainModel> mainModels, List<Equipment> equipment)
+        public void assignEquipment(List<MainModel> mainModels, List<Equipment> equipment)
         {
             var equipmentDictionary = equipment.ToDictionary(e => e.Id);
             foreach (var mainModel in mainModels)
