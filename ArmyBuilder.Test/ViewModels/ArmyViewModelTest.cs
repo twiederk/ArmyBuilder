@@ -47,5 +47,56 @@ namespace ArmyBuilder.Test.ViewModels
             mainModels[0].SingleModels[1].Equipment.Slots.Should().HaveCount(1);
             mainModels[0].SingleModels[1].Equipment.Slots[0].Item.Name.Should().Be("Item 2");
         }
+
+        [Fact]
+        public void should_assign_selectable_items_to_slots()
+        {
+            // arrange
+            var mainModels = new List<MainModel>
+            {
+                new MainModel
+                {
+                    Id = 1,
+                    Name = "Main Model 1",
+                    SingleModels = new List<SingleModel>
+                    {
+                        new SingleModel
+                        {
+                            Id = 101,
+                            Name = "Single Model 1",
+                            Equipment = new Equipment
+                            {
+                                Slots = new List<Slot>
+                                {
+                                    new Slot { Id = 1, ItemClass = ItemClass.MeleeWeapon, AllItems = true },
+                                    new Slot { Id = 2, ItemClass = ItemClass.RangedWeapon, AllItems = true },
+                                    new Slot { Id = 3, ItemClass = ItemClass.Shield, AllItems = true }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            var meleeWeapons = new List<MeleeWeapon> { new MeleeWeapon { Id = 1, Name = "Sword" } };
+            var rangedWeapons = new List<RangedWeapon> { new RangedWeapon { Id = 2, Name = "Bow" } };
+            var shields = new List<Shield> { new Shield { Id = 3, Name = "Shield" } };
+
+            var mockRepository = new Mock<IArmyBuilderRepository>();
+            mockRepository.Setup(repo => repo.AllMeleeWeapon()).Returns(meleeWeapons);
+            mockRepository.Setup(repo => repo.AllRangedWeapon()).Returns(rangedWeapons);
+            mockRepository.Setup(repo => repo.AllShield()).Returns(shields);
+
+            var armyViewModel = new ArmyViewModel(mockRepository.Object);
+
+            // act
+            armyViewModel.assignSelectableItems(mainModels);
+
+            // assert
+            var singleModel = mainModels[0].SingleModels[0];
+            singleModel.Equipment.Slots[0].SelectableItems.Should().BeEquivalentTo(meleeWeapons);
+            singleModel.Equipment.Slots[1].SelectableItems.Should().BeEquivalentTo(rangedWeapons);
+            singleModel.Equipment.Slots[2].SelectableItems.Should().BeEquivalentTo(shields);
+        }
     }
 }
