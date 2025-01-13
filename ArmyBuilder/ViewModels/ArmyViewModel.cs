@@ -116,7 +116,7 @@ namespace ArmyBuilder.ViewModels
                 var mainModels = _repository.MainModels(_selectedArmyList.Id);
                 var equipment = _repository.ArmyListEquipment(_selectedArmyList.Id);
                 assignEquipment(mainModels, equipment);
-                assignSelectableItems(mainModels);
+                assignSelectableItems(mainModels, _selectedArmyList);
 
                 Characters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
                 Troopers = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
@@ -147,7 +147,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        private void assignSelectableItems(List<MainModel> mainModels)
+        private void assignSelectableItems(List<MainModel> mainModels, ArmyList armyList)
         {
             foreach (var mainModel in mainModels)
             {
@@ -159,7 +159,7 @@ namespace ArmyBuilder.ViewModels
                         {
                             if (slot.IsAllItems())
                             {
-                                slot.SelectableItems = selectableItems(slot);
+                                slot.SelectableItems = selectableItems(slot, armyList);
                             }
                         }
                     }
@@ -167,7 +167,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        private List<Item> selectableItems(Slot slot)
+        private List<Item> selectableItems(Slot slot, ArmyList armyList)
         {
             var allMeleeWeapon = _repository.AllMeleeWeapon();
             var allRangedWeapon = _repository.AllRangedWeapon();
@@ -180,19 +180,19 @@ namespace ArmyBuilder.ViewModels
             switch (slot.ItemClass)
             {
                 case ItemClass.MeleeWeapon:
-                    return allMeleeWeapon.Cast<Item>().OrderBy(i => i.Name).ToList();
+                    return allMeleeWeapon.Cast<Item>().Where(i => i.ArmyList == null || i.ArmyList == armyList).OrderBy(i => i.Name).ToList();
                 case ItemClass.RangedWeapon:
-                    return allRangedWeapon.Cast<Item>().OrderBy(i => i.Name).ToList();
+                    return allRangedWeapon.Cast<Item>().Where(i => i.ArmyList == null || i.ArmyList == armyList).OrderBy(i => i.Name).ToList();
                 case ItemClass.Shield:
-                    return allShield.Cast<Item>().OrderBy(i => i.Name).ToList();
+                    return allShield.Cast<Item>().Where(i => i.ArmyList == null || i.ArmyList == armyList).OrderBy(i => i.Name).ToList();
                 case ItemClass.Armor:
-                    return allArmor.Cast<Item>().OrderBy(i => i.Name).ToList();
+                    return allArmor.Cast<Item>().Where(i => i.ArmyList == null || i.ArmyList == armyList).OrderBy(i => i.Name).ToList();
                 case ItemClass.Standard:
-                    return allStandard.Cast<Item>().OrderBy(i => i.Name).ToList();
+                    return allStandard.Cast<Item>().Where(i => i.ArmyList == null || i.ArmyList == armyList).OrderBy(i => i.Name).ToList();
                 case ItemClass.Instrument:
-                    return allInstrument.Cast<Item>().OrderBy(i => i.Name).ToList();
+                    return allInstrument.Cast<Item>().Where(i => i.ArmyList == null || i.ArmyList == armyList).OrderBy(i => i.Name).ToList();
                 case ItemClass.Misc:
-                    return allMisc.Cast<Item>().OrderBy(i => i.Name).ToList();
+                    return allMisc.Cast<Item>().Where(i => i.ArmyList == null || i.ArmyList == armyList).OrderBy(i => i.Name).ToList();
                 default:
                     return new List<Item>() {
                         new Item
