@@ -7,6 +7,7 @@ namespace ArmyBuilder.ViewModels
     public class SlotViewModel
     {
         public string ItemName => SelectedItem.Name;
+        public string Name => _slot.ItemClass.ToString();
 
         private ItemViewModel _selectedItem;
         public ItemViewModel SelectedItem
