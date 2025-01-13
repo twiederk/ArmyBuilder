@@ -432,18 +432,22 @@ namespace ArmyBuilder.Test.Dao
             Slot meleeWeaponSlot = equipment.Slots.First(slot => slot.Id == 2220);
             meleeWeaponSlot.Item.Should().NotBeNull();
             meleeWeaponSlot.Item.Name.Should().Be("Speer");
+            meleeWeaponSlot.Editable.Should().BeFalse();
 
             Slot rangedWeaponSlot = equipment.Slots.First(slot => slot.Id == 2221);
             rangedWeaponSlot.Item.Should().NotBeNull();
             rangedWeaponSlot.Item.Name.Should().Be("None");
+            rangedWeaponSlot.Editable.Should().BeFalse();
 
             Slot shieldSlot = equipment.Slots.First(slot => slot.Id == 2222);
             shieldSlot.Item.Should().NotBeNull();
             shieldSlot.Item.Name.Should().Be("Schild");
+            shieldSlot.Editable.Should().BeFalse();
 
             Slot armorSlot = equipment.Slots.First(slot => slot.Id == 2223);
             armorSlot.Item.Should().NotBeNull();
             armorSlot.Item.Name.Should().Be("Leichte Rüstung");
+            armorSlot.Editable.Should().BeTrue();
         }
 
         [Fact]
