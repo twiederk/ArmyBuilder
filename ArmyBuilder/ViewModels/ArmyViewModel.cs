@@ -147,7 +147,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        private void assignSelectableItems(List<MainModel> mainModels, ArmyList armyList)
+        public void assignSelectableItems(List<MainModel> mainModels, ArmyList armyList)
         {
             foreach (var mainModel in mainModels)
             {

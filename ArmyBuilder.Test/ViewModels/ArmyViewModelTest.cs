@@ -90,7 +90,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyViewModel = new ArmyViewModel(mockRepository.Object);
 
             // act
-            armyViewModel.assignSelectableItems(mainModels);
+            armyViewModel.assignSelectableItems(mainModels, new ArmyList() { Id = 7 }); 
 
             // assert
             var singleModel = mainModels[0].SingleModels[0];
