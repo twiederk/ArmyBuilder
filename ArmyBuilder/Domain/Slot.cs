@@ -9,5 +9,10 @@ namespace ArmyBuilder.Domain
         public bool AllItems { get; set; }
         public bool Magic { get; set; }
         public List<Item> SelectableItems { get; set; } = new List<Item>();
+
+        public bool IsAllItems()
+        {
+            return SelectableItems.Count() == 0;
+        }
     }
 }
