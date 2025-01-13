@@ -63,6 +63,7 @@ namespace ArmyBuilder.Domain
                         {
                             Id = slot.Id,
                             Item = slot.Item,
+                            ItemClass = slot.ItemClass,
                             Editable = slot.Editable,
                             AllItems = slot.AllItems,
                             Magic = slot.Magic,

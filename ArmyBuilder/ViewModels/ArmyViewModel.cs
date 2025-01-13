@@ -116,6 +116,7 @@ namespace ArmyBuilder.ViewModels
                 var mainModels = _repository.MainModels(_selectedArmyList.Id);
                 var equipment = _repository.ArmyListEquipment(_selectedArmyList.Id);
                 assignEquipment(mainModels, equipment);
+                assignSelectableItems(mainModels);
 
                 Characters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
                 Troopers = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
@@ -145,6 +146,60 @@ namespace ArmyBuilder.ViewModels
                 }
             }
         }
+
+        private void assignSelectableItems(List<MainModel> mainModels)
+        {
+            var allMeleeWeapon = _repository.AllMeleeWeapon();
+            var allRangedWeapon = _repository.AllRangedWeapon();
+            var allShield = _repository.AllShield();
+            var allArmor = _repository.AllArmor();
+            var allStandard = _repository.AllStandard();
+            var allInstrument = _repository.AllInstrument();
+            var allMisc = _repository.AllMisc();
+
+            foreach (var mainModel in mainModels)
+            {
+                foreach (var singleModel in mainModel.SingleModels)
+                {
+                    if (singleModel.Equipment != null)
+                    {
+                        foreach (var slot in singleModel.Equipment.Slots)
+                        {
+                            if (slot.AllItems)
+                            {
+                                switch (slot.ItemClass)
+                                {
+                                    case ItemClass.MeleeWeapon:
+                                        slot.SelectableItems = allMeleeWeapon.Cast<Item>().ToList();
+                                        break;
+                                    case ItemClass.RangedWeapon:
+                                        slot.SelectableItems = allRangedWeapon.Cast<Item>().ToList();
+                                        break;
+                                    case ItemClass.Shield:
+                                        slot.SelectableItems = allShield.Cast<Item>().ToList();
+                                        break;
+                                    case ItemClass.Armor:
+                                        slot.SelectableItems = allArmor.Cast<Item>().ToList();
+                                        break;
+                                    case ItemClass.Standard:
+                                        slot.SelectableItems = allStandard.Cast<Item>().ToList();
+                                        break;
+                                    case ItemClass.Instrument:
+                                        slot.SelectableItems = allInstrument.Cast<Item>().ToList();
+                                        break;
+                                    case ItemClass.Misc:
+                                        slot.SelectableItems = allMisc.Cast<Item>().ToList();
+                                        break;
+                                    default:
+                                        throw new InvalidOperationException($"Unknown item class: {slot.ItemClass}");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 
 
 

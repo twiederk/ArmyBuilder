@@ -17,6 +17,7 @@ namespace ArmyBuilder.Dao
         {
             Slot slot = new Slot();
             slot.Id = Id;
+            slot.ItemClass = ItemClass;
             slot.Editable = Editable;
             slot.AllItems = AllItems;
             return slot;
