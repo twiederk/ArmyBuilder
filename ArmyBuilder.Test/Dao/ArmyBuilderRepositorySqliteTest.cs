@@ -418,7 +418,7 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
-        public void should_read_equipment_of_single_model()
+        public void should_read_equipment_of_high_elf_spearmen()
         {
             // arrange
             int spearmenId = 46814;
@@ -448,6 +448,40 @@ namespace ArmyBuilder.Test.Dao
             armorSlot.Item.Should().NotBeNull();
             armorSlot.Item.Name.Should().Be("Leichte Rüstung");
             armorSlot.Editable.Should().BeTrue();
+        }
+
+        [Fact]
+        public void should_read_equipment_of_high_elf_Belannaer()
+        {
+            // arrange
+            int belannaerId = 46369;
+
+            // act
+            Equipment equipment = _repository.Equipment(belannaerId);
+
+            // assert
+            equipment.Slots.Should().HaveCount(7);
+
+            Slot slot = equipment.Slots.First(slot => slot.Id == 72);
+            slot.Item.Should().NotBeNull();
+
+            slot = equipment.Slots.First(slot => slot.Id == 73);
+            slot.Item.Should().NotBeNull();
+
+            slot = equipment.Slots.First(slot => slot.Id == 74);
+            slot.Item.Should().NotBeNull();
+
+            slot = equipment.Slots.First(slot => slot.Id == 75);
+            slot.Item.Should().NotBeNull();
+
+            slot = equipment.Slots.First(slot => slot.Id == 76);
+            slot.Item.Should().NotBeNull();
+
+            slot = equipment.Slots.First(slot => slot.Id == 77);
+            slot.Item.Should().NotBeNull();
+
+            slot = equipment.Slots.First(slot => slot.Id == 78);
+            slot.Item.Should().NotBeNull();
         }
 
         [Fact]
