@@ -191,7 +191,14 @@ namespace ArmyBuilder.ViewModels
                                         slot.SelectableItems = allMisc.Cast<Item>().ToList();
                                         break;
                                     default:
-                                        throw new InvalidOperationException($"Unknown item class: {slot.ItemClass}");
+                                        slot.SelectableItems = new List<Item>() {
+                                            new Item
+                                            {
+                                                Id = slot.Item.Id,
+                                                Name = $"UNKNOWN ITEM with id: {slot.Item.Id}",
+                                            }
+                                        };
+                                        break;
                                 }
                             }
                         }
