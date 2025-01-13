@@ -149,14 +149,6 @@ namespace ArmyBuilder.ViewModels
 
         private void assignSelectableItems(List<MainModel> mainModels)
         {
-            var allMeleeWeapon = _repository.AllMeleeWeapon();
-            var allRangedWeapon = _repository.AllRangedWeapon();
-            var allShield = _repository.AllShield();
-            var allArmor = _repository.AllArmor();
-            var allStandard = _repository.AllStandard();
-            var allInstrument = _repository.AllInstrument();
-            var allMisc = _repository.AllMisc();
-
             foreach (var mainModel in mainModels)
             {
                 foreach (var singleModel in mainModel.SingleModels)
@@ -167,39 +159,7 @@ namespace ArmyBuilder.ViewModels
                         {
                             if (slot.IsAllItems())
                             {
-                                switch (slot.ItemClass)
-                                {
-                                    case ItemClass.MeleeWeapon:
-                                        slot.SelectableItems = allMeleeWeapon.Cast<Item>().ToList();
-                                        break;
-                                    case ItemClass.RangedWeapon:
-                                        slot.SelectableItems = allRangedWeapon.Cast<Item>().ToList();
-                                        break;
-                                    case ItemClass.Shield:
-                                        slot.SelectableItems = allShield.Cast<Item>().ToList();
-                                        break;
-                                    case ItemClass.Armor:
-                                        slot.SelectableItems = allArmor.Cast<Item>().ToList();
-                                        break;
-                                    case ItemClass.Standard:
-                                        slot.SelectableItems = allStandard.Cast<Item>().ToList();
-                                        break;
-                                    case ItemClass.Instrument:
-                                        slot.SelectableItems = allInstrument.Cast<Item>().ToList();
-                                        break;
-                                    case ItemClass.Misc:
-                                        slot.SelectableItems = allMisc.Cast<Item>().ToList();
-                                        break;
-                                    default:
-                                        slot.SelectableItems = new List<Item>() {
-                                            new Item
-                                            {
-                                                Id = slot.Item.Id,
-                                                Name = $"UNKNOWN ITEM with id: {slot.Item.Id}",
-                                            }
-                                        };
-                                        break;
-                                }
+                                slot.SelectableItems = selectableItems(slot);
                             }
                         }
                     }
@@ -207,6 +167,42 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
+        private List<Item> selectableItems(Slot slot)
+        {
+            var allMeleeWeapon = _repository.AllMeleeWeapon();
+            var allRangedWeapon = _repository.AllRangedWeapon();
+            var allShield = _repository.AllShield();
+            var allArmor = _repository.AllArmor();
+            var allStandard = _repository.AllStandard();
+            var allInstrument = _repository.AllInstrument();
+            var allMisc = _repository.AllMisc();
+
+            switch (slot.ItemClass)
+            {
+                case ItemClass.MeleeWeapon:
+                    return allMeleeWeapon.Cast<Item>().OrderBy(i => i.Name).ToList();
+                case ItemClass.RangedWeapon:
+                    return allRangedWeapon.Cast<Item>().OrderBy(i => i.Name).ToList();
+                case ItemClass.Shield:
+                    return allShield.Cast<Item>().OrderBy(i => i.Name).ToList();
+                case ItemClass.Armor:
+                    return allArmor.Cast<Item>().OrderBy(i => i.Name).ToList();
+                case ItemClass.Standard:
+                    return allStandard.Cast<Item>().OrderBy(i => i.Name).ToList();
+                case ItemClass.Instrument:
+                    return allInstrument.Cast<Item>().OrderBy(i => i.Name).ToList();
+                case ItemClass.Misc:
+                    return allMisc.Cast<Item>().OrderBy(i => i.Name).ToList();
+                default:
+                    return new List<Item>() {
+                        new Item
+                        {
+                            Id = slot.Item.Id,
+                            Name = $"UNKNOWN ITEM with id: {slot.Item.Id}",
+                        }
+                    };
+            }
+        }
 
 
 
