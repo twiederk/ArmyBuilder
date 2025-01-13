@@ -165,8 +165,8 @@ namespace ArmyBuilder.ViewModels
                     {
                         foreach (var slot in singleModel.Equipment.Slots)
                         {
-                            if (slot.AllItems)
-                            {
+                            // if (slot.AllItems)
+                            // {
                                 switch (slot.ItemClass)
                                 {
                                     case ItemClass.MeleeWeapon:
@@ -200,7 +200,7 @@ namespace ArmyBuilder.ViewModels
                                         };
                                         break;
                                 }
-                            }
+                            // }
                         }
                     }
                 }
