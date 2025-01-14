@@ -135,33 +135,38 @@ namespace ArmyBuilder.ViewModels
         public void assignEquipment(List<MainModel> mainModels, List<Equipment> equipment)
         {
             var equipmentDictionary = equipment.ToDictionary(e => e.Id);
-            foreach (var mainModel in mainModels)
-            {
-                foreach (var singleModel in mainModel.SingleModels)
+
+            mainModels.ForEach(mainModel =>
+                mainModel.SingleModels.ForEach(singleModel =>
                 {
                     if (equipmentDictionary.TryGetValue(singleModel.Id, out var singleModelEquipment))
                     {
                         singleModel.Equipment = singleModelEquipment;
                     }
-                }
-            }
+                })
+            );
         }
+
 
         public void assignSelectableItems(List<MainModel> mainModels, ArmyList armyList)
         {
-            foreach (var mainModel in mainModels)
-            {
-                foreach (var singleModel in mainModel.SingleModels)
+            mainModels.ForEach(mainModel =>
+                mainModel.SingleModels.ForEach(singleModel =>
                 {
-                    if (singleModel.Equipment != null)
+                    AssignSelectableItemsToSingleModel(armyList, singleModel);
+                })
+            );
+        }
+
+        private void AssignSelectableItemsToSingleModel(ArmyList armyList, SingleModel singleModel)
+        {
+            if (singleModel.Equipment != null)
+            {
+                foreach (var slot in singleModel.Equipment.Slots)
+                {
+                    if (slot.IsAllItems())
                     {
-                        foreach (var slot in singleModel.Equipment.Slots)
-                        {
-                            if (slot.IsAllItems())
-                            {
-                                slot.SelectableItems = selectableItems(slot, armyList);
-                            }
-                        }
+                        slot.SelectableItems = selectableItems(slot, armyList);
                     }
                 }
             }
