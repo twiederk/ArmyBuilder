@@ -181,7 +181,6 @@ CREATE TABLE IF NOT EXISTS "misc"
 );
 
 
-
 CREATE TABLE IF NOT EXISTS "standard"
 ("id"           INTEGER,
  "name"         VARCHAR(50),
@@ -222,6 +221,13 @@ UNION ALL
 SELECT id, name, points, description, army_list_id, "unique", magic FROM misc;
 
 
+CREATE TABLE IF NOT EXISTS "item_class"
+("id"                INTEGER,
+ "name"         VARCHAR(50),
+ PRIMARY KEY(id)
+);
+
+
 CREATE TABLE IF NOT EXISTS "slot"
 ("id"                INTEGER,
  "single_model_id"   INTEGER,
@@ -229,9 +235,10 @@ CREATE TABLE IF NOT EXISTS "slot"
  "editable"          BIT,
  "magic"             BIT,
  "all_items"         BIT,
- "item_class"        INTEGER,
+ "item_class_id"     INTEGER,
  PRIMARY KEY(id)
  FOREIGN KEY (single_model_id) REFERENCES single_model(id) ON DELETE CASCADE 
+ FOREIGN KEY (item_class_id) REFERENCES item_class(id) ON DELETE CASCADE 
 );
 
 

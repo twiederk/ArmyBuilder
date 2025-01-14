@@ -3691,6 +3691,17 @@ INSERT INTO misc VALUES(6069,'Magiebannende Spruchrolle',25,'',5,1,1);
 INSERT INTO misc VALUES(6071,'Schriftrolle von Hoeth',55,'',7,1,1);
 
 
+INSERT INTO item_class VALUES (0, 'MeleeWeapon');
+INSERT INTO item_class VALUES (1, 'Shield');
+INSERT INTO item_class VALUES (2, 'RangedWeapon');
+INSERT INTO item_class VALUES (3, 'Armor');
+INSERT INTO item_class VALUES (4, 'Misc');
+INSERT INTO item_class VALUES (5, 'Standard');
+INSERT INTO item_class VALUES (6, 'Instrument');
+INSERT INTO item_class VALUES (9, 'MonsterWeapon');
+INSERT INTO item_class VALUES (10, 'MonsterArmor');
+
+
 INSERT INTO slot VALUES(1,46357,10,1,1,0,2);
 INSERT INTO slot VALUES(2,46357,42,1,1,0,3);
 INSERT INTO slot VALUES(3,46357,60,1,1,0,4);
