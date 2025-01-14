@@ -340,6 +340,8 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             AllMeleeWeapon.Should().HaveCount(204);
+            MeleeWeapon staffOfCyoes = AllMeleeWeapon.FirstOrDefault(a => a.Id == 6055);
+            staffOfCyoes.Name.Should().Be("Stab des Cyeos");
         }
 
         [Fact]
