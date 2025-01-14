@@ -3,6 +3,7 @@ using System.Data;
 using Dapper.Contrib.Extensions;
 using Dapper;
 using System.Windows.Controls.Primitives;
+using System.Xml.Linq;
 
 namespace ArmyBuilder.Dao
 {
@@ -674,7 +675,7 @@ namespace ArmyBuilder.Dao
             return new Equipment { Slots = slots };
         }
 
-        private Item SlotItem(SlotRdo slotRdo)
+        public Item SlotItem(SlotRdo slotRdo)
         {
             List<MeleeWeapon> allMeleeWeapon = AllMeleeWeapon();
             List<RangedWeapon> allRangedWeapon = AllRangedWeapon();
@@ -684,30 +685,31 @@ namespace ArmyBuilder.Dao
             List<Instrument> allInstrument = AllInstrument();
             List<Misc> allMisc = AllMisc();
 
-            switch (slotRdo.ItemClass)
+            Item? item = slotRdo.ItemClass switch
             {
-                case ItemClass.MeleeWeapon:
-                    return allMeleeWeapon.FirstOrDefault(meleeWeapon => meleeWeapon.Id == slotRdo.ItemId);
-                case ItemClass.Shield:
-                    return allShield.FirstOrDefault(shield => shield.Id == slotRdo.ItemId);
-                case ItemClass.RangedWeapon:
-                    return allRangedWeapon.FirstOrDefault(rangedWeapon => rangedWeapon.Id == slotRdo.ItemId);
-                case ItemClass.Armor:
-                    return allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId);
-                case ItemClass.Misc:
-                    return allMisc.FirstOrDefault(misc => misc.Id == slotRdo.ItemId);
-                case ItemClass.Standard:
-                    return allStandard.FirstOrDefault(standard => standard.Id == slotRdo.ItemId);
-                case ItemClass.Instrument:
-                    return allInstrument.FirstOrDefault(instrument => instrument.Id == slotRdo.ItemId);
-                default:
-                    return new Item
-                    {
-                        Id = slotRdo.ItemId,
-                        Name = $"UNKNOWN ITEM with id: {slotRdo.ItemId}",
-                    };
+                ItemClass.MeleeWeapon => allMeleeWeapon.FirstOrDefault(meleeWeapon => meleeWeapon.Id == slotRdo.ItemId),
+                ItemClass.Shield => allShield.FirstOrDefault(shield => shield.Id == slotRdo.ItemId),
+                ItemClass.RangedWeapon => allRangedWeapon.FirstOrDefault(rangedWeapon => rangedWeapon.Id == slotRdo.ItemId),
+                ItemClass.Armor => allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId),
+                ItemClass.Misc => allMisc.FirstOrDefault(misc => misc.Id == slotRdo.ItemId),
+                ItemClass.Standard => allStandard.FirstOrDefault(standard => standard.Id == slotRdo.ItemId),
+                ItemClass.Instrument => allInstrument.FirstOrDefault(instrument => instrument.Id == slotRdo.ItemId),
+                _ => new Item { Id = slotRdo.ItemId, Name = $"UNKNOWN ITEM with id: {slotRdo.ItemId}" }
+            };
+
+            if (item == null)
+            {
+                item = new Item
+                {
+                    Id = slotRdo.ItemId,
+                    Name = $"ITEM ID {slotRdo.ItemId} NOT OF CLASS {slotRdo.ItemClass}",
+                    Description = ""
+                };
             }
+
+            return item;
         }
+
 
         public List<Equipment> ArmyListEquipment(int armyListId)
         {

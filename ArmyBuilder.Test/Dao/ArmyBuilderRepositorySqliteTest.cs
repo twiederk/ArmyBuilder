@@ -485,6 +485,24 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
+        public void should_return_custom_item_when_item_class_is_wrong()
+        {
+            // arrange
+            SlotRdo slotRdo = new SlotRdo()
+            {
+                ItemId = 10000,
+                ItemClass = ItemClass.MeleeWeapon,
+            };
+
+            // act
+            Item item = _repository.SlotItem(slotRdo);
+
+            // assert
+            item.Should().NotBeNull();
+            item.Name.Should().Be("ITEM ID 10000 NOT OF CLASS MeleeWeapon");
+        }
+
+        [Fact]
         public void should_read_equipments_of_army_list()
         {
             // arrange
