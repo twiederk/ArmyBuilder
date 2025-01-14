@@ -181,30 +181,6 @@ CREATE TABLE IF NOT EXISTS "misc"
 );
 
 
-CREATE TABLE IF NOT EXISTS "standard"
-("id"           INTEGER,
- "name"         VARCHAR(50),
- "points"       INTEGER,
- "description"  VARCHAR(100),
- "army_list_id" INTEGER,
- "unique"       BIT,
- "magic"        BIT,
- PRIMARY KEY(id)
-);
-
-
-CREATE TABLE IF NOT EXISTS "misc"
-("id"           INTEGER,
- "name"         VARCHAR(50),
- "points"       INTEGER,
- "description"  VARCHAR(100),
- "army_list_id" INTEGER,
- "unique"       BIT,
- "magic"        BIT,
- PRIMARY KEY(id)
-);
-
-
 CREATE VIEW item AS
 SELECT id, name, points, description, army_list_id, "unique", magic FROM melee_weapon
 UNION ALL
