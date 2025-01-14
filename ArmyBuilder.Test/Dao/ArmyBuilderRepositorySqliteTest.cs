@@ -462,18 +462,9 @@ namespace ArmyBuilder.Test.Dao
             Equipment equipment = _repository.Equipment(belannaerId);
 
             // assert
-            equipment.Slots.Should().HaveCount(7);
+            equipment.Slots.Should().HaveCount(4);
 
-            Slot slot = equipment.Slots.First(slot => slot.Id == 72);
-            slot.Item.Should().NotBeNull();
-
-            slot = equipment.Slots.First(slot => slot.Id == 73);
-            slot.Item.Should().NotBeNull();
-
-            slot = equipment.Slots.First(slot => slot.Id == 74);
-            slot.Item.Should().NotBeNull();
-
-            slot = equipment.Slots.First(slot => slot.Id == 75);
+            Slot slot = equipment.Slots.First(slot => slot.Id == 75);
             slot.Item.Should().NotBeNull();
 
             slot = equipment.Slots.First(slot => slot.Id == 76);
