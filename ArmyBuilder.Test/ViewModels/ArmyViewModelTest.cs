@@ -98,5 +98,31 @@ namespace ArmyBuilder.Test.ViewModels
             singleModel.Equipment.Slots[1].SelectableItems.Should().BeEquivalentTo(rangedWeapons);
             singleModel.Equipment.Slots[2].SelectableItems.Should().BeEquivalentTo(shields);
         }
+
+        [Fact]
+        public void should_return_correct_selectable_items()
+        {
+            // arrange
+            var slot = new Slot { ItemClass = ItemClass.MeleeWeapon };
+            var armyList = new ArmyList { Id = 1, Name = "Test Army List" };
+            var meleeWeapons = new List<MeleeWeapon>
+            {
+                new MeleeWeapon { Id = 1, Name = "Sword", ArmyList = armyList },
+                new MeleeWeapon { Id = 2, Name = "Axe", ArmyList = null }
+            };
+
+            var mockRepository = new Mock<IArmyBuilderRepository>();
+            mockRepository.Setup(repo => repo.AllMeleeWeapon()).Returns(meleeWeapons);
+
+            var armyViewModel = new ArmyViewModel(mockRepository.Object);
+
+            // act
+            var result = armyViewModel.selectableItems(slot, armyList);
+
+            // assert
+            result.Should().HaveCount(2);
+            result.Should().Contain(i => i.Name == "Sword");
+            result.Should().Contain(i => i.Name == "Axe");
+        }
     }
 }

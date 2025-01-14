@@ -172,7 +172,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        private List<Item> selectableItems(Slot slot, ArmyList armyList)
+        public List<Item> selectableItems(Slot slot, ArmyList armyList)
         {
             var allMeleeWeapon = _repository.AllMeleeWeapon();
             var allRangedWeapon = _repository.AllRangedWeapon();
