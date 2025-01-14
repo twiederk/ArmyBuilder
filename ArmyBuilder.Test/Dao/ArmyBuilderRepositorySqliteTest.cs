@@ -454,7 +454,7 @@ namespace ArmyBuilder.Test.Dao
 
         [Fact]
         public void should_read_equipment_of_high_elf_Belannaer()
-        {
+         {
             // arrange
             int belannaerId = 46369;
 
