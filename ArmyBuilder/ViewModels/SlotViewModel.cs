@@ -39,19 +39,19 @@ namespace ArmyBuilder.ViewModels
             switch (_slot.ItemClass)
             {
                 case ItemClass.MeleeWeapon:
-                    return "Waffe";
+                    return "Waffe:";
                 case ItemClass.RangedWeapon:
-                    return "Fernwaffe";
+                    return "Fernwaffe:";
                 case ItemClass.Armor:
-                    return "Rüstung";
+                    return "Rüstung:";
                 case ItemClass.Shield:
-                    return "Schild";
+                    return "Schild:";
                 case ItemClass.Standard:
-                    return "Standarte";
+                    return "Standarte:";
                 case ItemClass.Instrument:
-                    return "Instrument";
+                    return "Instrument:";
                 case ItemClass.Misc:
-                    return "Verschiedenes";
+                    return "Verschiedenes:";
                 default:
                     return $"UNBEKANNT {_slot.ItemClass}";
             }

@@ -17,7 +17,7 @@ namespace ArmyBuilder.Test.ViewModels
             string slotName = slotViewModel.SlotName();
 
             // assert
-            slotName.Should().Be("Waffe");
+            slotName.Should().Be("Waffe:");
         }
     }
 }
