@@ -2,7 +2,6 @@
 using System.Data;
 using ArmyBuilder.Dao;
 using ArmyBuilder.Domain;
-using Xunit;
 
 namespace ArmyBuilder.Test.Dao
 {

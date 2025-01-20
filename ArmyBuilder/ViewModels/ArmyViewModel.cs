@@ -171,9 +171,9 @@ namespace ArmyBuilder.ViewModels
 
         public List<Item> selectableItems(Slot slot, ArmyList armyList)
         {
-            if (!slot.IsAllItems())
+            if (!slot.IsAllItems() || !slot.Editable)
             {
-                Enumerable.Empty<Item>().ToList();
+                return Enumerable.Empty<Item>().ToList();
             }
 
             var allMeleeWeapon = _repository.AllMeleeWeapon();
