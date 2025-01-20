@@ -59,5 +59,43 @@ namespace ArmyBuilder.Test.ViewModels
             // assert
             result.Should().BeEmpty();
         }
+
+        [Fact]
+        public void should_return_magic_and_non_magic_melee_weapons_of_high_elf_army_list()
+        {
+            // arrange
+            var slot = new Slot
+            {
+                ItemClass = ItemClass.MeleeWeapon,
+                Editable = true,
+                Magic = true
+            };
+            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
+
+            // act
+            var result = _armyViewModel.selectableItems(slot, highElfArmyList);
+
+            // assert
+            result.Should().HaveCount(67);
+        }
+
+        [Fact]
+        public void should_return_non_magic_melee_weapons_of_high_elf_army_list()
+        {
+            // arrange
+            var slot = new Slot
+            {
+                ItemClass = ItemClass.MeleeWeapon,
+                Editable = true,
+                Magic = false
+            };
+            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
+
+            // act
+            var result = _armyViewModel.selectableItems(slot, highElfArmyList);
+
+            // assert
+            result.Should().HaveCount(10);
+        }
     }
 }
