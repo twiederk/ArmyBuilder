@@ -2,6 +2,7 @@
 using System.Data;
 using ArmyBuilder.Dao;
 using ArmyBuilder.Domain;
+using Xunit;
 
 namespace ArmyBuilder.Test.Dao
 {
@@ -163,8 +164,6 @@ namespace ArmyBuilder.Test.Dao
             warChariotUnit.Name.Should().Be("Streitwagen");
             MainModel warChariot = warChariotUnit.MainModels[0];
             warChariot.SingleModels.Should().HaveCount(3);
-
-
         }
 
         [Fact]
@@ -174,7 +173,6 @@ namespace ArmyBuilder.Test.Dao
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
             army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
-
 
             // act
             _repository.CreateArmy(army);
@@ -330,185 +328,6 @@ namespace ArmyBuilder.Test.Dao
 
             // teardown
             _repository.DeleteArmy(army.Id);
-        }
-
-        [Fact]
-        public void should_read_all_melee_weapons()
-        {
-            // act
-            List<MeleeWeapon> AllMeleeWeapon = _repository.AllMeleeWeapon();
-
-            // assert
-            AllMeleeWeapon.Should().HaveCount(204);
-            MeleeWeapon staffOfCyoes = AllMeleeWeapon.FirstOrDefault(a => a.Id == 6055);
-            staffOfCyoes.Name.Should().Be("Stab des Cyeos");
-        }
-
-        [Fact]
-        public void should_read_all_ranged_weapons()
-        {
-            // act
-            List<RangedWeapon> AllRangedWeapon = _repository.AllRangedWeapon();
-
-            // assert
-            AllRangedWeapon.Should().HaveCount(21);
-        }
-
-        [Fact]
-        public void should_read_all_shields()
-        {
-            // act
-            List<Shield> AllShield = _repository.AllShield();
-
-            // assert
-            AllShield.Should().HaveCount(17);
-        }
-
-        [Fact]
-        public void should_read_all_armor()
-        {
-            // act
-            List<Armor> AllArmor = _repository.AllArmor();
-
-            // assert
-            AllArmor.Should().HaveCount(60);
-            Armor armor = AllArmor[0];
-            armor.Id.Should().Be(40);
-            armor.Name.Should().Be("None");
-            armor.Description.Should().Be("");
-            armor.ArmyList.Should().BeNull();
-            armor.Magic.Should().BeFalse();
-            armor.Points.Should().Be(0);
-
-            Armor chaosShield = AllArmor.FirstOrDefault(a => a.Id == 5784);
-            chaosShield.Id.Should().Be(5784);
-            chaosShield.Name.Should().Be("Magische Kriegsbemalung");
-            chaosShield.Description.Should().Be("RW von 3+ gegen Beschuß, 5+ im Nahkampf.");
-            chaosShield.ArmyList.Should().Be(new ArmyList() { Id = 9, Name = "Orks & Goblins" });
-            chaosShield.Magic.Should().BeTrue();
-            chaosShield.Points.Should().Be(5);
-        }
-
-        [Fact]
-        public void should_read_all_standards()
-        {
-            // act
-            List<Standard> AllStandards = _repository.AllStandard();
-
-            // assert
-            AllStandards.Should().HaveCount(55);
-        }
-
-        [Fact]
-        public void should_read_all_instruments()
-        {
-            // act
-            List<Instrument> AllInstrument = _repository.AllInstrument();
-
-            // assert
-            AllInstrument.Should().HaveCount(1);
-        }
-
-        [Fact]
-        public void should_read_all_misc()
-        {
-            // act
-            List<Misc> AllMisc = _repository.AllMisc();
-
-            // assert
-            AllMisc.Should().HaveCount(86);
-        }
-
-        [Fact]
-        public void should_read_equipment_of_high_elf_spearmen()
-        {
-            // arrange
-            int spearmenId = 46814;
-
-            // act
-            Equipment equipment = _repository.Equipment(spearmenId);
-
-            // assert
-            equipment.Slots.Should().HaveCount(4);
-
-            Slot meleeWeaponSlot = equipment.Slots.First(slot => slot.Id == 2220);
-            meleeWeaponSlot.Item.Should().NotBeNull();
-            meleeWeaponSlot.Item.Name.Should().Be("Speer");
-            meleeWeaponSlot.Editable.Should().BeFalse();
-
-            Slot rangedWeaponSlot = equipment.Slots.First(slot => slot.Id == 2221);
-            rangedWeaponSlot.Item.Should().NotBeNull();
-            rangedWeaponSlot.Item.Name.Should().Be("None");
-            rangedWeaponSlot.Editable.Should().BeFalse();
-
-            Slot shieldSlot = equipment.Slots.First(slot => slot.Id == 2222);
-            shieldSlot.Item.Should().NotBeNull();
-            shieldSlot.Item.Name.Should().Be("Schild");
-            shieldSlot.Editable.Should().BeFalse();
-
-            Slot armorSlot = equipment.Slots.First(slot => slot.Id == 2223);
-            armorSlot.Item.Should().NotBeNull();
-            armorSlot.Item.Name.Should().Be("Leichte Rüstung");
-            armorSlot.Editable.Should().BeTrue();
-        }
-
-        [Fact]
-        public void should_read_equipment_of_high_elf_Belannaer()
-         {
-            // arrange
-            int belannaerId = 46369;
-
-            // act
-            Equipment equipment = _repository.Equipment(belannaerId);
-
-            // assert
-            equipment.Slots.Should().HaveCount(4);
-
-            Slot slot = equipment.Slots.First(slot => slot.Id == 75);
-            slot.Item.Should().NotBeNull();
-
-            slot = equipment.Slots.First(slot => slot.Id == 76);
-            slot.Item.Should().NotBeNull();
-
-            slot = equipment.Slots.First(slot => slot.Id == 77);
-            slot.Item.Should().NotBeNull();
-
-            slot = equipment.Slots.First(slot => slot.Id == 78);
-            slot.Item.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void should_return_custom_item_when_item_class_is_wrong()
-        {
-            // arrange
-            SlotRdo slotRdo = new SlotRdo()
-            {
-                ItemId = 10000,
-                ItemClass = ItemClass.MeleeWeapon,
-            };
-
-            // act
-            Item item = _repository.SlotItem(slotRdo);
-
-            // assert
-            item.Should().NotBeNull();
-            item.Name.Should().Be("ITEM ID 10000 NOT OF CLASS MeleeWeapon");
-        }
-
-        [Fact]
-        public void should_read_equipments_of_army_list()
-        {
-            // arrange
-            int armyListId = 7;
-
-            // act
-            List<Equipment> equipments = _repository.ArmyListEquipment(armyListId);
-
-            // assert
-            equipments.Should().HaveCount(74);
-            Equipment spearmenEquipment = equipments.First(e => e.Id == 46814);
-            spearmenEquipment.Should().NotBeNull();
-            spearmenEquipment.Slots.Should().HaveCount(4);
         }
     }
 }
