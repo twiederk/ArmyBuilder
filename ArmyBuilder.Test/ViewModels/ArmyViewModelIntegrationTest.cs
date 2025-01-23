@@ -82,6 +82,7 @@ namespace ArmyBuilder.Test.ViewModels
             };
             var resultIds = result.Select(i => i.Id).ToList();
             var missingIds = expectedIds.Except(resultIds).ToList();
+            // missingIds = { 5717, 5733, 5869, 5899, 5904, 5925, 5932, 5940, 5989, 6056 }
             result.Should().HaveCount(64);
         }
 
