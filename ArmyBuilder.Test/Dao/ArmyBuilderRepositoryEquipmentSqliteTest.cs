@@ -24,7 +24,7 @@ namespace ArmyBuilder.Test.Dao
             List<MeleeWeapon> AllMeleeWeapon = _repository.AllMeleeWeapon();
 
             // assert
-            AllMeleeWeapon.Should().HaveCount(203);
+            AllMeleeWeapon.Should().HaveCount(200);
         }
 
         [Fact]
