@@ -68,15 +68,15 @@ namespace ArmyBuilder.Test.ViewModels
                             {
                                 Slots = new List<Slot>
                                 {
-                                    new Slot { Id = 1, ItemClass = ItemClass.MeleeWeapon, AllItems = true },
-                                    new Slot { Id = 2, ItemClass = ItemClass.RangedWeapon, AllItems = true },
-                                    new Slot { Id = 3, ItemClass = ItemClass.Shield, AllItems = true }
+                                    new Slot { Id = 1, ItemClass = ItemClass.MeleeWeapon, Editable = true, AllItems = true },
+                                    new Slot { Id = 2, ItemClass = ItemClass.RangedWeapon, Editable = true, AllItems = true },
+                                    new Slot { Id = 3, ItemClass = ItemClass.Shield, Editable = true, AllItems = true }
                                 }
                             }
                         }
                     }
                 }
-            };
+            }; 
 
             var meleeWeapons = new List<MeleeWeapon> { new MeleeWeapon { Id = 1, Name = "Sword" } };
             var rangedWeapons = new List<RangedWeapon> { new RangedWeapon { Id = 2, Name = "Bow" } };
@@ -100,15 +100,15 @@ namespace ArmyBuilder.Test.ViewModels
         }
 
         [Fact]
-        public void should_return_correct_selectable_items()
+        public void should_return_magical_and_non_magical_items_when_the_slot_allows_magic_items()
         {
             // arrange
-            var slot = new Slot { ItemClass = ItemClass.MeleeWeapon };
+            var slot = new Slot { ItemClass = ItemClass.MeleeWeapon, Editable = true, Magic = true };
             var armyList = new ArmyList { Id = 1, Name = "Test Army List" };
             var meleeWeapons = new List<MeleeWeapon>
             {
-                new MeleeWeapon { Id = 1, Name = "Sword", ArmyList = armyList },
-                new MeleeWeapon { Id = 2, Name = "Axe", ArmyList = null }
+                new MeleeWeapon { Id = 1, Name = "Sword", ArmyList = armyList, Magic = true },
+                new MeleeWeapon { Id = 2, Name = "Axe", ArmyList = null , Magic = false }
             };
 
             var mockRepository = new Mock<IArmyBuilderRepository>();
