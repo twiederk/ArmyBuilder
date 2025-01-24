@@ -10,6 +10,7 @@ namespace ArmyBuilder.Dao
         public int Id { get; set; }
         public int ItemId { get; set; }
         public bool Editable { get; set; }
+        public bool Magic { get; set; }
         public bool AllItems { get; set; }
         public ItemClass ItemClass { get; set; }
         public int SingleModelId { get; set; }
@@ -19,6 +20,7 @@ namespace ArmyBuilder.Dao
             slot.Id = Id;
             slot.ItemClass = ItemClass;
             slot.Editable = Editable;
+            slot.Magic = Magic;
             slot.AllItems = AllItems;
             return slot;
         }
