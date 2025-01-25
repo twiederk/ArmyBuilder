@@ -153,5 +153,34 @@ namespace ArmyBuilder.Test.ViewModels
             result.Should().HaveCount(1);
             result.Should().Contain(i => i.Name == "Axe");
         }
+
+        [Fact]
+        public void should_return_items_in_alphabetically_order()
+        {
+            // arrange
+            var slot = new Slot { ItemClass = ItemClass.MeleeWeapon, Editable = true, Magic = false };
+            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
+            var dwarfArmyList = new ArmyList { Id = 14, Name = "Dwarf" };
+            var meleeWeapons = new List<MeleeWeapon>
+            {
+                new MeleeWeapon { Id = 1, Name = "Magic Sword", ArmyList = highElfArmyList, Magic = true },
+                new MeleeWeapon { Id = 2, Name = "Hammer", ArmyList = null , Magic = false },
+                new MeleeWeapon { Id = 3, Name = "Battle Axe", ArmyList = null , Magic = false },
+                new MeleeWeapon { Id = 4, Name = "Axe", ArmyList = null , Magic = false },
+                new MeleeWeapon { Id = 5, Name = "Dwarven Hammer", ArmyList = dwarfArmyList, Magic = false },
+            };
+
+            var mockRepository = new Mock<IArmyBuilderRepository>();
+            mockRepository.Setup(repo => repo.AllMeleeWeapon()).Returns(meleeWeapons);
+
+            ArmyViewModel armyViewModel = new ArmyViewModel(mockRepository.Object);
+
+            // act
+            List<Item> selectableItems = armyViewModel.selectableItems(slot, new ArmyList { Id = 7 });
+
+            // assert
+            var resultNames = selectableItems.Select(i => i.Name).ToList();
+            resultNames.Should().ContainInOrder(new List<string> { "Axe", "Battle Axe", "Hammer" });
+        }
     }
 }
