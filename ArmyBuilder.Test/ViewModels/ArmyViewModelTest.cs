@@ -108,9 +108,9 @@ namespace ArmyBuilder.Test.ViewModels
             var dwarfArmyList = new ArmyList { Id = 14, Name = "Dwarf" };
             var meleeWeapons = new List<MeleeWeapon>
             {
-                new MeleeWeapon { Id = 1, Name = "Sword", ArmyList = highElfArmyList, Magic = true },
+                new MeleeWeapon { Id = 1, Name = "Magic Sword", ArmyList = highElfArmyList, Magic = true },
                 new MeleeWeapon { Id = 2, Name = "Axe", ArmyList = null , Magic = false },
-                new MeleeWeapon { Id = 3, Name = "Hammer", ArmyList = dwarfArmyList, Magic = false },
+                new MeleeWeapon { Id = 3, Name = "Dwarven Hammer", ArmyList = dwarfArmyList, Magic = false },
             };
 
             var mockRepository = new Mock<IArmyBuilderRepository>();
@@ -123,7 +123,34 @@ namespace ArmyBuilder.Test.ViewModels
 
             // assert
             result.Should().HaveCount(2);
-            result.Should().Contain(i => i.Name == "Sword");
+            result.Should().Contain(i => i.Name == "Magic Sword");
+            result.Should().Contain(i => i.Name == "Axe");
+        }
+        
+        [Fact]
+        public void should_return_non_magical_items_when_the_slot_permits_magic_items()
+        {
+            // arrange
+            var slot = new Slot { ItemClass = ItemClass.MeleeWeapon, Editable = true, Magic = false };
+            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
+            var dwarfArmyList = new ArmyList { Id = 14, Name = "Dwarf" };
+            var meleeWeapons = new List<MeleeWeapon>
+            {
+                new MeleeWeapon { Id = 1, Name = "Magic Sword", ArmyList = highElfArmyList, Magic = true },
+                new MeleeWeapon { Id = 2, Name = "Axe", ArmyList = null , Magic = false },
+                new MeleeWeapon { Id = 3, Name = "Dwarven Hammer", ArmyList = dwarfArmyList, Magic = false },
+            };
+
+            var mockRepository = new Mock<IArmyBuilderRepository>();
+            mockRepository.Setup(repo => repo.AllMeleeWeapon()).Returns(meleeWeapons);
+
+            var armyViewModel = new ArmyViewModel(mockRepository.Object);
+
+            // act
+            var result = armyViewModel.selectableItems(slot, new ArmyList { Id = 7 });
+
+            // assert
+            result.Should().HaveCount(1);
             result.Should().Contain(i => i.Name == "Axe");
         }
     }
