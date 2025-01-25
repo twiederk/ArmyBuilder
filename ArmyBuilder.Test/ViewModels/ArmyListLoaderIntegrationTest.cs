@@ -10,17 +10,17 @@ using Xunit;
 
 namespace ArmyBuilder.Test.ViewModels
 {
-    public class ArmyViewModelIntegrationTest : IClassFixture<DatabaseFixture>
+    public class ArmyListLoaderIntegrationTest : IClassFixture<DatabaseFixture>
     {
         private readonly IDbConnection _dbConnection;
         private readonly ArmyBuilderRepositorySqlite _repository;
-        private readonly ArmyViewModel _armyViewModel;
+        private readonly ArmyListLoader _armyListLoader;
 
-        public ArmyViewModelIntegrationTest(DatabaseFixture fixture)
+        public ArmyListLoaderIntegrationTest(DatabaseFixture fixture)
         {
             _dbConnection = fixture.DbConnection;
             _repository = fixture.Repository;
-            _armyViewModel = new ArmyViewModel(_repository);
+            _armyListLoader = new ArmyListLoader(_repository);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace ArmyBuilder.Test.ViewModels
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyViewModel.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
 
             // assert
             result.Should().BeEmpty();
@@ -54,7 +54,7 @@ namespace ArmyBuilder.Test.ViewModels
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyViewModel.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
 
             // assert
             result.Should().BeEmpty();
@@ -73,7 +73,7 @@ namespace ArmyBuilder.Test.ViewModels
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyViewModel.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
 
             // assert
             result.Should().HaveCount(64);
@@ -92,7 +92,7 @@ namespace ArmyBuilder.Test.ViewModels
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyViewModel.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
 
             // assert
             result.Should().HaveCount(6);

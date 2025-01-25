@@ -8,7 +8,7 @@ using Xunit;
 
 namespace ArmyBuilder.Test.ViewModels
 {
-    public class ArmyViewModelTest
+    public class ArmyListLoaderTest
     {
         [Fact]
         public void should_assign_equipment_to_single_model()
@@ -33,10 +33,10 @@ namespace ArmyBuilder.Test.ViewModels
                 new Equipment { Id = 102, Slots = new List<Slot> { new Slot { Id = 2, Item = new Item { Id = 2, Name = "Item 2" } } } }
             };
             var mockRepository = new Mock<IArmyBuilderRepository>();
-            var armyViewModel = new ArmyViewModel(mockRepository.Object);
+            var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            armyViewModel.assignEquipment(mainModels, equipment);
+            armyListLoader.assignEquipment(mainModels, equipment);
 
             // assert
             mainModels[0].SingleModels[0].Equipment.Should().NotBeNull();
@@ -87,10 +87,10 @@ namespace ArmyBuilder.Test.ViewModels
             mockRepository.Setup(repo => repo.AllRangedWeapon()).Returns(rangedWeapons);
             mockRepository.Setup(repo => repo.AllShield()).Returns(shields);
 
-            var armyViewModel = new ArmyViewModel(mockRepository.Object);
+            var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            armyViewModel.assignSelectableItems(mainModels, new ArmyList() { Id = 7 }); 
+            armyListLoader.assignSelectableItems(mainModels, new ArmyList() { Id = 7 }); 
 
             // assert
             var singleModel = mainModels[0].SingleModels[0];
@@ -116,10 +116,10 @@ namespace ArmyBuilder.Test.ViewModels
             var mockRepository = new Mock<IArmyBuilderRepository>();
             mockRepository.Setup(repo => repo.AllMeleeWeapon()).Returns(meleeWeapons);
 
-            var armyViewModel = new ArmyViewModel(mockRepository.Object);
+            var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            var result = armyViewModel.selectableItems(slot, new ArmyList { Id = 7 });
+            var result = armyListLoader.selectableItems(slot, new ArmyList { Id = 7 });
 
             // assert
             result.Should().HaveCount(2);
@@ -144,10 +144,10 @@ namespace ArmyBuilder.Test.ViewModels
             var mockRepository = new Mock<IArmyBuilderRepository>();
             mockRepository.Setup(repo => repo.AllMeleeWeapon()).Returns(meleeWeapons);
 
-            var armyViewModel = new ArmyViewModel(mockRepository.Object);
+            var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            var result = armyViewModel.selectableItems(slot, new ArmyList { Id = 7 });
+            var result = armyListLoader.selectableItems(slot, new ArmyList { Id = 7 });
 
             // assert
             result.Should().HaveCount(1);
@@ -173,10 +173,10 @@ namespace ArmyBuilder.Test.ViewModels
             var mockRepository = new Mock<IArmyBuilderRepository>();
             mockRepository.Setup(repo => repo.AllMeleeWeapon()).Returns(meleeWeapons);
 
-            ArmyViewModel armyViewModel = new ArmyViewModel(mockRepository.Object);
+            var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            List<Item> selectableItems = armyViewModel.selectableItems(slot, new ArmyList { Id = 7 });
+            List<Item> selectableItems = armyListLoader.selectableItems(slot, new ArmyList { Id = 7 });
 
             // assert
             var resultNames = selectableItems.Select(i => i.Name).ToList();

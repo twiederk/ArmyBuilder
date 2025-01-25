@@ -113,10 +113,7 @@ namespace ArmyBuilder.ViewModels
         {
             if (_selectedArmyList != null)
             {
-                var mainModels = _repository.MainModels(_selectedArmyList.Id);
-                var equipment = _repository.ArmyListEquipment(_selectedArmyList.Id);
-                assignEquipment(mainModels, equipment);
-                assignSelectableItems(mainModels, _selectedArmyList);
+                List<MainModel> mainModels = new ArmyListLoader(_repository).LoadMainModels(_selectedArmyList);
 
                 Characters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
                 Troopers = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
@@ -131,95 +128,6 @@ namespace ArmyBuilder.ViewModels
                 Monsters = new List<MainModel>();
             }
         }
-
-        public void assignEquipment(List<MainModel> mainModels, List<Equipment> equipment)
-        {
-            var equipmentDictionary = equipment.ToDictionary(e => e.Id);
-
-            mainModels.ForEach(mainModel =>
-                mainModel.SingleModels.ForEach(singleModel =>
-                {
-                    if (equipmentDictionary.TryGetValue(singleModel.Id, out var singleModelEquipment))
-                    {
-                        singleModel.Equipment = singleModelEquipment;
-                    }
-                })
-            );
-        }
-
-
-        public void assignSelectableItems(List<MainModel> mainModels, ArmyList armyList)
-        {
-            mainModels.ForEach(mainModel =>
-                mainModel.SingleModels.ForEach(singleModel =>
-                {
-                    AssignSelectableItemsToSingleModel(armyList, singleModel);
-                })
-            );
-        }
-
-        private void AssignSelectableItemsToSingleModel(ArmyList armyList, SingleModel singleModel)
-        {
-            if (singleModel.Equipment != null)
-            {
-                foreach (var slot in singleModel.Equipment.Slots)
-                {
-                    slot.SelectableItems = selectableItems(slot, armyList);
-                }
-            }
-        }
-
-        public List<Item> selectableItems(Slot slot, ArmyList armyList)
-        {
-            if (!slot.IsAllItems() || !slot.Editable)
-            {
-                return Enumerable.Empty<Item>().ToList();
-            }
-
-            var allMeleeWeapon = _repository.AllMeleeWeapon();
-            var allRangedWeapon = _repository.AllRangedWeapon();
-            var allShield = _repository.AllShield();
-            var allArmor = _repository.AllArmor();
-            var allStandard = _repository.AllStandard();
-            var allInstrument = _repository.AllInstrument();
-            var allMisc = _repository.AllMisc();
-
-            switch (slot.ItemClass)
-            {
-                case ItemClass.MeleeWeapon:
-                    return FilterItems(allMeleeWeapon.Cast<Item>(), armyList, slot);
-                case ItemClass.RangedWeapon:
-                    return FilterItems(allRangedWeapon.Cast<Item>(), armyList, slot);
-                case ItemClass.Shield:
-                    return FilterItems(allShield.Cast<Item>(), armyList, slot);
-                case ItemClass.Armor:
-                    return FilterItems(allArmor.Cast<Item>(), armyList, slot);
-                case ItemClass.Standard:
-                    return FilterItems(allStandard.Cast<Item>(), armyList, slot);
-                case ItemClass.Instrument:
-                    return FilterItems(allInstrument.Cast<Item>(), armyList, slot);
-                case ItemClass.Misc:
-                    return FilterItems(allMisc.Cast<Item>(), armyList, slot);
-                default:
-                    return new List<Item>() {
-                        new Item
-                        {
-                            Id = slot.Item.Id,
-                            Name = $"UNKNOWN ITEM with id: {slot.Item.Id}",
-                        }
-                    };
-            }
-        }
-
-        private List<Item> FilterItems(IEnumerable<Item> items, ArmyList armyList, Slot slot)
-        {
-            if (slot.Magic)
-            {
-                return items.Where(i => i.ArmyList == null || i.ArmyList.Equals(armyList)).OrderBy(i => i.Name).ToList();
-            }
-            return items.Where(i => (i.ArmyList == null || i.ArmyList.Equals(armyList)) && i.Magic == false).OrderBy(i => i.Name).ToList();
-        }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 
