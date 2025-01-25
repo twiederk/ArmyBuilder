@@ -10,5 +10,19 @@ namespace ArmyBuilder.Domain
         public string Description { get; set; }
         public Profile Profile { get; set; }
         public Equipment Equipment { get; set; } = new Equipment();
+
+        public override bool Equals(object obj)
+        {
+            if (obj is SingleModel other)
+            {
+                return Id == other.Id;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }

@@ -18,5 +18,19 @@ namespace ArmyBuilder.Domain
         public int Initiative { get; set; }
         public int Attacks { get; set; }
         public int Moral { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Profile other)
+            {
+                return Id == other.Id;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }

@@ -32,5 +32,19 @@ namespace ArmyBuilder.Domain
         {
             MainModels.Remove(mainModel);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Unit other)
+            {
+                return Id == other.Id;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }
