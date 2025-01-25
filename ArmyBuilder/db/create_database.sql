@@ -55,7 +55,6 @@ CREATE TABLE IF NOT EXISTS "single_model"
  "name"              VARCHAR(60),
  "main_model_id"     INTEGER,
  "description"       VARCHAR(110),
- "slot_profile_id"   SMALLINT,
  PRIMARY KEY(id)
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
