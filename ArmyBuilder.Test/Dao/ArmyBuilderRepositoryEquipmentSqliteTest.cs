@@ -185,6 +185,8 @@ namespace ArmyBuilder.Test.Dao
         {
             // arrange
             int armyListId = 7;
+            int generalSingleModelId = 46491;
+            int spearmentSingleModelId = 46814;
 
             // act
             List<Equipment> equipments = _repository.ArmyListEquipment(armyListId);
@@ -193,14 +195,14 @@ namespace ArmyBuilder.Test.Dao
             equipments.Should().HaveCount(74);
 
             // spearmen equipment
-            Equipment spearmenEquipment = equipments.First(e => e.Id == 46814);
+            Equipment spearmenEquipment = equipments.First(e => e.Id == spearmentSingleModelId);
             spearmenEquipment.Should().NotBeNull();
             spearmenEquipment.Slots.Should().HaveCount(4);
             Slot meleeWeaponSlot = spearmenEquipment.Slots.First(s => s.Id == 2220);
             meleeWeaponSlot.Magic.Should().BeFalse();
 
             // general equipment
-            Equipment generalEquipment = equipments.First(e => e.Id == 46491);
+            Equipment generalEquipment = equipments.First(e => e.Id == generalSingleModelId);
             generalEquipment.Should().NotBeNull();
             generalEquipment.Slots.Should().HaveCount(5);
             meleeWeaponSlot = generalEquipment.Slots.First(s => s.Id == 693);
