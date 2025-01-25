@@ -104,11 +104,13 @@ namespace ArmyBuilder.Test.ViewModels
         {
             // arrange
             var slot = new Slot { ItemClass = ItemClass.MeleeWeapon, Editable = true, Magic = true };
-            var armyList = new ArmyList { Id = 1, Name = "Test Army List" };
+            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
+            var dwarfArmyList = new ArmyList { Id = 14, Name = "Dwarf" };
             var meleeWeapons = new List<MeleeWeapon>
             {
-                new MeleeWeapon { Id = 1, Name = "Sword", ArmyList = armyList, Magic = true },
-                new MeleeWeapon { Id = 2, Name = "Axe", ArmyList = null , Magic = false }
+                new MeleeWeapon { Id = 1, Name = "Sword", ArmyList = highElfArmyList, Magic = true },
+                new MeleeWeapon { Id = 2, Name = "Axe", ArmyList = null , Magic = false },
+                new MeleeWeapon { Id = 3, Name = "Hammer", ArmyList = dwarfArmyList, Magic = false },
             };
 
             var mockRepository = new Mock<IArmyBuilderRepository>();
@@ -117,7 +119,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyViewModel = new ArmyViewModel(mockRepository.Object);
 
             // act
-            var result = armyViewModel.selectableItems(slot, armyList);
+            var result = armyViewModel.selectableItems(slot, new ArmyList { Id = 7 });
 
             // assert
             result.Should().HaveCount(2);
