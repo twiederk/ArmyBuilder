@@ -657,7 +657,7 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    s.id, s.item_id as ItemId, s.editable as Editable, s.all_items as AllItems, s.item_class_id as ItemClass
+                    s.id, s.item_id as ItemId, s.editable as Editable, s.item_class_id as ItemClass
                 FROM 
                     slot s
                 WHERE 
@@ -715,7 +715,7 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT
-                    s.id, s.item_id as ItemId, s.editable as Editable, s.magic as Magic, s.all_items as AllItems, s.item_class_id as ItemClass,
+                    s.id, s.item_id as ItemId, s.editable as Editable, s.magic as Magic, s.item_class_id as ItemClass,
                     sm.id as SingleModelId
                 FROM
                     slot s

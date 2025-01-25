@@ -209,7 +209,6 @@ CREATE TABLE IF NOT EXISTS "slot"
  "item_id"           INTEGER,
  "editable"          BIT,
  "magic"             BIT,
- "all_items"         BIT,
  "item_class_id"     INTEGER,
  PRIMARY KEY(id)
  FOREIGN KEY (single_model_id) REFERENCES single_model(id) ON DELETE CASCADE 
