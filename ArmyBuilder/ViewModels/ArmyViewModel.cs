@@ -187,19 +187,19 @@ namespace ArmyBuilder.ViewModels
             switch (slot.ItemClass)
             {
                 case ItemClass.MeleeWeapon:
-                    return FilterItems(allMeleeWeapon.Cast<Item>(), armyList, slot).OrderBy(i => i.Name).ToList();
+                    return FilterItems(allMeleeWeapon.Cast<Item>(), armyList, slot);
                 case ItemClass.RangedWeapon:
-                    return FilterItems(allRangedWeapon.Cast<Item>(), armyList, slot).OrderBy(i => i.Name).ToList();
+                    return FilterItems(allRangedWeapon.Cast<Item>(), armyList, slot);
                 case ItemClass.Shield:
-                    return FilterItems(allShield.Cast<Item>(), armyList, slot).OrderBy(i => i.Name).ToList();
+                    return FilterItems(allShield.Cast<Item>(), armyList, slot);
                 case ItemClass.Armor:
-                    return FilterItems(allArmor.Cast<Item>(), armyList, slot).OrderBy(i => i.Name).ToList();
+                    return FilterItems(allArmor.Cast<Item>(), armyList, slot);
                 case ItemClass.Standard:
-                    return FilterItems(allStandard.Cast<Item>(), armyList, slot).OrderBy(i => i.Name).ToList();
+                    return FilterItems(allStandard.Cast<Item>(), armyList, slot);
                 case ItemClass.Instrument:
-                    return FilterItems(allInstrument.Cast<Item>(), armyList, slot).OrderBy(i => i.Name).ToList();
+                    return FilterItems(allInstrument.Cast<Item>(), armyList, slot);
                 case ItemClass.Misc:
-                    return FilterItems(allMisc.Cast<Item>(), armyList, slot).OrderBy(i => i.Name).ToList();
+                    return FilterItems(allMisc.Cast<Item>(), armyList, slot);
                 default:
                     return new List<Item>() {
                         new Item
@@ -211,13 +211,13 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        private IEnumerable<Item> FilterItems(IEnumerable<Item> items, ArmyList armyList, Slot slot)
+        private List<Item> FilterItems(IEnumerable<Item> items, ArmyList armyList, Slot slot)
         {
             if (slot.Magic)
             {
-                return items.Where(i => i.ArmyList == null || i.ArmyList.Equals(armyList));
+                return items.Where(i => i.ArmyList == null || i.ArmyList.Equals(armyList)).OrderBy(i => i.Name).ToList();
             }
-            return items.Where(i => (i.ArmyList == null || i.ArmyList.Equals(armyList)) && i.Magic == false);
+            return items.Where(i => (i.ArmyList == null || i.ArmyList.Equals(armyList)) && i.Magic == false).OrderBy(i => i.Name).ToList();
         }
 
 
