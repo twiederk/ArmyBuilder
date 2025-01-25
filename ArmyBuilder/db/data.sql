@@ -3694,8 +3694,6 @@ INSERT INTO item_class VALUES (3, 'Armor');
 INSERT INTO item_class VALUES (4, 'Misc');
 INSERT INTO item_class VALUES (5, 'Standard');
 INSERT INTO item_class VALUES (6, 'Instrument');
-INSERT INTO item_class VALUES (9, 'MonsterWeapon');
-INSERT INTO item_class VALUES (10, 'MonsterArmor');
 
 
 INSERT INTO slot VALUES(1,46357,10,1,1,2);
