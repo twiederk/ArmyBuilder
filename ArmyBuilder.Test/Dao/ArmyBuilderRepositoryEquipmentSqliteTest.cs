@@ -114,17 +114,12 @@ namespace ArmyBuilder.Test.Dao
             Equipment equipment = _repository.Equipment(spearmenId);
 
             // assert
-            equipment.Slots.Should().HaveCount(4);
+            equipment.Slots.Should().HaveCount(3);
 
             Slot meleeWeaponSlot = equipment.Slots.First(slot => slot.Id == 2220);
             meleeWeaponSlot.Item.Should().NotBeNull();
             meleeWeaponSlot.Item.Name.Should().Be("Speer");
             meleeWeaponSlot.Editable.Should().BeFalse();
-
-            Slot rangedWeaponSlot = equipment.Slots.First(slot => slot.Id == 2221);
-            rangedWeaponSlot.Item.Should().NotBeNull();
-            rangedWeaponSlot.Item.Name.Should().Be("None");
-            rangedWeaponSlot.Editable.Should().BeFalse();
 
             Slot shieldSlot = equipment.Slots.First(slot => slot.Id == 2222);
             shieldSlot.Item.Should().NotBeNull();
@@ -192,12 +187,12 @@ namespace ArmyBuilder.Test.Dao
             List<Equipment> equipments = _repository.ArmyListEquipment(armyListId);
 
             // assert
-            equipments.Should().HaveCount(56);
+            equipments.Should().HaveCount(55);
 
             // spearmen equipment
             Equipment spearmenEquipment = equipments.First(e => e.Id == spearmentSingleModelId);
             spearmenEquipment.Should().NotBeNull();
-            spearmenEquipment.Slots.Should().HaveCount(4);
+            spearmenEquipment.Slots.Should().HaveCount(3);
             Slot meleeWeaponSlot = spearmenEquipment.Slots.First(s => s.Id == 2220);
             meleeWeaponSlot.Magic.Should().BeFalse();
 
