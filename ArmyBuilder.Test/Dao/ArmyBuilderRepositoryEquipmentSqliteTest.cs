@@ -199,7 +199,7 @@ namespace ArmyBuilder.Test.Dao
             // general equipment
             Equipment generalEquipment = equipments.First(e => e.Id == generalSingleModelId);
             generalEquipment.Should().NotBeNull();
-            generalEquipment.Slots.Should().HaveCount(5);
+            generalEquipment.Slots.Should().HaveCount(7);
             meleeWeaponSlot = generalEquipment.Slots.First(s => s.Id == 693);
             meleeWeaponSlot.Magic.Should().BeTrue();
         }
