@@ -191,9 +191,20 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             equipments.Should().HaveCount(74);
+
+            // spearmen equipment
             Equipment spearmenEquipment = equipments.First(e => e.Id == 46814);
             spearmenEquipment.Should().NotBeNull();
             spearmenEquipment.Slots.Should().HaveCount(4);
+            Slot meleeWeaponSlot = spearmenEquipment.Slots.First(s => s.Id == 2220);
+            meleeWeaponSlot.Magic.Should().BeFalse();
+
+            // general equipment
+            Equipment generalEquipment = equipments.First(e => e.Id == 46491);
+            generalEquipment.Should().NotBeNull();
+            generalEquipment.Slots.Should().HaveCount(5);
+            meleeWeaponSlot = generalEquipment.Slots.First(s => s.Id == 693);
+            meleeWeaponSlot.Magic.Should().BeTrue();
         }
     }
 }
