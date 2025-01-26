@@ -63,6 +63,7 @@ namespace ArmyBuilder.Domain
                         {
                             Id = slot.Id,
                             Item = slot.Item,
+                            ItemClass = slot.ItemClass,
                             Editable = slot.Editable,
                             AllItems = slot.AllItems,
                             Magic = slot.Magic,
@@ -73,7 +74,19 @@ namespace ArmyBuilder.Domain
             };
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is MainModel other)
+            {
+                return Id == other.Id;
+            }
+            return false;
+        }
 
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
 
     }
 }

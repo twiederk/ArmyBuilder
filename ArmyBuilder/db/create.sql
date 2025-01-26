@@ -55,7 +55,6 @@ CREATE TABLE IF NOT EXISTS "single_model"
  "name"              VARCHAR(60),
  "main_model_id"     INTEGER,
  "description"       VARCHAR(110),
- "slot_profile_id"   SMALLINT,
  PRIMARY KEY(id)
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
@@ -181,31 +180,6 @@ CREATE TABLE IF NOT EXISTS "misc"
 );
 
 
-
-CREATE TABLE IF NOT EXISTS "standard"
-("id"           INTEGER,
- "name"         VARCHAR(50),
- "points"       INTEGER,
- "description"  VARCHAR(100),
- "army_list_id" INTEGER,
- "unique"       BIT,
- "magic"        BIT,
- PRIMARY KEY(id)
-);
-
-
-CREATE TABLE IF NOT EXISTS "misc"
-("id"           INTEGER,
- "name"         VARCHAR(50),
- "points"       INTEGER,
- "description"  VARCHAR(100),
- "army_list_id" INTEGER,
- "unique"       BIT,
- "magic"        BIT,
- PRIMARY KEY(id)
-);
-
-
 CREATE VIEW item AS
 SELECT id, name, points, description, army_list_id, "unique", magic FROM melee_weapon
 UNION ALL
@@ -222,16 +196,23 @@ UNION ALL
 SELECT id, name, points, description, army_list_id, "unique", magic FROM misc;
 
 
+CREATE TABLE IF NOT EXISTS "item_class"
+("id"                INTEGER,
+ "name"         VARCHAR(50),
+ PRIMARY KEY(id)
+);
+
+
 CREATE TABLE IF NOT EXISTS "slot"
 ("id"                INTEGER,
  "single_model_id"   INTEGER,
  "item_id"           INTEGER,
  "editable"          BIT,
  "magic"             BIT,
- "all_items"         BIT,
- "item_class"        INTEGER,
+ "item_class_id"     INTEGER,
  PRIMARY KEY(id)
  FOREIGN KEY (single_model_id) REFERENCES single_model(id) ON DELETE CASCADE 
+ FOREIGN KEY (item_class_id) REFERENCES item_class(id) ON DELETE CASCADE 
 );
 
 

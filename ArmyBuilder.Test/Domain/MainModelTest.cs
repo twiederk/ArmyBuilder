@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using ArmyBuilder.Domain;
-using System.Xaml.Schema;
 
 namespace ArmyBuilder.Test.Domain
 {
