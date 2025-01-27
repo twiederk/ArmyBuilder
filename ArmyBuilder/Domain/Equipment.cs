@@ -14,6 +14,11 @@ namespace ArmyBuilder.Domain
             return Slots.Where(slot => slot.Item.Points > 0).Select(slot => $"{slot.Item.Name} ({slot.Item.Points})").ToList();
         }
 
+        public bool IsEmpty()
+        {
+            return !Slots.Any();
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is Equipment other)
@@ -29,5 +34,6 @@ namespace ArmyBuilder.Domain
         }
     }
 }
+
 
 
