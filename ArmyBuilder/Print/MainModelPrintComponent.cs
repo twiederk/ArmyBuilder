@@ -2,6 +2,7 @@
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using QuestPDF.Fluent;
+using System.Data.Common;
 //using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 
 namespace ArmyBuilder.Print
@@ -27,6 +28,7 @@ namespace ArmyBuilder.Print
                     heading(table);
                     singleModels(table);
                 });
+                composeEquipment(column);
             });
 
         }
@@ -100,6 +102,19 @@ namespace ArmyBuilder.Print
         public string Heading()
         {
             return $"{_mainModel.Count}x {_mainModel.Name} ({_mainModel.Points}) => {_mainModel.TotalPoints()} {_mainModel.ArmyCategory.Display()}";
+        }
+
+
+        public void composeEquipment(ColumnDescriptor column)
+        {
+            foreach (var singleModel in _mainModel.SingleModels)
+            {
+                var itemNames = singleModel.Equipment.ItemNames();
+                if (itemNames.Any())
+                {
+                    column.Item().PaddingLeft(20).Text(string.Join(", ", itemNames));
+                }
+            }
         }
     }
 }
