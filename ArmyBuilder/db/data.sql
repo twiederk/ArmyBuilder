@@ -3232,6 +3232,15 @@ INSERT INTO single_model VALUES(47596,12625,'Skink Musiker',12625,'Lockere Forma
 INSERT INTO single_model VALUES(47597,12626,'Großkamm Musiker',12626,'Kaltblütig, Kampfechsen unterliegen der Blödheit.');
 INSERT INTO single_model VALUES(47598,12627,'Skink-Besatzung Musiker',12627,'Aufpralltreffer (W6 S:5), Angst, Fernwaffen der Skinks sind vergiftet.');
 
+-- manually added single model
+INSERT INTO single_model VALUES(47599,12034,'Elfenroß',12464,'');
+INSERT INTO single_model VALUES(47600,12034,'Elfenroß',12583,'');
+INSERT INTO single_model VALUES(47601,12034,'Elfenroß',12584,'');
+INSERT INTO single_model VALUES(47602,12034,'Elfenroß',12465,'');
+INSERT INTO single_model VALUES(47603,12034,'Elfenroß',12585,'');
+INSERT INTO single_model VALUES(47604,12034,'Elfenroß',12466,'');
+
+
 
 INSERT INTO melee_weapon VALUES(1,'Handwaffe',0,'',-1,0,0);
 INSERT INTO melee_weapon VALUES(2,'Zweihändige Waffe',2,'',-1,0,0);
@@ -6065,6 +6074,7 @@ INSERT INTO slot VALUES(4770,47596,90,1,1,6);
 INSERT INTO slot VALUES(4775,47597,90,1,1,6);
 INSERT INTO slot VALUES(4780,47598,90,1,1,6);
 
+-- manually added slot
 INSERT INTO slot VALUES(4781,46492,60,1,1,4);
 INSERT INTO slot VALUES(4782,46493,60,1,1,4);
 INSERT INTO slot VALUES(4783,46496,60,1,1,4);
