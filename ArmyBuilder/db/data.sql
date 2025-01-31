@@ -3249,6 +3249,7 @@ INSERT INTO melee_weapon VALUES(4,'Hellebarde',2,'',-1,0,0);
 INSERT INTO melee_weapon VALUES(5,'Speer',1,'',-1,0,0);
 INSERT INTO melee_weapon VALUES(6,'Lanze',2,'',-1,0,0);
 INSERT INTO melee_weapon VALUES(7,'Henkeraxt',3,'',5,0,0);
+INSERT INTO melee_weapon VALUES(8,'Zweite Handwaffe',1,'',-1,0,0);
 INSERT INTO melee_weapon VALUES(5637,'Skabskrath',50,'Verurstacht Entsetzen.',12,0,1);
 INSERT INTO melee_weapon VALUES(5638,'Schwert des Mutes',50,'Schwertführer ist immun gegen Angst, Entsetzen und Panik.',-1,0,1);
 INSERT INTO melee_weapon VALUES(5639,'Peinigerklinge',40,'Opfer unterliegt der Blödheitsregel.',-1,0,1);
@@ -6145,6 +6146,13 @@ INSERT INTO slot VALUES(4843,47375,41,0,0,3);
 INSERT INTO slot VALUES(4844,47375,6076,0,0,6);
 INSERT INTO slot VALUES(4845,46491,60,1,1,4);
 INSERT INTO slot VALUES(4846,46491,60,1,1,4);
+INSERT INTO slot VALUES(4847,46963,8,0,0,0);
+INSERT INTO slot VALUES(4848,46963,41,0,0,3);
+INSERT INTO slot VALUES(4849,47504,8,0,0,0);
+INSERT INTO slot VALUES(4850,47504,41,0,0,3);
+INSERT INTO slot VALUES(4851,47390,8,0,0,0);
+INSERT INTO slot VALUES(4852,47390,41,0,0,3);
+
 
 
 COMMIT;
