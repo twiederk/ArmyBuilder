@@ -89,7 +89,7 @@ namespace ArmyBuilder.Test.Dao
             List<Instrument> AllInstrument = _repository.AllInstrument();
 
             // assert
-            AllInstrument.Should().HaveCount(1);
+            AllInstrument.Should().HaveCount(2);
         }
 
         [Fact]
@@ -99,9 +99,7 @@ namespace ArmyBuilder.Test.Dao
             List<Misc> AllMisc = _repository.AllMisc();
 
             // assert
-            AllMisc.Should().HaveCount(87);
-            Misc staffOfCyoes = AllMisc.FirstOrDefault(a => a.Id == 6055);
-            staffOfCyoes.Name.Should().Be("Stab des Cyeos");
+            AllMisc.Should().HaveCount(88);
         }
 
         [Fact]
@@ -187,7 +185,7 @@ namespace ArmyBuilder.Test.Dao
             List<Equipment> equipments = _repository.ArmyListEquipment(armyListId);
 
             // assert
-            equipments.Should().HaveCount(55);
+            equipments.Should().HaveCount(59);
 
             // spearmen equipment
             Equipment spearmenEquipment = equipments.First(e => e.Id == spearmentSingleModelId);

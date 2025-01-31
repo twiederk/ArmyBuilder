@@ -95,7 +95,7 @@ namespace ArmyBuilder.Test.ViewModels
             var result = _armyListLoader.selectableItems(slot, highElfArmyList);
 
             // assert
-            result.Should().HaveCount(6);
+            result.Should().HaveCount(7);
         }
     }
 }

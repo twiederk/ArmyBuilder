@@ -21,8 +21,11 @@ namespace ArmyBuilder.ViewModels
         public SingleModelTreeNode(SingleModel singleModel) : this()
         {
             _singleModel = singleModel;
-            EquipmentTreeNode equipmentTreeNode = new EquipmentTreeNode(_singleModel.Equipment);
-            Equipment.Add(equipmentTreeNode);
+            if (!_singleModel.Equipment.IsEmpty())
+            {
+                EquipmentTreeNode equipmentTreeNode = new EquipmentTreeNode(_singleModel.Equipment);
+                Equipment.Add(equipmentTreeNode);
+            }
         }
         
 
