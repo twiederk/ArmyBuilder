@@ -3581,7 +3581,7 @@ INSERT INTO standard VALUES(5838,'Das Halbmondbanner',35,'-1 auf Beschuß, Nacht
 INSERT INTO standard VALUES(5839,'Spinnenbanner',35,'Verdoppelt Attacken in der ersten Kampfrunde. Nur für Waldgoblins.',9,0,1);
 INSERT INTO standard VALUES(5840,'Blutbanner',10,'Ignoriert die Auswirkung von Blödheit. Nur für Echsenreiter.',5,0,1);
 INSERT INTO standard VALUES(5841,'Heilige Standarte der Gehörnte',75,'Einheit hat MW:10. Bei 4+ erhält man die Energiekarten des Spruches.',10,0,1);
-INSERT INTO standard VALUES(5842,'Banner von Avelorn',25,'Gegner muss Moraltest bestehen um Jungferngarde anzugreifen.',7,0,1);
+INSERT INTO standard VALUES(5842,'Banner von Avelorn',25,'Gegner muss Moraltest bestehen um Jungferngarde anzugreifen.',7,1,1);
 INSERT INTO standard VALUES(5843,'Jaguarstandarte',25,'+1W6 auf BW, drei Anwendungen',6,0,1);
 INSERT INTO standard VALUES(5844,'Banner der Herrin des Sees',75,'negiert Gliederbonus',0,0,1);
 INSERT INTO standard VALUES(5845,'Banner der rechtschaffenden Ve',75,'Schleudert Geschosse zurück.',0,0,1);
@@ -3604,7 +3604,7 @@ INSERT INTO standard VALUES(6072,'Sonnenstandarte von Hexoatl',50,'',6,1,1);
 
 
 INSERT INTO instrument VALUES(90,'None',0,'',-1,0,0);
-INSERT INTO instrument VALUES(6076,'Horn von Ish',0,'Einmal pro Schlacht entweder 2x Schießen oder 2x Attackieren',-1,0,0);
+INSERT INTO instrument VALUES(6076,'Horn von Ish',25,'Einmal pro Schlacht entweder 2x Schießen oder 2x Attackieren',7,1,1);
 
 
 INSERT INTO misc VALUES(60,'None',0,'',-1,0,0);
@@ -5855,7 +5855,6 @@ INSERT INTO slot VALUES(3645,47371,90,1,1,6);
 INSERT INTO slot VALUES(3650,47372,90,1,1,6);
 INSERT INTO slot VALUES(3655,47373,90,1,1,6);
 INSERT INTO slot VALUES(3660,47374,90,1,1,6);
-INSERT INTO slot VALUES(3665,47375,90,1,1,6);
 INSERT INTO slot VALUES(3670,47376,90,1,1,6);
 INSERT INTO slot VALUES(3675,47377,90,1,1,6);
 INSERT INTO slot VALUES(3680,47378,90,1,1,6);
@@ -5969,7 +5968,6 @@ INSERT INTO slot VALUES(4215,47485,100,1,1,5);
 INSERT INTO slot VALUES(4220,47486,100,1,1,5);
 INSERT INTO slot VALUES(4225,47487,100,1,1,5);
 INSERT INTO slot VALUES(4230,47488,100,1,1,5);
-INSERT INTO slot VALUES(4235,47489,100,1,1,5);
 INSERT INTO slot VALUES(4240,47490,100,1,1,5);
 INSERT INTO slot VALUES(4245,47491,100,1,1,5);
 INSERT INTO slot VALUES(4250,47492,100,1,1,5);
