@@ -76,7 +76,7 @@ namespace ArmyBuilder.Test.ViewModels
             var result = _armyListLoader.selectableItems(slot, highElfArmyList);
 
             // assert
-            result.Should().HaveCount(64);
+            result.Should().HaveCount(63);
         }
 
         [Fact]

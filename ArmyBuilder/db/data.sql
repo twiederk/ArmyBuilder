@@ -3581,7 +3581,7 @@ INSERT INTO standard VALUES(5838,'Das Halbmondbanner',35,'-1 auf Beschuß, Nacht
 INSERT INTO standard VALUES(5839,'Spinnenbanner',35,'Verdoppelt Attacken in der ersten Kampfrunde. Nur für Waldgoblins.',9,0,1);
 INSERT INTO standard VALUES(5840,'Blutbanner',10,'Ignoriert die Auswirkung von Blödheit. Nur für Echsenreiter.',5,0,1);
 INSERT INTO standard VALUES(5841,'Heilige Standarte der Gehörnte',75,'Einheit hat MW:10. Bei 4+ erhält man die Energiekarten des Spruches.',10,0,1);
-INSERT INTO standard VALUES(5842,'Banner von Avelorn / Horn von ',50,'Magische Gegenstände der Jungferngarde',7,0,1);
+INSERT INTO standard VALUES(5842,'Banner von Avelorn',25,'Gegner muss Moraltest bestehen um Jungferngarde anzugreifen.',7,0,1);
 INSERT INTO standard VALUES(5843,'Jaguarstandarte',25,'+1W6 auf BW, drei Anwendungen',6,0,1);
 INSERT INTO standard VALUES(5844,'Banner der Herrin des Sees',75,'negiert Gliederbonus',0,0,1);
 INSERT INTO standard VALUES(5845,'Banner der rechtschaffenden Ve',75,'Schleudert Geschosse zurück.',0,0,1);
@@ -3604,6 +3604,7 @@ INSERT INTO standard VALUES(6072,'Sonnenstandarte von Hexoatl',50,'',6,1,1);
 
 
 INSERT INTO instrument VALUES(90,'None',0,'',-1,0,0);
+INSERT INTO instrument VALUES(6076,'Horn von Ish',0,'Einmal pro Schlacht entweder 2x Schießen oder 2x Attackieren',-1,0,0);
 
 
 INSERT INTO misc VALUES(60,'None',0,'',-1,0,0);
@@ -6134,10 +6135,11 @@ INSERT INTO slot VALUES(4836,47563,31,0,0,1);
 INSERT INTO slot VALUES(4837,47489,5,0,0,0);
 INSERT INTO slot VALUES(4838,47489,13,0,0,2);
 INSERT INTO slot VALUES(4839,47489,41,0,0,3);
-INSERT INTO slot VALUES(4840,47375,5,0,0,0);
-INSERT INTO slot VALUES(4841,47375,13,0,0,2);
-INSERT INTO slot VALUES(4842,47375,41,0,0,3);
-
+INSERT INTO slot VALUES(4840,47489,5842,0,1,5);
+INSERT INTO slot VALUES(4841,47375,5,0,0,0);
+INSERT INTO slot VALUES(4842,47375,13,0,0,2);
+INSERT INTO slot VALUES(4843,47375,41,0,0,3);
+INSERT INTO slot VALUES(4844,47375,6076,0,0,6);
 
 
 COMMIT;
