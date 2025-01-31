@@ -24,7 +24,7 @@ namespace ArmyBuilder.Test.Dao
             List<MeleeWeapon> AllMeleeWeapon = _repository.AllMeleeWeapon();
 
             // assert
-            AllMeleeWeapon.Should().HaveCount(199);
+            AllMeleeWeapon.Should().HaveCount(200);
         }
 
         [Fact]
@@ -185,7 +185,7 @@ namespace ArmyBuilder.Test.Dao
             List<Equipment> equipments = _repository.ArmyListEquipment(armyListId);
 
             // assert
-            equipments.Should().HaveCount(57);
+            equipments.Should().HaveCount(59);
 
             // spearmen equipment
             Equipment spearmenEquipment = equipments.First(e => e.Id == spearmentSingleModelId);
