@@ -127,7 +127,7 @@ namespace ArmyBuilder.Test.Dao
             Slot armorSlot = equipment.Slots.First(slot => slot.Id == 2223);
             armorSlot.Item.Should().NotBeNull();
             armorSlot.Item.Name.Should().Be("Leichte Rüstung");
-            armorSlot.Editable.Should().BeTrue();
+            armorSlot.Editable.Should().BeFalse();
         }
 
         [Fact]
