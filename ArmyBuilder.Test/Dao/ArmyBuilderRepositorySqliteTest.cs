@@ -56,6 +56,7 @@ namespace ArmyBuilder.Test.Dao
             profile.Initiative.Should().Be(7);
             profile.Attacks.Should().Be(1);
             profile.Moral.Should().Be(8);
+            profile.Save.Should().Be(7);
         }
 
         [Fact]
@@ -76,6 +77,7 @@ namespace ArmyBuilder.Test.Dao
             singleModel.Profile.Initiative.Should().Be(7);
             singleModel.Profile.Attacks.Should().Be(1);
             singleModel.Profile.Moral.Should().Be(8);
+            singleModel.Profile.Save.Should().Be(7);
         }
 
         [Fact]

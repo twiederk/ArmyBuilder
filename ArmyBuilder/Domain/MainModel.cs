@@ -54,7 +54,8 @@ namespace ArmyBuilder.Domain
                         Wounds = sm.Profile.Wounds,
                         Initiative = sm.Profile.Initiative,
                         Attacks = sm.Profile.Attacks,
-                        Moral = sm.Profile.Moral
+                        Moral = sm.Profile.Moral,
+                        Save = sm.Profile.Save
                     },
                     Equipment = new Equipment
                     {

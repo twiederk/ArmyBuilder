@@ -34,7 +34,7 @@ namespace ArmyBuilder.Dao
                 SELECT 
                     mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points,
                     sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId,
-                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral
+                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Save
                 FROM 
                     main_model mm
                 LEFT JOIN 
@@ -77,7 +77,7 @@ namespace ArmyBuilder.Dao
             var sql = @"
                 SELECT 
                     sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId,
-                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.strength, p.toughness, p.wounds, p.initiative, p.attacks, p.moral
+                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.strength, p.toughness, p.wounds, p.initiative, p.attacks, p.moral, p.save
                 FROM 
                     single_model sm
                 INNER JOIN 
