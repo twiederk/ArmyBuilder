@@ -11,6 +11,11 @@ namespace ArmyBuilder.Domain
         public Profile Profile { get; set; }
         public Equipment Equipment { get; set; } = new Equipment();
 
+        public int Save()
+        {
+            return Profile.Save; 
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is SingleModel other)
