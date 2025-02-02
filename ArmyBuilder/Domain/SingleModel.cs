@@ -15,7 +15,8 @@ namespace ArmyBuilder.Domain
         public String CalculateSave()
         {
             int save = Profile.Save;
-            return displaySave(save); 
+            int armorSave = Equipment.Armor().Sum(a => a?.Save ?? 0);
+            return displaySave(save - armorSave);
         }
 
         private String displaySave(int save)

@@ -45,6 +45,41 @@ namespace ArmyBuilder.Test.Domain
             save.Should().Be("5+");
         }
 
+        [Fact]
+        public void should_return_save_6_when_wearing_light_armor()
+        {
+            // arrange
+            var lightArmor = new Armor { Id = 1, Name = "Light Armor", Save = 1 };
+            var slot = new Slot { Id = 1, Item = lightArmor };
+            var equipment = new Equipment();
+            equipment.Slots.Add(slot);
+            var singleModel = new SingleModel { Profile = new Profile { Save = 7 }, Equipment = equipment };
+
+            // act
+            string save = singleModel.Save;
+
+            // assert
+            save.Should().Be("6");
+        }
+
+        [Fact]
+        public void should_return_save_5_when_wearing_light_armor()
+        {
+            // arrange
+            var lightArmorSlot = new Slot { Item = new Armor { Name = "Light Armor", Save = 1 } };
+            var shieldSlot = new Slot {  Item = new Armor { Name = "Shield", Save = 1 } };
+            var equipment = new Equipment();
+            equipment.Slots.Add(lightArmorSlot);
+            equipment.Slots.Add(shieldSlot);
+            var singleModel = new SingleModel { Profile = new Profile { Save = 7 }, Equipment = equipment };
+
+            // act
+            string save = singleModel.Save;
+
+            // assert
+            save.Should().Be("5+");
+        }
+
     }
 }
 
