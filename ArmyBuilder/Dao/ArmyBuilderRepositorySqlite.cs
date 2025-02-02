@@ -191,7 +191,7 @@ namespace ArmyBuilder.Dao
                     u.Id, u.Name,
                     mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, umm.count as Count,
                     sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId,
-                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral
+                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Save
                 FROM 
                     army a
                 LEFT JOIN 

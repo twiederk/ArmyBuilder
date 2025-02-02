@@ -70,8 +70,8 @@
                                 <ColumnDefinition Width="25" />
                                 <ColumnDefinition Width="25" />
                                 <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="35" />
-                                <ColumnDefinition Width="35" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="25" />
                             </Grid.ColumnDefinitions>
 
                             <Label Grid.Row="1" Grid.Column="0" Content="{Binding Name}" />

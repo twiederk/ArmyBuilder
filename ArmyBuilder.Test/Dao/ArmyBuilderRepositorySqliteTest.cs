@@ -156,6 +156,7 @@ namespace ArmyBuilder.Test.Dao
             profile.Toughness.Should().Be(4);
             profile.Wounds.Should().Be(3);
             profile.Initiative.Should().Be(9);
+            profile.Save.Should().Be(7);
 
             MainModel spearmen = generalUnit.MainModels[1];
             spearmen.Name.Should().Be("Speerträger");
