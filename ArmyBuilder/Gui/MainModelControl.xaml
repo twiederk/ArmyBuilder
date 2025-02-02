@@ -67,6 +67,7 @@
                         <Label Grid.Row="1" Grid.Column="7" Content="{Binding Profile.Initiative}" />
                         <Label Grid.Row="1" Grid.Column="8" Content="{Binding Profile.Attacks}" />
                         <Label Grid.Row="1" Grid.Column="9" Content="{Binding Profile.Moral}" />
+                        <Label Grid.Row="1" Grid.Column="10" Content="{Binding Save}" />
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

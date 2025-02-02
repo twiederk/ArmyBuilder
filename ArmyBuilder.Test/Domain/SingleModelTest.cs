@@ -13,10 +13,10 @@ namespace ArmyBuilder.Test.Domain
             var singleModel = new SingleModel { Profile = new Profile { Save = 7 }  };
 
             // act
-            int save = singleModel.Save();
+            string save = singleModel.Save;
 
             // assert
-            save.Should().Be(7);
+            save.Should().Be("7");
         }
 
     }

@@ -10,10 +10,11 @@ namespace ArmyBuilder.Domain
         public string Description { get; set; }
         public Profile Profile { get; set; }
         public Equipment Equipment { get; set; } = new Equipment();
+        public String Save => CalculateSave();
 
-        public int Save()
+        public String CalculateSave()
         {
-            return Profile.Save; 
+            return Profile.Save.ToString(); 
         }
 
         public override bool Equals(object obj)
