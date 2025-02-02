@@ -63,11 +63,11 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
-        public void should_return_save_5_when_wearing_light_armor()
+        public void should_return_save_5_when_wearing_light_armor_and_shield()
         {
             // arrange
             var lightArmorSlot = new Slot { Item = new Armor { Name = "Light Armor", Save = 1 } };
-            var shieldSlot = new Slot {  Item = new Armor { Name = "Shield", Save = 1 } };
+            var shieldSlot = new Slot {  Item = new Shield { Name = "Shield", Save = 1 } };
             var equipment = new Equipment();
             equipment.Slots.Add(lightArmorSlot);
             equipment.Slots.Add(shieldSlot);

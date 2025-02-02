@@ -24,6 +24,11 @@ namespace ArmyBuilder.Domain
             return Slots.Where(slot => slot.Item is Armor).Select(slot => slot.Item as Armor).ToList();
         }
 
+        public List<Shield> Shield()
+        {
+            return Slots.Where(slot => slot.Item is Shield).Select(slot => slot.Item as Shield).ToList();
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is Equipment other)
