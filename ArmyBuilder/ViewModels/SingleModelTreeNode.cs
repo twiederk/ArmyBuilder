@@ -1,4 +1,5 @@
 using ArmyBuilder.Domain;
+using System.ComponentModel;
 using System.Windows.Controls;
 
 namespace ArmyBuilder.ViewModels
@@ -29,7 +30,18 @@ namespace ArmyBuilder.ViewModels
                 Equipment.Add(equipmentTreeNode);
             }
         }
-        
+
+        public bool ContainsSlotViewModel(SlotViewModel slotViewModel)
+        {
+            return Equipment.SelectMany(e => e.SlotViews).Any(s => s == slotViewModel);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
     }
 }

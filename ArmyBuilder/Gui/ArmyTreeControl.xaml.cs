@@ -1,5 +1,6 @@
 ﻿using ArmyBuilder.Domain;
 using ArmyBuilder.ViewModels;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -114,6 +115,43 @@ namespace ArmyBuilder
             mainModelTreeNode.UpdateCount();
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ComboBox comboBox && comboBox.DataContext is SlotViewModel slotViewModel)
+            {
+                // Access the ArmyTreeViewModel
+                var armyViewModel = DataContext as ArmyViewModel;
+                if (armyViewModel != null)
+                {
+                    // Find the SingleModelTreeNode that contains the SlotViewModel
+                    var singleModelTreeNode = FindSingleModelTreeNode(armyViewModel.ArmyTreeViewModel, slotViewModel);
+                    if (singleModelTreeNode != null)
+                    {
+                        singleModelTreeNode.OnPropertyChanged(nameof(SingleModel.Save));
+                    }
+                }
+            }
+        }
 
+        private SingleModelTreeNode FindSingleModelTreeNode(ArmyTreeViewModel armyTreeViewModel, SlotViewModel slotViewModel)
+        {
+            foreach (var armyTreeNode in armyTreeViewModel.Root)
+            {
+                foreach (var unitTreeNode in armyTreeNode.Units)
+                {
+                    foreach (var mainModelTreeNode in unitTreeNode.MainModels)
+                    {
+                        foreach (var singleModelTreeNode in mainModelTreeNode.SingleModels)
+                        {
+                            if (singleModelTreeNode.ContainsSlotViewModel(slotViewModel))
+                            {
+                                return singleModelTreeNode;
+                            }
+                        }
+                    }
+                }
+            }
+            return null;
+        }
     }
 }
