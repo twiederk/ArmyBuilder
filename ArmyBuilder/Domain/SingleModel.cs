@@ -14,7 +14,18 @@ namespace ArmyBuilder.Domain
 
         public String CalculateSave()
         {
-            return Profile.Save.ToString(); 
+            int save = Profile.Save;
+            return displaySave(save); 
+        }
+
+        private String displaySave(int save)
+        {
+            return save switch
+            {
+                > 6 => "-",
+                6 => "6",
+                _ => $"{save}+"
+            };
         }
 
         public override bool Equals(object obj)
