@@ -53,6 +53,42 @@ namespace ArmyBuilder.Test.Domain
             // assert
             result.Should().BeFalse();
         }
+
+        [Fact]
+        public void should_return_armor_items()
+        {
+            // arrange
+            Slot slot1 = new Slot() { Id = 1, Item = new Armor { Id = 1, Name = "Plate Armor" } };
+            Slot slot2 = new Slot() { Id = 2, Item = new Item { Id = 2, Name = "Sword" } };
+            Slot slot3 = new Slot() { Id = 3, Item = new Armor { Id = 3, Name = "Chainmail" } };
+            Equipment equipment = new Equipment();
+            equipment.Slots.Add(slot1);
+            equipment.Slots.Add(slot2);
+            equipment.Slots.Add(slot3);
+
+            // act
+            var result = equipment.Armor();
+
+            // assert
+            result.Should().HaveCount(2);
+            result.Should().Contain(a => a.Name == "Plate Armor");
+            result.Should().Contain(a => a.Name == "Chainmail");
+        }
+
+        [Fact]
+        public void should_return_empty_list_when_equipent_contains_no_armor()
+        {
+            // arrange
+            Slot slot = new Slot() { Id = 1, Item = new Item { Id = 1, Name = "Sword" } };
+            Equipment equipment = new Equipment();
+            equipment.Slots.Add(slot);
+
+            // act
+            var result = equipment.Armor();
+
+            // assert
+            result.Should().BeEmpty();
+        }
     }
 }
 
