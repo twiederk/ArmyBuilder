@@ -84,6 +84,7 @@
                             <Label Grid.Row="1" Grid.Column="7" Content="{Binding Initiative}" />
                             <Label Grid.Row="1" Grid.Column="8" Content="{Binding Attacks}" />
                             <Label Grid.Row="1" Grid.Column="9" Content="{Binding Moral}" />
+                            <Label Grid.Row="1" Grid.Column="10" Content="{Binding Save}" />
                         </Grid>
                     </HierarchicalDataTemplate>
 
