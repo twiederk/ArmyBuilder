@@ -45,6 +45,8 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             AllShield.Should().HaveCount(17);
+            Shield shield = AllShield.FirstOrDefault(a => a.Id == 31);
+            shield.Save.Should().Be(1);
         }
 
         [Fact]

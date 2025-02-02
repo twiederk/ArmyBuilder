@@ -2,8 +2,6 @@
 using System.Data;
 using Dapper.Contrib.Extensions;
 using Dapper;
-using System.Windows.Controls.Primitives;
-using System.Xml.Linq;
 
 namespace ArmyBuilder.Dao
 {
@@ -468,7 +466,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
             SELECT 
-                s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points,
+                s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points, s.Save,
                 al.Id, al.Name
             FROM 
                 shield s
