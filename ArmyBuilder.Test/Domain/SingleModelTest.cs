@@ -90,7 +90,7 @@ namespace ArmyBuilder.Test.Domain
             string save = singleModel.Save;
 
             // assert
-            save.Should().Be("5+");
+            save.Should().Be("6");
         }
 
     }
