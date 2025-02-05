@@ -80,6 +80,19 @@ namespace ArmyBuilder.Test.Domain
             save.Should().Be("5+");
         }
 
+        [Fact]
+        public void should_return_save_5_when_mount_status_is_riding()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Save = 7 }, MountStatus = MountStatus.Riding };
+
+            // act
+            string save = singleModel.Save;
+
+            // assert
+            save.Should().Be("5+");
+        }
+
     }
 }
 
