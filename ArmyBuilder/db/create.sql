@@ -50,16 +50,25 @@ CREATE TABLE IF NOT EXISTS "main_model"
 );
 
 
+CREATE TABLE IF NOT EXISTS "mount_status"
+("id"             INTEGER,
+ "mount_status"   VARCHAR(50),
+ PRIMARY KEY(id) 
+);
+
+
 CREATE TABLE IF NOT EXISTS "single_model"
 ("id"                INTEGER,
  "profile_id"        INTEGER,
  "name"              VARCHAR(60),
  "main_model_id"     INTEGER,
  "description"       VARCHAR(110),
+ "mount_status"      INTEGER,
  PRIMARY KEY(id)
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
 );
+
 
 
 CREATE TABLE IF NOT EXISTS "army"
