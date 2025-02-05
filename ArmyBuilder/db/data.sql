@@ -3444,7 +3444,7 @@ INSERT INTO melee_weapon VALUES(6070,'Schädel des Katam',35,'',2,1,1);
 INSERT INTO melee_weapon VALUES(6073,'Stab der Macht',40,'',12,1,1);
 
 
-INSERT INTO ranged_weapon VALUES(10,'None',0,'',-1,0,0,0,0);
+INSERT INTO ranged_weapon VALUES(10,'keine',0,'',-1,0,0,0,0);
 INSERT INTO ranged_weapon VALUES(11,'Bogen',2,'',-1,0,0,3,24);
 INSERT INTO ranged_weapon VALUES(12,'Kurzbogen',1,'',-1,0,0,3,16);
 INSERT INTO ranged_weapon VALUES(13,'Langbogen',3,'',-1,0,0,3,30);
@@ -3467,7 +3467,7 @@ INSERT INTO ranged_weapon VALUES(5971,'Drachenbogen',40,'',8,1,1,0,0);
 INSERT INTO ranged_weapon VALUES(6048,'Pfeil des Schicksals',25,'',13,1,1,0,0);
 
 
-INSERT INTO armor VALUES(40,'None',0,'',-1,0,0,0);
+INSERT INTO armor VALUES(40,'keine',0,'',-1,0,0,0);
 INSERT INTO armor VALUES(41,'Leichte Rüstung',2,'',-1,0,0,1);
 INSERT INTO armor VALUES(42,'Schwere Rüstung',3,'',-1,0,0,2);
 INSERT INTO armor VALUES(43,'Chaosrüstung',10,'',1,0,0,3);
@@ -3528,7 +3528,7 @@ INSERT INTO armor VALUES(6074,'Valayas Runenumhang',75,'',14,1,1,0);
 INSERT INTO armor VALUES(6075,'Wappenrock der Könige',75,'',0,1,1,0);
 
 
-INSERT INTO shield VALUES(30,'None',0,'',-1,0,0,0);
+INSERT INTO shield VALUES(30,'keines',0,'',-1,0,0,0);
 INSERT INTO shield VALUES(31,'Schild',1,'',-1,0,0,1);
 INSERT INTO shield VALUES(5771,'Zauberbannender Schild',100,'1-2 Spruch wirkt, aber um Spruch würfeln. Bei 3+ Spruch gebannt.',-1,0,1,0);
 INSERT INTO shield VALUES(5772,'Zauberspruch Schild',50,'Abweichwürfel bestimmt ob der Spruch gebannt oder abgelengt wird.',-1,0,1,0);
@@ -3547,7 +3547,7 @@ INSERT INTO shield VALUES(5969,'Chaos-Runenschild',50,'',2,1,1,0);
 INSERT INTO shield VALUES(5975,'Gralschild',25,'',0,1,1,0);
 
 
-INSERT INTO standard VALUES(100,'None',0,'',-1,0,0);
+INSERT INTO standard VALUES(100,'keine',0,'',-1,0,0);
 INSERT INTO standard VALUES(5808,'Standarte der Leidenschaft',50,'Einheit immun gegen Psychologie- und Aufreibtests',11,0,1);
 INSERT INTO standard VALUES(5809,'Die Fluchstandarte',50,'Einheit in 8" erleidet 2W6 Treffer mit S:6. Bei Opfern Panik-Test.',11,0,1);
 INSERT INTO standard VALUES(5810,'Seuchenbanner',20,'Raubt einer gegnerischen Einheit im Nahkampf W6 LP. Nur einmal pro Spiel.',11,0,1);
@@ -3604,11 +3604,11 @@ INSERT INTO standard VALUES(5974,'Fleur de Lys Banner',100,'',0,1,1);
 INSERT INTO standard VALUES(6072,'Sonnenstandarte von Hexoatl',50,'',6,1,1);
 
 
-INSERT INTO instrument VALUES(90,'None',0,'',-1,0,0);
+INSERT INTO instrument VALUES(90,'keines',0,'',-1,0,0);
 INSERT INTO instrument VALUES(6076,'Horn von Ish',25,'Einmal pro Schlacht entweder 2x Schießen oder 2x Attackieren',7,1,1);
 
 
-INSERT INTO misc VALUES(60,'None',0,'',-1,0,0);
+INSERT INTO misc VALUES(60,'kein',0,'',-1,0,0);
 INSERT INTO misc VALUES(5862,'Energiespruchrolle',30,'Spruch ohne Energiekarten wirken. Muß zu Beginn der Magiephase eingesetzt werden',-1,0,1);
 INSERT INTO misc VALUES(5863,'Magie Bannende Spruchrolle',25,'Automatischer Magiebann. Kann nur einmal benutzt werden.',-1,0,1);
 INSERT INTO misc VALUES(5864,'Warpspruchrolle',50,'Einheit in 24", jeder erleidet Treffer mit S:3. Bei Opfern Panik-Test.',10,0,1);
