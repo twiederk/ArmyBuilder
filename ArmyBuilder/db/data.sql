@@ -3473,6 +3473,8 @@ INSERT INTO armor VALUES(42,'Schwere Rüstung',3,'',-1,0,0,2);
 INSERT INTO armor VALUES(43,'Chaosrüstung',10,'',1,0,0,3);
 INSERT INTO armor VALUES(44,'Drachenumhang',5,'',5,0,0,2);
 INSERT INTO armor VALUES(45,'Scale Skin',0,'',6,0,0,2);
+INSERT INTO armor VALUES(46,'Leichte Rüstung und Roßharnisch',6,'',-1,0,0,2);
+INSERT INTO armor VALUES(47,'Schwere Rüstung und Roßharnisch',7,'',-1,0,0,3);
 INSERT INTO armor VALUES(51,'Roßharnisch',4,'',-1,0,0,1);
 INSERT INTO armor VALUES(5781,'Chaosrüstung',10,'Rettungswurf 4+.',1,0,1,0);
 INSERT INTO armor VALUES(5782,'Meteorrüstung',25,'Rettungswurf 2+.',-1,0,1,0);
