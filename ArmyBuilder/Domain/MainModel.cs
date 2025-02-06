@@ -44,6 +44,7 @@ namespace ArmyBuilder.Domain
                     Id = sm.Id,
                     Name = sm.Name,
                     Description = sm.Description,
+                    MountStatus = sm.MountStatus,
                     Profile = new Profile
                     {
                         Movement = sm.Profile.Movement,

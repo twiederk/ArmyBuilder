@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using System.Diagnostics;
+using Dapper.Contrib.Extensions;
 
 namespace ArmyBuilder.Domain
 {
