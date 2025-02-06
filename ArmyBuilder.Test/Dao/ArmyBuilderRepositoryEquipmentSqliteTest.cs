@@ -56,10 +56,10 @@ namespace ArmyBuilder.Test.Dao
             List<Armor> AllArmor = _repository.AllArmor();
 
             // assert
-            AllArmor.Should().HaveCount(59);
+            AllArmor.Should().HaveCount(61);
             Armor armor = AllArmor[0];
             armor.Id.Should().Be(40);
-            armor.Name.Should().Be("None");
+            armor.Name.Should().Be("keine");
             armor.Description.Should().Be("");
             armor.ArmyList.Should().BeNull();
             armor.Magic.Should().BeFalse();
@@ -68,7 +68,7 @@ namespace ArmyBuilder.Test.Dao
             Armor chaosShield = AllArmor.FirstOrDefault(a => a.Id == 5784);
             chaosShield.Id.Should().Be(5784);
             chaosShield.Name.Should().Be("Magische Kriegsbemalung");
-            chaosShield.Description.Should().Be("RW von 3+ gegen Beschuß, 5+ im Nahkampf.");
+            chaosShield.Description.Should().Be("RW von 3+ gegen BeschuÃŸ, 5+ im Nahkampf.");
             chaosShield.ArmyList.Should().Be(new ArmyList() { Id = 9, Name = "Orks & Goblins" });
             chaosShield.Magic.Should().BeTrue();
             chaosShield.Points.Should().Be(5);
@@ -128,7 +128,7 @@ namespace ArmyBuilder.Test.Dao
 
             Slot armorSlot = equipment.Slots.First(slot => slot.Id == 2223);
             armorSlot.Item.Should().NotBeNull();
-            armorSlot.Item.Name.Should().Be("Leichte Rüstung");
+            armorSlot.Item.Name.Should().Be("Leichte RÃ¼stung");
             armorSlot.Editable.Should().BeFalse();
         }
 

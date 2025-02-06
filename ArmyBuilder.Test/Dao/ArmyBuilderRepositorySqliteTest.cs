@@ -46,6 +46,8 @@ namespace ArmyBuilder.Test.Dao
 
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
+            singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
+            
             var profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
             profile.WeaponSkill.Should().Be(5);
