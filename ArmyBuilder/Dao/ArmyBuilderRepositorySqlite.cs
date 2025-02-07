@@ -2,8 +2,6 @@
 using System.Data;
 using Dapper.Contrib.Extensions;
 using Dapper;
-using System.Windows.Controls.Primitives;
-using System.Xml.Linq;
 
 namespace ArmyBuilder.Dao
 {
@@ -33,8 +31,8 @@ namespace ArmyBuilder.Dao
             var sql = @"
                 SELECT 
                     mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points,
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId,
-                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.mount_status as MountStatus,
+                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Save
                 FROM 
                     main_model mm
                 LEFT JOIN 
@@ -76,8 +74,8 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId,
-                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.strength, p.toughness, p.wounds, p.initiative, p.attacks, p.moral
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.mount_status as MountStatus,
+                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.strength, p.toughness, p.wounds, p.initiative, p.attacks, p.moral, p.save
                 FROM 
                     single_model sm
                 INNER JOIN 
@@ -112,7 +110,7 @@ namespace ArmyBuilder.Dao
             var sql = @"
                 SELECT 
                     mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points,
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId,
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.mount_status as MountStatus,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral
                 FROM 
                     main_model mm
@@ -190,8 +188,8 @@ namespace ArmyBuilder.Dao
                     al.Id, al.Name,
                     u.Id, u.Name,
                     mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, umm.count as Count,
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId,
-                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.mount_status as MountStatus,
+                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Save
                 FROM 
                     army a
                 LEFT JOIN 
@@ -468,7 +466,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
             SELECT 
-                s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points,
+                s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points, s.Save,
                 al.Id, al.Name
             FROM 
                 shield s

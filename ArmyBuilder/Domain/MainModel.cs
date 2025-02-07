@@ -44,6 +44,7 @@ namespace ArmyBuilder.Domain
                     Id = sm.Id,
                     Name = sm.Name,
                     Description = sm.Description,
+                    MountStatus = sm.MountStatus,
                     Profile = new Profile
                     {
                         Movement = sm.Profile.Movement,
@@ -54,7 +55,8 @@ namespace ArmyBuilder.Domain
                         Wounds = sm.Profile.Wounds,
                         Initiative = sm.Profile.Initiative,
                         Attacks = sm.Profile.Attacks,
-                        Moral = sm.Profile.Moral
+                        Moral = sm.Profile.Moral,
+                        Save = sm.Profile.Save
                     },
                     Equipment = new Equipment
                     {

@@ -1,5 +1,6 @@
 ﻿using ArmyBuilder.Domain;
 using ArmyBuilder.ViewModels;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -114,6 +115,14 @@ namespace ArmyBuilder
             mainModelTreeNode.UpdateCount();
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ComboBox comboBox && comboBox.DataContext is SlotViewModel slotViewModel && comboBox.Tag is ItemsControl itemsControl)
+            {
+                var equipmentTreeNode = itemsControl.DataContext as EquipmentTreeNode;
+                equipmentTreeNode.UpdateEquipment();
+            }
+        }
 
     }
 }

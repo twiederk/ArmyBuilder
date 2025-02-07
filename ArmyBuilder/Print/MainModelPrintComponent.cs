@@ -47,6 +47,7 @@ namespace ArmyBuilder.Print
                 columns.RelativeColumn(20);
                 columns.RelativeColumn(20);
                 columns.RelativeColumn(20);
+                columns.RelativeColumn(20);
             });
         }
 
@@ -64,6 +65,7 @@ namespace ArmyBuilder.Print
                 header.Cell().Element(CellStyle).Text("I");
                 header.Cell().Element(CellStyle).Text("A");
                 header.Cell().Element(CellStyle).Text("MW");
+                header.Cell().Element(CellStyle).Text("RW");
 
                 static IContainer CellStyle(IContainer container)
                 {
@@ -92,6 +94,7 @@ namespace ArmyBuilder.Print
             table.Cell().Element(CellStyle).Text(singleModel.Profile.Initiative.ToString());
             table.Cell().Element(CellStyle).Text(singleModel.Profile.Attacks.ToString());
             table.Cell().Element(CellStyle).Text(singleModel.Profile.Moral.ToString());
+            table.Cell().Element(CellStyle).Text(singleModel.Save);
 
             static IContainer CellStyle(IContainer container)
             {

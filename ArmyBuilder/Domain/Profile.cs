@@ -18,6 +18,7 @@ namespace ArmyBuilder.Domain
         public int Initiative { get; set; }
         public int Attacks { get; set; }
         public int Moral { get; set; }
+        public int Save { get; set; }
 
         public override bool Equals(object obj)
         {

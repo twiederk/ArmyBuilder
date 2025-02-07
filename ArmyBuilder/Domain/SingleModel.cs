@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using System.Diagnostics;
+using Dapper.Contrib.Extensions;
 
 namespace ArmyBuilder.Domain
 {
@@ -9,7 +10,28 @@ namespace ArmyBuilder.Domain
         public string Name { get; set; }
         public string Description { get; set; }
         public Profile Profile { get; set; }
+        public MountStatus MountStatus { get; set; } = MountStatus.NotMounted;
         public Equipment Equipment { get; set; } = new Equipment();
+        public String Save => CalculateSave();
+
+        public String CalculateSave()
+        {
+            int save = Profile.Save;
+            int armorSave = Equipment.Armor().Sum(a => a?.Save ?? 0);
+            int shieldSave = Equipment.Shield().Sum(s => s?.Save ?? 0);
+            int mountSave = MountStatus == MountStatus.Riding ? 1 : 0;
+            return displaySave(save - armorSave - shieldSave - mountSave);
+        }
+
+        private String displaySave(int save)
+        {
+            return save switch
+            {
+                > 6 => "-",
+                6 => "6",
+                _ => $"{save}+"
+            };
+        }
 
         public override bool Equals(object obj)
         {

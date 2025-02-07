@@ -38,6 +38,7 @@ namespace ArmyBuilder.Test.Dao
             // assert
             mainModels.Should().HaveCount(67);
 
+            // Schwertmeister von Hoeth
             var mainModel = mainModels.First(m => m.Id == 11901);
             mainModel.ArmyCategory.Should().Be(ArmyCategory.Trooper);
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
@@ -46,6 +47,8 @@ namespace ArmyBuilder.Test.Dao
 
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
+            singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
+
             var profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
             profile.WeaponSkill.Should().Be(5);
@@ -56,10 +59,34 @@ namespace ArmyBuilder.Test.Dao
             profile.Initiative.Should().Be(7);
             profile.Attacks.Should().Be(1);
             profile.Moral.Should().Be(8);
+            profile.Save.Should().Be(7);
+
+            // Drachenprinz von Caledor
+            mainModel = mainModels.First(m => m.Id == 11900);
+            mainModel.ArmyCategory.Should().Be(ArmyCategory.Trooper);
+            mainModel.Name.Should().Be("Drachenprinzen von Caledor");
+            mainModel.Description.Should().Be("Banner von Caledor");
+            mainModel.Points.Should().Be(43.0F);
+
+            singleModel = mainModel.SingleModels.First();
+            singleModel.Name.Should().Be("Drachenprinz");
+            singleModel.MountStatus.Should().Be(MountStatus.Riding);
+
+            profile = singleModel.Profile;
+            profile.Movement.Should().Be(5);
+            profile.WeaponSkill.Should().Be(5);
+            profile.BallisticSkill.Should().Be(4);
+            profile.Strength.Should().Be(3);
+            profile.Toughness.Should().Be(3);
+            profile.Wounds.Should().Be(1);
+            profile.Initiative.Should().Be(7);
+            profile.Attacks.Should().Be(1);
+            profile.Moral.Should().Be(8);
+            profile.Save.Should().Be(7);
         }
 
         [Fact]
-        public void should_read_single_model_for_given_id()
+        public void should_read_single_model_of_Schwertmeister()
         {
 
             // act 
@@ -67,6 +94,7 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Schwertmeister");
+            singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
             singleModel.Profile.Movement.Should().Be(5);
             singleModel.Profile.WeaponSkill.Should().Be(5);
             singleModel.Profile.BallisticSkill.Should().Be(4);
@@ -76,6 +104,29 @@ namespace ArmyBuilder.Test.Dao
             singleModel.Profile.Initiative.Should().Be(7);
             singleModel.Profile.Attacks.Should().Be(1);
             singleModel.Profile.Moral.Should().Be(8);
+            singleModel.Profile.Save.Should().Be(7);
+        }
+
+        [Fact]
+        public void should_read_single_model_of_Drachenprinz()
+        {
+
+            // act 
+            SingleModel singleModel = _repository.SingleModel(46810);
+
+            // assert
+            singleModel.Name.Should().Be("Drachenprinz");
+            singleModel.MountStatus.Should().Be(MountStatus.Riding);
+            singleModel.Profile.Movement.Should().Be(5);
+            singleModel.Profile.WeaponSkill.Should().Be(5);
+            singleModel.Profile.BallisticSkill.Should().Be(4);
+            singleModel.Profile.Strength.Should().Be(3);
+            singleModel.Profile.Toughness.Should().Be(3);
+            singleModel.Profile.Wounds.Should().Be(1);
+            singleModel.Profile.Initiative.Should().Be(7);
+            singleModel.Profile.Attacks.Should().Be(1);
+            singleModel.Profile.Moral.Should().Be(8);
+            singleModel.Profile.Save.Should().Be(7);
         }
 
         [Fact]
@@ -89,6 +140,7 @@ namespace ArmyBuilder.Test.Dao
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
+            singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
             var profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
             profile.WeaponSkill.Should().Be(5);
@@ -154,6 +206,7 @@ namespace ArmyBuilder.Test.Dao
             profile.Toughness.Should().Be(4);
             profile.Wounds.Should().Be(3);
             profile.Initiative.Should().Be(9);
+            profile.Save.Should().Be(7);
 
             MainModel spearmen = generalUnit.MainModels[1];
             spearmen.Name.Should().Be("Speerträger");
