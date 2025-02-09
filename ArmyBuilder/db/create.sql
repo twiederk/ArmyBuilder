@@ -150,17 +150,6 @@ CREATE TABLE IF NOT EXISTS "army_slot"
 );
 
 
-CREATE TABLE IF NOT EXISTS "unit_main_model"
-("id"                INTEGER,
- "unit_id"           INTEGER,
- "main_model_id"     INTEGER,
- "count"             INTEGER,
- PRIMARY KEY(id)
- FOREIGN KEY (unit_id) REFERENCES army_unit(id) ON DELETE CASCADE 
- FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
-);
-
-
 CREATE TABLE IF NOT EXISTS "melee_weapon"
 ("id"           INTEGER,
  "name"         VARCHAR(50),
