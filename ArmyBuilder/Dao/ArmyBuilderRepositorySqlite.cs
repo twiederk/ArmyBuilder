@@ -195,7 +195,7 @@ namespace ArmyBuilder.Dao
                 LEFT JOIN 
                     army_list al ON a.army_list_id = al.Id
                 LEFT JOIN 
-                    unit u ON a.Id = u.army_id
+                    army_unit u ON a.Id = u.army_id
                 LEFT JOIN 
                     unit_main_model umm ON u.Id = umm.unit_id
                 LEFT JOIN 
@@ -282,11 +282,11 @@ namespace ArmyBuilder.Dao
             // Delete main_model of the units of the army
             var sql = @"
                 DELETE FROM unit_main_model
-                WHERE unit_id IN (SELECT Id FROM unit WHERE army_id = @Id)";
+                WHERE unit_id IN (SELECT Id FROM army_unit WHERE army_id = @Id)";
             _dbConnection.Execute(sql, new { Id = id });
 
             // Delete units of the army
-            sql = "DELETE FROM unit WHERE army_id = @Id";
+            sql = "DELETE FROM army_unit WHERE army_id = @Id";
             _dbConnection.Execute(sql, new { Id = id });
 
             // Delete the army
@@ -298,7 +298,7 @@ namespace ArmyBuilder.Dao
         public Unit CreateUnit(int armyId, Unit unit)
         {
             var sql = @"
-                INSERT INTO unit (name, army_id)
+                INSERT INTO army_unit (name, army_id)
                 VALUES (@Name, @ArmyId);
                 SELECT last_insert_rowid();";
 
@@ -365,7 +365,7 @@ namespace ArmyBuilder.Dao
                 WHERE unit_id = @Id";
             _dbConnection.Execute(sql, new { Id = unitId });
 
-            sql = "DELETE FROM unit WHERE Id = @Id";
+            sql = "DELETE FROM army_unit WHERE Id = @Id";
             _dbConnection.Execute(sql, new { Id = unitId });
         }
 

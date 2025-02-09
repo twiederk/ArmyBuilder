@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS "army"
 );
 
 
-CREATE TABLE IF NOT EXISTS "unit"
+CREATE TABLE IF NOT EXISTS "army_unit"
 ("id"                INTEGER,
  "army_id"           INTEGER,
  "name"              VARCHAR(256),
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS "unit_main_model"
  "main_model_id"     INTEGER,
  "count"             INTEGER,
  PRIMARY KEY(id)
- FOREIGN KEY (unit_id) REFERENCES unit(id) ON DELETE CASCADE 
+ FOREIGN KEY (unit_id) REFERENCES army_unit(id) ON DELETE CASCADE 
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
 );
 
