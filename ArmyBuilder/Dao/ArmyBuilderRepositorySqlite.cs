@@ -186,24 +186,22 @@ namespace ArmyBuilder.Dao
                 SELECT 
                     a.Id, a.Name, a.Author, a.army_list_id, a.Points,
                     al.Id, al.Name,
-                    u.Id, u.Name,
-                    mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, umm.count as Count,
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.mount_status as MountStatus,
+                    au.Id, au.Name,
+                    amm.Id, amm.army_category_id as ArmyCategory, amm.Name, amm.Description, amm.Points, amm.count as Count,
+                    asm.Id, asm.Name, asm.Description, asm.profile_id as ProfileId, asm.mount_status as MountStatus,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Save
                 FROM 
                     army a
                 LEFT JOIN 
                     army_list al ON a.army_list_id = al.Id
                 LEFT JOIN 
-                    army_unit u ON a.Id = u.army_id
+                    army_unit au ON a.Id = au.army_id
                 LEFT JOIN 
-                    unit_main_model umm ON u.Id = umm.unit_id
+                    army_main_model amm ON au.Id = amm.army_unit_id
                 LEFT JOIN 
-                    main_model mm ON umm.main_model_id = mm.Id
+                    army_single_model asm ON amm.Id = asm.army_main_model_id
                 LEFT JOIN 
-                    single_model sm ON mm.Id = sm.main_model_id
-                LEFT JOIN 
-                    profile p ON sm.profile_id = p.Id
+                    profile p ON asm.profile_id = p.Id
                 WHERE 
                     a.Id = @Id";
 
