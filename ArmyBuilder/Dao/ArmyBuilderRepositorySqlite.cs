@@ -315,12 +315,15 @@ namespace ArmyBuilder.Dao
         public void AddMainModel(int unitId, MainModel mainModel)
         {
             var sql = @"
-                INSERT INTO unit_main_model (unit_id, main_model_id, count)
-                VALUES (@UnitId, @MainModelId, @Count);";
+                INSERT INTO army_main_model (army_unit_id, army_category_id, name, description, points, count)
+                VALUES (@ArmyUnitId, @ArmyCategoryId, @Name, @Description, @Points, @Count);";
             _dbConnection.Execute(sql, new
             {
-                UnitId = unitId,
-                MainModelId = mainModel.Id,
+                ArmyUnitId = unitId,
+                ArmyCategoryId = (int)mainModel.ArmyCategory,
+                mainModel.Name,
+                mainModel.Description,
+                mainModel.Points,
                 mainModel.Count
             });
         }

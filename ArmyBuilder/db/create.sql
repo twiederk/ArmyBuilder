@@ -113,7 +113,6 @@ CREATE TABLE IF NOT EXISTS "army_unit"
 CREATE TABLE IF NOT EXISTS "army_main_model"
 ("id"                INTEGER,
  "army_unit_id"		 INTEGER,
- "army_list_id"      INTEGER,
  "army_category_id"  INTEGER,
  "name"              VARCHAR(60),
  "description"       VARCHAR(110),
@@ -121,7 +120,6 @@ CREATE TABLE IF NOT EXISTS "army_main_model"
  "count"             INTEGER,
  PRIMARY KEY (id)
  FOREIGN KEY (army_unit_id) REFERENCES army_unit(id) ON DELETE CASCADE
- FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
  FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
 );
 
