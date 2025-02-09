@@ -277,10 +277,16 @@ namespace ArmyBuilder.Dao
 
         public void DeleteArmy(int id)
         {
-            // Delete main_model of the units of the army
+            // Delete single models of the main models of the army
             var sql = @"
-                DELETE FROM unit_main_model
-                WHERE unit_id IN (SELECT Id FROM army_unit WHERE army_id = @Id)";
+                DELETE FROM army_single_model
+                WHERE id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @Id)";
+            _dbConnection.Execute(sql, new { Id = id });
+
+            // Delete main models of the units of the army
+            sql = @"
+                DELETE FROM army_main_model
+                WHERE id IN (SELECT amm.id FROM army_main_model amm LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @Id)";
             _dbConnection.Execute(sql, new { Id = id });
 
             // Delete units of the army
