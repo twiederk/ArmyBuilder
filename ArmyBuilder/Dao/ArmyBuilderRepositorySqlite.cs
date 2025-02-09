@@ -310,12 +310,13 @@ namespace ArmyBuilder.Dao
             return unit;
         }
 
-        public void AddMainModel(int unitId, MainModel mainModel)
+        public MainModel AddMainModel(int unitId, MainModel mainModel)
         {
             var sql = @"
                 INSERT INTO army_main_model (army_unit_id, army_category_id, name, description, points, count)
-                VALUES (@ArmyUnitId, @ArmyCategoryId, @Name, @Description, @Points, @Count);";
-            _dbConnection.Execute(sql, new
+                VALUES (@ArmyUnitId, @ArmyCategoryId, @Name, @Description, @Points, @Count);
+                SELECT last_insert_rowid();";
+            var main_model_id = _dbConnection.ExecuteScalar<int>(sql, new
             {
                 ArmyUnitId = unitId,
                 ArmyCategoryId = (int)mainModel.ArmyCategory,
@@ -324,14 +325,17 @@ namespace ArmyBuilder.Dao
                 mainModel.Points,
                 mainModel.Count
             });
+
+            mainModel.Id = main_model_id;
+            return mainModel;
         }
 
         public void UpdateMainModelCount(int unitId, int mainModelId, int count)
         {
             var sql = @"
-                UPDATE unit_main_model
+                UPDATE army_main_model
                 SET count = @Count
-                WHERE unit_id = @UnitId AND main_model_id = @MainModelId;";
+                WHERE army_unit_id = @UnitId AND id = @MainModelId;";
 
             _dbConnection.Execute(sql, new
             {
