@@ -222,15 +222,16 @@ namespace ArmyBuilder.Test.Dao
             Equipment spearmenEquipment = equipments.First(e => e.Id == spearmentSingleModelId);
             spearmenEquipment.Should().NotBeNull();
             spearmenEquipment.Slots.Should().HaveCount(3);
-            Slot meleeWeaponSlot = spearmenEquipment.Slots.First(s => s.Id == 2220);
+            Slot meleeWeaponSlot = spearmenEquipment.Slots.First(s => s.Id == 8);
             meleeWeaponSlot.Magic.Should().BeFalse();
+            meleeWeaponSlot.Item.Name.Should().Be("Speer");
 
             // general equipment
             Equipment generalEquipment = equipments.First(e => e.Id == generalSingleModelId);
             generalEquipment.Should().NotBeNull();
             generalEquipment.Slots.Should().HaveCount(7);
-            meleeWeaponSlot = generalEquipment.Slots.First(s => s.Id == 693);
-            meleeWeaponSlot.Magic.Should().BeTrue();
+            meleeWeaponSlot = generalEquipment.Slots.First(s => s.Id == 1);
+            meleeWeaponSlot.Item.Name.Should().Be("Handwaffe");
         }
     }
 }
