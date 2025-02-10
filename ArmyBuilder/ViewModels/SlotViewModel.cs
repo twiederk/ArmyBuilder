@@ -18,25 +18,25 @@ namespace ArmyBuilder.ViewModels
                 if (_selectedItem != value)
                 {
                     _selectedItem = value;
-                    _slot.Item = _selectedItem.Item;
+                    Slot.Item = _selectedItem.Item;
                 }
             }
         }
 
-        public bool Editable => _slot.Editable;
-        public bool AllItems => _slot.AllItems;
+        public bool Editable => Slot.Editable;
+        public bool AllItems => Slot.AllItems;
         public List<ItemViewModel> SelectableItems { get; set; } = new List<ItemViewModel>();
-        private Slot _slot;
+        public Slot Slot;
 
         public SlotViewModel(Slot slot)
         {
-            _slot = slot;
+            Slot = slot;
             SelectedItem = new ItemViewModel(slot.Item);
             SelectableItems = slot.SelectableItems.Select(item => new ItemViewModel(item)).ToList();
         }
 
         public string SlotName() {
-            switch (_slot.ItemClass)
+            switch (Slot.ItemClass)
             {
                 case ItemClass.MeleeWeapon:
                     return "Waffe:";
@@ -53,7 +53,7 @@ namespace ArmyBuilder.ViewModels
                 case ItemClass.Misc:
                     return "Verschiedenes:";
                 default:
-                    return $"UNBEKANNT {_slot.ItemClass}";
+                    return $"UNBEKANNT {Slot.ItemClass}";
             }
         }
     }
