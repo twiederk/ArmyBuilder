@@ -4,10 +4,13 @@ namespace ArmyBuilder.Dao
 {
     public interface IArmyBuilderRepository
     {
+        // ArmyList
         List<ArmyList> ArmyLists();
         List<MainModel> MainModels(int armyId);
         SingleModel SingleModel(int id);
         MainModel MainModel(int id);
+
+        // Army
         List<Army> Armies();
         Army Army(int id);
         Army CreateArmy(Army army);
@@ -18,6 +21,8 @@ namespace ArmyBuilder.Dao
         void UpdateMainModelCount(int unitId, int mainModelId, int count);
         void DeleteUnit(int unitId);
         void DeleteMainModelFromUnit(int unitId, int mainModelId);
+
+        // Equipment
         List<MeleeWeapon> AllMeleeWeapon();
         List<RangedWeapon> AllRangedWeapon();
         List<Shield> AllShield();

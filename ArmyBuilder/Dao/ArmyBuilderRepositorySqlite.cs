@@ -371,25 +371,36 @@ namespace ArmyBuilder.Dao
 
         public void DeleteUnit(int unitId)
         {
+            // Delete single models of the main models of unit
             var sql = @"
-                DELETE FROM unit_main_model
-                WHERE unit_id = @Id";
-            _dbConnection.Execute(sql, new { Id = unitId });
+                DELETE FROM army_single_model
+                WHERE id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.id = @UnitId)";
+            _dbConnection.Execute(sql, new { UnitId = unitId });
 
-            sql = "DELETE FROM army_unit WHERE Id = @Id";
-            _dbConnection.Execute(sql, new { Id = unitId });
+            // Delete main models of the unit
+            sql = @"
+                DELETE FROM army_main_model
+                WHERE id IN (SELECT amm.id FROM army_main_model amm LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.id = @UnitId)";
+            _dbConnection.Execute(sql, new { UnitId = unitId });
+
+            // Delete units of the army
+            sql = "DELETE FROM army_unit WHERE id = @UnitId";
+            _dbConnection.Execute(sql, new { UnitId = unitId });
         }
 
         public void DeleteMainModelFromUnit(int unitId, int mainModelId)
         {
+            // Delete single models of the main model
             var sql = @"
-                DELETE FROM unit_main_model
-                WHERE unit_id = @UnitId AND main_model_id = @MainModelId";
-            _dbConnection.Execute(sql, new
-            {
-                UnitId = unitId,
-                MainModelId = mainModelId
-            });
+                DELETE FROM army_single_model
+                WHERE id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id WHERE amm.id = @MainModelId)";
+            _dbConnection.Execute(sql, new { MainModelId = mainModelId });
+
+            // Delete main models of the unit
+            sql = @"
+                DELETE FROM army_main_model
+                WHERE army_unit_id = @UnitId)";
+            _dbConnection.Execute(sql, new { UnitId = unitId });
         }
 
         public List<MeleeWeapon> AllMeleeWeapon()
