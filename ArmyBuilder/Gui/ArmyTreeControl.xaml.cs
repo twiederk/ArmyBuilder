@@ -119,6 +119,8 @@ namespace ArmyBuilder
         {
             if (sender is ComboBox comboBox && comboBox.DataContext is SlotViewModel slotViewModel && comboBox.Tag is ItemsControl itemsControl)
             {
+                var armyViewModel = DataContext as ArmyViewModel;
+                armyViewModel.UpdateSlotItem(slotViewModel.Slot);
                 var equipmentTreeNode = itemsControl.DataContext as EquipmentTreeNode;
                 equipmentTreeNode.UpdateEquipment();
             }

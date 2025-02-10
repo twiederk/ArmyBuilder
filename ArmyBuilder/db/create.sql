@@ -2,16 +2,23 @@
 BEGIN TRANSACTION;
 
 
-CREATE TABLE IF NOT EXISTS "army_list"
-("id"           INTEGER,
- "name"    		VARCHAR(50),
+CREATE TABLE IF NOT EXISTS "army_category"
+("id"         INTEGER,
+ "category"   VARCHAR(50),
+ PRIMARY KEY(id) 
+);
+
+
+CREATE TABLE IF NOT EXISTS "item_class"
+("id"                INTEGER,
+ "name"         VARCHAR(50),
  PRIMARY KEY(id)
 );
 
 
-CREATE TABLE IF NOT EXISTS "army_category"
-("id"         INTEGER,
- "category"   VARCHAR(50),
+CREATE TABLE IF NOT EXISTS "mount_status"
+("id"             INTEGER,
+ "mount_status"   VARCHAR(50),
  PRIMARY KEY(id) 
 );
 
@@ -35,6 +42,13 @@ CREATE TABLE IF NOT EXISTS "profile"
  );
 
 
+CREATE TABLE IF NOT EXISTS "army_list"
+("id"           INTEGER,
+ "name"    		VARCHAR(50),
+ PRIMARY KEY(id)
+);
+
+
 CREATE TABLE IF NOT EXISTS "main_model"
 ("id"                INTEGER,
  "army_list_id"      INTEGER,
@@ -47,13 +61,6 @@ CREATE TABLE IF NOT EXISTS "main_model"
  PRIMARY KEY(id)
  FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
  FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
-);
-
-
-CREATE TABLE IF NOT EXISTS "mount_status"
-("id"             INTEGER,
- "mount_status"   VARCHAR(50),
- PRIMARY KEY(id) 
 );
 
 
@@ -70,6 +77,18 @@ CREATE TABLE IF NOT EXISTS "single_model"
 );
 
 
+CREATE TABLE IF NOT EXISTS "slot"
+("id"                INTEGER,
+ "single_model_id"   INTEGER,
+ "item_id"           INTEGER,
+ "editable"          BIT,
+ "magic"             BIT,
+ "item_class_id"     INTEGER,
+ PRIMARY KEY(id)
+ FOREIGN KEY (single_model_id) REFERENCES single_model(id) ON DELETE CASCADE 
+ FOREIGN KEY (item_class_id) REFERENCES item_class(id) ON DELETE CASCADE 
+);
+
 
 CREATE TABLE IF NOT EXISTS "army"
 ("id"                INTEGER,
@@ -82,7 +101,7 @@ CREATE TABLE IF NOT EXISTS "army"
 );
 
 
-CREATE TABLE IF NOT EXISTS "unit"
+CREATE TABLE IF NOT EXISTS "army_unit"
 ("id"                INTEGER,
  "army_id"           INTEGER,
  "name"              VARCHAR(256),
@@ -91,14 +110,43 @@ CREATE TABLE IF NOT EXISTS "unit"
 );
 
 
-CREATE TABLE IF NOT EXISTS "unit_main_model"
+CREATE TABLE IF NOT EXISTS "army_main_model"
 ("id"                INTEGER,
- "unit_id"           INTEGER,
- "main_model_id"     INTEGER,
+ "army_unit_id"		 INTEGER,
+ "army_category_id"  INTEGER,
+ "name"              VARCHAR(60),
+ "description"       VARCHAR(110),
+ "points"            FLOAT,
  "count"             INTEGER,
+ PRIMARY KEY (id)
+ FOREIGN KEY (army_unit_id) REFERENCES army_unit(id) ON DELETE CASCADE
+ FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
+);
+
+
+CREATE TABLE IF NOT EXISTS "army_single_model"
+("id"                   INTEGER,
+ "profile_id"           INTEGER,
+ "name"                 VARCHAR(60),
+ "army_main_model_id"   INTEGER,
+ "description"          VARCHAR(110),
+ "mount_status"         INTEGER,
+ PRIMARY KEY (id)
+ FOREIGN KEY (army_main_model_id) REFERENCES army_main_model(id) ON DELETE CASCADE 
+ FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
+);
+
+
+CREATE TABLE IF NOT EXISTS "army_slot"
+("id"                     INTEGER,
+ "army_single_model_id"   INTEGER,
+ "item_id"                INTEGER,
+ "editable"               BIT,
+ "magic"                  BIT,
+ "item_class_id"          INTEGER,
  PRIMARY KEY(id)
- FOREIGN KEY (unit_id) REFERENCES unit(id) ON DELETE CASCADE 
- FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
+ FOREIGN KEY (army_single_model_id) REFERENCES army_single_model(id) ON DELETE CASCADE 
+ FOREIGN KEY (item_class_id) REFERENCES item_class(id) ON DELETE CASCADE 
 );
 
 
@@ -204,26 +252,6 @@ UNION ALL
 SELECT id, name, points, description, army_list_id, "unique", magic FROM instrument
 UNION ALL
 SELECT id, name, points, description, army_list_id, "unique", magic FROM misc;
-
-
-CREATE TABLE IF NOT EXISTS "item_class"
-("id"                INTEGER,
- "name"         VARCHAR(50),
- PRIMARY KEY(id)
-);
-
-
-CREATE TABLE IF NOT EXISTS "slot"
-("id"                INTEGER,
- "single_model_id"   INTEGER,
- "item_id"           INTEGER,
- "editable"          BIT,
- "magic"             BIT,
- "item_class_id"     INTEGER,
- PRIMARY KEY(id)
- FOREIGN KEY (single_model_id) REFERENCES single_model(id) ON DELETE CASCADE 
- FOREIGN KEY (item_class_id) REFERENCES item_class(id) ON DELETE CASCADE 
-);
 
 
 COMMIT;

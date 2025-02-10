@@ -186,24 +186,22 @@ namespace ArmyBuilder.Dao
                 SELECT 
                     a.Id, a.Name, a.Author, a.army_list_id, a.Points,
                     al.Id, al.Name,
-                    u.Id, u.Name,
-                    mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, umm.count as Count,
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.mount_status as MountStatus,
+                    au.Id, au.Name,
+                    amm.Id, amm.army_category_id as ArmyCategory, amm.Name, amm.Description, amm.Points, amm.count as Count,
+                    asm.Id, asm.Name, asm.Description, asm.profile_id as ProfileId, asm.mount_status as MountStatus,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Save
                 FROM 
                     army a
                 LEFT JOIN 
                     army_list al ON a.army_list_id = al.Id
                 LEFT JOIN 
-                    unit u ON a.Id = u.army_id
+                    army_unit au ON a.Id = au.army_id
                 LEFT JOIN 
-                    unit_main_model umm ON u.Id = umm.unit_id
+                    army_main_model amm ON au.Id = amm.army_unit_id
                 LEFT JOIN 
-                    main_model mm ON umm.main_model_id = mm.Id
+                    army_single_model asm ON amm.Id = asm.army_main_model_id
                 LEFT JOIN 
-                    single_model sm ON mm.Id = sm.main_model_id
-                LEFT JOIN 
-                    profile p ON sm.profile_id = p.Id
+                    profile p ON asm.profile_id = p.Id
                 WHERE 
                     a.Id = @Id";
 
@@ -277,28 +275,40 @@ namespace ArmyBuilder.Dao
             return army;
         }
 
-        public void DeleteArmy(int id)
+        public void DeleteArmy(int armyId)
         {
-            // Delete main_model of the units of the army
+            // Delete slots of single models of the main model of unit
             var sql = @"
-                DELETE FROM unit_main_model
-                WHERE unit_id IN (SELECT Id FROM unit WHERE army_id = @Id)";
-            _dbConnection.Execute(sql, new { Id = id });
+                DELETE FROM army_slot
+                WHERE army_single_model_id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @ArmyId)";
+            _dbConnection.Execute(sql, new { ArmyId = armyId });
+
+            // Delete single models of the main models of the army
+            sql = @"
+                DELETE FROM army_single_model
+                WHERE id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @ArmyId)";
+            _dbConnection.Execute(sql, new { ArmyId = armyId });
+
+            // Delete main models of the units of the army
+            sql = @"
+                DELETE FROM army_main_model
+                WHERE id IN (SELECT amm.id FROM army_main_model amm LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @ArmyId)";
+            _dbConnection.Execute(sql, new { ArmyId = armyId });
 
             // Delete units of the army
-            sql = "DELETE FROM unit WHERE army_id = @Id";
-            _dbConnection.Execute(sql, new { Id = id });
+            sql = "DELETE FROM army_unit WHERE army_id = @ArmyId";
+            _dbConnection.Execute(sql, new { ArmyId = armyId });
 
             // Delete the army
-            sql = "DELETE FROM army WHERE Id = @Id";
-            _dbConnection.Execute(sql, new { Id = id });
+            sql = "DELETE FROM army WHERE Id = @ArmyId";
+            _dbConnection.Execute(sql, new { ArmyId = armyId });
         }
 
 
         public Unit CreateUnit(int armyId, Unit unit)
         {
             var sql = @"
-                INSERT INTO unit (name, army_id)
+                INSERT INTO army_unit (name, army_id)
                 VALUES (@Name, @ArmyId);
                 SELECT last_insert_rowid();";
 
@@ -312,25 +322,67 @@ namespace ArmyBuilder.Dao
             return unit;
         }
 
-        public void AddMainModel(int unitId, MainModel mainModel)
+        public MainModel AddMainModel(int unitId, MainModel mainModel)
         {
             var sql = @"
-                INSERT INTO unit_main_model (unit_id, main_model_id, count)
-                VALUES (@UnitId, @MainModelId, @Count);";
-            _dbConnection.Execute(sql, new
+                INSERT INTO army_main_model (army_unit_id, army_category_id, name, description, points, count)
+                VALUES (@ArmyUnitId, @ArmyCategoryId, @Name, @Description, @Points, @Count);
+                SELECT last_insert_rowid();";
+            var main_model_id = _dbConnection.ExecuteScalar<int>(sql, new
             {
-                UnitId = unitId,
-                MainModelId = mainModel.Id,
+                ArmyUnitId = unitId,
+                ArmyCategoryId = (int)mainModel.ArmyCategory,
+                mainModel.Name,
+                mainModel.Description,
+                mainModel.Points,
                 mainModel.Count
             });
+            mainModel.Id = main_model_id;
+
+            foreach (var singleModel in mainModel.SingleModels)
+            {
+                sql = @"
+                    INSERT INTO army_single_model (army_main_model_id, name, description, profile_id, mount_status)
+                    VALUES (@ArmyMainModelId, @Name, @Description, @ProfileId, @MountStatus);
+                    SELECT last_insert_rowid();";
+                var single_model_id = _dbConnection.ExecuteScalar<int>(sql, new
+                {
+                    ArmyMainModelId = main_model_id,
+                    singleModel.Name,
+                    singleModel.Description,
+                    ProfileId = singleModel.Profile.Id,
+                    singleModel.MountStatus
+                });
+                singleModel.Id = single_model_id;
+
+                foreach (var slot in singleModel.Equipment.Slots)
+                {
+                    sql = @"
+                        INSERT INTO army_slot (army_single_model_id, item_id, editable, magic, item_class_id)
+                        VALUES (@ArmySingleModelId, @ItemId, @Editable, @Magic, @ItemClassId);
+                        SELECT last_insert_rowid();";
+                    var slot_id = _dbConnection.ExecuteScalar<int>(sql, new
+                    {
+                        ArmySingleModelId = single_model_id,
+                        ItemId = slot.Item.Id,
+                        //Editable = slot.Editable ? 1 : 0,
+                        //Magic = slot.Magic ? 1 : 0,
+                        slot.Editable,
+                        slot.Magic,
+                        ItemClassId = (int)slot.ItemClass
+                    });
+                    slot.Id = slot_id;
+                }
+            }
+            return mainModel;
         }
 
         public void UpdateMainModelCount(int unitId, int mainModelId, int count)
         {
             var sql = @"
-                UPDATE unit_main_model
+                UPDATE army_main_model
                 SET count = @Count
-                WHERE unit_id = @UnitId AND main_model_id = @MainModelId;";
+                WHERE army_unit_id = @UnitId AND id = @MainModelId;";
 
             _dbConnection.Execute(sql, new
             {
@@ -360,25 +412,48 @@ namespace ArmyBuilder.Dao
 
         public void DeleteUnit(int unitId)
         {
+            // Delete slots of single models of the main model of unit
             var sql = @"
-                DELETE FROM unit_main_model
-                WHERE unit_id = @Id";
-            _dbConnection.Execute(sql, new { Id = unitId });
+                DELETE FROM army_slot
+                WHERE army_single_model_id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.id = @UnitId)";
+            _dbConnection.Execute(sql, new { UnitId = unitId });
 
-            sql = "DELETE FROM unit WHERE Id = @Id";
-            _dbConnection.Execute(sql, new { Id = unitId });
+            // Delete single models of the main models of unit
+            sql = @"
+                DELETE FROM army_single_model
+                WHERE id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.id = @UnitId)";
+            _dbConnection.Execute(sql, new { UnitId = unitId });
+
+            // Delete main models of the unit
+            sql = @"
+                DELETE FROM army_main_model
+                WHERE id IN (SELECT amm.id FROM army_main_model amm LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.id = @UnitId)";
+            _dbConnection.Execute(sql, new { UnitId = unitId });
+
+            // Delete units of the army
+            sql = "DELETE FROM army_unit WHERE id = @UnitId";
+            _dbConnection.Execute(sql, new { UnitId = unitId });
         }
 
         public void DeleteMainModelFromUnit(int unitId, int mainModelId)
         {
+            // Delete slots of single models of the main model
             var sql = @"
-                DELETE FROM unit_main_model
-                WHERE unit_id = @UnitId AND main_model_id = @MainModelId";
-            _dbConnection.Execute(sql, new
-            {
-                UnitId = unitId,
-                MainModelId = mainModelId
-            });
+                DELETE FROM army_slot
+                WHERE army_single_model_id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id WHERE amm.id = @MainModelId)";
+            _dbConnection.Execute(sql, new { MainModelId = mainModelId });
+
+            // Delete single models of the main model
+            sql = @"
+                DELETE FROM army_single_model
+                WHERE id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id WHERE amm.id = @MainModelId)";
+            _dbConnection.Execute(sql, new { MainModelId = mainModelId });
+
+            // Delete main models of the unit
+            sql = @"
+                DELETE FROM army_main_model
+                WHERE army_unit_id = @UnitId";
+            _dbConnection.Execute(sql, new { UnitId = unitId });
         }
 
         public List<MeleeWeapon> AllMeleeWeapon()
@@ -745,7 +820,60 @@ namespace ArmyBuilder.Dao
             return equipmentDictionary.Values.ToList();
         }
 
+        public List<Equipment> ArmyEquipment(int armyId)
+        {
+            var sql = @"
+                SELECT
+                    s.id, s.item_id as ItemId, s.editable as Editable, s.magic as Magic, s.item_class_id as ItemClass,
+                    asm.id as SingleModelId
+                FROM
+                    army_slot s
+                LEFT JOIN
+                    army_single_model asm ON s.army_single_model_id = asm.id
+                LEFT JOIN
+                    army_main_model amm ON asm.army_main_model_id = amm.id
+                LEFT JOIN
+                    army_unit au ON au.id = amm.army_unit_id
+                LEFT JOIN
+                    army a ON a.id = au.army_id
+                WHERE
+                    a.id = @ArmyId";
 
+
+            var slotRdos = _dbConnection.Query<SlotRdo>(sql, new { ArmyId = armyId }).ToList();
+
+            var equipmentDictionary = new Dictionary<int, Equipment>();
+
+            foreach (var slotRdo in slotRdos)
+            {
+                if (!equipmentDictionary.TryGetValue(slotRdo.SingleModelId, out var equipment))
+                {
+                    equipment = new Equipment { Id = slotRdo.SingleModelId, Slots = new List<Slot>() };
+                    equipmentDictionary.Add(slotRdo.SingleModelId, equipment);
+                }
+
+                Slot slot = slotRdo.toSlot();
+                slot.Item = SlotItem(slotRdo);
+                equipment.Slots.Add(slot);
+            }
+
+            return equipmentDictionary.Values.ToList();
+
+        }
+
+        public void UpdateSlotItem(Slot slot)
+        {
+            var sql = @"
+                UPDATE army_slot
+                SET item_id = @ItemId
+                WHERE id = @Id";
+
+            _dbConnection.Execute(sql, new
+            {
+                ItemId = slot.Item.Id,
+                slot.Id
+            });
+        }
 
     }
 

@@ -203,5 +203,60 @@ namespace ArmyBuilder.Test.Dao
             meleeWeaponSlot = generalEquipment.Slots.First(s => s.Id == 693);
             meleeWeaponSlot.Magic.Should().BeTrue();
         }
+
+        [Fact]
+        public void should_read_equipments_of_army()
+        {
+            // arrange
+            int armyId = 1;
+            int generalSingleModelId = 1;
+            int spearmentSingleModelId = 2;
+
+            // act
+            List<Equipment> equipments = _repository.ArmyEquipment(armyId);
+
+            // assert
+            equipments.Should().HaveCount(3);
+
+            // spearmen equipment
+            Equipment spearmenEquipment = equipments.First(e => e.Id == spearmentSingleModelId);
+            spearmenEquipment.Should().NotBeNull();
+            spearmenEquipment.Slots.Should().HaveCount(3);
+            Slot meleeWeaponSlot = spearmenEquipment.Slots.First(s => s.Id == 8);
+            meleeWeaponSlot.Magic.Should().BeFalse();
+            meleeWeaponSlot.Item.Name.Should().Be("Speer");
+
+            // general equipment
+            Equipment generalEquipment = equipments.First(e => e.Id == generalSingleModelId);
+            generalEquipment.Should().NotBeNull();
+            generalEquipment.Slots.Should().HaveCount(7);
+            meleeWeaponSlot = generalEquipment.Slots.First(s => s.Id == 1);
+            meleeWeaponSlot.Item.Name.Should().Be("Speer");
+        }
+
+        [Fact]
+        public void should_update_item_id_of_slot()
+        {
+            // arrange
+            int armyId = 1;            
+            Slot slot = new Slot()
+            {
+                Id = 1,
+                Item = new Item() { Id = 2 },
+            };
+
+            // act
+            _repository.UpdateSlotItem(slot);
+
+            // assert
+            List<Equipment> equipments = _repository.ArmyEquipment(armyId);
+
+            // assert
+            Slot updatedSlot = equipments.SelectMany(e => e.Slots).First(s => s.Id == 1);
+            updatedSlot.Item.Id.Should().Be(2);
+
+            // tear down
+            _repository.UpdateSlotItem(new Slot() { Id = 1, Item = new Item() { Id = 1 } });
+        }
     }
 }

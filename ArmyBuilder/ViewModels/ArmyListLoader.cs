@@ -12,13 +12,22 @@ namespace ArmyBuilder.ViewModels
             this._repository = repository;
         }
 
-        public List<MainModel> LoadMainModels(ArmyList armyList)
+        public List<MainModel> LoadArmyList(ArmyList armyList)
         {
             var mainModels = _repository.MainModels(armyList.Id);
             var equipment = _repository.ArmyListEquipment(armyList.Id);
             assignEquipment(mainModels, equipment);
             assignSelectableItems(mainModels, armyList);
             return mainModels;
+        }
+
+        public Army LoadArmy(int armyId)
+        {
+            Army army = _repository.Army(armyId);
+            List<Equipment> equipment = _repository.ArmyEquipment(armyId);
+            assignEquipment(army.MainModels(), equipment);
+            assignSelectableItems(army.MainModels(), army.ArmyList);
+            return army;
         }
 
         public void assignEquipment(List<MainModel> mainModels, List<Equipment> equipment)

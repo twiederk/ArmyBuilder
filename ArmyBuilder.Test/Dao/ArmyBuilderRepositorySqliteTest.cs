@@ -316,7 +316,20 @@ namespace ArmyBuilder.Test.Dao
             _repository.CreateArmy(army);
             Unit unit = new Unit("Testeinheit");
             _repository.CreateUnit(army.Id, unit);
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Id = 2222, Item = new Shield { Id = 1, Name = "Silburaschild" }, Magic = true, Editable = false, ItemClass = ItemClass.Shield });
+            equipment.Slots.Add(new Slot { Id = 2223, Item = new Armor { Id = 2, Name = "Leichte Rüstung" }, Magic = false, Editable = true, ItemClass = ItemClass.Armor});
+            SingleModel singleModel = new SingleModel
+            { 
+                Id = 46811,
+                Name = "Schwertmeister",
+                Description = "Schwertmeister, Geschosse beiseiteschlagen.",
+                Profile = new Profile { Id = 11901 },
+                MountStatus = MountStatus.Riding,
+                Equipment = equipment
+            };
             MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
+            mainModel.SingleModels.Add(singleModel);
             unit.MainModels.Add(mainModel);
 
             // act
@@ -329,7 +342,11 @@ namespace ArmyBuilder.Test.Dao
             Unit testUnit = testArmy.Units[0];
             testUnit.Name.Should().Be("Testeinheit");
             testUnit.MainModels.Should().HaveCount(1);
-            testUnit.MainModels[0].Count.Should().Be(3);
+            var testMainModel = testUnit.MainModels[0];
+            testMainModel.Count.Should().Be(3);
+            testMainModel.SingleModels.Should().HaveCount(1);
+            var testSingleModel = testMainModel.SingleModels[0];
+            var testEquipment = testSingleModel.Equipment;
 
             // teardown
             _repository.DeleteArmy(army.Id);
