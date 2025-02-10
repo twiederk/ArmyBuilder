@@ -20,13 +20,14 @@ INSERT INTO army_single_model (id, profile_id, name, army_main_model_id, descrip
 INSERT INTO army_single_model (id, profile_id, name, army_main_model_id, description, mount_status) VALUES (5, 12034, 'Elfenroß', 3, '', 2);
 
 
-INSERT INTO army_slot (id, army_single_model_id, item_id, editable, magic, item_class_id) VALUES (1, 1, 1, 1, 1, 0);
+INSERT INTO army_slot (id, army_single_model_id, item_id, editable, magic, item_class_id) VALUES (1, 1, 5, 1, 1, 0);
 INSERT INTO army_slot (id, army_single_model_id, item_id, editable, magic, item_class_id) VALUES (2, 1, 10, 1, 1, 2);
 INSERT INTO army_slot (id, army_single_model_id, item_id, editable, magic, item_class_id) VALUES (3, 1, 30, 1, 1, 1);
-INSERT INTO army_slot (id, army_single_model_id, item_id, editable, magic, item_class_id) VALUES (4, 1, 40, 1, 1, 3);
+INSERT INTO army_slot (id, army_single_model_id, item_id, editable, magic, item_class_id) VALUES (4, 1, 5782, 1, 1, 3);
 INSERT INTO army_slot (id, army_single_model_id, item_id, editable, magic, item_class_id) VALUES (5, 1, 60, 1, 1, 4);
 INSERT INTO army_slot (id, army_single_model_id, item_id, editable, magic, item_class_id) VALUES (6, 1, 60, 1, 1, 4);
 INSERT INTO army_slot (id, army_single_model_id, item_id, editable, magic, item_class_id) VALUES (7, 1, 60, 1, 1, 4);
+
 
 INSERT INTO army_slot (id, army_single_model_id, item_id, editable, magic, item_class_id) VALUES (8, 2, 5, 0, 0, 0);
 INSERT INTO army_slot (id, army_single_model_id, item_id, editable, magic, item_class_id) VALUES (9, 2, 31, 0, 0, 1);

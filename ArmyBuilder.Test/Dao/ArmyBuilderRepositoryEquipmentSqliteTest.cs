@@ -231,7 +231,7 @@ namespace ArmyBuilder.Test.Dao
             generalEquipment.Should().NotBeNull();
             generalEquipment.Slots.Should().HaveCount(7);
             meleeWeaponSlot = generalEquipment.Slots.First(s => s.Id == 1);
-            meleeWeaponSlot.Item.Name.Should().Be("Handwaffe");
+            meleeWeaponSlot.Item.Name.Should().Be("Speer");
         }
 
         [Fact]
