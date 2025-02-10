@@ -275,27 +275,33 @@ namespace ArmyBuilder.Dao
             return army;
         }
 
-        public void DeleteArmy(int id)
+        public void DeleteArmy(int armyId)
         {
-            // Delete single models of the main models of the army
+            // Delete slots of single models of the main model of unit
             var sql = @"
+                DELETE FROM army_slot
+                WHERE army_single_model_id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @ArmyId)";
+            _dbConnection.Execute(sql, new { ArmyId = armyId });
+
+            // Delete single models of the main models of the army
+            sql = @"
                 DELETE FROM army_single_model
-                WHERE id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @Id)";
-            _dbConnection.Execute(sql, new { Id = id });
+                WHERE id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @ArmyId)";
+            _dbConnection.Execute(sql, new { ArmyId = armyId });
 
             // Delete main models of the units of the army
             sql = @"
                 DELETE FROM army_main_model
-                WHERE id IN (SELECT amm.id FROM army_main_model amm LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @Id)";
-            _dbConnection.Execute(sql, new { Id = id });
+                WHERE id IN (SELECT amm.id FROM army_main_model amm LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @ArmyId)";
+            _dbConnection.Execute(sql, new { ArmyId = armyId });
 
             // Delete units of the army
-            sql = "DELETE FROM army_unit WHERE army_id = @Id";
-            _dbConnection.Execute(sql, new { Id = id });
+            sql = "DELETE FROM army_unit WHERE army_id = @ArmyId";
+            _dbConnection.Execute(sql, new { ArmyId = armyId });
 
             // Delete the army
-            sql = "DELETE FROM army WHERE Id = @Id";
-            _dbConnection.Execute(sql, new { Id = id });
+            sql = "DELETE FROM army WHERE Id = @ArmyId";
+            _dbConnection.Execute(sql, new { ArmyId = armyId });
         }
 
 
