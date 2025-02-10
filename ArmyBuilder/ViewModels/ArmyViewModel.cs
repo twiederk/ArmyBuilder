@@ -145,6 +145,11 @@ namespace ArmyBuilder.ViewModels
         {
             _repository.DeleteMainModelFromUnit(unitId, mainModelId);
         }
+
+        public void UpdateSlotItem(Slot slot)
+        {
+            _repository.UpdateSlotItem(slot);
+        }
     }
 
 }
