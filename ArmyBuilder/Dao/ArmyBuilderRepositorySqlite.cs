@@ -331,8 +331,26 @@ namespace ArmyBuilder.Dao
                 mainModel.Points,
                 mainModel.Count
             });
-
             mainModel.Id = main_model_id;
+
+            foreach (var singleModel in mainModel.SingleModels)
+            {
+                sql = @"
+                    INSERT INTO army_single_model (army_main_model_id, name, description, profile_id, mount_status)
+                    VALUES (@ArmyMainModelId, @Name, @Description, @ProfileId, @MountStatus);
+                    SELECT last_insert_rowid();";
+                var single_model_id = _dbConnection.ExecuteScalar<int>(sql, new
+                {
+                    ArmyMainModelId = main_model_id,
+                    singleModel.Name,
+                    singleModel.Description,
+                    ProfileId = singleModel.Profile.Id,
+                    singleModel.MountStatus
+                });
+                singleModel.Id = single_model_id;
+            }
+
+
             return mainModel;
         }
 

@@ -316,7 +316,16 @@ namespace ArmyBuilder.Test.Dao
             _repository.CreateArmy(army);
             Unit unit = new Unit("Testeinheit");
             _repository.CreateUnit(army.Id, unit);
+            SingleModel singleModel = new SingleModel
+            { 
+                Id = 46811,
+                Name = "Schwertmeister",
+                Description = "Schwertmeister, Geschosse beiseiteschlagen.",
+                Profile = new Profile { Id = 11901 },
+                MountStatus = MountStatus.Riding 
+            };
             MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
+            mainModel.SingleModels.Add(singleModel);
             unit.MainModels.Add(mainModel);
 
             // act
@@ -330,6 +339,7 @@ namespace ArmyBuilder.Test.Dao
             testUnit.Name.Should().Be("Testeinheit");
             testUnit.MainModels.Should().HaveCount(1);
             testUnit.MainModels[0].Count.Should().Be(3);
+            testUnit.MainModels[0].SingleModels.Should().HaveCount(1);
 
             // teardown
             _repository.DeleteArmy(army.Id);
