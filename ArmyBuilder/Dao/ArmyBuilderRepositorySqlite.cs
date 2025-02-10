@@ -822,7 +822,7 @@ namespace ArmyBuilder.Dao
 
         public List<Equipment> ArmyEquipment(int armyId)
         {
-                        var sql = @"
+            var sql = @"
                 SELECT
                     s.id, s.item_id as ItemId, s.editable as Editable, s.magic as Magic, s.item_class_id as ItemClass,
                     asm.id as SingleModelId
@@ -859,6 +859,20 @@ namespace ArmyBuilder.Dao
 
             return equipmentDictionary.Values.ToList();
 
+        }
+
+        public void UpdateSlotItem(Slot slot)
+        {
+            var sql = @"
+                UPDATE army_slot
+                SET item_id = @ItemId
+                WHERE id = @Id";
+
+            _dbConnection.Execute(sql, new
+            {
+                ItemId = slot.Item.Id,
+                slot.Id
+            });
         }
 
     }

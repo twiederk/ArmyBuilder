@@ -233,5 +233,30 @@ namespace ArmyBuilder.Test.Dao
             meleeWeaponSlot = generalEquipment.Slots.First(s => s.Id == 1);
             meleeWeaponSlot.Item.Name.Should().Be("Handwaffe");
         }
+
+        [Fact]
+        public void should_update_item_id_of_slot()
+        {
+            // arrange
+            int armyId = 1;            
+            Slot slot = new Slot()
+            {
+                Id = 1,
+                Item = new Item() { Id = 2 },
+            };
+
+            // act
+            _repository.UpdateSlotItem(slot);
+
+            // assert
+            List<Equipment> equipments = _repository.ArmyEquipment(armyId);
+
+            // assert
+            Slot updatedSlot = equipments.SelectMany(e => e.Slots).First(s => s.Id == 1);
+            updatedSlot.Item.Id.Should().Be(2);
+
+            // tear down
+            _repository.UpdateSlotItem(new Slot() { Id = 1, Item = new Item() { Id = 1 } });
+        }
     }
 }
