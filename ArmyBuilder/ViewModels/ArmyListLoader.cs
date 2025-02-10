@@ -21,6 +21,15 @@ namespace ArmyBuilder.ViewModels
             return mainModels;
         }
 
+        public Army LoadArmy(int armyId)
+        {
+            Army army = _repository.Army(armyId);
+            List<Equipment> equipment = _repository.ArmyEquipment(armyId);
+            assignEquipment(army.MainModels(), equipment);
+            assignSelectableItems(army.MainModels(), army.ArmyList);
+            return army;
+        }
+
         public void assignEquipment(List<MainModel> mainModels, List<Equipment> equipment)
         {
             var equipmentDictionary = equipment.ToDictionary(e => e.Id);

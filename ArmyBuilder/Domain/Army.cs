@@ -70,6 +70,11 @@ namespace ArmyBuilder.Domain
             return categoryPoints;
         }
 
+        public List<MainModel> MainModels()
+        {
+            return Units.SelectMany(unit => unit.MainModels).ToList();
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is Army other)
