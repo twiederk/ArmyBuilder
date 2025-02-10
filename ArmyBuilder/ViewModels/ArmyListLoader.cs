@@ -12,7 +12,7 @@ namespace ArmyBuilder.ViewModels
             this._repository = repository;
         }
 
-        public List<MainModel> LoadMainModels(ArmyList armyList)
+        public List<MainModel> LoadArmyList(ArmyList armyList)
         {
             var mainModels = _repository.MainModels(armyList.Id);
             var equipment = _repository.ArmyListEquipment(armyList.Id);

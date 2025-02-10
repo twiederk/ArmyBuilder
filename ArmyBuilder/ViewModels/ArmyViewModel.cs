@@ -113,7 +113,7 @@ namespace ArmyBuilder.ViewModels
         {
             if (_selectedArmyList != null)
             {
-                List<MainModel> mainModels = new ArmyListLoader(_repository).LoadMainModels(_selectedArmyList);
+                List<MainModel> mainModels = new ArmyListLoader(_repository).LoadArmyList(_selectedArmyList);
 
                 Characters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
                 Troopers = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
