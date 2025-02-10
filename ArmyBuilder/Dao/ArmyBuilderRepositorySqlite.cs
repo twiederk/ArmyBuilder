@@ -348,9 +348,26 @@ namespace ArmyBuilder.Dao
                     singleModel.MountStatus
                 });
                 singleModel.Id = single_model_id;
+
+                foreach (var slot in singleModel.Equipment.Slots)
+                {
+                    sql = @"
+                        INSERT INTO army_slot (army_single_model_id, item_id, editable, magic, item_class_id)
+                        VALUES (@ArmySingleModelId, @ItemId, @Editable, @Magic, @ItemClassId);
+                        SELECT last_insert_rowid();";
+                    var slot_id = _dbConnection.ExecuteScalar<int>(sql, new
+                    {
+                        ArmySingleModelId = single_model_id,
+                        ItemId = slot.Item.Id,
+                        //Editable = slot.Editable ? 1 : 0,
+                        //Magic = slot.Magic ? 1 : 0,
+                        slot.Editable,
+                        slot.Magic,
+                        ItemClassId = (int)slot.ItemClass
+                    });
+                    slot.Id = slot_id;
+                }
             }
-
-
             return mainModel;
         }
 
@@ -408,8 +425,14 @@ namespace ArmyBuilder.Dao
 
         public void DeleteMainModelFromUnit(int unitId, int mainModelId)
         {
-            // Delete single models of the main model
+            // Delete slots of single models of the main model
             var sql = @"
+                DELETE FROM army_slot
+                WHERE army_single_model_id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id WHERE amm.id = @MainModelId)";
+            _dbConnection.Execute(sql, new { MainModelId = mainModelId });
+
+            // Delete single models of the main model
+            sql = @"
                 DELETE FROM army_single_model
                 WHERE id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id WHERE amm.id = @MainModelId)";
             _dbConnection.Execute(sql, new { MainModelId = mainModelId });

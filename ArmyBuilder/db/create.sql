@@ -138,12 +138,12 @@ CREATE TABLE IF NOT EXISTS "army_single_model"
 
 
 CREATE TABLE IF NOT EXISTS "army_slot"
-("id"                INTEGER,
+("id"                     INTEGER,
  "army_single_model_id"   INTEGER,
- "item_id"           INTEGER,
- "editable"          BIT,
- "magic"             BIT,
- "item_class_id"     INTEGER,
+ "item_id"                INTEGER,
+ "editable"               BIT,
+ "magic"                  BIT,
+ "item_class_id"          INTEGER,
  PRIMARY KEY(id)
  FOREIGN KEY (army_single_model_id) REFERENCES army_single_model(id) ON DELETE CASCADE 
  FOREIGN KEY (item_class_id) REFERENCES item_class(id) ON DELETE CASCADE 
