@@ -48,7 +48,7 @@ namespace ArmyBuilder.Domain
             {
                 foreach (var mainModel in unit.MainModels)
                 {
-                    float pointsToAdd = mainModel.Count * mainModel.Points;
+                    float pointsToAdd = mainModel.Count * mainModel.OldPoints;
                     switch (mainModel.ArmyCategory)
                     {
                         case ArmyCategory.Character:

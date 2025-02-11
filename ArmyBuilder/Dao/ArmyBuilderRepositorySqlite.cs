@@ -334,7 +334,7 @@ namespace ArmyBuilder.Dao
                 ArmyCategoryId = (int)mainModel.ArmyCategory,
                 mainModel.Name,
                 mainModel.Description,
-                mainModel.Points,
+                mainModel.OldPoints,
                 mainModel.Count
             });
             mainModel.Id = main_model_id;

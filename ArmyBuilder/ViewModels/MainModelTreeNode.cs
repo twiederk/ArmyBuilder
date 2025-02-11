@@ -8,7 +8,7 @@ namespace ArmyBuilder.ViewModels
 {
     public class MainModelTreeNode : INotifyPropertyChanged
     {
-        public string Name => $"{MainModel.Name} ({MainModel.Points})";
+        public string Name => $"{MainModel.Name} ({MainModel.Points()})";
         public String Count => $"{MainModel.Count}x";
         public float TotalPoints => MainModel.TotalPoints();
         public MainModel MainModel { get; set; }

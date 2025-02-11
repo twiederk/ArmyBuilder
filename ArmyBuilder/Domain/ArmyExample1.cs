@@ -108,7 +108,7 @@
                         {
                             Name = "General",
                             ArmyCategory = ArmyCategory.Character,
-                            Points = 160,
+                            OldPoints = 160,
                             SingleModels = new List<SingleModel>
                             {
                                 new SingleModel()
@@ -167,7 +167,7 @@
                         {
                             Name = "Speerträger",
                             ArmyCategory = ArmyCategory.Trooper,
-                            Points = 12,
+                            OldPoints = 12,
                             Count = 20,
                             SingleModels = new List<SingleModel>
                             {
@@ -235,7 +235,7 @@
                         {
                             Name = "Streitwagen",
                             ArmyCategory = ArmyCategory.WarMachine,
-                            Points = 72,
+                            OldPoints = 72,
                             SingleModels = new List<SingleModel>
                             {
                                 new SingleModel()

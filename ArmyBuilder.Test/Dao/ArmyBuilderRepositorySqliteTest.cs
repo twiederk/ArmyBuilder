@@ -43,7 +43,7 @@ namespace ArmyBuilder.Test.Dao
             mainModel.ArmyCategory.Should().Be(ArmyCategory.Trooper);
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
             mainModel.Description.Should().Be("Schwertmeister, Geschosse beiseiteschlagen.");
-            mainModel.Points.Should().Be(16.0F);
+            mainModel.OldPoints.Should().Be(16.0F);
 
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
@@ -66,7 +66,7 @@ namespace ArmyBuilder.Test.Dao
             mainModel.ArmyCategory.Should().Be(ArmyCategory.Trooper);
             mainModel.Name.Should().Be("Drachenprinzen von Caledor");
             mainModel.Description.Should().Be("Banner von Caledor");
-            mainModel.Points.Should().Be(43.0F);
+            mainModel.OldPoints.Should().Be(43.0F);
 
             singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Drachenprinz");
@@ -192,7 +192,7 @@ namespace ArmyBuilder.Test.Dao
             general.Name.Should().Be("General");
             general.Count.Should().Be(1);
             general.ArmyCategory.Should().Be(ArmyCategory.Character);
-            general.Points.Should().Be(160);
+            general.OldPoints.Should().Be(160);
             general.SingleModels.Should().HaveCount(1);
 
             SingleModel singleModel = general.SingleModels[0];

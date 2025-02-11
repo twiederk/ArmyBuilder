@@ -1,3 +1,4 @@
+
 namespace ArmyBuilder.Domain
 {
     public class MainModel
@@ -6,13 +7,13 @@ namespace ArmyBuilder.Domain
         public ArmyCategory ArmyCategory { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public float Points { get; set; }
+        public float OldPoints { get; set; }
         public int Count { get; set; } = 1;
         public List<SingleModel> SingleModels { get; set; } = new List<SingleModel>();
 
         public float TotalPoints()
         {
-            return Points * Count;
+            return Points() * Count;
         }
 
         public int IncreaseCount()
@@ -29,6 +30,10 @@ namespace ArmyBuilder.Domain
             return Count;
         }
 
+        public float Points()
+        {
+            return SingleModels.Sum(sm => sm.TotalPoints());
+        }
 
         public MainModel Clone()
         {
@@ -38,7 +43,7 @@ namespace ArmyBuilder.Domain
                 ArmyCategory = this.ArmyCategory,
                 Name = this.Name,
                 Description = this.Description,
-                Points = this.Points,
+                OldPoints = this.OldPoints,
                 SingleModels = this.SingleModels.Select(sm => new SingleModel
                 {
                     Id = sm.Id,
