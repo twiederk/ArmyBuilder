@@ -19,7 +19,7 @@ namespace ArmyBuilder.Domain
         public int Attacks { get; set; }
         public int Moral { get; set; }
         public int Save { get; set; }
-        public int Points { get; set; }
+        public float Points { get; set; }
 
         public override bool Equals(object obj)
         {
