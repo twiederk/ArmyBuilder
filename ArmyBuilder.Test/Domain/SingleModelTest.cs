@@ -93,6 +93,35 @@ namespace ArmyBuilder.Test.Domain
             save.Should().Be("6");
         }
 
+        [Fact]
+        public void should_return_points_of_profile_when_single_model_has_no_equipment()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 100 } };
+
+            // act
+            float totalPoints = singleModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(100);
+        }
+
+        [Fact]
+        public void should_return_points_of_profile_when_single_model_has_equipment()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 100 } };
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 10 } });
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 20 } });
+            singleModel.Equipment = equipment;
+
+            // act
+            float totalPoints = singleModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(130);
+        }
     }
 }
 
