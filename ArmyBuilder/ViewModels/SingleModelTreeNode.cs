@@ -17,12 +17,15 @@ namespace ArmyBuilder.ViewModels
         public int Attacks => _singleModel.Profile.Attacks;
         public int Moral => _singleModel.Profile.Moral;
         public String Save => _singleModel.Save;
-
-        private SingleModel _singleModel;
         public List<EquipmentTreeNode> Equipment { get; set; } = new List<EquipmentTreeNode>();
+        private SingleModel _singleModel;
+        private MainModelTreeNode _parent;
 
-        public SingleModelTreeNode(SingleModel singleModel)
+
+
+        public SingleModelTreeNode(SingleModel singleModel, MainModelTreeNode parent)
         {
+            _parent = parent;
             _singleModel = singleModel;
             if (!singleModel.Equipment.IsEmpty())
             {
@@ -40,6 +43,7 @@ namespace ArmyBuilder.ViewModels
 
         public void UpdateEquipment()
         {
+            _parent.UpdateTotalPoints();
             OnPropertyChanged("Save");
         }
 
