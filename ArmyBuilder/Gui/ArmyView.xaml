@@ -48,8 +48,11 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="{Binding SelectedMainModel.Name}" HorizontalAlignment="Left" />
-            <Label Grid.Row="0" Grid.Column="0" Content="{Binding SelectedMainModel.Points}" HorizontalAlignment="Right" />
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                <Label Content="{Binding SelectedMainModel.Name}" />
+                <Label Content="{Binding SelectedMainModel.OldPoints}" />
+                <Label Content="{Binding SelectedMainModel.NewPoints}" />
+            </StackPanel>
 
             <local:MainModelControl Grid.Row="1" Grid.Column="0" />
 
