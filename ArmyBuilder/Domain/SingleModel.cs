@@ -11,6 +11,8 @@ namespace ArmyBuilder.Domain
         public string Description { get; set; }
         public Profile Profile { get; set; }
         public MountStatus MountStatus { get; set; } = MountStatus.NotMounted;
+        public bool Musician { get; set; }
+        public bool StandardBearer { get; set; }
         public Equipment Equipment { get; set; } = new Equipment();
         public String Save => CalculateSave();
 
@@ -49,7 +51,16 @@ namespace ArmyBuilder.Domain
 
         public float TotalPoints()
         {
-            return Profile.Points + Equipment.Slots.Sum(slot => slot.Item.Points);
+            float points = Profile.Points + Equipment.Slots.Sum(slot => slot.Item.Points);
+            if (MountStatus == MountStatus.Riding)
+            {
+                points *= 2;
+            }
+            if (StandardBearer || Musician)
+            {
+                points *= 2;
+            }
+            return points;
         }
     }
 }

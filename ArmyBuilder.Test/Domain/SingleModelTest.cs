@@ -122,6 +122,80 @@ namespace ArmyBuilder.Test.Domain
             // assert
             totalPoints.Should().Be(130);
         }
+
+        [Fact]
+        public void should_calculate_points_singel_model_when_single_model_is_rider()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
+            singleModel.Equipment = equipment;
+            singleModel.MountStatus = MountStatus.Riding;
+
+            // act
+            float totalPoints = singleModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(26);
+        }
+
+        [Fact]
+        public void should_calculate_points_singel_model_when_single_model_is_standard_bearer()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
+            singleModel.Equipment = equipment;
+            singleModel.StandardBearer = true;
+
+            // act
+            float totalPoints = singleModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(26);
+        }
+
+        [Fact]
+        public void should_calculate_points_singel_model_when_single_model_is_musician()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
+            singleModel.Equipment = equipment;
+            singleModel.Musician = true;
+
+            // act
+            float totalPoints = singleModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(26);
+        }
+
+        
+        [Fact]
+        public void should_calculate_points_singel_model_when_single_model_is_rider_and_standard_bearer()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
+            singleModel.Equipment = equipment;
+            singleModel.MountStatus = MountStatus.Riding;
+            singleModel.StandardBearer = true;
+
+            // act
+            float totalPoints = singleModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(52);
+        }
     }
 }
 
