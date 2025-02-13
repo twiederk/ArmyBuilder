@@ -373,7 +373,11 @@ namespace ArmyBuilder.Test.Dao
             testMainModel.Count.Should().Be(3);
             testMainModel.SingleModels.Should().HaveCount(1);
             var testSingleModel = testMainModel.SingleModels[0];
-            var testEquipment = testSingleModel.Equipment;
+            testSingleModel.Name.Should().Be("Schwertmeister");
+            testSingleModel.StandardBearer.Should().BeFalse();
+            testSingleModel.Musician.Should().BeFalse();
+            testSingleModel.MovementType.Should().Be(MovementType.OnFoot);
+            testSingleModel.Mount.Should().BeFalse();
 
             // teardown
             _repository.DeleteArmy(army.Id);
