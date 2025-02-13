@@ -74,7 +74,7 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.mount_status as MountStatus,
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.mount_status as MountStatus, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type as MovementType, sm.mount,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.strength, p.toughness, p.wounds, p.initiative, p.attacks, p.moral, p.points, p.save
                 FROM 
                     single_model sm

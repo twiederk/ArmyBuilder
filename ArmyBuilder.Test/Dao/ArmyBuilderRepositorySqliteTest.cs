@@ -105,6 +105,10 @@ namespace ArmyBuilder.Test.Dao
             // assert
             singleModel.Name.Should().Be("Schwertmeister");
             singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnFoot);
+            singleModel.Mount.Should().BeFalse();
             singleModel.Profile.Movement.Should().Be(5);
             singleModel.Profile.WeaponSkill.Should().Be(5);
             singleModel.Profile.BallisticSkill.Should().Be(4);
@@ -128,6 +132,10 @@ namespace ArmyBuilder.Test.Dao
             // assert
             singleModel.Name.Should().Be("Drachenprinz");
             singleModel.MountStatus.Should().Be(MountStatus.Riding);
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnMount);
+            singleModel.Mount.Should().BeFalse();            
             singleModel.Profile.Movement.Should().Be(5);
             singleModel.Profile.WeaponSkill.Should().Be(5);
             singleModel.Profile.BallisticSkill.Should().Be(4);
