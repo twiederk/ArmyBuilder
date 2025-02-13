@@ -54,8 +54,6 @@ CREATE TABLE IF NOT EXISTS "main_model"
  "name"              VARCHAR(60),
  "description"       VARCHAR(110),
  "points"            FLOAT,
- "base_width"        SMALLINT,
- "base_height"       SMALLINT,
  PRIMARY KEY(id)
  FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
  FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
