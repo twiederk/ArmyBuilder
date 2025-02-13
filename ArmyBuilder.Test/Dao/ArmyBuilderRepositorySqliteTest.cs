@@ -220,6 +220,10 @@ namespace ArmyBuilder.Test.Dao
 
             SingleModel singleModel = general.SingleModels[0];
             singleModel.Name.Should().Be("General");
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnFoot);
+            singleModel.Mount.Should().BeFalse();
 
             Profile profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
