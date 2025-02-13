@@ -60,7 +60,7 @@ namespace ArmyBuilder.Test.Dao
             profile.Initiative.Should().Be(7);
             profile.Attacks.Should().Be(1);
             profile.Moral.Should().Be(8);
-            profile.Points.Should().Be(11);
+            profile.Points.Should().Be(9);
             profile.Save.Should().Be(7);
 
             // Drachenprinz von Caledor
@@ -106,7 +106,7 @@ namespace ArmyBuilder.Test.Dao
             singleModel.Profile.Initiative.Should().Be(7);
             singleModel.Profile.Attacks.Should().Be(1);
             singleModel.Profile.Moral.Should().Be(8);
-            singleModel.Profile.Points.Should().Be(11);
+            singleModel.Profile.Points.Should().Be(9);
             singleModel.Profile.Save.Should().Be(7);
         }
 

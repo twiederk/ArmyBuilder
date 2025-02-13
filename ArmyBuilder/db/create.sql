@@ -34,8 +34,6 @@ CREATE TABLE IF NOT EXISTS "profile"
  "initiative"      SMALLINT,
  "attacks"         SMALLINT,
  "moral"           SMALLINT,
- "base_width"      SMALLINT,
- "base_height"     SMALLINT,
  "points"          FLOAT,
  "save"            SMALLINT,
  PRIMARY KEY(id)
