@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS "mount_status"
 
 CREATE TABLE IF NOT EXISTS "profile"
 ("id"              INTEGER,
+ "name"            VARCHAR(50),
  "movement"        SMALLINT,
  "weapon_skill"    SMALLINT,
  "ballistic_skill" SMALLINT,
