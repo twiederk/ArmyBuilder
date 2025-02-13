@@ -132,6 +132,10 @@ CREATE TABLE IF NOT EXISTS "army_single_model"
  "army_main_model_id"   INTEGER,
  "description"          VARCHAR(110),
  "mount_status"         INTEGER,
+ "standard_bearer"      BIT,
+ "musician"             BIT,
+ "movement_type"        INTEGER,
+ "mount"                BIT,
  PRIMARY KEY (id)
  FOREIGN KEY (army_main_model_id) REFERENCES army_main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
