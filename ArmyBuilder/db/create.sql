@@ -70,6 +70,8 @@ CREATE TABLE IF NOT EXISTS "single_model"
  "mount_status"      INTEGER,
  "standard_bearer"   BIT,
  "musician"          BIT,
+ "movement_type"     INTEGER,
+ "mount"             BIT,
  PRIMARY KEY(id)
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
