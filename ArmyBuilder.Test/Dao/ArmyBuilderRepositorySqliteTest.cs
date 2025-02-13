@@ -49,6 +49,10 @@ namespace ArmyBuilder.Test.Dao
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
             singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnFoot);
+            singleModel.Mount.Should().BeFalse();
 
             var profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
@@ -73,6 +77,10 @@ namespace ArmyBuilder.Test.Dao
             singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Drachenprinz");
             singleModel.MountStatus.Should().Be(MountStatus.Riding);
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnMount);
+            singleModel.Mount.Should().BeFalse();
 
             profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
@@ -144,6 +152,10 @@ namespace ArmyBuilder.Test.Dao
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
             singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnFoot);
+            singleModel.Mount.Should().BeFalse();
             var profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
             profile.WeaponSkill.Should().Be(5);

@@ -13,6 +13,8 @@ namespace ArmyBuilder.Domain
         public MountStatus MountStatus { get; set; } = MountStatus.NotMounted;
         public bool Musician { get; set; }
         public bool StandardBearer { get; set; }
+        public MovementType MovementType { get; set; }
+        public bool Mount { get; set; }
         public Equipment Equipment { get; set; } = new Equipment();
         public String Save => CalculateSave();
 
