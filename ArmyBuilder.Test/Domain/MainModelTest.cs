@@ -118,5 +118,34 @@ namespace ArmyBuilder.Test.Domain
             // assert
             model.Count.Should().Be(1);
         }
+
+        [Fact]
+        public void should_clone_main_model()
+        {
+            // arrange
+            var model = new MainModel();
+            model.SingleModels.Add(new SingleModel { Profile = new Profile { Points = 10 } });
+            model.SingleModels.Add(new SingleModel
+            { 
+                Profile = new Profile { Points = 20 },
+                StandardBearer = true,
+                Musician = true,
+                MovementType = MovementType.OnMount,
+                Mount = true
+            });
+
+            // act
+            var clone = model.Clone();
+
+            // assert
+            clone.SingleModels.Should().HaveCount(2);
+            clone.SingleModels[0].Profile.Points.Should().Be(10);
+
+            clone.SingleModels[1].Profile.Points.Should().Be(20);
+            clone.SingleModels[1].StandardBearer.Should().BeTrue();
+            clone.SingleModels[1].Musician.Should().BeTrue();
+            clone.SingleModels[1].MovementType.Should().Be(MovementType.OnMount);
+            clone.SingleModels[1].Mount.Should().BeTrue();
+        }
     }
 }

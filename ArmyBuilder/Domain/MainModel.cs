@@ -51,6 +51,10 @@ namespace ArmyBuilder.Domain
                     Name = sm.Name,
                     Description = sm.Description,
                     MountStatus = sm.MountStatus,
+                    StandardBearer = sm.StandardBearer,
+                    Musician = sm.Musician,
+                    MovementType = sm.MovementType,
+                    Mount = sm.Mount,
                     Profile = new Profile
                     {
                         Movement = sm.Profile.Movement,
@@ -62,6 +66,7 @@ namespace ArmyBuilder.Domain
                         Initiative = sm.Profile.Initiative,
                         Attacks = sm.Profile.Attacks,
                         Moral = sm.Profile.Moral,
+                        Points = sm.Profile.Points,
                         Save = sm.Profile.Save
                     },
                     Equipment = new Equipment
