@@ -1378,7 +1378,7 @@ INSERT INTO main_model VALUES(11993,11,1,'Bestigor','Immun gegen Gerangel und fl
 INSERT INTO main_model VALUES(11994,11,1,'Streitwagen','',88.0);
 INSERT INTO main_model VALUES(11995,11,1,'Minotaurus','Angst, Blutrausch.',42.0);
 INSERT INTO main_model VALUES(11996,11,1,'Chaoshund','',12.0);
-INSERT INTO main_model VALUES(11997,7,1,'Zwillingskämpfer','',9.0);
+INSERT INTO main_model VALUES(11997,7,1,'Zwillingskämpfer','',11.0);
 INSERT INTO main_model VALUES(11998,2,1,'Chaosritter','',66.0);
 INSERT INTO main_model VALUES(11999,2,1,'Chaoskrieger','',24.0);
 INSERT INTO main_model VALUES(12000,2,1,'Chaoshunde','',12.0);
@@ -1824,7 +1824,7 @@ INSERT INTO main_model VALUES(12529,11,1,'Gor Standartenträger','Gerangel',20.0
 INSERT INTO main_model VALUES(12530,11,1,'Ungor Standartenträger','lockere Formation, Gerangel',9.0);
 INSERT INTO main_model VALUES(12531,11,1,'Bestigor Standartenträger','Immun gegen Gerangel und fliehende Ungors.',36.0);
 INSERT INTO main_model VALUES(12532,11,1,'Minotaurus Standartenträger','Angst, Blutrausch.',84.0);
-INSERT INTO main_model VALUES(12533,7,1,'Zwillingskämpfer Standartenträger','',18.0);
+INSERT INTO main_model VALUES(12533,7,1,'Zwillingskämpfer Standartenträger','',22.0);
 INSERT INTO main_model VALUES(12534,2,1,'Chaosritter Standartenträger','',132.0);
 INSERT INTO main_model VALUES(12535,2,1,'Chaoskrieger Standartenträger','',48.0);
 INSERT INTO main_model VALUES(12536,2,1,'Chaosbarbaren Standartenträger','',24.0);
@@ -1943,7 +1943,7 @@ INSERT INTO main_model VALUES(12648,11,1,'Gor Musiker','Gerangel',20.0);
 INSERT INTO main_model VALUES(12649,11,1,'Ungor Musiker','lockere Formation, Gerangel',9.0);
 INSERT INTO main_model VALUES(12650,11,1,'Bestigor Musiker','Immun gegen Gerangel und fliehende Ungors.',36.0);
 INSERT INTO main_model VALUES(12651,11,1,'Minotaurus Musiker','Angst, Blutrausch.',84.0);
-INSERT INTO main_model VALUES(12652,7,1,'Zwillingskämpfer Musiker','',18.0);
+INSERT INTO main_model VALUES(12652,7,1,'Zwillingskämpfer Musiker','',22.0);
 INSERT INTO main_model VALUES(12653,2,1,'Chaosritter Musiker','',132.0);
 INSERT INTO main_model VALUES(12654,2,1,'Chaoskrieger Musiker','',48.0);
 INSERT INTO main_model VALUES(12655,2,1,'Chaosbarbaren Musiker','',24.0);
