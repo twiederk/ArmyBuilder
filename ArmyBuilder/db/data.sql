@@ -114,6 +114,7 @@ INSERT INTO profile VALUES(11503,'',4,5,5,4,4,3,4,3,9,0.0,7);
 INSERT INTO profile VALUES(11504,'',4,5,5,4,4,3,4,6,9,0.0,7);
 INSERT INTO profile VALUES(11505,'',4,4,3,3,3,3,5,3,10,0.0,7);
 INSERT INTO profile VALUES(11506,'Hochelfen General',5,7,7,4,4,3,9,4,10,160.0,7);
+INSERT INTO profile VALUES(11507,'Hochelfen Armeestandarte',5,5,5,4,3,1,7,2,8,98.0,7);
 INSERT INTO profile VALUES(11508,'Hochelfen Held',5,6,6,4,4,2,8,3,9,104.0,7);
 INSERT INTO profile VALUES(11509,'Hochelfen Champion',5,5,5,4,3,1,7,2,8,48.0,7);
 INSERT INTO profile VALUES(11510,'Hochelfen Zauberer',5,4,4,3,4,1,7,1,8,59.0,7);
@@ -2090,7 +2091,7 @@ INSERT INTO single_model VALUES(46488,11503,'Valmir von Raukov',11503,'',0,0,0,0
 INSERT INTO single_model VALUES(46489,11504,'Marius Leitdorf',11504,'Raserei',0,0,0,0,0);
 INSERT INTO single_model VALUES(46490,11505,'Tzarina',11505,'Zieht ihre Zauber aus der Eismagie',0,0,0,0,0);
 INSERT INTO single_model VALUES(46491,11506,'General',11506,'',0,0,0,0,0);
-INSERT INTO single_model VALUES(46492,11509,'Armeestandartenträger',11507,'',0,0,0,0,0);
+INSERT INTO single_model VALUES(46492,11507,'Armeestandartenträger',11507,'',0,0,0,0,0);
 INSERT INTO single_model VALUES(46493,11508,'Held',11508,'',0,0,0,0,0);
 INSERT INTO single_model VALUES(46494,11509,'Champion',11509,'',0,0,0,0,0);
 INSERT INTO single_model VALUES(46495,11510,'Zauberer',11510,'',0,0,0,0,0);
