@@ -8,7 +8,7 @@ namespace ArmyBuilder.ViewModels
 {
     public class MainModelTreeNode : INotifyPropertyChanged
     {
-        public string Name => $"{MainModel.Name} ({MainModel.Points})";
+        public string Name => $"{MainModel.Name} ({MainModel.Points()})";
         public String Count => $"{MainModel.Count}x";
         public float TotalPoints => MainModel.TotalPoints();
         public MainModel MainModel { get; set; }
@@ -31,7 +31,7 @@ namespace ArmyBuilder.ViewModels
         {
             foreach (var singleModel in MainModel.SingleModels)
             {
-                SingleModels.Add(new SingleModelTreeNode(singleModel));
+                SingleModels.Add(new SingleModelTreeNode(singleModel, this));
             }
         }
 
@@ -48,6 +48,13 @@ namespace ArmyBuilder.ViewModels
             _parent.RemoveMainModel(this);
         }
 
+        public void UpdateTotalPoints()
+        {
+            OnPropertyChanged("Name");
+            OnPropertyChanged("TotalPoints");
+            _parent.UpdateTotalPoints();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)
@@ -55,11 +62,6 @@ namespace ArmyBuilder.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void UpdateTotalPoints()
-        {
-            OnPropertyChanged("TotalPoints");
-            _parent.UpdateTotalPoints();
-        }
 
 
     }

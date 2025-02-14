@@ -2,6 +2,7 @@
 using System.Data;
 using ArmyBuilder.Dao;
 using ArmyBuilder.Domain;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ArmyBuilder.Test.Dao
 {
@@ -36,29 +37,33 @@ namespace ArmyBuilder.Test.Dao
             List<MainModel> mainModels = _repository.MainModels(armyListId);
 
             // assert
-            mainModels.Should().HaveCount(67);
+            mainModels.Should().HaveCount(66);
 
             // Schwertmeister von Hoeth
             var mainModel = mainModels.First(m => m.Id == 11901);
             mainModel.ArmyCategory.Should().Be(ArmyCategory.Trooper);
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
             mainModel.Description.Should().Be("Schwertmeister, Geschosse beiseiteschlagen.");
-            mainModel.Points.Should().Be(16.0F);
+            mainModel.OldPoints.Should().Be(16.0F);
 
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnFoot);
+            singleModel.Mount.Should().BeFalse();
 
             var profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
             profile.WeaponSkill.Should().Be(5);
             profile.BallisticSkill.Should().Be(4);
-            profile.Strength.Should().Be(5);
+            profile.Strength.Should().Be(3);
             profile.Toughness.Should().Be(3);
             profile.Wounds.Should().Be(1);
             profile.Initiative.Should().Be(7);
             profile.Attacks.Should().Be(1);
             profile.Moral.Should().Be(8);
+            profile.Points.Should().Be(10);
             profile.Save.Should().Be(7);
 
             // Drachenprinz von Caledor
@@ -66,11 +71,14 @@ namespace ArmyBuilder.Test.Dao
             mainModel.ArmyCategory.Should().Be(ArmyCategory.Trooper);
             mainModel.Name.Should().Be("Drachenprinzen von Caledor");
             mainModel.Description.Should().Be("Banner von Caledor");
-            mainModel.Points.Should().Be(43.0F);
+            mainModel.OldPoints.Should().Be(43.0F);
 
             singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.MountStatus.Should().Be(MountStatus.Riding);
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnMount);
+            singleModel.Mount.Should().BeFalse();
 
             profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
@@ -94,16 +102,20 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnFoot);
+            singleModel.Mount.Should().BeFalse();
             singleModel.Profile.Movement.Should().Be(5);
             singleModel.Profile.WeaponSkill.Should().Be(5);
             singleModel.Profile.BallisticSkill.Should().Be(4);
-            singleModel.Profile.Strength.Should().Be(5);
+            singleModel.Profile.Strength.Should().Be(3);
             singleModel.Profile.Toughness.Should().Be(3);
             singleModel.Profile.Wounds.Should().Be(1);
             singleModel.Profile.Initiative.Should().Be(7);
             singleModel.Profile.Attacks.Should().Be(1);
             singleModel.Profile.Moral.Should().Be(8);
+            singleModel.Profile.Points.Should().Be(10);
             singleModel.Profile.Save.Should().Be(7);
         }
 
@@ -116,7 +128,10 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.MountStatus.Should().Be(MountStatus.Riding);
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnMount);
+            singleModel.Mount.Should().BeFalse();            
             singleModel.Profile.Movement.Should().Be(5);
             singleModel.Profile.WeaponSkill.Should().Be(5);
             singleModel.Profile.BallisticSkill.Should().Be(4);
@@ -140,12 +155,15 @@ namespace ArmyBuilder.Test.Dao
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnFoot);
+            singleModel.Mount.Should().BeFalse();
             var profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
             profile.WeaponSkill.Should().Be(5);
             profile.BallisticSkill.Should().Be(4);
-            profile.Strength.Should().Be(5);
+            profile.Strength.Should().Be(3);
             profile.Toughness.Should().Be(3);
             profile.Wounds.Should().Be(1);
             profile.Initiative.Should().Be(7);
@@ -166,7 +184,7 @@ namespace ArmyBuilder.Test.Dao
             army.Author.Should().Be("Torsten");
             army.ArmyList.Id.Should().Be(7);
             army.ArmyList.Name.Should().Be("Hochelfen");
-            army.Points.Should().Be(472);
+            army.Points.Should().Be(498);
         }
 
         [Fact]
@@ -181,7 +199,7 @@ namespace ArmyBuilder.Test.Dao
             army.ArmyList.Id.Should().Be(7);
             army.ArmyList.Name.Should().Be("Hochelfen");
             army.Author.Should().Be("Torsten");
-            army.Points.Should().Be(472);
+            army.Points.Should().Be(498);
             army.Units.Should().HaveCount(2);
 
             Unit generalUnit = army.Units[0];
@@ -192,11 +210,15 @@ namespace ArmyBuilder.Test.Dao
             general.Name.Should().Be("General");
             general.Count.Should().Be(1);
             general.ArmyCategory.Should().Be(ArmyCategory.Character);
-            general.Points.Should().Be(160);
+            general.OldPoints.Should().Be(160);
             general.SingleModels.Should().HaveCount(1);
 
             SingleModel singleModel = general.SingleModels[0];
             singleModel.Name.Should().Be("General");
+            singleModel.StandardBearer.Should().BeFalse();
+            singleModel.Musician.Should().BeFalse();
+            singleModel.MovementType.Should().Be(MovementType.OnFoot);
+            singleModel.Mount.Should().BeFalse();
 
             Profile profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
@@ -325,7 +347,7 @@ namespace ArmyBuilder.Test.Dao
                 Name = "Schwertmeister",
                 Description = "Schwertmeister, Geschosse beiseiteschlagen.",
                 Profile = new Profile { Id = 11901 },
-                MountStatus = MountStatus.Riding,
+                MovementType = MovementType.OnFoot,
                 Equipment = equipment
             };
             MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
@@ -346,7 +368,11 @@ namespace ArmyBuilder.Test.Dao
             testMainModel.Count.Should().Be(3);
             testMainModel.SingleModels.Should().HaveCount(1);
             var testSingleModel = testMainModel.SingleModels[0];
-            var testEquipment = testSingleModel.Equipment;
+            testSingleModel.Name.Should().Be("Schwertmeister");
+            testSingleModel.StandardBearer.Should().BeFalse();
+            testSingleModel.Musician.Should().BeFalse();
+            testSingleModel.MovementType.Should().Be(MovementType.OnFoot);
+            testSingleModel.Mount.Should().BeFalse();
 
             // teardown
             _repository.DeleteArmy(army.Id);

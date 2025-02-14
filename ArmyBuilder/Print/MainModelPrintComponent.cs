@@ -104,7 +104,7 @@ namespace ArmyBuilder.Print
 
         public string Heading()
         {
-            return $"{_mainModel.Count}x {_mainModel.Name} ({_mainModel.Points}) => {_mainModel.TotalPoints()} {_mainModel.ArmyCategory.Display()}";
+            return $"{_mainModel.Count}x {_mainModel.Name} ({_mainModel.OldPoints}) => {_mainModel.TotalPoints()} {_mainModel.ArmyCategory.Display()}";
         }
 
 

@@ -42,6 +42,21 @@ namespace ArmyBuilder.Domain
         {
             return Id.GetHashCode();
         }
+
+        public float ItemsPoints()
+        {
+            return Slots.Sum(slot => slot.Item.Points);
+        }
+
+        public float NonMagicItemsPoints()
+        {
+            return Slots.Where(slot => !slot.Item.Magic).Sum(slot => slot.Item.Points);
+        }
+
+        public float MagicItemsPoints()
+        {
+            return Slots.Where(slot => slot.Item.Magic).Sum(slot => slot.Item.Points);
+        }
     }
 }
 

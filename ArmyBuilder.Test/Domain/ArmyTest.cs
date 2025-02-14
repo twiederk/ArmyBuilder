@@ -35,7 +35,8 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             Unit unit1 = new Unit("Unit1");
-            unit1.MainModels.Add(new MainModel() { Points = 75, Count = 3 });
+            MainModel mainModel = new MainModel { SingleModels = { new SingleModel { Profile = new Profile { Points = 75 } } }, Count = 3 };
+            unit1.MainModels.Add(mainModel);
             Army army = new Army("Army1");
             army.Units.Add(unit1);
 
@@ -51,13 +52,11 @@ namespace ArmyBuilder.Test.Domain
         public void should_calculate_points_of_when_army_has_2_units()
         {
             // arrange
-            Unit unit1 = new Unit("Unit1");
-            unit1.MainModels.Add(new MainModel() { Points = 75, Count = 3 });
-            Unit unit2 = new Unit("Unit2");
-            unit1.MainModels.Add(new MainModel() { Points = 10, Count = 4 });
-            Army army = new Army("Army1");
-            army.Units.Add(unit1);
-
+            MainModel mainModel1 = new MainModel { SingleModels = { new SingleModel { Profile = new Profile { Points = 75 } } }, Count = 3 };
+            MainModel mainModel2 = new MainModel { SingleModels = { new SingleModel { Profile = new Profile { Points = 10 } } }, Count = 4 };
+            Unit unit1 = new Unit { Name = "Unit1", MainModels = { mainModel1 } };
+            Unit unit2 = new Unit { Name = "Unit2", MainModels = { mainModel2 } };
+            Army army = new Army { Name = "Army1", Units = { unit1, unit2 } };
 
             // act
             var points = army.TotalPoints();

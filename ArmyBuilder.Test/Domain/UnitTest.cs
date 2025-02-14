@@ -21,7 +21,7 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             var unit = new Unit("Test Unit");
-            unit.MainModels.Add(new MainModel() { Points = 75, Count = 1 });
+            unit.MainModels.Add(new MainModel() { SingleModels = { new SingleModel { Profile = new Profile { Points = 75 } } }, Count = 1 });
 
             // act
             var points = unit.TotalPoints();
@@ -35,7 +35,7 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             var unit = new Unit("Test Unit");
-            unit.MainModels.Add(new MainModel() { Points = 75, Count = 2 });
+            unit.MainModels.Add(new MainModel() { SingleModels = { new SingleModel { Profile = new Profile { Points = 75 } } }, Count = 2 });
 
             // act
             var points = unit.TotalPoints();
@@ -45,12 +45,12 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
-        public void should_calculate_points_of_unit_when_two_main_model_with_count_2_is_given()
+        public void should_calculate_points_of_unit_when_two_main_model_are_given()
         {
             // arrange
             var unit = new Unit("Test Unit");
-            unit.MainModels.Add(new MainModel() { Points = 75, Count = 2 });
-            unit.MainModels.Add(new MainModel() { Points = 10, Count = 3 });
+            unit.MainModels.Add(new MainModel() { SingleModels = { new SingleModel { Profile = new Profile { Points = 75 } } }, Count = 2 });
+            unit.MainModels.Add(new MainModel() { SingleModels = { new SingleModel { Profile = new Profile { Points = 10 } } }, Count = 3 });
 
             // act
             var points = unit.TotalPoints();
@@ -64,7 +64,7 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             var unit = new Unit("Test Unit");
-            var mainModel = new MainModel() { Points = 75 };
+            var mainModel = new MainModel() { OldPoints = 75 };
 
             // act
             unit.AddMainModel(mainModel);
