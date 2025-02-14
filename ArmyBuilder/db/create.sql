@@ -260,7 +260,7 @@ SELECT id, name, points, description, army_list_id, "unique", magic FROM misc;
 
 
 CREATE VIEW army_list_profile AS
-SELECT mm.army_list_id, mm.id AS main_model_id, mm.name AS main_model_name, sm.id AS single_model_id, sm.name AS single_model_name, p.id AS profile_id, p.name AS profile_name
+SELECT mm.army_list_id, mm.id AS main_model_id, mm.name AS main_model_name, sm.id AS single_model_id, sm.name AS single_model_name, p.id AS profile_id, p.name AS profile_name, p.points AS profile_points
 FROM single_model sm 
 INNER JOIN main_model mm ON sm.main_model_id = mm.id
 INNER JOIN profile p ON sm.profile_id = p.id;
