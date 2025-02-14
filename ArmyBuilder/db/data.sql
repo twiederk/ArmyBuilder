@@ -3194,12 +3194,12 @@ INSERT INTO single_model VALUES(47595,12624,'Sauruskrieger Musiker',12624,'Kaltb
 INSERT INTO single_model VALUES(47596,12625,'Skink Musiker',12625,'Lockere Formation, Kroxigore in Einheiten aus Skinks, Amphibisch.',0,0,1,0,0);
 INSERT INTO single_model VALUES(47597,12626,'Großkamm Musiker',12626,'Kaltblütig, Kampfechsen unterliegen der Blödheit.',0,0,1,0,0);
 INSERT INTO single_model VALUES(47598,12627,'Skink-Besatzung Musiker',12627,'Aufpralltreffer (W6 S:5), Angst, Fernwaffen der Skinks sind vergiftet.',0,0,1,0,0);
-INSERT INTO single_model VALUES(47599,12034,'Elfenroß',12464,'',2,0,0,0,1);
-INSERT INTO single_model VALUES(47600,12034,'Elfenroß',12583,'',2,0,0,0,1);
-INSERT INTO single_model VALUES(47601,12034,'Elfenroß',12584,'',2,0,0,0,1);
-INSERT INTO single_model VALUES(47602,12034,'Elfenroß',12465,'',2,0,0,0,1);
-INSERT INTO single_model VALUES(47603,12034,'Elfenroß',12585,'',2,0,0,0,1);
-INSERT INTO single_model VALUES(47604,12034,'Elfenroß',12466,'',2,0,0,0,1);
+INSERT INTO single_model VALUES(47599,12034,'Elfenroß',12464,'',2,1,0,0,1);
+INSERT INTO single_model VALUES(47600,12034,'Elfenroß',12583,'',2,0,1,0,1);
+INSERT INTO single_model VALUES(47601,12034,'Elfenroß',12584,'',2,0,1,0,1);
+INSERT INTO single_model VALUES(47602,12034,'Elfenroß',12465,'',2,1,0,0,1);
+INSERT INTO single_model VALUES(47603,12034,'Elfenroß',12585,'',2,0,1,0,1);
+INSERT INTO single_model VALUES(47604,12034,'Elfenroß',12466,'',2,1,0,0,1);
 
 
 INSERT INTO melee_weapon VALUES(1,'Handwaffe',0,'',-1,0,0);
