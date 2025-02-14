@@ -2090,7 +2090,7 @@ INSERT INTO single_model VALUES(46488,11503,'Valmir von Raukov',11503,'',0,0,0,0
 INSERT INTO single_model VALUES(46489,11504,'Marius Leitdorf',11504,'Raserei',0,0,0,0,0);
 INSERT INTO single_model VALUES(46490,11505,'Tzarina',11505,'Zieht ihre Zauber aus der Eismagie',0,0,0,0,0);
 INSERT INTO single_model VALUES(46491,11506,'General',11506,'',0,0,0,0,0);
-INSERT INTO single_model VALUES(46492,11509,'Armeestandartenträger',11507,'',0,1,0,0,0);
+INSERT INTO single_model VALUES(46492,11509,'Armeestandartenträger',11507,'',0,0,0,0,0);
 INSERT INTO single_model VALUES(46493,11508,'Held',11508,'',0,0,0,0,0);
 INSERT INTO single_model VALUES(46494,11509,'Champion',11509,'',0,0,0,0,0);
 INSERT INTO single_model VALUES(46495,11510,'Zauberer',11510,'',0,0,0,0,0);
