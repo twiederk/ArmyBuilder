@@ -37,7 +37,7 @@ namespace ArmyBuilder.Test.Dao
             List<MainModel> mainModels = _repository.MainModels(armyListId);
 
             // assert
-            mainModels.Should().HaveCount(67);
+            mainModels.Should().HaveCount(66);
 
             // Schwertmeister von Hoeth
             var mainModel = mainModels.First(m => m.Id == 11901);
