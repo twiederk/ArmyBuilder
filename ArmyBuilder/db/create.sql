@@ -23,13 +23,6 @@ CREATE TABLE IF NOT EXISTS "movement_type"
 );
 
 
-CREATE TABLE IF NOT EXISTS "mount_status"
-("id"             INTEGER,
- "mount_status"   VARCHAR(50),
- PRIMARY KEY(id) 
-);
-
-
 CREATE TABLE IF NOT EXISTS "profile"
 ("id"              INTEGER,
  "name"            VARCHAR(50),
@@ -74,7 +67,6 @@ CREATE TABLE IF NOT EXISTS "single_model"
  "name"              VARCHAR(60),
  "main_model_id"     INTEGER,
  "description"       VARCHAR(110),
- "mount_status"      INTEGER,
  "standard_bearer"   BIT,
  "musician"          BIT,
  "movement_type_id"  INTEGER,
@@ -139,7 +131,6 @@ CREATE TABLE IF NOT EXISTS "army_single_model"
  "name"                 VARCHAR(60),
  "army_main_model_id"   INTEGER,
  "description"          VARCHAR(110),
- "mount_status"         INTEGER,
  "standard_bearer"      BIT,
  "musician"             BIT,
  "movement_type_id"     INTEGER,
