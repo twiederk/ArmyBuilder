@@ -29,6 +29,9 @@ INSERT INTO mount_status VALUES(0,'NotMounted');
 INSERT INTO mount_status VALUES(1,'Riding');
 INSERT INTO mount_status VALUES(2,'Mount');
 
+INSERT INTO movement_type VALUES(0,'OnFoot');
+INSERT INTO movement_type VALUES(1,'OnMount');
+
 
 INSERT INTO profile VALUES(11420,'',4,8,8,5,6,2,8,4,10,0.0,7);
 INSERT INTO profile VALUES(11421,'',4,5,6,4,4,3,5,4,7,0.0,7);

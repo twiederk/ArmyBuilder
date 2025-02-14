@@ -10,8 +10,15 @@ CREATE TABLE IF NOT EXISTS "army_category"
 
 
 CREATE TABLE IF NOT EXISTS "item_class"
-("id"                INTEGER,
- "name"         VARCHAR(50),
+("id"            INTEGER,
+ "name"          VARCHAR(50),
+ PRIMARY KEY(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS "movement_type"
+("id"     INTEGER,
+ "name"   VARCHAR(50),
  PRIMARY KEY(id)
 );
 
@@ -70,11 +77,12 @@ CREATE TABLE IF NOT EXISTS "single_model"
  "mount_status"      INTEGER,
  "standard_bearer"   BIT,
  "musician"          BIT,
- "movement_type"     INTEGER,
+ "movement_type_id"  INTEGER,
  "mount"             BIT,
  PRIMARY KEY(id)
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
+ FOREIGN KEY (movement_type_id) REFERENCES movement_type(id) ON DELETE CASCADE
 );
 
 
@@ -134,11 +142,12 @@ CREATE TABLE IF NOT EXISTS "army_single_model"
  "mount_status"         INTEGER,
  "standard_bearer"      BIT,
  "musician"             BIT,
- "movement_type"        INTEGER,
+ "movement_type_id"     INTEGER,
  "mount"                BIT,
  PRIMARY KEY (id)
  FOREIGN KEY (army_main_model_id) REFERENCES army_main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
+ FOREIGN KEY (movement_type_id) REFERENCES movement_type(id) ON DELETE CASCADE 
 );
 
 
