@@ -31,7 +31,7 @@ namespace ArmyBuilder.Dao
             var sql = @"
                 SELECT 
                     mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points as OldPoints,
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.mount_status as MountStatus, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount,
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
                     main_model mm
@@ -74,7 +74,7 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.mount_status as MountStatus, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount,
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.strength, p.toughness, p.wounds, p.initiative, p.attacks, p.moral, p.points, p.save
                 FROM 
                     single_model sm
@@ -110,7 +110,7 @@ namespace ArmyBuilder.Dao
             var sql = @"
                 SELECT 
                     mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points,
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.mount_status as MountStatus, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount,
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
                     main_model mm
@@ -188,7 +188,7 @@ namespace ArmyBuilder.Dao
                     al.Id, al.Name,
                     au.Id, au.Name,
                     amm.Id, amm.army_category_id as ArmyCategory, amm.Name, amm.Description, amm.Points as OldPoints, amm.count as Count,
-                    asm.Id, asm.Name, asm.Description, asm.profile_id as ProfileId, asm.mount_status as MountStatus, asm.standard_bearer as StandardBearer, asm.musician, asm.movement_type_id as MovementType, asm.mount,
+                    asm.Id, asm.Name, asm.Description, asm.profile_id as ProfileId, asm.standard_bearer as StandardBearer, asm.musician, asm.movement_type_id as MovementType, asm.mount,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
                     army a
@@ -342,8 +342,8 @@ namespace ArmyBuilder.Dao
             foreach (var singleModel in mainModel.SingleModels)
             {
                 sql = @"
-                    INSERT INTO army_single_model (army_main_model_id, name, description, profile_id, mount_status, standard_bearer, musician, movement_type_id, mount)
-                    VALUES (@ArmyMainModelId, @Name, @Description, @ProfileId, @MountStatus, @StandardBearer, @Musician, @MovementType, @Mount);
+                    INSERT INTO army_single_model (army_main_model_id, name, description, profile_id, standard_bearer, musician, movement_type_id, mount)
+                    VALUES (@ArmyMainModelId, @Name, @Description, @ProfileId, @StandardBearer, @Musician, @MovementType, @Mount);
                     SELECT last_insert_rowid();";
                 var single_model_id = _dbConnection.ExecuteScalar<int>(sql, new
                 {
@@ -351,7 +351,6 @@ namespace ArmyBuilder.Dao
                     singleModel.Name,
                     singleModel.Description,
                     ProfileId = singleModel.Profile.Id,
-                    singleModel.MountStatus,
                     singleModel.StandardBearer,
                     singleModel.Musician,
                     singleModel.MovementType,

@@ -10,7 +10,6 @@ namespace ArmyBuilder.Domain
         public string Name { get; set; }
         public string Description { get; set; }
         public Profile Profile { get; set; }
-        public MountStatus MountStatus { get; set; } = MountStatus.NotMounted;
         public bool Musician { get; set; }
         public bool StandardBearer { get; set; }
         public MovementType MovementType { get; set; }
@@ -23,7 +22,7 @@ namespace ArmyBuilder.Domain
             int save = Profile.Save;
             int armorSave = Equipment.Armor().Sum(a => a?.Save ?? 0);
             int shieldSave = Equipment.Shield().Sum(s => s?.Save ?? 0);
-            int mountSave = MountStatus == MountStatus.Riding ? 1 : 0;
+            int mountSave = MovementType == MovementType.OnMount ? 1 : 0;
             return displaySave(save - armorSave - shieldSave - mountSave);
         }
 
@@ -54,7 +53,7 @@ namespace ArmyBuilder.Domain
         public float TotalPoints()
         {
             float points = Profile.Points + Equipment.Slots.Sum(slot => slot.Item.Points);
-            if (MountStatus == MountStatus.Riding)
+            if (MovementType == MovementType.OnMount)
             {
                 points *= 2;
             }

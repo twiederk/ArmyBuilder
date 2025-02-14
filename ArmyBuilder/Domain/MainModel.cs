@@ -50,7 +50,6 @@ namespace ArmyBuilder.Domain
                     Id = sm.Id,
                     Name = sm.Name,
                     Description = sm.Description,
-                    MountStatus = sm.MountStatus,
                     StandardBearer = sm.StandardBearer,
                     Musician = sm.Musician,
                     MovementType = sm.MovementType,

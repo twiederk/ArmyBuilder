@@ -84,7 +84,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_return_save_5_when_mount_status_is_riding()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Save = 7 }, MountStatus = MountStatus.Riding };
+            var singleModel = new SingleModel { Profile = new Profile { Save = 7 }, MovementType = MovementType.OnMount };
 
             // act
             string save = singleModel.Save;
@@ -132,7 +132,7 @@ namespace ArmyBuilder.Test.Domain
             equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
             equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
             singleModel.Equipment = equipment;
-            singleModel.MountStatus = MountStatus.Riding;
+            singleModel.MovementType = MovementType.OnMount;
 
             // act
             float totalPoints = singleModel.TotalPoints();
@@ -187,7 +187,7 @@ namespace ArmyBuilder.Test.Domain
             equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
             equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
             singleModel.Equipment = equipment;
-            singleModel.MountStatus = MountStatus.Riding;
+            singleModel.MovementType = MovementType.OnMount;
             singleModel.StandardBearer = true;
 
             // act

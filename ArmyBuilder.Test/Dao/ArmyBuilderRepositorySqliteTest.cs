@@ -48,7 +48,6 @@ namespace ArmyBuilder.Test.Dao
 
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
             singleModel.StandardBearer.Should().BeFalse();
             singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
@@ -76,7 +75,6 @@ namespace ArmyBuilder.Test.Dao
 
             singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.MountStatus.Should().Be(MountStatus.Riding);
             singleModel.StandardBearer.Should().BeFalse();
             singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnMount);
@@ -104,7 +102,6 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
             singleModel.StandardBearer.Should().BeFalse();
             singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
@@ -131,7 +128,6 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.MountStatus.Should().Be(MountStatus.Riding);
             singleModel.StandardBearer.Should().BeFalse();
             singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnMount);
@@ -159,7 +155,6 @@ namespace ArmyBuilder.Test.Dao
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.MountStatus.Should().Be(MountStatus.NotMounted);
             singleModel.StandardBearer.Should().BeFalse();
             singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
@@ -352,7 +347,7 @@ namespace ArmyBuilder.Test.Dao
                 Name = "Schwertmeister",
                 Description = "Schwertmeister, Geschosse beiseiteschlagen.",
                 Profile = new Profile { Id = 11901 },
-                MountStatus = MountStatus.Riding,
+                MovementType = MovementType.OnFoot,
                 Equipment = equipment
             };
             MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
