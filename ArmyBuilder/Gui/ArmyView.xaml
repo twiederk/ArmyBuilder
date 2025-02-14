@@ -50,7 +50,9 @@
 
             <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                 <Label Content="{Binding SelectedMainModel.Name}" />
+                <Label Content="Old:" />
                 <Label Content="{Binding SelectedMainModel.OldPoints}" />
+                <Label Content="New:" />
                 <Label Content="{Binding SelectedMainModel.NewPoints}" />
             </StackPanel>
 
