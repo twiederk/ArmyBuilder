@@ -2,7 +2,7 @@ PRAGMA foreign_keys=ON;
 BEGIN TRANSACTION;
 
 
-INSERT INTO army (id, name, author, army_list_id, points) VALUES(1, 'Armee der Hochelfen von Tyr', 'Torsten', 7, 472);
+INSERT INTO army (id, name, author, army_list_id, points) VALUES(1, 'Armee der Hochelfen von Tyr', 'Torsten', 7, 498);
 
 
 INSERT INTO army_unit VALUES(1, 1, 'Generalseinheit');
