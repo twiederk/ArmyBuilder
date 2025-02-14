@@ -52,14 +52,18 @@ namespace ArmyBuilder.Domain
 
         public float TotalPoints()
         {
-            float points = Profile.Points + Equipment.Slots.Sum(slot => slot.Item.Points);
-            if (MovementType == MovementType.OnMount)
+            float points = Profile.Points + Equipment.ItemsPoints();
+            if (MovementType == MovementType.OnFoot && (StandardBearer || Musician))
             {
-                points *= 2;
+                points = Profile.Points * 2 + Equipment.NonMagicItemsPoints() * 2 + Equipment.MagicItemsPoints();
             }
-            if (StandardBearer || Musician)
+            if (MovementType == MovementType.OnMount && !(StandardBearer || Musician))
             {
-                points *= 2;
+                points = Profile.Points * 2 + Equipment.NonMagicItemsPoints() * 2 + Equipment.MagicItemsPoints();
+            }
+            if (MovementType == MovementType.OnMount && (StandardBearer || Musician))
+            {
+                points = Profile.Points * 4 + Equipment.NonMagicItemsPoints() * 4 + Equipment.MagicItemsPoints();
             }
             return points;
         }

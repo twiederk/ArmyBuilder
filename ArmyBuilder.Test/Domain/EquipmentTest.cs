@@ -109,8 +109,68 @@ namespace ArmyBuilder.Test.Domain
             result.Should().HaveCount(1);
             result.Should().Contain(i => i.Name == "Shield");
         }
+
+        [Fact]
+        public void should_sum_points_of_all_items()
+        {
+            // arrange
+            Slot slot1 = new Slot() { Id = 1, Item = new Item { Id = 1, Name = "Sword", Points = 10, Magic = false } };
+            Slot slot2 = new Slot() { Id = 2, Item = new Item { Id = 2, Name = "Shield", Points = 50, Magic = true } };
+            Slot slot3 = new Slot() { Id = 3, Item = new Item { Id = 3, Name = "Armor", Points = 15, Magic = false } };
+            Equipment equipment = new Equipment();
+            equipment.Slots.Add(slot1);
+            equipment.Slots.Add(slot2);
+            equipment.Slots.Add(slot3);
+
+            // act
+            var result = equipment.ItemsPoints();
+
+            // assert
+            result.Should().Be(75);
+        }
+
+
+
+        [Fact]
+        public void should_sum_points_of_non_magic_items()
+        {
+            // arrange
+            Slot slot1 = new Slot() { Id = 1, Item = new Item { Id = 1, Name = "Sword", Points = 10, Magic = false } };
+            Slot slot2 = new Slot() { Id = 2, Item = new Item { Id = 2, Name = "Shield", Points = 50, Magic = true } };
+            Slot slot3 = new Slot() { Id = 3, Item = new Item { Id = 3, Name = "Armor", Points = 15, Magic = false } };
+            Equipment equipment = new Equipment();
+            equipment.Slots.Add(slot1);
+            equipment.Slots.Add(slot2);
+            equipment.Slots.Add(slot3);
+
+            // act
+            var result = equipment.NonMagicItemsPoints();
+
+            // assert
+            result.Should().Be(25);
+        }
+
+        [Fact]
+        public void should_sum_points_of_magic_items()
+        {
+            // arrange
+            Slot slot1 = new Slot() { Id = 1, Item = new Item { Id = 1, Name = "Sword", Points = 10, Magic = false } };
+            Slot slot2 = new Slot() { Id = 2, Item = new Item { Id = 2, Name = "Shield", Points = 50, Magic = true } };
+            Slot slot3 = new Slot() { Id = 3, Item = new Item { Id = 3, Name = "Armor", Points = 15, Magic = false } };
+            Equipment equipment = new Equipment();
+            equipment.Slots.Add(slot1);
+            equipment.Slots.Add(slot2);
+            equipment.Slots.Add(slot3);
+
+            // act
+            var result = equipment.MagicItemsPoints();
+
+            // assert
+            result.Should().Be(50);
+        }
+
+
     }
 }
-
 
 
