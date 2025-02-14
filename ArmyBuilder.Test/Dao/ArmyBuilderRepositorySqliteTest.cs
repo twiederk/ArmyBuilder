@@ -58,13 +58,13 @@ namespace ArmyBuilder.Test.Dao
             profile.Movement.Should().Be(5);
             profile.WeaponSkill.Should().Be(5);
             profile.BallisticSkill.Should().Be(4);
-            profile.Strength.Should().Be(5);
+            profile.Strength.Should().Be(3);
             profile.Toughness.Should().Be(3);
             profile.Wounds.Should().Be(1);
             profile.Initiative.Should().Be(7);
             profile.Attacks.Should().Be(1);
             profile.Moral.Should().Be(8);
-            profile.Points.Should().Be(9);
+            profile.Points.Should().Be(10);
             profile.Save.Should().Be(7);
 
             // Drachenprinz von Caledor
@@ -112,13 +112,13 @@ namespace ArmyBuilder.Test.Dao
             singleModel.Profile.Movement.Should().Be(5);
             singleModel.Profile.WeaponSkill.Should().Be(5);
             singleModel.Profile.BallisticSkill.Should().Be(4);
-            singleModel.Profile.Strength.Should().Be(5);
+            singleModel.Profile.Strength.Should().Be(3);
             singleModel.Profile.Toughness.Should().Be(3);
             singleModel.Profile.Wounds.Should().Be(1);
             singleModel.Profile.Initiative.Should().Be(7);
             singleModel.Profile.Attacks.Should().Be(1);
             singleModel.Profile.Moral.Should().Be(8);
-            singleModel.Profile.Points.Should().Be(9);
+            singleModel.Profile.Points.Should().Be(10);
             singleModel.Profile.Save.Should().Be(7);
         }
 
@@ -168,7 +168,7 @@ namespace ArmyBuilder.Test.Dao
             profile.Movement.Should().Be(5);
             profile.WeaponSkill.Should().Be(5);
             profile.BallisticSkill.Should().Be(4);
-            profile.Strength.Should().Be(5);
+            profile.Strength.Should().Be(3);
             profile.Toughness.Should().Be(3);
             profile.Wounds.Should().Be(1);
             profile.Initiative.Should().Be(7);
