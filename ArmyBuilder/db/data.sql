@@ -444,7 +444,7 @@ INSERT INTO profile VALUES(11894,'',3,4,3,3,4,1,2,1,9,0.0,7);
 INSERT INTO profile VALUES(11895,'',3,4,3,3,4,1,2,1,9,0.0,7);
 INSERT INTO profile VALUES(11896,'',3,4,3,5,4,1,2,1,9,0.0,7);
 INSERT INTO profile VALUES(11897,'',3,4,3,3,4,1,2,1,9,0.0,7);
-INSERT INTO profile VALUES(11901,'Hochelfen Elite',5,5,4,5,3,1,7,1,8,9.0,7);
+INSERT INTO profile VALUES(11901,'Hochelfen Elite',5,5,4,3,3,1,7,1,8,10.0,7);
 INSERT INTO profile VALUES(11906,'Hochelfen Basis',5,4,4,3,3,1,6,1,8,8.0,7);
 INSERT INTO profile VALUES(11908,'',4,2,2,3,3,1,2,1,5,0.0,7);
 INSERT INTO profile VALUES(11909,'',4,2,2,3,3,1,2,1,5,0.0,7);
