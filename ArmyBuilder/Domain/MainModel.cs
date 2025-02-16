@@ -10,7 +10,7 @@ namespace ArmyBuilder.Domain
         public float OldPoints { get; set; }
         public float NewPoints => Points();
         public int Count { get; set; } = 1;
-        public bool Unique { get; set; }
+        public bool Uniquely { get; set; }
         public List<SingleModel> SingleModels { get; set; } = new List<SingleModel>();
 
         public float TotalPoints()
@@ -46,7 +46,7 @@ namespace ArmyBuilder.Domain
                 Name = this.Name,
                 Description = this.Description,
                 OldPoints = this.OldPoints,
-                Unique = this.Unique,
+                Uniquely = this.Uniquely,
                 SingleModels = this.SingleModels.Select(sm => new SingleModel
                 {
                     Id = sm.Id,

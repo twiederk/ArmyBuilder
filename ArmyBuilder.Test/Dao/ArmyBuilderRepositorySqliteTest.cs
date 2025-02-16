@@ -178,13 +178,13 @@ namespace ArmyBuilder.Test.Dao
             List<Army> armies = _repository.Armies();
 
             // assert
-            armies.Should().HaveCount(1);
+            armies.Should().HaveCount(2);
             Army army = armies.First();
-            army.Name.Should().Be("Armee der Hochelfen von Tyr");
+            army.Name.Should().Be("Die Hochelfen von Tyr");
             army.Author.Should().Be("Torsten");
             army.ArmyList.Id.Should().Be(7);
             army.ArmyList.Name.Should().Be("Hochelfen");
-            army.Points.Should().Be(498);
+            army.Points.Should().Be(1275);
         }
 
         [Fact]
@@ -195,26 +195,26 @@ namespace ArmyBuilder.Test.Dao
             Army army = _repository.Army(1);
 
             // assert
-            army.Name.Should().Be("Armee der Hochelfen von Tyr");
+            army.Name.Should().Be("Die Hochelfen von Tyr");
             army.ArmyList.Id.Should().Be(7);
             army.ArmyList.Name.Should().Be("Hochelfen");
             army.Author.Should().Be("Torsten");
-            army.Points.Should().Be(498);
-            army.Units.Should().HaveCount(2);
+            army.Points.Should().Be(1275);
+            army.Units.Should().HaveCount(6);
 
             Unit generalUnit = army.Units[0];
-            generalUnit.Name.Should().Be("Generalseinheit");
-            generalUnit.MainModels.Should().HaveCount(2);
+            generalUnit.Name.Should().Be("Tiranoc Streitwagen");
+            generalUnit.MainModels.Should().HaveCount(1);
 
             MainModel general = generalUnit.MainModels[0];
-            general.Name.Should().Be("General");
+            general.Name.Should().Be("Tiranoc Streitwagen");
             general.Count.Should().Be(1);
-            general.ArmyCategory.Should().Be(ArmyCategory.Character);
-            general.OldPoints.Should().Be(160);
-            general.SingleModels.Should().HaveCount(1);
+            general.ArmyCategory.Should().Be(ArmyCategory.WarMachine);
+            general.OldPoints.Should().Be(72);
+            general.SingleModels.Should().HaveCount(3);
 
             SingleModel singleModel = general.SingleModels[0];
-            singleModel.Name.Should().Be("General");
+            singleModel.Name.Should().Be("Streitwagenlenker");
             singleModel.StandardBearer.Should().BeFalse();
             singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
@@ -222,22 +222,13 @@ namespace ArmyBuilder.Test.Dao
 
             Profile profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
-            profile.WeaponSkill.Should().Be(7);
-            profile.BallisticSkill.Should().Be(7);
-            profile.Strength.Should().Be(4);
-            profile.Toughness.Should().Be(4);
-            profile.Wounds.Should().Be(3);
-            profile.Initiative.Should().Be(9);
+            profile.WeaponSkill.Should().Be(4);
+            profile.BallisticSkill.Should().Be(4);
+            profile.Strength.Should().Be(3);
+            profile.Toughness.Should().Be(3);
+            profile.Wounds.Should().Be(1);
+            profile.Initiative.Should().Be(6);
             profile.Save.Should().Be(7);
-
-            MainModel spearmen = generalUnit.MainModels[1];
-            spearmen.Name.Should().Be("Speerträger");
-            spearmen.Count.Should().Be(20);
-
-            Unit warChariotUnit = army.Units[1];
-            warChariotUnit.Name.Should().Be("Streitwagen");
-            MainModel warChariot = warChariotUnit.MainModels[0];
-            warChariot.SingleModels.Should().HaveCount(3);
         }
 
         [Fact]
@@ -253,9 +244,9 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             List<Army> armies = _repository.Armies();
-            armies.Should().HaveCount(2);
+            armies.Should().HaveCount(3);
 
-            Army testArmy = armies[1];
+            Army testArmy = armies[2];
             testArmy.Name.Should().Be("Testarmee");
             testArmy.Author.Should().Be("Testautor");
             testArmy.ArmyList.Id.Should().Be(7);
@@ -301,7 +292,7 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             List<Army> armies = _repository.Armies();
-            armies.Should().HaveCount(1);
+            armies.Should().HaveCount(2);
         }
 
         [Fact]

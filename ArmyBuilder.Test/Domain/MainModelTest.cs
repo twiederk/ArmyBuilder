@@ -123,7 +123,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_clone_main_model()
         {
             // arrange
-            var model = new MainModel { Unique = true};
+            var model = new MainModel { Uniquely = true};
             model.SingleModels.Add(new SingleModel { Profile = new Profile { Id = 1, Points = 10 } });
             model.SingleModels.Add(new SingleModel
             { 
@@ -138,7 +138,7 @@ namespace ArmyBuilder.Test.Domain
             var clone = model.Clone();
 
             // assert
-            clone.Unique.Should().Be(true);
+            clone.Uniquely.Should().Be(true);
 
             clone.SingleModels.Should().HaveCount(2);
             clone.SingleModels[0].Profile.Points.Should().Be(10);
