@@ -6,12 +6,12 @@ using Xunit;
 
 namespace ArmyBuilder.Test.Dao
 {
-    public class ArmyBuilderRepositoryEquipmentSqliteTest : IClassFixture<DatabaseFixture>
+    public class EquipmentRepositoryTest : IClassFixture<DatabaseFixture>
     {
         private readonly IDbConnection _dbConnection;
         private readonly ArmyBuilderRepositorySqlite _repository;
 
-        public ArmyBuilderRepositoryEquipmentSqliteTest(DatabaseFixture fixture)
+        public EquipmentRepositoryTest(DatabaseFixture fixture)
         {
             _dbConnection = fixture.DbConnection;
             _repository = fixture.Repository;

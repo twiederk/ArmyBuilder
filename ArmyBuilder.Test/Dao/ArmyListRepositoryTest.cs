@@ -6,12 +6,12 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ArmyBuilder.Test.Dao
 {
-    public class ArmyBuilderRepositoryArmyListSqliteTest : IClassFixture<DatabaseFixture>
+    public class ArmyListRepositoryTest : IClassFixture<DatabaseFixture>
     {
         private readonly IDbConnection _dbConnection;
         private readonly ArmyBuilderRepositorySqlite _repository;
 
-        public ArmyBuilderRepositoryArmyListSqliteTest(DatabaseFixture fixture)
+        public ArmyListRepositoryTest(DatabaseFixture fixture)
         {
             _dbConnection = fixture.DbConnection;
             _repository = fixture.Repository;
