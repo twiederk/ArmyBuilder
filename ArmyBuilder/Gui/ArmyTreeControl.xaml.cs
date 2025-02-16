@@ -96,15 +96,6 @@ namespace ArmyBuilder
                 SingleModel mount = armyViewModel.TEMP_get_mount();
                 armyViewModel.AddSingleModelToMainModel(mainModelTreeNode.MainModel.Id, mount);
                 mainModelTreeNode.AddSingleModel(mount);
-                //if (result == MessageBoxResult.Yes)
-                //{
-                //    var armyViewModel = DataContext as ArmyViewModel;
-                //    var mainModel = mainModelTreeNode.MainModel;
-                //    int unitId = mainModelTreeNode.Unit.Id;
-                //    armyViewModel.DeleteMainModelFromUnit(unitId, mainModel.Id);
-                //    mainModelTreeNode.RemoveMainModel();
-                //    mainModelTreeNode.UpdateTotalPoints();
-                //}
             }
         }
 
