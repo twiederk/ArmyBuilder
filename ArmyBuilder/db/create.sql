@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS "army_main_model"
  "army_category_id"  INTEGER,
  "name"              VARCHAR(60),
  "description"       VARCHAR(110),
- "uniquely"            BIT,
+ "uniquely"          BIT,
  "points"            FLOAT,
  "count"             INTEGER,
  PRIMARY KEY (id)
