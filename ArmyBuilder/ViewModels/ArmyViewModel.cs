@@ -150,6 +150,16 @@ namespace ArmyBuilder.ViewModels
         {
             _repository.UpdateSlotItem(slot);
         }
+
+        internal void AddSingleModelToMainModel(int mainModelId, SingleModel singleModel)
+        {
+            _repository.AddSingleModel(mainModelId, singleModel);
+        }
+
+        internal SingleModel TEMP_get_mount()
+        {
+            return _repository.Mounts(SelectedArmyList.Id).FirstOrDefault();
+        }
     }
 
 }

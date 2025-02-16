@@ -35,11 +35,19 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
+        public void AddSingleModel(SingleModel singleModel)
+        {
+            SingleModels.Add(new SingleModelTreeNode(singleModel, this));
+            OnPropertyChanged("TotalPoints");
+            OnPropertyChanged("TotalPoints");
+            _parent.UpdateTotalPoints();
+        }
+
 
         public void UpdateCount()
         {
-            OnPropertyChanged(nameof(Count));
-            OnPropertyChanged(nameof(TotalPoints));
+            OnPropertyChanged("Count");
+            OnPropertyChanged("TotalPoints");
             _parent.UpdateTotalPoints();
         }
 
@@ -61,8 +69,6 @@ namespace ArmyBuilder.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
 
     }
 }

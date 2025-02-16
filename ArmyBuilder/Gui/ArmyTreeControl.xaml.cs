@@ -92,7 +92,10 @@ namespace ArmyBuilder
         {
             if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
             {
-                MessageBox.Show("AddMountButton_Click");
+                var armyViewModel = DataContext as ArmyViewModel;
+                SingleModel mount = armyViewModel.TEMP_get_mount();
+                armyViewModel.AddSingleModelToMainModel(mainModelTreeNode.MainModel.Id, mount);
+                mainModelTreeNode.AddSingleModel(mount);
                 //if (result == MessageBoxResult.Yes)
                 //{
                 //    var armyViewModel = DataContext as ArmyViewModel;
