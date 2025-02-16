@@ -914,7 +914,51 @@ namespace ArmyBuilder.Dao
             return result.Distinct().ToList();
         }
 
+        // Existing methods...
 
+        public SingleModel AddSingleModel(int mainModelId, SingleModel singleModel)
+        {
+            var sql = @"
+                INSERT INTO army_single_model (army_main_model_id, name, description, profile_id, standard_bearer, musician, movement_type_id, mount, mountable)
+                VALUES (@MainModelId, @Name, @Description, @ProfileId, @StandardBearer, @Musician, @MovementType, @Mount, @Mountable);
+                SELECT last_insert_rowid();";
+
+            var singleModelId = _dbConnection.ExecuteScalar<int>(sql, new
+            {
+                MainModelId = mainModelId,
+                singleModel.Name,
+                singleModel.Description,
+                ProfileId = singleModel.Profile.Id,
+                singleModel.StandardBearer,
+                singleModel.Musician,
+                singleModel.MovementType,
+                singleModel.Mount,
+                singleModel.Mountable
+            });
+
+            singleModel.Id = singleModelId;
+
+            foreach (var slot in singleModel.Equipment.Slots)
+            {
+                sql = @"
+                    INSERT INTO army_slot (army_single_model_id, item_id, editable, magic, item_class_id)
+                    VALUES (@SingleModelId, @ItemId, @Editable, @Magic, @ItemClassId);
+                    SELECT last_insert_rowid();";
+
+                var slotId = _dbConnection.ExecuteScalar<int>(sql, new
+                {
+                    SingleModelId = singleModelId,
+                    ItemId = slot.Item.Id,
+                    slot.Editable,
+                    slot.Magic,
+                    ItemClassId = (int)slot.ItemClass
+                });
+
+                slot.Id = slotId;
+            }
+
+            return singleModel;
+        }
     }
 
 }

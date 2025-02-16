@@ -433,5 +433,56 @@ namespace ArmyBuilder.Test.Dao
 
         }
 
+        [Fact]
+        public void should_add_single_model_to_main_model()
+        {
+            // arrange
+            Army army = new Army("Testarmee");
+            army.Author = "Testautor";
+            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            _repository.CreateArmy(army);
+
+            Unit unit = new Unit("Testeinheit");
+            _repository.CreateUnit(army.Id, unit);
+
+            SingleModel generalSingleModel = new SingleModel
+            {
+                Id = 46811,
+                Name = "General",
+                Description = "General description",
+                Profile = new Profile { Id = 11901, Movement = 5, WeaponSkill = 5, BallisticSkill = 4, Strength = 3, Toughness = 3, Wounds = 1, Initiative = 7, Attacks = 1, Moral = 8, Points = 10, Save = 7 },
+                MovementType = MovementType.OnFoot,
+            };
+            MainModel mainModel = new MainModel { Name = "General", Count = 1 };
+            mainModel.SingleModels.Add(generalSingleModel);
+            unit.MainModels.Add(mainModel);
+
+            _repository.AddMainModel(unit.Id, mainModel);
+
+            SingleModel mountSingleModel = new SingleModel
+            {
+                Id = 46812,
+                Name = "Mount",
+                Description = "Mount description",
+                Profile = new Profile { Id = 11902, Movement = 6, WeaponSkill = 4, BallisticSkill = 3, Strength = 4, Toughness = 4, Wounds = 2, Initiative = 6, Attacks = 2, Moral = 7, Points = 15, Save = 6 },
+                MovementType = MovementType.OnMount,
+                Equipment = new Equipment()
+            };
+
+            // act
+            _repository.AddSingleModel(mainModel.Id, mountSingleModel);
+
+            // assert
+            Army updatedArmy = _repository.Army(army.Id);
+            updatedArmy.Units.Should().HaveCount(1);
+            Unit updatedUnit = updatedArmy.Units[0];
+            MainModel updatedMainModel = updatedUnit.MainModels[0];
+            updatedMainModel.SingleModels.Should().HaveCount(2);
+
+            // teardown
+            _repository.DeleteArmy(army.Id);
+        }
+
+
     }
 }
