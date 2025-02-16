@@ -6,7 +6,8 @@ namespace ArmyBuilder.Dao
     {
         // ArmyList
         List<ArmyList> ArmyLists();
-        List<MainModel> MainModels(int armyId);
+        List<MainModel> MainModels(int armyListId);
+        List<SingleModel> Mounts(int armyListId);
         SingleModel SingleModel(int id);
         MainModel MainModel(int id);
 

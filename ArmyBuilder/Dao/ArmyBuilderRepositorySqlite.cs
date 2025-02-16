@@ -878,6 +878,43 @@ namespace ArmyBuilder.Dao
             });
         }
 
+        public List<SingleModel> Mounts(int armyListId)
+        {
+            var sql = @"
+                SELECT 
+                    sm.*, p.*
+                FROM 
+                    single_model sm
+                INNER JOIN 
+                    main_model mm ON sm.main_model_id = mm.id
+                INNER JOIN 
+                    profile p ON sm.profile_id = p.id
+                WHERE 
+                    sm.mountable = 1 AND mm.army_list_id = @ArmyListId";
+
+            var singleModelDictionary = new Dictionary<int, SingleModel>();
+
+            var result = _dbConnection.Query<SingleModel, Profile, SingleModel>(
+                sql,
+                (singleModel, profile) =>
+                {
+                    if (!singleModelDictionary.TryGetValue(singleModel.Id, out var currentSingleModel))
+                    {
+                        currentSingleModel = singleModel;
+                        singleModelDictionary.Add(currentSingleModel.Id, currentSingleModel);
+                    }
+
+                    currentSingleModel.Profile = profile;
+                    return currentSingleModel;
+                },
+                new { ArmyListId = armyListId },
+                splitOn: "Id"
+            );
+
+            return result.Distinct().ToList();
+        }
+
+
     }
 
 }

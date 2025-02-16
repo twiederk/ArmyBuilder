@@ -415,5 +415,23 @@ namespace ArmyBuilder.Test.Dao
             // teardown
             _repository.DeleteArmy(army.Id);
         }
+
+        [Fact]
+        public void should_return_all_mounts_of_high_elf_army_list()
+        {
+            // arrange
+            int highElfArmyListId = 7;
+
+            // act
+            List<SingleModel> mounts = _repository.Mounts(highElfArmyListId);
+
+            // assert
+            mounts.Should().HaveCount(12);
+            SingleModel greif = mounts.First(m => m.Name == "Greif");
+            greif.Mountable.Should().BeTrue();
+            greif.Profile.Wounds.Should().Be(5);
+
+        }
+
     }
 }
