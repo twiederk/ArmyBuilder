@@ -123,11 +123,11 @@ namespace ArmyBuilder.Test.Domain
         public void should_clone_main_model()
         {
             // arrange
-            var model = new MainModel();
-            model.SingleModels.Add(new SingleModel { Profile = new Profile { Points = 10 } });
+            var model = new MainModel { Unique = true};
+            model.SingleModels.Add(new SingleModel { Profile = new Profile { Id = 1, Points = 10 } });
             model.SingleModels.Add(new SingleModel
             { 
-                Profile = new Profile { Points = 20 },
+                Profile = new Profile { Id = 2, Points = 20 },
                 StandardBearer = true,
                 Musician = true,
                 MovementType = MovementType.OnMount,
@@ -138,9 +138,12 @@ namespace ArmyBuilder.Test.Domain
             var clone = model.Clone();
 
             // assert
+            clone.Unique.Should().Be(true);
+
             clone.SingleModels.Should().HaveCount(2);
             clone.SingleModels[0].Profile.Points.Should().Be(10);
 
+            clone.SingleModels[1].Profile.Id.Should().Be(2);
             clone.SingleModels[1].Profile.Points.Should().Be(20);
             clone.SingleModels[1].StandardBearer.Should().BeTrue();
             clone.SingleModels[1].Musician.Should().BeTrue();
