@@ -88,6 +88,23 @@ namespace ArmyBuilder
             }
         }
 
+        private void AddMountButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
+            {
+                MessageBox.Show("AddMountButton_Click");
+                //if (result == MessageBoxResult.Yes)
+                //{
+                //    var armyViewModel = DataContext as ArmyViewModel;
+                //    var mainModel = mainModelTreeNode.MainModel;
+                //    int unitId = mainModelTreeNode.Unit.Id;
+                //    armyViewModel.DeleteMainModelFromUnit(unitId, mainModel.Id);
+                //    mainModelTreeNode.RemoveMainModel();
+                //    mainModelTreeNode.UpdateTotalPoints();
+                //}
+            }
+        }
+
         private void mainModelTreeNode_IncreaseCount(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
