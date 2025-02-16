@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS "main_model"
  "army_category_id"  INTEGER,
  "name"              VARCHAR(60),
  "description"       VARCHAR(110),
- "unique"            BIT,
+ "uniquely"            BIT,
  "points"            FLOAT,
  PRIMARY KEY(id)
  FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS "army_main_model"
  "army_category_id"  INTEGER,
  "name"              VARCHAR(60),
  "description"       VARCHAR(110),
- "unique"            BIT,
+ "uniquely"            BIT,
  "points"            FLOAT,
  "count"             INTEGER,
  PRIMARY KEY (id)
