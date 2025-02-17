@@ -113,9 +113,9 @@ namespace ArmyBuilder.ViewModels
         {
             if (slot.Magic)
             {
-                return items.Where(i => i.ArmyList == null || i.ArmyList.Equals(armyList)).OrderBy(i => i.Name).ToList();
+                return items.Where(i => (i.ArmyList == null || i.ArmyList.Equals(armyList)) && !i.Uniquely).OrderBy(i => i.Name).ToList();
             }
-            return items.Where(i => (i.ArmyList == null || i.ArmyList.Equals(armyList)) && i.Magic == false).OrderBy(i => i.Name).ToList();
+            return items.Where(i => (i.ArmyList == null || i.ArmyList.Equals(armyList)) && !i.Magic && !i.Uniquely).OrderBy(i => i.Name).ToList();
         }
 
     }
