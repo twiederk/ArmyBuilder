@@ -104,7 +104,7 @@ namespace ArmyBuilder
             if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
             {
                 ArmyViewModel armyViewModel = DataContext as ArmyViewModel;
-                List<SingleModel> mounts = armyViewModel.GetMounts();
+                List<SingleModel> mounts = armyViewModel.Mounts;
 
                 var selectMountWindow = new SelectMountWindow(mounts);
                 if (selectMountWindow.ShowDialog() == true)

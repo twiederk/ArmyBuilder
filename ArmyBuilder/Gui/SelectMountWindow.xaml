@@ -4,6 +4,6 @@
         Title="Select Mount" Height="400" Width="300">
     <Grid>
         <ListBox x:Name="MountListBox" DisplayMemberPath="Name" SelectionMode="Single" />
-        <Button Content="OK" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Width="75" Click="OkButton_Click"/>
+        <Button Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Width="75" Click="OkButton_Click"/>
     </Grid>
 </Window>

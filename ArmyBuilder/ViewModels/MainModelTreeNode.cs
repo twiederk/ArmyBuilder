@@ -39,7 +39,7 @@ namespace ArmyBuilder.ViewModels
         {
             SingleModels.Add(new SingleModelTreeNode(singleModel, this));
             OnPropertyChanged("TotalPoints");
-            OnPropertyChanged("TotalPoints");
+            OnPropertyChanged("SingleModels");
             _parent.UpdateTotalPoints();
         }
 
