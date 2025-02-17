@@ -468,7 +468,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
                 SELECT 
-                    mw.Id, mw.Name, mw.Description, mw.army_list_id as ArmyListId, mw.Magic, mw.Points,
+                    mw.Id, mw.Name, mw.Description, mw.army_list_id as ArmyListId, mw.Magic, mw.Points, mw.Uniquely,
                     al.Id, al.Name
                 FROM 
                     melee_weapon mw
@@ -506,7 +506,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
             SELECT 
-                rw.Id, rw.Name, rw.Description, rw.army_list_id as ArmyListId, rw.Magic, rw.Points,
+                rw.Id, rw.Name, rw.Description, rw.army_list_id as ArmyListId, rw.Magic, rw.Points, rw.Uniquely,
                 al.Id, al.Name
             FROM 
                 ranged_weapon rw
@@ -544,7 +544,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
             SELECT 
-                s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points, s.Save,
+                s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points, s.Save, s.Uniquely,
                 al.Id, al.Name
             FROM 
                 shield s
@@ -582,7 +582,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
                 SELECT 
-                    a.Id, a.Name, a.Description, a.army_list_id as ArmyListId, a.Magic, a.Points, a.Save,
+                    a.Id, a.Name, a.Description, a.army_list_id as ArmyListId, a.Magic, a.Points, a.Save, a.Uniquely,
                     al.Id, al.Name
                 FROM 
                     armor a
@@ -620,7 +620,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
         SELECT 
-            s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points,
+            s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points, s.Uniquely,
             al.Id, al.Name
         FROM 
             standard s
@@ -658,7 +658,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
         SELECT 
-            i.Id, i.Name, i.Description, i.army_list_id as ArmyListId, i.Magic, i.Points,
+            i.Id, i.Name, i.Description, i.army_list_id as ArmyListId, i.Magic, i.Points, i.Uniquely,
             al.Id, al.Name
         FROM 
             instrument i
@@ -695,13 +695,13 @@ namespace ArmyBuilder.Dao
             }
 
             var sql = @"
-        SELECT 
-            m.Id, m.Name, m.Description, m.army_list_id as ArmyListId, m.Magic, m.Points,
-            al.Id, al.Name
-        FROM 
-            misc m
-        LEFT JOIN 
-            army_list al ON m.army_list_id = al.Id";
+                SELECT 
+                    m.Id, m.Name, m.Description, m.army_list_id as ArmyListId, m.Magic, m.Points, m.Uniquely,
+                    al.Id, al.Name
+                FROM 
+                    misc m
+                LEFT JOIN 
+                    army_list al ON m.army_list_id = al.Id";
 
             var miscDictionary = new Dictionary<int, Misc>();
 
