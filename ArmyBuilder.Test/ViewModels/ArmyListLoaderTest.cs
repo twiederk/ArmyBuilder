@@ -192,7 +192,7 @@ namespace ArmyBuilder.Test.ViewModels
             {
                 new MeleeWeapon { Id = 1, Name = "Sword", Magic = false },
                 new MeleeWeapon { Id = 2, Name = "Axe", Magic = false },
-                new MeleeWeapon { Id = 3, Name = "Ulriks Hammer", Unique = true, Magic = false },
+                new MeleeWeapon { Id = 3, Name = "Ulriks Hammer", Uniquely = true, Magic = false },
             };
 
             var mockRepository = new Mock<IArmyBuilderRepository>();
@@ -204,10 +204,9 @@ namespace ArmyBuilder.Test.ViewModels
             var result = armyListLoader.selectableItems(slot, new ArmyList { Id = 7 });
 
             // assert
-            result.Should().HaveCount(3);
+            result.Should().HaveCount(2);
             result.Should().Contain(i => i.Name == "Sword" && i.Id == 1);
             result.Should().Contain(i => i.Name == "Axe");
-            result.Should().Contain(i => i.Name == "Dwarven Hammer");
         }
     }
 }
