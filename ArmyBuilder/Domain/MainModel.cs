@@ -1,4 +1,5 @@
 
+
 namespace ArmyBuilder.Domain
 {
     public class MainModel
@@ -35,6 +36,11 @@ namespace ArmyBuilder.Domain
         public float Points()
         {
             return SingleModels.Sum(sm => sm.TotalPoints());
+        }
+
+        public void AddSingleModel(SingleModel singleModel)
+        {
+            SingleModels.Add(singleModel);
         }
 
         public MainModel Clone()
