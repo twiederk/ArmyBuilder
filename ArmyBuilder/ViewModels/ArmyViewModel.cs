@@ -151,14 +151,14 @@ namespace ArmyBuilder.ViewModels
             _repository.UpdateSlotItem(slot);
         }
 
-        internal void AddSingleModelToMainModel(int mainModelId, SingleModel singleModel)
+        public void AddSingleModelToMainModel(int mainModelId, SingleModel singleModel)
         {
             _repository.AddSingleModel(mainModelId, singleModel);
         }
 
-        internal SingleModel TEMP_get_mount()
+        public List<SingleModel> GetMounts()
         {
-            return _repository.Mounts(SelectedArmyList.Id).FirstOrDefault();
+            return _repository.Mounts(_selectedArmyList.Id);
         }
     }
 

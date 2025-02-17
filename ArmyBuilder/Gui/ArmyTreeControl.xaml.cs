@@ -88,14 +88,34 @@ namespace ArmyBuilder
             }
         }
 
+        //private void AddMountButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
+        //    {
+        //        var armyViewModel = DataContext as ArmyViewModel;
+        //        SingleModel mount = armyViewModel.TEMP_get_mount();
+        //        armyViewModel.AddSingleModelToMainModel(mainModelTreeNode.MainModel.Id, mount);
+        //        mainModelTreeNode.AddSingleModel(mount);
+        //    }
+        //}
+
         private void AddMountButton_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
             {
-                var armyViewModel = DataContext as ArmyViewModel;
-                SingleModel mount = armyViewModel.TEMP_get_mount();
-                armyViewModel.AddSingleModelToMainModel(mainModelTreeNode.MainModel.Id, mount);
-                mainModelTreeNode.AddSingleModel(mount);
+                ArmyViewModel armyViewModel = DataContext as ArmyViewModel;
+                List<SingleModel> mounts = armyViewModel.GetMounts();
+
+                var selectMountWindow = new SelectMountWindow(mounts);
+                if (selectMountWindow.ShowDialog() == true)
+                {
+                    var selectedMount = selectMountWindow.SelectedMount;
+                    if (selectedMount != null)
+                    {
+                        armyViewModel.AddSingleModelToMainModel(mainModelTreeNode.MainModel.Id, selectedMount);
+                        mainModelTreeNode.AddSingleModel(selectedMount);
+                    }
+                }
             }
         }
 
