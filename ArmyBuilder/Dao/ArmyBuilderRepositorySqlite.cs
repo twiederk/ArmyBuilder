@@ -380,7 +380,7 @@ namespace ArmyBuilder.Dao
             return mainModel;
         }
 
-        public void UpdateMainModelCount(int unitId, int mainModelId, int count)
+        public void UpdateMainModel(int unitId, int mainModelId, int count)
         {
             var sql = @"
                 UPDATE army_main_model
@@ -914,8 +914,6 @@ namespace ArmyBuilder.Dao
             return result.Distinct().ToList();
         }
 
-        // Existing methods...
-
         public SingleModel AddSingleModel(int mainModelId, SingleModel singleModel)
         {
             var sql = @"
@@ -956,6 +954,36 @@ namespace ArmyBuilder.Dao
 
                 slot.Id = slotId;
             }
+
+            return singleModel;
+        }
+
+        public SingleModel UpdateSingleModel(SingleModel singleModel)
+        {
+            var sql = @"
+                UPDATE army_single_model
+                SET name = @Name,
+                    description = @Description,
+                    profile_id = @ProfileId,
+                    standard_bearer = @StandardBearer,
+                    musician = @Musician,
+                    movement_type_id = @MovementType,
+                    mount = @Mount,
+                    mountable = @Mountable
+                WHERE id = @Id";
+
+            _dbConnection.Execute(sql, new
+            {
+                singleModel.Name,
+                singleModel.Description,
+                ProfileId = singleModel.Profile.Id,
+                singleModel.StandardBearer,
+                singleModel.Musician,
+                singleModel.MovementType,
+                singleModel.Mount,
+                singleModel.Mountable,
+                singleModel.Id
+            });
 
             return singleModel;
         }

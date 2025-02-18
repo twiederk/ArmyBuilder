@@ -229,7 +229,7 @@ namespace ArmyBuilder.Test.Dao
             _repository.AddMainModel(unit.Id, mainModel);
 
             // act
-            _repository.UpdateMainModelCount(unit.Id, mainModel.Id, 5);
+            _repository.UpdateMainModel(unit.Id, mainModel.Id, 5);
 
             // assert
             Army testArmy = _repository.Army(army.Id);

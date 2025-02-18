@@ -88,17 +88,6 @@ namespace ArmyBuilder
             }
         }
 
-        //private void AddMountButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
-        //    {
-        //        var armyViewModel = DataContext as ArmyViewModel;
-        //        SingleModel mount = armyViewModel.TEMP_get_mount();
-        //        armyViewModel.AddSingleModelToMainModel(mainModelTreeNode.MainModel.Id, mount);
-        //        mainModelTreeNode.AddSingleModel(mount);
-        //    }
-        //}
-
         private void AddMountButton_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
@@ -112,8 +101,9 @@ namespace ArmyBuilder
                     var selectedMount = selectMountWindow.SelectedMount;
                     if (selectedMount != null)
                     {
-                        armyViewModel.AddSingleModelToMainModel(mainModelTreeNode.MainModel.Id, selectedMount);
                         mainModelTreeNode.AddSingleModel(selectedMount);
+                        armyViewModel.AddSingleModelToMainModel(mainModelTreeNode.MainModel.Id, selectedMount);
+                        armyViewModel.UpdateSingleModel(mainModelTreeNode.MainModel.SingleModels[0]);
                     }
                 }
             }
@@ -142,7 +132,7 @@ namespace ArmyBuilder
         private void UpdateMainModelCount(MainModelTreeNode mainModelTreeNode, MainModel mainModel)
         {
             var armyViewModel = DataContext as ArmyViewModel;
-            armyViewModel.UpdateMainModelCount(mainModelTreeNode.Unit.Id, mainModel.Id, mainModel.Count);
+            armyViewModel.UpdateMainModel(mainModelTreeNode.Unit.Id, mainModel.Id, mainModel.Count);
             mainModelTreeNode.UpdateCount();
         }
 

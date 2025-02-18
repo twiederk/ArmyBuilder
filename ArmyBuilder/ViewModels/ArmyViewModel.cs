@@ -114,9 +114,14 @@ namespace ArmyBuilder.ViewModels
             _repository.AddMainModel(unitId, mainModel);
         }
 
-        public void UpdateMainModelCount(int unitId, int mainModelId, int count)
+        public void UpdateMainModel(int unitId, int mainModelId, int count)
         {
-            _repository.UpdateMainModelCount(unitId, mainModelId, count);
+            _repository.UpdateMainModel(unitId, mainModelId, count);
+        }
+
+        public void UpdateSingleModel(SingleModel singleModel)
+        {
+            _repository.UpdateSingleModel(singleModel);
         }
 
         private void LoadMainModels()
@@ -129,7 +134,7 @@ namespace ArmyBuilder.ViewModels
                 Troopers = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
                 WarMachines = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).ToList();
                 Monsters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Monster).OrderBy(mm => mm.Name).ToList();
-                Mounts = _repository.Mounts(_selectedArmyList.Id);
+                Mounts = _repository.Mounts(_selectedArmyList.Id).OrderBy(mm => mm.Name).ToList();
 
             }
             else
