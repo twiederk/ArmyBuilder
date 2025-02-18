@@ -30,8 +30,8 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points as OldPoints,
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount,
+                    mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points as OldPoints, mm.Uniquely,
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount, sm.mountable,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
                     main_model mm
@@ -74,7 +74,7 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount,
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount, sm.mountable,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.strength, p.toughness, p.wounds, p.initiative, p.attacks, p.moral, p.points, p.save
                 FROM 
                     single_model sm
@@ -109,8 +109,8 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points,
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount,
+                    mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, mm.Uniquely,
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount, sm.mountable,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
                     main_model mm
@@ -187,8 +187,8 @@ namespace ArmyBuilder.Dao
                     a.Id, a.Name, a.Author, a.army_list_id, a.Points,
                     al.Id, al.Name,
                     au.Id, au.Name,
-                    amm.Id, amm.army_category_id as ArmyCategory, amm.Name, amm.Description, amm.Points as OldPoints, amm.count as Count,
-                    asm.Id, asm.Name, asm.Description, asm.profile_id as ProfileId, asm.standard_bearer as StandardBearer, asm.musician, asm.movement_type_id as MovementType, asm.mount,
+                    amm.Id, amm.army_category_id as ArmyCategory, amm.Name, amm.Description, amm.Points as OldPoints, amm.count as Count, amm.Uniquely,
+                    asm.Id, asm.Name, asm.Description, asm.profile_id as ProfileId, asm.standard_bearer as StandardBearer, asm.musician, asm.movement_type_id as MovementType, asm.mount, asm.mountable,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
                     army a
@@ -325,8 +325,8 @@ namespace ArmyBuilder.Dao
         public MainModel AddMainModel(int unitId, MainModel mainModel)
         {
             var sql = @"
-                INSERT INTO army_main_model (army_unit_id, army_category_id, name, description, points, count)
-                VALUES (@ArmyUnitId, @ArmyCategoryId, @Name, @Description, @Points, @Count);
+                INSERT INTO army_main_model (army_unit_id, army_category_id, name, description, uniquely, points, count)
+                VALUES (@ArmyUnitId, @ArmyCategoryId, @Name, @Description, @Uniquely, @Points, @Count);
                 SELECT last_insert_rowid();";
             var main_model_id = _dbConnection.ExecuteScalar<int>(sql, new
             {
@@ -334,6 +334,7 @@ namespace ArmyBuilder.Dao
                 ArmyCategoryId = (int)mainModel.ArmyCategory,
                 mainModel.Name,
                 mainModel.Description,
+                mainModel.Uniquely,
                 Points = mainModel.OldPoints,
                 mainModel.Count
             });
@@ -342,8 +343,8 @@ namespace ArmyBuilder.Dao
             foreach (var singleModel in mainModel.SingleModels)
             {
                 sql = @"
-                    INSERT INTO army_single_model (army_main_model_id, name, description, profile_id, standard_bearer, musician, movement_type_id, mount)
-                    VALUES (@ArmyMainModelId, @Name, @Description, @ProfileId, @StandardBearer, @Musician, @MovementType, @Mount);
+                    INSERT INTO army_single_model (army_main_model_id, name, description, profile_id, standard_bearer, musician, movement_type_id, mount, mountable)
+                    VALUES (@ArmyMainModelId, @Name, @Description, @ProfileId, @StandardBearer, @Musician, @MovementType, @Mount, @Mountable);
                     SELECT last_insert_rowid();";
                 var single_model_id = _dbConnection.ExecuteScalar<int>(sql, new
                 {
@@ -354,7 +355,8 @@ namespace ArmyBuilder.Dao
                     singleModel.StandardBearer,
                     singleModel.Musician,
                     singleModel.MovementType,
-                    singleModel.Mount
+                    singleModel.Mount,
+                    singleModel.Mountable
                 });
                 singleModel.Id = single_model_id;
 
@@ -378,7 +380,7 @@ namespace ArmyBuilder.Dao
             return mainModel;
         }
 
-        public void UpdateMainModelCount(int unitId, int mainModelId, int count)
+        public void UpdateMainModel(int unitId, int mainModelId, int count)
         {
             var sql = @"
                 UPDATE army_main_model
@@ -466,7 +468,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
                 SELECT 
-                    mw.Id, mw.Name, mw.Description, mw.army_list_id as ArmyListId, mw.Magic, mw.Points,
+                    mw.Id, mw.Name, mw.Description, mw.army_list_id as ArmyListId, mw.Magic, mw.Points, mw.Uniquely,
                     al.Id, al.Name
                 FROM 
                     melee_weapon mw
@@ -504,7 +506,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
             SELECT 
-                rw.Id, rw.Name, rw.Description, rw.army_list_id as ArmyListId, rw.Magic, rw.Points,
+                rw.Id, rw.Name, rw.Description, rw.army_list_id as ArmyListId, rw.Magic, rw.Points, rw.Uniquely,
                 al.Id, al.Name
             FROM 
                 ranged_weapon rw
@@ -542,7 +544,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
             SELECT 
-                s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points, s.Save,
+                s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points, s.Save, s.Uniquely,
                 al.Id, al.Name
             FROM 
                 shield s
@@ -580,7 +582,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
                 SELECT 
-                    a.Id, a.Name, a.Description, a.army_list_id as ArmyListId, a.Magic, a.Points, a.Save,
+                    a.Id, a.Name, a.Description, a.army_list_id as ArmyListId, a.Magic, a.Points, a.Save, a.Uniquely,
                     al.Id, al.Name
                 FROM 
                     armor a
@@ -618,7 +620,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
         SELECT 
-            s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points,
+            s.Id, s.Name, s.Description, s.army_list_id as ArmyListId, s.Magic, s.Points, s.Uniquely,
             al.Id, al.Name
         FROM 
             standard s
@@ -656,7 +658,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
         SELECT 
-            i.Id, i.Name, i.Description, i.army_list_id as ArmyListId, i.Magic, i.Points,
+            i.Id, i.Name, i.Description, i.army_list_id as ArmyListId, i.Magic, i.Points, i.Uniquely,
             al.Id, al.Name
         FROM 
             instrument i
@@ -693,13 +695,13 @@ namespace ArmyBuilder.Dao
             }
 
             var sql = @"
-        SELECT 
-            m.Id, m.Name, m.Description, m.army_list_id as ArmyListId, m.Magic, m.Points,
-            al.Id, al.Name
-        FROM 
-            misc m
-        LEFT JOIN 
-            army_list al ON m.army_list_id = al.Id";
+                SELECT 
+                    m.Id, m.Name, m.Description, m.army_list_id as ArmyListId, m.Magic, m.Points, m.Uniquely,
+                    al.Id, al.Name
+                FROM 
+                    misc m
+                LEFT JOIN 
+                    army_list al ON m.army_list_id = al.Id";
 
             var miscDictionary = new Dictionary<int, Misc>();
 
@@ -876,6 +878,115 @@ namespace ArmyBuilder.Dao
             });
         }
 
+        public List<SingleModel> Mounts(int armyListId)
+        {
+            var sql = @"
+                SELECT 
+                    sm.*, p.*
+                FROM 
+                    single_model sm
+                INNER JOIN 
+                    main_model mm ON sm.main_model_id = mm.id
+                INNER JOIN 
+                    profile p ON sm.profile_id = p.id
+                WHERE 
+                    sm.mountable = 1 AND mm.army_list_id = @ArmyListId";
+
+            var singleModelDictionary = new Dictionary<int, SingleModel>();
+
+            var result = _dbConnection.Query<SingleModel, Profile, SingleModel>(
+                sql,
+                (singleModel, profile) =>
+                {
+                    if (!singleModelDictionary.TryGetValue(singleModel.Id, out var currentSingleModel))
+                    {
+                        currentSingleModel = singleModel;
+                        singleModelDictionary.Add(currentSingleModel.Id, currentSingleModel);
+                    }
+
+                    currentSingleModel.Profile = profile;
+                    return currentSingleModel;
+                },
+                new { ArmyListId = armyListId },
+                splitOn: "Id"
+            );
+
+            return result.Distinct().ToList();
+        }
+
+        public SingleModel AddSingleModel(int mainModelId, SingleModel singleModel)
+        {
+            var sql = @"
+                INSERT INTO army_single_model (army_main_model_id, name, description, profile_id, standard_bearer, musician, movement_type_id, mount, mountable)
+                VALUES (@MainModelId, @Name, @Description, @ProfileId, @StandardBearer, @Musician, @MovementType, @Mount, @Mountable);
+                SELECT last_insert_rowid();";
+
+            var singleModelId = _dbConnection.ExecuteScalar<int>(sql, new
+            {
+                MainModelId = mainModelId,
+                singleModel.Name,
+                singleModel.Description,
+                ProfileId = singleModel.Profile.Id,
+                singleModel.StandardBearer,
+                singleModel.Musician,
+                singleModel.MovementType,
+                singleModel.Mount,
+                singleModel.Mountable
+            });
+
+            singleModel.Id = singleModelId;
+
+            foreach (var slot in singleModel.Equipment.Slots)
+            {
+                sql = @"
+                    INSERT INTO army_slot (army_single_model_id, item_id, editable, magic, item_class_id)
+                    VALUES (@SingleModelId, @ItemId, @Editable, @Magic, @ItemClassId);
+                    SELECT last_insert_rowid();";
+
+                var slotId = _dbConnection.ExecuteScalar<int>(sql, new
+                {
+                    SingleModelId = singleModelId,
+                    ItemId = slot.Item.Id,
+                    slot.Editable,
+                    slot.Magic,
+                    ItemClassId = (int)slot.ItemClass
+                });
+
+                slot.Id = slotId;
+            }
+
+            return singleModel;
+        }
+
+        public SingleModel UpdateSingleModel(SingleModel singleModel)
+        {
+            var sql = @"
+                UPDATE army_single_model
+                SET name = @Name,
+                    description = @Description,
+                    profile_id = @ProfileId,
+                    standard_bearer = @StandardBearer,
+                    musician = @Musician,
+                    movement_type_id = @MovementType,
+                    mount = @Mount,
+                    mountable = @Mountable
+                WHERE id = @Id";
+
+            _dbConnection.Execute(sql, new
+            {
+                singleModel.Name,
+                singleModel.Description,
+                ProfileId = singleModel.Profile.Id,
+                singleModel.StandardBearer,
+                singleModel.Musician,
+                singleModel.MovementType,
+                singleModel.Mount,
+                singleModel.Mountable,
+                singleModel.Id
+            });
+
+            return singleModel;
+        }
     }
 
 }

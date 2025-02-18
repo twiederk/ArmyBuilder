@@ -14,6 +14,7 @@ namespace ArmyBuilder.Domain
         public bool StandardBearer { get; set; }
         public MovementType MovementType { get; set; }
         public bool Mount { get; set; }
+        public bool Mountable { get; set; }
         public Equipment Equipment { get; set; } = new Equipment();
         public String Save => CalculateSave();
 

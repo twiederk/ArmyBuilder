@@ -43,6 +43,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="25" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Label Content="{Binding Count}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Magenta"/>
@@ -51,7 +52,8 @@
                             <Label Content="{Binding Name}" Grid.Column="3" HorizontalAlignment="Left" Foreground="Magenta"/>
                             <Label Content="{Binding TotalPoints}" Grid.Column="4" HorizontalAlignment="Right" Foreground="Magenta"/>
                             <Label Content="{Binding DisplayArmyCategory}" Grid.Column="5" HorizontalAlignment="Right" Foreground="Magenta"/>
-                            <Button Content="🗑" Grid.Column="6" Click="DeleteMainModelButton_Click" Tag="{Binding}" Margin="2,2,2,2"/>
+                            <Button Content="*" Grid.Column="6" Click="AddMountButton_Click" Tag="{Binding}" IsEnabled="{Binding IsCustomizable}" Margin="2,2,2,2"/>
+                            <Button Content="🗑" Grid.Column="7" Click="DeleteMainModelButton_Click" Tag="{Binding}" Margin="2,2,2,2"/>
                         </Grid>
                     </HierarchicalDataTemplate>
 

@@ -182,5 +182,31 @@ namespace ArmyBuilder.Test.ViewModels
             var resultNames = selectableItems.Select(i => i.Name).ToList();
             resultNames.Should().ContainInOrder(new List<string> { "Axe", "Battle Axe", "Hammer" });
         }
+
+        [Fact]
+        public void should_return_non_unique_items()
+        {
+            // arrange
+            var slot = new Slot { ItemClass = ItemClass.MeleeWeapon, Editable = true, Magic = false };
+            var meleeWeapons = new List<MeleeWeapon>
+            {
+                new MeleeWeapon { Id = 1, Name = "Sword", Magic = false },
+                new MeleeWeapon { Id = 2, Name = "Axe", Magic = false },
+                new MeleeWeapon { Id = 3, Name = "Ulriks Hammer", Uniquely = true, Magic = false },
+            };
+
+            var mockRepository = new Mock<IArmyBuilderRepository>();
+            mockRepository.Setup(repo => repo.AllMeleeWeapon()).Returns(meleeWeapons);
+
+            var armyListLoader = new ArmyListLoader(mockRepository.Object);
+
+            // act
+            var result = armyListLoader.selectableItems(slot, new ArmyList { Id = 7 });
+
+            // assert
+            result.Should().HaveCount(2);
+            result.Should().Contain(i => i.Name == "Sword" && i.Id == 1);
+            result.Should().Contain(i => i.Name == "Axe");
+        }
     }
 }

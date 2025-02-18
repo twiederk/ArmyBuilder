@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS "main_model"
  "army_category_id"  INTEGER,
  "name"              VARCHAR(60),
  "description"       VARCHAR(110),
+ "uniquely"            BIT,
  "points"            FLOAT,
  PRIMARY KEY(id)
  FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
@@ -71,6 +72,7 @@ CREATE TABLE IF NOT EXISTS "single_model"
  "musician"          BIT,
  "movement_type_id"  INTEGER,
  "mount"             BIT,
+ "mountable"         BIT,
  PRIMARY KEY(id)
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
@@ -117,6 +119,7 @@ CREATE TABLE IF NOT EXISTS "army_main_model"
  "army_category_id"  INTEGER,
  "name"              VARCHAR(60),
  "description"       VARCHAR(110),
+ "uniquely"          BIT,
  "points"            FLOAT,
  "count"             INTEGER,
  PRIMARY KEY (id)
@@ -135,6 +138,7 @@ CREATE TABLE IF NOT EXISTS "army_single_model"
  "musician"             BIT,
  "movement_type_id"     INTEGER,
  "mount"                BIT,
+ "mountable"            BIT,
  PRIMARY KEY (id)
  FOREIGN KEY (army_main_model_id) REFERENCES army_main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
@@ -161,7 +165,7 @@ CREATE TABLE IF NOT EXISTS "melee_weapon"
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
- "unique"       BIT,
+ "uniquely"     BIT,
  "magic"        BIT,
  PRIMARY KEY(id)
 );
@@ -173,7 +177,7 @@ CREATE TABLE IF NOT EXISTS "ranged_weapon"
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
- "unique"       BIT,
+ "uniquely"       BIT,
  "magic"        BIT,
  "strength"     INTEGER,
  "range"        INTEGER,
@@ -187,7 +191,7 @@ CREATE TABLE IF NOT EXISTS "armor"
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
- "unique"       BIT,
+ "uniquely"       BIT,
  "magic"        BIT,
  "save"         INTEGER,
  PRIMARY KEY(id)
@@ -200,7 +204,7 @@ CREATE TABLE IF NOT EXISTS "shield"
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
- "unique"       BIT,
+ "uniquely"       BIT,
  "magic"        BIT,
  "save"         INTEGER,
  PRIMARY KEY(id)
@@ -213,7 +217,7 @@ CREATE TABLE IF NOT EXISTS "standard"
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
- "unique"       BIT,
+ "uniquely"       BIT,
  "magic"        BIT,
  PRIMARY KEY(id)
 );
@@ -225,7 +229,7 @@ CREATE TABLE IF NOT EXISTS "instrument"
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
- "unique"       BIT,
+ "uniquely"       BIT,
  "magic"        BIT,
  PRIMARY KEY(id)
 );
@@ -237,26 +241,26 @@ CREATE TABLE IF NOT EXISTS "misc"
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
- "unique"       BIT,
+ "uniquely"       BIT,
  "magic"        BIT,
  PRIMARY KEY(id)
 );
 
 
 CREATE VIEW item AS
-SELECT id, name, points, description, army_list_id, "unique", magic FROM melee_weapon
-UNION ALL
-SELECT id, name, points, description, army_list_id, "unique", magic FROM ranged_weapon
-UNION ALL
-SELECT id, name, points, description, army_list_id, "unique", magic FROM armor
-UNION ALL
-SELECT id, name, points, description, army_list_id, "unique", magic FROM shield
-UNION ALL
-SELECT id, name, points, description, army_list_id, "unique", magic FROM standard
-UNION ALL
-SELECT id, name, points, description, army_list_id, "unique", magic FROM instrument
-UNION ALL
-SELECT id, name, points, description, army_list_id, "unique", magic FROM misc;
+SELECT id, name, points, description, army_list_id, uniquely, magic FROM melee_weapon
+UNION ALL                                           
+SELECT id, name, points, description, army_list_id, uniquely, magic FROM ranged_weapon
+UNION ALL                                           
+SELECT id, name, points, description, army_list_id, uniquely, magic FROM armor
+UNION ALL                                           
+SELECT id, name, points, description, army_list_id, uniquely, magic FROM shield
+UNION ALL                                           
+SELECT id, name, points, description, army_list_id, uniquely, magic FROM standard
+UNION ALL                                           
+SELECT id, name, points, description, army_list_id, uniquely, magic FROM instrument
+UNION ALL                                           
+SELECT id, name, points, description, army_list_id, uniquely, magic FROM misc;
 
 
 CREATE VIEW army_list_profile AS

@@ -14,6 +14,7 @@ namespace ArmyBuilder.ViewModels
         private List<MainModel> _troopers;
         private List<MainModel> _warMachines;
         private List<MainModel> _monsters;
+        private List<SingleModel> _mounts;
 
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
@@ -71,6 +72,15 @@ namespace ArmyBuilder.ViewModels
                 OnPropertyChanged(nameof(Monsters));
             }
         }
+        public List<SingleModel> Mounts
+        {
+            get => _mounts;
+            private set
+            {
+                _mounts = value;
+                OnPropertyChanged(nameof(Mounts));
+            }
+        }
 
         public MainModel SelectedMainModel
         {
@@ -104,9 +114,14 @@ namespace ArmyBuilder.ViewModels
             _repository.AddMainModel(unitId, mainModel);
         }
 
-        public void UpdateMainModelCount(int unitId, int mainModelId, int count)
+        public void UpdateMainModel(int unitId, int mainModelId, int count)
         {
-            _repository.UpdateMainModelCount(unitId, mainModelId, count);
+            _repository.UpdateMainModel(unitId, mainModelId, count);
+        }
+
+        public void UpdateSingleModel(SingleModel singleModel)
+        {
+            _repository.UpdateSingleModel(singleModel);
         }
 
         private void LoadMainModels()
@@ -119,6 +134,8 @@ namespace ArmyBuilder.ViewModels
                 Troopers = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
                 WarMachines = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).ToList();
                 Monsters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Monster).OrderBy(mm => mm.Name).ToList();
+                Mounts = _repository.Mounts(_selectedArmyList.Id).OrderBy(mm => mm.Name).ToList();
+
             }
             else
             {
@@ -126,6 +143,7 @@ namespace ArmyBuilder.ViewModels
                 Troopers = new List<MainModel>();
                 WarMachines = new List<MainModel>();
                 Monsters = new List<MainModel>();
+                Mounts = new List<SingleModel>();
             }
         }
 
@@ -150,6 +168,12 @@ namespace ArmyBuilder.ViewModels
         {
             _repository.UpdateSlotItem(slot);
         }
+
+        public void AddSingleModelToMainModel(int mainModelId, SingleModel singleModel)
+        {
+            _repository.AddSingleModel(mainModelId, singleModel);
+        }
+
     }
 
 }
