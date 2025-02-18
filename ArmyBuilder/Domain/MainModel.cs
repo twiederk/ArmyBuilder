@@ -41,6 +41,10 @@ namespace ArmyBuilder.Domain
 
         public void AddSingleModel(SingleModel singleModel)
         {
+            if (singleModel.Mount)
+            {
+                SingleModels[0].MovementType = MovementType.OnMount;
+            }
             SingleModels.Add(singleModel);
         }
 
