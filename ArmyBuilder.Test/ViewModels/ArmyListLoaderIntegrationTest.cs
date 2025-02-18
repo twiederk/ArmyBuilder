@@ -6,6 +6,7 @@ using FluentAssertions;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Runtime.CompilerServices;
 using Xunit;
 
 namespace ArmyBuilder.Test.ViewModels
@@ -96,6 +97,22 @@ namespace ArmyBuilder.Test.ViewModels
 
             // assert
             result.Should().HaveCount(7);
+        }
+
+        [Fact]
+        public void should_load_equipment_with_selectable_items()
+        {
+            // arrange
+            int highElfArmyListId = 7;
+
+            // act
+            List<Equipment> equipment = _repository.ArmyListEquipment(highElfArmyListId);
+
+            // assert
+            Equipment grenzreiterEquipment = equipment.First(e => e.Id == 46808);
+            grenzreiterEquipment.Slots.Should().HaveCount(4);
+            Slot meleeWeaponSlot = grenzreiterEquipment.Slots.First(s => s.Id == 4859);
+            meleeWeaponSlot.SelectableItems.Should().HaveCount(2);
         }
     }
 }
