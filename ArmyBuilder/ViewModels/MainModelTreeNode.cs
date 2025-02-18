@@ -13,9 +13,11 @@ namespace ArmyBuilder.ViewModels
         public float TotalPoints => MainModel.TotalPoints();
         public MainModel MainModel { get; set; }
         public Unit Unit => _parent.Unit;
-        private UnitTreeNode _parent;
-
         public string DisplayArmyCategory => MainModel.ArmyCategory.Display();
+
+        public bool IsCustomizable => Customiable();
+
+        private UnitTreeNode _parent;
 
 
         public ObservableCollection<SingleModelTreeNode> SingleModels { get; set; } = new ObservableCollection<SingleModelTreeNode>();
@@ -61,6 +63,11 @@ namespace ArmyBuilder.ViewModels
             OnPropertyChanged("Name");
             OnPropertyChanged("TotalPoints");
             _parent.UpdateTotalPoints();
+        }
+
+        private bool Customiable()
+        {
+            return MainModel.ArmyCategory == ArmyCategory.Character && !MainModel.Uniquely;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
