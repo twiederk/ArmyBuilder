@@ -1,5 +1,6 @@
 
 
+
 namespace ArmyBuilder.Domain
 {
     public class MainModel
@@ -93,6 +94,11 @@ namespace ArmyBuilder.Domain
                     }
                 }).ToList()
             };
+        }
+
+        public bool isCustomizable()
+        {
+            return ArmyCategory == ArmyCategory.Character && !Uniquely;
         }
 
         public override bool Equals(object obj)

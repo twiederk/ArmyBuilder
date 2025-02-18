@@ -150,5 +150,31 @@ namespace ArmyBuilder.Test.Domain
             clone.SingleModels[1].MovementType.Should().Be(MovementType.OnMount);
             clone.SingleModels[1].Mount.Should().BeTrue();
         }
+
+        [Fact]
+        public void should_be_customizable_when_army_category_is_character_and_not_unique()
+        {
+            // arrange
+            MainModel mainModel = new MainModel { ArmyCategory = ArmyCategory.Character, Uniquely = false };
+
+            // act
+            bool customizable = mainModel.isCustomizable();
+
+            // assert
+            customizable.Should().BeTrue();
+        }
+
+        [Fact]
+        public void should_not_be_customizable_when_army_category_is_character_and_unique()
+        {
+            // arrange
+            MainModel mainModel = new MainModel { ArmyCategory = ArmyCategory.Character, Uniquely = true };
+
+            // act
+            bool customizable = mainModel.isCustomizable();
+
+            // assert
+            customizable.Should().BeFalse();
+        }
     }
 }

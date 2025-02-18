@@ -15,7 +15,7 @@ namespace ArmyBuilder.ViewModels
         public Unit Unit => _parent.Unit;
         public string DisplayArmyCategory => MainModel.ArmyCategory.Display();
 
-        public bool IsCustomizable => Customiable();
+        public bool IsCustomizable => MainModel.isCustomizable();
 
         private UnitTreeNode _parent;
 
@@ -63,11 +63,6 @@ namespace ArmyBuilder.ViewModels
             OnPropertyChanged("Name");
             OnPropertyChanged("TotalPoints");
             _parent.UpdateTotalPoints();
-        }
-
-        private bool Customiable()
-        {
-            return MainModel.ArmyCategory == ArmyCategory.Character && !MainModel.Uniquely;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
