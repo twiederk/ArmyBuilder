@@ -8,11 +8,11 @@ namespace ArmyBuilder.Domain
         public bool Editable { get; set; }
         public bool AllItems { get; set; }
         public bool Magic { get; set; }
-        public List<Item> SelectableItems { get; set; } = new List<Item>();
+        public List<Item> Selection { get; set; } = new List<Item>();
 
         public bool IsAllItems()
         {
-            return SelectableItems.Count() == 0;
+            return Selection.Count() == 0;
         }
 
         public override bool Equals(object obj)

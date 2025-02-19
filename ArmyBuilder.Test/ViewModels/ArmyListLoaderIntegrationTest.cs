@@ -50,7 +50,7 @@ namespace ArmyBuilder.Test.ViewModels
             {
                 ItemClass = ItemClass.MeleeWeapon,
                 Editable = true,
-                SelectableItems = new List<Item>() { new MeleeWeapon() }
+                Selection = new List<Item>() { new MeleeWeapon() }
             };
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
@@ -112,7 +112,7 @@ namespace ArmyBuilder.Test.ViewModels
             Equipment grenzreiterEquipment = equipment.First(e => e.Id == 46808);
             grenzreiterEquipment.Slots.Should().HaveCount(4);
             Slot meleeWeaponSlot = grenzreiterEquipment.Slots.First(s => s.Id == 4859);
-            meleeWeaponSlot.SelectableItems.Should().HaveCount(2);
+            meleeWeaponSlot.Selection.Should().HaveCount(2);
         }
     }
 }

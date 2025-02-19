@@ -93,7 +93,7 @@ namespace ArmyBuilder.Domain
                             Editable = slot.Editable,
                             AllItems = slot.AllItems,
                             Magic = slot.Magic,
-                            SelectableItems = slot.SelectableItems.ToList()
+                            Selection = slot.Selection.ToList()
                         }).ToList()
                     }
                 }).ToList()

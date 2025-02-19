@@ -94,9 +94,9 @@ namespace ArmyBuilder.Test.ViewModels
 
             // assert
             var singleModel = mainModels[0].SingleModels[0];
-            singleModel.Equipment.Slots[0].SelectableItems.Should().BeEquivalentTo(meleeWeapons);
-            singleModel.Equipment.Slots[1].SelectableItems.Should().BeEquivalentTo(rangedWeapons);
-            singleModel.Equipment.Slots[2].SelectableItems.Should().BeEquivalentTo(shields);
+            singleModel.Equipment.Slots[0].Selection.Should().BeEquivalentTo(meleeWeapons);
+            singleModel.Equipment.Slots[1].Selection.Should().BeEquivalentTo(rangedWeapons);
+            singleModel.Equipment.Slots[2].Selection.Should().BeEquivalentTo(shields);
         }
 
         [Fact]

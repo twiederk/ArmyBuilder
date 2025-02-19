@@ -13,7 +13,7 @@ namespace ArmyBuilder.Dao
         public bool Magic { get; set; }
         public bool AllItems { get; set; }
         public ItemClass ItemClass { get; set; }
-        public List<Item> SelectableItems { get; set; } = new List<Item>();
+        public List<Item> Selection { get; set; } = new List<Item>();
 
         public int SingleModelId { get; set; }
         public Slot toSlot()

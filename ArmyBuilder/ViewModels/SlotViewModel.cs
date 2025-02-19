@@ -32,7 +32,7 @@ namespace ArmyBuilder.ViewModels
         {
             Slot = slot;
             SelectedItem = new ItemViewModel(slot.Item);
-            SelectableItems = slot.SelectableItems.Select(item => new ItemViewModel(item)).ToList();
+            SelectableItems = slot.Selection.Select(item => new ItemViewModel(item)).ToList();
         }
 
         public string SlotName() {

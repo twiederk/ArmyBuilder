@@ -210,7 +210,7 @@
                                                 Item = lightArmor,
                                                 Editable = true,
                                                 AllItems = false,
-                                                SelectableItems = new List<Item> { lightArmor, heavyArmor }
+                                                Selection = new List<Item> { lightArmor, heavyArmor }
                                             },
                                             new Slot
                                             {
@@ -263,7 +263,7 @@
                                                 Item = normalWheels,
                                                 Editable = true,
                                                 AllItems = false,
-                                                SelectableItems = new List<Item> { normalWheels, scytheWheels }
+                                                Selection = new List<Item> { normalWheels, scytheWheels }
                                             },
                                         }
                                     }
@@ -294,7 +294,7 @@
                                                 Item = helberd,
                                                 Editable = true,
                                                 AllItems = false,
-                                                SelectableItems = new List<Item> { helberd, spear }
+                                                Selection = new List<Item> { helberd, spear }
                                             },
                                             new Slot
                                             {
@@ -302,7 +302,7 @@
                                                 Item = bow,
                                                 Editable = true,
                                                 AllItems = false,
-                                                SelectableItems = new List<Item> { bow, javelin, longBow }
+                                                Selection = new List<Item> { bow, javelin, longBow }
                                             },
                                             new Slot
                                             {
@@ -317,7 +317,7 @@
                                                 Item = noneShield,
                                                 Editable = true,
                                                 AllItems = false,
-                                                SelectableItems = new List<Item> { noneShield, shield }
+                                                Selection = new List<Item> { noneShield, shield }
                                             }
                                         }
                                     }

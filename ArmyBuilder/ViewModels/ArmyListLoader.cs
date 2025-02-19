@@ -62,7 +62,7 @@ namespace ArmyBuilder.ViewModels
             {
                 foreach (var slot in singleModel.Equipment.Slots)
                 {
-                    slot.SelectableItems = selectableItems(slot, armyList);
+                    slot.Selection = selectableItems(slot, armyList);
                 }
             }
         }
