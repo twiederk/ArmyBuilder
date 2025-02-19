@@ -90,7 +90,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            armyListLoader.assignSelectableItems(mainModels, new ArmyList() { Id = 7 }); 
+            armyListLoader.assignSelection(mainModels, new ArmyList() { Id = 7 }); 
 
             // assert
             var singleModel = mainModels[0].SingleModels[0];
@@ -119,7 +119,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            var result = armyListLoader.selectableItems(slot, new ArmyList { Id = 7 });
+            var result = armyListLoader.selection(slot, new ArmyList { Id = 7 });
 
             // assert
             result.Should().HaveCount(2);
@@ -147,7 +147,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            var result = armyListLoader.selectableItems(slot, new ArmyList { Id = 7 });
+            var result = armyListLoader.selection(slot, new ArmyList { Id = 7 });
 
             // assert
             result.Should().HaveCount(1);
@@ -176,10 +176,10 @@ namespace ArmyBuilder.Test.ViewModels
             var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            List<Item> selectableItems = armyListLoader.selectableItems(slot, new ArmyList { Id = 7 });
+            List<Item> selection = armyListLoader.selection(slot, new ArmyList { Id = 7 });
 
             // assert
-            var resultNames = selectableItems.Select(i => i.Name).ToList();
+            var resultNames = selection.Select(i => i.Name).ToList();
             resultNames.Should().ContainInOrder(new List<string> { "Axe", "Battle Axe", "Hammer" });
         }
 
@@ -201,7 +201,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            var result = armyListLoader.selectableItems(slot, new ArmyList { Id = 7 });
+            var result = armyListLoader.selection(slot, new ArmyList { Id = 7 });
 
             // assert
             result.Should().HaveCount(2);

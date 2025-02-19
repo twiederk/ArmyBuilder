@@ -36,7 +36,7 @@ namespace ArmyBuilder.Test.ViewModels
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selection(slot, highElfArmyList);
 
             // assert
             result.Should().BeEmpty();
@@ -55,7 +55,7 @@ namespace ArmyBuilder.Test.ViewModels
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selection(slot, highElfArmyList);
 
             // assert
             result.Should().BeEmpty();
@@ -74,7 +74,7 @@ namespace ArmyBuilder.Test.ViewModels
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selection(slot, highElfArmyList);
 
             // assert
             result.Should().HaveCount(57);
@@ -93,7 +93,7 @@ namespace ArmyBuilder.Test.ViewModels
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selection(slot, highElfArmyList);
 
             // assert
             result.Should().HaveCount(7);

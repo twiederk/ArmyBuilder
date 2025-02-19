@@ -99,7 +99,7 @@
                                         <StackPanel Orientation="Horizontal" Margin="0,3,0,3">
                                             <TextBlock Text="{Binding Name}" Margin="0, 0, 3, 0" />
                                             <TextBlock x:Name="TextBlock" Text="{Binding ItemName}" />
-                                            <ComboBox x:Name="ComboBox" ItemsSource="{Binding SelectableItems}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}" SelectionChanged="ComboBox_SelectionChanged" Tag="{Binding RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+                                            <ComboBox x:Name="ComboBox" ItemsSource="{Binding Selection}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}" SelectionChanged="ComboBox_SelectionChanged" Tag="{Binding RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
                                         </StackPanel>
                                         <DataTemplate.Triggers>
                                             <DataTrigger Binding="{Binding Editable}" Value="False">

@@ -25,14 +25,14 @@ namespace ArmyBuilder.ViewModels
 
         public bool Editable => Slot.Editable;
         public bool AllItems => Slot.AllItems;
-        public List<ItemViewModel> SelectableItems { get; set; } = new List<ItemViewModel>();
+        public List<ItemViewModel> Selection { get; set; } = new List<ItemViewModel>();
         public Slot Slot;
 
         public SlotViewModel(Slot slot)
         {
             Slot = slot;
             SelectedItem = new ItemViewModel(slot.Item);
-            SelectableItems = slot.Selection.Select(item => new ItemViewModel(item)).ToList();
+            Selection = slot.Selection.Select(item => new ItemViewModel(item)).ToList();
         }
 
         public string SlotName() {
