@@ -15,6 +15,7 @@ namespace ArmyBuilder.Dao
         private List<Standard>? _allStandard = null;
         private List<Instrument>? _allInstrument = null;
         private List<Misc>? _allMisc = null;
+        private List<Item>? _allItems = null;
 
         public ArmyBuilderRepositorySqlite(IDbConnection dbConnection)
         {
@@ -790,24 +791,46 @@ namespace ArmyBuilder.Dao
         public List<Equipment> ArmyListEquipment(int armyListId)
         {
             var sql = @"
-                SELECT
-                    s.id, s.item_id as ItemId, s.editable as Editable, s.magic as Magic, s.item_class_id as ItemClass,
-                    sm.id as SingleModelId
-                FROM
-                    slot s
-                INNER JOIN
-                    single_model sm ON s.single_model_id = sm.id
-                INNER JOIN
-                    main_model mm ON sm.main_model_id = mm.id
-                WHERE
-                    mm.army_list_id = @ArmyListId";
+        SELECT
+            s.id, s.item_id as ItemId, s.editable as Editable, s.magic as Magic, s.item_class_id as ItemClass,
+            sm.id as SingleModelId, ss.item_id as SelectionItemId
+        FROM
+            slot s
+        INNER JOIN
+            single_model sm ON s.single_model_id = sm.id
+        INNER JOIN
+            main_model mm ON sm.main_model_id = mm.id
+        LEFT JOIN
+            slot_selection ss ON s.id = ss.slot_id
+        WHERE
+            mm.army_list_id = @ArmyListId";
 
+            var slotRdoDictionary = new Dictionary<int, SlotRdo>();
 
-            var slotRdos = _dbConnection.Query<SlotRdo>(sql, new { ArmyListId = armyListId }).ToList();
+            _dbConnection.Query<SlotRdo, long?, SlotRdo>(
+                sql,
+                (slotRdo, selectionItemId) =>
+                {
+                    if (!slotRdoDictionary.TryGetValue(slotRdo.Id, out var currentSlotRdo))
+                    {
+                        currentSlotRdo = slotRdo;
+                        slotRdoDictionary.Add(currentSlotRdo.Id, currentSlotRdo);
+                    }
+
+                    if (selectionItemId.HasValue)
+                    {
+                        currentSlotRdo.Selection.Add((int)selectionItemId.Value);
+                    }
+
+                    return currentSlotRdo;
+                },
+                new { ArmyListId = armyListId },
+                splitOn: "SelectionItemId"
+            );
 
             var equipmentDictionary = new Dictionary<int, Equipment>();
 
-            foreach (var slotRdo in slotRdos)
+            foreach (var slotRdo in slotRdoDictionary.Values)
             {
                 if (!equipmentDictionary.TryGetValue(slotRdo.SingleModelId, out var equipment))
                 {
@@ -817,11 +840,50 @@ namespace ArmyBuilder.Dao
 
                 Slot slot = slotRdo.toSlot();
                 slot.Item = SlotItem(slotRdo);
+                slot.Selection = SlotSelection(slotRdo.Selection);
                 equipment.Slots.Add(slot);
             }
 
             return equipmentDictionary.Values.ToList();
         }
+
+
+
+
+        public List<Item> SlotSelection(List<int> selectionIds)
+        {
+            var allItems = AllItems();
+            var selectedItems = new List<Item>();
+
+            foreach (var id in selectionIds)
+            {
+                var item = allItems.FirstOrDefault(i => i.Id == id);
+                if (item != null)
+                {
+                    selectedItems.Add(item);
+                }
+            }
+
+            return selectedItems;
+        }
+
+        public List<Item> AllItems()
+        {
+            if (_allItems != null)
+            {
+                return _allItems;
+            }
+            _allItems = new List<Item>();
+            _allItems.AddRange(AllMeleeWeapon());
+            _allItems.AddRange(AllRangedWeapon());
+            _allItems.AddRange(AllArmor());
+            _allItems.AddRange(AllShield());
+            _allItems.AddRange(AllStandard());
+            _allItems.AddRange(AllInstrument());
+            _allItems.AddRange(AllMisc());
+            return _allItems;
+        }
+
 
         public List<Equipment> ArmyEquipment(int armyId)
         {
