@@ -791,19 +791,19 @@ namespace ArmyBuilder.Dao
         public List<Equipment> ArmyListEquipment(int armyListId)
         {
             var sql = @"
-        SELECT
-            s.id, s.item_id as ItemId, s.editable as Editable, s.magic as Magic, s.item_class_id as ItemClass,
-            sm.id as SingleModelId, ss.item_id as SelectionItemId
-        FROM
-            slot s
-        INNER JOIN
-            single_model sm ON s.single_model_id = sm.id
-        INNER JOIN
-            main_model mm ON sm.main_model_id = mm.id
-        LEFT JOIN
-            slot_selection ss ON s.id = ss.slot_id
-        WHERE
-            mm.army_list_id = @ArmyListId";
+                SELECT
+                    s.id, s.item_id as ItemId, s.editable as Editable, s.magic as Magic, s.item_class_id as ItemClass,
+                    sm.id as SingleModelId, ss.item_id as SelectionItemId
+                FROM
+                    slot s
+                INNER JOIN
+                    single_model sm ON s.single_model_id = sm.id
+                INNER JOIN
+                    main_model mm ON sm.main_model_id = mm.id
+                LEFT JOIN
+                    slot_selection ss ON s.id = ss.slot_id
+                WHERE
+                    mm.army_list_id = @ArmyListId";
 
             var slotRdoDictionary = new Dictionary<int, SlotRdo>();
 
