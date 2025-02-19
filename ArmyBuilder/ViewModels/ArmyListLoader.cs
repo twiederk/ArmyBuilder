@@ -62,18 +62,16 @@ namespace ArmyBuilder.ViewModels
             {
                 foreach (var slot in singleModel.Equipment.Slots)
                 {
-                    slot.Selection = selectableItems(slot, armyList);
+                    if (slot.IsAllItems() && slot.Editable)
+                    {
+                        slot.Selection = selectableItems(slot, armyList);
+                    }
                 }
             }
         }
 
         public List<Item> selectableItems(Slot slot, ArmyList armyList)
         {
-            if (!slot.IsAllItems() || !slot.Editable)
-            {
-                return Enumerable.Empty<Item>().ToList();
-            }
-
             var allMeleeWeapon = _repository.AllMeleeWeapon();
             var allRangedWeapon = _repository.AllRangedWeapon();
             var allShield = _repository.AllShield();
