@@ -6177,6 +6177,12 @@ INSERT INTO slot_selection VALUES(39, 4872, 30);
 INSERT INTO slot_selection VALUES(40, 4872, 31);
 INSERT INTO slot_selection VALUES(41, 4873, 30);
 INSERT INTO slot_selection VALUES(42, 4873, 31);
+INSERT INTO slot_selection VALUES(43, 2215, 41);
+INSERT INTO slot_selection VALUES(44, 2215, 42);
+INSERT INTO slot_selection VALUES(45, 4810, 41);
+INSERT INTO slot_selection VALUES(46, 4810, 42);
+INSERT INTO slot_selection VALUES(47, 4812, 41);
+INSERT INTO slot_selection VALUES(48, 4812, 42);
 
 
 
