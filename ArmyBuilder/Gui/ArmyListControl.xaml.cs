@@ -43,7 +43,7 @@ namespace ArmyBuilder
                     ArmyViewModel armyViewModel = DataContext as ArmyViewModel;
                     ArmyTreeViewModel armyTreeViewModel = armyViewModel.ArmyTreeViewModel;
                     Army army = armyTreeViewModel.Army;
-                    ArmyBuilder.Domain.Unit unit = armyViewModel.CreateUnit(army, clonedMainModel);
+                    Unit unit = armyViewModel.CreateUnit(army, clonedMainModel);
                     ArmyTreeNode armyTreeNode = armyTreeViewModel.Root[0];
                     armyTreeNode.AddUnit(unit);
                 }
