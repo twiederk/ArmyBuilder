@@ -1,4 +1,6 @@
-﻿namespace ArmyBuilder.Domain
+﻿using ArmyBuilder.Domain;
+
+namespace ArmyBuilder.Test.Domain
 {
     public class ArmyExample1: Army
     {

@@ -101,7 +101,7 @@ namespace ArmyBuilder.Test.Dao
             List<Misc> AllMisc = _repository.AllMisc();
 
             // assert
-            AllMisc.Should().HaveCount(88);
+            AllMisc.Should().HaveCount(89);
         }
 
         [Fact]
@@ -129,7 +129,7 @@ namespace ArmyBuilder.Test.Dao
             Slot armorSlot = equipment.Slots.First(slot => slot.Id == 2223);
             armorSlot.Item.Should().NotBeNull();
             armorSlot.Item.Name.Should().Be("Leichte Rüstung");
-            armorSlot.Editable.Should().BeFalse();
+            armorSlot.Editable.Should().BeTrue();
         }
 
         [Fact]
@@ -187,7 +187,7 @@ namespace ArmyBuilder.Test.Dao
             List<Equipment> equipments = _repository.ArmyListEquipment(armyListId);
 
             // assert
-            equipments.Should().HaveCount(55);
+            equipments.Should().HaveCount(56);
 
             // spearmen equipment
             Equipment spearmenEquipment = equipments.First(e => e.Id == spearmentSingleModelId);
