@@ -16,7 +16,6 @@ namespace ArmyBuilder.Dao
         SingleModel UpdateSingleModel(SingleModel singleModel);
         void DeleteUnit(int unitId);
         void DeleteMainModelFromUnit(int unitId, int mainModelId);
-        List<Equipment> ArmyEquipment(int armyId);
 
     }
 }

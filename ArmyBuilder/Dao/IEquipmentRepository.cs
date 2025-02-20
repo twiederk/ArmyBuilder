@@ -13,6 +13,7 @@ namespace ArmyBuilder.Dao
         List<Misc> AllMisc();
         Equipment Equipment(int singleModelId);
         List<Equipment> ArmyListEquipment(int armyListId);
+        List<Equipment> ArmyEquipment(int armyId);
         void UpdateSlotItem(Slot slot);
     }
 }
