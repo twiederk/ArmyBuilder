@@ -14,7 +14,7 @@ namespace ArmyBuilder.Test.Dao
         public ArmyRepositoryTest(DatabaseFixture fixture)
         {
             _dbConnection = fixture.DbConnection;
-            _repository = fixture.Repository;
+            _repository = fixture.armyBuilderRepository;
         }
 
         [Fact]

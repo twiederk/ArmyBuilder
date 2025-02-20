@@ -20,7 +20,7 @@ namespace ArmyBuilder.Test.ViewModels
         public ArmyListLoaderIntegrationTest(DatabaseFixture fixture)
         {
             _dbConnection = fixture.DbConnection;
-            _repository = fixture.Repository;
+            _repository = fixture.armyBuilderRepository;
             _armyListLoader = new ArmyListLoader(_repository);
         }
 

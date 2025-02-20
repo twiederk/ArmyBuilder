@@ -8,20 +8,18 @@ namespace ArmyBuilder.Test.Dao
 {
     public class EquipmentRepositoryTest : IClassFixture<DatabaseFixture>
     {
-        private readonly IDbConnection _dbConnection;
-        private readonly ArmyBuilderRepositorySqlite _repository;
+        private readonly EquipmentRepositorySqlite equipmentRepository;
 
         public EquipmentRepositoryTest(DatabaseFixture fixture)
         {
-            _dbConnection = fixture.DbConnection;
-            _repository = fixture.Repository;
+            equipmentRepository = fixture.equipmentRepository;
         }
 
         [Fact]
         public void should_read_all_melee_weapons()
         {
             // act
-            List<MeleeWeapon> AllMeleeWeapon = _repository.AllMeleeWeapon();
+            List<MeleeWeapon> AllMeleeWeapon = equipmentRepository.AllMeleeWeapon();
 
             // assert
             AllMeleeWeapon.Should().HaveCount(201);
@@ -31,7 +29,7 @@ namespace ArmyBuilder.Test.Dao
         public void should_read_all_ranged_weapons()
         {
             // act
-            List<RangedWeapon> AllRangedWeapon = _repository.AllRangedWeapon();
+            List<RangedWeapon> AllRangedWeapon = equipmentRepository.AllRangedWeapon();
 
             // assert
             AllRangedWeapon.Should().HaveCount(21);
@@ -41,7 +39,7 @@ namespace ArmyBuilder.Test.Dao
         public void should_read_all_shields()
         {
             // act
-            List<Shield> AllShield = _repository.AllShield();
+            List<Shield> AllShield = equipmentRepository.AllShield();
 
             // assert
             AllShield.Should().HaveCount(17);
@@ -53,7 +51,7 @@ namespace ArmyBuilder.Test.Dao
         public void should_read_all_armor()
         {
             // act
-            List<Armor> AllArmor = _repository.AllArmor();
+            List<Armor> AllArmor = equipmentRepository.AllArmor();
 
             // assert
             AllArmor.Should().HaveCount(63);
@@ -78,7 +76,7 @@ namespace ArmyBuilder.Test.Dao
         public void should_read_all_standards()
         {
             // act
-            List<Standard> AllStandards = _repository.AllStandard();
+            List<Standard> AllStandards = equipmentRepository.AllStandard();
 
             // assert
             AllStandards.Should().HaveCount(55);
@@ -88,7 +86,7 @@ namespace ArmyBuilder.Test.Dao
         public void should_read_all_instruments()
         {
             // act
-            List<Instrument> AllInstrument = _repository.AllInstrument();
+            List<Instrument> AllInstrument = equipmentRepository.AllInstrument();
 
             // assert
             AllInstrument.Should().HaveCount(2);
@@ -98,7 +96,7 @@ namespace ArmyBuilder.Test.Dao
         public void should_read_all_misc()
         {
             // act
-            List<Misc> AllMisc = _repository.AllMisc();
+            List<Misc> AllMisc = equipmentRepository.AllMisc();
 
             // assert
             AllMisc.Should().HaveCount(89);
@@ -111,7 +109,7 @@ namespace ArmyBuilder.Test.Dao
             int spearmenId = 46814;
 
             // act
-            Equipment equipment = _repository.Equipment(spearmenId);
+            Equipment equipment = equipmentRepository.Equipment(spearmenId);
 
             // assert
             equipment.Slots.Should().HaveCount(3);
@@ -139,7 +137,7 @@ namespace ArmyBuilder.Test.Dao
             int belannaerId = 46369;
 
             // act
-            Equipment equipment = _repository.Equipment(belannaerId);
+            Equipment equipment = equipmentRepository.Equipment(belannaerId);
 
             // assert
             equipment.Slots.Should().HaveCount(4);
@@ -168,7 +166,7 @@ namespace ArmyBuilder.Test.Dao
             };
 
             // act
-            Item item = _repository.SlotItem(slotRdo);
+            Item item = equipmentRepository.SlotItem(slotRdo);
 
             // assert
             item.Should().NotBeNull();
@@ -184,7 +182,7 @@ namespace ArmyBuilder.Test.Dao
             int spearmentSingleModelId = 46814;
 
             // act
-            List<Equipment> equipments = _repository.ArmyListEquipment(armyListId);
+            List<Equipment> equipments = equipmentRepository.ArmyListEquipment(armyListId);
 
             // assert
             equipments.Should().HaveCount(56);
@@ -213,7 +211,7 @@ namespace ArmyBuilder.Test.Dao
             int spearmenSingleModelId = 21;
 
             // act
-            List<Equipment> equipments = _repository.ArmyEquipment(armyId);
+            List<Equipment> equipments = equipmentRepository.ArmyEquipment(armyId);
 
             // assert
             equipments.Should().HaveCount(16);
@@ -239,17 +237,17 @@ namespace ArmyBuilder.Test.Dao
             };
 
             // act
-            _repository.UpdateSlotItem(slot);
+            equipmentRepository.UpdateSlotItem(slot);
 
             // assert
-            List<Equipment> equipments = _repository.ArmyEquipment(armyId);
+            List<Equipment> equipments = equipmentRepository.ArmyEquipment(armyId);
 
             // assert
             Slot updatedSlot = equipments.SelectMany(e => e.Slots).First(s => s.Id == 1);
             updatedSlot.Item.Id.Should().Be(2);
 
             // tear down
-            _repository.UpdateSlotItem(new Slot() { Id = 1, Item = new Item() { Id = 1 } });
+            equipmentRepository.UpdateSlotItem(new Slot() { Id = 1, Item = new Item() { Id = 1 } });
         }
     }
 }

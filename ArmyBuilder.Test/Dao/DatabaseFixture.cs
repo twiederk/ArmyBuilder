@@ -7,7 +7,8 @@ namespace ArmyBuilder.Test.Dao
     public class DatabaseFixture : IDisposable
     {
         public IDbConnection DbConnection { get; private set; }
-        public ArmyBuilderRepositorySqlite Repository { get; private set; }
+        public ArmyBuilderRepositorySqlite armyBuilderRepository { get; private set; }
+        public EquipmentRepositorySqlite equipmentRepository { get; private set; }
 
         public DatabaseFixture()
         {
@@ -15,7 +16,8 @@ namespace ArmyBuilder.Test.Dao
             DbConnection = new SQLiteConnection(connectionString);
             DbConnection.Open();
 
-            Repository = new ArmyBuilderRepositorySqlite(DbConnection);
+            armyBuilderRepository = new ArmyBuilderRepositorySqlite(DbConnection);
+            equipmentRepository = new EquipmentRepositorySqlite(DbConnection);
         }
 
         public void Dispose()
