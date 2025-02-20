@@ -252,8 +252,23 @@ namespace ArmyBuilder.Dao
                 });
 
                 slot.Id = slotId;
-            }
 
+                if (slot.Editable && !slot.Magic)
+                {
+                    foreach (var item in slot.Selection)
+                    {
+                        sql = @"
+                            INSERT INTO army_slot_selection (army_slot_id, item_id)
+                            VALUES (@SlotId, @ItemId);";
+
+                        _dbConnection.Execute(sql, new
+                        {
+                            SlotId = slotId,
+                            ItemId = item.Id
+                        });
+                    }
+                }
+            }
             return singleModel;
         }
 
