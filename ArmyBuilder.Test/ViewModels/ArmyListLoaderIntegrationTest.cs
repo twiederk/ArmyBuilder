@@ -43,14 +43,15 @@ namespace ArmyBuilder.Test.ViewModels
         }
 
         [Fact]
-        public void should_return_empty_list_when_property_selectable_items_contains_data()
+        public void should_keep_selection_when_selection_contains_data()
         {
             // arrange
+            MeleeWeapon meleeWeapon = new MeleeWeapon { Id = 1 };
             var slot = new Slot
             {
                 ItemClass = ItemClass.MeleeWeapon,
                 Editable = true,
-                Selection = new List<Item>() { new MeleeWeapon() }
+                Selection = new List<Item>() { meleeWeapon }
             };
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
@@ -58,7 +59,8 @@ namespace ArmyBuilder.Test.ViewModels
             var result = _armyListLoader.selection(slot, highElfArmyList);
 
             // assert
-            result.Should().BeEmpty();
+            result.Should().HaveCount(1);
+            result.Should().Contain(meleeWeapon);
         }
 
         [Fact]
