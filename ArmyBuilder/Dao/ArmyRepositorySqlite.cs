@@ -208,43 +208,55 @@ namespace ArmyBuilder.Dao
 
             foreach (var singleModel in mainModel.SingleModels)
             {
-                sql = @"
-                    INSERT INTO army_single_model (army_main_model_id, name, description, profile_id, standard_bearer, musician, movement_type_id, mount, mountable)
-                    VALUES (@ArmyMainModelId, @Name, @Description, @ProfileId, @StandardBearer, @Musician, @MovementType, @Mount, @Mountable);
-                    SELECT last_insert_rowid();";
-                var single_model_id = _dbConnection.ExecuteScalar<int>(sql, new
-                {
-                    ArmyMainModelId = main_model_id,
-                    singleModel.Name,
-                    singleModel.Description,
-                    ProfileId = singleModel.Profile.Id,
-                    singleModel.StandardBearer,
-                    singleModel.Musician,
-                    singleModel.MovementType,
-                    singleModel.Mount,
-                    singleModel.Mountable
-                });
-                singleModel.Id = single_model_id;
-
-                foreach (var slot in singleModel.Equipment.Slots)
-                {
-                    sql = @"
-                        INSERT INTO army_slot (army_single_model_id, item_id, editable, magic, item_class_id)
-                        VALUES (@ArmySingleModelId, @ItemId, @Editable, @Magic, @ItemClassId);
-                        SELECT last_insert_rowid();";
-                    var slot_id = _dbConnection.ExecuteScalar<int>(sql, new
-                    {
-                        ArmySingleModelId = single_model_id,
-                        ItemId = slot.Item.Id,
-                        slot.Editable,
-                        slot.Magic,
-                        ItemClassId = (int)slot.ItemClass
-                    });
-                    slot.Id = slot_id;
-                }
+                AddSingleModel(main_model_id, singleModel);
             }
             return mainModel;
         }
+
+        public SingleModel AddSingleModel(int mainModelId, SingleModel singleModel)
+        {
+            var sql = @"
+                INSERT INTO army_single_model (army_main_model_id, name, description, profile_id, standard_bearer, musician, movement_type_id, mount, mountable)
+                VALUES (@MainModelId, @Name, @Description, @ProfileId, @StandardBearer, @Musician, @MovementType, @Mount, @Mountable);
+                SELECT last_insert_rowid();";
+
+            var singleModelId = _dbConnection.ExecuteScalar<int>(sql, new
+            {
+                MainModelId = mainModelId,
+                singleModel.Name,
+                singleModel.Description,
+                ProfileId = singleModel.Profile.Id,
+                singleModel.StandardBearer,
+                singleModel.Musician,
+                singleModel.MovementType,
+                singleModel.Mount,
+                singleModel.Mountable
+            });
+
+            singleModel.Id = singleModelId;
+
+            foreach (var slot in singleModel.Equipment.Slots)
+            {
+                sql = @"
+                    INSERT INTO army_slot (army_single_model_id, item_id, editable, magic, item_class_id)
+                    VALUES (@SingleModelId, @ItemId, @Editable, @Magic, @ItemClassId);
+                    SELECT last_insert_rowid();";
+
+                var slotId = _dbConnection.ExecuteScalar<int>(sql, new
+                {
+                    SingleModelId = singleModelId,
+                    ItemId = slot.Item.Id,
+                    slot.Editable,
+                    slot.Magic,
+                    ItemClassId = (int)slot.ItemClass
+                });
+
+                slot.Id = slotId;
+            }
+
+            return singleModel;
+        }
+
 
         public void UpdateMainModel(int unitId, int mainModelId, int count)
         {
@@ -323,50 +335,6 @@ namespace ArmyBuilder.Dao
                 DELETE FROM army_main_model
                 WHERE army_unit_id = @UnitId";
             _dbConnection.Execute(sql, new { UnitId = unitId });
-        }
-
-        public SingleModel AddSingleModel(int mainModelId, SingleModel singleModel)
-        {
-            var sql = @"
-                INSERT INTO army_single_model (army_main_model_id, name, description, profile_id, standard_bearer, musician, movement_type_id, mount, mountable)
-                VALUES (@MainModelId, @Name, @Description, @ProfileId, @StandardBearer, @Musician, @MovementType, @Mount, @Mountable);
-                SELECT last_insert_rowid();";
-
-            var singleModelId = _dbConnection.ExecuteScalar<int>(sql, new
-            {
-                MainModelId = mainModelId,
-                singleModel.Name,
-                singleModel.Description,
-                ProfileId = singleModel.Profile.Id,
-                singleModel.StandardBearer,
-                singleModel.Musician,
-                singleModel.MovementType,
-                singleModel.Mount,
-                singleModel.Mountable
-            });
-
-            singleModel.Id = singleModelId;
-
-            foreach (var slot in singleModel.Equipment.Slots)
-            {
-                sql = @"
-                    INSERT INTO army_slot (army_single_model_id, item_id, editable, magic, item_class_id)
-                    VALUES (@SingleModelId, @ItemId, @Editable, @Magic, @ItemClassId);
-                    SELECT last_insert_rowid();";
-
-                var slotId = _dbConnection.ExecuteScalar<int>(sql, new
-                {
-                    SingleModelId = singleModelId,
-                    ItemId = slot.Item.Id,
-                    slot.Editable,
-                    slot.Magic,
-                    ItemClassId = (int)slot.ItemClass
-                });
-
-                slot.Id = slotId;
-            }
-
-            return singleModel;
         }
 
         public SingleModel UpdateSingleModel(SingleModel singleModel)
