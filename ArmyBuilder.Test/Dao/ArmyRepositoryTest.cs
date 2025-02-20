@@ -8,13 +8,11 @@ namespace ArmyBuilder.Test.Dao
 {
     public class ArmyRepositoryTest : IClassFixture<DatabaseFixture>
     {
-        private readonly IDbConnection _dbConnection;
-        private readonly ArmyBuilderRepositorySqlite _repository;
+        private readonly ArmyRepositorySqlite _repository;
 
         public ArmyRepositoryTest(DatabaseFixture fixture)
         {
-            _dbConnection = fixture.DbConnection;
-            _repository = fixture.armyBuilderRepository;
+            _repository = fixture.armyRepository;
         }
 
         [Fact]

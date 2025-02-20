@@ -8,6 +8,8 @@ namespace ArmyBuilder.Test.Dao
     {
         public IDbConnection DbConnection { get; private set; }
         public ArmyBuilderRepositorySqlite armyBuilderRepository { get; private set; }
+        public ArmyListRepositorySqlite armyListRepository { get; private set; }
+        public ArmyRepositorySqlite armyRepository { get; private set; }
         public EquipmentRepositorySqlite equipmentRepository { get; private set; }
 
         public DatabaseFixture()
@@ -17,6 +19,8 @@ namespace ArmyBuilder.Test.Dao
             DbConnection.Open();
 
             armyBuilderRepository = new ArmyBuilderRepositorySqlite(DbConnection);
+            armyListRepository = new ArmyListRepositorySqlite(DbConnection);
+            armyRepository = new ArmyRepositorySqlite(DbConnection);
             equipmentRepository = new EquipmentRepositorySqlite(DbConnection);
         }
 
