@@ -317,25 +317,7 @@ namespace ArmyBuilder.Dao
 
         public Item SlotItem(SlotRdo slotRdo)
         {
-            List<MeleeWeapon> allMeleeWeapon = AllMeleeWeapon();
-            List<RangedWeapon> allRangedWeapon = AllRangedWeapon();
-            List<Armor> allArmor = AllArmor();
-            List<Shield> allShield = AllShield();
-            List<Standard> allStandard = AllStandard();
-            List<Instrument> allInstrument = AllInstrument();
-            List<Misc> allMisc = AllMisc();
-
-            Item? item = slotRdo.ItemClass switch
-            {
-                ItemClass.MeleeWeapon => allMeleeWeapon.FirstOrDefault(meleeWeapon => meleeWeapon.Id == slotRdo.ItemId),
-                ItemClass.Shield => allShield.FirstOrDefault(shield => shield.Id == slotRdo.ItemId),
-                ItemClass.RangedWeapon => allRangedWeapon.FirstOrDefault(rangedWeapon => rangedWeapon.Id == slotRdo.ItemId),
-                ItemClass.Armor => allArmor.FirstOrDefault(armor => armor.Id == slotRdo.ItemId),
-                ItemClass.Misc => allMisc.FirstOrDefault(misc => misc.Id == slotRdo.ItemId),
-                ItemClass.Standard => allStandard.FirstOrDefault(standard => standard.Id == slotRdo.ItemId),
-                ItemClass.Instrument => allInstrument.FirstOrDefault(instrument => instrument.Id == slotRdo.ItemId),
-                _ => new Item { Id = slotRdo.ItemId, Name = $"UNKNOWN ITEM with id: {slotRdo.ItemId}" }
-            };
+            Item? item = AllItems().FirstOrDefault(i => i.Id == slotRdo.ItemId);
 
             if (item == null)
             {
