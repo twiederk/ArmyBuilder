@@ -143,8 +143,14 @@ namespace ArmyBuilder.Dao
 
         public void DeleteArmy(int armyId)
         {
-            // Delete slots of single models of the main model of unit
+            // Delete slot_selections of slots of single models of the main model of unit
             var sql = @"
+                DELETE FROM army_slot_selection
+                WHERE army_slot_id IN (SELECT asl.id FROM army_slot asl LEFT JOIN army_single_model asm ON asm.id = asl.army_single_model_id LEFT JOIN army_main_model amm ON amm.id = asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @ArmyId)";
+            _dbConnection.Execute(sql, new { ArmyId = armyId });
+
+            // Delete slots of single models of the main model of unit
+            sql = @"
                 DELETE FROM army_slot
                 WHERE army_single_model_id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.army_id = @ArmyId)";
             _dbConnection.Execute(sql, new { ArmyId = armyId });
@@ -308,8 +314,14 @@ namespace ArmyBuilder.Dao
 
         public void DeleteUnit(int unitId)
         {
-            // Delete slots of single models of the main model of unit
+            // Delete slot_selections of slots of single models of the main model of unit
             var sql = @"
+                DELETE FROM army_slot_selection
+                WHERE army_slot_id IN (SELECT asl.id FROM army_slot asl LEFT JOIN army_single_model asm ON asm.id = asl.army_single_model_id LEFT JOIN army_main_model amm ON amm.id = asm.army_main_model_id WHERE amm.army_unit_id = @UnitId)";
+            _dbConnection.Execute(sql, new { UnitId = unitId });
+
+            // Delete slots of single models of the main model of unit
+            sql = @"
                 DELETE FROM army_slot
                 WHERE army_single_model_id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id LEFT JOIN army_unit au ON au.id = amm.army_unit_id WHERE au.id = @UnitId)";
             _dbConnection.Execute(sql, new { UnitId = unitId });
@@ -333,8 +345,14 @@ namespace ArmyBuilder.Dao
 
         public void DeleteMainModelFromUnit(int unitId, int mainModelId)
         {
-            // Delete slots of single models of the main model
+            // Delete slot_selections of slots of single models of the main model
             var sql = @"
+                DELETE FROM army_slot_selection
+                WHERE army_slot_id IN (SELECT asl.id FROM army_slot asl LEFT JOIN army_single_model asm ON asm.id = asl.army_single_model_id WHERE asm.army_main_model_id = @MainModelId)";
+            _dbConnection.Execute(sql, new { MainModelId = mainModelId });
+
+            // Delete slots of single models of the main model
+            sql = @"
                 DELETE FROM army_slot
                 WHERE army_single_model_id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id WHERE amm.id = @MainModelId)";
             _dbConnection.Execute(sql, new { MainModelId = mainModelId });
