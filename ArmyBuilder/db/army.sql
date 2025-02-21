@@ -2,8 +2,8 @@ PRAGMA foreign_keys=ON;
 BEGIN TRANSACTION;
 
 
-INSERT INTO army VALUES(1,'Die Hochelfen von Tyr','Torsten',7,1484);
-INSERT INTO army VALUES(2,'Teclis Hochelfen Armee','Torsten',7,2814);
+INSERT INTO army VALUES(1,'Die Hochelfen von Tyr','Torsten',7,1378);
+INSERT INTO army VALUES(2,'Teclis Hochelfen Armee','Torsten',7,2536);
 
 
 INSERT INTO army_unit VALUES(1,1,'Tiranoc Streitwagen');
