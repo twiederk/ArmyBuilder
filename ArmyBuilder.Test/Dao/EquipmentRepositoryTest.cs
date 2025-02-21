@@ -83,6 +83,16 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
+        public void should_read_all_items()
+        {
+            // act
+            List<Item> AllItems = equipmentRepository.AllItems();
+
+            // assert
+            AllItems.Should().HaveCount(448);
+        }
+
+        [Fact]
         public void should_read_all_instruments()
         {
             // act
