@@ -261,6 +261,24 @@ namespace ArmyBuilder.Test.Domain
             // assert
             totalPoints.Should().Be(102);
         }
+
+        [Fact]
+        public void should_calculate_points_single_model_when_main_model_is_character()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 100 }, MainModel = new MainModel { ArmyCategory = ArmyCategory.Character } };
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 10 } });
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 20 } });
+            singleModel.Equipment = equipment;
+
+            // act
+            float totalPoints = singleModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(130);
+        }
+
     }
 }
 
