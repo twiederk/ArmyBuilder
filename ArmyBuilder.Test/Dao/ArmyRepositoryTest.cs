@@ -28,7 +28,7 @@ namespace ArmyBuilder.Test.Dao
             army.Author.Should().Be("Torsten");
             army.ArmyList.Id.Should().Be(7);
             army.ArmyList.Name.Should().Be("Hochelfen");
-            army.Points.Should().Be(1275);
+            army.Points.Should().Be(1484);
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace ArmyBuilder.Test.Dao
             army.ArmyList.Id.Should().Be(7);
             army.ArmyList.Name.Should().Be("Hochelfen");
             army.Author.Should().Be("Torsten");
-            army.Points.Should().Be(1275);
+            army.Points.Should().Be(1484);
             army.Units.Should().HaveCount(6);
 
             Unit generalUnit = army.Units[0];

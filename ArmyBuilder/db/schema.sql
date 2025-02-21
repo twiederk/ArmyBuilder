@@ -256,7 +256,6 @@ CREATE TABLE IF NOT EXISTS "army_slot_selection"
  "army_slot_id"    INTEGER,
  "item_id"         INTEGER,
  FOREIGN KEY(army_slot_id) REFERENCES army_slot(id) ON DELETE CASCADE
- FOREIGN KEY(item_id) REFERENCES item(id) ON DELETE CASCADE
 );
 
 
