@@ -39,7 +39,7 @@ namespace ArmyBuilder.Domain
             return SingleModels.Sum(sm => sm.TotalPoints());
         }
 
-        public void AddSingleModel(SingleModel singleModel)
+        public void AddMount(SingleModel singleModel)
         {
             if (singleModel.Mount)
             {

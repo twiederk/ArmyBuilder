@@ -185,7 +185,7 @@ namespace ArmyBuilder.Test.Domain
             var singleModel = new SingleModel { Id = 2, Name = "Additional Single Model" };
 
             // act
-            mainModel.AddSingleModel(singleModel);
+            mainModel.AddMount(singleModel);
 
             // assert
             mainModel.SingleModels.Should().HaveCount(2);
@@ -200,7 +200,7 @@ namespace ArmyBuilder.Test.Domain
             var singleModel = new SingleModel { Id = 2, Name = "Additional Single Model", Mount = true };
 
             // act
-            mainModel.AddSingleModel(singleModel);
+            mainModel.AddMount(singleModel);
 
             // assert
             mainModel.SingleModels.Should().HaveCount(2);
