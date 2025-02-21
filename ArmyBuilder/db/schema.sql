@@ -3,40 +3,36 @@ BEGIN TRANSACTION;
 
 
 CREATE TABLE IF NOT EXISTS "army_category"
-("id"         INTEGER,
- "category"   VARCHAR(50),
- PRIMARY KEY(id) 
+("id"         INTEGER PRIMARY KEY AUTOINCREMENT,
+ "category"   VARCHAR(50)
 );
 
 
 CREATE TABLE IF NOT EXISTS "item_class"
-("id"            INTEGER,
- "name"          VARCHAR(50),
- PRIMARY KEY(id)
+("id"            INTEGER PRIMARY KEY AUTOINCREMENT,
+ "name"          VARCHAR(50)
 );
 
 
 CREATE TABLE IF NOT EXISTS "movement_type"
-("id"     INTEGER,
- "name"   VARCHAR(50),
- PRIMARY KEY(id)
+("id"     INTEGER PRIMARY KEY AUTOINCREMENT,
+ "name"   VARCHAR(50)
 );
 
 
 CREATE TABLE IF NOT EXISTS "melee_weapon"
-("id"           INTEGER,
+("id"           INTEGER PRIMARY KEY AUTOINCREMENT,
  "name"         VARCHAR(50),
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
  "uniquely"     BIT,
- "magic"        BIT,
- PRIMARY KEY(id)
+ "magic"        BIT
 );
 
 
 CREATE TABLE IF NOT EXISTS "ranged_weapon"
-("id"           INTEGER,
+("id"           INTEGER PRIMARY KEY AUTOINCREMENT,
  "name"         VARCHAR(50),
  "points"       INTEGER,
  "description"  VARCHAR(100),
@@ -44,70 +40,64 @@ CREATE TABLE IF NOT EXISTS "ranged_weapon"
  "uniquely"     BIT,
  "magic"        BIT,
  "strength"     INTEGER,
- "range"        INTEGER,
- PRIMARY KEY(id)
+ "range"        INTEGER
 );
 
 
 CREATE TABLE IF NOT EXISTS "armor"
-("id"           INTEGER,
+("id"           INTEGER  PRIMARY KEY AUTOINCREMENT,
  "name"         VARCHAR(50),
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
  "uniquely"     BIT,
  "magic"        BIT,
- "save"         INTEGER,
- PRIMARY KEY(id)
+ "save"         INTEGER
 );
 
 
 CREATE TABLE IF NOT EXISTS "shield"
-("id"           INTEGER,
+("id"           INTEGER PRIMARY KEY AUTOINCREMENT,
  "name"         VARCHAR(50),
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
  "uniquely"     BIT,
  "magic"        BIT,
- "save"         INTEGER,
- PRIMARY KEY(id)
+ "save"         INTEGER
 );
 
 
 CREATE TABLE IF NOT EXISTS "standard"
-("id"           INTEGER,
+("id"           INTEGER PRIMARY KEY AUTOINCREMENT,
  "name"         VARCHAR(50),
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
  "uniquely"     BIT,
- "magic"        BIT,
- PRIMARY KEY(id)
+ "magic"        BIT
 );
 
 
 CREATE TABLE IF NOT EXISTS "instrument"
-("id"           INTEGER,
+("id"           INTEGER PRIMARY KEY AUTOINCREMENT,
  "name"         VARCHAR(50),
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
  "uniquely"     BIT,
- "magic"        BIT,
- PRIMARY KEY(id)
+ "magic"        BIT
 );
 
 
 CREATE TABLE IF NOT EXISTS "misc"
-("id"           INTEGER,
+("id"           INTEGER PRIMARY KEY AUTOINCREMENT,
  "name"         VARCHAR(50),
  "points"       INTEGER,
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
  "uniquely"     BIT,
- "magic"        BIT,
- PRIMARY KEY(id)
+ "magic"        BIT
 );
 
 
@@ -128,7 +118,7 @@ SELECT id, name, points, description, army_list_id, uniquely, magic FROM misc;
 
 
 CREATE TABLE IF NOT EXISTS "profile"
-("id"              INTEGER,
+("id"              INTEGER PRIMARY KEY AUTOINCREMENT,
  "name"            VARCHAR(50),
  "movement"        SMALLINT,
  "weapon_skill"    SMALLINT,
@@ -140,34 +130,31 @@ CREATE TABLE IF NOT EXISTS "profile"
  "attacks"         SMALLINT,
  "moral"           SMALLINT,
  "points"          FLOAT,
- "save"            SMALLINT,
- PRIMARY KEY(id)
+ "save"            SMALLINT
  );
 
 
 CREATE TABLE IF NOT EXISTS "army_list"
-("id"           INTEGER,
- "name"    		VARCHAR(50),
- PRIMARY KEY(id)
+("id"           INTEGER PRIMARY KEY AUTOINCREMENT,
+ "name"    		VARCHAR(50)
 );
 
 
 CREATE TABLE IF NOT EXISTS "main_model"
-("id"                INTEGER,
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
  "army_list_id"      INTEGER,
  "army_category_id"  INTEGER,
  "name"              VARCHAR(60),
  "description"       VARCHAR(110),
  "uniquely"            BIT,
  "points"            FLOAT,
- PRIMARY KEY(id)
  FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
  FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
 );
 
 
 CREATE TABLE IF NOT EXISTS "single_model"
-("id"                INTEGER,
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
  "profile_id"        INTEGER,
  "name"              VARCHAR(60),
  "main_model_id"     INTEGER,
@@ -177,7 +164,6 @@ CREATE TABLE IF NOT EXISTS "single_model"
  "movement_type_id"  INTEGER,
  "mount"             BIT,
  "mountable"         BIT,
- PRIMARY KEY(id)
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
  FOREIGN KEY (movement_type_id) REFERENCES movement_type(id) ON DELETE CASCADE
@@ -185,49 +171,45 @@ CREATE TABLE IF NOT EXISTS "single_model"
 
 
 CREATE TABLE IF NOT EXISTS "slot"
-("id"                INTEGER,
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
  "single_model_id"   INTEGER,
  "item_id"           INTEGER,
  "editable"          BIT,
  "magic"             BIT,
  "item_class_id"     INTEGER,
- PRIMARY KEY(id)
  FOREIGN KEY (single_model_id) REFERENCES single_model(id) ON DELETE CASCADE 
  FOREIGN KEY (item_class_id) REFERENCES item_class(id) ON DELETE CASCADE 
 );
 
 
 CREATE TABLE IF NOT EXISTS "slot_selection"
-("id"         INTEGER,
+("id"         INTEGER PRIMARY KEY AUTOINCREMENT,
  "slot_id"    INTEGER,
  "item_id"    INTEGER,
- PRIMARY KEY(id)
  FOREIGN KEY(slot_id) REFERENCES slot(id) ON DELETE CASCADE
 );
 
 
 CREATE TABLE IF NOT EXISTS "army"
-("id"                INTEGER,
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
  "name"              VARCHAR(256),
  "author"            VARCHAR(128),
  "army_list_id"      INTEGER,
  "points"            INTEGER,
- PRIMARY KEY(id)
  FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
 );
 
 
 CREATE TABLE IF NOT EXISTS "army_unit"
-("id"                INTEGER,
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
  "army_id"           INTEGER,
  "name"              VARCHAR(256),
- PRIMARY KEY(id)
  FOREIGN KEY (army_id) REFERENCES army(id) ON DELETE CASCADE 
 );
 
 
 CREATE TABLE IF NOT EXISTS "army_main_model"
-("id"                INTEGER,
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
  "army_unit_id"		 INTEGER,
  "army_category_id"  INTEGER,
  "name"              VARCHAR(60),
@@ -235,14 +217,13 @@ CREATE TABLE IF NOT EXISTS "army_main_model"
  "uniquely"          BIT,
  "points"            FLOAT,
  "count"             INTEGER,
- PRIMARY KEY (id)
  FOREIGN KEY (army_unit_id) REFERENCES army_unit(id) ON DELETE CASCADE
  FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
 );
 
 
 CREATE TABLE IF NOT EXISTS "army_single_model"
-("id"                   INTEGER,
+("id"                   INTEGER PRIMARY KEY AUTOINCREMENT,
  "profile_id"           INTEGER,
  "name"                 VARCHAR(60),
  "army_main_model_id"   INTEGER,
@@ -252,7 +233,6 @@ CREATE TABLE IF NOT EXISTS "army_single_model"
  "movement_type_id"     INTEGER,
  "mount"                BIT,
  "mountable"            BIT,
- PRIMARY KEY (id)
  FOREIGN KEY (army_main_model_id) REFERENCES army_main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
  FOREIGN KEY (movement_type_id) REFERENCES movement_type(id) ON DELETE CASCADE 
@@ -260,23 +240,21 @@ CREATE TABLE IF NOT EXISTS "army_single_model"
 
 
 CREATE TABLE IF NOT EXISTS "army_slot"
-("id"                     INTEGER,
+("id"                     INTEGER PRIMARY KEY AUTOINCREMENT,
  "army_single_model_id"   INTEGER,
  "item_id"                INTEGER,
  "editable"               BIT,
  "magic"                  BIT,
  "item_class_id"          INTEGER,
- PRIMARY KEY(id)
  FOREIGN KEY (army_single_model_id) REFERENCES army_single_model(id) ON DELETE CASCADE 
  FOREIGN KEY (item_class_id) REFERENCES item_class(id) ON DELETE CASCADE 
 );
 
 
 CREATE TABLE IF NOT EXISTS "army_slot_selection"
-("id"              INTEGER,
+("id"              INTEGER PRIMARY KEY AUTOINCREMENT,
  "army_slot_id"    INTEGER,
  "item_id"         INTEGER,
- PRIMARY KEY(id)
  FOREIGN KEY(army_slot_id) REFERENCES army_slot(id) ON DELETE CASCADE
  FOREIGN KEY(item_id) REFERENCES item(id) ON DELETE CASCADE
 );
