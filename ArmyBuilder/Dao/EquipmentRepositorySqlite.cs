@@ -436,14 +436,16 @@ namespace ArmyBuilder.Dao
             {
                 return _allItems;
             }
-            _allItems = new List<Item>();
-            _allItems.AddRange(AllMeleeWeapon());
-            _allItems.AddRange(AllRangedWeapon());
-            _allItems.AddRange(AllArmor());
-            _allItems.AddRange(AllShield());
-            _allItems.AddRange(AllStandard());
-            _allItems.AddRange(AllInstrument());
-            _allItems.AddRange(AllMisc());
+            _allItems =
+            [
+                .. AllMeleeWeapon(),
+                .. AllRangedWeapon(),
+                .. AllArmor(),
+                .. AllShield(),
+                .. AllStandard(),
+                .. AllInstrument(),
+                .. AllMisc(),
+            ];
             return _allItems;
         }
 
