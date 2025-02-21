@@ -410,8 +410,68 @@ namespace ArmyBuilder.Dao
             return equipmentDictionary.Values.ToList();
         }
 
+        public List<Equipment> ArmyEquipment(int armyId)
+        {
+            var sql = @"
+                SELECT
+	                ars.id, ars.item_id AS ItemId, ars.editable AS Editable, ars.magic AS Magic, ars.item_class_id AS ItemClass,
+	                asm.id AS SingleModelId, ass.item_id AS SelectionItemId
+                FROM
+	                army_slot ars
+                INNER JOIN
+	                army_single_model asm ON ars.army_single_model_id = asm.id
+                INNER JOIN
+	                army_main_model amm ON asm.army_main_model_id = amm.id
+                INNER JOIN
+	                army_unit au ON amm.army_unit_id = au.id
+                INNER JOIN
+	                army a ON au.army_id = a.id
+                LEFT JOIN
+	                army_slot_selection ass ON ars.id = ass.army_slot_id
+                WHERE
+	                a.id = @ArmyId;";
 
+            var slotRdoDictionary = new Dictionary<int, SlotRdo>();
 
+            _dbConnection.Query<SlotRdo, long?, SlotRdo>(
+                sql,
+                (slotRdo, selectionItemId) =>
+                {
+                    if (!slotRdoDictionary.TryGetValue(slotRdo.Id, out var currentSlotRdo))
+                    {
+                        currentSlotRdo = slotRdo;
+                        slotRdoDictionary.Add(currentSlotRdo.Id, currentSlotRdo);
+                    }
+
+                    if (selectionItemId.HasValue)
+                    {
+                        currentSlotRdo.Selection.Add((int)selectionItemId.Value);
+                    }
+
+                    return currentSlotRdo;
+                },
+                new { ArmyId = armyId },
+                splitOn: "SelectionItemId"
+            );
+
+            var equipmentDictionary = new Dictionary<int, Equipment>();
+
+            foreach (var slotRdo in slotRdoDictionary.Values)
+            {
+                if (!equipmentDictionary.TryGetValue(slotRdo.SingleModelId, out var equipment))
+                {
+                    equipment = new Equipment { Id = slotRdo.SingleModelId, Slots = new List<Slot>() };
+                    equipmentDictionary.Add(slotRdo.SingleModelId, equipment);
+                }
+
+                Slot slot = slotRdo.toSlot();
+                slot.Item = SlotItem(slotRdo);
+                slot.Selection = SlotSelection(slotRdo.Selection);
+                equipment.Slots.Add(slot);
+            }
+
+            return equipmentDictionary.Values.ToList();
+        }
 
         public List<Item> SlotSelection(List<int> selectionIds)
         {
@@ -449,47 +509,6 @@ namespace ArmyBuilder.Dao
             return _allItems;
         }
 
-
-        public List<Equipment> ArmyEquipment(int armyId)
-        {
-            var sql = @"
-                SELECT
-                    s.id, s.item_id as ItemId, s.editable as Editable, s.magic as Magic, s.item_class_id as ItemClass,
-                    asm.id as SingleModelId
-                FROM
-                    army_slot s
-                LEFT JOIN
-                    army_single_model asm ON s.army_single_model_id = asm.id
-                LEFT JOIN
-                    army_main_model amm ON asm.army_main_model_id = amm.id
-                LEFT JOIN
-                    army_unit au ON au.id = amm.army_unit_id
-                LEFT JOIN
-                    army a ON a.id = au.army_id
-                WHERE
-                    a.id = @ArmyId";
-
-
-            var slotRdos = _dbConnection.Query<SlotRdo>(sql, new { ArmyId = armyId }).ToList();
-
-            var equipmentDictionary = new Dictionary<int, Equipment>();
-
-            foreach (var slotRdo in slotRdos)
-            {
-                if (!equipmentDictionary.TryGetValue(slotRdo.SingleModelId, out var equipment))
-                {
-                    equipment = new Equipment { Id = slotRdo.SingleModelId, Slots = new List<Slot>() };
-                    equipmentDictionary.Add(slotRdo.SingleModelId, equipment);
-                }
-
-                Slot slot = slotRdo.toSlot();
-                slot.Item = SlotItem(slotRdo);
-                equipment.Slots.Add(slot);
-            }
-
-            return equipmentDictionary.Values.ToList();
-
-        }
 
         public void UpdateSlotItem(Slot slot)
         {
