@@ -186,7 +186,7 @@ namespace ArmyBuilder.Test.Dao
                 Equipment = equipment
             };
             MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
-            mainModel.SingleModels.Add(singleModel);
+            mainModel.AddSingleModel(singleModel);
             unit.MainModels.Add(mainModel);
 
             // act
@@ -281,7 +281,7 @@ namespace ArmyBuilder.Test.Dao
                 MovementType = MovementType.OnFoot,
             };
             MainModel mainModel = new MainModel { Name = "General", Count = 1 };
-            mainModel.SingleModels.Add(generalSingleModel);
+            mainModel.AddSingleModel(generalSingleModel);
             unit.MainModels.Add(mainModel);
 
             _repository.AddMainModel(unit.Id, mainModel);

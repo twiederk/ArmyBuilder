@@ -50,7 +50,7 @@ namespace ArmyBuilder.Dao
                     if (singleModel != null)
                     {
                         singleModel.Profile = profile;
-                        currentMainModel.SingleModels.Add(singleModel);
+                        currentMainModel.AddSingleModel(singleModel);
                     }
 
                     return currentMainModel;
@@ -129,7 +129,7 @@ namespace ArmyBuilder.Dao
                     if (singleModel != null)
                     {
                         singleModel.Profile = profile;
-                        currentMainModel.SingleModels.Add(singleModel);
+                        currentMainModel.AddSingleModel(singleModel);
                     }
 
                     return currentMainModel;

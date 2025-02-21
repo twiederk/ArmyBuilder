@@ -17,6 +17,7 @@ namespace ArmyBuilder.Domain
         public bool Mountable { get; set; }
         public Equipment Equipment { get; set; } = new Equipment();
         public String Save => CalculateSave();
+        public MainModel MainModel { get; set; }
 
         public String CalculateSave()
         {
@@ -51,8 +52,17 @@ namespace ArmyBuilder.Domain
             return Id.GetHashCode();
         }
 
+        public bool isCharacter()
+        {
+            return MainModel.ArmyCategory == ArmyCategory.Character;
+        }
+
         public float TotalPoints()
         {
+            if (isCharacter())
+            {
+                return Profile.Points + Equipment.ItemsPoints();
+            }   
             float points = Profile.Points + Equipment.ItemsPoints();
             if (MovementType == MovementType.OnFoot && (StandardBearer || Musician))
             {

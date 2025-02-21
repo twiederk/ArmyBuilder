@@ -110,7 +110,7 @@ namespace ArmyBuilder.Dao
                             if (singleModel != null)
                             {
                                 singleModel.Profile = profile;
-                                currentMainModel.SingleModels.Add(singleModel);
+                                currentMainModel.AddSingleModel(singleModel);
                             }
                         }
                     }
