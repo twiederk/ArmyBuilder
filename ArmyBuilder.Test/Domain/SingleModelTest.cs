@@ -97,7 +97,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_return_points_of_profile_when_single_model_has_no_equipment()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 100 } };
+            var singleModel = new SingleModel { Profile = new Profile { Points = 100 }, MainModel = new MainModel { ArmyCategory = ArmyCategory.Trooper } };
 
             // act
             float totalPoints = singleModel.TotalPoints();
@@ -110,7 +110,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_return_points_of_profile_when_single_model_has_equipment()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 100 } };
+            var singleModel = new SingleModel { Profile = new Profile { Points = 100 }, MainModel = new MainModel { ArmyCategory = ArmyCategory.Trooper } };
             var equipment = new Equipment();
             equipment.Slots.Add(new Slot { Item = new Armor { Points = 10 } });
             equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 20 } });
@@ -127,7 +127,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_calculate_points_singel_model_when_single_model_is_rider()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 }, MainModel = new MainModel { ArmyCategory = ArmyCategory.Trooper } };
             var equipment = new Equipment();
             equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
             equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
@@ -146,7 +146,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_calculate_points_singel_model_when_single_model_is_rider_with_magic_item()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 }, MainModel = new MainModel { ArmyCategory = ArmyCategory.Trooper } };
             singleModel.MovementType = MovementType.OnMount;
 
             var equipment = new Equipment();
@@ -166,7 +166,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_calculate_points_singel_model_when_single_model_is_standard_bearer()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 }, MainModel = new MainModel { ArmyCategory = ArmyCategory.Trooper } };
             singleModel.StandardBearer = true;
 
             var equipment = new Equipment();
@@ -185,7 +185,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_calculate_points_singel_model_when_single_model_is_musician()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 }, MainModel = new MainModel { ArmyCategory = ArmyCategory.Trooper } };
             singleModel.Musician = true;
 
             var equipment = new Equipment();
@@ -204,7 +204,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_calculate_points_singel_model_when_single_model_is_musician_with_magic_item()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 }, MainModel = new MainModel { ArmyCategory = ArmyCategory.Trooper } };
             singleModel.Musician = true;
 
             var equipment = new Equipment();
@@ -225,7 +225,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_calculate_points_singel_model_when_single_model_is_rider_and_standard_bearer()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 }, MainModel = new MainModel { ArmyCategory = ArmyCategory.Trooper } };
             singleModel.MovementType = MovementType.OnMount;
 
             var equipment = new Equipment();
@@ -245,7 +245,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_calculate_points_singel_model_when_single_model_is_rider_and_standard_bearer_with_magic_item()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 }, MainModel = new MainModel { ArmyCategory = ArmyCategory.Trooper } };
             singleModel.MovementType = MovementType.OnMount;
 
             var equipment = new Equipment();
@@ -261,6 +261,24 @@ namespace ArmyBuilder.Test.Domain
             // assert
             totalPoints.Should().Be(102);
         }
+
+        [Fact]
+        public void should_calculate_points_single_model_when_main_model_is_character()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 100 }, MainModel = new MainModel { ArmyCategory = ArmyCategory.Character } };
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 10 } });
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 20 } });
+            singleModel.Equipment = equipment;
+
+            // act
+            float totalPoints = singleModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(130);
+        }
+
     }
 }
 

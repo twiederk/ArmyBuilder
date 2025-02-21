@@ -6,6 +6,7 @@ using FluentAssertions;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Runtime.CompilerServices;
 using Xunit;
 
 namespace ArmyBuilder.Test.ViewModels
@@ -19,7 +20,7 @@ namespace ArmyBuilder.Test.ViewModels
         public ArmyListLoaderIntegrationTest(DatabaseFixture fixture)
         {
             _dbConnection = fixture.DbConnection;
-            _repository = fixture.Repository;
+            _repository = fixture.armyBuilderRepository;
             _armyListLoader = new ArmyListLoader(_repository);
         }
 
@@ -35,29 +36,31 @@ namespace ArmyBuilder.Test.ViewModels
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selection(slot, highElfArmyList);
 
             // assert
             result.Should().BeEmpty();
         }
 
         [Fact]
-        public void should_return_empty_list_when_property_selectable_items_contains_data()
+        public void should_keep_selection_when_selection_contains_data()
         {
             // arrange
+            MeleeWeapon meleeWeapon = new MeleeWeapon { Id = 1 };
             var slot = new Slot
             {
                 ItemClass = ItemClass.MeleeWeapon,
                 Editable = true,
-                SelectableItems = new List<Item>() { new MeleeWeapon() }
+                Selection = new List<Item>() { meleeWeapon }
             };
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selection(slot, highElfArmyList);
 
             // assert
-            result.Should().BeEmpty();
+            result.Should().HaveCount(1);
+            result.Should().Contain(meleeWeapon);
         }
 
         [Fact]
@@ -73,7 +76,7 @@ namespace ArmyBuilder.Test.ViewModels
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selection(slot, highElfArmyList);
 
             // assert
             result.Should().HaveCount(57);
@@ -92,10 +95,26 @@ namespace ArmyBuilder.Test.ViewModels
             var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
 
             // act
-            var result = _armyListLoader.selectableItems(slot, highElfArmyList);
+            var result = _armyListLoader.selection(slot, highElfArmyList);
 
             // assert
             result.Should().HaveCount(7);
+        }
+
+        [Fact]
+        public void should_load_equipment_with_selectable_items()
+        {
+            // arrange
+            int highElfArmyListId = 7;
+
+            // act
+            List<Equipment> equipment = _repository.ArmyListEquipment(highElfArmyListId);
+
+            // assert
+            Equipment grenzreiterEquipment = equipment.First(e => e.Id == 46808);
+            grenzreiterEquipment.Slots.Should().HaveCount(4);
+            Slot meleeWeaponSlot = grenzreiterEquipment.Slots.First(s => s.Id == 4859);
+            meleeWeaponSlot.Selection.Should().HaveCount(2);
         }
     }
 }

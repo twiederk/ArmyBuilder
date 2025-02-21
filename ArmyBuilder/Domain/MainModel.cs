@@ -41,11 +41,17 @@ namespace ArmyBuilder.Domain
 
         public void AddSingleModel(SingleModel singleModel)
         {
+            SingleModels.Add(singleModel);
+            singleModel.MainModel = this;
+        }
+
+        public void AddMount(SingleModel singleModel)
+        {
             if (singleModel.Mount)
             {
                 SingleModels[0].MovementType = MovementType.OnMount;
             }
-            SingleModels.Add(singleModel);
+            AddSingleModel(singleModel);
         }
 
         public MainModel Clone()
@@ -93,7 +99,7 @@ namespace ArmyBuilder.Domain
                             Editable = slot.Editable,
                             AllItems = slot.AllItems,
                             Magic = slot.Magic,
-                            SelectableItems = slot.SelectableItems.ToList()
+                            Selection = slot.Selection.ToList()
                         }).ToList()
                     }
                 }).ToList()

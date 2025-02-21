@@ -8,20 +8,18 @@ namespace ArmyBuilder.Test.Dao
 {
     public class ArmyListRepositoryTest : IClassFixture<DatabaseFixture>
     {
-        private readonly IDbConnection _dbConnection;
-        private readonly ArmyBuilderRepositorySqlite _repository;
+        private readonly ArmyListRepositorySqlite armyListRepository;
 
         public ArmyListRepositoryTest(DatabaseFixture fixture)
         {
-            _dbConnection = fixture.DbConnection;
-            _repository = fixture.Repository;
+            armyListRepository = fixture.armyListRepository;
         }
 
         [Fact]
         public void should_read_all_army_lists_when_connected_to_SQLite_database()
         {
             // act
-            List<ArmyList> armyLists = _repository.ArmyLists();
+            List<ArmyList> armyLists = armyListRepository.ArmyLists();
 
             // assert
             armyLists.Should().HaveCount(15);
@@ -34,7 +32,7 @@ namespace ArmyBuilder.Test.Dao
             int armyListId = 7;
 
             // act
-            List<MainModel> mainModels = _repository.MainModels(armyListId);
+            List<MainModel> mainModels = armyListRepository.MainModels(armyListId);
 
             // assert
             mainModels.Should().HaveCount(66);
@@ -98,7 +96,7 @@ namespace ArmyBuilder.Test.Dao
         {
 
             // act 
-            SingleModel singleModel = _repository.SingleModel(46811);
+            SingleModel singleModel = armyListRepository.SingleModel(46811);
 
             // assert
             singleModel.Name.Should().Be("Schwertmeister");
@@ -124,7 +122,7 @@ namespace ArmyBuilder.Test.Dao
         {
 
             // act 
-            SingleModel singleModel = _repository.SingleModel(46810);
+            SingleModel singleModel = armyListRepository.SingleModel(46810);
 
             // assert
             singleModel.Name.Should().Be("Drachenprinz");
@@ -149,7 +147,7 @@ namespace ArmyBuilder.Test.Dao
         {
 
             // act 
-            MainModel mainModel = _repository.MainModel(11901);
+            MainModel mainModel = armyListRepository.MainModel(11901);
 
             // assert
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
@@ -180,7 +178,7 @@ namespace ArmyBuilder.Test.Dao
             int highElfArmyListId = 7;
 
             // act
-            List<SingleModel> mounts = _repository.Mounts(highElfArmyListId);
+            List<SingleModel> mounts = armyListRepository.Mounts(highElfArmyListId);
 
             // assert
             mounts.Should().HaveCount(12);

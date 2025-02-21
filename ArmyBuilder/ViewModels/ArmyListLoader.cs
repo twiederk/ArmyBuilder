@@ -17,7 +17,7 @@ namespace ArmyBuilder.ViewModels
             var mainModels = _repository.MainModels(armyList.Id);
             var equipment = _repository.ArmyListEquipment(armyList.Id);
             assignEquipment(mainModels, equipment);
-            assignSelectableItems(mainModels, armyList);
+            assignSelection(mainModels, armyList);
             return mainModels;
         }
 
@@ -26,7 +26,7 @@ namespace ArmyBuilder.ViewModels
             Army army = _repository.Army(armyId);
             List<Equipment> equipment = _repository.ArmyEquipment(armyId);
             assignEquipment(army.MainModels(), equipment);
-            assignSelectableItems(army.MainModels(), army.ArmyList);
+            assignSelection(army.MainModels(), army.ArmyList);
             return army;
         }
 
@@ -46,32 +46,33 @@ namespace ArmyBuilder.ViewModels
         }
 
 
-        public void assignSelectableItems(List<MainModel> mainModels, ArmyList armyList)
+        public void assignSelection(List<MainModel> mainModels, ArmyList armyList)
         {
             mainModels.ForEach(mainModel =>
                 mainModel.SingleModels.ForEach(singleModel =>
                 {
-                    AssignSelectableItemsToSingleModel(armyList, singleModel);
+                    AssignSelectionToSingleModel(armyList, singleModel);
                 })
             );
         }
 
-        private void AssignSelectableItemsToSingleModel(ArmyList armyList, SingleModel singleModel)
+        private void AssignSelectionToSingleModel(ArmyList armyList, SingleModel singleModel)
         {
             if (singleModel.Equipment != null)
             {
                 foreach (var slot in singleModel.Equipment.Slots)
                 {
-                    slot.SelectableItems = selectableItems(slot, armyList);
+                    slot.Selection = selection(slot, armyList);
                 }
             }
         }
 
-        public List<Item> selectableItems(Slot slot, ArmyList armyList)
+        public List<Item> selection(Slot slot, ArmyList armyList)
         {
+
             if (!slot.IsAllItems() || !slot.Editable)
             {
-                return Enumerable.Empty<Item>().ToList();
+                return slot.Selection;
             }
 
             var allMeleeWeapon = _repository.AllMeleeWeapon();

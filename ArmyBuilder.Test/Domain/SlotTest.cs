@@ -23,7 +23,7 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             Slot slot = new Slot();
-            slot.SelectableItems = new List<Item>() { new Item() };
+            slot.Selection = new List<Item>() { new Item() };
 
             // act
             var result = slot.IsAllItems();

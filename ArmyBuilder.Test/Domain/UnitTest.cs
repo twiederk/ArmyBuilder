@@ -20,8 +20,10 @@ namespace ArmyBuilder.Test.Domain
         public void should_calculate_points_of_unit_when_one_main_model_with_count_1_is_given()
         {
             // arrange
+            SingleModel singleModel = new SingleModel { Profile = new Profile { Points = 75 } };
             var unit = new Unit("Test Unit");
-            unit.MainModels.Add(new MainModel() { SingleModels = { new SingleModel { Profile = new Profile { Points = 75 } } }, Count = 1 });
+            unit.MainModels.Add(new MainModel() { Count = 1 });
+            unit.MainModels[0].AddSingleModel(singleModel);
 
             // act
             var points = unit.TotalPoints();
@@ -34,8 +36,10 @@ namespace ArmyBuilder.Test.Domain
         public void should_calculate_points_of_unit_when_one_main_model_with_count_2_is_given()
         {
             // arrange
+            SingleModel singleModel = new SingleModel { Profile = new Profile { Points = 75 } };
             var unit = new Unit("Test Unit");
-            unit.MainModels.Add(new MainModel() { SingleModels = { new SingleModel { Profile = new Profile { Points = 75 } } }, Count = 2 });
+            unit.MainModels.Add(new MainModel() { Count = 2 });
+            unit.MainModels[0].AddSingleModel(singleModel);
 
             // act
             var points = unit.TotalPoints();
@@ -48,9 +52,13 @@ namespace ArmyBuilder.Test.Domain
         public void should_calculate_points_of_unit_when_two_main_model_are_given()
         {
             // arrange
+            SingleModel singleModel1 = new SingleModel { Profile = new Profile { Points = 75 } };
+            SingleModel singleModel2 = new SingleModel { Profile = new Profile { Points = 10 } };
             var unit = new Unit("Test Unit");
-            unit.MainModels.Add(new MainModel() { SingleModels = { new SingleModel { Profile = new Profile { Points = 75 } } }, Count = 2 });
-            unit.MainModels.Add(new MainModel() { SingleModels = { new SingleModel { Profile = new Profile { Points = 10 } } }, Count = 3 });
+            unit.MainModels.Add(new MainModel() { Count = 2 });
+            unit.MainModels.Add(new MainModel() { Count = 3 });
+            unit.MainModels[0].AddSingleModel(singleModel1);
+            unit.MainModels[1].AddSingleModel(singleModel2);
 
             // act
             var points = unit.TotalPoints();

@@ -15,7 +15,7 @@ namespace ArmyBuilder.Test.Domain
             singleModel.Equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 30 } });
 
             var model = new MainModel();
-            model.SingleModels.Add(singleModel);
+            model.AddSingleModel(singleModel);
 
             // act
             float totalPoints = model.Points();
@@ -34,8 +34,8 @@ namespace ArmyBuilder.Test.Domain
             SingleModel singleModel2 = new SingleModel { Profile = new Profile { Points = 40 } };
 
             var model = new MainModel();
-            model.SingleModels.Add(singleModel1);
-            model.SingleModels.Add(singleModel2);
+            model.AddSingleModel(singleModel1);
+            model.AddSingleModel(singleModel2);
 
             // act
             float totalPoints = model.Points();
@@ -53,7 +53,7 @@ namespace ArmyBuilder.Test.Domain
             singleModel.Equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 30 } });
 
             var model = new MainModel() { Count = 1 };
-            model.SingleModels.Add(singleModel);
+            model.AddSingleModel(singleModel);
 
             // act
             float totalPoints = model.TotalPoints();
@@ -71,7 +71,7 @@ namespace ArmyBuilder.Test.Domain
             singleModel.Equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 30 } });
 
             var model = new MainModel() { Count = 2 };
-            model.SingleModels.Add(singleModel);
+            model.AddSingleModel(singleModel);
 
             // act
             float totalPoints = model.TotalPoints();
@@ -124,8 +124,8 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             var model = new MainModel { Uniquely = true };
-            model.SingleModels.Add(new SingleModel { Profile = new Profile { Id = 1, Points = 10 } });
-            model.SingleModels.Add(new SingleModel
+            model.AddSingleModel(new SingleModel { Profile = new Profile { Id = 1, Points = 10 } });
+            model.AddSingleModel(new SingleModel
             {
                 Profile = new Profile { Id = 2, Points = 20 },
                 StandardBearer = true,
@@ -185,7 +185,7 @@ namespace ArmyBuilder.Test.Domain
             var singleModel = new SingleModel { Id = 2, Name = "Additional Single Model" };
 
             // act
-            mainModel.AddSingleModel(singleModel);
+            mainModel.AddMount(singleModel);
 
             // assert
             mainModel.SingleModels.Should().HaveCount(2);
@@ -200,7 +200,7 @@ namespace ArmyBuilder.Test.Domain
             var singleModel = new SingleModel { Id = 2, Name = "Additional Single Model", Mount = true };
 
             // act
-            mainModel.AddSingleModel(singleModel);
+            mainModel.AddMount(singleModel);
 
             // assert
             mainModel.SingleModels.Should().HaveCount(2);
