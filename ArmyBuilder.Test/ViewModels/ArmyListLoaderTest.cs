@@ -4,6 +4,7 @@ using ArmyBuilder.ViewModels;
 using FluentAssertions;
 using Moq;
 using System.Collections.Generic;
+using System.Xaml.Schema;
 using Xunit;
 
 namespace ArmyBuilder.Test.ViewModels
@@ -207,6 +208,37 @@ namespace ArmyBuilder.Test.ViewModels
             result.Should().HaveCount(2);
             result.Should().Contain(i => i.Name == "Sword" && i.Id == 1);
             result.Should().Contain(i => i.Name == "Axe");
+        }
+
+        [Fact]
+        public void should_return_items_sorted_in_proper_order()
+        {
+            // arrange
+            var slot = new Slot { ItemClass = ItemClass.MeleeWeapon, Editable = true, Magic = true };
+            var meleeWeapons = new List<MeleeWeapon>
+            {
+                new MeleeWeapon { Id = 2, Name = "Mace", Magic = false },
+                new MeleeWeapon { Id = 3, Name = "Spear", Magic = false },
+                new MeleeWeapon { Id = 1, Name = "Hand weapon", Magic = false },
+                new MeleeWeapon { Id = 4, Name = "Magic Mace", Magic = true },
+                new MeleeWeapon { Id = 5, Name = "Magic Axe", Magic = true },
+            };
+
+            var mockRepository = new Mock<IArmyBuilderRepository>();
+            mockRepository.Setup(repo => repo.AllMeleeWeapon()).Returns(meleeWeapons);
+
+            var armyListLoader = new ArmyListLoader(mockRepository.Object);
+
+            // act
+            var result = armyListLoader.selection(slot, new ArmyList { Id = 7 });
+
+            // assert
+            result.Should().HaveCount(5);
+            result[0].Name.Should().Be("Hand weapon");
+            result[1].Name.Should().Be("Mace");
+            result[2].Name.Should().Be("Spear");
+            result[3].Name.Should().Be("Magic Axe");
+            result[4].Name.Should().Be("Magic Mace");
         }
     }
 }

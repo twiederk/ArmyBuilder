@@ -5,6 +5,8 @@ namespace ArmyBuilder.ViewModels
 {
     public class ArmyListLoader
     {
+        private static readonly List<int> NONE_ITEMS = [1, 10, 30, 40, 60, 90, 100 ];
+
         private IArmyBuilderRepository _repository;
 
         public ArmyListLoader(IArmyBuilderRepository repository)
@@ -112,11 +114,21 @@ namespace ArmyBuilder.ViewModels
 
         private List<Item> FilterItems(IEnumerable<Item> items, ArmyList armyList, Slot slot)
         {
+            IEnumerable<Item> filteredItems;
+
             if (slot.Magic)
             {
-                return items.Where(i => (i.ArmyList == null || i.ArmyList.Equals(armyList)) && !i.Uniquely).OrderBy(i => i.Name).ToList();
+                filteredItems = items.Where(i => (i.ArmyList == null || i.ArmyList.Equals(armyList)) && !i.Uniquely);
             }
-            return items.Where(i => (i.ArmyList == null || i.ArmyList.Equals(armyList)) && !i.Magic && !i.Uniquely).OrderBy(i => i.Name).ToList();
+            else
+            {
+                filteredItems = items.Where(i => (i.ArmyList == null || i.ArmyList.Equals(armyList)) && !i.Magic && !i.Uniquely);
+            }
+            return filteredItems
+                .OrderBy(i => !NONE_ITEMS.Contains(i.Id)) // Items in NONE_ITEMS come first
+                .ThenBy(i => i.Magic) // Then items with Magic = false
+                .ThenBy(i => i.Name) // Then order by name
+                .ToList();
         }
 
     }
