@@ -17,6 +17,8 @@ namespace ArmyBuilder.ViewModels
 
         public Visibility MountButtonVisibility => GetMountButtonVisibility();
 
+        public Visibility CountButtonVisibility => GetCountButtonVisibility();
+
         private UnitTreeNode _parent;
 
 
@@ -69,6 +71,11 @@ namespace ArmyBuilder.ViewModels
         public Visibility GetMountButtonVisibility()
         {
             return MainModel.ArmyCategory == ArmyCategory.Character ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public Visibility GetCountButtonVisibility()
+        {
+            return MainModel.ArmyCategory == ArmyCategory.Character ? Visibility.Collapsed : Visibility.Visible;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
