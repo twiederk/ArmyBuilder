@@ -125,9 +125,9 @@ namespace ArmyBuilder.ViewModels
                 filteredItems = items.Where(i => (i.ArmyList == null || i.ArmyList.Equals(armyList)) && !i.Magic && !i.Uniquely);
             }
             return filteredItems
-                .OrderBy(i => !NONE_ITEMS.Contains(i.Id)) // Items in NONE_ITEMS come first
-                .ThenBy(i => i.Magic) // Then items with Magic = false
-                .ThenBy(i => i.Name) // Then order by name
+                .OrderBy(i => !NONE_ITEMS.Contains(i.Id))
+                .ThenBy(i => i.Magic)
+                .ThenBy(i => i.Name)
                 .ToList();
         }
 
