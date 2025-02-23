@@ -16,7 +16,7 @@ namespace ArmyBuilder
 
             var collection = new ServiceCollection();
 
-            string connectionString = "Data Source=db/ArmyBuilder.db";
+            string connectionString = "Data Source=db/armybuilder.db";
             IDbConnection dbConnection = new SQLiteConnection(connectionString);
 
             collection.AddSingleton(dbConnection);
