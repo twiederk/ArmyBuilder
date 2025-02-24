@@ -24,8 +24,14 @@
     <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
   </ItemGroup>
 
+  <!-- <ItemGroup>
+    <None Update="db\armybuilder.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup> -->
+
   <ItemGroup>
-    <None Update="db\ArmyBuilder.db">
+    <None Update="db\*.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
