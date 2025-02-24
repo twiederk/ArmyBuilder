@@ -26,7 +26,7 @@ namespace ArmyBuilder
                 .LogToConsole()
                 .Build();
 
-            // upgrader.PerformUpgrade();
+            upgrader.PerformUpgrade();
 
 
             IDbConnection dbConnection = new SQLiteConnection(connectionString);
