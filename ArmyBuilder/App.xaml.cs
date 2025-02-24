@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Data;
 using System.Data.SQLite;
 using System.Windows;
+using DbUp;
+
 
 namespace ArmyBuilder
 {
@@ -17,8 +19,17 @@ namespace ArmyBuilder
             var collection = new ServiceCollection();
 
             string connectionString = "Data Source=db/armybuilder.db";
-            IDbConnection dbConnection = new SQLiteConnection(connectionString);
 
+            var upgrader = DeployChanges.To
+                .SqliteDatabase(connectionString)
+                .WithScriptsFromFileSystem("db")
+                .LogToConsole()
+                .Build();
+
+            // upgrader.PerformUpgrade();
+
+
+            IDbConnection dbConnection = new SQLiteConnection(connectionString);
             collection.AddSingleton(dbConnection);
             collection.AddSingleton<IArmyBuilderRepository,ArmyBuilderRepositorySqlite>();
             collection.AddSingleton<ArmyViewModel>();
