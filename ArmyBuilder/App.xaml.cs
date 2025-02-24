@@ -5,16 +5,17 @@ using System.Data;
 using System.Data.SQLite;
 using System.Windows;
 using DbUp;
-
+using SQLitePCL;
 
 namespace ArmyBuilder
 {
     public partial class App : Application
     {
-
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            Batteries.Init();
 
             var collection = new ServiceCollection();
 
@@ -28,10 +29,9 @@ namespace ArmyBuilder
 
             upgrader.PerformUpgrade();
 
-
             IDbConnection dbConnection = new SQLiteConnection(connectionString);
             collection.AddSingleton(dbConnection);
-            collection.AddSingleton<IArmyBuilderRepository,ArmyBuilderRepositorySqlite>();
+            collection.AddSingleton<IArmyBuilderRepository, ArmyBuilderRepositorySqlite>();
             collection.AddSingleton<ArmyViewModel>();
             collection.AddSingleton<StartViewModel>();
             collection.AddSingleton<MainWindow>();
@@ -45,5 +45,4 @@ namespace ArmyBuilder
             mainWindow.Show();
         }
     }
-
 }
