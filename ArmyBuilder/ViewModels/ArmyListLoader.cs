@@ -14,13 +14,13 @@ namespace ArmyBuilder.ViewModels
             this._repository = repository;
         }
 
-        public List<MainModel> LoadArmyList(ArmyListDigest armyList)
+        public ArmyList LoadArmyList(ArmyListDigest armyList)
         {
             var mainModels = _repository.MainModels(armyList.Id);
             var equipment = _repository.ArmyListEquipment(armyList.Id);
             assignEquipment(mainModels, equipment);
             assignSelection(mainModels, armyList);
-            return mainModels;
+            return new ArmyList(mainModels);
         }
 
         public Army LoadArmy(int armyId)
