@@ -15,7 +15,9 @@ namespace ArmyBuilder.ViewModels
         public Unit Unit => _parent.Unit;
         public string DisplayArmyCategory => MainModel.ArmyCategory.Display();
 
-        public bool IsCustomizable => MainModel.isCustomizable();
+        public Visibility MountButtonVisibility => GetMountButtonVisibility();
+
+        public Visibility CountButtonVisibility => GetCountButtonVisibility();
 
         private UnitTreeNode _parent;
 
@@ -64,6 +66,16 @@ namespace ArmyBuilder.ViewModels
             OnPropertyChanged("Name");
             OnPropertyChanged("TotalPoints");
             _parent.UpdateTotalPoints();
+        }
+
+        public Visibility GetMountButtonVisibility()
+        {
+            return MainModel.ArmyCategory == ArmyCategory.Character ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public Visibility GetCountButtonVisibility()
+        {
+            return MainModel.ArmyCategory == ArmyCategory.Character ? Visibility.Collapsed : Visibility.Visible;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

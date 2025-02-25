@@ -1,6 +1,7 @@
 using ArmyBuilder.Domain;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 
 namespace ArmyBuilder.ViewModels
 {
@@ -24,6 +25,8 @@ namespace ArmyBuilder.ViewModels
         }
 
         public bool Editable => Slot.Editable;
+        public Visibility ItemNameVisibility => GetItemNameVisibility();
+        public Visibility ItemSelectionVisibility => GetItemSelectionVisibility();
         public bool AllItems => Slot.AllItems;
         public List<ItemViewModel> Selection { get; set; } = new List<ItemViewModel>();
         public Slot Slot;
@@ -55,6 +58,16 @@ namespace ArmyBuilder.ViewModels
                 default:
                     return $"UNBEKANNT {Slot.ItemClass}";
             }
+        }
+
+        public Visibility GetItemNameVisibility()
+        {
+            return Slot.Editable ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        public Visibility GetItemSelectionVisibility()
+        {
+            return Slot.Editable ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 

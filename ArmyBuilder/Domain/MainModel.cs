@@ -73,6 +73,7 @@ namespace ArmyBuilder.Domain
                     Musician = sm.Musician,
                     MovementType = sm.MovementType,
                     Mount = sm.Mount,
+                    MainModel = this,
                     Profile = new Profile
                     {
                         Id = sm.Profile.Id,
