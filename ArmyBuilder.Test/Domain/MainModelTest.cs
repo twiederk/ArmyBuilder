@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using ArmyBuilder.Domain;
+using System.Data.Entity.ModelConfiguration.Configuration;
 
 namespace ArmyBuilder.Test.Domain
 {
@@ -126,6 +127,24 @@ namespace ArmyBuilder.Test.Domain
 
             // assert
             totalPoints.Should().Be(140);
+        }
+
+        [Fact]
+        public void should_calculate_points_when_main_model_has_standard_bearer_with_magic_banner()
+        {
+            // arrange
+            SingleModel singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            Slot slot = new Slot { Magic = true, Item = new MeleeWeapon { Points = 50 } };
+            singleModel.Equipment = new Equipment { Slots = { slot } };
+
+            var mainModel = new MainModel() { Count = 10, StandardBearer = true };
+            mainModel.AddSingleModel(singleModel);
+
+            // act
+            float totalPoints = mainModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(170);
         }
 
         [Fact]
