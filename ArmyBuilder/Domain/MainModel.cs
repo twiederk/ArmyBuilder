@@ -56,7 +56,7 @@ namespace ArmyBuilder.Domain
 
         public MainModel Clone()
         {
-            return new MainModel
+            MainModel clone = new MainModel
             {
                 Id = this.Id,
                 ArmyCategory = this.ArmyCategory,
@@ -73,7 +73,6 @@ namespace ArmyBuilder.Domain
                     Musician = sm.Musician,
                     MovementType = sm.MovementType,
                     Mount = sm.Mount,
-                    MainModel = this,
                     Profile = new Profile
                     {
                         Id = sm.Profile.Id,
@@ -105,6 +104,8 @@ namespace ArmyBuilder.Domain
                     }
                 }).ToList()
             };
+            clone.SingleModels.ForEach(sm => sm.MainModel = clone);
+            return clone;
         }
 
         public bool isCustomizable()
