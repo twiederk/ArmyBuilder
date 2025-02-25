@@ -81,6 +81,54 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
+        public void should_calculate_points_when_main_model_has_standard_bearer()
+        {
+            // arrange
+            SingleModel singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+
+            var mainModel = new MainModel() { Count = 10, StandardBearer = true };
+            mainModel.AddSingleModel(singleModel);
+
+            // act
+            float totalPoints = mainModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(120);
+        }
+
+        [Fact]
+        public void should_calculate_points_when_main_model_has_musician()
+        {
+            // arrange
+            SingleModel singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+
+            var mainModel = new MainModel() { Count = 10, Musician = true };
+            mainModel.AddSingleModel(singleModel);
+
+            // act
+            float totalPoints = mainModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(120);
+        }
+
+        [Fact]
+        public void should_calculate_points_when_main_model_has_standard_bearer_and_musician()
+        {
+            // arrange
+            SingleModel singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+
+            var mainModel = new MainModel() { Count = 10, StandardBearer = true, Musician = true };
+            mainModel.AddSingleModel(singleModel);
+
+            // act
+            float totalPoints = mainModel.TotalPoints();
+
+            // assert
+            totalPoints.Should().Be(140);
+        }
+
+        [Fact]
         public void should_increase_count_by_1_when_called()
         {
             // arrange

@@ -13,11 +13,20 @@ namespace ArmyBuilder.Domain
         public float NewPoints => Points();
         public int Count { get; set; } = 1;
         public bool Uniquely { get; set; }
+        public bool Musician { get; set; }
+        public bool StandardBearer { get; set; }
         public List<SingleModel> SingleModels { get; set; } = new List<SingleModel>();
 
         public float TotalPoints()
         {
-            return Points() * Count;
+            float totalPoints =  Points() * Count;
+            if (StandardBearer) {
+                totalPoints += Points() * 2;
+            }
+            if (Musician) {
+                totalPoints += Points() * 2;
+            }
+            return totalPoints;
         }
 
         public int IncreaseCount()
