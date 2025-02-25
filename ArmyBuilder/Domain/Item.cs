@@ -6,7 +6,7 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public ArmyList? ArmyList { get; set; }
+        public ArmyListDigest? ArmyList { get; set; }
         public bool Magic { get; set; }
         public bool Uniquely { get; set; }
         public float Points { get; set; }

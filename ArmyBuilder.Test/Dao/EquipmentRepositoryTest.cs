@@ -67,7 +67,7 @@ namespace ArmyBuilder.Test.Dao
             chaosShield.Id.Should().Be(5784);
             chaosShield.Name.Should().Be("Magische Kriegsbemalung");
             chaosShield.Description.Should().Be("RW von 3+ gegen Beschuß, 5+ im Nahkampf.");
-            chaosShield.ArmyList.Should().Be(new ArmyList() { Id = 9, Name = "Orks & Goblins" });
+            chaosShield.ArmyList.Should().Be(new ArmyListDigest() { Id = 9, Name = "Orks & Goblins" });
             chaosShield.Magic.Should().BeTrue();
             chaosShield.Points.Should().Be(5);
         }

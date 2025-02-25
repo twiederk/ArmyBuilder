@@ -19,7 +19,7 @@ namespace ArmyBuilder.Dao
             _equipmentRepository = new EquipmentRepositorySqlite(dbConnection);
         }
 
-        public List<ArmyList> ArmyLists()
+        public List<ArmyListDigest> ArmyLists()
         {
             return _armyListRepository.ArmyLists();
         }

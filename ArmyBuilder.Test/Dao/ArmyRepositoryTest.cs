@@ -81,7 +81,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
 
             // act
             _repository.CreateArmy(army);
@@ -107,7 +107,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
             army.Points = 100;
 
@@ -128,7 +128,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
 
             // act
@@ -145,7 +145,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
             Unit unit = new Unit("Testeinheit");
 
@@ -169,7 +169,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
             Unit unit = new Unit("Testeinheit");
             _repository.CreateUnit(army.Id, unit);
@@ -218,7 +218,7 @@ namespace ArmyBuilder.Test.Dao
         {
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
             Unit unit = new Unit("Testeinheit");
             _repository.CreateUnit(army.Id, unit);
@@ -245,7 +245,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
             Unit unit = new Unit("Testeinheit");
             _repository.CreateUnit(army.Id, unit);
@@ -266,7 +266,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
 
             Unit unit = new Unit("Testeinheit");

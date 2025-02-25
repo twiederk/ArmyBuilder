@@ -8,7 +8,7 @@ namespace ArmyBuilder.ViewModels
     public class ArmyViewModel : INotifyPropertyChanged
     {
         private readonly IArmyBuilderRepository _repository;
-        private ArmyList _selectedArmyList;
+        private ArmyListDigest _selectedArmyList;
         private MainModel _selectedMainModel;
         private List<MainModel> _characters;
         private List<MainModel> _troopers;
@@ -23,7 +23,7 @@ namespace ArmyBuilder.ViewModels
 
         public ArmyTreeViewModel ArmyTreeViewModel { get; set; }
         
-        public ArmyList SelectedArmyList
+        public ArmyListDigest SelectedArmyList
         {
             get => _selectedArmyList;
             set
@@ -92,7 +92,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public Army CreateArmy(string armyListName, ArmyList armyList)
+        public Army CreateArmy(string armyListName, ArmyListDigest armyList)
         {
             Army army = new Army($"{armyListName} Armee");
             army.ArmyList = armyList;

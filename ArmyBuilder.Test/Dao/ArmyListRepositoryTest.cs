@@ -19,7 +19,7 @@ namespace ArmyBuilder.Test.Dao
         public void should_read_all_army_lists_when_connected_to_SQLite_database()
         {
             // act
-            List<ArmyList> armyLists = armyListRepository.ArmyLists();
+            List<ArmyListDigest> armyLists = armyListRepository.ArmyLists();
 
             // assert
             armyLists.Should().HaveCount(15);

@@ -27,7 +27,7 @@ namespace ArmyBuilder.Dao
 
             var armyDictionary = new Dictionary<int, Army>();
 
-            _dbConnection.Query<Army, ArmyList, Army>(
+            _dbConnection.Query<Army, ArmyListDigest, Army>(
                 sql,
                 (army, armyList) =>
                 {
@@ -75,7 +75,7 @@ namespace ArmyBuilder.Dao
             var unitDictionary = new Dictionary<int, Unit>();
             var mainModelDictionary = new Dictionary<int, MainModel>();
 
-            _dbConnection.Query<Army, ArmyList, Unit, MainModel, SingleModel, Profile, Army>(
+            _dbConnection.Query<Army, ArmyListDigest, Unit, MainModel, SingleModel, Profile, Army>(
                 sql,
                 (army, armyList, unit, mainModel, singleModel, profile) =>
                 {

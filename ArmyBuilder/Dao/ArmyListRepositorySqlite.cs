@@ -14,9 +14,9 @@ namespace ArmyBuilder.Dao
             _dbConnection = dbConnection;
         }
 
-        public List<ArmyList> ArmyLists()
+        public List<ArmyListDigest> ArmyLists()
         {
-            return _dbConnection.GetAll<ArmyList>().ToList();
+            return _dbConnection.GetAll<ArmyListDigest>().ToList();
         }
 
         public List<MainModel> MainModels(int armyListId)

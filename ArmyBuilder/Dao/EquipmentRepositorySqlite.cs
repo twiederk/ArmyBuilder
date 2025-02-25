@@ -41,7 +41,7 @@ namespace ArmyBuilder.Dao
 
             var meleeWeaponDictionary = new Dictionary<int, MeleeWeapon>();
 
-            _dbConnection.Query<MeleeWeapon, ArmyList, MeleeWeapon>(
+            _dbConnection.Query<MeleeWeapon, ArmyListDigest, MeleeWeapon>(
                 sql,
                 (meleeWeapon, armyList) =>
                 {
@@ -79,7 +79,7 @@ namespace ArmyBuilder.Dao
 
             var rangedWeaponDictionary = new Dictionary<int, RangedWeapon>();
 
-            _dbConnection.Query<RangedWeapon, ArmyList, RangedWeapon>(
+            _dbConnection.Query<RangedWeapon, ArmyListDigest, RangedWeapon>(
                 sql,
                 (rangedWeapon, armyList) =>
                 {
@@ -117,7 +117,7 @@ namespace ArmyBuilder.Dao
 
             var shieldDictionary = new Dictionary<int, Shield>();
 
-            _dbConnection.Query<Shield, ArmyList, Shield>(
+            _dbConnection.Query<Shield, ArmyListDigest, Shield>(
                 sql,
                 (shield, armyList) =>
                 {
@@ -155,7 +155,7 @@ namespace ArmyBuilder.Dao
 
             var armorDictionary = new Dictionary<int, Armor>();
 
-            _dbConnection.Query<Armor, ArmyList, Armor>(
+            _dbConnection.Query<Armor, ArmyListDigest, Armor>(
                 sql,
                 (armor, armyList) =>
                 {
@@ -193,7 +193,7 @@ namespace ArmyBuilder.Dao
 
             var standardDictionary = new Dictionary<int, Standard>();
 
-            _dbConnection.Query<Standard, ArmyList, Standard>(
+            _dbConnection.Query<Standard, ArmyListDigest, Standard>(
                 sql,
                 (standard, armyList) =>
                 {
@@ -231,7 +231,7 @@ namespace ArmyBuilder.Dao
 
             var instrumentDictionary = new Dictionary<int, Instrument>();
 
-            _dbConnection.Query<Instrument, ArmyList, Instrument>(
+            _dbConnection.Query<Instrument, ArmyListDigest, Instrument>(
                 sql,
                 (instrument, armyList) =>
                 {
@@ -269,7 +269,7 @@ namespace ArmyBuilder.Dao
 
             var miscDictionary = new Dictionary<int, Misc>();
 
-            _dbConnection.Query<Misc, ArmyList, Misc>(
+            _dbConnection.Query<Misc, ArmyListDigest, Misc>(
                 sql,
                 (misc, armyList) =>
                 {
