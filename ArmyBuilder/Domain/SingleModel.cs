@@ -62,21 +62,17 @@ namespace ArmyBuilder.Domain
             if (isCharacter())
             {
                 return Profile.Points + Equipment.ItemsPoints();
-            }   
-            float points = Profile.Points + Equipment.ItemsPoints();
-            if (MovementType == MovementType.OnFoot && (StandardBearer || Musician))
-            {
-                points = Profile.Points * 2 + Equipment.NonMagicItemsPoints() * 2 + Equipment.MagicItemsPoints();
             }
-            if (MovementType == MovementType.OnMount && !(StandardBearer || Musician))
+            if (MovementType == MovementType.OnMount)
             {
-                points = Profile.Points * 2 + Equipment.NonMagicItemsPoints() * 2 + Equipment.MagicItemsPoints();
+                return (Profile.Points + Equipment.NonMagicItemsPoints()) * 2;
             }
-            if (MovementType == MovementType.OnMount && (StandardBearer || Musician))
-            {
-                points = Profile.Points * 4 + Equipment.NonMagicItemsPoints() * 4 + Equipment.MagicItemsPoints();
-            }
-            return points;
+            return Profile.Points + Equipment.NonMagicItemsPoints();
+        }
+
+        public float TotalPointsMagicItems()
+        {
+            return Equipment.MagicItemsPoints();
         }
     }
 }

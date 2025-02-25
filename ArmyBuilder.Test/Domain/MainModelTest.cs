@@ -134,10 +134,10 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             SingleModel singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
-            Slot slot = new Slot { Magic = true, Item = new MeleeWeapon { Points = 50 } };
+            Slot slot = new Slot { Magic = true, Item = new MeleeWeapon { Points = 50, Magic = true } }; 
             singleModel.Equipment = new Equipment { Slots = { slot } };
 
-            var mainModel = new MainModel() { Count = 10, StandardBearer = true };
+            var mainModel = new MainModel() { Count = 10, StandardBearer = true, ArmyCategory = ArmyCategory.Trooper };
             mainModel.AddSingleModel(singleModel);
 
             // act

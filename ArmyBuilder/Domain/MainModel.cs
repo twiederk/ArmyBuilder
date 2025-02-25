@@ -19,13 +19,15 @@ namespace ArmyBuilder.Domain
 
         public float TotalPoints()
         {
-            float totalPoints =  Points() * Count;
+            float trooperPoints = SingleModels.Sum(sm => sm.TotalPoints());
+            float totalPoints = trooperPoints * Count;
             if (StandardBearer) {
-                totalPoints += Points() * 2;
+                totalPoints += trooperPoints * 2;
             }
             if (Musician) {
-                totalPoints += Points() * 2;
+                totalPoints += trooperPoints * 2;
             }
+            totalPoints += SingleModels.Sum(sm => sm.TotalPointsMagicItems());
             return totalPoints;
         }
 
