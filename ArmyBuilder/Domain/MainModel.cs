@@ -16,12 +16,46 @@ namespace ArmyBuilder.Domain
 
         public float TotalPoints()
         {
+            switch (ArmyCategory)
+            {
+                case ArmyCategory.Character:
+                    return TotalPointsCharacter();
+                case ArmyCategory.Trooper:
+                    return TotalPointsTrooper();
+                case ArmyCategory.WarMachine:
+                    return TotalPointsCharacter();
+                case ArmyCategory.Monster:
+                    return TotalPointsCharacter();
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public float TotalPointsCharacter()
+        {
             float mainModelPoints = 0;
             foreach (var singleModel in SingleModels)
             {
                 mainModelPoints += singleModel.BasePoints() + singleModel.MagicPoints();
             }
             return mainModelPoints * Count;
+        }
+
+        public float TotalPointsTrooper()
+        {
+            float mainModelPoints = 0;
+            foreach (var singleModel in SingleModels)
+            {
+                mainModelPoints += singleModel.BasePoints() + singleModel.MagicPoints();
+            }
+            float totalPoints =  mainModelPoints * Count;
+            if (StandardBearer) {
+                totalPoints += mainModelPoints * 2;
+            }
+            if (Musician) {
+                totalPoints += mainModelPoints * 2;
+            }
+            return totalPoints;
         }
 
         public int IncreaseCount()

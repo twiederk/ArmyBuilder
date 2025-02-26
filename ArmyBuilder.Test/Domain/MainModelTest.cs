@@ -317,6 +317,7 @@ namespace ArmyBuilder.Test.Domain
             // arrange
             var mainModel = new MainModel
             { 
+                ArmyCategory = ArmyCategory.Character,
                 SingleModels =
                 { 
                     new SingleModel
@@ -354,6 +355,7 @@ namespace ArmyBuilder.Test.Domain
             // arrange
             var mainModel = new MainModel
             { 
+                ArmyCategory = ArmyCategory.Character,
                 Count = 10,
                 SingleModels =
                 { 
@@ -379,6 +381,41 @@ namespace ArmyBuilder.Test.Domain
 
             // assert
             points.Should().Be(130);
+        }
+
+        [Fact]
+        public void should_calculate_points_of_trooper_with_musician()
+        {
+            // arrange
+            var mainModel = new MainModel
+            { 
+                ArmyCategory = ArmyCategory.Trooper,
+                Count = 10,
+                Musician = true,
+                SingleModels =
+                { 
+                    new SingleModel
+                    {
+                        Name = "Spearman",
+                        Profile = new Profile { Points = 10 },
+                        MovementType = MovementType.OnFoot,
+                        Equipment = new Equipment
+                        {
+                            Slots =
+                            {
+                                new Slot { Item = new MeleeWeapon { Name = "Spear", Points = 1 } },
+                                new Slot { Item = new Armor { Name = "light Armor", Points = 2 } },
+                            }
+                        }
+                    }
+                }
+            };
+            
+            // act
+            float points = mainModel.TotalPoints();
+
+            // assert
+            points.Should().Be(156);
         }
 
     }
