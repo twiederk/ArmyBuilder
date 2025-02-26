@@ -33,21 +33,21 @@ namespace ArmyBuilder.Domain
 
         public float TotalPointsCharacter()
         {
-            float mainModelPoints = 0;
-            foreach (var singleModel in SingleModels)
-            {
-                mainModelPoints += singleModel.BasePoints() + singleModel.MagicPoints();
-            }
+            float mainModelPoints = SingleModels.Sum(sm => sm.BasePoints() + sm.MagicPoints());
             return mainModelPoints * Count;
         }
 
         public float TotalPointsTrooper()
         {
             float mainModelPoints = SingleModels.Sum(sm => sm.BasePoints());
+            if (SingleModels.Any(sm => sm.MovementType == MovementType.OnMount)) {
+                mainModelPoints *= 2;
+            }
             float magicPoints = SingleModels.Sum(sm => sm.MagicPoints());
             int count = modelCount();
             return mainModelPoints * count + magicPoints;
         }
+
 
         private int modelCount() {
             int count = Count;
