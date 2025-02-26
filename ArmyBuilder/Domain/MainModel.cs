@@ -16,23 +16,9 @@ namespace ArmyBuilder.Domain
 
         public float TotalPoints()
         {
-            switch (ArmyCategory)
-            {
-                case ArmyCategory.Character:
-                    return TotalPointsCharacter();
-                case ArmyCategory.Trooper:
-                    return TotalPointsTrooper();
-                case ArmyCategory.WarMachine:
-                    return TotalPointsCharacter();
-                case ArmyCategory.Monster:
-                    return TotalPointsCharacter();
-                default:
-                    throw new ArgumentOutOfRangeException();
+            if (ArmyCategory == ArmyCategory.Trooper) {
+                return TotalPointsTrooper();
             }
-        }
-
-        public float TotalPointsCharacter()
-        {
             float mainModelPoints = SingleModels.Sum(sm => sm.BasePoints() + sm.MagicPoints());
             return mainModelPoints * Count;
         }
