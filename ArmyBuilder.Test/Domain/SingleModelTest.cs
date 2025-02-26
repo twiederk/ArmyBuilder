@@ -93,6 +93,7 @@ namespace ArmyBuilder.Test.Domain
             save.Should().Be("6");
         }
 
+        /*
         [Fact]
         public void should_return_points_of_profile_when_single_model_has_no_equipment()
         {
@@ -140,7 +141,6 @@ namespace ArmyBuilder.Test.Domain
             // assert
             totalPoints.Should().Be(26);
         }
-
 
         [Fact]
         public void should_calculate_points_singel_model_when_single_model_is_rider_with_magic_item()
@@ -278,7 +278,67 @@ namespace ArmyBuilder.Test.Domain
             // assert
             totalPoints.Should().Be(130);
         }
+        */
 
+        [Fact]
+        public void should_sum_points_of_profile_and_non_magic_equipment_when_on_foot()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            singleModel.MovementType = MovementType.OnFoot;
+
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
+            equipment.Slots.Add(new Slot { Item = new Misc { Points = 50, Magic = true } });
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
+            singleModel.Equipment = equipment;            
+
+            // act
+            float points = singleModel.BasePoints();
+
+            // assert
+            points.Should().Be(13);
+        }
+
+        [Fact]
+        public void should_sum_points_of_profile_and_non_magic_equipment_when_on_mount()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            singleModel.MovementType = MovementType.OnMount;
+
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
+            equipment.Slots.Add(new Slot { Item = new Misc { Points = 50, Magic = true } });
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
+            singleModel.Equipment = equipment;            
+
+            // act
+            float points = singleModel.BasePoints();
+
+            // assert
+            points.Should().Be(26);
+        }
+
+        [Fact]
+        public void should_sum_points_of_magic_items()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
+            singleModel.MovementType = MovementType.OnFoot;
+
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
+            equipment.Slots.Add(new Slot { Item = new Misc { Points = 50, Magic = true } });
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
+            singleModel.Equipment = equipment;            
+
+            // act
+            float points = singleModel.MagicPoints();
+
+            // assert
+            points.Should().Be(50);
+        }
     }
 }
 

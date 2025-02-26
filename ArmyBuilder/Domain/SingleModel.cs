@@ -74,5 +74,21 @@ namespace ArmyBuilder.Domain
         {
             return Equipment.MagicItemsPoints();
         }
+
+        public float ProfilePoints() {
+            return Profile.Points;
+        }
+
+        public float BasePoints() {
+            if (MovementType == MovementType.OnMount) {
+                return (Profile.Points + Equipment.NonMagicItemsPoints()) * 2;
+            }
+            return Profile.Points + Equipment.NonMagicItemsPoints();
+        }
+
+        public float MagicPoints() {
+            return Equipment.MagicItemsPoints();
+        }
+
     }
 }
