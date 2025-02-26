@@ -1,8 +1,3 @@
-
-
-
-using System.Data.Entity.ModelConfiguration.Conventions;
-
 namespace ArmyBuilder.Domain
 {
     public class MainModel
