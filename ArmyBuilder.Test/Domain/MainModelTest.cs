@@ -574,5 +574,65 @@ namespace ArmyBuilder.Test.Domain
             points.Should().Be(506);
         }
 
+        [Fact]
+        public void should_calculate_points_of_war_machine()
+        {
+            // arrange
+            var mainModel = new MainModel
+            { 
+                ArmyCategory = ArmyCategory.WarMachine,
+                SingleModels =
+                { 
+                    new SingleModel
+                    {
+                        Name = "Crew",
+                        Profile = new Profile { Points = 10 },
+                        Equipment = new Equipment
+                        {
+                            Slots =
+                            {
+                                new Slot { Item = new Armor { Name = "light Armor", Points = 1 } },
+                            }
+                        }
+                    },
+                    new SingleModel {
+                        Name = "Cannon",
+                        Profile = new Profile { Points = 50}
+                    }
+                }
+            };
+            
+            // act
+            float points = mainModel.TotalPoints();
+
+            // assert
+            points.Should().Be(61);
+        }
+
+        [Fact]
+        public void should_calculate_points_of_monster_with_count_5()
+        {
+            // arrange
+            var mainModel = new MainModel
+            { 
+                Count = 5,
+                ArmyCategory = ArmyCategory.Monster,
+                SingleModels =
+                { 
+                    new SingleModel
+                    {
+                        Name = "Harpy",
+                        Profile = new Profile { Points = 25 },
+                    }
+                }
+            };
+            
+            // act
+            float points = mainModel.TotalPoints();
+
+            // assert
+            points.Should().Be(125);
+        }
+
     }
 }
