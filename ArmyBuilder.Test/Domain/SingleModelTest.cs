@@ -281,7 +281,7 @@ namespace ArmyBuilder.Test.Domain
         */
 
         [Fact]
-        public void should_sum_points_of_profile_and_non_magic_equipment_when_on_foot()
+        public void should_sum_points_of_profile_and_non_magic_equipment()
         {
             // arrange
             var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
@@ -298,26 +298,6 @@ namespace ArmyBuilder.Test.Domain
 
             // assert
             points.Should().Be(13);
-        }
-
-        [Fact]
-        public void should_sum_points_of_profile_and_non_magic_equipment_when_on_mount()
-        {
-            // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
-            singleModel.MovementType = MovementType.OnMount;
-
-            var equipment = new Equipment();
-            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
-            equipment.Slots.Add(new Slot { Item = new Misc { Points = 50, Magic = true } });
-            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
-            singleModel.Equipment = equipment;            
-
-            // act
-            float points = singleModel.BasePoints();
-
-            // assert
-            points.Should().Be(26);
         }
 
         [Fact]

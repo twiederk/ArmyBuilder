@@ -309,5 +309,42 @@ namespace ArmyBuilder.Test.Domain
             // assert
             points.Should().Be(213);
         }
+
+        [Fact]
+        public void should_calculate_points_of_character_on_mount_with_magic_item()
+        {
+            // arrange
+            var mainModel = new MainModel
+            { 
+                SingleModels =
+                { 
+                    new SingleModel
+                    {
+                        Name = "General",
+                        Profile = new Profile { Points = 160 },
+                        MovementType = MovementType.OnMount,
+                        Equipment = new Equipment
+                        {
+                            Slots =
+                            {
+                                new Slot { Item = new Shield { Name = "Shield", Points = 1 } },
+                                new Slot { Item = new Armor { Name = "light Armor", Points = 2 } },
+                                new Slot { Item = new MeleeWeapon { Name = "Magic Sword", Points = 50, Magic = true } },
+                            }
+                        }
+                    },
+                    new SingleModel {
+                        Name = "Horse",
+                        Profile = new Profile { Points = 3}
+                    }
+                }
+            };
+            
+            // act
+            float points = mainModel.TotalPoints();
+
+            // assert
+            points.Should().Be(216);
+        }
     }
 }

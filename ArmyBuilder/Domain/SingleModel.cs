@@ -80,9 +80,6 @@ namespace ArmyBuilder.Domain
         }
 
         public float BasePoints() {
-            if (MovementType == MovementType.OnMount) {
-                return (Profile.Points + Equipment.NonMagicItemsPoints()) * 2;
-            }
             return Profile.Points + Equipment.NonMagicItemsPoints();
         }
 
