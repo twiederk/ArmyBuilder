@@ -290,6 +290,7 @@ namespace ArmyBuilder.Test.Domain
                     new SingleModel
                     {
                         Profile = new Profile { Points = 160 },
+                        MovementType = MovementType.OnFoot,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -346,5 +347,39 @@ namespace ArmyBuilder.Test.Domain
             // assert
             points.Should().Be(216);
         }
+
+        [Fact]
+        public void should_calculate_points_of_trooper()
+        {
+            // arrange
+            var mainModel = new MainModel
+            { 
+                Count = 10,
+                SingleModels =
+                { 
+                    new SingleModel
+                    {
+                        Name = "Spearman",
+                        Profile = new Profile { Points = 10 },
+                        MovementType = MovementType.OnFoot,
+                        Equipment = new Equipment
+                        {
+                            Slots =
+                            {
+                                new Slot { Item = new MeleeWeapon { Name = "Spear", Points = 1 } },
+                                new Slot { Item = new Armor { Name = "light Armor", Points = 2 } },
+                            }
+                        }
+                    }
+                }
+            };
+            
+            // act
+            float points = mainModel.TotalPoints();
+
+            // assert
+            points.Should().Be(130);
+        }
+
     }
 }

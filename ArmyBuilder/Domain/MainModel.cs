@@ -21,12 +21,12 @@ namespace ArmyBuilder.Domain
 
         public float TotalPoints()
         {
-            float totalPoints = 0;
+            float mainModelPoints = 0;
             foreach (var singleModel in SingleModels)
             {
-                totalPoints += singleModel.BasePoints() + singleModel.MagicPoints();
+                mainModelPoints += singleModel.BasePoints() + singleModel.MagicPoints();
             }
-            return totalPoints;
+            return mainModelPoints * Count;
         }
 
         public int IncreaseCount()
