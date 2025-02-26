@@ -43,26 +43,21 @@ namespace ArmyBuilder.Domain
 
         public float TotalPointsTrooper()
         {
-            float mainModelPoints = 0;
-            foreach (var singleModel in SingleModels)
-            {
-                mainModelPoints += singleModel.BasePoints();
-            }
+            float mainModelPoints = SingleModels.Sum(sm => sm.BasePoints());
+            float magicPoints = SingleModels.Sum(sm => sm.MagicPoints());
+            int count = modelCount();
+            return mainModelPoints * count + magicPoints;
+        }
 
-            float totalPoints =  mainModelPoints * Count;
+        private int modelCount() {
+            int count = Count;
             if (StandardBearer) {
-                totalPoints += mainModelPoints * 2;
+                count += 2;
             }
             if (Musician) {
-                totalPoints += mainModelPoints * 2;
+                count += 2;
             }
-
-            float magicPoints = 0;
-            foreach (var singleModel in SingleModels)
-            {
-                magicPoints += singleModel.MagicPoints();
-            }
-            return totalPoints + magicPoints;
+            return count;
         }
 
         public int IncreaseCount()
