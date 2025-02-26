@@ -7,7 +7,7 @@ namespace ArmyBuilder.Domain
         public string Name { get; set; }
         public string Description { get; set; }
         public float OldPoints { get; set; }
-        public float NewPoints => Points();
+        public float NewPoints => TotalPoints();
         public int Count { get; set; } = 1;
         public bool Uniquely { get; set; }
         public bool Musician { get; set; }
@@ -50,6 +50,13 @@ namespace ArmyBuilder.Domain
             return count;
         }
 
+        public float Points() {
+            if (ArmyCategory == ArmyCategory.Trooper) {
+                return modelPoints();
+            }
+            return SingleModels.Sum(sm => sm.BasePoints() + sm.MagicPoints());
+        }
+
         public int IncreaseCount()
         {
             return ++Count;
@@ -64,15 +71,9 @@ namespace ArmyBuilder.Domain
             return Count;
         }
 
-        public float Points()
-        {
-            return SingleModels.Sum(sm => sm.TotalPoints());
-        }
-
         public void AddSingleModel(SingleModel singleModel)
         {
             SingleModels.Add(singleModel);
-            singleModel.MainModel = this;
         }
 
         public void AddMount(SingleModel singleModel)
@@ -134,7 +135,6 @@ namespace ArmyBuilder.Domain
                     }
                 }).ToList()
             };
-            clone.SingleModels.ForEach(sm => sm.MainModel = clone);
             return clone;
         }
 

@@ -210,10 +210,8 @@ namespace ArmyBuilder.Test.Domain
             clone.Uniquely.Should().Be(true);
 
             clone.SingleModels.Should().HaveCount(2);
-            clone.SingleModels[0].MainModel.Should().BeSameAs(clone);
             clone.SingleModels[0].Profile.Points.Should().Be(10);
 
-            clone.SingleModels[1].MainModel.Should().BeSameAs(clone);
             clone.SingleModels[1].Profile.Id.Should().Be(2);
             clone.SingleModels[1].Profile.Points.Should().Be(20);
             clone.SingleModels[1].StandardBearer.Should().BeTrue();
