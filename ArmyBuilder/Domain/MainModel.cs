@@ -46,8 +46,9 @@ namespace ArmyBuilder.Domain
             float mainModelPoints = 0;
             foreach (var singleModel in SingleModels)
             {
-                mainModelPoints += singleModel.BasePoints() + singleModel.MagicPoints();
+                mainModelPoints += singleModel.BasePoints();
             }
+
             float totalPoints =  mainModelPoints * Count;
             if (StandardBearer) {
                 totalPoints += mainModelPoints * 2;
@@ -55,7 +56,13 @@ namespace ArmyBuilder.Domain
             if (Musician) {
                 totalPoints += mainModelPoints * 2;
             }
-            return totalPoints;
+
+            float magicPoints = 0;
+            foreach (var singleModel in SingleModels)
+            {
+                magicPoints += singleModel.MagicPoints();
+            }
+            return totalPoints + magicPoints;
         }
 
         public int IncreaseCount()

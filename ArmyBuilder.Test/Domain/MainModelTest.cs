@@ -418,5 +418,41 @@ namespace ArmyBuilder.Test.Domain
             points.Should().Be(156);
         }
 
+        [Fact]
+        public void should_calculate_points_of_trooper_with_musician_and_magic_item()
+        {
+            // arrange
+            var mainModel = new MainModel
+            { 
+                ArmyCategory = ArmyCategory.Trooper,
+                Count = 10,
+                Musician = true,
+                SingleModels =
+                { 
+                    new SingleModel
+                    {
+                        Name = "Spearman",
+                        Profile = new Profile { Points = 10 },
+                        MovementType = MovementType.OnFoot,
+                        Equipment = new Equipment
+                        {
+                            Slots =
+                            {
+                                new Slot { Item = new MeleeWeapon { Name = "Spear", Points = 1 } },
+                                new Slot { Item = new Armor { Name = "light Armor", Points = 2 } },
+                                new Slot { Item = new Instrument { Name = "Magic Horn", Points = 50, Magic = true} }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            // act
+            float points = mainModel.TotalPoints();
+
+            // assert
+            points.Should().Be(206);
+        }
+
     }
 }
