@@ -1,6 +1,8 @@
 
 
 
+using System.Data.Entity.ModelConfiguration.Conventions;
+
 namespace ArmyBuilder.Domain
 {
     public class MainModel
@@ -19,15 +21,11 @@ namespace ArmyBuilder.Domain
 
         public float TotalPoints()
         {
-            float trooperPoints = SingleModels.Sum(sm => sm.TotalPoints());
-            float totalPoints = trooperPoints * Count;
-            if (StandardBearer) {
-                totalPoints += trooperPoints * 2;
+            float totalPoints = 0;
+            foreach (var singleModel in SingleModels)
+            {
+                totalPoints += singleModel.BasePoints() + singleModel.MagicPoints();
             }
-            if (Musician) {
-                totalPoints += trooperPoints * 2;
-            }
-            totalPoints += SingleModels.Sum(sm => sm.TotalPointsMagicItems());
             return totalPoints;
         }
 

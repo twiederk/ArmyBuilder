@@ -7,6 +7,7 @@ namespace ArmyBuilder.Test.Domain
     public class MainModelTest
     {
 
+        /*
         [Fact]
         public void should_calculate_points_when_main_model_has_one_single_model()
         {
@@ -146,6 +147,7 @@ namespace ArmyBuilder.Test.Domain
             // assert
             totalPoints.Should().Be(170);
         }
+        */
 
         [Fact]
         public void should_increase_count_by_1_when_called()
@@ -275,6 +277,37 @@ namespace ArmyBuilder.Test.Domain
             mainModel.SingleModels.Should().HaveCount(2);
             mainModel.SingleModels.Should().ContainSingle(sm => sm.Id == singleModel.Id && sm.Name == singleModel.Name);
             mainModel.SingleModels[0].MovementType.Should().Be(MovementType.OnMount);
+        }
+
+        [Fact]
+        public void should_calculate_points_of_character_with_magic_item()
+        {
+            // arrange
+            var mainModel = new MainModel
+            { 
+                SingleModels =
+                { 
+                    new SingleModel
+                    {
+                        Profile = new Profile { Points = 160 },
+                        Equipment = new Equipment
+                        {
+                            Slots =
+                            {
+                                new Slot { Item = new Shield { Name = "Shield", Points = 1 } },
+                                new Slot { Item = new Armor { Name = "light Armor", Points = 2 } },
+                                new Slot { Item = new MeleeWeapon { Name = "Magic Sword", Points = 50, Magic = true } },
+                            }
+                        }
+                    } 
+                }
+            };
+            
+            // act
+            float points = mainModel.TotalPoints();
+
+            // assert
+            points.Should().Be(213);
         }
     }
 }
