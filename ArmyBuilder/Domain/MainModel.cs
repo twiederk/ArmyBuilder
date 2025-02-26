@@ -39,15 +39,19 @@ namespace ArmyBuilder.Domain
 
         public float TotalPointsTrooper()
         {
-            float mainModelPoints = SingleModels.Sum(sm => sm.BasePoints());
-            if (SingleModels.Any(sm => sm.MovementType == MovementType.OnMount)) {
-                mainModelPoints *= 2;
-            }
+            float mainModelPoints = modelPoints();
             float magicPoints = SingleModels.Sum(sm => sm.MagicPoints());
             int count = modelCount();
             return mainModelPoints * count + magicPoints;
         }
 
+        private float modelPoints() {
+            float modelPoints = SingleModels.Sum(sm => sm.BasePoints());
+            if (SingleModels.Any(sm => sm.MovementType == MovementType.OnMount)) {
+                modelPoints *= 2;
+            }
+            return modelPoints;            
+        }
 
         private int modelCount() {
             int count = Count;

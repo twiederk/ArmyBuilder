@@ -457,10 +457,6 @@ namespace ArmyBuilder.Test.Domain
         [Fact]
         public void should_calculate_points_of_trooper_on_mount()
         {
-// 10 x Knight (Profile: 10)
-// Lance (2), Shield(1), heavy Armor (3)
-// Horse (Profile: 3) => 380
-
             // arrange
             var mainModel = new MainModel
             { 
