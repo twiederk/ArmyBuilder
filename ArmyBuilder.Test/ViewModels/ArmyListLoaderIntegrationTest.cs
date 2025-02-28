@@ -112,7 +112,7 @@ namespace ArmyBuilder.Test.ViewModels
 
             // assert
             Equipment grenzreiterEquipment = equipment.First(e => e.Id == 46808);
-            grenzreiterEquipment.Slots.Should().HaveCount(4);
+            grenzreiterEquipment.Slots.Should().HaveCount(6);
             Slot meleeWeaponSlot = grenzreiterEquipment.Slots.First(s => s.Id == 4859);
             meleeWeaponSlot.Selection.Should().HaveCount(2);
         }
