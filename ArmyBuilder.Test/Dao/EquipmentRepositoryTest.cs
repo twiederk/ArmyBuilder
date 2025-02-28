@@ -224,7 +224,7 @@ namespace ArmyBuilder.Test.Dao
             List<Equipment> equipments = equipmentRepository.ArmyEquipment(armyId);
 
             // assert
-            equipments.Should().HaveCount(16);
+            equipments.Should().HaveCount(9);
 
             // spearmen equipment
             Equipment spearmenEquipment = equipments.First(e => e.Id == spearmenSingleModelId);
