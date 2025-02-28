@@ -19,22 +19,22 @@ INSERT INTO army_unit VALUES(10,2,'Repetier-Speerschleuder');
 INSERT INTO army_unit VALUES(11,2,'Drache');
 
 
-INSERT INTO army_main_model VALUES(1,1,2,'Tiranoc Streitwagen','Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,0,0,72.0,1);
-INSERT INTO army_main_model VALUES(2,2,1,'Ellyrianische Grenzreiter','Lockere Formation, Zusätz. Marschbewegung, Vorzügliche Reiter, Schießen und Flüchten.',0,0,0,25.0,4);
-INSERT INTO army_main_model VALUES(5,2,0,'Champion','',0,0,0,48.0,1);
-INSERT INTO army_main_model VALUES(6,3,1,'Silberhelme','',0,0,0,31.0,9);
-INSERT INTO army_main_model VALUES(9,3,0,'Champion','',0,0,0,48.0,1);
-INSERT INTO army_main_model VALUES(10,4,1,'Bogenschützen','Bürgermiliz',0,0,0,10.0,12);
-INSERT INTO army_main_model VALUES(13,5,1,'Speerträger','Bürgermiliz',0,0,0,12.0,16);
-INSERT INTO army_main_model VALUES(16,6,0,'Held','',0,0,0,104.0,1);
-INSERT INTO army_main_model VALUES(17,7,0,'Teclis, Hochelfen Meisterzauberer','Meister der Weißen Magie',0,0,0,630.0,1);
-INSERT INTO army_main_model VALUES(18,8,1,'Drachenprinzen von Caledor','Banner von Caledor',0,0,0,43.0,8);
-INSERT INTO army_main_model VALUES(21,8,0,'General','',0,0,0,160.0,1);
-INSERT INTO army_main_model VALUES(22,8,0,'Armeestandarte','',0,0,0,98.0,1);
-INSERT INTO army_main_model VALUES(23,9,0,'Großzauberer','',0,0,0,219.0,1);
-INSERT INTO army_main_model VALUES(24,9,1,'Bogenschützen','Bürgermiliz',0,0,0,10.0,13);
-INSERT INTO army_main_model VALUES(27,10,2,'Repetier-Speerschleuder','',0,0,0,100.0,2);
-INSERT INTO army_main_model VALUES(28,11,3,'Drache','Entsetzen, Fliegen, Drachenatem, Schuppige Haut',0,0,0,450.0,1);
+INSERT INTO army_main_model VALUES(1,1,2,'Tiranoc Streitwagen','Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,72.0,1,0,0);
+INSERT INTO army_main_model VALUES(2,2,1,'Ellyrianische Grenzreiter','Lockere Formation, Zusätz. Marschbewegung, Vorzügliche Reiter, Schießen und Flüchten.',0,25.0,4,0,0);
+INSERT INTO army_main_model VALUES(5,2,0,'Champion','',0,48.0,1,0,0);
+INSERT INTO army_main_model VALUES(6,3,1,'Silberhelme','',0,31.0,9,0,0);
+INSERT INTO army_main_model VALUES(9,3,0,'Champion','',0,48.0,1,0,0);
+INSERT INTO army_main_model VALUES(10,4,1,'Bogenschützen','Bürgermiliz',0,10.0,12,0,0);
+INSERT INTO army_main_model VALUES(13,5,1,'Speerträger','Bürgermiliz',0,12.0,16,0,0);
+INSERT INTO army_main_model VALUES(16,6,0,'Held','',0,104.0,1,0,0);
+INSERT INTO army_main_model VALUES(17,7,0,'Teclis, Hochelfen Meisterzauberer','Meister der Weißen Magie',0,630.0,1,0,0);
+INSERT INTO army_main_model VALUES(18,8,1,'Drachenprinzen von Caledor','Banner von Caledor',0,43.0,8,0,0);
+INSERT INTO army_main_model VALUES(21,8,0,'General','',0,160.0,1,0,0);
+INSERT INTO army_main_model VALUES(22,8,0,'Armeestandarte','',0,98.0,1,0,0);
+INSERT INTO army_main_model VALUES(23,9,0,'Großzauberer','',0,219.0,1,0,0);
+INSERT INTO army_main_model VALUES(24,9,1,'Bogenschützen','Bürgermiliz',0,10.0,13,0,0);
+INSERT INTO army_main_model VALUES(27,10,2,'Repetier-Speerschleuder','',0,100.0,2,0,0);
+INSERT INTO army_main_model VALUES(28,11,3,'Drache','Entsetzen, Fliegen, Drachenatem, Schuppige Haut',0,450.0,1,0,0);
 
 
 INSERT INTO army_single_model VALUES(1,11906,'Streitwagenlenker',1,'Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,0,0,0,0);
