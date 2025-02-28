@@ -46,8 +46,6 @@ namespace ArmyBuilder.Test.Dao
 
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
 
@@ -73,8 +71,6 @@ namespace ArmyBuilder.Test.Dao
 
             singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnMount);
             singleModel.Mount.Should().BeFalse();
 
@@ -100,8 +96,6 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
             singleModel.Profile.Movement.Should().Be(5);
@@ -126,8 +120,6 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnMount);
             singleModel.Mount.Should().BeFalse();            
             singleModel.Profile.Movement.Should().Be(5);
@@ -153,8 +145,6 @@ namespace ArmyBuilder.Test.Dao
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
             var profile = singleModel.Profile;

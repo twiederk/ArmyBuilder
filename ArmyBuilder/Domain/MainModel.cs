@@ -102,8 +102,6 @@ namespace ArmyBuilder.Domain
                     Id = sm.Id,
                     Name = sm.Name,
                     Description = sm.Description,
-                    StandardBearer = sm.StandardBearer,
-                    Musician = sm.Musician,
                     MovementType = sm.MovementType,
                     Mount = sm.Mount,
                     Profile = new Profile

@@ -54,8 +54,6 @@ namespace ArmyBuilder.Test.Domain
             model.AddSingleModel(new SingleModel
             {
                 Profile = new Profile { Id = 2, Points = 20 },
-                StandardBearer = true,
-                Musician = true,
                 MovementType = MovementType.OnMount,
                 Mount = true
             });
@@ -73,8 +71,6 @@ namespace ArmyBuilder.Test.Domain
 
             clone.SingleModels[1].Profile.Id.Should().Be(2);
             clone.SingleModels[1].Profile.Points.Should().Be(20);
-            clone.SingleModels[1].StandardBearer.Should().BeTrue();
-            clone.SingleModels[1].Musician.Should().BeTrue();
             clone.SingleModels[1].MovementType.Should().Be(MovementType.OnMount);
             clone.SingleModels[1].Mount.Should().BeTrue();
         }

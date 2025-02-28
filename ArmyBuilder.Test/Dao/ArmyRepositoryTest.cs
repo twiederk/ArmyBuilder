@@ -59,8 +59,6 @@ namespace ArmyBuilder.Test.Dao
 
             SingleModel singleModel = general.SingleModels[0];
             singleModel.Name.Should().Be("Streitwagenlenker");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
 
@@ -204,8 +202,6 @@ namespace ArmyBuilder.Test.Dao
             testMainModel.SingleModels.Should().HaveCount(1);
             var testSingleModel = testMainModel.SingleModels[0];
             testSingleModel.Name.Should().Be("Schwertmeister");
-            testSingleModel.StandardBearer.Should().BeFalse();
-            testSingleModel.Musician.Should().BeFalse();
             testSingleModel.MovementType.Should().Be(MovementType.OnFoot);
             testSingleModel.Mount.Should().BeFalse();
 
