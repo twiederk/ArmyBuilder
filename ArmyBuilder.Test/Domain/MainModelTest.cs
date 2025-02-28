@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using ArmyBuilder.Domain;
-using System.Data.Entity.ModelConfiguration.Configuration;
 
 namespace ArmyBuilder.Test.Domain
 {
