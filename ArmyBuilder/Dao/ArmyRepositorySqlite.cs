@@ -53,7 +53,7 @@ namespace ArmyBuilder.Dao
                     a.Id, a.Name, a.Author, a.army_list_id, a.Points,
                     al.Id, al.Name,
                     au.Id, au.Name,
-                    amm.Id, amm.army_category_id as ArmyCategory, amm.Name, amm.Description, amm.Points as OldPoints, amm.count as Count, amm.Uniquely,
+                    amm.Id, amm.army_category_id as ArmyCategory, amm.Name, amm.Description, amm.Points as OldPoints, amm.count as Count, amm.Uniquely, amm.standard_bearer AS StandardBearer, amm.musician,
                     asm.Id, asm.Name, asm.Description, asm.profile_id as ProfileId, asm.standard_bearer as StandardBearer, asm.musician, asm.movement_type_id as MovementType, asm.mount, asm.mountable,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
@@ -197,8 +197,8 @@ namespace ArmyBuilder.Dao
         public MainModel AddMainModel(int unitId, MainModel mainModel)
         {
             var sql = @"
-                INSERT INTO army_main_model (army_unit_id, army_category_id, name, description, uniquely, points, count)
-                VALUES (@ArmyUnitId, @ArmyCategoryId, @Name, @Description, @Uniquely, @Points, @Count);
+                INSERT INTO army_main_model (army_unit_id, army_category_id, name, description, uniquely, points, count, standard_bearer, musician)
+                VALUES (@ArmyUnitId, @ArmyCategoryId, @Name, @Description, @Uniquely, @Points, @Count, @StandardBearer, @Musician);
                 SELECT last_insert_rowid();";
             var main_model_id = _dbConnection.ExecuteScalar<int>(sql, new
             {
@@ -208,7 +208,9 @@ namespace ArmyBuilder.Dao
                 mainModel.Description,
                 mainModel.Uniquely,
                 Points = mainModel.OldPoints,
-                mainModel.Count
+                mainModel.Count,
+                mainModel.StandardBearer,
+                mainModel.Musician
             });
             mainModel.Id = main_model_id;
 
