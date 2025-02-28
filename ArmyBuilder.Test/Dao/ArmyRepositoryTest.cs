@@ -214,7 +214,7 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
-        public void should_update_count_of_main_model_in_unit()
+        public void should_update_main_model_in_unit()
         {
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
@@ -222,18 +222,25 @@ namespace ArmyBuilder.Test.Dao
             _repository.CreateArmy(army);
             Unit unit = new Unit("Testeinheit");
             _repository.CreateUnit(army.Id, unit);
-            MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
+            MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3, StandardBearer = false, Musician = false };
             unit.MainModels.Add(mainModel);
             _repository.AddMainModel(unit.Id, mainModel);
+            mainModel.Count = 5;
+            mainModel.StandardBearer = true;
+            mainModel.Musician = true;
 
             // act
-            _repository.UpdateMainModel(unit.Id, mainModel.Id, 5);
+            _repository.UpdateMainModel(unit.Id, mainModel);
 
             // assert
             Army testArmy = _repository.Army(army.Id);
             testArmy.Units.Should().HaveCount(1);
             testArmy.Units[0].MainModels.Should().HaveCount(1);
-            testArmy.Units[0].MainModels[0].Count.Should().Be(5);
+
+            MainModel updatedMainModel = testArmy.Units[0].MainModels[0];
+            updatedMainModel.Count.Should().Be(5);
+            updatedMainModel.StandardBearer.Should().BeTrue();
+            updatedMainModel.Musician.Should().BeTrue();
 
             // teardown
             _repository.DeleteArmy(army.Id);

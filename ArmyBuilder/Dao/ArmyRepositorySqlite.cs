@@ -281,18 +281,20 @@ namespace ArmyBuilder.Dao
         }
 
 
-        public void UpdateMainModel(int unitId, int mainModelId, int count)
+        public void UpdateMainModel(int unitId, MainModel mainModel)
         {
             var sql = @"
                 UPDATE army_main_model
-                SET count = @Count
+                SET count = @Count, standard_bearer = @StandardBearer, musician = @Musician
                 WHERE army_unit_id = @UnitId AND id = @MainModelId;";
 
             _dbConnection.Execute(sql, new
             {
-                Count = count,
+                mainModel.Count,
+                mainModel.StandardBearer,
+                mainModel.Musician,
                 UnitId = unitId,
-                MainModelId = mainModelId
+                MainModelId = mainModel.Id
             });
         }
 

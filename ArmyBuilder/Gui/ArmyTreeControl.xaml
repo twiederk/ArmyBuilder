@@ -56,9 +56,9 @@
                                 <Button Content="*" Grid.Column="6" Click="AddMountButton_Click" Tag="{Binding}" Visibility="{Binding MountButtonVisibility}" Margin="2,2,2,2"/>
                                 <Button Content="🗑" Grid.Column="7" Click="DeleteMainModelButton_Click" Tag="{Binding}" Margin="2,2,2,2"/>
                             </Grid>
-                            <StackPanel Orientation="Horizontal" Visibility="{Binding TrooperVisiblity}" Margin="2,2,2,2">
-                                <CheckBox Content="Standartenträger" IsChecked="{Binding StandardBearer}" Foreground="Magenta" Margin="2,2,2,2"/>
-                                <CheckBox Content="Musiker" IsChecked="{Binding Musician}" Foreground="Magenta" Margin="2,2,2,2"/>
+                            <StackPanel Orientation="Horizontal" Visibility="{Binding TrooperVisiblity}">
+                                <CheckBox Content="Standartenträger" IsChecked="{Binding StandardBearer}" Click="TrooperCheckbox_Click" Tag="{Binding}" Foreground="Magenta" Margin="2,2,2,2"/>
+                                <CheckBox Content="Musiker" IsChecked="{Binding Musician}" Click="TrooperCheckbox_Click" Tag="{Binding}" Foreground="Magenta" Margin="2,2,2,2"/>
                             </StackPanel>
                         </StackPanel>
                     </HierarchicalDataTemplate>
