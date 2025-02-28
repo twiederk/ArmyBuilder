@@ -95,6 +95,8 @@ namespace ArmyBuilder.Domain
                 Description = this.Description,
                 OldPoints = this.OldPoints,
                 Uniquely = this.Uniquely,
+                StandardBearer = this.StandardBearer,
+                Musician = this.Musician,
                 SingleModels = this.SingleModels.Select(sm => new SingleModel
                 {
                     Id = sm.Id,
