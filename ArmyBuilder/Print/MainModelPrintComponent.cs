@@ -29,6 +29,7 @@ namespace ArmyBuilder.Print
                     singleModels(table);
                 });
                 composeEquipment(column);
+                composeStandardBearerAndMusician(column);
             });
 
         }
@@ -104,7 +105,7 @@ namespace ArmyBuilder.Print
 
         public string Heading()
         {
-            return $"{_mainModel.Count}x {_mainModel.Name} ({_mainModel.OldPoints}) => {_mainModel.TotalPoints()} {_mainModel.ArmyCategory.Display()}";
+            return $"{_mainModel.Count}x {_mainModel.Name} ({_mainModel.Points()}) => {_mainModel.TotalPoints()} {_mainModel.ArmyCategory.Display()}";
         }
 
 
@@ -117,6 +118,23 @@ namespace ArmyBuilder.Print
                 {
                     column.Item().PaddingLeft(20).Text(string.Join(", ", itemNames));
                 }
+            }
+        }
+        
+        public void composeStandardBearerAndMusician(ColumnDescriptor column)
+        {
+            string output = "";
+            if (_mainModel.StandardBearer)
+            {
+                output += $"Standartenträger ({_mainModel.ModelPoints() * 2}) ";
+            }
+            if (_mainModel.StandardBearer)
+            {
+                output += $"Musiker ({_mainModel.ModelPoints() * 2})";
+            }
+            if (!string.IsNullOrEmpty(output))
+            {
+                column.Item().PaddingLeft(20).Text(output);
             }
         }
     }

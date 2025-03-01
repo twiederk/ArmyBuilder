@@ -1,3 +1,5 @@
+using System.Security.Permissions;
+
 namespace ArmyBuilder.Domain
 {
     public class MainModel
@@ -25,13 +27,13 @@ namespace ArmyBuilder.Domain
 
         public float TotalPointsTrooper()
         {
-            float mainModelPoints = modelPoints();
+            float mainModelPoints = ModelPoints();
             float magicPoints = SingleModels.Sum(sm => sm.MagicPoints());
             int count = modelCount();
             return mainModelPoints * count + magicPoints;
         }
 
-        private float modelPoints() {
+        public float ModelPoints() {
             float modelPoints = SingleModels.Sum(sm => sm.BasePoints());
             if (SingleModels.Any(sm => sm.MovementType == MovementType.OnMount)) {
                 modelPoints *= 2;
@@ -52,7 +54,7 @@ namespace ArmyBuilder.Domain
 
         public float Points() {
             if (ArmyCategory == ArmyCategory.Trooper) {
-                return modelPoints();
+                return ModelPoints();
             }
             return SingleModels.Sum(sm => sm.BasePoints() + sm.MagicPoints());
         }
