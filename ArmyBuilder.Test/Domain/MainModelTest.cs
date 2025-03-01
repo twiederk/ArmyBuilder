@@ -343,7 +343,7 @@ namespace ArmyBuilder.Test.Domain
             float points = mainModel.TotalPoints();
 
             // assert
-            points.Should().Be(380);
+            points.Should().Be(350);
         }
 
         [Fact]
@@ -383,7 +383,7 @@ namespace ArmyBuilder.Test.Domain
             float points = mainModel.TotalPoints();
 
             // assert
-            points.Should().Be(456);
+            points.Should().Be(420);
         }
 
         [Fact]
@@ -424,7 +424,7 @@ namespace ArmyBuilder.Test.Domain
             float points = mainModel.TotalPoints();
 
             // assert
-            points.Should().Be(506);
+            points.Should().Be(470);
         }
 
         [Fact]

@@ -34,11 +34,19 @@ namespace ArmyBuilder.Domain
         }
 
         public float ModelPoints() {
-            float modelPoints = SingleModels.Sum(sm => sm.BasePoints());
-            if (SingleModels.Any(sm => sm.MovementType == MovementType.OnMount)) {
-                modelPoints *= 2;
+            float modelPoints = 0;
+            foreach (var singleModel in SingleModels)
+            {
+                if (singleModel.MovementType == MovementType.OnMount)
+                {
+                    modelPoints += singleModel.BasePoints() * 2;
+                }
+                else
+                {
+                    modelPoints += singleModel.BasePoints();
+                }
             }
-            return modelPoints;            
+            return modelPoints;
         }
 
         private int modelCount() {
