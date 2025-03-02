@@ -428,7 +428,7 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
-        public void should_calculate_points_of_war_machine()
+        public void should_calculate_points_of_organ_cannon()
         {
             // arrange
             var mainModel = new MainModel
@@ -439,18 +439,16 @@ namespace ArmyBuilder.Test.Domain
                     new SingleModel
                     {
                         Name = "Crew",
-                        Profile = new Profile { Points = 10 },
+                        Count = 3,
+                        Profile = new Profile { Points = 8 },
                         Equipment = new Equipment
                         {
-                            Slots =
-                            {
-                                new Slot { Item = new Armor { Name = "light Armor", Points = 1 } },
-                            }
+                            Slots = { new Slot { Item = new Armor { Name = "light Armor", Points = 2 } },                           }
                         }
                     },
                     new SingleModel {
                         Name = "Cannon",
-                        Profile = new Profile { Points = 50}
+                        Profile = new Profile { Points = 40}
                     }
                 }
             };
@@ -459,7 +457,82 @@ namespace ArmyBuilder.Test.Domain
             float points = mainModel.TotalPoints();
 
             // assert
-            points.Should().Be(61);
+            points.Should().Be(70);
+        }
+
+        [Fact]
+        public void should_calculate_points_of_repeating_bolt_thrower()
+        {
+            // arrange
+            var mainModel = new MainModel
+            { 
+                ArmyCategory = ArmyCategory.WarMachine,
+                SingleModels =
+                { 
+                    new SingleModel
+                    {
+                        Name = "Crew",
+                        Count = 2,
+                        Profile = new Profile { Points = 8 },
+                        Equipment = new Equipment
+                        {
+                            Slots = { new Slot { Item = new Armor { Name = "light Armor", Points = 2 } },                           }
+                        }
+                    },
+                    new SingleModel {
+                        Name = "Bolt Thrower",
+                        Profile = new Profile { Points = 80}
+                    }
+                }
+            };
+            
+            // act
+            float points = mainModel.TotalPoints();
+
+            // assert
+            points.Should().Be(100);
+        }
+
+        [Fact]
+        public void should_calculate_points_of_tiranoc_chariot_with_two_elves()
+        {
+            // arrange
+            var mainModel = new MainModel
+            { 
+                ArmyCategory = ArmyCategory.WarMachine,
+                SingleModels =
+                { 
+                    new SingleModel
+                    {
+                        Name = "Crew",
+                        Count = 2,
+                        Profile = new Profile { Points = 10 },
+                        Equipment = new Equipment
+                        {
+                            Slots =
+                            { 
+                                new Slot { Item = new RangedWeapon { Name = "Bow", Points = 2 } },          
+                                new Slot { Item = new Armor { Name = "light Armor", Points = 2 } }
+                            }
+                        }
+                    },
+                    new SingleModel {
+                        Name = "Chariot",
+                        Profile = new Profile { Points = 50}
+                    },
+                    new SingleModel {
+                        Name = "Horse",
+                        Count = 2,
+                        Profile = new Profile { Points = 3}
+                    }
+                }
+            };
+            
+            // act
+            float points = mainModel.TotalPoints();
+
+            // assert
+            points.Should().Be(84);
         }
 
         [Fact]
