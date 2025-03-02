@@ -36,6 +36,11 @@ namespace ArmyBuilder.Domain
             };
         }
 
+        public String DisplayName()
+        {
+            return $"{Name} ({Profile.Points})";
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is SingleModel other)

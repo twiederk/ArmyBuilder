@@ -132,6 +132,19 @@ namespace ArmyBuilder.Test.Domain
             // assert
             points.Should().Be(50);
         }
+
+        [Fact]
+        public void should_return_name_with_profile_points()
+        {
+            // arrange
+            var singleModel = new SingleModel { Name = "Warrior", Profile = new Profile { Points = 10 } };
+
+            // act
+            String displayName = singleModel.DisplayName();
+
+            // assert
+            displayName.Should().Be("Warrior (10)");
+        }
     }
 }
 
