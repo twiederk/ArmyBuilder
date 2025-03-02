@@ -14,13 +14,35 @@ namespace ArmyBuilder.ViewModels
         public MainModel MainModel { get; set; }
         public Unit Unit => _parent.Unit;
         public string DisplayArmyCategory => MainModel.ArmyCategory.Display();
-
         public Visibility MountButtonVisibility => GetMountButtonVisibility();
-
         public Visibility CountButtonVisibility => GetCountButtonVisibility();
+        public Visibility TrooperVisiblity => GetTrooperVisibility();
+        public bool StandardBearer
+        {
+            get => MainModel.StandardBearer;
+            set
+            {
+                if (MainModel.StandardBearer != value)
+                {
+                    MainModel.StandardBearer = value;
+                    OnPropertyChanged(nameof(StandardBearer));
+                }
+            }
+        }
+        public bool Musician
+        {
+            get => MainModel.Musician;
+            set
+            {
+                if (MainModel.Musician != value)
+                {
+                    MainModel.Musician = value;
+                    OnPropertyChanged(nameof(Musician));
+                }
+            }
+        }
 
         private UnitTreeNode _parent;
-
 
         public ObservableCollection<SingleModelTreeNode> SingleModels { get; set; } = new ObservableCollection<SingleModelTreeNode>();
 
@@ -47,7 +69,6 @@ namespace ArmyBuilder.ViewModels
             SingleModels[0].OnPropertyChanged("Save");
             _parent.UpdateTotalPoints();
         }
-
 
         public void UpdateCount()
         {
@@ -78,13 +99,17 @@ namespace ArmyBuilder.ViewModels
             return MainModel.ArmyCategory == ArmyCategory.Character ? Visibility.Collapsed : Visibility.Visible;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public Visibility GetTrooperVisibility()
+        {
+            return MainModel.ArmyCategory == ArmyCategory.Trooper ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }
 

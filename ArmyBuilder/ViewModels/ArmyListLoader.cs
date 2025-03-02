@@ -14,13 +14,13 @@ namespace ArmyBuilder.ViewModels
             this._repository = repository;
         }
 
-        public List<MainModel> LoadArmyList(ArmyList armyList)
+        public ArmyList LoadArmyList(ArmyListDigest armyList)
         {
             var mainModels = _repository.MainModels(armyList.Id);
             var equipment = _repository.ArmyListEquipment(armyList.Id);
             assignEquipment(mainModels, equipment);
             assignSelection(mainModels, armyList);
-            return mainModels;
+            return new ArmyList(mainModels);
         }
 
         public Army LoadArmy(int armyId)
@@ -48,7 +48,7 @@ namespace ArmyBuilder.ViewModels
         }
 
 
-        public void assignSelection(List<MainModel> mainModels, ArmyList armyList)
+        public void assignSelection(List<MainModel> mainModels, ArmyListDigest armyList)
         {
             mainModels.ForEach(mainModel =>
                 mainModel.SingleModels.ForEach(singleModel =>
@@ -58,7 +58,7 @@ namespace ArmyBuilder.ViewModels
             );
         }
 
-        private void AssignSelectionToSingleModel(ArmyList armyList, SingleModel singleModel)
+        private void AssignSelectionToSingleModel(ArmyListDigest armyList, SingleModel singleModel)
         {
             if (singleModel.Equipment != null)
             {
@@ -69,7 +69,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public List<Item> selection(Slot slot, ArmyList armyList)
+        public List<Item> selection(Slot slot, ArmyListDigest armyList)
         {
 
             if (!slot.IsAllItems() || !slot.Editable)
@@ -112,7 +112,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        private List<Item> FilterItems(IEnumerable<Item> items, ArmyList armyList, Slot slot)
+        private List<Item> FilterItems(IEnumerable<Item> items, ArmyListDigest armyList, Slot slot)
         {
             IEnumerable<Item> filteredItems;
 

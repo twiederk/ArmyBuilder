@@ -28,7 +28,7 @@ namespace ArmyBuilder.Test.Dao
             army.Author.Should().Be("Torsten");
             army.ArmyList.Id.Should().Be(7);
             army.ArmyList.Name.Should().Be("Hochelfen");
-            army.Points.Should().Be(1378);
+            army.Points.Should().Be(1435);
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace ArmyBuilder.Test.Dao
             army.ArmyList.Id.Should().Be(7);
             army.ArmyList.Name.Should().Be("Hochelfen");
             army.Author.Should().Be("Torsten");
-            army.Points.Should().Be(1378);
+            army.Points.Should().Be(1435);
             army.Units.Should().HaveCount(6);
 
             Unit generalUnit = army.Units[0];
@@ -59,8 +59,6 @@ namespace ArmyBuilder.Test.Dao
 
             SingleModel singleModel = general.SingleModels[0];
             singleModel.Name.Should().Be("Streitwagenlenker");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
 
@@ -81,7 +79,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
 
             // act
             _repository.CreateArmy(army);
@@ -107,7 +105,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
             army.Points = 100;
 
@@ -128,7 +126,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
 
             // act
@@ -145,7 +143,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
             Unit unit = new Unit("Testeinheit");
 
@@ -169,7 +167,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
             Unit unit = new Unit("Testeinheit");
             _repository.CreateUnit(army.Id, unit);
@@ -204,8 +202,6 @@ namespace ArmyBuilder.Test.Dao
             testMainModel.SingleModels.Should().HaveCount(1);
             var testSingleModel = testMainModel.SingleModels[0];
             testSingleModel.Name.Should().Be("Schwertmeister");
-            testSingleModel.StandardBearer.Should().BeFalse();
-            testSingleModel.Musician.Should().BeFalse();
             testSingleModel.MovementType.Should().Be(MovementType.OnFoot);
             testSingleModel.Mount.Should().BeFalse();
 
@@ -214,26 +210,33 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
-        public void should_update_count_of_main_model_in_unit()
+        public void should_update_main_model_in_unit()
         {
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
             Unit unit = new Unit("Testeinheit");
             _repository.CreateUnit(army.Id, unit);
-            MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
+            MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3, StandardBearer = false, Musician = false };
             unit.MainModels.Add(mainModel);
             _repository.AddMainModel(unit.Id, mainModel);
+            mainModel.Count = 5;
+            mainModel.StandardBearer = true;
+            mainModel.Musician = true;
 
             // act
-            _repository.UpdateMainModel(unit.Id, mainModel.Id, 5);
+            _repository.UpdateMainModel(unit.Id, mainModel);
 
             // assert
             Army testArmy = _repository.Army(army.Id);
             testArmy.Units.Should().HaveCount(1);
             testArmy.Units[0].MainModels.Should().HaveCount(1);
-            testArmy.Units[0].MainModels[0].Count.Should().Be(5);
+
+            MainModel updatedMainModel = testArmy.Units[0].MainModels[0];
+            updatedMainModel.Count.Should().Be(5);
+            updatedMainModel.StandardBearer.Should().BeTrue();
+            updatedMainModel.Musician.Should().BeTrue();
 
             // teardown
             _repository.DeleteArmy(army.Id);
@@ -245,7 +248,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
             Unit unit = new Unit("Testeinheit");
             _repository.CreateUnit(army.Id, unit);
@@ -266,7 +269,7 @@ namespace ArmyBuilder.Test.Dao
             // arrange
             Army army = new Army("Testarmee");
             army.Author = "Testautor";
-            army.ArmyList = new ArmyList { Id = 7, Name = "Hochelfen" };
+            army.ArmyList = new ArmyListDigest { Id = 7, Name = "Hochelfen" };
             _repository.CreateArmy(army);
 
             Unit unit = new Unit("Testeinheit");

@@ -91,7 +91,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            armyListLoader.assignSelection(mainModels, new ArmyList() { Id = 7 }); 
+            armyListLoader.assignSelection(mainModels, new ArmyListDigest() { Id = 7 }); 
 
             // assert
             var singleModel = mainModels[0].SingleModels[0];
@@ -105,8 +105,8 @@ namespace ArmyBuilder.Test.ViewModels
         {
             // arrange
             var slot = new Slot { ItemClass = ItemClass.MeleeWeapon, Editable = true, Magic = true };
-            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
-            var dwarfArmyList = new ArmyList { Id = 14, Name = "Dwarf" };
+            var highElfArmyList = new ArmyListDigest { Id = 7, Name = "High Elf" };
+            var dwarfArmyList = new ArmyListDigest { Id = 14, Name = "Dwarf" };
             var meleeWeapons = new List<MeleeWeapon>
             {
                 new MeleeWeapon { Id = 1, Name = "Magic Sword", ArmyList = highElfArmyList, Magic = true },
@@ -120,7 +120,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            var result = armyListLoader.selection(slot, new ArmyList { Id = 7 });
+            var result = armyListLoader.selection(slot, new ArmyListDigest { Id = 7 });
 
             // assert
             result.Should().HaveCount(2);
@@ -133,8 +133,8 @@ namespace ArmyBuilder.Test.ViewModels
         {
             // arrange
             var slot = new Slot { ItemClass = ItemClass.MeleeWeapon, Editable = true, Magic = false };
-            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
-            var dwarfArmyList = new ArmyList { Id = 14, Name = "Dwarf" };
+            var highElfArmyList = new ArmyListDigest { Id = 7, Name = "High Elf" };
+            var dwarfArmyList = new ArmyListDigest { Id = 14, Name = "Dwarf" };
             var meleeWeapons = new List<MeleeWeapon>
             {
                 new MeleeWeapon { Id = 1, Name = "Magic Sword", ArmyList = highElfArmyList, Magic = true },
@@ -148,7 +148,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            var result = armyListLoader.selection(slot, new ArmyList { Id = 7 });
+            var result = armyListLoader.selection(slot, new ArmyListDigest { Id = 7 });
 
             // assert
             result.Should().HaveCount(1);
@@ -160,8 +160,8 @@ namespace ArmyBuilder.Test.ViewModels
         {
             // arrange
             var slot = new Slot { ItemClass = ItemClass.MeleeWeapon, Editable = true, Magic = false };
-            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
-            var dwarfArmyList = new ArmyList { Id = 14, Name = "Dwarf" };
+            var highElfArmyList = new ArmyListDigest { Id = 7, Name = "High Elf" };
+            var dwarfArmyList = new ArmyListDigest { Id = 14, Name = "Dwarf" };
             var meleeWeapons = new List<MeleeWeapon>
             {
                 new MeleeWeapon { Id = 1, Name = "Magic Sword", ArmyList = highElfArmyList, Magic = true },
@@ -177,7 +177,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            List<Item> selection = armyListLoader.selection(slot, new ArmyList { Id = 7 });
+            List<Item> selection = armyListLoader.selection(slot, new ArmyListDigest { Id = 7 });
 
             // assert
             var resultNames = selection.Select(i => i.Name).ToList();
@@ -202,7 +202,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            var result = armyListLoader.selection(slot, new ArmyList { Id = 7 });
+            var result = armyListLoader.selection(slot, new ArmyListDigest { Id = 7 });
 
             // assert
             result.Should().HaveCount(2);
@@ -230,7 +230,7 @@ namespace ArmyBuilder.Test.ViewModels
             var armyListLoader = new ArmyListLoader(mockRepository.Object);
 
             // act
-            var result = armyListLoader.selection(slot, new ArmyList { Id = 7 });
+            var result = armyListLoader.selection(slot, new ArmyListDigest { Id = 7 });
 
             // assert
             result.Should().HaveCount(5);

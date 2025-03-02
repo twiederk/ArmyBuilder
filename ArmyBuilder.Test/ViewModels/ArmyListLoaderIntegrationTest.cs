@@ -33,7 +33,7 @@ namespace ArmyBuilder.Test.ViewModels
                 ItemClass = ItemClass.MeleeWeapon,
                 Editable = false,
             };
-            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
+            var highElfArmyList = new ArmyListDigest { Id = 7, Name = "High Elf" };
 
             // act
             var result = _armyListLoader.selection(slot, highElfArmyList);
@@ -53,7 +53,7 @@ namespace ArmyBuilder.Test.ViewModels
                 Editable = true,
                 Selection = new List<Item>() { meleeWeapon }
             };
-            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
+            var highElfArmyList = new ArmyListDigest { Id = 7, Name = "High Elf" };
 
             // act
             var result = _armyListLoader.selection(slot, highElfArmyList);
@@ -73,7 +73,7 @@ namespace ArmyBuilder.Test.ViewModels
                 Editable = true,
                 Magic = true
             };
-            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
+            var highElfArmyList = new ArmyListDigest { Id = 7, Name = "High Elf" };
 
             // act
             var result = _armyListLoader.selection(slot, highElfArmyList);
@@ -92,7 +92,7 @@ namespace ArmyBuilder.Test.ViewModels
                 Editable = true,
                 Magic = false
             };
-            var highElfArmyList = new ArmyList { Id = 7, Name = "High Elf" };
+            var highElfArmyList = new ArmyListDigest { Id = 7, Name = "High Elf" };
 
             // act
             var result = _armyListLoader.selection(slot, highElfArmyList);
@@ -112,7 +112,7 @@ namespace ArmyBuilder.Test.ViewModels
 
             // assert
             Equipment grenzreiterEquipment = equipment.First(e => e.Id == 46808);
-            grenzreiterEquipment.Slots.Should().HaveCount(4);
+            grenzreiterEquipment.Slots.Should().HaveCount(6);
             Slot meleeWeaponSlot = grenzreiterEquipment.Slots.First(s => s.Id == 4859);
             meleeWeaponSlot.Selection.Should().HaveCount(2);
         }

@@ -14,17 +14,17 @@ namespace ArmyBuilder.Dao
             _dbConnection = dbConnection;
         }
 
-        public List<ArmyList> ArmyLists()
+        public List<ArmyListDigest> ArmyLists()
         {
-            return _dbConnection.GetAll<ArmyList>().ToList();
+            return _dbConnection.GetAll<ArmyListDigest>().ToList();
         }
 
         public List<MainModel> MainModels(int armyListId)
         {
             var sql = @"
                 SELECT 
-                    mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points as OldPoints, mm.Uniquely,
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount, sm.mountable,
+                    mm.id, mm.army_category_id as ArmyCategory, mm.name, mm.description, mm.points as OldPoints, mm.Uniquely, mm.standard_bearer AS StandardBearer, mm.musician,
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.movement_type_id as MovementType, sm.mount, sm.mountable,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
                     main_model mm
@@ -67,7 +67,7 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount, sm.mountable,
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.movement_type_id as MovementType, sm.mount, sm.mountable,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.strength, p.toughness, p.wounds, p.initiative, p.attacks, p.moral, p.points, p.save
                 FROM 
                     single_model sm
@@ -102,8 +102,8 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, mm.Uniquely,
-                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.standard_bearer as StandardBearer, sm.musician, sm.movement_type_id as MovementType, sm.mount, sm.mountable,
+                    mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, mm.Uniquely, mm.standard_bearer AS StandardBearer, mm.musician,
+                    sm.Id, sm.Name, sm.Description, sm.profile_id as ProfileId, sm.movement_type_id as MovementType, sm.mount, sm.mountable,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
                     main_model mm

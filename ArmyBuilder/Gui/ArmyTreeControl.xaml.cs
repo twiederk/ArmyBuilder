@@ -115,7 +115,7 @@ namespace ArmyBuilder
             {
                 var mainModel = mainModelTreeNode.MainModel;
                 mainModel.IncreaseCount();
-                UpdateMainModelCount(mainModelTreeNode, mainModel);
+                UpdateMainModel(mainModelTreeNode, mainModel);
             }
         }
 
@@ -125,14 +125,14 @@ namespace ArmyBuilder
             {
                 var mainModel = mainModelTreeNode.MainModel;
                 mainModel.DecreaseCount();
-                UpdateMainModelCount(mainModelTreeNode, mainModel);
+                UpdateMainModel(mainModelTreeNode, mainModel);
             }
         }
 
-        private void UpdateMainModelCount(MainModelTreeNode mainModelTreeNode, MainModel mainModel)
+        private void UpdateMainModel(MainModelTreeNode mainModelTreeNode, MainModel mainModel)
         {
             var armyViewModel = DataContext as ArmyViewModel;
-            armyViewModel.UpdateMainModel(mainModelTreeNode.Unit.Id, mainModel.Id, mainModel.Count);
+            armyViewModel.UpdateMainModel(mainModelTreeNode.Unit.Id, mainModel);
             mainModelTreeNode.UpdateCount();
         }
 
@@ -144,6 +144,15 @@ namespace ArmyBuilder
                 armyViewModel.UpdateSlotItem(slotViewModel.Slot);
                 var equipmentTreeNode = itemsControl.DataContext as EquipmentTreeNode;
                 equipmentTreeNode.UpdateEquipment();
+            }
+        }
+
+        private void TrooperCheckbox_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is CheckBox checkbox && checkbox.Tag is MainModelTreeNode mainModelTreeNode)
+            {
+                var mainModel = mainModelTreeNode.MainModel;
+                UpdateMainModel(mainModelTreeNode, mainModel);
             }
         }
 

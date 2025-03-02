@@ -22,7 +22,7 @@ namespace ArmyBuilder
 
             IArmyBuilderRepository repository = serviceProvider.GetRequiredService<IArmyBuilderRepository>();
 
-            List<ArmyList> armyLists = repository.ArmyLists();
+            List<ArmyListDigest> armyLists = repository.ArmyLists();
             var sortedArmyLists = armyLists.OrderBy(al => al.Name).ToList();
 
             lstArmyLists.ItemsSource = sortedArmyLists;
@@ -43,7 +43,7 @@ namespace ArmyBuilder
                 return;
             }
 
-            if (lstArmyLists.SelectedItem is ArmyList selectedArmyList)
+            if (lstArmyLists.SelectedItem is ArmyListDigest selectedArmyList)
             {
                 _armyViewModel.SelectedArmyList = selectedArmyList;
                 Army army = _armyViewModel.CreateArmy(selectedArmyList.Name, selectedArmyList);

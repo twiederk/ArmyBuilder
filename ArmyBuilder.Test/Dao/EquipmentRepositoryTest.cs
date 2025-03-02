@@ -67,7 +67,7 @@ namespace ArmyBuilder.Test.Dao
             chaosShield.Id.Should().Be(5784);
             chaosShield.Name.Should().Be("Magische Kriegsbemalung");
             chaosShield.Description.Should().Be("RW von 3+ gegen Beschuß, 5+ im Nahkampf.");
-            chaosShield.ArmyList.Should().Be(new ArmyList() { Id = 9, Name = "Orks & Goblins" });
+            chaosShield.ArmyList.Should().Be(new ArmyListDigest() { Id = 9, Name = "Orks & Goblins" });
             chaosShield.Magic.Should().BeTrue();
             chaosShield.Points.Should().Be(5);
         }
@@ -122,7 +122,7 @@ namespace ArmyBuilder.Test.Dao
             Equipment equipment = equipmentRepository.Equipment(spearmenId);
 
             // assert
-            equipment.Slots.Should().HaveCount(3);
+            equipment.Slots.Should().HaveCount(5);
 
             Slot meleeWeaponSlot = equipment.Slots.First(slot => slot.Id == 2220);
             meleeWeaponSlot.Item.Should().NotBeNull();
@@ -195,12 +195,12 @@ namespace ArmyBuilder.Test.Dao
             List<Equipment> equipments = equipmentRepository.ArmyListEquipment(armyListId);
 
             // assert
-            equipments.Should().HaveCount(56);
+            equipments.Should().HaveCount(32);
 
             // spearmen equipment
             Equipment spearmenEquipment = equipments.First(e => e.Id == spearmentSingleModelId);
             spearmenEquipment.Should().NotBeNull();
-            spearmenEquipment.Slots.Should().HaveCount(3);
+            spearmenEquipment.Slots.Should().HaveCount(5);
             Slot meleeWeaponSlot = spearmenEquipment.Slots.First(s => s.Id == 2220);
             meleeWeaponSlot.Magic.Should().BeFalse();
 
@@ -224,7 +224,7 @@ namespace ArmyBuilder.Test.Dao
             List<Equipment> equipments = equipmentRepository.ArmyEquipment(armyId);
 
             // assert
-            equipments.Should().HaveCount(16);
+            equipments.Should().HaveCount(9);
 
             // spearmen equipment
             Equipment spearmenEquipment = equipments.First(e => e.Id == spearmenSingleModelId);

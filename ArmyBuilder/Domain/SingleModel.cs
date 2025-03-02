@@ -10,14 +10,11 @@ namespace ArmyBuilder.Domain
         public string Name { get; set; }
         public string Description { get; set; }
         public Profile Profile { get; set; }
-        public bool Musician { get; set; }
-        public bool StandardBearer { get; set; }
         public MovementType MovementType { get; set; }
         public bool Mount { get; set; }
         public bool Mountable { get; set; }
         public Equipment Equipment { get; set; } = new Equipment();
         public String Save => CalculateSave();
-        public MainModel MainModel { get; set; }
 
         public String CalculateSave()
         {
@@ -52,31 +49,22 @@ namespace ArmyBuilder.Domain
             return Id.GetHashCode();
         }
 
-        public bool isCharacter()
+        public float TotalPointsMagicItems()
         {
-            return MainModel.ArmyCategory == ArmyCategory.Character;
+            return Equipment.MagicItemsPoints();
         }
 
-        public float TotalPoints()
-        {
-            if (isCharacter())
-            {
-                return Profile.Points + Equipment.ItemsPoints();
-            }   
-            float points = Profile.Points + Equipment.ItemsPoints();
-            if (MovementType == MovementType.OnFoot && (StandardBearer || Musician))
-            {
-                points = Profile.Points * 2 + Equipment.NonMagicItemsPoints() * 2 + Equipment.MagicItemsPoints();
-            }
-            if (MovementType == MovementType.OnMount && !(StandardBearer || Musician))
-            {
-                points = Profile.Points * 2 + Equipment.NonMagicItemsPoints() * 2 + Equipment.MagicItemsPoints();
-            }
-            if (MovementType == MovementType.OnMount && (StandardBearer || Musician))
-            {
-                points = Profile.Points * 4 + Equipment.NonMagicItemsPoints() * 4 + Equipment.MagicItemsPoints();
-            }
-            return points;
+        public float ProfilePoints() {
+            return Profile.Points;
         }
+
+        public float BasePoints() {
+            return Profile.Points + Equipment.NonMagicItemsPoints();
+        }
+
+        public float MagicPoints() {
+            return Equipment.MagicItemsPoints();
+        }
+
     }
 }

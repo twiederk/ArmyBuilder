@@ -19,7 +19,7 @@ namespace ArmyBuilder.Test.Dao
         public void should_read_all_army_lists_when_connected_to_SQLite_database()
         {
             // act
-            List<ArmyList> armyLists = armyListRepository.ArmyLists();
+            List<ArmyListDigest> armyLists = armyListRepository.ArmyLists();
 
             // assert
             armyLists.Should().HaveCount(15);
@@ -35,7 +35,7 @@ namespace ArmyBuilder.Test.Dao
             List<MainModel> mainModels = armyListRepository.MainModels(armyListId);
 
             // assert
-            mainModels.Should().HaveCount(66);
+            mainModels.Should().HaveCount(42);
 
             // Schwertmeister von Hoeth
             var mainModel = mainModels.First(m => m.Id == 11901);
@@ -46,8 +46,6 @@ namespace ArmyBuilder.Test.Dao
 
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
 
@@ -73,8 +71,6 @@ namespace ArmyBuilder.Test.Dao
 
             singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnMount);
             singleModel.Mount.Should().BeFalse();
 
@@ -100,8 +96,6 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
             singleModel.Profile.Movement.Should().Be(5);
@@ -126,8 +120,6 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnMount);
             singleModel.Mount.Should().BeFalse();            
             singleModel.Profile.Movement.Should().Be(5);
@@ -153,8 +145,6 @@ namespace ArmyBuilder.Test.Dao
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.StandardBearer.Should().BeFalse();
-            singleModel.Musician.Should().BeFalse();
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
             var profile = singleModel.Profile;

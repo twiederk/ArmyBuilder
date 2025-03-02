@@ -11,7 +11,7 @@ namespace ArmyBuilder.Dao
         void DeleteArmy(int id);
         Unit CreateUnit(int armyId, Unit unit);
         MainModel AddMainModel(int unitId, MainModel mainModel);
-        void UpdateMainModel(int unitId, int mainModelId, int count);
+        void UpdateMainModel(int unitId, MainModel mainModel);
         SingleModel AddSingleModel(int main_model_id, SingleModel singleModel);
         SingleModel UpdateSingleModel(SingleModel singleModel);
         void DeleteUnit(int unitId);

@@ -8,7 +8,7 @@ namespace ArmyBuilder.ViewModels
     public class ArmyViewModel : INotifyPropertyChanged
     {
         private readonly IArmyBuilderRepository _repository;
-        private ArmyList _selectedArmyList;
+        private ArmyListDigest _selectedArmyList;
         private MainModel _selectedMainModel;
         private List<MainModel> _characters;
         private List<MainModel> _troopers;
@@ -23,7 +23,7 @@ namespace ArmyBuilder.ViewModels
 
         public ArmyTreeViewModel ArmyTreeViewModel { get; set; }
         
-        public ArmyList SelectedArmyList
+        public ArmyListDigest SelectedArmyList
         {
             get => _selectedArmyList;
             set
@@ -92,7 +92,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public Army CreateArmy(string armyListName, ArmyList armyList)
+        public Army CreateArmy(string armyListName, ArmyListDigest armyList)
         {
             Army army = new Army($"{armyListName} Armee");
             army.ArmyList = armyList;
@@ -114,9 +114,9 @@ namespace ArmyBuilder.ViewModels
             _repository.AddMainModel(unitId, mainModel);
         }
 
-        public void UpdateMainModel(int unitId, int mainModelId, int count)
+        public void UpdateMainModel(int unitId, MainModel mainModel)
         {
-            _repository.UpdateMainModel(unitId, mainModelId, count);
+            _repository.UpdateMainModel(unitId, mainModel);
         }
 
         public void UpdateSingleModel(SingleModel singleModel)
@@ -128,12 +128,12 @@ namespace ArmyBuilder.ViewModels
         {
             if (_selectedArmyList != null)
             {
-                List<MainModel> mainModels = new ArmyListLoader(_repository).LoadArmyList(_selectedArmyList);
+                ArmyList armyList = new ArmyListLoader(_repository).LoadArmyList(_selectedArmyList);
 
-                Characters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
-                Troopers = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
-                WarMachines = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).ToList();
-                Monsters = mainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Monster).OrderBy(mm => mm.Name).ToList();
+                Characters = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
+                Troopers = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
+                WarMachines = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).ToList();
+                Monsters = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Monster).OrderBy(mm => mm.Name).ToList();
                 Mounts = _repository.Mounts(_selectedArmyList.Id).OrderBy(mm => mm.Name).ToList();
 
             }

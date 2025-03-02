@@ -19,7 +19,7 @@ namespace ArmyBuilder.Dao
             _equipmentRepository = new EquipmentRepositorySqlite(dbConnection);
         }
 
-        public List<ArmyList> ArmyLists()
+        public List<ArmyListDigest> ArmyLists()
         {
             return _armyListRepository.ArmyLists();
         }
@@ -68,8 +68,9 @@ namespace ArmyBuilder.Dao
             return _armyRepository.AddMainModel(unitId, mainModel);
         }
 
-        public void UpdateMainModel(int unitId, int mainModelId, int count) {
-            _armyRepository.UpdateMainModel(unitId, mainModelId, count);
+        public void UpdateMainModel(int unitId, MainModel mainModel)
+        {
+            _armyRepository.UpdateMainModel(unitId, mainModel);
         }
 
         public SingleModel AddSingleModel(int main_model_id, SingleModel singleModel) {

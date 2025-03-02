@@ -5,6 +5,8 @@ using System;
 using System.Diagnostics;
 using ArmyBuilder.Domain;
 using ArmyBuilder.Print;
+using System.IO;
+using System.Windows;
 
 namespace ArmyBuilder
 {
@@ -19,8 +21,15 @@ namespace ArmyBuilder
             //document.GeneratePdfAndShow();
 
             String filename = "temp_army.pdf";
-            document.GeneratePdf(filename);
-            Process.Start(new ProcessStartInfo(filename) { UseShellExecute = true });
+            try
+            {
+                document.GeneratePdf(filename);
+                Process.Start(new ProcessStartInfo(filename) { UseShellExecute = true });
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Das PDF konnte nicht erstellt werden.\nBitte prüfe, ob die PDF Datei noch geöffnet ist.");
+            }            
         }
 
     }

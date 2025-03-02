@@ -1,5 +1,4 @@
-
-
+using System.Security.Permissions;
 
 namespace ArmyBuilder.Domain
 {
@@ -10,14 +9,62 @@ namespace ArmyBuilder.Domain
         public string Name { get; set; }
         public string Description { get; set; }
         public float OldPoints { get; set; }
-        public float NewPoints => Points();
+        public float NewPoints => TotalPoints();
         public int Count { get; set; } = 1;
         public bool Uniquely { get; set; }
+        public bool Musician { get; set; }
+        public bool StandardBearer { get; set; }
         public List<SingleModel> SingleModels { get; set; } = new List<SingleModel>();
 
         public float TotalPoints()
         {
-            return Points() * Count;
+            if (ArmyCategory == ArmyCategory.Trooper) {
+                return TotalPointsTrooper();
+            }
+            float mainModelPoints = SingleModels.Sum(sm => sm.BasePoints() + sm.MagicPoints());
+            return mainModelPoints * Count;
+        }
+
+        public float TotalPointsTrooper()
+        {
+            float mainModelPoints = ModelPoints();
+            float magicPoints = SingleModels.Sum(sm => sm.MagicPoints());
+            int count = modelCount();
+            return mainModelPoints * count + magicPoints;
+        }
+
+        public float ModelPoints() {
+            float modelPoints = 0;
+            foreach (var singleModel in SingleModels)
+            {
+                if (singleModel.MovementType == MovementType.OnMount)
+                {
+                    modelPoints += singleModel.BasePoints() * 2;
+                }
+                else
+                {
+                    modelPoints += singleModel.BasePoints();
+                }
+            }
+            return modelPoints;
+        }
+
+        private int modelCount() {
+            int count = Count;
+            if (StandardBearer) {
+                count += 2;
+            }
+            if (Musician) {
+                count += 2;
+            }
+            return count;
+        }
+
+        public float Points() {
+            if (ArmyCategory == ArmyCategory.Trooper) {
+                return ModelPoints();
+            }
+            return SingleModels.Sum(sm => sm.BasePoints() + sm.MagicPoints());
         }
 
         public int IncreaseCount()
@@ -34,15 +81,9 @@ namespace ArmyBuilder.Domain
             return Count;
         }
 
-        public float Points()
-        {
-            return SingleModels.Sum(sm => sm.TotalPoints());
-        }
-
         public void AddSingleModel(SingleModel singleModel)
         {
             SingleModels.Add(singleModel);
-            singleModel.MainModel = this;
         }
 
         public void AddMount(SingleModel singleModel)
@@ -56,7 +97,7 @@ namespace ArmyBuilder.Domain
 
         public MainModel Clone()
         {
-            return new MainModel
+            MainModel clone = new MainModel
             {
                 Id = this.Id,
                 ArmyCategory = this.ArmyCategory,
@@ -64,16 +105,15 @@ namespace ArmyBuilder.Domain
                 Description = this.Description,
                 OldPoints = this.OldPoints,
                 Uniquely = this.Uniquely,
+                StandardBearer = this.StandardBearer,
+                Musician = this.Musician,
                 SingleModels = this.SingleModels.Select(sm => new SingleModel
                 {
                     Id = sm.Id,
                     Name = sm.Name,
                     Description = sm.Description,
-                    StandardBearer = sm.StandardBearer,
-                    Musician = sm.Musician,
                     MovementType = sm.MovementType,
                     Mount = sm.Mount,
-                    MainModel = this,
                     Profile = new Profile
                     {
                         Id = sm.Profile.Id,
@@ -105,6 +145,7 @@ namespace ArmyBuilder.Domain
                     }
                 }).ToList()
             };
+            return clone;
         }
 
         public bool isCustomizable()
