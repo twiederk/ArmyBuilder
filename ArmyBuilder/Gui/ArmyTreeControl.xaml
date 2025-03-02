@@ -98,7 +98,6 @@
 
                     <DataTemplate DataType="{x:Type viewModels:EquipmentTreeNode}">
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Name}" />
                             <ItemsControl ItemsSource="{Binding SlotViews}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
