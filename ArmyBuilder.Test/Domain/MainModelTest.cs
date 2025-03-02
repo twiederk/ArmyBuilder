@@ -49,14 +49,25 @@ namespace ArmyBuilder.Test.Domain
         public void should_clone_main_model()
         {
             // arrange
-            var model = new MainModel { Uniquely = true, StandardBearer = true, Musician = true };
-            model.AddSingleModel(new SingleModel { Profile = new Profile { Id = 1, Points = 10 } });
-            model.AddSingleModel(new SingleModel
-            {
-                Profile = new Profile { Id = 2, Points = 20 },
-                MovementType = MovementType.OnMount,
-                Mount = true
-            });
+            var model = new MainModel { 
+                Uniquely = true,
+                StandardBearer = true,
+                Musician = true,
+                SingleModels =
+                {
+                    new SingleModel
+                    {
+                        Count = 2,
+                        Profile = new Profile { Id = 1, Points = 10 }
+                    },
+                    new SingleModel
+                    {
+                        Profile = new Profile { Id = 2, Points = 20 },
+                        MovementType = MovementType.OnMount,
+                        Mount = true
+                    }
+                }
+            };
 
             // act
             var clone = model.Clone();
@@ -65,8 +76,9 @@ namespace ArmyBuilder.Test.Domain
             clone.Uniquely.Should().Be(true);
             clone.StandardBearer.Should().BeTrue();
             clone.Musician.Should().BeTrue();
-
             clone.SingleModels.Should().HaveCount(2);
+
+            clone.SingleModels[0].Count.Should().Be(2);
             clone.SingleModels[0].Profile.Points.Should().Be(10);
 
             clone.SingleModels[1].Profile.Id.Should().Be(2);
