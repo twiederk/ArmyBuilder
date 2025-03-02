@@ -38,7 +38,7 @@ INSERT INTO army_main_model VALUES(28,11,3,'Drache','Entsetzen, Fliegen, Drachen
 
 
 INSERT INTO army_single_model VALUES(1,11906,'Streitwagenlenker',1,'Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,0,0,1);
-INSERT INTO army_single_model VALUES(2,12034,'Elfenroß',1,'',0,1,0,1);
+INSERT INTO army_single_model VALUES(2,12034,'Elfenroß',1,'',0,1,0,2);
 INSERT INTO army_single_model VALUES(3,12159,'Streitwagen',1,'',0,0,0,1);
 INSERT INTO army_single_model VALUES(4,11906,'Grenzreiter',2,'Lockere Formation, Zusätz. Marschbewegung, Vorzügliche Reiter, Schießen und Flüchten.',1,0,0,1);
 INSERT INTO army_single_model VALUES(5,12034,'Elfenroß',2,'',0,1,0,1);
@@ -61,7 +61,7 @@ INSERT INTO army_single_model VALUES(37,11507,'Armeestandartenträger',22,'',1,0
 INSERT INTO army_single_model VALUES(38,12034,'Elfenroß',22,'',0,1,1,1);
 INSERT INTO army_single_model VALUES(39,11512,'Großzauberer',23,'',0,0,0,1);
 INSERT INTO army_single_model VALUES(40,11906,'Bogenschütze',24,'Bürgermiliz',0,0,0,1);
-INSERT INTO army_single_model VALUES(43,11906,'Geschützbedienung',27,'',0,0,0,1);
+INSERT INTO army_single_model VALUES(43,11906,'Geschützbedienung',27,'',0,0,0,2);
 INSERT INTO army_single_model VALUES(44,12138,'Speerschleuder',27,'',0,0,0,1);
 INSERT INTO army_single_model VALUES(45,12416,'Drache',28,'Entsetzen, Fliegen, Drachenatem, Schuppige Haut',0,0,0,1);
 
