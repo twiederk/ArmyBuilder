@@ -114,6 +114,7 @@ namespace ArmyBuilder.Domain
                     Description = sm.Description,
                     MovementType = sm.MovementType,
                     Mount = sm.Mount,
+                    Count = sm.Count,
                     Profile = new Profile
                     {
                         Id = sm.Profile.Id,

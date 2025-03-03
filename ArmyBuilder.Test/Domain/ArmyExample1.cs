@@ -126,7 +126,8 @@ namespace ArmyBuilder.Test.Domain
                                         Wounds = 3,
                                         Initiative = 9,
                                         Attacks = 4,
-                                        Moral = 10
+                                        Moral = 10,
+                                        Points = 160
                                     },
                                     Equipment = new Equipment
                                     {
@@ -186,7 +187,8 @@ namespace ArmyBuilder.Test.Domain
                                         Wounds = 1,
                                         Initiative = 6,
                                         Attacks = 1,
-                                        Moral = 8
+                                        Moral = 8,
+                                        Points = 8
                                     },
                                     Equipment = new Equipment
                                     {
@@ -253,7 +255,8 @@ namespace ArmyBuilder.Test.Domain
                                         Wounds = 3,
                                         Initiative = 0,
                                         Attacks = 0,
-                                        Moral = 0
+                                        Moral = 0,
+                                        Points = 80
                                     },
                                     Equipment = new Equipment
                                     {
@@ -284,7 +287,8 @@ namespace ArmyBuilder.Test.Domain
                                         Wounds = 1,
                                         Initiative = 7,
                                         Attacks = 1,
-                                        Moral = 8
+                                        Moral = 8,
+                                        Points = 10
                                     },
                                     Equipment = new Equipment
                                     {
@@ -337,7 +341,8 @@ namespace ArmyBuilder.Test.Domain
                                         Wounds = 1,
                                         Initiative = 4,
                                         Attacks = 1,
-                                        Moral = 5
+                                        Moral = 5,
+                                        Points = 3
                                     }
                                 }
                             }

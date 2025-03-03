@@ -101,9 +101,9 @@ namespace ArmyBuilder.Test.Domain
             // assert
             armyCategoryPoints.Character.Should().Be(160);
             armyCategoryPoints.Trooper.Should().Be(240);
-            armyCategoryPoints.WarMachine.Should().Be(72);
+            armyCategoryPoints.WarMachine.Should().Be(100);
             armyCategoryPoints.Monster.Should().Be(0);
-            armyCategoryPoints.Total.Should().Be(472);
+            armyCategoryPoints.Total.Should().Be(500);
         }
 
     }

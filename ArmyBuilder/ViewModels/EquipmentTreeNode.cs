@@ -4,7 +4,6 @@ namespace ArmyBuilder.ViewModels
 {
     public class EquipmentTreeNode
     {
-        public string Name => "Ausrüstung";
         public List<SlotViewModel> SlotViews { get; set; } = new List<SlotViewModel>();
         private SingleModelTreeNode _parent;
         private Equipment _equipment;

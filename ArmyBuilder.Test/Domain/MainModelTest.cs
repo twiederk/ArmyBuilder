@@ -49,14 +49,25 @@ namespace ArmyBuilder.Test.Domain
         public void should_clone_main_model()
         {
             // arrange
-            var model = new MainModel { Uniquely = true, StandardBearer = true, Musician = true };
-            model.AddSingleModel(new SingleModel { Profile = new Profile { Id = 1, Points = 10 } });
-            model.AddSingleModel(new SingleModel
-            {
-                Profile = new Profile { Id = 2, Points = 20 },
-                MovementType = MovementType.OnMount,
-                Mount = true
-            });
+            var model = new MainModel { 
+                Uniquely = true,
+                StandardBearer = true,
+                Musician = true,
+                SingleModels =
+                {
+                    new SingleModel
+                    {
+                        Count = 2,
+                        Profile = new Profile { Id = 1, Points = 10 }
+                    },
+                    new SingleModel
+                    {
+                        Profile = new Profile { Id = 2, Points = 20 },
+                        MovementType = MovementType.OnMount,
+                        Mount = true
+                    }
+                }
+            };
 
             // act
             var clone = model.Clone();
@@ -65,8 +76,9 @@ namespace ArmyBuilder.Test.Domain
             clone.Uniquely.Should().Be(true);
             clone.StandardBearer.Should().BeTrue();
             clone.Musician.Should().BeTrue();
-
             clone.SingleModels.Should().HaveCount(2);
+
+            clone.SingleModels[0].Count.Should().Be(2);
             clone.SingleModels[0].Profile.Points.Should().Be(10);
 
             clone.SingleModels[1].Profile.Id.Should().Be(2);
@@ -428,7 +440,7 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
-        public void should_calculate_points_of_war_machine()
+        public void should_calculate_points_of_organ_cannon()
         {
             // arrange
             var mainModel = new MainModel
@@ -439,18 +451,16 @@ namespace ArmyBuilder.Test.Domain
                     new SingleModel
                     {
                         Name = "Crew",
-                        Profile = new Profile { Points = 10 },
+                        Count = 3,
+                        Profile = new Profile { Points = 8 },
                         Equipment = new Equipment
                         {
-                            Slots =
-                            {
-                                new Slot { Item = new Armor { Name = "light Armor", Points = 1 } },
-                            }
+                            Slots = { new Slot { Item = new Armor { Name = "light Armor", Points = 2 } },                           }
                         }
                     },
                     new SingleModel {
                         Name = "Cannon",
-                        Profile = new Profile { Points = 50}
+                        Profile = new Profile { Points = 40}
                     }
                 }
             };
@@ -459,7 +469,82 @@ namespace ArmyBuilder.Test.Domain
             float points = mainModel.TotalPoints();
 
             // assert
-            points.Should().Be(61);
+            points.Should().Be(70);
+        }
+
+        [Fact]
+        public void should_calculate_points_of_repeating_bolt_thrower()
+        {
+            // arrange
+            var mainModel = new MainModel
+            { 
+                ArmyCategory = ArmyCategory.WarMachine,
+                SingleModels =
+                { 
+                    new SingleModel
+                    {
+                        Name = "Crew",
+                        Count = 2,
+                        Profile = new Profile { Points = 8 },
+                        Equipment = new Equipment
+                        {
+                            Slots = { new Slot { Item = new Armor { Name = "light Armor", Points = 2 } },                           }
+                        }
+                    },
+                    new SingleModel {
+                        Name = "Bolt Thrower",
+                        Profile = new Profile { Points = 80}
+                    }
+                }
+            };
+            
+            // act
+            float points = mainModel.TotalPoints();
+
+            // assert
+            points.Should().Be(100);
+        }
+
+        [Fact]
+        public void should_calculate_points_of_tiranoc_chariot_with_two_elves()
+        {
+            // arrange
+            var mainModel = new MainModel
+            { 
+                ArmyCategory = ArmyCategory.WarMachine,
+                SingleModels =
+                { 
+                    new SingleModel
+                    {
+                        Name = "Crew",
+                        Count = 2,
+                        Profile = new Profile { Points = 10 },
+                        Equipment = new Equipment
+                        {
+                            Slots =
+                            { 
+                                new Slot { Item = new RangedWeapon { Name = "Bow", Points = 2 } },          
+                                new Slot { Item = new Armor { Name = "light Armor", Points = 2 } }
+                            }
+                        }
+                    },
+                    new SingleModel {
+                        Name = "Chariot",
+                        Profile = new Profile { Points = 50}
+                    },
+                    new SingleModel {
+                        Name = "Horse",
+                        Count = 2,
+                        Profile = new Profile { Points = 3}
+                    }
+                }
+            };
+            
+            // act
+            float points = mainModel.TotalPoints();
+
+            // assert
+            points.Should().Be(84);
         }
 
         [Fact]

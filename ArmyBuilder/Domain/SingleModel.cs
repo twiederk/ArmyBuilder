@@ -13,6 +13,7 @@ namespace ArmyBuilder.Domain
         public MovementType MovementType { get; set; }
         public bool Mount { get; set; }
         public bool Mountable { get; set; }
+        public int Count { get; set; } = 1;
         public Equipment Equipment { get; set; } = new Equipment();
         public String Save => CalculateSave();
 
@@ -33,6 +34,11 @@ namespace ArmyBuilder.Domain
                 6 => "6",
                 _ => $"{save}+"
             };
+        }
+
+        public String DisplayName()
+        {
+            return $"{Name} ({Profile.Points})";
         }
 
         public override bool Equals(object obj)
@@ -59,7 +65,7 @@ namespace ArmyBuilder.Domain
         }
 
         public float BasePoints() {
-            return Profile.Points + Equipment.NonMagicItemsPoints();
+            return (Profile.Points + Equipment.NonMagicItemsPoints()) * Count;
         }
 
         public float MagicPoints() {
