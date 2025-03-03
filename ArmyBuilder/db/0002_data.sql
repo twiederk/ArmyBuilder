@@ -1987,7 +1987,7 @@ INSERT INTO single_model VALUES(46825,11915,'Todesgeier',11915,'Immun gegen Psyc
 INSERT INTO single_model VALUES(46826,11916,'Gespenst',11916,'',0,0,0,1);
 INSERT INTO single_model VALUES(46827,11917,'Chaosritter',11917,'',0,0,0,1);
 INSERT INTO single_model VALUES(46828,11918,'Chaoskrieger',11918,'',0,0,0,1);
-INSERT INTO single_model VALUES(46829,11794,'Thronträger',11474,'',0,0,0,1);
+INSERT INTO single_model VALUES(46829,11794,'Thronträger',11474,'',0,0,0,4);
 INSERT INTO single_model VALUES(46830,11795,'Todesklaue',11495,'',0,0,0,1);
 INSERT INTO single_model VALUES(46831,11796,'Kriegspferd',11497,'',0,1,0,1);
 INSERT INTO single_model VALUES(46832,12156,'Kriegspferd',11498,'',0,1,0,1);
@@ -2165,12 +2165,12 @@ INSERT INTO single_model VALUES(47004,12078,'Besatzung',12081,'Beschuß:1 Besatz
 INSERT INTO single_model VALUES(47005,12078,'Besatzung',12082,'',0,0,0,1);
 INSERT INTO single_model VALUES(47006,11888,'Halbling',12083,'',0,0,0,1);
 INSERT INTO single_model VALUES(47007,12084,'Pilot',12084,'Beschuß und Nahkampf: 1-4 Gyrokopter; 5+ Pilot.',0,0,0,1);
-INSERT INTO single_model VALUES(47008,12085,'Mannschaft',12085,'',0,0,0,1);
-INSERT INTO single_model VALUES(47009,12085,'Mannschaft',12086,'',0,0,0,1);
-INSERT INTO single_model VALUES(47010,12085,'Mannschaft',12087,'',0,0,0,1);
-INSERT INTO single_model VALUES(47011,12085,'Mannschaft',12088,'',0,0,0,1);
-INSERT INTO single_model VALUES(47012,12085,'Mannschaft',12089,'',0,0,0,1);
-INSERT INTO single_model VALUES(47013,12085,'Mannschaft',12090,'',0,0,0,1);
+INSERT INTO single_model VALUES(47008,12085,'Mannschaft',12085,'',0,0,0,3);
+INSERT INTO single_model VALUES(47009,12085,'Mannschaft',12086,'',0,0,0,3);
+INSERT INTO single_model VALUES(47010,12085,'Mannschaft',12087,'',0,0,0,3);
+INSERT INTO single_model VALUES(47011,12085,'Mannschaft',12088,'',0,0,0,3);
+INSERT INTO single_model VALUES(47012,12085,'Mannschaft',12089,'',0,0,0,3);
+INSERT INTO single_model VALUES(47013,12085,'Mannschaft',12090,'',0,0,0,3);
 INSERT INTO single_model VALUES(47014,11906,'Geschützbedienung',12091,'',0,0,0,2);
 INSERT INTO single_model VALUES(47015,12092,'Skelettbesatzung',12092,'Jede Einheit die Verluste erleidet muß einen Paniktest ablegen.',0,0,0,1);
 INSERT INTO single_model VALUES(47016,11909,'Skelettkrieger',12093,'Immun gegen Psychologie. Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen.',0,0,0,1);
