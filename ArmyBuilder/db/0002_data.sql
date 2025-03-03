@@ -1958,7 +1958,7 @@ INSERT INTO single_model VALUES(46796,11886,'Flagellanten',11886,'Immun gegen Ps
 INSERT INTO single_model VALUES(46797,11887,'Imperialer Zwerg',11887,'',0,0,0,1);
 INSERT INTO single_model VALUES(46798,11888,'Halbling',11888,'',0,0,0,1);
 INSERT INTO single_model VALUES(46799,11867,'Oger',11889,'',0,0,0,1);
-INSERT INTO single_model VALUES(46800,11890,' Langbart',11890,'',0,0,0,1);
+INSERT INTO single_model VALUES(46800,11890,'Langbart',11890,'',0,0,0,1);
 INSERT INTO single_model VALUES(46801,11891,'Hammerträger',11891,'',0,0,0,1);
 INSERT INTO single_model VALUES(46802,11892,'Eisenbrecher',11892,'',0,0,0,1);
 INSERT INTO single_model VALUES(46803,11893,'Zwergenkrieger',11893,'',0,0,0,1);
