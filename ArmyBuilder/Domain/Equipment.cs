@@ -33,18 +33,8 @@ namespace ArmyBuilder.Domain
             return Slots.Where(slot => slot.Item is Shield).Select(slot => slot.Item as Shield).ToList();
         }
 
-        public override bool Equals(object obj)
-        {
-            if (obj is Equipment other)
-            {
-                return Id == other.Id;
-            }
-            return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return Id.GetHashCode();
+        public List<Item> MagicItems() {
+            return Slots.Where(slot => slot.Item.Magic).Select(slot => slot.Item).ToList();
         }
 
         public float ItemsPoints()
@@ -61,6 +51,21 @@ namespace ArmyBuilder.Domain
         {
             return Slots.Where(slot => slot.Item.Magic).Sum(slot => slot.Item.Points);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Equipment other)
+            {
+                return Id == other.Id;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
     }
 }
 

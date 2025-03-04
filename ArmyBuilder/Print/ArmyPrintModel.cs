@@ -13,5 +13,9 @@ namespace ArmyBuilder.Print
         {
             Army = army;
         }
+
+        public List<Item> AllMagicItems() {
+            return Army.AllMagicItems();
+        }
     }
 }
