@@ -13,6 +13,9 @@ namespace ArmyBuilder
         private readonly IServiceProvider _serviceProvider;
         private readonly ArmyViewModel _armyViewModel;
 
+        private readonly List<int> ARMY_LIST_INCOMPLETE = [ 0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13 ];
+        private readonly List<int> ARMY_LIST_PROFILE_POINTS = [ 14 ];
+
         public NewArmyView(IServiceProvider serviceProvider)
         {
             InitializeComponent();
@@ -43,8 +46,19 @@ namespace ArmyBuilder
                 return;
             }
 
+            
+
             if (lstArmyLists.SelectedItem is ArmyListDigest selectedArmyList)
             {
+
+                if (ARMY_LIST_INCOMPLETE.Contains(selectedArmyList.Id)) {
+                    MessageBox.Show("Die PUNKTWERTE und AUSRÜSTRUNG der Armeeliste is nicht eingepflegt!!!", "Warnung", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
+                if (ARMY_LIST_PROFILE_POINTS.Contains(selectedArmyList.Id)) {
+                    MessageBox.Show("Die AUSRÜSTRUNG der Armeeliste is nicht eingepflegt!!!", "Warnung", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
                 _armyViewModel.SelectedArmyList = selectedArmyList;
                 Army army = _armyViewModel.CreateArmy(selectedArmyList.Name, selectedArmyList);
                 _armyViewModel.ArmyTreeViewModel = new ArmyTreeViewModel(army);

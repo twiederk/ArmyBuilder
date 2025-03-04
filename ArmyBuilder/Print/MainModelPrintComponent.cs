@@ -2,8 +2,6 @@
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using QuestPDF.Fluent;
-using System.Data.Common;
-//using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 
 namespace ArmyBuilder.Print
 {
