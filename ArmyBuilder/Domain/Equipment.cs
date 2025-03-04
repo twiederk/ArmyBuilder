@@ -14,6 +14,10 @@ namespace ArmyBuilder.Domain
             return Slots.Where(slot => slot.Item.Points > 0).Select(slot => $"{slot.Item.Name} ({slot.Item.Points})").ToList();
         }
 
+        public List<Slot> OrderedSlots() {
+            return Slots.OrderBy(slot => slot.ItemClass).ToList();
+        }
+
         public bool IsEmpty()
         {
             return !Slots.Any();
