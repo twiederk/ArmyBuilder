@@ -84,7 +84,7 @@ INSERT INTO profile VALUES(11471,'Zwerge Ungrim Eisenfaust',3,7,6,4,6,3,5,4,10,2
 INSERT INTO profile VALUES(11472,'Zwerge Kragg',3,8,6,10,6,4,5,5,10,309.0,7);
 INSERT INTO profile VALUES(11473,'Zwerge Gotrek',3,8,6,4,5,3,5,4,10,225.0,7);
 INSERT INTO profile VALUES(11474,'Zwerge Thorgrim Grollbart',3,7,6,4,5,3,5,4,10,160.0,7);
-INSERT INTO profile VALUES(11475,'Zwerge Josef Bugman',3,6,5,5,5,2,4,4,10,111.0,7);
+INSERT INTO profile VALUES(11475,'Zwerge Josef Bugman',3,6,5,5,5,2,4,4,10,105.0,7);
 INSERT INTO profile VALUES(11476,'Zwerge Burlock Damminson',3,6,1,7,6,3,4,3,10,130.0,7);
 INSERT INTO profile VALUES(11478,'Zwerge Armeestandarte',3,5,4,4,4,1,3,2,9,98.0,7);
 INSERT INTO profile VALUES(11481,'Zwerge Riesenslayer',3,5,4,4,4,1,3,2,9,63.0,7);
@@ -2914,7 +2914,7 @@ INSERT INTO misc VALUES(5957,'Zwei Säbelzahntiger',66,'',13,1,1);
 INSERT INTO misc VALUES(5960,'Amulett von Itza',25,'',6,1,1);
 INSERT INTO misc VALUES(5961,'Bernstein Amulett',25,'',5,1,1);
 INSERT INTO misc VALUES(5962,'Bluthund des Khorne',250,'',2,1,1);
-INSERT INTO misc VALUES(5966,'Bugmans Bierkrug',50,'',14,1,1);
+INSERT INTO misc VALUES(5966,'Bugmans Bierkrug',25,'',14,1,1);
 INSERT INTO misc VALUES(5968,'Chaos-Homunkulus',50,'',2,1,1);
 INSERT INTO misc VALUES(5972,'Eicheln der Ewigen Eiche',25,'',13,1,1);
 INSERT INTO misc VALUES(5976,'Halsband des Khorne',100,'',1,1,1);
