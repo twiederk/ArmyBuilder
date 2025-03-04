@@ -17,6 +17,10 @@ namespace ArmyBuilder.ViewModels
         public Visibility MountButtonVisibility => GetMountButtonVisibility();
         public Visibility CountButtonVisibility => GetCountButtonVisibility();
         public Visibility TrooperVisiblity => GetTrooperVisibility();
+
+        public string StandardBearerLabel => StandardBearerText();
+        public string MusicianLabel => MusicianText();
+
         public bool StandardBearer
         {
             get => MainModel.StandardBearer;
@@ -86,6 +90,8 @@ namespace ArmyBuilder.ViewModels
         {
             OnPropertyChanged("Name");
             OnPropertyChanged("TotalPoints");
+            OnPropertyChanged("StandardBearerLabel");
+            OnPropertyChanged("MusicianLabel");
             _parent.UpdateTotalPoints();
         }
 
@@ -102,6 +108,14 @@ namespace ArmyBuilder.ViewModels
         public Visibility GetTrooperVisibility()
         {
             return MainModel.ArmyCategory == ArmyCategory.Trooper ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public string StandardBearerText() {
+            return $"Standartenträger ({MainModel.ModelPoints() * 2})";
+        }
+
+        public string MusicianText() {
+            return $"Musiker ({MainModel.ModelPoints() * 2})";
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
