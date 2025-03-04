@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Dapper.Contrib.Extensions;
+﻿using Dapper.Contrib.Extensions;
 
 namespace ArmyBuilder.Domain
 {
@@ -15,9 +14,23 @@ namespace ArmyBuilder.Domain
         public bool Mountable { get; set; }
         public int Count { get; set; } = 1;
         public Equipment Equipment { get; set; } = new Equipment();
-        public String Save => CalculateSave();
 
-        public String CalculateSave()
+        public string Movement => DisplayValue(Profile.Movement);
+        public string WeaponSkill => DisplayValue(Profile.WeaponSkill);
+        public string BallisticSkill => DisplayValue(Profile.BallisticSkill);
+        public string Strength => DisplayValue(Profile.Strength);
+        public string Toughness => DisplayValue(Profile.Toughness);
+        public string Wounds => DisplayValue(Profile.Wounds);
+        public string Initiative => DisplayValue(Profile.Initiative);
+        public string Attacks => DisplayValue(Profile.Attacks);
+        public string Moral => DisplayValue(Profile.Moral);
+        public string Save => DisplaySave();
+
+        public string DisplayValue(int value) {
+            return value > 0 ? value.ToString() : "-";
+        }
+
+        public string DisplaySave()
         {
             int save = Profile.Save;
             int armorSave = Equipment.Armor().Sum(a => a?.Save ?? 0);
@@ -26,7 +39,7 @@ namespace ArmyBuilder.Domain
             return displaySave(save - armorSave - shieldSave - mountSave);
         }
 
-        private String displaySave(int save)
+        private string displaySave(int save)
         {
             return save switch
             {
@@ -36,7 +49,7 @@ namespace ArmyBuilder.Domain
             };
         }
 
-        public String DisplayName()
+        public string DisplayName()
         {
             return $"{Name} ({Profile.Points})";
         }

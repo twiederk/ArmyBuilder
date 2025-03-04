@@ -7,15 +7,15 @@ namespace ArmyBuilder.ViewModels
     public class SingleModelTreeNode : INotifyPropertyChanged
     {
         public string Name => _singleModel.DisplayName();
-        public int Movement => _singleModel.Profile.Movement;
-        public int WeaponSkill => _singleModel.Profile.WeaponSkill;
-        public int BallisticSkill => _singleModel.Profile.BallisticSkill;
-        public int Strength => _singleModel.Profile.Strength;
-        public int Toughness => _singleModel.Profile.Toughness;
-        public int Wounds => _singleModel.Profile.Wounds;
-        public int Initiative => _singleModel.Profile.Initiative;
-        public int Attacks => _singleModel.Profile.Attacks;
-        public int Moral => _singleModel.Profile.Moral;
+        public string Movement => _singleModel.Movement;
+        public string WeaponSkill => _singleModel.WeaponSkill;
+        public string BallisticSkill => _singleModel.BallisticSkill;
+        public string Strength => _singleModel.Strength;
+        public string Toughness => _singleModel.Toughness;
+        public string Wounds => _singleModel.Wounds;
+        public string Initiative => _singleModel.Initiative;
+        public string Attacks => _singleModel.Attacks;
+        public string Moral => _singleModel.Moral;
         public String Save => _singleModel.Save;
         public List<EquipmentTreeNode> Equipment { get; set; } = new List<EquipmentTreeNode>();
         private SingleModel _singleModel;
