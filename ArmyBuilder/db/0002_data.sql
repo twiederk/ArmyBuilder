@@ -275,7 +275,7 @@ INSERT INTO profile VALUES(11688,'',4,5,5,4,4,2,5,3,8,0.0,7);
 INSERT INTO profile VALUES(11689,'',4,5,5,4,4,3,5,3,9,0.0,7);
 INSERT INTO profile VALUES(11690,'',4,6,3,5,5,1,6,1,10,0.0,7);
 INSERT INTO profile VALUES(11691,'',4,3,3,3,3,3,6,1,9,0.0,7);
-INSERT INTO profile VALUES(11692,'Hochelfen General',5,7,7,4,4,3,9,4,10,167.0,7);
+INSERT INTO profile VALUES(11692,'Hochelfen Alith Anar',5,7,7,4,4,3,9,4,10,167.0,7);
 INSERT INTO profile VALUES(11693,'Hochelfen Immerkönigin',5,10,10,3,4,4,10,1,10,330.0,7);
 INSERT INTO profile VALUES(11694,'Hochelfen Belannaer',5,6,4,4,4,4,9,4,10,400.0,7);
 INSERT INTO profile VALUES(11695,'Hochelfen Korhil',5,7,6,7,4,2,8,3,9,123.0,7);
