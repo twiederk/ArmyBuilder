@@ -1,6 +1,5 @@
 using ArmyBuilder.Domain;
 using System.ComponentModel;
-using System.Windows.Controls;
 
 namespace ArmyBuilder.ViewModels
 {

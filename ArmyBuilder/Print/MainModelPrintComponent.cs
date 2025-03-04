@@ -86,15 +86,15 @@ namespace ArmyBuilder.Print
         private void composeSingleModel(TableDescriptor table, SingleModel singleModel)
         {
             table.Cell().Element(CellStyle).Text(singleModel.DisplayName());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Movement.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.WeaponSkill.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.BallisticSkill.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Strength.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Toughness.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Wounds.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Initiative.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Attacks.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Moral.ToString());
+            table.Cell().Element(CellStyle).Text(singleModel.Movement);
+            table.Cell().Element(CellStyle).Text(singleModel.WeaponSkill);
+            table.Cell().Element(CellStyle).Text(singleModel.BallisticSkill);
+            table.Cell().Element(CellStyle).Text(singleModel.Strength);
+            table.Cell().Element(CellStyle).Text(singleModel.Toughness);
+            table.Cell().Element(CellStyle).Text(singleModel.Wounds);
+            table.Cell().Element(CellStyle).Text(singleModel.Initiative);
+            table.Cell().Element(CellStyle).Text(singleModel.Attacks);
+            table.Cell().Element(CellStyle).Text(singleModel.Moral);
             table.Cell().Element(CellStyle).Text(singleModel.Save);
 
             static IContainer CellStyle(IContainer container)
