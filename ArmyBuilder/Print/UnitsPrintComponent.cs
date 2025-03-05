@@ -27,12 +27,16 @@ namespace ArmyBuilder.Print
 
         private void composeUnit(ColumnDescriptor column, ArmyBuilder.Domain.Unit unit)
         {
-            column.Spacing(2);
-            column.Item().BorderBottom(1).PaddingBottom(5).Text(unit.Name).SemiBold();
-            foreach (var mainModel in unit.MainModels)
+            column.Item().PreventPageBreak().Column(innerColumn =>
             {
-                column.Item().Component(new MainModelPrintComponent(mainModel));
-            }
+                innerColumn.Spacing(2);
+                innerColumn.Item().BorderBottom(1).PaddingBottom(5).Text(unit.Name).SemiBold();
+                foreach (var mainModel in unit.MainModels)
+                {
+                    innerColumn.Item().Component(new MainModelPrintComponent(mainModel));
+                }
+            });
         }
+
     }
 }

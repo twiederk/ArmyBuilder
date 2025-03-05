@@ -53,7 +53,7 @@ namespace ArmyBuilder.Print
                 column.Spacing(10);
                 column.Item().Component(new UnitsPrintComponent(Model.Units));
                 column.Item().Component(new MagicItemsPrintComponent(Model.AllMagicItems()));
-                column.Item().Component(new ArmyCategoryPointsPrintComponent(Model.Army.ArmyCategoryPoints()));
+                column.Item().PreventPageBreak().Component(new ArmyCategoryPointsPrintComponent(Model.Army.ArmyCategoryPoints()));
             });
         }
     }
