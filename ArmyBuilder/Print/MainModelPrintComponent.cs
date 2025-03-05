@@ -16,8 +16,7 @@ namespace ArmyBuilder.Print
 
         public void Compose(IContainer container)
         {
-
-            container.PaddingLeft(20).Column(column =>
+            container.PaddingLeft(20).PaddingBottom(10).Column(column =>
             {
                 column.Item().Text(Heading());
                 column.Item().PaddingLeft(20).Table(table =>
