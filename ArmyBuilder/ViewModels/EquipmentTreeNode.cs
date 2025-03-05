@@ -12,7 +12,7 @@ namespace ArmyBuilder.ViewModels
         {
             _parent = parent;
             _equipment = equipment;
-            SlotViews = equipment.Slots.Select(slot => new SlotViewModel(slot)).ToList();
+            SlotViews = equipment.OrderedSlots().Select(slot => new SlotViewModel(slot)).ToList();
         }
 
         public void UpdateEquipment()

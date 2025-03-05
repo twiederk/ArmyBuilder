@@ -36,29 +36,19 @@
 
                     <HierarchicalDataTemplate DataType="{x:Type viewModels:MainModelTreeNode}" ItemsSource="{Binding SingleModels}">
                         <StackPanel Orientation="Vertical">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="25" />
-                                    <ColumnDefinition Width="25" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="25" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Label Content="{Binding Count}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Magenta"/>
-                                <Button Content=" + " Grid.Column="1" Click="mainModelTreeNode_IncreaseCount" Tag="{Binding}" Visibility="{Binding CountButtonVisibility}" Margin="2 ,2, 2, 2"/>
-                                <Button Content=" - " Grid.Column="2" Click="mainModelTreeNode_DecreaseCount" Tag="{Binding}" Visibility="{Binding CountButtonVisibility}" Margin="2 ,2, 2,2"/>
-                                <Label Content="{Binding Name}" Grid.Column="3" HorizontalAlignment="Left" Foreground="Magenta"/>
-                                <Label Content="{Binding TotalPoints}" Grid.Column="4" HorizontalAlignment="Right" Foreground="Magenta"/>
-                                <Label Content="{Binding DisplayArmyCategory}" Grid.Column="5" HorizontalAlignment="Right" Foreground="Magenta"/>
-                                <Button Content="*" Grid.Column="6" Click="AddMountButton_Click" Tag="{Binding}" Visibility="{Binding MountButtonVisibility}" Margin="2,2,2,2"/>
-                                <Button Content="🗑" Grid.Column="7" Click="DeleteMainModelButton_Click" Tag="{Binding}" Margin="2,2,2,2"/>
-                            </Grid>
+                            <StackPanel Orientation="Horizontal" >
+                                <Label Content="{Binding Count}" HorizontalAlignment="Left" Visibility="{Binding CountButtonVisibility}" Foreground="Magenta"/>
+                                <Button Content=" + " Width="25" Click="mainModelTreeNode_IncreaseCount" Tag="{Binding}" Visibility="{Binding CountButtonVisibility}" Margin="2 ,2, 2, 2"/>
+                                <Button Content=" - " Width="25" Click="mainModelTreeNode_DecreaseCount" Tag="{Binding}" Visibility="{Binding CountButtonVisibility}" Margin="2 ,2, 2,2"/>
+                                <Label Content="{Binding Name}"  HorizontalAlignment="Left" Foreground="Magenta"/>
+                                <Label Content="{Binding TotalPoints}"  HorizontalAlignment="Right" Foreground="Magenta"/>
+                                <Label Content="{Binding DisplayArmyCategory}" Width="Auto" HorizontalAlignment="Right" Foreground="Magenta"/>
+                                <Button Content="*" Width="25" Click="AddMountButton_Click" Tag="{Binding}" Visibility="{Binding MountButtonVisibility}" Margin="2,2,2,2"/>
+                                <Button Content="🗑" Width="Auto" Click="DeleteMainModelButton_Click" Tag="{Binding}" Margin="2,2,2,2"/>
+                            </StackPanel>
                             <StackPanel Orientation="Horizontal" Visibility="{Binding TrooperVisiblity}">
-                                <CheckBox Content="Standartenträger" IsChecked="{Binding StandardBearer}" Click="TrooperCheckbox_Click" Tag="{Binding}" Foreground="Magenta" Margin="2,2,2,2"/>
-                                <CheckBox Content="Musiker" IsChecked="{Binding Musician}" Click="TrooperCheckbox_Click" Tag="{Binding}" Foreground="Magenta" Margin="2,2,2,2"/>
+                                <CheckBox Content="{Binding StandardBearerLabel}" IsChecked="{Binding StandardBearer}" Click="TrooperCheckbox_Click" Tag="{Binding}" Foreground="Magenta" Margin="2,2,2,2"/>
+                                <CheckBox Content="{Binding MusicianLabel}" IsChecked="{Binding Musician}" Click="TrooperCheckbox_Click" Tag="{Binding}" Foreground="Magenta" Margin="2,2,2,2"/>
                             </StackPanel>
                         </StackPanel>
                     </HierarchicalDataTemplate>
@@ -102,7 +92,7 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" Margin="0, 3, 0, 3">
-                                            <TextBlock Text="{Binding Name}" Margin="0, 0, 3, 0" />
+                                            <TextBlock Text="{Binding Name}" Width="80" Margin="0, 0, 3, 0" />
                                             <TextBlock x:Name="TextBlock" Text="{Binding ItemName}" Visibility="{Binding ItemNameVisibility}" />
                                             <ComboBox x:Name="ComboBox" ItemsSource="{Binding Selection}" Visibility="{Binding ItemSelectionVisibility}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}" SelectionChanged="ComboBox_SelectionChanged" Tag="{Binding RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
                                         </StackPanel>

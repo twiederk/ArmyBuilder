@@ -89,5 +89,22 @@ namespace ArmyBuilder.Domain
             return Id.GetHashCode();
         }
 
+        public List<Item> AllMagicItems()
+        {
+            var magicItems = new List<Item>();
+
+            foreach (var unit in Units)
+            {
+                foreach (var mainModel in unit.MainModels)
+                {
+                    foreach (var singleModel in mainModel.SingleModels)
+                    {
+                        magicItems.AddRange(singleModel.Equipment.MagicItems());
+                    }
+                }
+            }
+            return magicItems;
+        }
+
     }
 }

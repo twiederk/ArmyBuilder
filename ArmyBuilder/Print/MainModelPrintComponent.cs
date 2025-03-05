@@ -2,8 +2,6 @@
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using QuestPDF.Fluent;
-using System.Data.Common;
-//using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 
 namespace ArmyBuilder.Print
 {
@@ -86,15 +84,15 @@ namespace ArmyBuilder.Print
         private void composeSingleModel(TableDescriptor table, SingleModel singleModel)
         {
             table.Cell().Element(CellStyle).Text(singleModel.DisplayName());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Movement.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.WeaponSkill.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.BallisticSkill.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Strength.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Toughness.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Wounds.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Initiative.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Attacks.ToString());
-            table.Cell().Element(CellStyle).Text(singleModel.Profile.Moral.ToString());
+            table.Cell().Element(CellStyle).Text(singleModel.Movement);
+            table.Cell().Element(CellStyle).Text(singleModel.WeaponSkill);
+            table.Cell().Element(CellStyle).Text(singleModel.BallisticSkill);
+            table.Cell().Element(CellStyle).Text(singleModel.Strength);
+            table.Cell().Element(CellStyle).Text(singleModel.Toughness);
+            table.Cell().Element(CellStyle).Text(singleModel.Wounds);
+            table.Cell().Element(CellStyle).Text(singleModel.Initiative);
+            table.Cell().Element(CellStyle).Text(singleModel.Attacks);
+            table.Cell().Element(CellStyle).Text(singleModel.Moral);
             table.Cell().Element(CellStyle).Text(singleModel.Save);
 
             static IContainer CellStyle(IContainer container)
@@ -105,6 +103,9 @@ namespace ArmyBuilder.Print
 
         public string Heading()
         {
+            if (_mainModel.ArmyCategory == ArmyCategory.Character) {
+                return $"{_mainModel.Name} ({_mainModel.Points()}) => {_mainModel.TotalPoints()} {_mainModel.ArmyCategory.Display()}";
+            }
             return $"{_mainModel.Count}x {_mainModel.Name} ({_mainModel.Points()}) => {_mainModel.TotalPoints()} {_mainModel.ArmyCategory.Display()}";
         }
 

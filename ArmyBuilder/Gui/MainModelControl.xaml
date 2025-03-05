@@ -58,15 +58,15 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="1" Grid.Column="0" Content="{Binding Name}" />
-                        <Label Grid.Row="1" Grid.Column="1" Content="{Binding Profile.Movement}" />
-                        <Label Grid.Row="1" Grid.Column="2" Content="{Binding Profile.WeaponSkill}" />
-                        <Label Grid.Row="1" Grid.Column="3" Content="{Binding Profile.BallisticSkill}" />
-                        <Label Grid.Row="1" Grid.Column="4" Content="{Binding Profile.Strength}" />
-                        <Label Grid.Row="1" Grid.Column="5" Content="{Binding Profile.Toughness}" />
-                        <Label Grid.Row="1" Grid.Column="6" Content="{Binding Profile.Wounds}" />
-                        <Label Grid.Row="1" Grid.Column="7" Content="{Binding Profile.Initiative}" />
-                        <Label Grid.Row="1" Grid.Column="8" Content="{Binding Profile.Attacks}" />
-                        <Label Grid.Row="1" Grid.Column="9" Content="{Binding Profile.Moral}" />
+                        <Label Grid.Row="1" Grid.Column="1" Content="{Binding Movement}" />
+                        <Label Grid.Row="1" Grid.Column="2" Content="{Binding WeaponSkill}" />
+                        <Label Grid.Row="1" Grid.Column="3" Content="{Binding BallisticSkill}" />
+                        <Label Grid.Row="1" Grid.Column="4" Content="{Binding Strength}" />
+                        <Label Grid.Row="1" Grid.Column="5" Content="{Binding Toughness}" />
+                        <Label Grid.Row="1" Grid.Column="6" Content="{Binding Wounds}" />
+                        <Label Grid.Row="1" Grid.Column="7" Content="{Binding Initiative}" />
+                        <Label Grid.Row="1" Grid.Column="8" Content="{Binding Attacks}" />
+                        <Label Grid.Row="1" Grid.Column="9" Content="{Binding Moral}" />
                         <Label Grid.Row="1" Grid.Column="10" Content="{Binding Save}" />
                     </Grid>
                 </DataTemplate>
