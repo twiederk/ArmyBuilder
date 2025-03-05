@@ -19,7 +19,7 @@ namespace ArmyBuilder.Print
             container.PaddingLeft(20).PaddingBottom(10).Column(column =>
             {
                 column.Item().Text(Heading());
-                column.Item().PaddingLeft(20).Table(table =>
+                column.Item().PaddingLeft(20).PaddingBottom(2).Table(table =>
                 {
                     columnDefinitions(table);
                     heading(table);
@@ -116,7 +116,7 @@ namespace ArmyBuilder.Print
                 var itemNames = singleModel.Equipment.ItemNames();
                 if (itemNames.Any())
                 {
-                    column.Item().PaddingLeft(20).Text(string.Join(", ", itemNames));
+                    column.Item().PaddingLeft(20).PaddingBottom(2).Text(string.Join(", ", itemNames));
                 }
             }
         }
@@ -134,7 +134,7 @@ namespace ArmyBuilder.Print
             }
             if (!string.IsNullOrEmpty(output))
             {
-                column.Item().PaddingLeft(20).Text(output);
+                column.Item().PaddingLeft(20).PaddingBottom(2).Text(output);
             }
         }
     }
