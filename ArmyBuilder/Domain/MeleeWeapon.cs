@@ -9,8 +9,13 @@ namespace ArmyBuilder.Domain
     {
         public int Strength { get; set; }
 
-        const int ID_TWO_HANDED_WEAPON = 1000;
-        const int ID_LANCE = 1001;
+        const int ID_TWO_HANDED_WEAPON = 2;
+        const int ID_FLAIL = 3;
+        const int ID_HELBERD = 4;
+        const int ID_SPEAR = 5;
+        const int ID_LANCE = 6;
+        const int ID_EXECUTIONEER_AXE = 7;
+        const int ID_TWO_HANDED_SWORD_OF_HOETH = 9;
 
         public string DisplayStrength(int profileStrength)
         {
@@ -18,7 +23,7 @@ namespace ArmyBuilder.Domain
 
             switch (Id)
             {
-                case ID_TWO_HANDED_WEAPON:
+                case ID_TWO_HANDED_WEAPON:           
                     return $"*{totalStrength}*";
                 case ID_LANCE:
                     return $"{totalStrength}/{profileStrength}";
