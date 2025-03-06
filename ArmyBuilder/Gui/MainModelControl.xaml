@@ -15,7 +15,7 @@
             <ColumnDefinition Width="25" />
             <ColumnDefinition Width="25" />
             <ColumnDefinition Width="25" />
-            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="35" />
             <ColumnDefinition Width="25" />
             <ColumnDefinition Width="25" />
             <ColumnDefinition Width="25" />
@@ -48,7 +48,7 @@
                             <ColumnDefinition Width="25" />
                             <ColumnDefinition Width="25" />
                             <ColumnDefinition Width="25" />
-                            <ColumnDefinition Width="25" />
+                            <ColumnDefinition Width="35" />
                             <ColumnDefinition Width="25" />
                             <ColumnDefinition Width="25" />
                             <ColumnDefinition Width="25" />

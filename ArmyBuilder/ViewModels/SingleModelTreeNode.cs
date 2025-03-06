@@ -43,6 +43,7 @@ namespace ArmyBuilder.ViewModels
         public void UpdateEquipment()
         {
             _parent.UpdateTotalPoints();
+            OnPropertyChanged("Strength");
             OnPropertyChanged("Save");
         }
 
