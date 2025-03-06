@@ -2512,14 +2512,14 @@ INSERT INTO single_model VALUES(47365,12315,'Froschschwarm',12338,'Immun gegen P
 
 
 INSERT INTO melee_weapon VALUES(1,'Handwaffe',0,'',-1,0,0,0);
-INSERT INTO melee_weapon VALUES(2,'Zweihändige Waffe',2,'',-1,0,0,0);
-INSERT INTO melee_weapon VALUES(3,'Flegel',1,'',-1,0,0,0);
-INSERT INTO melee_weapon VALUES(4,'Hellebarde',2,'',-1,0,0,0);
-INSERT INTO melee_weapon VALUES(5,'Speer',1,'',-1,0,0,0);
-INSERT INTO melee_weapon VALUES(6,'Lanze',2,'',-1,0,0,0);
-INSERT INTO melee_weapon VALUES(7,'Henkeraxt',3,'',5,0,0,0);
+INSERT INTO melee_weapon VALUES(2,'Zweihändige Waffe',2,'',-1,0,0,2);
+INSERT INTO melee_weapon VALUES(3,'Flegel',1,'',-1,0,0,2);
+INSERT INTO melee_weapon VALUES(4,'Hellebarde',2,'',-1,0,0,1);
+INSERT INTO melee_weapon VALUES(5,'Speer',1,'',-1,0,0,1);
+INSERT INTO melee_weapon VALUES(6,'Lanze',2,'',-1,0,0,2);
+INSERT INTO melee_weapon VALUES(7,'Henkeraxt',3,'',5,0,0,2);
 INSERT INTO melee_weapon VALUES(8,'Zweite Handwaffe',1,'',-1,0,0,0);
-INSERT INTO melee_weapon VALUES(9,'Zweihänder von Hoeth',3,'Der Zweihänder von Hoeth kann so schnell wie eine einhändige Waffe geschwungen werden.',7,1,0,0);
+INSERT INTO melee_weapon VALUES(9,'Zweihänder von Hoeth',3,'Der Zweihänder von Hoeth kann so schnell wie eine einhändige Waffe geschwungen werden.',7,1,0,2);
 INSERT INTO melee_weapon VALUES(5637,'Skabskrath',50,'Verurstacht Entsetzen.',12,0,1,0);
 INSERT INTO melee_weapon VALUES(5638,'Schwert des Mutes',50,'Schwertführer ist immun gegen Angst, Entsetzen und Panik.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5639,'Peinigerklinge',40,'Opfer unterliegt der Blödheitsregel.',-1,0,1,0);
@@ -2530,8 +2530,8 @@ INSERT INTO melee_weapon VALUES(5643,'Höllenschwert',125,'Jede Verletzung koste
 INSERT INTO melee_weapon VALUES(5644,'Knochenklinge',35,'Jede Verletzung kostet W3 Lebenspunkte.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5645,'Giftschwert',70,'Jede Verletzung kostet W6 Lebenspunkte.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5646,'Borks Schwert',10,'Erster Verpatzter Stänkereitest kann ignoriert werden. Nur für Orks und Wildorks',9,0,1,0);
-INSERT INTO melee_weapon VALUES(5647,'Skarsniks Prodder',75,'+1 auf S. Pro Mob ein Blitz mit Stärke 4, kein Rettungswurf.',9,0,1,0);
-INSERT INTO melee_weapon VALUES(5648,'Morgors Axt',125,'Träger attackiert immer zuerst. +1 auf KG, S und W, kein RW oder mit -3.',9,0,1,0);
+INSERT INTO melee_weapon VALUES(5647,'Skarsniks Prodder',75,'+1 auf S. Pro Mob ein Blitz mit Stärke 4, kein Rettungswurf.',9,0,1,1);
+INSERT INTO melee_weapon VALUES(5648,'Morgors Axt',125,'Träger attackiert immer zuerst. +1 auf KG, S und W, kein RW oder mit -3.',9,0,1,1);
 INSERT INTO melee_weapon VALUES(5649,'Bannendes Schwert',25,'Untote verlieren bei jeder Verletztung W3 Lebenspunkte.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5650,'Goldenes Runenschwert',20,'Initative 10.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5651,'Seelenklinge',25,'Jede Verletztung kostet zusätzlich einen Widerstandspunkt.',1,0,1,0);
@@ -2555,12 +2555,12 @@ INSERT INTO melee_weapon VALUES(5668,'Gesegnetes Schwert',75,'Kampfgeschick 10.'
 INSERT INTO melee_weapon VALUES(5669,'Kriegergift',35,'Jede Verletzung kostet das Opfer zusätzlich eine Attacke.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5670,'Magische Stahlklinge',75,'Automatische Nahkampftreffer.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5671,'Verzauberte Eisenklinge',20,'+1 auf Trefferwurf.',-1,0,1,0);
-INSERT INTO melee_weapon VALUES(5672,'Dämonentöter',125,'+3 auf Stärke, W3 Lebenspunkte, Dämonen werden automatisch verwundet.',-1,0,1,0);
-INSERT INTO melee_weapon VALUES(5673,'Schwert der Macht',20,'+1 auf Stärke.',-1,0,1,0);
+INSERT INTO melee_weapon VALUES(5672,'Dämonentöter',125,'+3 auf Stärke, W3 Lebenspunkte, Dämonen werden automatisch verwundet.',-1,0,1,3);
+INSERT INTO melee_weapon VALUES(5673,'Schwert der Macht',20,'+1 auf Stärke.',-1,0,1,1);
 INSERT INTO melee_weapon VALUES(5674,'Todesschwert',100,'Stärke: 10.',-1,0,1,0);
-INSERT INTO melee_weapon VALUES(5675,'Heldenschwert',60,'+3 Stärke und W3 LP gegen Widerstandsfähigkeit 5+',-1,0,1,0);
-INSERT INTO melee_weapon VALUES(5676,'Ogerklinge',40,'+2 auf Stärke.',-1,0,1,0);
-INSERT INTO melee_weapon VALUES(5677,'Riesenklinge',60,'+3 auf Stärke.',-1,0,1,0);
+INSERT INTO melee_weapon VALUES(5675,'Heldenschwert',60,'+3 Stärke und W3 LP gegen Widerstandsfähigkeit 5+',-1,0,1,3);
+INSERT INTO melee_weapon VALUES(5676,'Ogerklinge',40,'+2 auf Stärke.',-1,0,1,2);
+INSERT INTO melee_weapon VALUES(5677,'Riesenklinge',60,'+3 auf Stärke.',-1,0,1,3);
 INSERT INTO melee_weapon VALUES(5678,'Parierklinge',20,'-1 Attacke eines Gegners.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5679,'Hydraschwert',75,'Jeder Nahkampftreffer = W6 Treffer.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5680,'Meeresgoldklinge',30,'-3 auf Rettungswurf des Gegners.',-1,0,1,0);
@@ -2574,7 +2574,7 @@ INSERT INTO melee_weapon VALUES(5687,'Drachenklinge',50,'Verdoppelt Nahkampftref
 INSERT INTO melee_weapon VALUES(5688,'Schwert der Resistenz',50,'+1 auf Widerstand.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5689,'Schwert der Unbeugsamkeit',100,'+2 auf Widerstand.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5690,'Arkhans Grabklinge',50,'Erschlagene werden zu Skelettkriegern.',12,0,1,0);
-INSERT INTO melee_weapon VALUES(5691,'Drachentöter',125,'+3 Stärke, W3 Lebenspunkte. Drachen werden automatisch verwundet.',-1,0,1,0);
+INSERT INTO melee_weapon VALUES(5691,'Drachentöter',125,'+3 Stärke, W3 Lebenspunkte. Drachen werden automatisch verwundet.',-1,0,1,3);
 INSERT INTO melee_weapon VALUES(5692,'Schwert der Gerechtigkeit',50,'Trefferwurf darf einmal wiederholt werden.',8,0,1,0);
 INSERT INTO melee_weapon VALUES(5693,'Tränenklinge',50,'+1 auf Schadenswurf, -1 auf Rettungswurf, W3 Lebenspunkte.',10,0,1,0);
 INSERT INTO melee_weapon VALUES(5694,'Schwert der Ermattung',10,'Jede Verletzung kostet zusätzlich einen Initativepunkt.',-1,0,1,0);
@@ -2592,9 +2592,9 @@ INSERT INTO melee_weapon VALUES(5705,'Chaosklinge',75,'Pro verursachten Schadens
 INSERT INTO melee_weapon VALUES(5706,'Schwarze Axt des Krells',125,'Träger schlägt zuletzt, kein RW. In Magiephase verliert Opfer bei 1-2 einen LP.',12,0,1,0);
 INSERT INTO melee_weapon VALUES(5707,'Schwarze Axt des Krells',125,'Träger schlägt zuletzt, kein RW. In Magiephase verliert Opfer bei 1-2 einen LP.',1,0,1,0);
 INSERT INTO melee_weapon VALUES(5708,'Schädelflegel',30,'Wie Flegel. Verursacht 2 Schadenspunkte.',-1,0,1,0);
-INSERT INTO melee_weapon VALUES(5709,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',12,0,1,0);
-INSERT INTO melee_weapon VALUES(5710,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',1,0,1,0);
-INSERT INTO melee_weapon VALUES(5712,'Axt des Henkers',50,'Immer zuletzt zuschlagen. +2 auf Stärke. Bei 6 ist der Gegner tot.',-1,0,1,0);
+INSERT INTO melee_weapon VALUES(5709,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',12,0,1,1);
+INSERT INTO melee_weapon VALUES(5710,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',1,0,1,1);
+INSERT INTO melee_weapon VALUES(5712,'Axt des Henkers',50,'Immer zuletzt zuschlagen. +2 auf Stärke. Bei 6 ist der Gegner tot.',-1,0,1,2);
 INSERT INTO melee_weapon VALUES(5713,'Grimmklinge',135,'Stärke:10, kostet W6 LP. Träger verliert LP bei 6 auf W6 am Ende seines Zuges.',10,0,1,0);
 INSERT INTO melee_weapon VALUES(5714,'Zwergentöter',50,'Zwerge bei 2+ verwunden, 2 Schadenspunkte, RW mit -3.',10,0,1,0);
 INSERT INTO melee_weapon VALUES(5715,'Sturmdämon',25,'S:+1. Reichweite: 24 ", Treffer:W6, Stärke:5, RW:keiner. Bei 1-2 erschöpft.',10,0,1,0);
@@ -2614,12 +2614,12 @@ INSERT INTO melee_weapon VALUES(5728,'Schwert der Veränderung',50,'Verwandelt O
 INSERT INTO melee_weapon VALUES(5729,'Dämonenschwert',60,'Jede Verletzung kostet W6 Lebenspunkte.',3,0,1,0);
 INSERT INTO melee_weapon VALUES(5730,'Chaosklinge',75,'Pro verursachten Schadenspunkte, eine zusätzliche Magiekarte.',3,0,1,0);
 INSERT INTO melee_weapon VALUES(5731,'Schwarze Axt des Krells',125,'Träger schlägt zuletzt, kein RW. In Magiephase verliert Opfer bei 1-2 einen LP.',3,0,1,0);
-INSERT INTO melee_weapon VALUES(5732,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',3,0,1,0);
-INSERT INTO melee_weapon VALUES(5733,'Drachenklingenlanze',40,'+2 Stärke beim Angriff. Trifft automatisch. Spezialattacke',7,0,1,0);
-INSERT INTO melee_weapon VALUES(5734,'Morgenstern von Fracasse',30,'Stärke +2, kann mag. Waffe entreißen.',0,0,1,0);
+INSERT INTO melee_weapon VALUES(5732,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',3,0,1,1);
+INSERT INTO melee_weapon VALUES(5733,'Drachenklingenlanze',40,'+2 Stärke beim Angriff. Trifft automatisch. Spezialattacke',7,0,1,2);
+INSERT INTO melee_weapon VALUES(5734,'Morgenstern von Fracasse',30,'Stärke +2, kann mag. Waffe entreißen.',0,0,1,2);
 INSERT INTO melee_weapon VALUES(5735,'Klinge von Cocacila',125,'Blockiert Magie, zerstört mag. Gegenstände',6,0,1,0);
-INSERT INTO melee_weapon VALUES(5736,'Dolch des Sotek',50,'Stärke +1, Skaven verlieren bei Verwundung Gliederbonus',6,0,1,0);
-INSERT INTO melee_weapon VALUES(5737,'Schwarzer Hammer von Hashut',70,'Stärke +2, kein Rettungswurf',3,0,1,0);
+INSERT INTO melee_weapon VALUES(5736,'Dolch des Sotek',50,'Stärke +1, Skaven verlieren bei Verwundung Gliederbonus',6,0,1,1);
+INSERT INTO melee_weapon VALUES(5737,'Schwarzer Hammer von Hashut',70,'Stärke +2, kein Rettungswurf',3,0,1,2);
 INSERT INTO melee_weapon VALUES(5738,'Himmelspfeil des Naloer',30,'+1 auf TW gegen hochfliegenden Gegner, W6 Treffer mit S:10',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5740,'Klinge von Couronne',100,'Untote in 3" Umkreis verlieren 1 LP, Einheit immun gegen Untoten Anget',0,0,1,0);
 INSERT INTO melee_weapon VALUES(5741,'Seelenklinge',25,'Jede Verletztung kostet zusätzlich einen Widerstandspunkt.',2,0,1,0);
@@ -2631,7 +2631,7 @@ INSERT INTO melee_weapon VALUES(5746,'Schwert der Veränderung',50,'Verwandelt O
 INSERT INTO melee_weapon VALUES(5747,'Dämonenschwert',60,'Jede Verletzung kostet W6 Lebenspunkte.',2,0,1,0);
 INSERT INTO melee_weapon VALUES(5748,'Chaosklinge',75,'Pro verursachten Schadenspunkte, eine zusätzliche Magiekarte.',2,0,1,0);
 INSERT INTO melee_weapon VALUES(5749,'Schwarze Axt des Krells',125,'Träger schlägt zuletzt, kein RW. In Magiephase verliert Opfer bei 1-2 einen LP.',2,0,1,0);
-INSERT INTO melee_weapon VALUES(5750,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',2,0,1,0);
+INSERT INTO melee_weapon VALUES(5750,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',2,0,1,1);
 INSERT INTO melee_weapon VALUES(5751,'Seelenklinge',25,'Jede Verletztung kostet zusätzlich einen Widerstandspunkt.',11,0,1,0);
 INSERT INTO melee_weapon VALUES(5752,'Bluttrinker',25,'Jede Verletzung kostet zusätzlich 1 Stärkepunkt.',11,0,1,0);
 INSERT INTO melee_weapon VALUES(5753,'Dunkles Schwert',15,'Jede Verletztung kostet einen Punkt von KG und BF des Opfers.',11,0,1,0);
@@ -2641,7 +2641,7 @@ INSERT INTO melee_weapon VALUES(5756,'Schwert der Veränderung',50,'Verwandelt O
 INSERT INTO melee_weapon VALUES(5757,'Dämonenschwert',60,'Jede Verletzung kostet W6 Lebenspunkte.',11,0,1,0);
 INSERT INTO melee_weapon VALUES(5758,'Chaosklinge',75,'Pro verursachten Schadenspunkte, eine zusätzliche Magiekarte.',11,0,1,0);
 INSERT INTO melee_weapon VALUES(5759,'Schwarze Axt des Krells',125,'Träger schlägt zuletzt, kein RW. In Magiephase verliert Opfer bei 1-2 einen LP.',11,0,1,0);
-INSERT INTO melee_weapon VALUES(5760,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',11,0,1,0);
+INSERT INTO melee_weapon VALUES(5760,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',11,0,1,1);
 INSERT INTO melee_weapon VALUES(5761,'Seelenklinge',25,'Jede Verletztung kostet zusätzlich einen Widerstandspunkt.',4,0,1,0);
 INSERT INTO melee_weapon VALUES(5762,'Bluttrinker',25,'Jede Verletzung kostet zusätzlich 1 Stärkepunkt.',4,0,1,0);
 INSERT INTO melee_weapon VALUES(5763,'Dunkles Schwert',15,'Jede Verletztung kostet einen Punkt von KG und BF des Opfers.',4,0,1,0);
@@ -2651,7 +2651,7 @@ INSERT INTO melee_weapon VALUES(5766,'Schwert der Veränderung',50,'Verwandelt O
 INSERT INTO melee_weapon VALUES(5767,'Dämonenschwert',60,'Jede Verletzung kostet W6 Lebenspunkte.',4,0,1,0);
 INSERT INTO melee_weapon VALUES(5768,'Chaosklinge',75,'Pro verursachten Schadenspunkte, eine zusätzliche Magiekarte.',4,0,1,0);
 INSERT INTO melee_weapon VALUES(5769,'Schwarze Axt des Krells',125,'Träger schlägt zuletzt, kein RW. In Magiephase verliert Opfer bei 1-2 einen LP.',4,0,1,0);
-INSERT INTO melee_weapon VALUES(5770,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',4,0,1,0);
+INSERT INTO melee_weapon VALUES(5770,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',4,0,1,1);
 INSERT INTO melee_weapon VALUES(5868,'Axt Morgor',125,'',9,1,1,0);
 INSERT INTO melee_weapon VALUES(5869,'Axt von Chayal',65,'',7,1,1,0);
 INSERT INTO melee_weapon VALUES(5872,'Bronns Axt',25,'',14,1,1,0);
