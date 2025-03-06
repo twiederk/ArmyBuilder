@@ -9,15 +9,7 @@ namespace ArmyBuilder.Domain
     {
         public int Strength { get; set; }
 
-        const int ID_TWO_HANDED_WEAPON = 2;
-        const int ID_FLAIL = 3;
-        const int ID_HELBERD = 4;
-        const int ID_SPEAR = 5;
-        const int ID_LANCE = 6;
-        const int ID_EXECUTIONEER_AXE = 7;
-        const int ID_TWO_HANDED_SWORD_OF_HOETH = 9;
-
-        public string DisplayStrength(int profileStrength)
+        public string DisplayStrength(int profileStrength, MovementType movementType = MovementType.OnFoot)
         {
             int totalStrength = profileStrength + Strength;
 
@@ -25,7 +17,13 @@ namespace ArmyBuilder.Domain
             {
                 case ID_TWO_HANDED_WEAPON:           
                     return $"*{totalStrength}*";
+                case ID_SPEAR:
                 case ID_LANCE:
+                    if (movementType == MovementType.OnMount)
+                        return $"{totalStrength}/{profileStrength}";
+                    else
+                        return $"{profileStrength}";
+                case ID_FLAIL:
                     return $"{totalStrength}/{profileStrength}";
                 default:
                     return totalStrength.ToString();

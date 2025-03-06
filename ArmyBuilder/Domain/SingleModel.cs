@@ -18,7 +18,7 @@ namespace ArmyBuilder.Domain
         public string Movement => DisplayValue(Profile.Movement);
         public string WeaponSkill => DisplayValue(Profile.WeaponSkill);
         public string BallisticSkill => DisplayValue(Profile.BallisticSkill);
-        public string Strength => DisplayValue(Profile.Strength);
+        public string Strength => DisplayStrength();
         public string Toughness => DisplayValue(Profile.Toughness);
         public string Wounds => DisplayValue(Profile.Wounds);
         public string Initiative => DisplayValue(Profile.Initiative);
@@ -52,6 +52,13 @@ namespace ArmyBuilder.Domain
         public string DisplayName()
         {
             return $"{Name} ({Profile.Points})";
+        }
+
+        public string DisplayStrength()
+        {
+            MeleeWeapon? meleeWeapon = Equipment.MeleeWeapon();
+            return meleeWeapon?.DisplayStrength(Profile.Strength, MovementType) ?? DisplayValue(Profile.Strength);
+
         }
 
         public override bool Equals(object obj)

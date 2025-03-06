@@ -145,6 +145,59 @@ namespace ArmyBuilder.Test.Domain
             // assert
             displayName.Should().Be("Warrior (10)");
         }
+
+        [Fact]
+        public void shoud_return_display_strength_when_carring_two_handed_weapon()
+        {
+            // arrange
+            MeleeWeapon twoHandedWeapon = new MeleeWeapon { Id = Item.ID_TWO_HANDED_WEAPON, Strength = 2 };
+            var singleModel = new SingleModel
+            {
+                Profile = new Profile { Strength = 3 },
+                Equipment = new Equipment { Slots = { new Slot { Item = twoHandedWeapon } } },
+            };
+
+            // act
+            string displayStrength = singleModel.Strength;
+
+            // assert
+            displayStrength.Should().Be("*5*");
+        }
+
+        [Fact]
+        public void shoud_return_display_strength_when_carring_no_melee_weapon()
+        {
+            // arrange
+            var singleModel = new SingleModel
+            {
+                Profile = new Profile { Strength = 3 },
+            };
+
+            // act
+            string displayStrength = singleModel.Strength;
+
+            // assert
+            displayStrength.Should().Be("3");
+        }
+
+        [Fact]
+        public void shoud_return_display_strength_when_carring_lance_on_mount()
+        {
+            // arrange
+            MeleeWeapon lance = new MeleeWeapon { Id = Item.ID_LANCE, Strength = 2 };
+            var singleModel = new SingleModel
+            {
+                Profile = new Profile { Strength = 3 },
+                Equipment = new Equipment { Slots = { new Slot { Item = lance } } },
+                MovementType = MovementType.OnMount
+            };
+
+            // act
+            string displayStrength = singleModel.Strength;
+
+            // assert
+            displayStrength.Should().Be("5/3");
+        }
     }
 }
 
