@@ -27,7 +27,8 @@ CREATE TABLE IF NOT EXISTS "melee_weapon"
  "description"  VARCHAR(100),
  "army_list_id" INTEGER,
  "uniquely"     BIT,
- "magic"        BIT
+ "magic"        BIT,
+ "strength"     INTEGER
 );
 
 
