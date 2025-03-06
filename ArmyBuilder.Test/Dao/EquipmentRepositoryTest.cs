@@ -23,6 +23,8 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             AllMeleeWeapon.Should().HaveCount(201);
+            MeleeWeapon two_handed_weapon = AllMeleeWeapon.FirstOrDefault(a => a.Id == Item.ID_TWO_HANDED_WEAPON);
+            two_handed_weapon.Strength.Should().Be(2);
         }
 
         [Fact]

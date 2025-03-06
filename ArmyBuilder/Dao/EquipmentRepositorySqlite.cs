@@ -32,7 +32,7 @@ namespace ArmyBuilder.Dao
 
             var sql = @"
                 SELECT 
-                    mw.Id, mw.Name, mw.Description, mw.army_list_id as ArmyListId, mw.Magic, mw.Points, mw.Uniquely,
+                    mw.Id, mw.Name, mw.Description, mw.army_list_id as ArmyListId, mw.Magic, mw.Points, mw.Uniquely, mw.Strength,
                     al.Id, al.Name
                 FROM 
                     melee_weapon mw
