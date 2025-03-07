@@ -115,7 +115,7 @@ INSERT INTO profile VALUES(11505,'',4,4,3,3,3,3,5,3,10,0.0,7);
 INSERT INTO profile VALUES(11506,'Elfen General',5,7,7,4,4,3,9,4,10,160.0,7);
 INSERT INTO profile VALUES(11507,'Hochelfen Armeestandarte',5,5,5,4,3,1,7,2,8,98.0,7);
 INSERT INTO profile VALUES(11508,'Elfen Held',5,6,6,4,4,2,8,3,9,104.0,7);
-INSERT INTO profile VALUES(11509,'Elfen Champion',5,5,5,4,3,1,7,2,8,48.0,7);
+INSERT INTO profile VALUES(11509,'Elfen Armeestandarte',5,5,5,4,3,1,7,2,8,98.0,7);
 INSERT INTO profile VALUES(11510,'Elfen Zauberer',5,4,4,3,4,1,7,1,8,59.0,7);
 INSERT INTO profile VALUES(11511,'Elfen Oberzauberer',5,4,4,4,4,2,7,1,8,121.0,7);
 INSERT INTO profile VALUES(11512,'Elfen Großzauberer',5,4,4,4,4,3,8,2,8,219.0,7);
@@ -181,7 +181,7 @@ INSERT INTO profile VALUES(11579,'Dunkelelfen Rakarth',5,6,6,4,4,2,8,3,9,134.0,7
 INSERT INTO profile VALUES(11580,'Dunkelelfen Morati',5,4,4,4,4,4,9,3,9,327.0,7);
 INSERT INTO profile VALUES(11581,'Dunkelelfen Kouran',5,6,6,4,4,2,8,3,9,105.0,7);
 INSERT INTO profile VALUES(11582,'Dunkelelfen Helleborn',5,7,7,10,4,3,9,8,10,207.0,7);
-INSERT INTO profile VALUES(11583,'Dunkelelfen Tullaris',5,6,6,7,5,2,6,3,9,123.0,7);
+INSERT INTO profile VALUES(11583,'Dunkelelfen Tullaris',5,6,6,7,5,2,6,3,9,120.0,7);
 INSERT INTO profile VALUES(11584,'Dunkelelfen Schattenklinge',5,10,10,4,4,2,10,4,10,115.0,7);
 INSERT INTO profile VALUES(11586,'',4,5,5,5,5,3,4,3,8,0.0,7);
 INSERT INTO profile VALUES(11587,'',4,6,6,4,5,1,7,2,9,0.0,7);
