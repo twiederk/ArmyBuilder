@@ -3,6 +3,7 @@ using ArmyBuilder.ViewModels;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace ArmyBuilder
 {
@@ -77,6 +78,23 @@ namespace ArmyBuilder
                         ExpandTreeViewItems(treeViewItem, level - 1);
                     }
                 }
+            }
+        }
+
+        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollViewer scrollViewer = sender as ScrollViewer;
+            if (scrollViewer != null)
+            {
+                if (e.Delta > 0)
+                {
+                    scrollViewer.LineUp();
+                }
+                else
+                {
+                    scrollViewer.LineDown();
+                }
+                e.Handled = true;
             }
         }
 
