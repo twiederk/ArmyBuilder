@@ -576,7 +576,7 @@ INSERT INTO profile VALUES(12101,'',8,9,10,7,7,7,10,6,10,0.0,7);
 INSERT INTO profile VALUES(12104,'',6,9,10,7,7,8,7,6,10,0.0,7);
 INSERT INTO profile VALUES(12105,'',4,6,5,4,3,1,6,3,10,0.0,7);
 INSERT INTO profile VALUES(12107,'Dunkelelfen Hexenchampion',5,5,5,5,3,1,7,7,8,10.0,7);
-INSERT INTO profile VALUES(12108,'Elfen Basis',5,4,4,3,3,1,6,1,8,0.0,7);
+INSERT INTO profile VALUES(12108,'Elfen Basis',5,4,4,3,3,1,6,1,8,8.0,7);
 INSERT INTO profile VALUES(12109,'',4,3,3,3,3,1,4,1,5,0.0,7);
 INSERT INTO profile VALUES(12110,'',5,4,4,4,3,1,5,2,10,0.0,7);
 INSERT INTO profile VALUES(12111,'',5,3,3,3,3,1,4,1,5,0.0,7);
@@ -2209,7 +2209,7 @@ INSERT INTO single_model VALUES(47055,12104,'Hüter der Geheimniss',12104,'Entse
 INSERT INTO single_model VALUES(47056,12105,'Dämonetten',12105,'',0,0,0,1);
 INSERT INTO single_model VALUES(47057,12022,'Slaaneshbestien',12106,'Durch ihren betäubenden Duft sind sind sie um eins schwere zu treffen.',0,0,0,1);
 INSERT INTO single_model VALUES(47058,12107,'Hüterin',12107,'Hass gegen Hochelfen. Beschuß: 1 Hüterin; 2-3 Wächterinnen; 4+ Kessel.',0,0,0,1);
-INSERT INTO single_model VALUES(47059,12108,'Mannschaft',12108,'Hass gegen Hochelfen.',0,0,0,1);
+INSERT INTO single_model VALUES(47059,12108,'Mannschaft',12108,'Hass gegen Hochelfen.',0,0,0,2);
 INSERT INTO single_model VALUES(47060,12109,'Flammenwerfer-Team',12109,'',0,0,0,1);
 INSERT INTO single_model VALUES(47061,12110,'Warlock-Techniker',12110,'Beschuß:1 Warp.; 2-4 Rad; 5 Ratten; 6 Techniker  Nah.:1 Warp. 2-3 Rad; 4-5 Ratten; 6 Techniker.',0,0,0,1);
 INSERT INTO single_model VALUES(47062,12111,'Jezzail-Team',12111,'',0,0,0,1);
