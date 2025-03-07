@@ -50,6 +50,7 @@
                                 <CheckBox Content="{Binding StandardBearerLabel}" IsChecked="{Binding StandardBearer}" Click="TrooperCheckbox_Click" Tag="{Binding}" Foreground="Magenta" Margin="2,2,2,2"/>
                                 <CheckBox Content="{Binding MusicianLabel}" IsChecked="{Binding Musician}" Click="TrooperCheckbox_Click" Tag="{Binding}" Foreground="Magenta" Margin="2,2,2,2"/>
                             </StackPanel>
+                            <TextBlock Text="{Binding Description}" Visibility="{Binding DescriptionVisibility}" Foreground="Magenta"/>
                         </StackPanel>
                     </HierarchicalDataTemplate>
 
