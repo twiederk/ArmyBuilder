@@ -461,7 +461,7 @@ INSERT INTO profile VALUES(11932,'Elfen Elite',5,5,4,4,3,1,7,1,8,10.0,7);
 INSERT INTO profile VALUES(11933,'Elfen Basis',5,4,4,3,3,1,6,1,8,8.0,7);
 INSERT INTO profile VALUES(11934,'Elfen Basis',5,4,4,3,3,1,6,1,8,8.0,7);
 INSERT INTO profile VALUES(11935,'Elfen Basis',5,4,4,3,3,1,6,1,8,8.0,7);
-INSERT INTO profile VALUES(11936,'Elfen Basis',5,4,4,4,3,1,6,3,8,8.0,7);
+INSERT INTO profile VALUES(11936,'Dunkelelfen Hexenkriegerin',5,4,4,4,3,1,6,3,8,12.0,7);
 INSERT INTO profile VALUES(11937,'Dunkelelfen Kundschafter',5,4,5,3,3,1,6,1,8,10.0,7);
 INSERT INTO profile VALUES(11938,'Elfen Basis',5,4,4,3,3,1,6,1,8,8.0,7);
 INSERT INTO profile VALUES(11941,'',5,4,4,3,3,1,6,1,8,0.0,7);
