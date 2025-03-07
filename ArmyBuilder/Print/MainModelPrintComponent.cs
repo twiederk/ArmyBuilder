@@ -27,6 +27,7 @@ namespace ArmyBuilder.Print
                 });
                 composeEquipment(column);
                 composeStandardBearerAndMusician(column);
+                composeDescription(column);
             });
 
         }
@@ -135,6 +136,14 @@ namespace ArmyBuilder.Print
             if (!string.IsNullOrEmpty(output))
             {
                 column.Item().PaddingLeft(20).PaddingBottom(2).Text(output);
+            }
+        }
+
+        public void composeDescription(ColumnDescriptor column)
+        {
+            if (!string.IsNullOrEmpty(_mainModel.Description))
+            {
+                column.Item().PaddingLeft(20).PaddingBottom(2).Text(_mainModel.Description);
             }
         }
     }
