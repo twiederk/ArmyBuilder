@@ -575,7 +575,7 @@ INSERT INTO profile VALUES(12100,'',4,3,3,3,3,3,4,3,7,0.0,7);
 INSERT INTO profile VALUES(12101,'',8,9,10,7,7,7,10,6,10,0.0,7);
 INSERT INTO profile VALUES(12104,'',6,9,10,7,7,8,7,6,10,0.0,7);
 INSERT INTO profile VALUES(12105,'',4,6,5,4,3,1,6,3,10,0.0,7);
-INSERT INTO profile VALUES(12107,'Dunkelelfen Hexenchampion',5,5,5,5,3,1,7,7,8,10.0,7);
+INSERT INTO profile VALUES(12107,'Dunkelelfen Hexenchampion',5,5,5,5,3,1,7,7,8,62.0,7);
 INSERT INTO profile VALUES(12108,'Elfen Basis',5,4,4,3,3,1,6,1,8,8.0,7);
 INSERT INTO profile VALUES(12109,'',4,3,3,3,3,1,4,1,5,0.0,7);
 INSERT INTO profile VALUES(12110,'',5,4,4,4,3,1,5,2,10,0.0,7);
@@ -655,6 +655,7 @@ INSERT INTO profile VALUES(12420,'Hippogreif',8,5,0,6,5,5,6,3,8,145.0,7);
 INSERT INTO profile VALUES(12421,'Hydra',6,3,0,5,6,7,3,5,6,225.0,7);
 INSERT INTO profile VALUES(12422,'Mantikor',6,6,0,7,7,5,4,4,8,200.0,7);
 INSERT INTO profile VALUES(12423,'Lindwurm',6,5,0,5,6,4,4,3,5,180.0,7);
+INSERT INTO profile VALUES(12424,'Blutkessel',0,0,0,0,0,0,0,0,0,41.0,7);
 
 
 INSERT INTO main_model VALUES(11420,1,0,'Armeestandartenträger des Nurgle','',0,243.0,0,0);
@@ -2272,7 +2273,7 @@ INSERT INTO single_model VALUES(47119,12062,'Moloch',12096,'',0,1,0,1);
 INSERT INTO single_model VALUES(47120,12142,'Schleimbestie',12098,'',0,0,0,1);
 INSERT INTO single_model VALUES(47121,12064,'Blauer Horror',12102,'',0,0,0,1);
 INSERT INTO single_model VALUES(47122,12144,'Slaaneschpferd',12105,'',0,0,0,1);
-INSERT INTO single_model VALUES(47123,12145,'Wächterin',12107,'',0,0,0,1);
+INSERT INTO single_model VALUES(47123,12145,'Wächterin',12107,'',0,0,0,2);
 INSERT INTO single_model VALUES(47124,12146,'Speerschleuder',12108,'',0,0,0,1);
 INSERT INTO single_model VALUES(47125,12147,'Todesrad',12110,'',0,0,0,1);
 INSERT INTO single_model VALUES(47126,12148,'Glockenwagen',12112,'',0,0,0,1);
@@ -2509,6 +2510,7 @@ INSERT INTO single_model VALUES(47362,12335,'Mantikor',12335,'Fliegen, Entsetzen
 INSERT INTO single_model VALUES(47363,12336,'Pegasus',12336,'Fliegen',0,0,1,1);
 INSERT INTO single_model VALUES(47364,12320,'Rattenschwarm',12337,'Immun gegen Psychologie- und Aufriebtests',0,0,1,1);
 INSERT INTO single_model VALUES(47365,12315,'Froschschwarm',12338,'Immun gegen Psychologie- und Aufriebtests, können Gewässe und Sümpfe ohne Abzug passieren',0,0,1,1);
+INSERT INTO single_model VALUES(47366,12424,'Blutkessel',12107,'',0,0,0,1);
 
 
 INSERT INTO melee_weapon VALUES(1,'Handwaffe',0,'',-1,0,0,0);
