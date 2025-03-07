@@ -7,7 +7,27 @@
              mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="400">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="0">
+            <TextBlock Text="Einklappen" Width ="75" Margin="5" />
+            <Button Content="Armee" Click="CollapseLevel1_Click" Margin="5"/>
+            <Button Content="Einheiten" Click="CollapseLevel2_Click" Margin="5"/>
+            <Button Content="Hauptmodelle" Click="CollapseLevel3_Click" Margin="5"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="1">
+            <TextBlock Text="Ausklappen" Width ="75 " Margin="5,5,54,5" />
+            <Button Content="Einheiten" Click="ExpandLevel1_Click" Margin="5"/>
+            <Button Content="Hauptmodelle" Click="ExpandLevel2_Click" Margin="5"/>
+            <Button Content="Einzelmodelle" Click="ExpandLevel3_Click" Margin="5"/>
+        </StackPanel>
+        
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="2">
             <TreeView Name="trvArmy" ItemsSource="{Binding ArmyTreeViewModel.Root}">
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Units}">
@@ -109,4 +129,3 @@
         </ScrollViewer>
     </Grid>
 </UserControl>
-
