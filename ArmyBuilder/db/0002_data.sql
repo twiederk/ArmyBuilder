@@ -2719,7 +2719,7 @@ INSERT INTO ranged_weapon VALUES(11,'Bogen',2,'',-1,0,0,3,24);
 INSERT INTO ranged_weapon VALUES(12,'Kurzbogen',1,'',-1,0,0,3,16);
 INSERT INTO ranged_weapon VALUES(13,'Langbogen',3,'',-1,0,0,3,30);
 INSERT INTO ranged_weapon VALUES(14,'Armbrust',3,'',-1,0,0,4,30);
-INSERT INTO ranged_weapon VALUES(15,'Repetierarmbrust',4,'',-1,0,0,3,24);
+INSERT INTO ranged_weapon VALUES(15,'Repetierarmbrust',3,'',-1,0,0,3,24);
 INSERT INTO ranged_weapon VALUES(16,'Wurfspeer',1,'',-1,0,0,0,8);
 INSERT INTO ranged_weapon VALUES(17,'Wurfaxt',1,'',-1,0,0,0,4);
 INSERT INTO ranged_weapon VALUES(18,'Wurfmesser',1,'',-1,0,0,0,6);
