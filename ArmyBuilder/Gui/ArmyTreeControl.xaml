@@ -54,50 +54,37 @@
                     </HierarchicalDataTemplate>
 
                     <HierarchicalDataTemplate DataType="{x:Type viewModels:SingleModelTreeNode}" ItemsSource="{Binding Equipment}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="125" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="35" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                            </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="0" Grid.Column="0" Content="Name" />
-                            <Label Grid.Row="0" Grid.Column="1" Content="B" />
-                            <Label Grid.Row="0" Grid.Column="2" Content="KG" />
-                            <Label Grid.Row="0" Grid.Column="3" Content="BF" />
-                            <Label Grid.Row="0" Grid.Column="4" Content="S" />
-                            <Label Grid.Row="0" Grid.Column="5" Content="W" />
-                            <Label Grid.Row="0" Grid.Column="6" Content="LP" />
-                            <Label Grid.Row="0" Grid.Column="7" Content="I" />
-                            <Label Grid.Row="0" Grid.Column="8" Content="A" />
-                            <Label Grid.Row="0" Grid.Column="9" Content="M" />
-                            <Label Grid.Row="0" Grid.Column="10" Content="RW" />
+                        <StackPanel Orientation="Vertical" >
+                            <StackPanel Orientation="Horizontal" Visibility="{Binding HeadingVisibility}" >
+                                <Label Width="125" Content="Name" />
+                                <Label Width="25" Content="B" />
+                                <Label Width="25" Content="KG" />
+                                <Label Width="25" Content="BF" />
+                                <Label Width="35" Content="S" />
+                                <Label Width="25" Content="W" />
+                                <Label Width="25" Content="LP" />
+                                <Label Width="25" Content="I" />
+                                <Label Width="25" Content="A" />
+                                <Label Width="35" Content="MW" />
+                                <Label Width="35" Content="RW" />
+                            </StackPanel>
 
-                            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Name}" />
-                            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Movement}" />
-                            <Label Grid.Row="1" Grid.Column="2" Content="{Binding WeaponSkill}" />
-                            <Label Grid.Row="1" Grid.Column="3" Content="{Binding BallisticSkill}" />
-                            <Label Grid.Row="1" Grid.Column="4" Content="{Binding Strength}" />
-                            <Label Grid.Row="1" Grid.Column="5" Content="{Binding Toughness}" />
-                            <Label Grid.Row="1" Grid.Column="6" Content="{Binding Wounds}" />
-                            <Label Grid.Row="1" Grid.Column="7" Content="{Binding Initiative}" />
-                            <Label Grid.Row="1" Grid.Column="8" Content="{Binding Attacks}" />
-                            <Label Grid.Row="1" Grid.Column="9" Content="{Binding Moral}" />
-                            <Label Grid.Row="1" Grid.Column="10" Content="{Binding Save}" />
+                            <StackPanel Orientation="Horizontal" >
+                                <Label Content="{Binding Name}" Width="125" />
+                                <Label Content="{Binding Movement}" Width="25" />
+                                <Label Content="{Binding WeaponSkill}" Width="25" />
+                                <Label Content="{Binding BallisticSkill}" Width="25" />
+                                <Label Content="{Binding Strength}" Width="35" />
+                                <Label Content="{Binding Toughness}" Width="25" />
+                                <Label Content="{Binding Wounds}" Width="25" />
+                                <Label Content="{Binding Initiative}" Width="25" />
+                                <Label Content="{Binding Attacks}" Width="25" />
+                                <Label Content="{Binding Moral}" Width="35" />
+                                <Label Content="{Binding Save}" Width="35" />
+                            </StackPanel>
+                        </StackPanel>
 
-                        </Grid>
                     </HierarchicalDataTemplate>
 
                     <DataTemplate DataType="{x:Type viewModels:EquipmentTreeNode}">
