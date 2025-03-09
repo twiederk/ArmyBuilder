@@ -2749,7 +2749,7 @@ INSERT INTO armor VALUES(46,'Leichte Rüstung und Roßharnisch',6,'',-1,0,0,2);
 INSERT INTO armor VALUES(47,'Schwere Rüstung und Roßharnisch',7,'',-1,0,0,3);
 INSERT INTO armor VALUES(48,'Schattenumhang',1,'',7,1,0,0);
 INSERT INTO armor VALUES(49,'Löwenumhang',1,'',7,1,0,0);
-INSERT INTO armor VALUES(50,'Schwere Rüstung mit Steinrune',8,'Rettungswurf 3+',14,1,1,3);
+INSERT INTO armor VALUES(50,'Schwere Rüstung mit Steinrune',8,'Rettungswurf 3+',14,0,0,3);
 INSERT INTO armor VALUES(51,'Roßharnisch',4,'',-1,0,0,1);
 INSERT INTO armor VALUES(5781,'Chaosrüstung',10,'Rettungswurf 4+.',1,0,1,0);
 INSERT INTO armor VALUES(5782,'Meteorrüstung',25,'Rettungswurf 2+.',-1,0,1,0);
