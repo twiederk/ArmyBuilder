@@ -7,7 +7,27 @@
              mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="400">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="0">
+            <TextBlock Text="Einklappen" Width="75" Margin="5" />
+            <Button Content="Armee" Click="CollapseLevel1_Click" Margin="5"/>
+            <Button Content="Einheiten" Click="CollapseLevel2_Click" Margin="5"/>
+            <Button Content="Hauptmodelle" Click="CollapseLevel3_Click" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="1">
+            <TextBlock Text="Ausklappen" Width="75" Margin="5,5,54,5" />
+            <Button Content="Einheiten" Click="ExpandLevel1_Click" Margin="5"/>
+            <Button Content="Hauptmodelle" Click="ExpandLevel2_Click" Margin="5"/>
+            <Button Content="Einzelmodelle" Click="ExpandLevel3_Click" Margin="5"/>
+        </StackPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="2" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
             <TreeView Name="trvArmy" ItemsSource="{Binding ArmyTreeViewModel.Root}">
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Units}">
@@ -50,40 +70,42 @@
                                 <CheckBox Content="{Binding StandardBearerLabel}" IsChecked="{Binding StandardBearer}" Click="TrooperCheckbox_Click" Tag="{Binding}" Foreground="Magenta" Margin="2,2,2,2"/>
                                 <CheckBox Content="{Binding MusicianLabel}" IsChecked="{Binding Musician}" Click="TrooperCheckbox_Click" Tag="{Binding}" Foreground="Magenta" Margin="2,2,2,2"/>
                             </StackPanel>
+                            <TextBlock Text="{Binding Description}" Visibility="{Binding DescriptionVisibility}" Foreground="Magenta"/>
                         </StackPanel>
                     </HierarchicalDataTemplate>
 
                     <HierarchicalDataTemplate DataType="{x:Type viewModels:SingleModelTreeNode}" ItemsSource="{Binding Equipment}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                                <ColumnDefinition Width="25" />
-                            </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Name}" />
-                            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Movement}" />
-                            <Label Grid.Row="1" Grid.Column="2" Content="{Binding WeaponSkill}" />
-                            <Label Grid.Row="1" Grid.Column="3" Content="{Binding BallisticSkill}" />
-                            <Label Grid.Row="1" Grid.Column="4" Content="{Binding Strength}" />
-                            <Label Grid.Row="1" Grid.Column="5" Content="{Binding Toughness}" />
-                            <Label Grid.Row="1" Grid.Column="6" Content="{Binding Wounds}" />
-                            <Label Grid.Row="1" Grid.Column="7" Content="{Binding Initiative}" />
-                            <Label Grid.Row="1" Grid.Column="8" Content="{Binding Attacks}" />
-                            <Label Grid.Row="1" Grid.Column="9" Content="{Binding Moral}" />
-                            <Label Grid.Row="1" Grid.Column="10" Content="{Binding Save}" />
-                        </Grid>
+                        <StackPanel Orientation="Vertical" >
+                            <StackPanel Orientation="Horizontal" Visibility="{Binding HeadingVisibility}" >
+                                <Label Width="125" Content="Name" />
+                                <Label Width="25" Content="B" />
+                                <Label Width="25" Content="KG" />
+                                <Label Width="25" Content="BF" />
+                                <Label Width="35" Content="S" />
+                                <Label Width="25" Content="W" />
+                                <Label Width="25" Content="LP" />
+                                <Label Width="25" Content="I" />
+                                <Label Width="25" Content="A" />
+                                <Label Width="35" Content="MW" />
+                                <Label Width="35" Content="RW" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" >
+                                <Label Content="{Binding Name}" Width="125" />
+                                <Label Content="{Binding Movement}" Width="25" />
+                                <Label Content="{Binding WeaponSkill}" Width="25" />
+                                <Label Content="{Binding BallisticSkill}" Width="25" />
+                                <Label Content="{Binding Strength}" Width="35" />
+                                <Label Content="{Binding Toughness}" Width="25" />
+                                <Label Content="{Binding Wounds}" Width="25" />
+                                <Label Content="{Binding Initiative}" Width="25" />
+                                <Label Content="{Binding Attacks}" Width="25" />
+                                <Label Content="{Binding Moral}" Width="35" />
+                                <Label Content="{Binding Save}" Width="35" />
+                            </StackPanel>
+                        </StackPanel>
+
                     </HierarchicalDataTemplate>
 
                     <DataTemplate DataType="{x:Type viewModels:EquipmentTreeNode}">

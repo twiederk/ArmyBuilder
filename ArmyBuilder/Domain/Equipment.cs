@@ -66,6 +66,10 @@ namespace ArmyBuilder.Domain
             return Id.GetHashCode();
         }
 
+        public MeleeWeapon? MeleeWeapon()
+        {
+            return Slots.Select(slot => slot.Item).OfType<MeleeWeapon>().FirstOrDefault();
+        }
     }
 }
 

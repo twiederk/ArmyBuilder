@@ -169,6 +169,37 @@ namespace ArmyBuilder.Test.Domain
             result.Should().Be(50);
         }
 
+        [Fact]
+        public void should_return_melee_weapon_when_equipment_contains_melee_weapon()
+        {
+            // arrange
+            Slot slot1 = new Slot() { Id = 1, Item = new RangedWeapon { Id = 1, Name = "Bow", Points = 10, Magic = false } };
+            Slot slot2 = new Slot() { Id = 2, Item = new MeleeWeapon { Id = 2, Name = "Lance", Points = 50, Magic = true } };
+            Slot slot3 = new Slot() { Id = 3, Item = new Armor { Id = 3, Name = "Armor", Points = 15, Magic = false } };
+
+            Equipment equipment = new Equipment();
+            equipment.Slots.Add(slot1);
+            equipment.Slots.Add(slot2);
+            equipment.Slots.Add(slot3);
+
+            // act
+            MeleeWeapon? result = equipment.MeleeWeapon();
+
+            // assert
+            result.Should().NotBeNull();
+            result?.Name.Should().Be("Lance");
+        }
+
+        [Fact]
+        public void should_return_null_when_equipment_does_not_contains_melee_weapon()
+        {
+            // act
+            MeleeWeapon? result = new Equipment().MeleeWeapon();
+
+            // assert
+            result.Should().BeNull();
+        }
+
 
     }
 }

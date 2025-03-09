@@ -9,15 +9,16 @@ namespace ArmyBuilder.ViewModels
     public class MainModelTreeNode : INotifyPropertyChanged
     {
         public string Name => $"{MainModel.Name} ({MainModel.Points()})";
-        public String Count => $"{MainModel.Count}x";
+        public string Count => $"{MainModel.Count}x";
         public float TotalPoints => MainModel.TotalPoints();
+        public string Description => MainModel.Description;
         public MainModel MainModel { get; set; }
         public Unit Unit => _parent.Unit;
         public string DisplayArmyCategory => MainModel.ArmyCategory.Display();
         public Visibility MountButtonVisibility => GetMountButtonVisibility();
         public Visibility CountButtonVisibility => GetCountButtonVisibility();
         public Visibility TrooperVisiblity => GetTrooperVisibility();
-
+        public Visibility DescriptionVisibility => GetDescriptionVisibilty();
         public string StandardBearerLabel => StandardBearerText();
         public string MusicianLabel => MusicianText();
 
@@ -108,6 +109,11 @@ namespace ArmyBuilder.ViewModels
         public Visibility GetTrooperVisibility()
         {
             return MainModel.ArmyCategory == ArmyCategory.Trooper ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public Visibility GetDescriptionVisibilty()
+        {
+            return string.IsNullOrEmpty(MainModel.Description) ? Visibility.Collapsed : Visibility.Visible;
         }
 
         public string StandardBearerText() {

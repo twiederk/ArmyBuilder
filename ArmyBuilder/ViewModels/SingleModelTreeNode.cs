@@ -1,5 +1,6 @@
 using ArmyBuilder.Domain;
 using System.ComponentModel;
+using System.Windows;
 
 namespace ArmyBuilder.ViewModels
 {
@@ -15,7 +16,10 @@ namespace ArmyBuilder.ViewModels
         public string Initiative => _singleModel.Initiative;
         public string Attacks => _singleModel.Attacks;
         public string Moral => _singleModel.Moral;
-        public String Save => _singleModel.Save;
+        public string Save => _singleModel.Save;
+        public Visibility HeadingVisibility => headingVisibility();
+
+
         public List<EquipmentTreeNode> Equipment { get; set; } = new List<EquipmentTreeNode>();
         private SingleModel _singleModel;
         private MainModelTreeNode _parent;
@@ -33,17 +37,25 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
+        public void UpdateEquipment()
+        {
+            _parent.UpdateTotalPoints();
+            OnPropertyChanged("Strength");
+            OnPropertyChanged("Save");
+        }
+
+        private Visibility headingVisibility()
+        {
+            int index = _parent.SingleModels.IndexOf(this);
+            return index == 0 ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void UpdateEquipment()
-        {
-            _parent.UpdateTotalPoints();
-            OnPropertyChanged("Save");
         }
 
     }

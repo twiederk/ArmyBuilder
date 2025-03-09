@@ -5,12 +5,12 @@ using QuestPDF.Helpers;
 
 namespace ArmyBuilder.Print
 {
-    public class MagicItemPrintComponent : IComponent
+    public class MagicItemsPrintComponent : IComponent
     {
         private List<Item> _magicItems { get; }
 
 
-        public MagicItemPrintComponent(List<Item> magicItems)
+        public MagicItemsPrintComponent(List<Item> magicItems)
         {
             _magicItems = magicItems;
         }

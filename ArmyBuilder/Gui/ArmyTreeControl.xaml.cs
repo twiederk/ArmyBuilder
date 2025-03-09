@@ -3,6 +3,7 @@ using ArmyBuilder.ViewModels;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace ArmyBuilder
 {
@@ -11,6 +12,90 @@ namespace ArmyBuilder
         public ArmyTreeControl()
         {
             InitializeComponent();
+        }
+
+        private void CollapseLevel1_Click(object sender, RoutedEventArgs e)
+        {
+            CollapseTreeViewItems(trvArmy, 1);
+        }
+
+        private void CollapseLevel2_Click(object sender, RoutedEventArgs e)
+        {
+            CollapseTreeViewItems(trvArmy, 2);
+        }
+
+        private void CollapseLevel3_Click(object sender, RoutedEventArgs e)
+        {
+            CollapseTreeViewItems(trvArmy, 3);
+        }
+
+        private void CollapseTreeViewItems(ItemsControl parent, int level)
+        {
+            foreach (var item in parent.Items)
+            {
+                if (parent.ItemContainerGenerator.ContainerFromItem(item) is TreeViewItem treeViewItem)
+                {
+                    if (level == 1)
+                    {
+                        treeViewItem.IsExpanded = false;
+                    }
+                    else
+                    {
+                        CollapseTreeViewItems(treeViewItem, level - 1);
+                    }
+                }
+            }
+        }
+
+        private void ExpandLevel1_Click(object sender, RoutedEventArgs e)
+        {
+            ExpandTreeViewItems(trvArmy, 1);
+        }
+
+        private void ExpandLevel2_Click(object sender, RoutedEventArgs e)
+        {
+            ExpandTreeViewItems(trvArmy, 2);
+        }
+
+        private void ExpandLevel3_Click(object sender, RoutedEventArgs e)
+        {
+            ExpandTreeViewItems(trvArmy, 3);
+        }
+
+        private void ExpandTreeViewItems(ItemsControl parent, int level)
+        {
+            foreach (var item in parent.Items)
+            {
+                if (parent.ItemContainerGenerator.ContainerFromItem(item) is TreeViewItem treeViewItem)
+                {
+                    if (level == 1)
+                    {
+                        treeViewItem.IsExpanded = true;
+                    }
+                    else
+                    {
+                        treeViewItem.IsExpanded = true;
+                        ExpandTreeViewItems(treeViewItem, level - 1);
+                    }
+                }
+            }
+        }
+
+        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollViewer scrollViewer = sender as ScrollViewer;
+            if (scrollViewer != null)
+            {
+                if (e.Delta > 0)
+                {
+                    scrollViewer.LineUp();
+                }
+                else
+                {
+                    scrollViewer.LineDown();
+                }
+                e.Handled = true;
+            }
         }
 
         private void armyTreeNode_Drop(object sender, DragEventArgs e)
