@@ -37,33 +37,34 @@ INSERT INTO army_main_model VALUES(15,10,2,'Repetier-Speerschleuder','',0,100.0,
 INSERT INTO army_main_model VALUES(16,11,3,'Drache','Entsetzen, Fliegen, Drachenatem, Schuppige Haut',0,450.0,1,0,0);
 
 
-INSERT INTO army_single_model VALUES(1,11906,'Streitwagenlenker',1,'Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,0,0,1);
-INSERT INTO army_single_model VALUES(2,12034,'Elfenroß',1,'',0,1,0,2);
-INSERT INTO army_single_model VALUES(3,12159,'Streitwagen',1,'',0,0,0,1);
-INSERT INTO army_single_model VALUES(4,11906,'Grenzreiter',2,'Lockere Formation, Zusätz. Marschbewegung, Vorzügliche Reiter, Schießen und Flüchten.',1,0,0,1);
-INSERT INTO army_single_model VALUES(5,12034,'Elfenroß',2,'',0,1,0,1);
-INSERT INTO army_single_model VALUES(6,11509,'Champion',3,'',1,0,0,1);
-INSERT INTO army_single_model VALUES(7,12034,'Elfenroß',3,'',0,1,1,1);
-INSERT INTO army_single_model VALUES(8,11901,'Silberhelm',4,'',1,0,0,1);
-INSERT INTO army_single_model VALUES(9,12034,'Elfenroß',4,'',0,1,0,1);
-INSERT INTO army_single_model VALUES(10,11509,'Champion',5,'',1,0,0,1);
-INSERT INTO army_single_model VALUES(11,12034,'Elfenroß',5,'',0,1,1,1);
-INSERT INTO army_single_model VALUES(12,11906,'Bogenschütze',6,'Bürgermiliz',0,0,0,1);
-INSERT INTO army_single_model VALUES(13,11906,'Speerträger',7,'Bürgermiliz',0,0,0,1);
-INSERT INTO army_single_model VALUES(14,11508,'Held',8,'',0,0,0,1);
-INSERT INTO army_single_model VALUES(15,12336,'Pegasus',8,'Fliegen',0,0,1,1);
-INSERT INTO army_single_model VALUES(16,11515,'Teclis',9,'Meister der Weißen Magie',0,0,0,1);
-INSERT INTO army_single_model VALUES(17,11901,'Drachenprinz',10,'Banner von Caledor',1,0,0,1);
-INSERT INTO army_single_model VALUES(18,12034,'Elfenroß',10,'',0,1,0,1);
-INSERT INTO army_single_model VALUES(19,11507,'Armeestandartenträger',11,'',1,0,0,1);
-INSERT INTO army_single_model VALUES(20,11506,'General',12,'',1,0,0,1);
-INSERT INTO army_single_model VALUES(21,12034,'Elfenroß',12,'',0,1,1,1);
-INSERT INTO army_single_model VALUES(22,12034,'Elfenroß',11,'',0,1,1,1);
-INSERT INTO army_single_model VALUES(23,11512,'Großzauberer',13,'',0,0,0,1);
-INSERT INTO army_single_model VALUES(24,11906,'Bogenschütze',14,'Bürgermiliz',0,0,0,1);
-INSERT INTO army_single_model VALUES(25,11906,'Geschützbedienung',15,'',0,0,0,2);
-INSERT INTO army_single_model VALUES(26,12138,'Speerschleuder',15,'',0,0,0,1);
-INSERT INTO army_single_model VALUES(27,12416,'Drache',16,'Entsetzen, Fliegen, Drachenatem, Schuppige Haut',0,0,0,1);
+INSERT INTO army_single_model VALUES(1,11906,'Streitwagenlenker',1,0,0,0,1);
+INSERT INTO army_single_model VALUES(2,12034,'Elfenroß',1,0,1,0,2);
+INSERT INTO army_single_model VALUES(3,12159,'Streitwagen',1,0,0,0,1);
+INSERT INTO army_single_model VALUES(4,11906,'Grenzreiter',2,1,0,0,1);
+INSERT INTO army_single_model VALUES(5,12034,'Elfenroß',2,0,1,0,1);
+INSERT INTO army_single_model VALUES(6,11509,'Champion',3,1,0,0,1);
+INSERT INTO army_single_model VALUES(7,12034,'Elfenroß',3,0,1,1,1);
+INSERT INTO army_single_model VALUES(8,11901,'Silberhelm',4,1,0,0,1);
+INSERT INTO army_single_model VALUES(9,12034,'Elfenroß',4,0,1,0,1);
+INSERT INTO army_single_model VALUES(10,11509,'Champion',5,1,0,0,1);
+INSERT INTO army_single_model VALUES(11,12034,'Elfenroß',5,0,1,1,1);
+INSERT INTO army_single_model VALUES(12,11906,'Bogenschütze',6,0,0,0,1);
+INSERT INTO army_single_model VALUES(13,11906,'Speerträger',7,0,0,0,1);
+INSERT INTO army_single_model VALUES(14,11508,'Held',8,0,0,0,1);
+INSERT INTO army_single_model VALUES(15,12336,'Pegasus',8,0,0,1,1);
+INSERT INTO army_single_model VALUES(16,11515,'Teclis',9,0,0,0,1);
+INSERT INTO army_single_model VALUES(17,11901,'Drachenprinz',10,1,0,0,1);
+INSERT INTO army_single_model VALUES(18,12034,'Elfenroß',10,0,1,0,1);
+INSERT INTO army_single_model VALUES(19,11507,'Armeestandartenträger',11,1,0,0,1);
+INSERT INTO army_single_model VALUES(20,11506,'General',12,1,0,0,1);
+INSERT INTO army_single_model VALUES(21,12034,'Elfenroß',12,0,1,1,1);
+INSERT INTO army_single_model VALUES(22,12034,'Elfenroß',11,0,1,1,1);
+INSERT INTO army_single_model VALUES(23,11512,'Großzauberer',13,0,0,0,1);
+INSERT INTO army_single_model VALUES(24,11906,'Bogenschütze',14,0,0,0,1);
+INSERT INTO army_single_model VALUES(25,11906,'Geschützbedienung',15,0,0,0,2);
+INSERT INTO army_single_model VALUES(26,12138,'Speerschleuder',15,0,0,0,1);
+INSERT INTO army_single_model VALUES(27,12416,'Drache',16,0,0,0,1);
+
 
 
 INSERT INTO army_slot VALUES(1,1,5,1,0,0);
