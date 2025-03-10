@@ -656,6 +656,7 @@ INSERT INTO profile VALUES(12421,'Hydra',6,3,0,5,6,7,3,5,6,225.0,7);
 INSERT INTO profile VALUES(12422,'Mantikor',6,6,0,7,7,5,4,4,8,200.0,7);
 INSERT INTO profile VALUES(12423,'Lindwurm',6,5,0,5,6,4,4,3,5,180.0,7);
 INSERT INTO profile VALUES(12424,'Blutkessel',0,0,0,0,0,0,0,0,0,41.0,7);
+INSERT INTO profile VALUES(12425,'Runenamboß',3,5,4,6,4,1,3,2,9,200.0,5);
 
 
 INSERT INTO main_model VALUES(11420,1,0,'Armeestandartenträger des Nurgle','',0,243.0,0,0);
@@ -1510,6 +1511,7 @@ INSERT INTO main_model VALUES(12420,4,3,'Hippogreif','Fliegen, Entsetzen.',0,125
 INSERT INTO main_model VALUES(12421,4,3,'Hydra','Entsetzen, Feueratem, Schuppenhaut',0,225.0,0,0);
 INSERT INTO main_model VALUES(12422,4,3,'Mantikor','Entsetzen, Fliegen',0,200.0,0,0);
 INSERT INTO main_model VALUES(12423,4,3,'Lindwurm','Entsetzen, Fiegen, Schuppenhaut',0,180.0,0,0);
+INSERT INTO main_model VALUES(12424,14,0,'Runenamboß','Wachen immun gegen Psychologie. Beschuß: 1 Schmied; 2-3 Wachen; 4+ Amboß',0,200.0,0,0);
 
 
 INSERT INTO single_model VALUES(46357,11682,'Tancred, duc de Quenelles',11682,0,0,0,1);
@@ -2511,6 +2513,7 @@ INSERT INTO single_model VALUES(47363,12336,'Pegasus',12336,0,0,1,1);
 INSERT INTO single_model VALUES(47364,12320,'Rattenschwarm',12337,0,0,1,1);
 INSERT INTO single_model VALUES(47365,12315,'Froschschwarm',12338,0,0,1,1);
 INSERT INTO single_model VALUES(47366,12424,'Blutkessel',12107,0,0,0,1);
+INSERT INTO single_model VALUES(47367,12425,'Runenamboß',12424,0,0,1,1);
 
 
 INSERT INTO melee_weapon VALUES(1,'Handwaffe',0,'',-1,0,0,0);
