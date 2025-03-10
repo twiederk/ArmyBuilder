@@ -7,7 +7,6 @@ namespace ArmyBuilder.Domain
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
         public Profile Profile { get; set; }
         public MovementType MovementType { get; set; }
         public bool Mount { get; set; }
