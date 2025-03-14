@@ -14,7 +14,7 @@ namespace ArmyBuilder
         private readonly ArmyViewModel _armyViewModel;
 
         private readonly List<int> ARMY_LIST_INCOMPLETE = [ 0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 12, 13 ];
-        private readonly List<int> ARMY_LIST_PROFILE_POINTS = [ 5, 14 ];
+        private readonly List<int> ARMY_LIST_PROFILE_POINTS = [ 5 ];
 
         public NewArmyView(IServiceProvider serviceProvider)
         {

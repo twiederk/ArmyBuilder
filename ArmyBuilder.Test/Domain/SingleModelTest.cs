@@ -198,6 +198,41 @@ namespace ArmyBuilder.Test.Domain
             // assert
             displayStrength.Should().Be("5/3");
         }
+
+        [Fact]
+        public void should_return_additional_attack_when_carring_second_weapon()
+        {
+            // arrange
+            MeleeWeapon secondHandWeapon = new MeleeWeapon { Id = Item.ID_SECOND_HAND_WEAPON };
+            var singleModel = new SingleModel
+            {
+                Profile = new Profile { Attacks = 1 },
+                Equipment = new Equipment { Slots = { new Slot { Item = secondHandWeapon } } },
+            };
+
+            // act
+            string displayAttacks = singleModel.Attacks;
+
+            // assert
+            displayAttacks.Should().Be("1+1");
+        }
+
+        [Fact]
+        public void shoud_return_dash_when_attack_is_zero_and_melee_weapon_carried()
+        {
+            // arrange
+            MeleeWeapon handWeapon = new MeleeWeapon { Id = Item.ID_HAND_WEAPON };
+            var singleModel = new SingleModel
+            {
+                Profile = new Profile { Attacks = 0 },
+            };
+
+            // act
+            string displayAttacks = singleModel.Attacks;
+
+            // assert
+            displayAttacks.Should().Be("-");
+        }
     }
 }
 
