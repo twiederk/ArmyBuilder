@@ -78,29 +78,29 @@
 
                         <StackPanel Orientation="Vertical" >
                             <StackPanel Orientation="Horizontal" Visibility="{Binding HeadingVisibility}" >
-                                <Label Width="125" Content="Name" />
-                                <Label Width="25" Content="B" />
-                                <Label Width="25" Content="KG" />
-                                <Label Width="25" Content="BF" />
+                                <Label Width="135" Content="Name" />
+                                <Label Width="35" Content="B" />
+                                <Label Width="35" Content="KG" />
+                                <Label Width="35" Content="BF" />
                                 <Label Width="35" Content="S" />
-                                <Label Width="25" Content="W" />
-                                <Label Width="25" Content="LP" />
-                                <Label Width="25" Content="I" />
-                                <Label Width="25" Content="A" />
+                                <Label Width="35" Content="W" />
+                                <Label Width="35" Content="LP" />
+                                <Label Width="35" Content="I" />
+                                <Label Width="35" Content="A" />
                                 <Label Width="35" Content="MW" />
                                 <Label Width="35" Content="RW" />
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" >
-                                <Label Content="{Binding Name}" Width="125" />
-                                <Label Content="{Binding Movement}" Width="25" />
-                                <Label Content="{Binding WeaponSkill}" Width="25" />
-                                <Label Content="{Binding BallisticSkill}" Width="25" />
+                                <Label Content="{Binding Name}" Width="135" />
+                                <Label Content="{Binding Movement}" Width="35" />
+                                <Label Content="{Binding WeaponSkill}" Width="35" />
+                                <Label Content="{Binding BallisticSkill}" Width="35" />
                                 <Label Content="{Binding Strength}" Width="35" />
-                                <Label Content="{Binding Toughness}" Width="25" />
-                                <Label Content="{Binding Wounds}" Width="25" />
-                                <Label Content="{Binding Initiative}" Width="25" />
-                                <Label Content="{Binding Attacks}" Width="25" />
+                                <Label Content="{Binding Toughness}" Width="35" />
+                                <Label Content="{Binding Wounds}" Width="35" />
+                                <Label Content="{Binding Initiative}" Width="35" />
+                                <Label Content="{Binding Attacks}" Width="35" />
                                 <Label Content="{Binding Moral}" Width="35" />
                                 <Label Content="{Binding Save}" Width="35" />
                             </StackPanel>
