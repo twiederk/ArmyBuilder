@@ -178,7 +178,6 @@ namespace ArmyBuilder.Test.Dao
             { 
                 Id = 46811,
                 Name = "Schwertmeister",
-                Description = "Schwertmeister, Geschosse beiseiteschlagen.",
                 Profile = new Profile { Id = 11901 },
                 MovementType = MovementType.OnFoot,
                 Equipment = equipment
@@ -279,7 +278,6 @@ namespace ArmyBuilder.Test.Dao
             {
                 Id = 46811,
                 Name = "General",
-                Description = "General description",
                 Profile = new Profile { Id = 11901, Movement = 5, WeaponSkill = 5, BallisticSkill = 4, Strength = 3, Toughness = 3, Wounds = 1, Initiative = 7, Attacks = 1, Moral = 8, Points = 10, Save = 7 },
                 MovementType = MovementType.OnFoot,
             };
@@ -293,7 +291,6 @@ namespace ArmyBuilder.Test.Dao
             {
                 Id = 46812,
                 Name = "Mount",
-                Description = "Mount description",
                 Profile = new Profile { Id = 11902, Movement = 6, WeaponSkill = 4, BallisticSkill = 3, Strength = 4, Toughness = 4, Wounds = 2, Initiative = 6, Attacks = 2, Moral = 7, Points = 15, Save = 6 },
                 MovementType = MovementType.OnMount,
                 Equipment = new Equipment()

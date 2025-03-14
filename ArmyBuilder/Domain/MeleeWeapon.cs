@@ -29,6 +29,14 @@ namespace ArmyBuilder.Domain
                     return totalStrength.ToString();
             }
         }
+
+        public string DisplayAttacks(int attacks)
+        {
+            if (Id == ID_SECOND_HAND_WEAPON)
+                return $"{attacks}+1";
+            else
+                return attacks.ToString();
+        }
     }
 
 }
