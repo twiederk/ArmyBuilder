@@ -43,6 +43,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -59,6 +60,9 @@
             <local:MainModelControl Grid.Row="1" Grid.Column="0" />
 
             <Label Grid.Row="3" Grid.Column="0" Content="{Binding SelectedMainModel.Description}" />
+
+            <Image Grid.Row="4" Grid.Column="0" Name="imageControl" Width="300" Height="200" Stretch="Uniform" />
+            
         </Grid>
 
         <local:ArmyTreeControl Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" />

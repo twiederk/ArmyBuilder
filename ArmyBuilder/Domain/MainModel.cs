@@ -1,5 +1,3 @@
-using System.Security.Permissions;
-
 namespace ArmyBuilder.Domain
 {
     public class MainModel
@@ -14,6 +12,7 @@ namespace ArmyBuilder.Domain
         public bool Uniquely { get; set; }
         public bool Musician { get; set; }
         public bool StandardBearer { get; set; }
+        public string ImagePath { get; set; } = @"images\HighElves\HighElf_Dragon.jpg";
         public List<SingleModel> SingleModels { get; set; } = new List<SingleModel>();
 
         public float TotalPoints()
