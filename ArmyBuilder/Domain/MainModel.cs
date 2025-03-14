@@ -111,7 +111,6 @@ namespace ArmyBuilder.Domain
                 {
                     Id = sm.Id,
                     Name = sm.Name,
-                    Description = sm.Description,
                     MovementType = sm.MovementType,
                     Mount = sm.Mount,
                     Count = sm.Count,
