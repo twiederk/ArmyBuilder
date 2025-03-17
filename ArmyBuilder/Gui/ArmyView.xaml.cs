@@ -20,19 +20,6 @@ namespace ArmyBuilder
             _repository = serviceProvider.GetRequiredService<IArmyBuilderRepository>();
             InitializeComponent();
             DataContext = armyViewModel;
-
-
-            string relativePath = @"images\HighElves\HighElf_Dragon.jpg"; // Replace with your relative image path
-            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(filePath, UriKind.Absolute);
-            bitmap.EndInit();
-
-            imageControl.Source = bitmap; // Assign the BitmapImage to the Image control
-
-
-
         }
 
         private void Print_Click(object sender, RoutedEventArgs e)
