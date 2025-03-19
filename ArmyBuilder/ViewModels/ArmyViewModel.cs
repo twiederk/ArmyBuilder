@@ -8,6 +8,8 @@ namespace ArmyBuilder.ViewModels
 {
     public class ArmyViewModel : INotifyPropertyChanged
     {
+        public BitmapImage? Image { get; private set; }
+
         private readonly IArmyBuilderRepository _repository;
         private ArmyListDigest _selectedArmyList;
         private MainModel _selectedMainModel;
@@ -16,7 +18,6 @@ namespace ArmyBuilder.ViewModels
         private List<MainModel> _warMachines;
         private List<MainModel> _monsters;
         private List<SingleModel> _mounts;
-        public BitmapImage Image { get; private set; }
 
 
 
@@ -94,12 +95,23 @@ namespace ArmyBuilder.ViewModels
                 _selectedMainModel = value;
                 OnPropertyChanged(nameof(SelectedMainModel));
 
-                string relativePath = _selectedMainModel.ImagePath;
-                string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
-                Image = new BitmapImage(new Uri(filePath, UriKind.Absolute));
+                Image = loadImage(_selectedMainModel);
                 OnPropertyChanged(nameof(Image));
             }
         }
+
+        private BitmapImage? loadImage(MainModel mainModel)
+        {
+            string relativePath = _selectedMainModel.ImagePath;
+            if (string.IsNullOrEmpty(relativePath))
+            {
+                return null;
+            }
+            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+            return new BitmapImage(new Uri(filePath, UriKind.Absolute));
+        }
+
+
 
         public Army CreateArmy(string armyListName, ArmyListDigest armyList)
         {
