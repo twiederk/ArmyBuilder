@@ -221,6 +221,7 @@ CREATE TABLE IF NOT EXISTS "army_main_model"
  "count"             INTEGER,
  "standard_bearer"   BIT,
  "musician"          BIT,
+ "image_path"        VARCHAR(256),
  FOREIGN KEY (army_unit_id) REFERENCES army_unit(id) ON DELETE CASCADE
  FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
 );
