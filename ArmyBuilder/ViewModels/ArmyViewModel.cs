@@ -1,7 +1,8 @@
 using ArmyBuilder.Domain;
 using ArmyBuilder.Dao;
 using System.ComponentModel;
-using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace ArmyBuilder.ViewModels
 {
@@ -15,6 +16,9 @@ namespace ArmyBuilder.ViewModels
         private List<MainModel> _warMachines;
         private List<MainModel> _monsters;
         private List<SingleModel> _mounts;
+        public BitmapImage Image { get; private set; }
+
+
 
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
@@ -89,6 +93,11 @@ namespace ArmyBuilder.ViewModels
             {
                 _selectedMainModel = value;
                 OnPropertyChanged(nameof(SelectedMainModel));
+
+                string relativePath = _selectedMainModel.ImagePath;
+                string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+                Image = new BitmapImage(new Uri(filePath, UriKind.Absolute));
+                OnPropertyChanged(nameof(Image));
             }
         }
 

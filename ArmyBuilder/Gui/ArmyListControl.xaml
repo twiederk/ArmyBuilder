@@ -9,16 +9,16 @@
     <Grid>
         <TabControl>
             <TabItem Header="Charaktere">
-                <ListBox Name="lstCharacters" ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick" MouseLeftButtonUp="ListBox_MouseLeftButtonUpClick" />
+                <ListBox Name="lstCharacters" ItemsSource="{Binding Characters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick" />
             </TabItem>
             <TabItem Header="Regimenter">
-                <ListBox Name="lstTroopers" ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick" MouseLeftButtonUp="ListBox_MouseLeftButtonUpClick" />
+                <ListBox Name="lstTroopers" ItemsSource="{Binding Troopers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick" />
             </TabItem>
             <TabItem Header="Kriegsgeräte">
-                <ListBox Name="lstWarMachines" ItemsSource="{Binding WarMachines}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick" MouseLeftButtonUp="ListBox_MouseLeftButtonUpClick" />
+                <ListBox Name="lstWarMachines" ItemsSource="{Binding WarMachines}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick" />
             </TabItem>
             <TabItem Header="Monster">
-                <ListBox Name="lstMonsters" ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick" MouseLeftButtonUp="ListBox_MouseLeftButtonUpClick" />
+                <ListBox Name="lstMonsters" ItemsSource="{Binding Monsters}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMainModel}" MouseMove="ListBox_MouseMove" MouseDoubleClick="ListBox_MouseDoubleClick" />
             </TabItem>
         </TabControl>
     </Grid>
