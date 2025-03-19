@@ -19,22 +19,22 @@ INSERT INTO army_unit VALUES(10,2,'Repetier-Speerschleuder');
 INSERT INTO army_unit VALUES(11,2,'Drache');
 
 
-INSERT INTO army_main_model VALUES(1,1,2,'Tiranoc Streitwagen','Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,72.0,1,0,0,'');
-INSERT INTO army_main_model VALUES(2,2,1,'Ellyrianische Grenzreiter','Lockere Formation, Zusätz. Marschbewegung, Vorzügliche Reiter, Schießen und Flüchten.',0,25.0,4,1,1,'');
-INSERT INTO army_main_model VALUES(3,2,0,'Champion','',0,48.0,1,0,0,'');
-INSERT INTO army_main_model VALUES(4,3,1,'Silberhelme','',0,31.0,9,1,0,'');
-INSERT INTO army_main_model VALUES(5,3,0,'Champion','',0,48.0,1,0,0,'');
-INSERT INTO army_main_model VALUES(6,4,1,'Bogenschützen','Bürgermiliz',0,10.0,12,1,1,'');
-INSERT INTO army_main_model VALUES(7,5,1,'Speerträger','Bürgermiliz',0,12.0,16,1,1,'');
-INSERT INTO army_main_model VALUES(8,6,0,'Held','',0,104.0,1,0,0,'');
-INSERT INTO army_main_model VALUES(9,7,0,'Teclis, Hochelfen Meisterzauberer','Meister der Weißen Magie',0,630.0,1,0,0,'');
-INSERT INTO army_main_model VALUES(10,8,1,'Drachenprinzen von Caledor','Banner von Caledor',0,43.0,8,1,1,'');
-INSERT INTO army_main_model VALUES(11,8,0,'Armeestandarte','',0,98.0,1,0,0,'');
-INSERT INTO army_main_model VALUES(12,8,0,'General','',0,160.0,1,0,0,'');
-INSERT INTO army_main_model VALUES(13,9,0,'Großzauberer','',0,219.0,1,0,0,'');
-INSERT INTO army_main_model VALUES(14,9,1,'Bogenschützen','Bürgermiliz',0,10.0,13,1,1,'');
-INSERT INTO army_main_model VALUES(15,10,2,'Repetier-Speerschleuder','',0,100.0,2,0,0,'');
-INSERT INTO army_main_model VALUES(16,11,3,'Drache','Entsetzen, Fliegen, Drachenatem, Schuppige Haut',0,450.0,1,0,0,'');
+INSERT INTO army_main_model VALUES(1,1,2,'Tiranoc Streitwagen','Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,72.0,1,0,0,'images\HighElves\HighElf_Chariot.jpg');
+INSERT INTO army_main_model VALUES(2,2,1,'Ellyrianische Grenzreiter','Lockere Formation, Zusätz. Marschbewegung, Vorzügliche Reiter, Schießen und Flüchten.',0,25.0,4,1,1,'images\HighElves\HighElf_BorderRider.jpg');
+INSERT INTO army_main_model VALUES(3,2,0,'Champion','',0,48.0,1,0,0,'images\HighElves\HighElf_Fighter1_Sword_Shield.jpg');
+INSERT INTO army_main_model VALUES(4,3,1,'Silberhelme','',0,31.0,9,1,0,'images\HighElves\HighElf_SilverHelm.jpg');
+INSERT INTO army_main_model VALUES(5,3,0,'Champion','',0,48.0,1,0,0,'images\HighElves\HighElf_Fighter1_Sword_Shield.jpg');
+INSERT INTO army_main_model VALUES(6,4,1,'Bogenschützen','Bürgermiliz',0,10.0,12,1,1,'images\HighElves\HighElf_BowMan.jpg');
+INSERT INTO army_main_model VALUES(7,5,1,'Speerträger','Bürgermiliz',0,12.0,16,1,1,'images\HighElves\HighElf_SpearMan.jpg');
+INSERT INTO army_main_model VALUES(8,6,0,'Held','',0,104.0,1,0,0,'images\HighElves\HighElf_Fighter1_Sword_Shield.jpg');
+INSERT INTO army_main_model VALUES(9,7,0,'Teclis, Hochelfen Meisterzauberer','Meister der Weißen Magie',0,630.0,1,0,0,'images\HighElves\HighElf_Teclis.jpg');
+INSERT INTO army_main_model VALUES(10,8,1,'Drachenprinzen von Caledor','Banner von Caledor',0,43.0,8,1,1,'images\HighElves\HighElf_Dragonprince.jpg');
+INSERT INTO army_main_model VALUES(11,8,0,'Armeestandarte','',0,98.0,1,0,0,'images\HighElves\HighElf_StandardBearer.jpg');
+INSERT INTO army_main_model VALUES(12,8,0,'General','',0,160.0,1,0,0,'images\HighElves\HighElf_Fighter1_Sword_Shield.jpg');
+INSERT INTO army_main_model VALUES(13,9,0,'Großzauberer','',0,219.0,1,0,0,'images\HighElves\HighElf_Wizard1.jpg');
+INSERT INTO army_main_model VALUES(14,9,1,'Bogenschützen','Bürgermiliz',0,10.0,13,1,1,'images\HighElves\HighElf_BowMan.jpg');
+INSERT INTO army_main_model VALUES(15,10,2,'Repetier-Speerschleuder','',0,100.0,2,0,0,'images\HighElves\HighElf_RepeatingBolder.jpg');
+INSERT INTO army_main_model VALUES(16,11,3,'Drache','Entsetzen, Fliegen, Drachenatem, Schuppige Haut',0,450.0,1,0,0,'images\HighElves\HighElf_Dragon.jpg');
 
 
 INSERT INTO army_single_model VALUES(1,11906,'Streitwagenlenker',1,0,0,0,1);
