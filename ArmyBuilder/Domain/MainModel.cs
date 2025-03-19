@@ -107,6 +107,7 @@ namespace ArmyBuilder.Domain
                 Uniquely = this.Uniquely,
                 StandardBearer = this.StandardBearer,
                 Musician = this.Musician,
+                ImagePath = this.ImagePath,
                 SingleModels = this.SingleModels.Select(sm => new SingleModel
                 {
                     Id = sm.Id,
