@@ -117,7 +117,7 @@ namespace ArmyBuilder.ViewModels
         {
             Army army = new Army($"{armyListName} Armee");
             army.ArmyList = armyList;
-            army.Author = "Torsten";
+            army.Author = Environment.UserName;
             _repository.CreateArmy(army);
             return army;
         }
