@@ -102,7 +102,11 @@ namespace ArmyBuilder.ViewModels
 
         private BitmapImage? loadImage(MainModel mainModel)
         {
-            string relativePath = _selectedMainModel.ImagePath;
+            if (mainModel == null)
+            {
+                return null;
+            }
+            string relativePath = mainModel.ImagePath;
             if (string.IsNullOrEmpty(relativePath))
             {
                 return null;

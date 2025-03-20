@@ -145,7 +145,8 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    sm.*, p.*
+                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.movement_type_id as MovementType, sm.mount, sm.mountable, sm.count,
+                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
                     single_model sm
                 INNER JOIN 
