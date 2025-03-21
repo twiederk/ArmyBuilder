@@ -37,29 +37,7 @@
 
         <local:ArmyTabControl Grid.Row="2" Grid.Column="1" />
 
-        <Grid Grid.Row="3" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-                <Label Content="{Binding SelectedMainModel.Name}" />
-                <Label Content="Old:" />
-                <Label Content="{Binding SelectedMainModel.OldPoints}" />
-                <Label Content="New:" />
-                <Label Content="{Binding SelectedMainModel.NewPoints}" />
-            </StackPanel>
-
-            <local:MainModelControl Grid.Row="1" Grid.Column="0" />
-
-            <Label Grid.Row="3" Grid.Column="0" Content="{Binding SelectedMainModel.Description}" />
-        </Grid>
+        <local:MainModelControl Grid.Row="3" Grid.Column="1" />
 
         <local:ArmyTreeControl Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" />
     </Grid>

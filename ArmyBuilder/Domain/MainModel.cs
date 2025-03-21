@@ -1,5 +1,3 @@
-using System.Security.Permissions;
-
 namespace ArmyBuilder.Domain
 {
     public class MainModel
@@ -14,6 +12,7 @@ namespace ArmyBuilder.Domain
         public bool Uniquely { get; set; }
         public bool Musician { get; set; }
         public bool StandardBearer { get; set; }
+        public string ImagePath { get; set; } = string.Empty;
         public List<SingleModel> SingleModels { get; set; } = new List<SingleModel>();
 
         public float TotalPoints()
@@ -107,6 +106,7 @@ namespace ArmyBuilder.Domain
                 Uniquely = this.Uniquely,
                 StandardBearer = this.StandardBearer,
                 Musician = this.Musician,
+                ImagePath = this.ImagePath,
                 SingleModels = this.SingleModels.Select(sm => new SingleModel
                 {
                     Id = sm.Id,

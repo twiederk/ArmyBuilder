@@ -1,12 +1,15 @@
 using ArmyBuilder.Domain;
 using ArmyBuilder.Dao;
 using System.ComponentModel;
-using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace ArmyBuilder.ViewModels
 {
     public class ArmyViewModel : INotifyPropertyChanged
     {
+        public BitmapImage? Image { get; private set; }
+
         private readonly IArmyBuilderRepository _repository;
         private ArmyListDigest _selectedArmyList;
         private MainModel _selectedMainModel;
@@ -15,6 +18,8 @@ namespace ArmyBuilder.ViewModels
         private List<MainModel> _warMachines;
         private List<MainModel> _monsters;
         private List<SingleModel> _mounts;
+
+
 
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
@@ -89,14 +94,34 @@ namespace ArmyBuilder.ViewModels
             {
                 _selectedMainModel = value;
                 OnPropertyChanged(nameof(SelectedMainModel));
+
+                Image = loadImage(_selectedMainModel);
+                OnPropertyChanged(nameof(Image));
             }
         }
+
+        private BitmapImage? loadImage(MainModel mainModel)
+        {
+            if (mainModel == null)
+            {
+                return null;
+            }
+            string relativePath = mainModel.ImagePath;
+            if (string.IsNullOrEmpty(relativePath))
+            {
+                return null;
+            }
+            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+            return new BitmapImage(new Uri(filePath, UriKind.Absolute));
+        }
+
+
 
         public Army CreateArmy(string armyListName, ArmyListDigest armyList)
         {
             Army army = new Army($"{armyListName} Armee");
             army.ArmyList = armyList;
-            army.Author = "Torsten";
+            army.Author = Environment.UserName;
             _repository.CreateArmy(army);
             return army;
         }

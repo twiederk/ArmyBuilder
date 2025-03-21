@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ArmyBuilder.ViewModels;
 using ArmyBuilder.Domain;
 using ArmyBuilder.Dao;
+using System.Windows.Media.Imaging;
 
 namespace ArmyBuilder
 {

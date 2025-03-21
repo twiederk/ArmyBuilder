@@ -52,7 +52,7 @@ namespace ArmyBuilder.Dao
                     a.Id, a.Name, a.Author, a.army_list_id, a.Points,
                     al.Id, al.Name,
                     au.Id, au.Name,
-                    amm.Id, amm.army_category_id as ArmyCategory, amm.Name, amm.Description, amm.Points as OldPoints, amm.count as Count, amm.Uniquely, amm.standard_bearer AS StandardBearer, amm.musician,
+                    amm.Id, amm.army_category_id as ArmyCategory, amm.Name, amm.Description, amm.Points as OldPoints, amm.count as Count, amm.Uniquely, amm.standard_bearer AS StandardBearer, amm.musician, amm.image_path AS ImagePath,
                     asm.Id, asm.Name, asm.profile_id as ProfileId, asm.movement_type_id as MovementType, asm.mount, asm.mountable, asm.count,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
@@ -196,8 +196,8 @@ namespace ArmyBuilder.Dao
         public MainModel AddMainModel(int unitId, MainModel mainModel)
         {
             var sql = @"
-                INSERT INTO army_main_model (army_unit_id, army_category_id, name, description, uniquely, points, count, standard_bearer, musician)
-                VALUES (@ArmyUnitId, @ArmyCategoryId, @Name, @Description, @Uniquely, @Points, @Count, @StandardBearer, @Musician);
+                INSERT INTO army_main_model (army_unit_id, army_category_id, name, description, uniquely, points, count, standard_bearer, musician, image_path)
+                VALUES (@ArmyUnitId, @ArmyCategoryId, @Name, @Description, @Uniquely, @Points, @Count, @StandardBearer, @Musician, @ImagePath);
                 SELECT last_insert_rowid();";
             var main_model_id = _dbConnection.ExecuteScalar<int>(sql, new
             {
@@ -209,7 +209,8 @@ namespace ArmyBuilder.Dao
                 Points = mainModel.OldPoints,
                 mainModel.Count,
                 mainModel.StandardBearer,
-                mainModel.Musician
+                mainModel.Musician,
+                mainModel.ImagePath
             });
             mainModel.Id = main_model_id;
 
