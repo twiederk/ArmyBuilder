@@ -1503,6 +1503,7 @@ INSERT INTO main_model VALUES(12423,4,3,'Lindwurm','Entsetzen, Fiegen, Schuppenh
 INSERT INTO main_model VALUES(12424,14,0,'Runenamboß','Wachen immun gegen Psychologie. Beschuß: 1 Schmied; 2-3 Wachen; 4+ Amboß',0,200.0,0,0,'');
 INSERT INTO main_model VALUES(12425,14,0,'Runenthron','Im Thron sind 4 LP gespeichert. Beschuß: 1 Hochkönig; 2-3 Träger; 4+ Thron.',0,200.0,0,0,'');
 INSERT INTO main_model VALUES(12426,14,1,'Speerträger','',0,12.0,0,0,'images\Dwarves\Dwarf_Spearman.jpg');
+INSERT INTO main_model VALUES(12427,14,1,'Bugman','',0,16.0,0,0,'images\Dwarves\Dwarf_Bugman.jpg');
 
 
 INSERT INTO single_model VALUES(46357,11682,'Tancred, duc de Quenelles',11682,0,0,0,1);
@@ -2507,6 +2508,7 @@ INSERT INTO single_model VALUES(47366,12424,'Blutkessel',12107,0,0,0,1);
 INSERT INTO single_model VALUES(47367,12425,'Runenamboß',12424,0,0,1,1);
 INSERT INTO single_model VALUES(47368,12426,'Runenthron',12425,0,0,1,1);
 INSERT INTO single_model VALUES(47369,11893,'Speerträger',12426,0,0,0,1);
+INSERT INTO single_model VALUES(47370,11893,'Bugman',12427,0,0,0,1);
 
 
 INSERT INTO melee_weapon VALUES(1,'Handwaffe',0,'',-1,0,0,0);
@@ -4883,9 +4885,13 @@ INSERT INTO slot VALUES(4928,47010,40,1,0,3);
 INSERT INTO slot VALUES(4929,47011,40,1,0,3);
 INSERT INTO slot VALUES(4930,47012,40,1,0,3);
 INSERT INTO slot VALUES(4931,47013,40,1,0,3);
-INSERT INTO slot VALUES(4932,47369,31,0,1,1);
-INSERT INTO slot VALUES(4933,47369,41,0,1,3);
-INSERT INTO slot VALUES(4934,47369,5,0,1,0);
+INSERT INTO slot VALUES(4932,47369,31,0,0,1);
+INSERT INTO slot VALUES(4933,47369,41,0,0,3);
+INSERT INTO slot VALUES(4934,47369,5,0,0,0);
+INSERT INTO slot VALUES(4935,47370,31,0,0,1);
+INSERT INTO slot VALUES(4936,47370,41,0,0,3);
+INSERT INTO slot VALUES(4937,47370,2,0,0,0);
+INSERT INTO slot VALUES(4938,47370,14,0,0,2);
 
 
 INSERT INTO slot_selection VALUES(1,4859,30);
