@@ -4,6 +4,7 @@ BEGIN TRANSACTION;
 
 INSERT INTO army VALUES(1,'Die Hochelfen von Tyr','Torsten',7,1374);
 INSERT INTO army VALUES(2,'Teclis Hochelfen Armee','Torsten',7,2519);
+INSERT INTO army VALUES(4,'Die Streitmacht von Prinz Arandir von Ellyrion','Games Workshop',7,1068);
 
 
 INSERT INTO army_unit VALUES(1,1,'Tiranoc Streitwagen');
@@ -17,6 +18,10 @@ INSERT INTO army_unit VALUES(8,2,'Drachenprinzen von Caledor');
 INSERT INTO army_unit VALUES(9,2,'Großzauberer');
 INSERT INTO army_unit VALUES(10,2,'Repetier-Speerschleuder');
 INSERT INTO army_unit VALUES(11,2,'Drache');
+INSERT INTO army_unit VALUES(19,4,'Silberhelme');
+INSERT INTO army_unit VALUES(20,4,'Speerträger');
+INSERT INTO army_unit VALUES(21,4,'Bogenschützen');
+INSERT INTO army_unit VALUES(23,4,'Repetier-Speerschleuder');
 
 
 INSERT INTO army_main_model VALUES(1,1,2,'Tiranoc Streitwagen','Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,72.0,1,0,0,'images\HighElves\HighElf_Chariot.jpg');
@@ -35,6 +40,14 @@ INSERT INTO army_main_model VALUES(13,9,0,'Großzauberer','',0,219.0,1,0,0,'imag
 INSERT INTO army_main_model VALUES(14,9,1,'Bogenschützen','Bürgermiliz',0,10.0,13,1,1,'images\HighElves\HighElf_BowMan.jpg');
 INSERT INTO army_main_model VALUES(15,10,2,'Repetier-Speerschleuder','',0,100.0,2,0,0,'images\HighElves\HighElf_RepeatingBolder.jpg');
 INSERT INTO army_main_model VALUES(16,11,3,'Drache','Entsetzen, Fliegen, Drachenatem, Schuppige Haut',0,450.0,1,0,0,'images\HighElves\HighElf_Dragon.jpg');
+INSERT INTO army_main_model VALUES(24,19,1,'Silberhelme','',0,31.0,5,1,0,'images\HighElves\HighElf_SilverHelm.jpg');
+INSERT INTO army_main_model VALUES(25,19,0,'Arandir','',0,160.0,1,0,0,'images\HighElves\HighElf_Fighter1_Sword_Shield.jpg');
+INSERT INTO army_main_model VALUES(26,19,0,'Aethenor','',0,48.0,1,0,0,'images\HighElves\HighElf_Fighter1_Sword_Shield.jpg');
+INSERT INTO army_main_model VALUES(31,20,0,'Cerion','',0,59.0,1,0,0,'images\HighElves\HighElf_Wizard1.jpg');
+INSERT INTO army_main_model VALUES(33,20,0,'Melanar','',0,48.0,1,0,0,'images\HighElves\HighElf_Fighter1_Sword_Shield.jpg');
+INSERT INTO army_main_model VALUES(34,23,2,'Repetier-Speerschleuder','',0,100.0,1,0,0,'images\HighElves\HighElf_RepeatingBolder.jpg');
+INSERT INTO army_main_model VALUES(35,20,1,'Speerträger','Bürgermiliz',0,12.0,12,1,1,'images\HighElves\HighElf_SpearMan.jpg');
+INSERT INTO army_main_model VALUES(36,21,1,'Bogenschützen','Bürgermiliz',0,10.0,10,0,0,'images\HighElves\HighElf_BowMan.jpg');
 
 
 INSERT INTO army_single_model VALUES(1,11906,'Streitwagenlenker',1,0,0,0,1);
@@ -64,7 +77,18 @@ INSERT INTO army_single_model VALUES(24,11906,'Bogenschütze',14,0,0,0,1);
 INSERT INTO army_single_model VALUES(25,11906,'Geschützbedienung',15,0,0,0,2);
 INSERT INTO army_single_model VALUES(26,12138,'Speerschleuder',15,0,0,0,1);
 INSERT INTO army_single_model VALUES(27,12416,'Drache',16,0,0,0,1);
-
+INSERT INTO army_single_model VALUES(40,11901,'Silberhelm',24,1,0,0,1);
+INSERT INTO army_single_model VALUES(41,12034,'Elfenroß',24,0,1,0,1);
+INSERT INTO army_single_model VALUES(42,11506,'General',25,1,0,0,1);
+INSERT INTO army_single_model VALUES(43,12034,'Elfenroß',25,0,1,1,1);
+INSERT INTO army_single_model VALUES(44,11509,'Champion',26,1,0,0,1);
+INSERT INTO army_single_model VALUES(45,12034,'Elfenroß',26,0,1,1,1);
+INSERT INTO army_single_model VALUES(51,11510,'Zauberer',31,0,0,0,1);
+INSERT INTO army_single_model VALUES(53,11509,'Champion',33,0,0,0,1);
+INSERT INTO army_single_model VALUES(54,11906,'Geschützbedienung',34,0,0,0,2);
+INSERT INTO army_single_model VALUES(55,12138,'Speerschleuder',34,0,0,0,1);
+INSERT INTO army_single_model VALUES(56,11906,'Speerträger',35,0,0,0,1);
+INSERT INTO army_single_model VALUES(57,11906,'Bogenschütze',36,0,0,0,1);
 
 
 INSERT INTO army_slot VALUES(1,1,5,1,0,0);
@@ -142,6 +166,43 @@ INSERT INTO army_slot VALUES(72,24,40,1,0,3);
 INSERT INTO army_slot VALUES(73,24,100,1,1,5);
 INSERT INTO army_slot VALUES(74,24,90,1,1,6);
 INSERT INTO army_slot VALUES(75,25,41,0,0,3);
+INSERT INTO army_slot VALUES(113,40,6,0,0,0);
+INSERT INTO army_slot VALUES(114,40,47,1,0,3);
+INSERT INTO army_slot VALUES(115,40,31,1,0,1);
+INSERT INTO army_slot VALUES(116,40,100,1,1,5);
+INSERT INTO army_slot VALUES(117,40,90,1,1,6);
+INSERT INTO army_slot VALUES(118,42,6,1,1,0);
+INSERT INTO army_slot VALUES(119,42,10,1,1,2);
+INSERT INTO army_slot VALUES(120,42,31,1,1,1);
+INSERT INTO army_slot VALUES(121,42,47,1,1,3);
+INSERT INTO army_slot VALUES(122,42,60,1,1,4);
+INSERT INTO army_slot VALUES(123,42,60,1,1,4);
+INSERT INTO army_slot VALUES(124,42,60,1,1,4);
+INSERT INTO army_slot VALUES(125,44,6,1,1,0);
+INSERT INTO army_slot VALUES(126,44,10,1,1,2);
+INSERT INTO army_slot VALUES(127,44,31,1,1,1);
+INSERT INTO army_slot VALUES(128,44,47,1,1,3);
+INSERT INTO army_slot VALUES(129,44,60,1,1,4);
+INSERT INTO army_slot VALUES(147,51,1,1,1,0);
+INSERT INTO army_slot VALUES(148,51,10,1,1,2);
+INSERT INTO army_slot VALUES(149,51,30,1,1,1);
+INSERT INTO army_slot VALUES(150,51,40,1,1,3);
+INSERT INTO army_slot VALUES(151,51,60,1,1,4);
+INSERT INTO army_slot VALUES(157,53,5,1,1,0);
+INSERT INTO army_slot VALUES(158,53,10,1,1,2);
+INSERT INTO army_slot VALUES(159,53,31,1,1,1);
+INSERT INTO army_slot VALUES(160,53,41,1,1,3);
+INSERT INTO army_slot VALUES(161,53,60,1,1,4);
+INSERT INTO army_slot VALUES(162,54,41,0,0,3);
+INSERT INTO army_slot VALUES(163,56,5,0,0,0);
+INSERT INTO army_slot VALUES(164,56,31,0,0,1);
+INSERT INTO army_slot VALUES(165,56,41,1,0,3);
+INSERT INTO army_slot VALUES(166,56,100,1,1,5);
+INSERT INTO army_slot VALUES(167,56,90,1,1,6);
+INSERT INTO army_slot VALUES(168,57,13,1,0,2);
+INSERT INTO army_slot VALUES(169,57,41,1,0,3);
+INSERT INTO army_slot VALUES(170,57,100,1,1,5);
+INSERT INTO army_slot VALUES(171,57,90,1,1,6);
 
 
 INSERT INTO army_slot_selection VALUES(1,1,1);
@@ -176,6 +237,18 @@ INSERT INTO army_slot_selection VALUES(29,71,11);
 INSERT INTO army_slot_selection VALUES(30,71,13);
 INSERT INTO army_slot_selection VALUES(31,72,40);
 INSERT INTO army_slot_selection VALUES(32,72,41);
+INSERT INTO army_slot_selection VALUES(47,114,41);
+INSERT INTO army_slot_selection VALUES(48,114,42);
+INSERT INTO army_slot_selection VALUES(49,114,46);
+INSERT INTO army_slot_selection VALUES(50,114,47);
+INSERT INTO army_slot_selection VALUES(51,115,30);
+INSERT INTO army_slot_selection VALUES(52,115,31);
+INSERT INTO army_slot_selection VALUES(53,165,41);
+INSERT INTO army_slot_selection VALUES(54,165,42);
+INSERT INTO army_slot_selection VALUES(55,168,11);
+INSERT INTO army_slot_selection VALUES(56,168,13);
+INSERT INTO army_slot_selection VALUES(57,169,40);
+INSERT INTO army_slot_selection VALUES(58,169,41);
 
 
 COMMIT;
