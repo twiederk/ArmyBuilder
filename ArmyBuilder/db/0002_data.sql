@@ -874,7 +874,7 @@ INSERT INTO main_model VALUES(11643,9,0,'Azhag der Vernichter','Modelle in 12" U
 INSERT INTO main_model VALUES(11644,14,0,'Krudd der Rebell','Attackiert immer zuerst. Muß jede Herrausforderung annehmen.',1,137.0,0,0,'');
 INSERT INTO main_model VALUES(11645,14,0,'Grung Grollbringer','Hass auf ALLE Elfenvölker.',1,212.0,0,0,'');
 INSERT INTO main_model VALUES(11646,14,0,'Skag der Verstohlene','Skags Helm trägt drei Glücksrunen.',1,139.0,0,0,'');
-INSERT INTO main_model VALUES(11647,14,0,'Drong der Harte','Hass auf ALLE Elfenvölker. Der Hammer Steinbrecher verursacht W6 SP.',1,235.0,0,0,'images\Dwarves\Dwarf_LongDrong.jpg');
+INSERT INTO main_model VALUES(11647,14,0,'Drong der Harte','Hass auf ALLE Elfenvölker. Der Hammer Steinbrecher verursacht W6 SP.',1,235.0,0,0,'');
 INSERT INTO main_model VALUES(11648,14,0,'Königin Helgar Langzopf','Bronns Axt trägt die Schicksalsrune.',1,187.0,0,0,'images\Dwarves\Dwarf_Kaempferin.jpg');
 INSERT INTO main_model VALUES(11649,14,0,'Loki Weissbart','Die Bronnling Standarte gibt +3 aufs Kampfergebnis.',1,188.0,0,0,'');
 INSERT INTO main_model VALUES(11650,14,0,'Grombrindal der White Dwarf','Verkleidung, Immun gegen Psychologie und Aufriebtests.',1,390.0,0,0,'images\Dwarves\Dwarf_WhiteDwarf.jpg');
