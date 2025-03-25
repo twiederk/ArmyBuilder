@@ -1504,8 +1504,8 @@ INSERT INTO main_model VALUES(12424,14,0,'Runenamboß','Wachen immun gegen Psych
 INSERT INTO main_model VALUES(12425,14,0,'Runenthron','Im Thron sind 4 LP gespeichert. Beschuß: 1 Hochkönig; 2-3 Träger; 4+ Thron.',0,200.0,0,0,'');
 INSERT INTO main_model VALUES(12426,14,1,'Speerträger','',0,12.0,0,0,'images\Dwarves\Dwarf_Spearman.jpg');
 INSERT INTO main_model VALUES(12427,14,1,'Bugman','',0,16.0,0,0,'images\Dwarves\Dwarf_Bugman.jpg');
-INSERT INTO main_model VALUES(12428,14,0,'Long Drong','Zwergenrum: -1 auf Trefferwurf für Feinde. 3" Abstand zu befreundeten Einheiten.',1,138.0,0,0,'images\Dwarves\Dwarf_LongDrong.jpg');
-INSERT INTO main_model VALUES(12429,14,1,'Long Drong Slayerpiraten','Zwergenrum: -1 auf Trefferwurf für Feinde. 3" Abstand zu befreundeten Einheiten.',0,13.0,0,0,'images\Dwarves\Dwarf_LongDrongs.jpg');
+INSERT INTO main_model VALUES(12428,14,0,'Long Drong Slayerpirat','Zwergenrum: -1 auf Trefferwurf für Feinde. 3" Abstand zu befreundeten Einheiten.',1,138.0,0,0,'images\Dwarves\Dwarf_LongDrong.jpg');
+INSERT INTO main_model VALUES(12429,14,1,'Slayerpiraten','Zwergenrum: -1 auf Trefferwurf für Feinde. 3" Abstand zu befreundeten Einheiten.',0,13.0,0,0,'images\Dwarves\Dwarf_LongDrongs.jpg');
 
 
 INSERT INTO single_model VALUES(46357,11682,'Tancred, duc de Quenelles',11682,0,0,0,1);
