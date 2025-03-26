@@ -100,14 +100,14 @@
 
         <Grid Grid.Row="4" Grid.Column="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Content="prev" Click="PreviousImage_Click" />
+            <Button Grid.Column="0" Width="35" Content="&lt;" Click="PreviousImage_Click" HorizontalAlignment="Right" />
             <Image Grid.Column="1" Source="{Binding Image}" Width="300" Height="200" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Grid.Column="2" Content="next" Click="NextImage_Click" />
+            <Button Grid.Column="2" Width="35" Content="&gt;" Click="NextImage_Click" HorizontalAlignment="Left" />
         </Grid>
 
         <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
