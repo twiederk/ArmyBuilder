@@ -13,7 +13,7 @@ namespace ArmyBuilder
         
         private void PreviousImage_Click(object sender, RoutedEventArgs e)
         {
-            ArmyViewModel armyViewModel = DataContext as ArmyViewModel;
+            ArmyViewModel? armyViewModel = DataContext as ArmyViewModel;
             if (armyViewModel == null)
             {
                 return;
@@ -23,7 +23,7 @@ namespace ArmyBuilder
 
         private void NextImage_Click(object sender, RoutedEventArgs e)
         {
-            ArmyViewModel armyViewModel = DataContext as ArmyViewModel;
+            ArmyViewModel? armyViewModel = DataContext as ArmyViewModel;
             if (armyViewModel == null)
             {
                 return;

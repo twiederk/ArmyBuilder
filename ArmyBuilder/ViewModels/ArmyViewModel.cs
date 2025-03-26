@@ -210,7 +210,6 @@ namespace ArmyBuilder.ViewModels
             SelectedMainModel.PreviousImage();
             Image = loadImage(SelectedMainModel);
             OnPropertyChanged(nameof(Image));
-            // MessageBox.Show("NextImage_Click");
         }
 
         public void NextImage()
@@ -222,7 +221,6 @@ namespace ArmyBuilder.ViewModels
             SelectedMainModel.NextImage();
             Image = loadImage(SelectedMainModel);
             OnPropertyChanged(nameof(Image));
-            // MessageBox.Show("NextImage_Click");
         }
 
     }
