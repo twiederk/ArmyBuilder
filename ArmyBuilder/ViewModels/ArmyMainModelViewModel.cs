@@ -1,16 +1,17 @@
-﻿using System.Windows.Media;
+﻿using System.ComponentModel;
+using System.Windows.Media;
 using ArmyBuilder.Domain;
 
 namespace ArmyBuilder.ViewModels
 {
 
 
-    public class ArmyMainModelViewModel
+    public class ArmyMainModelViewModel : INotifyPropertyChanged
     {
         public string Name => $"{MainModel.Name} ({MainModel.Points()})";
         public float NewPoints => MainModel.NewPoints;
         public float OldPoints => MainModel.OldPoints;
-        public string NumberOfFigures => MainModel.NumberOfFigures.ToString();
+        public int NumberOfFigures => numberOfFigures();
         public List<SingleModel> SingleModels => MainModel.SingleModels;
         public string Description => MainModel.Description;
         public Brush PointsColor => colorOfPoints();
@@ -45,6 +46,7 @@ namespace ArmyBuilder.ViewModels
             if (_currentImageIndex > 0)
             {
                 _currentImageIndex--;
+                OnPropertyChanged("NumberOfFigures");
             }
         }
 
@@ -53,7 +55,20 @@ namespace ArmyBuilder.ViewModels
             if (_currentImageIndex < MainModel.Figures.Count - 1)
             {
                 _currentImageIndex++;
+                OnPropertyChanged("NumberOfFigures");
             }
+        }
+
+        private int numberOfFigures()
+        {
+            return MainModel.Figures[_currentImageIndex].NumberOfFigures;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }
