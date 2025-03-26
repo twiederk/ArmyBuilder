@@ -54,6 +54,7 @@ namespace ArmyBuilder.Test.Domain
                 StandardBearer = true,
                 Musician = true,
                 ImagePath = "image.png",
+                NumberOfFigures = 5,
                 SingleModels =
                 {
                     new SingleModel
@@ -78,6 +79,7 @@ namespace ArmyBuilder.Test.Domain
             clone.StandardBearer.Should().BeTrue();
             clone.Musician.Should().BeTrue();
             clone.ImagePath.Should().Be("image.png");
+            clone.NumberOfFigures.Should().Be(5);
             clone.SingleModels.Should().HaveCount(2);
 
             clone.SingleModels[0].Count.Should().Be(2);

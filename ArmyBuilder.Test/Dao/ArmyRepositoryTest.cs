@@ -22,7 +22,7 @@ namespace ArmyBuilder.Test.Dao
             List<Army> armies = _repository.Armies();
 
             // assert
-            armies.Should().HaveCount(2);
+            armies.Should().HaveCount(5);
             Army army = armies.First();
             army.Name.Should().Be("Die Hochelfen von Tyr");
             army.Author.Should().Be("Torsten");
@@ -86,9 +86,9 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             List<Army> armies = _repository.Armies();
-            armies.Should().HaveCount(3);
+            armies.Should().HaveCount(6);
 
-            Army testArmy = armies[2];
+            Army testArmy = armies[5];
             testArmy.Name.Should().Be("Testarmee");
             testArmy.Author.Should().Be("Testautor");
             testArmy.ArmyList.Id.Should().Be(7);
@@ -134,7 +134,7 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             List<Army> armies = _repository.Armies();
-            armies.Should().HaveCount(2);
+            armies.Should().HaveCount(5);
         }
 
         [Fact]

@@ -13,6 +13,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -98,6 +99,12 @@
         <Label Grid.Row="3" Grid.Column="0" Content="{Binding SelectedMainModel.Description}" />
 
         <Image Grid.Row="4" Grid.Column="0" Source="{Binding Image}" Width="300" Height="200" Stretch="Uniform" />
+
+        <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Anzahl der Figuren: " />
+            <TextBlock Text="{Binding SelectedMainModel.NumberOfFigures}" />
+        </StackPanel>
+        
     </Grid>
     
 </UserControl>
