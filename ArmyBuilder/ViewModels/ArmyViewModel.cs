@@ -12,11 +12,11 @@ namespace ArmyBuilder.ViewModels
 
         private readonly IArmyBuilderRepository _repository;
         private ArmyListDigest _selectedArmyList;
-        private MainModel _selectedMainModel;
-        private List<MainModel> _characters;
-        private List<MainModel> _troopers;
-        private List<MainModel> _warMachines;
-        private List<MainModel> _monsters;
+        private ArmyMainModelViewModel _selectedMainModel;
+        private List<ArmyMainModelViewModel> _characters;
+        private List<ArmyMainModelViewModel> _troopers;
+        private List<ArmyMainModelViewModel> _warMachines;
+        private List<ArmyMainModelViewModel> _monsters;
         private List<SingleModel> _mounts;
 
 
@@ -39,7 +39,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public List<MainModel> Characters
+        public List<ArmyMainModelViewModel> Characters
         {
             get => _characters;
             private set
@@ -49,7 +49,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public List<MainModel> Troopers
+        public List<ArmyMainModelViewModel> Troopers
         {
             get => _troopers;
             private set
@@ -59,7 +59,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public List<MainModel> WarMachines
+        public List<ArmyMainModelViewModel> WarMachines
         {
             get => _warMachines;
             private set
@@ -68,7 +68,7 @@ namespace ArmyBuilder.ViewModels
                 OnPropertyChanged(nameof(WarMachines));
             }
         }
-        public List<MainModel> Monsters
+        public List<ArmyMainModelViewModel> Monsters
         {
             get => _monsters;
             private set
@@ -87,7 +87,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public MainModel SelectedMainModel
+        public ArmyMainModelViewModel SelectedMainModel
         {
             get => _selectedMainModel;
             set
@@ -95,7 +95,7 @@ namespace ArmyBuilder.ViewModels
                 _selectedMainModel = value;
                 OnPropertyChanged(nameof(SelectedMainModel));
 
-                Image = loadImage(_selectedMainModel);
+                Image = loadImage(_selectedMainModel.MainModel);
                 OnPropertyChanged(nameof(Image));
             }
         }
@@ -155,19 +155,19 @@ namespace ArmyBuilder.ViewModels
             {
                 ArmyList armyList = new ArmyListLoader(_repository).LoadArmyList(_selectedArmyList);
 
-                Characters = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).ToList();
-                Troopers = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).ToList();
-                WarMachines = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).ToList();
-                Monsters = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Monster).OrderBy(mm => mm.Name).ToList();
+                Characters = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Character).OrderBy(mm => mm.Name).Select(mm => new ArmyMainModelViewModel(mm)).ToList();
+                Troopers = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).Select(mm => new ArmyMainModelViewModel(mm)).ToList();
+                WarMachines = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).Select(mm => new ArmyMainModelViewModel(mm)).ToList();
+                Monsters = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Monster).OrderBy(mm => mm.Name).Select(mm => new ArmyMainModelViewModel(mm)).ToList();
                 Mounts = _repository.Mounts(_selectedArmyList.Id).OrderBy(mm => mm.Name).ToList();
 
             }
             else
             {
-                Characters = new List<MainModel>();
-                Troopers = new List<MainModel>();
-                WarMachines = new List<MainModel>();
-                Monsters = new List<MainModel>();
+                Characters = new List<ArmyMainModelViewModel>();
+                Troopers = new List<ArmyMainModelViewModel>();
+                WarMachines = new List<ArmyMainModelViewModel>();
+                Monsters = new List<ArmyMainModelViewModel>();
                 Mounts = new List<SingleModel>();
             }
         }
