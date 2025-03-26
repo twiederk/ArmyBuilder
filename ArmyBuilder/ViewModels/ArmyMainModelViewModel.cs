@@ -5,7 +5,6 @@ using ArmyBuilder.Domain;
 namespace ArmyBuilder.ViewModels
 {
 
-
     public class ArmyMainModelViewModel : INotifyPropertyChanged
     {
         public string Name => $"{MainModel.Name} ({MainModel.Points()})";
@@ -16,6 +15,8 @@ namespace ArmyBuilder.ViewModels
         public string Description => MainModel.Description;
         public Brush PointsColor => colorOfPoints();
         public MainModel MainModel { get; set; }
+        public int CurrentFigure => _currentFigureIndex + 1;
+        public int MaxFigures => MainModel.Figures.Count;
 
         private int _currentFigureIndex = 0;
 
@@ -47,6 +48,7 @@ namespace ArmyBuilder.ViewModels
             {
                 _currentFigureIndex--;
                 OnPropertyChanged("NumberOfFigures");
+                OnPropertyChanged("CurrentFigure");
             }
         }
 
@@ -56,6 +58,7 @@ namespace ArmyBuilder.ViewModels
             {
                 _currentFigureIndex++;
                 OnPropertyChanged("NumberOfFigures");
+                OnPropertyChanged("CurrentFigure");
             }
         }
 
