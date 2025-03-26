@@ -2659,7 +2659,7 @@ INSERT INTO melee_weapon VALUES(5770,'Chaosrunenschwert',65,'+1 auf KG, Stärke 
 INSERT INTO melee_weapon VALUES(5868,'Axt Morgor',125,'',9,1,1,0);
 INSERT INTO melee_weapon VALUES(5869,'Axt von Chayal',65,'',7,1,1,0);
 INSERT INTO melee_weapon VALUES(5872,'Bronns Axt',25,'',14,1,1,0);
-INSERT INTO melee_weapon VALUES(5874,'Bugmans Runenaxt',40,'',14,1,1,0);
+INSERT INTO melee_weapon VALUES(5874,'Bugmans Runenaxt',40,'+1 auf Stärke und Attacken.',14,1,1,0);
 INSERT INTO melee_weapon VALUES(5875,'Burlocks Hammer',25,'',14,1,1,0);
 INSERT INTO melee_weapon VALUES(5878,'Chaos-Runenklinge',45,'',1,1,1,0);
 INSERT INTO melee_weapon VALUES(5880,'Chaos-Runenschwert',45,'',2,1,1,0);
@@ -2918,7 +2918,7 @@ INSERT INTO misc VALUES(5957,'Zwei Säbelzahntiger',66,'',13,1,1);
 INSERT INTO misc VALUES(5960,'Amulett von Itza',25,'',6,1,1);
 INSERT INTO misc VALUES(5961,'Bernstein Amulett',25,'',5,1,1);
 INSERT INTO misc VALUES(5962,'Bluthund des Khorne',250,'',2,1,1);
-INSERT INTO misc VALUES(5966,'Bugmans Bierkrug',25,'',14,1,1);
+INSERT INTO misc VALUES(5966,'Bugmans Bierkrug',25,'Heilt 1 LP pro Benutzung, kann 3x heilen.',14,1,1);
 INSERT INTO misc VALUES(5968,'Chaos-Homunkulus',50,'',2,1,1);
 INSERT INTO misc VALUES(5972,'Eicheln der Ewigen Eiche',25,'',13,1,1);
 INSERT INTO misc VALUES(5976,'Halsband des Khorne',100,'',1,1,1);
