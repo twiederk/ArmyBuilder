@@ -20,11 +20,11 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-            <Label Content="{Binding SelectedMainModel.Name}" />
-            <Label Content="Old:" />
-            <Label Content="{Binding SelectedMainModel.OldPoints}" />
-            <Label Content="New:" />
-            <Label Content="{Binding SelectedMainModel.NewPoints}" />
+            <TextBlock Margin="5, 5, 5, 5" FontSize="16"  Text="{Binding SelectedMainModel.Name}" />
+            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Text="Old:" />
+            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Text="{Binding SelectedMainModel.OldPoints}" />
+            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Text="New:" />
+            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Text="{Binding SelectedMainModel.NewPoints}" />
         </StackPanel>
 
         <Grid Grid.Row="1" Grid.Column="0">
