@@ -17,7 +17,7 @@ namespace ArmyBuilder.ViewModels
         public Brush PointsColor => colorOfPoints();
         public MainModel MainModel { get; set; }
 
-        private int _currentImageIndex = 0;
+        private int _currentFigureIndex = 0;
 
         public ArmyMainModelViewModel(MainModel mainModel)
         {
@@ -38,30 +38,30 @@ namespace ArmyBuilder.ViewModels
 
         public string ImagePath()
         {
-            return MainModel.Figures[_currentImageIndex].ImagePath;
+            return MainModel.Figures[_currentFigureIndex].ImagePath;
         }
 
         public void PreviousImage()
         {
-            if (_currentImageIndex > 0)
+            if (_currentFigureIndex > 0)
             {
-                _currentImageIndex--;
+                _currentFigureIndex--;
                 OnPropertyChanged("NumberOfFigures");
             }
         }
 
         public void NextImage()
         {
-            if (_currentImageIndex < MainModel.Figures.Count - 1)
+            if (_currentFigureIndex < MainModel.Figures.Count - 1)
             {
-                _currentImageIndex++;
+                _currentFigureIndex++;
                 OnPropertyChanged("NumberOfFigures");
             }
         }
 
         private int numberOfFigures()
         {
-            return MainModel.Figures[_currentImageIndex].NumberOfFigures;
+            return MainModel.Figures[_currentFigureIndex].NumberOfFigures;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
