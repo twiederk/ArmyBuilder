@@ -21,10 +21,10 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
             <TextBlock Margin="5, 5, 5, 5" FontSize="16"  Text="{Binding SelectedMainModel.Name}" />
-            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Text="Old:" />
-            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Text="{Binding SelectedMainModel.OldPoints}" />
-            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Text="New:" />
-            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Text="{Binding SelectedMainModel.NewPoints}" />
+            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Foreground="{Binding SelectedMainModel.PointsColor}" Text="Old:" />
+            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Foreground="{Binding SelectedMainModel.PointsColor}" Text="{Binding SelectedMainModel.OldPoints}" />
+            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Foreground="{Binding SelectedMainModel.PointsColor}" Text="New:" />
+            <TextBlock Margin="5, 5, 5, 5" VerticalAlignment="Bottom" Foreground="{Binding SelectedMainModel.PointsColor}" Text="{Binding SelectedMainModel.NewPoints}" />
         </StackPanel>
 
         <Grid Grid.Row="1" Grid.Column="0">

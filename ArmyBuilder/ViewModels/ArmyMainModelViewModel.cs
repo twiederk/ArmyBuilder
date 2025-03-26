@@ -1,4 +1,5 @@
-﻿using ArmyBuilder.Domain;
+﻿using System.Windows.Media;
+using ArmyBuilder.Domain;
 
 namespace ArmyBuilder.ViewModels
 {
@@ -12,12 +13,25 @@ namespace ArmyBuilder.ViewModels
         public string NumberOfFigures => MainModel.NumberOfFigures.ToString();
         public List<SingleModel> SingleModels => MainModel.SingleModels;
         public string Description => MainModel.Description;
+        public Brush PointsColor => colorOfPoints();
 
         public MainModel MainModel { get; set; }
 
         public ArmyMainModelViewModel(MainModel mainModel)
         {
             MainModel = mainModel;
+        }
+
+        private Brush colorOfPoints()
+        {
+            if (MainModel.NewPoints != MainModel.OldPoints)
+            {
+                return Brushes.Red;
+            }
+            else
+            {
+                return Brushes.Green;
+            }
         }
     }
 }
