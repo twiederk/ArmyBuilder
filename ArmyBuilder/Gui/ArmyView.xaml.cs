@@ -43,5 +43,6 @@ namespace ArmyBuilder
             Window window = Window.GetWindow(this);
             window.Content = _serviceProvider.GetRequiredService<StartView>();
         }
+
     }
 }

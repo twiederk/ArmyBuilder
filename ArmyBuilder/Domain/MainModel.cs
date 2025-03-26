@@ -16,7 +16,7 @@ namespace ArmyBuilder.Domain
         public bool StandardBearer { get; set; }
         public string ImagePath { get; set; } = string.Empty;
         public int NumberOfFigures { get; set;}
-        public List<Figure> Figures  { get; set;} = new List<Figure>() { new Figure() };
+        public List<Figure> Figures  { get; set;} = new List<Figure>() { new Figure(), new Figure(), new Figure(), new Figure() };
         public List<SingleModel> SingleModels { get; set; } = new List<SingleModel>();
 
         public float TotalPoints()

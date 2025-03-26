@@ -98,7 +98,17 @@
 
         <Label Grid.Row="3" Grid.Column="0" Content="{Binding SelectedMainModel.Description}" />
 
-        <Image Grid.Row="4" Grid.Column="0" Source="{Binding Image}" Width="300" Height="200" Stretch="Uniform" />
+        <Grid Grid.Row="4" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="prev" Click="PreviousImage_Click" />
+            <Image Grid.Column="1" Source="{Binding Image}" Width="300" Height="200" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Column="2" Content="next" Click="NextImage_Click" />
+        </Grid>
 
         <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Anzahl der Figuren: " />

@@ -1,7 +1,6 @@
 using ArmyBuilder.Domain;
 using ArmyBuilder.Dao;
 using System.ComponentModel;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace ArmyBuilder.ViewModels
@@ -95,20 +94,20 @@ namespace ArmyBuilder.ViewModels
                 _selectedMainModel = value;
                 OnPropertyChanged(nameof(SelectedMainModel));
 
-                Image = loadImage(_selectedMainModel.MainModel);
+                Image = loadImage(_selectedMainModel);
                 OnPropertyChanged(nameof(Image));
             }
         }
 
-        private BitmapImage? loadImage(MainModel mainModel)
+        private BitmapImage? loadImage(ArmyMainModelViewModel armyMainModelViewModel)
         {
+            MainModel mainModel = armyMainModelViewModel.MainModel;
             if (mainModel == null || mainModel.Figures == null || mainModel.Figures.Count == 0)
             {
                 return null;
             }
 
-            var figure = mainModel.Figures.First();
-            string relativePath = figure.ImagePath;
+            string relativePath = armyMainModelViewModel.ImagePath();
             if (string.IsNullOrEmpty(relativePath))
             {
                 return null;
@@ -200,6 +199,30 @@ namespace ArmyBuilder.ViewModels
         public void AddSingleModelToMainModel(int mainModelId, SingleModel singleModel)
         {
             _repository.AddSingleModel(mainModelId, singleModel);
+        }
+
+        public void PrevImage()
+        {
+            if (SelectedMainModel == null)
+            {
+                return;
+            }
+            SelectedMainModel.PreviousImage();
+            Image = loadImage(SelectedMainModel);
+            OnPropertyChanged(nameof(Image));
+            // MessageBox.Show("NextImage_Click");
+        }
+
+        public void NextImage()
+        {
+            if (SelectedMainModel == null)
+            {
+                return;
+            }
+            SelectedMainModel.NextImage();
+            Image = loadImage(SelectedMainModel);
+            OnPropertyChanged(nameof(Image));
+            // MessageBox.Show("NextImage_Click");
         }
 
     }

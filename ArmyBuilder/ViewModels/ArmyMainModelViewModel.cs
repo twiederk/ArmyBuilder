@@ -14,8 +14,9 @@ namespace ArmyBuilder.ViewModels
         public List<SingleModel> SingleModels => MainModel.SingleModels;
         public string Description => MainModel.Description;
         public Brush PointsColor => colorOfPoints();
-
         public MainModel MainModel { get; set; }
+
+        private int _currentImageIndex = 0;
 
         public ArmyMainModelViewModel(MainModel mainModel)
         {
@@ -33,5 +34,27 @@ namespace ArmyBuilder.ViewModels
                 return Brushes.Green;
             }
         }
+
+        public string ImagePath()
+        {
+            return MainModel.Figures[_currentImageIndex].ImagePath;
+        }
+
+        public void PreviousImage()
+        {
+            if (_currentImageIndex > 0)
+            {
+                _currentImageIndex--;
+            }
+        }
+
+        public void NextImage()
+        {
+            if (_currentImageIndex < MainModel.Figures.Count - 1)
+            {
+                _currentImageIndex++;
+            }
+        }
+
     }
 }
