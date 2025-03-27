@@ -264,6 +264,30 @@ CREATE TABLE IF NOT EXISTS "army_slot_selection"
 );
 
 
+CREATE TABLE IF NOT EXISTS "figure"
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
+ "army_list_id"      INTEGER,
+ "army_category_id"  INTEGER,
+ "name"              VARCHAR(110),
+ "producer"          VARCHAR(60),
+ "material"          VARCHAR(60),
+ "image_path"        VARCHAR(256),
+ "number_of_figures" INTEGER,
+ "painted"           BIT,
+ FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
+ FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
+);
+
+
+CREATE TABLE IF NOT EXISTS "main_model_figure"
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
+ "main_model_id"     INTEGER,
+ "figure_id"         INTEGER,
+ FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
+ FOREIGN KEY (figure_id) REFERENCES figure(id) ON DELETE CASCADE 
+);
+
+
 CREATE VIEW "army_list_profile" AS
 SELECT mm.army_list_id, mm.id AS main_model_id, mm.name AS main_model_name, sm.id AS single_model_id, sm.name AS single_model_name, p.id AS profile_id, p.name AS profile_name, p.points AS profile_points
 FROM single_model sm 
