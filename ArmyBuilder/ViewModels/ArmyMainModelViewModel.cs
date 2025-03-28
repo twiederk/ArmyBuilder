@@ -64,6 +64,10 @@ namespace ArmyBuilder.ViewModels
 
         private int numberOfFigures()
         {
+            if (MainModel.Figures.Count() == 0)
+            {
+                return 0;
+            }
             return MainModel.Figures[_currentFigureIndex].NumberOfFigures;
         }
 

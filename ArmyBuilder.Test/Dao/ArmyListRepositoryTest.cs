@@ -1,8 +1,6 @@
 ﻿using FluentAssertions;
-using System.Data;
 using ArmyBuilder.Dao;
 using ArmyBuilder.Domain;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ArmyBuilder.Test.Dao
 {
@@ -30,6 +28,9 @@ namespace ArmyBuilder.Test.Dao
         {
             // arrange
             int armyListId = 7;
+            int drachenprinzId = 11900;
+            int schwertmeisterId = 11901;
+
 
             // act
             List<MainModel> mainModels = armyListRepository.MainModels(armyListId);
@@ -38,7 +39,7 @@ namespace ArmyBuilder.Test.Dao
             mainModels.Should().HaveCount(42);
 
             // Schwertmeister von Hoeth
-            var mainModel = mainModels.First(m => m.Id == 11901);
+            var mainModel = mainModels.First(m => m.Id == schwertmeisterId);
             mainModel.ArmyCategory.Should().Be(ArmyCategory.Trooper);
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
             mainModel.Description.Should().Be("Schwertmeister, Geschosse beiseiteschlagen.");
@@ -62,8 +63,13 @@ namespace ArmyBuilder.Test.Dao
             profile.Points.Should().Be(10);
             profile.Save.Should().Be(7);
 
+            List<Figure> figures = mainModel.Figures;
+            figures.Should().HaveCount(1);
+            Figure figure = figures.First();
+            figure.ImagePath.Should().Be(@"HighElves\HighElf_SwordMasterOfHoeth.jpg");
+
             // Drachenprinz von Caledor
-            mainModel = mainModels.First(m => m.Id == 11900);
+            mainModel = mainModels.First(m => m.Id == drachenprinzId);
             mainModel.ArmyCategory.Should().Be(ArmyCategory.Trooper);
             mainModel.Name.Should().Be("Drachenprinzen von Caledor");
             mainModel.Description.Should().Be("Banner von Caledor");
