@@ -41,6 +41,7 @@ namespace ArmyBuilder.Dao
             mm.army_list_id = @Id";
 
             var mainModelDictionary = new Dictionary<int, MainModel>();
+            var figureDictionary = new Dictionary<int, List<Figure>>();
 
             _dbConnection.Query<MainModel, SingleModel, Profile, Figure, MainModel>(
                 sql,
@@ -60,7 +61,12 @@ namespace ArmyBuilder.Dao
 
                     if (figure != null)
                     {
-                        currentMainModel.Figures.Add(figure);
+                        if (!figureDictionary.TryGetValue(currentMainModel.Id, out var figures))
+                        {
+                            figures = new List<Figure>();
+                            figureDictionary.Add(currentMainModel.Id, figures);
+                        }
+                        figures.Add(figure);
                     }
 
                     return currentMainModel;
@@ -68,6 +74,14 @@ namespace ArmyBuilder.Dao
                 new { Id = armyListId },
                 splitOn: "Id,Id,Id"
             );
+
+            foreach (var mainModel in mainModelDictionary.Values)
+            {
+                if (figureDictionary.TryGetValue(mainModel.Id, out var figures))
+                {
+                    mainModel.Figures.AddRange(figures);
+                }
+            }
 
             return mainModelDictionary.Values.ToList();
         }

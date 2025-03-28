@@ -15,7 +15,7 @@ namespace ArmyBuilder.ViewModels
         public string Description => MainModel.Description;
         public Brush PointsColor => colorOfPoints();
         public MainModel MainModel { get; set; }
-        public int CurrentFigure => _currentFigureIndex + 1;
+        public int CurrentFigure => currentFigure();
         public int MaxFigures => MainModel.Figures.Count;
 
         private int _currentFigureIndex = 0;
@@ -69,6 +69,15 @@ namespace ArmyBuilder.ViewModels
                 return 0;
             }
             return MainModel.Figures[_currentFigureIndex].NumberOfFigures;
+        }
+
+        private int currentFigure()
+        {
+            if (MainModel.Figures.Count() == 0)
+            {
+                return 0;
+            }
+            return _currentFigureIndex + 1;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

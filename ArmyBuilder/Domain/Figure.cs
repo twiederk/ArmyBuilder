@@ -10,5 +10,20 @@ namespace ArmyBuilder.Domain
         public int Id { get; set; }
         public int NumberOfFigures { get; set;}
         public string ImagePath { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Figure other)
+            {
+                return Id == other.Id;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
     }
 }

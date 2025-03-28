@@ -91,6 +91,11 @@ namespace ArmyBuilder.Test.Dao
             profile.Attacks.Should().Be(1);
             profile.Moral.Should().Be(8);
             profile.Save.Should().Be(7);
+
+            figures = mainModel.Figures;
+            figures.Should().HaveCount(1);
+            figure = figures.First();
+            figure.ImagePath.Should().Be(@"HighElves\HighElf_Dragonprince.jpg");
         }
 
         [Fact]
