@@ -137,17 +137,21 @@ namespace ArmyBuilder.Test.Dao
         [Fact]
         public void should_read_main_model_for_given_id()
         {
+            // arrange
+            int schwertmeisterId = 11901;
 
             // act 
-            MainModel mainModel = armyListRepository.MainModel(11901);
+            MainModel mainModel = armyListRepository.MainModel(schwertmeisterId);
 
             // assert
             mainModel.Name.Should().Be("Schwertmeister von Hoeth");
-            var singleModel = mainModel.SingleModels.First();
+
+            SingleModel singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
-            var profile = singleModel.Profile;
+
+            Profile profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
             profile.WeaponSkill.Should().Be(5);
             profile.BallisticSkill.Should().Be(4);
@@ -157,6 +161,11 @@ namespace ArmyBuilder.Test.Dao
             profile.Initiative.Should().Be(7);
             profile.Attacks.Should().Be(1);
             profile.Moral.Should().Be(8);
+
+            List<Figure> figures = mainModel.Figures;
+            figures.Should().HaveCount(1);
+            Figure figure = figures.First();
+            figure.ImagePath.Should().Be(@"HighElves\HighElf_SwordMasterOfHoeth.jpg");
         }
 
 
