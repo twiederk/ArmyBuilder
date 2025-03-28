@@ -266,14 +266,14 @@ CREATE TABLE IF NOT EXISTS "army_slot_selection"
 
 CREATE TABLE IF NOT EXISTS "figure"
 ("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
- "army_list_id"      INTEGER,
- "army_category_id"  INTEGER,
  "name"              VARCHAR(110),
  "producer"          VARCHAR(60),
  "material"          VARCHAR(60),
- "image_path"        VARCHAR(256),
  "number_of_figures" INTEGER,
  "painted"           BIT,
+ "army_list_id"      INTEGER,
+ "army_category_id"  INTEGER,
+ "image_path"        VARCHAR(256),
  FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
  FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
 );
