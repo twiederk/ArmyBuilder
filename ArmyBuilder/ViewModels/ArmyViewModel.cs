@@ -113,7 +113,7 @@ namespace ArmyBuilder.ViewModels
                 return null;
             }
 
-            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", relativePath);
             return new BitmapImage(new Uri(filePath, UriKind.Absolute));
         }
 
