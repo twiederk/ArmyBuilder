@@ -101,24 +101,29 @@ namespace ArmyBuilder.Dao
         public MainModel MainModel(int id)
         {
             var sql = @"
-                SELECT 
-                    mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, mm.Uniquely, mm.standard_bearer AS StandardBearer, mm.musician, mm.image_path AS ImagePath, mm.number_of_figures AS NumberOfFigures,
-                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.movement_type_id as MovementType, sm.mount, sm.mountable, sm.count,
-                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
-                FROM 
-                    main_model mm
-                LEFT JOIN 
-                    single_model sm ON mm.Id = sm.main_model_id
-                LEFT JOIN 
-                    profile p ON sm.profile_id = p.Id
-                WHERE 
-                    mm.Id = @Id";
+        SELECT 
+            mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, mm.Uniquely, mm.standard_bearer AS StandardBearer, mm.musician, mm.image_path AS ImagePath, mm.number_of_figures AS NumberOfFigures,
+            sm.Id, sm.Name, sm.profile_id as ProfileId, sm.movement_type_id as MovementType, sm.mount, sm.mountable, sm.count,
+            p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save,
+            f.Id, f.number_of_figures as NumberOfFigures, f.image_path as ImagePath
+        FROM 
+            main_model mm
+        LEFT JOIN 
+            single_model sm ON mm.Id = sm.main_model_id
+        LEFT JOIN 
+            profile p ON sm.profile_id = p.Id
+        LEFT JOIN 
+            main_model_figure mmf ON mm.Id = mmf.main_model_id
+        LEFT JOIN 
+            figure f ON mmf.figure_id = f.Id
+        WHERE 
+            mm.Id = @Id";
 
             var mainModelDictionary = new Dictionary<int, MainModel>();
 
-            var result = _dbConnection.Query<MainModel, SingleModel, Profile, MainModel>(
+            var result = _dbConnection.Query<MainModel, SingleModel, Profile, Figure, MainModel>(
                 sql,
-                (mainModel, singleModel, profile) =>
+                (mainModel, singleModel, profile, figure) =>
                 {
                     if (!mainModelDictionary.TryGetValue(mainModel.Id, out var currentMainModel))
                     {
@@ -132,10 +137,15 @@ namespace ArmyBuilder.Dao
                         currentMainModel.AddSingleModel(singleModel);
                     }
 
+                    if (figure != null)
+                    {
+                        currentMainModel.Figures.Add(figure);
+                    }
+
                     return currentMainModel;
                 },
                 new { Id = id },
-                splitOn: "Id,Id"
+                splitOn: "Id,Id,Id"
             );
 
             return result.FirstOrDefault();
