@@ -5508,6 +5508,12 @@ INSERT INTO main_model_figure VALUES(68,12426,248);
 INSERT INTO main_model_figure VALUES(69,11897,249);
 INSERT INTO main_model_figure VALUES(70,11893,250);
 INSERT INTO main_model_figure VALUES(71,11906,90);
+INSERT INTO main_model_figure VALUES(72,11506,70);
+INSERT INTO main_model_figure VALUES(73,11508,70);
+INSERT INTO main_model_figure VALUES(74,11510,72);
+INSERT INTO main_model_figure VALUES(75,11511,72);
+INSERT INTO main_model_figure VALUES(76,11512,72);
+INSERT INTO main_model_figure VALUES(77,11513,72);
 
 
 COMMIT;
