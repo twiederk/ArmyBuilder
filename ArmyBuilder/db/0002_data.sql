@@ -5035,7 +5035,7 @@ INSERT INTO figure VALUES(59,'Vlad und Isabella von Carstein','Games Workshop','
 INSERT INTO figure VALUES(60,'Schwarze Kutsche','Games Workshop','Zinn',1,0,12,0,'Undead\Undead_Schwarze_Kutsche.jpg');
 INSERT INTO figure VALUES(61,'Zombie Standartenträger','Games Workshop','Zinn',1,0,12,1,'Undead\Undead_Zombie_Standartentraeger.jpg');
 INSERT INTO figure VALUES(62,'Zombie Musiker','Games Workshop','Zinn',1,0,12,1,'Undead\Undead_Zombie_Standartentraeger.jpg');
-INSERT INTO figure VALUES(64,'Prinz Imrik, Herrscher der Drachen','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_PriceImrik.jpg');
+INSERT INTO figure VALUES(64,'Prinz Imrik, Herrscher der Drachen','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_PrinceImrik.jpg');
 INSERT INTO figure VALUES(65,'Eltharion der Grimmige, Stadthalter von Tor Yvresse','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_Eltharion.jpg');
 INSERT INTO figure VALUES(66,'Teclis, Hochelfen Meistermagier','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_Teclis.jpg');
 INSERT INTO figure VALUES(67,'Tyrion, Hochelfenprinz','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_Tyrion.jpg');
