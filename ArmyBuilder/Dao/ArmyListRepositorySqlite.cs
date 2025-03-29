@@ -85,11 +85,11 @@ namespace ArmyBuilder.Dao
             {
                 if (singleModelDictionary.TryGetValue(mainModel.Id, out var singleModels))
                 {
-                    mainModel.SingleModels.AddRange(singleModels);
+                    mainModel.SingleModels = singleModels.ToList();
                 }
                 if (figureDictionary.TryGetValue(mainModel.Id, out var figures))
                 {
-                    mainModel.Figures.AddRange(figures);
+                    mainModel.Figures = figures.OrderByDescending(f => f.NumberOfFigures).ToList();
                 }
             }
             return mainModelDictionary.Values.ToList();
@@ -196,13 +196,14 @@ namespace ArmyBuilder.Dao
             {
                 if (singleModelDictionary.TryGetValue(mainModel.Id, out var singleModels))
                 {
-                    mainModel.SingleModels.AddRange(singleModels);
+                    mainModel.SingleModels = singleModels.ToList();
                 }
                 if (figureDictionary.TryGetValue(mainModel.Id, out var figures))
                 {
-                    mainModel.Figures.AddRange(figures);
+                    mainModel.Figures = figures.OrderByDescending(f => f.NumberOfFigures).ToList();
                 }
             }
+
 
             return mainModelDictionary.Values.FirstOrDefault();
         }
