@@ -343,6 +343,9 @@
     <None Update="images\HighElves\HighElf_SilverHelmStandardBearer.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="images\HighElves\HighElf_SilverHelm_StandardBearer.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\HighElves\HighElf_SpearMan.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
