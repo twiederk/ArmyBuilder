@@ -295,6 +295,12 @@
     <None Update="images\HighElves\HighElf_RepeatingBolder_bemalt.JPG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="images\HighElves\HighElf_RepeatingBolter.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\HighElves\HighElf_RepeatingBolter_bemalt.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\HighElves\HighElf_SeaGuardOfLothern.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

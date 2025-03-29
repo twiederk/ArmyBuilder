@@ -5409,7 +5409,7 @@ INSERT INTO figure VALUES(495,'Rosa Horror','Games Workshop','Zinn',4,0,1,1,'Cha
 INSERT INTO figure VALUES(496,'Blauer Horror','Games Workshop','Zinn',12,0,1,1,'Chaos\Chaos_Daemon_Blauer_Horror.jpg');
 INSERT INTO figure VALUES(497,'Zerfleischer','Games Workshop','Zinn',1,0,1,1,'Chaos\Chaos_Daemon_Zerfleischer_original.jpg');
 INSERT INTO figure VALUES(498,'Zerfleischer','Eigenproduktion','Zinn',12,0,1,1,'Chaos\Chaos_Daemon_Zerfleischer_selbst.jpg');
-INSERT INTO figure VALUES(499,'Repetier-Speerschleider','Games Workshop','Plastik',1,1,7,2,'HighElves\HighElf_RepeatingBolder_bemalt.JPG');
+INSERT INTO figure VALUES(499,'Repetier-Speerschleider','Games Workshop','Plastik',1,1,7,2,'HighElves\HighElf_RepeatingBolter_bemalt.JPG');
 INSERT INTO figure VALUES(500,'Seegarde von Lothern','Games Workshop','Plastik',7,1,7,1,'HighElves\HighElf_SeaGuardOfLothern_bemalt.JPG');
 INSERT INTO figure VALUES(501,'Standartenträger der Seegarde von Lothern','Games Workshop','Plastik',1,1,7,1,'HighElves\HighElf_SeaGuardOfLothern_StandardBearer_bemalt.JPG');
 INSERT INTO figure VALUES(502,'Musiker der Seegarde von Lothern','Games Workshop','Plastik',1,1,7,1,'HighElves\HighElf_SeaGuardOfLothern_Musician_bemalt.JPG');
@@ -5520,6 +5520,7 @@ INSERT INTO main_model_figure VALUES(80,11903,75);
 INSERT INTO main_model_figure VALUES(81,11980,77);
 INSERT INTO main_model_figure VALUES(82,11517,64);
 INSERT INTO main_model_figure VALUES(83,12091,92);
+INSERT INTO main_model_figure VALUES(84,12091,499);
 
 
 COMMIT;
