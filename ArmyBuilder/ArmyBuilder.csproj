@@ -286,6 +286,9 @@
     <None Update="images\HighElves\HighElf_PriceImrik.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="images\HighElves\HighElf_PrinceImrik.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\HighElves\HighElf_RepeatingBolder.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
