@@ -114,7 +114,12 @@ namespace ArmyBuilder.ViewModels
             }
 
             string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", relativePath);
+            if (!System.IO.File.Exists(filePath))
+            {
+                return null;
+            }
             return new BitmapImage(new Uri(filePath, UriKind.Absolute));
+
         }
 
 
