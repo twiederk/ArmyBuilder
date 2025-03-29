@@ -262,6 +262,9 @@
     <None Update="images\HighElves\HighElf_MaidenGuard.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="images\HighElves\HighElf_MaidenGuard2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\HighElves\HighElf_MaidenGuard_Musician.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -274,6 +277,9 @@
     <None Update="images\HighElves\HighElf_PhoenixGuard.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="images\HighElves\HighElf_PhoenixGuard2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\HighElves\HighElf_PriceImrik.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -284,6 +290,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="images\HighElves\HighElf_SeaGuardOfLothern.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\HighElves\HighElf_SeaGuardOfLothern2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="images\HighElves\HighElf_SeaGuardOfLothern_bemalt.JPG">
@@ -307,7 +316,13 @@
     <None Update="images\HighElves\HighElf_ShadowWarrior.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="images\HighElves\HighElf_ShadowWarrior2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\HighElves\HighElf_SilverHelm.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\HighElves\HighElf_SilverHelm2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="images\HighElves\HighElf_SilverHelmFighter.jpg">
@@ -322,6 +337,9 @@
     <None Update="images\HighElves\HighElf_StandardBearer.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="images\HighElves\HighElf_StandardBearer2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\HighElves\HighElf_SwordMasterOfHoeth.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -329,6 +347,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="images\HighElves\HighElf_TwinBlade.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\HighElves\HighElf_TwinBlade2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="images\HighElves\HighElf_Tyrion.jpg">
