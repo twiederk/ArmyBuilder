@@ -146,7 +146,7 @@ namespace ArmyBuilder.Test.Dao
         }
 
         [Fact]
-        public void should_read_main_model_for_given_id()
+        public void should_read_main_model_for_schwertmeister_von_hoeth()
         {
             // arrange
             int schwertmeisterId = 11901;
@@ -177,6 +177,41 @@ namespace ArmyBuilder.Test.Dao
             figures.Should().HaveCount(1);
             Figure figure = figures.First();
             figure.ImagePath.Should().Be(@"HighElves\HighElf_SwordMasterOfHoeth.jpg");
+        }
+
+        [Fact]
+        public void should_read_main_model_for_seegarde_von_lothern()
+        {
+            // arrange
+            int seegardeVonLothernId = 11905;
+
+            // act 
+            MainModel mainModel = armyListRepository.MainModel(seegardeVonLothernId);
+
+            // assert
+            mainModel.Name.Should().Be("Seegarde von Lothern");
+            mainModel.SingleModels.Should().HaveCount(1);
+
+            SingleModel singleModel = mainModel.SingleModels.First();
+            singleModel.Name.Should().Be("Seegardist");
+            singleModel.MovementType.Should().Be(MovementType.OnFoot);
+            singleModel.Mount.Should().BeFalse();
+
+            Profile profile = singleModel.Profile;
+            profile.Movement.Should().Be(5);
+            profile.WeaponSkill.Should().Be(4);
+            profile.BallisticSkill.Should().Be(4);
+            profile.Strength.Should().Be(3);
+            profile.Toughness.Should().Be(3);
+            profile.Wounds.Should().Be(1);
+            profile.Initiative.Should().Be(6);
+            profile.Attacks.Should().Be(1);
+            profile.Moral.Should().Be(8);
+
+            List<Figure> figures = mainModel.Figures;
+            figures.Should().HaveCount(2);
+            figures[0].ImagePath.Should().Be(@"HighElves\HighElf_SeaGuardOfLothern.jpg");
+            figures[1].ImagePath.Should().Be(@"HighElves\HighElf_SeaGuardOfLothern2.jpg");
         }
 
 
