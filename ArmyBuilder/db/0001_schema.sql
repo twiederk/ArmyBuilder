@@ -151,8 +151,6 @@ CREATE TABLE IF NOT EXISTS "main_model"
  "points"            FLOAT,
  "standard_bearer"   BIT,
  "musician"          BIT,
- "image_path"        VARCHAR(256),
- "number_of_figures" INTEGER,
  FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
  FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
 );
@@ -222,8 +220,6 @@ CREATE TABLE IF NOT EXISTS "army_main_model"
  "count"             INTEGER,
  "standard_bearer"   BIT,
  "musician"          BIT,
- "image_path"        VARCHAR(256),
- "number_of_figures" INTEGER,
  FOREIGN KEY (army_unit_id) REFERENCES army_unit(id) ON DELETE CASCADE
  FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
 );
@@ -261,6 +257,30 @@ CREATE TABLE IF NOT EXISTS "army_slot_selection"
  "army_slot_id"    INTEGER,
  "item_id"         INTEGER,
  FOREIGN KEY(army_slot_id) REFERENCES army_slot(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE IF NOT EXISTS "figure"
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
+ "name"              VARCHAR(110),
+ "producer"          VARCHAR(60),
+ "material"          VARCHAR(60),
+ "number_of_figures" INTEGER,
+ "painted"           BIT,
+ "army_list_id"      INTEGER,
+ "army_category_id"  INTEGER,
+ "image_path"        VARCHAR(256),
+ FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
+ FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
+);
+
+
+CREATE TABLE IF NOT EXISTS "main_model_figure"
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
+ "main_model_id"     INTEGER,
+ "figure_id"         INTEGER,
+ FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
+ FOREIGN KEY (figure_id) REFERENCES figure(id) ON DELETE CASCADE 
 );
 
 

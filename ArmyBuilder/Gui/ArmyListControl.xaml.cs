@@ -38,10 +38,10 @@ namespace ArmyBuilder
             ListBox listBox = sender as ListBox;
             if (listBox != null)
             {
-                var selectedMainModel = listBox.SelectedItem as MainModel;
+                var selectedMainModel = listBox.SelectedItem as ArmyMainModelViewModel;
                 if (selectedMainModel != null)
                 {
-                    MainModel clonedMainModel = selectedMainModel.Clone();
+                    MainModel clonedMainModel = selectedMainModel.MainModel.Clone();
                     ArmyViewModel armyViewModel = DataContext as ArmyViewModel;
                     ArmyTreeViewModel armyTreeViewModel = armyViewModel.ArmyTreeViewModel;
                     Army army = armyTreeViewModel.Army;

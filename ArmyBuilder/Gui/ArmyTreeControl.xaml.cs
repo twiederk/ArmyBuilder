@@ -1,6 +1,5 @@
 ﻿using ArmyBuilder.Domain;
 using ArmyBuilder.ViewModels;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -100,16 +99,16 @@ namespace ArmyBuilder
 
         private void armyTreeNode_Drop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof(MainModel)))
+            if (e.Data.GetDataPresent(typeof(ArmyMainModelViewModel)))
             {
-                MainModel droppedMainModel = e.Data.GetData(typeof(MainModel)) as MainModel;
+                ArmyMainModelViewModel droppedMainModel = e.Data.GetData(typeof(ArmyMainModelViewModel)) as ArmyMainModelViewModel;
 
                 if (droppedMainModel != null)
                 {
                     var armyTreeNode = ((FrameworkElement)sender).DataContext as ArmyTreeNode;
                     if (armyTreeNode != null)
                     {
-                        MainModel clonedMainModel = droppedMainModel.Clone();
+                        MainModel clonedMainModel = droppedMainModel.MainModel.Clone();
                         Army army = armyTreeNode.Army;
                         var armyViewModel = DataContext as ArmyViewModel;
                         ArmyBuilder.Domain.Unit unit = armyViewModel.CreateUnit(army, clonedMainModel);
@@ -121,16 +120,16 @@ namespace ArmyBuilder
 
         private void unitTreeNode_Drop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof(MainModel)))
+            if (e.Data.GetDataPresent(typeof(ArmyMainModelViewModel)))
             {
-                MainModel droppedMainModel = e.Data.GetData(typeof(MainModel)) as MainModel;
+                ArmyMainModelViewModel droppedMainModel = e.Data.GetData(typeof(ArmyMainModelViewModel)) as ArmyMainModelViewModel;
 
                 if (droppedMainModel != null)
                 {
                     var unitTreeNode = ((FrameworkElement)sender).DataContext as UnitTreeNode;
                     if (unitTreeNode != null)
                     {
-                        MainModel clonedMainModel = droppedMainModel.Clone();
+                        MainModel clonedMainModel = droppedMainModel.MainModel.Clone();
                         ArmyBuilder.Domain.Unit unit = unitTreeNode.Unit;
                         var armyViewModel = DataContext as ArmyViewModel;
                         armyViewModel.AddMainModel(unit.Id, clonedMainModel);
