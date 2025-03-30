@@ -151,8 +151,6 @@ CREATE TABLE IF NOT EXISTS "main_model"
  "points"            FLOAT,
  "standard_bearer"   BIT,
  "musician"          BIT,
- "image_path"        VARCHAR(256),
- "number_of_figures" INTEGER,
  FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
  FOREIGN KEY (army_category_id) REFERENCES army_category(id) ON DELETE CASCADE 
 );
