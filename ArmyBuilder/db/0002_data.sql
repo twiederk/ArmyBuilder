@@ -5055,7 +5055,7 @@ INSERT INTO figure VALUES(80,'Musiker der Ellyriansichen Grenzreiter','Games Wor
 INSERT INTO figure VALUES(81,'Standartenträger der Ellyrianischen Grenzreiter','Games Workshop','Zinn',1,0,7,1,'HighElves\HighElf_BorderRider_StandardBearer.jpg');
 INSERT INTO figure VALUES(82,'Champion der Drachenprinzen von Caledor','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_Dragonprince_Fighter.jpg');
 INSERT INTO figure VALUES(83,'Standartenträger der Drachenprinzen von Caledor','Games Workshop','Zinn',1,0,7,1,'HighElves\HighElf_Dragonprince_StandardBearer.jpg');
-INSERT INTO figure VALUES(84,'Champion der Silberhelme','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_SilverHelm_Fighter.jpg');
+INSERT INTO figure VALUES(84,'Champion der Silberhelme','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_SilverHelmFighter.jpg');
 INSERT INTO figure VALUES(85,'Standartenträger der Silberhelme','Games Workshop','Zinn',1,0,7,1,'HighElves\HighElf_SilverHelm_StandardBearer.jpg');
 INSERT INTO figure VALUES(86,'Musiker der Seegarde von Lothern','Games Workshop','Zinn',1,0,7,1,'HighElves\HighElf_SeaGuardOfLothern_Musician.jpg');
 INSERT INTO figure VALUES(87,'Standartenträger der Seegarde von Lothern','Games Workshop','Zinn',1,0,7,1,'HighElves\HighElf_SeaGuardOfLothern_StandardBearer.jpg');
@@ -5435,6 +5435,8 @@ INSERT INTO figure VALUES(521,'Großkanone','Games Workshop','Plastik',1,1,8,2,'
 INSERT INTO figure VALUES(522,'Champion','Games Workshop','Zinn',2,1,8,0,'Human\Human_Champion_bemalt.JPG');
 INSERT INTO figure VALUES(523,'Bogenschützen','Games Workshop','Plastik',12,1,8,1,'Human\Human_Bogenschuetzen_bemalt.JPG');
 INSERT INTO figure VALUES(524,'Armbrustschützen','Games Workshop','Plastik',12,1,8,1,'Human\Human_Armbrustschuetzen_bemalt_gelb.JPG');
+INSERT INTO figure VALUES(525,'Drache','Games Workshop','Zinn',1,0,7,3,'HighElves\HighElf_Dragon.jpg');
+INSERT INTO figure VALUES(526,'Champion','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_Fighter2_Sword_Dagger.jpg');
 
 
 INSERT INTO main_model_figure VALUES(1,11516,65);
@@ -5534,6 +5536,19 @@ INSERT INTO main_model_figure VALUES(94,11508,504);
 INSERT INTO main_model_figure VALUES(95,11905,500);
 INSERT INTO main_model_figure VALUES(96,11905,501);
 INSERT INTO main_model_figure VALUES(97,11905,502);
+INSERT INTO main_model_figure VALUES(98,11898,79);
+INSERT INTO main_model_figure VALUES(99,11900,82);
+INSERT INTO main_model_figure VALUES(100,11905,503);
+INSERT INTO main_model_figure VALUES(101,11899,84);
+INSERT INTO main_model_figure VALUES(102,11903,74);
+INSERT INTO main_model_figure VALUES(103,11509,114);
+INSERT INTO main_model_figure VALUES(104,11509,504);
+INSERT INTO main_model_figure VALUES(105,11509,526);
+INSERT INTO main_model_figure VALUES(106,11508,526);
+INSERT INTO main_model_figure VALUES(107,11506,526);
+INSERT INTO main_model_figure VALUES(108,12286,525);
+INSERT INTO main_model_figure VALUES(109,12294,525);
+INSERT INTO main_model_figure VALUES(110,12302,525);
 
 
 COMMIT;

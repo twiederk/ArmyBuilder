@@ -93,9 +93,13 @@ namespace ArmyBuilder.Test.Dao
             profile.Save.Should().Be(7);
 
             figures = mainModel.Figures;
-            figures.Should().HaveCount(1);
-            figure = figures.First();
-            figure.ImagePath.Should().Be(@"HighElves\HighElf_Dragonprince.jpg");
+            figures.Should().HaveCount(3);
+            figures[0].ImagePath.Should().Be(@"HighElves\HighElf_Dragonprince.jpg");
+            figures[0].NumberOfFigures.Should().Be(9);
+            figures[1].ImagePath.Should().Be(@"HighElves\HighElf_Dragonprince_Fighter.jpg");
+            figures[1].NumberOfFigures.Should().Be(1);
+            figures[2].ImagePath.Should().Be(@"HighElves\HighElf_Dragonprince_StandardBearer.jpg");
+            figures[2].NumberOfFigures.Should().Be(1);
         }
 
         [Fact]
@@ -209,9 +213,7 @@ namespace ArmyBuilder.Test.Dao
             profile.Moral.Should().Be(8);
 
             List<Figure> figures = mainModel.Figures;
-            figures.Should().HaveCount(2);
-            figures[0].ImagePath.Should().Be(@"HighElves\HighElf_SeaGuardOfLothern.jpg");
-            figures[1].ImagePath.Should().Be(@"HighElves\HighElf_SeaGuardOfLothern2.jpg");
+            figures.Should().HaveCount(8);
         }
 
 
