@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArmyBuilder"
         mc:Ignorable="d"
-        Title="Warhammer Armeelisten (v1.3.0)" Height="900" Width="1200">
+        Title="Warhammer Armeelisten (v1.4.0)" Height="900" Width="1200">
     <Grid>
         <ContentControl x:Name="MainContent" Grid.Row="1"/>
     </Grid>
