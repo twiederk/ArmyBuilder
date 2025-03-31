@@ -5114,7 +5114,7 @@ INSERT INTO figure VALUES(200,'Trollslayer Standartenträger','Games Workshop','
 INSERT INTO figure VALUES(201,'Trollslayer Musiker','Games Workshop','Zinn',1,0,14,1,'Dwarves\Dwarf_TrollSlayer_Musician.jpg');
 INSERT INTO figure VALUES(202,'Dämonenslayer','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_DaemonSlayer.jpg');
 INSERT INTO figure VALUES(203,'Drachenslayer','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_DragonSlayer.jpg');
-INSERT INTO figure VALUES(204,'Riesenslayer','Games Workshop','Zinn',2,0,14,0,'Dwarves\Dwarf_GiantSlayer1.jpg und Dwarf_GiantSlayer2.jpg');
+INSERT INTO figure VALUES(204,'Riesenslayer','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_GiantSlayer1.jpg');
 INSERT INTO figure VALUES(205,'Ungrim Eisenfaust, Slayerkönig von Karak Kadrin','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_UngrimEisenfaust_SlayerkoenigVonKarakKadrin.jpg');
 INSERT INTO figure VALUES(206,'König Kazador von Karak Azul','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_KoenigKazadorVonKarakAzul.jpg');
 INSERT INTO figure VALUES(207,'Burlok Damminson, Gildenmeister der Machinisten','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_BurlokDammnison_GildenmeisterDerMaschinisten.jpg');
@@ -5436,6 +5436,7 @@ INSERT INTO figure VALUES(523,'Bogenschützen','Games Workshop','Plastik',12,1,8
 INSERT INTO figure VALUES(524,'Armbrustschützen','Games Workshop','Plastik',12,1,8,1,'Human\Human_Armbrustschuetzen_bemalt_gelb.JPG');
 INSERT INTO figure VALUES(525,'Drache','Games Workshop','Zinn',0,0,7,3,'HighElves\HighElf_Dragon.jpg');
 INSERT INTO figure VALUES(526,'Champion','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_Fighter2_Sword_Dagger.jpg');
+INSERT INTO figure VALUES(527,'Riesenslayer','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_GiantSlayer2.jpg');
 
 
 INSERT INTO main_model_figure VALUES(1,11516,65);
@@ -5547,6 +5548,13 @@ INSERT INTO main_model_figure VALUES(107,11506,526);
 INSERT INTO main_model_figure VALUES(108,12286,525);
 INSERT INTO main_model_figure VALUES(109,12294,525);
 INSERT INTO main_model_figure VALUES(110,12302,525);
+INSERT INTO main_model_figure VALUES(111,11897,200);
+INSERT INTO main_model_figure VALUES(112,11897,201);
+INSERT INTO main_model_figure VALUES(113,11897,241);
+INSERT INTO main_model_figure VALUES(114,12429,223);
+INSERT INTO main_model_figure VALUES(115,12429,224);
+INSERT INTO main_model_figure VALUES(116,11481,204);
+INSERT INTO main_model_figure VALUES(117,11481,527);
 
 
 COMMIT;
