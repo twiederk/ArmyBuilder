@@ -5119,7 +5119,7 @@ INSERT INTO figure VALUES(205,'Ungrim Eisenfaust, Slayerkönig von Karak Kadrin'
 INSERT INTO figure VALUES(206,'König Kazador von Karak Azul','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_KoenigKazadorVonKarakAzul.jpg');
 INSERT INTO figure VALUES(207,'Burlok Damminson, Gildenmeister der Machinisten','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_BurlokDammnison_GildenmeisterDerMaschinisten.jpg');
 INSERT INTO figure VALUES(208,'Bergwerker Standartenträger','Games Workshop','Zinn',1,0,14,1,'Dwarves\Dwarf_Miner_StandardBearer.jpg');
-INSERT INTO figure VALUES(209,'Bergwerker Champion','Games Workshop','Zinn',2,0,14,0,'Dwarves\Dwarf_Miner_Champion1.jpg und Dwarf_Miner_Champion2.jpg');
+INSERT INTO figure VALUES(209,'Bergwerker Champion','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_Miner_Champion1.jpg');
 INSERT INTO figure VALUES(210,'Bergwerker Musiker','Games Workshop','Zinn',1,0,14,1,'Dwarves\Dwarf_Miner_Musician.jpg');
 INSERT INTO figure VALUES(211,'Zwergen Champion mit Axt','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_Fighter1_Axe.jpg');
 INSERT INTO figure VALUES(212,'Zwergen Champion mit zweihändiger Axt','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_Fighter2_DoubleHanded_Hammer.jpg');
@@ -5437,6 +5437,7 @@ INSERT INTO figure VALUES(524,'Armbrustschützen','Games Workshop','Plastik',12,
 INSERT INTO figure VALUES(525,'Drache','Games Workshop','Zinn',0,0,7,3,'HighElves\HighElf_Dragon.jpg');
 INSERT INTO figure VALUES(526,'Champion','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_Fighter2_Sword_Dagger.jpg');
 INSERT INTO figure VALUES(527,'Riesenslayer','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_GiantSlayer2.jpg');
+INSERT INTO figure VALUES(528,'Bergwerker Champion','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_Miner_Champion2.jpg');
 
 
 INSERT INTO main_model_figure VALUES(1,11516,65);
@@ -5578,6 +5579,7 @@ INSERT INTO main_model_figure VALUES(137,11479,216);
 INSERT INTO main_model_figure VALUES(138,11480,212);
 INSERT INTO main_model_figure VALUES(139,11480,215);
 INSERT INTO main_model_figure VALUES(140,11480,216);
+INSERT INTO main_model_figure VALUES(141,11896,528);
 
 
 COMMIT;
