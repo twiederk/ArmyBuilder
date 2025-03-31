@@ -5126,7 +5126,7 @@ INSERT INTO figure VALUES(212,'Zwergen Champion mit zweihändiger Axt','Games Wo
 INSERT INTO figure VALUES(213,'Zwergen Standartenträger','Games Workshop','Zinn',3,0,14,1,'Dwarves\Dwarf_StandardBearer.jpg');
 INSERT INTO figure VALUES(214,'Zwergen Musiker','Games Workshop','Zinn',3,0,14,1,'Dwarves\Dwarf_Musician.jpg');
 INSERT INTO figure VALUES(215,'Zwergen Champion mit Hammer','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_Fighter3_Hammer.jpg');
-INSERT INTO figure VALUES(216,'Zwergen Champion mit Schwert','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_Fighter3_Hammer.jpg');
+INSERT INTO figure VALUES(216,'Zwergen Champion mit Schwert','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_Fighter4_Sword.jpg');
 INSERT INTO figure VALUES(217,'Betrunkene Bergwerker','Games Workshop','Zinn',4,0,14,1,'Dwarves\Dwarf_DrunkenMiner.jpg');
 INSERT INTO figure VALUES(218,'Hochkönig Thorgrim Grollbart','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_HochkoenigThorgrimGrollbart.jpg');
 INSERT INTO figure VALUES(219,'Flammenkanone','Games Workshop','Zinn',1,0,14,2,'Dwarves\Dwarf_Flammenkanone.jpg');
@@ -5555,6 +5555,29 @@ INSERT INTO main_model_figure VALUES(114,12429,223);
 INSERT INTO main_model_figure VALUES(115,12429,224);
 INSERT INTO main_model_figure VALUES(116,11481,204);
 INSERT INTO main_model_figure VALUES(117,11481,527);
+INSERT INTO main_model_figure VALUES(118,11896,208);
+INSERT INTO main_model_figure VALUES(119,11896,209);
+INSERT INTO main_model_figure VALUES(120,11896,210);
+INSERT INTO main_model_figure VALUES(121,12427,230);
+INSERT INTO main_model_figure VALUES(122,12427,231);
+INSERT INTO main_model_figure VALUES(123,12086,237);
+INSERT INTO main_model_figure VALUES(124,12086,238);
+INSERT INTO main_model_figure VALUES(125,12087,237);
+INSERT INTO main_model_figure VALUES(126,12087,238);
+INSERT INTO main_model_figure VALUES(127,11891,233);
+INSERT INTO main_model_figure VALUES(128,11891,234);
+INSERT INTO main_model_figure VALUES(129,11891,235);
+INSERT INTO main_model_figure VALUES(130,11891,245);
+INSERT INTO main_model_figure VALUES(131,11891,246);
+INSERT INTO main_model_figure VALUES(132,11477,212);
+INSERT INTO main_model_figure VALUES(133,11477,215);
+INSERT INTO main_model_figure VALUES(134,11477,216);
+INSERT INTO main_model_figure VALUES(135,11479,212);
+INSERT INTO main_model_figure VALUES(136,11479,215);
+INSERT INTO main_model_figure VALUES(137,11479,216);
+INSERT INTO main_model_figure VALUES(138,11480,212);
+INSERT INTO main_model_figure VALUES(139,11480,215);
+INSERT INTO main_model_figure VALUES(140,11480,216);
 
 
 COMMIT;
