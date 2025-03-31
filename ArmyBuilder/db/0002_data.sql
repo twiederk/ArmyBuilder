@@ -5078,8 +5078,7 @@ INSERT INTO figure VALUES(103,'Silberhelme','Games Workshop','Zinn',1,0,7,1,'Hig
 INSERT INTO figure VALUES(104,'Silberhelme','Eigenproduktion','Zinn',8,0,7,1,'HighElves\HighElf_SilverHelm2.jpg');
 INSERT INTO figure VALUES(105,'Hochelfenspeerträger','Games Workshop','Plastik',34,0,7,1,'HighElves\HighElf_SpearMan.jpg');
 INSERT INTO figure VALUES(106,'Schwertmeister von Hoeth','Games Workshop','Zinn',16,0,7,1,'HighElves\HighElf_SwordMasterOfHoeth.jpg');
-INSERT INTO figure VALUES(107,'Zwillingsklinge','Games Workshop','Zinn',1,0,7,1,'HighElves\HighElf_TwinBlade.jpg');
-INSERT INTO figure VALUES(108,'Zwillingsklinge','Eigenproduktion','Zinn',27,0,7,1,'HighElves\HighElf_TwinBlade2.jpg');
+INSERT INTO figure VALUES(108,'Zwillingsklinge','Eigenproduktion','Zinn',27,0,7,1,'HighElves\HighElf_TwinBlade.jpg');
 INSERT INTO figure VALUES(109,'Weiße Löwen','Games Workshop','Zinn',14,0,7,1,'HighElves\HighElf_WhiteLion.jpg');
 INSERT INTO figure VALUES(110,'Standartenträger der Hochelfen','Games Workshop','Zinn',2,0,7,1,'HighElves\HighElf_StandardBearer.jpg');
 INSERT INTO figure VALUES(111,'Standartenträger der Hochelfen','Fremdfirma','Zinn',2,0,7,1,'HighElves\HighElf_StandardBearer2.jpg');
@@ -5435,7 +5434,7 @@ INSERT INTO figure VALUES(521,'Großkanone','Games Workshop','Plastik',1,1,8,2,'
 INSERT INTO figure VALUES(522,'Champion','Games Workshop','Zinn',2,1,8,0,'Human\Human_Champion_bemalt.JPG');
 INSERT INTO figure VALUES(523,'Bogenschützen','Games Workshop','Plastik',12,1,8,1,'Human\Human_Bogenschuetzen_bemalt.JPG');
 INSERT INTO figure VALUES(524,'Armbrustschützen','Games Workshop','Plastik',12,1,8,1,'Human\Human_Armbrustschuetzen_bemalt_gelb.JPG');
-INSERT INTO figure VALUES(525,'Drache','Games Workshop','Zinn',1,0,7,3,'HighElves\HighElf_Dragon.jpg');
+INSERT INTO figure VALUES(525,'Drache','Games Workshop','Zinn',0,0,7,3,'HighElves\HighElf_Dragon.jpg');
 INSERT INTO figure VALUES(526,'Champion','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_Fighter2_Sword_Dagger.jpg');
 
 
@@ -5466,7 +5465,6 @@ INSERT INTO main_model_figure VALUES(24,11899,103);
 INSERT INTO main_model_figure VALUES(25,11899,104);
 INSERT INTO main_model_figure VALUES(26,11904,105);
 INSERT INTO main_model_figure VALUES(27,11901,106);
-INSERT INTO main_model_figure VALUES(28,11997,107);
 INSERT INTO main_model_figure VALUES(29,11997,108);
 INSERT INTO main_model_figure VALUES(30,11903,109);
 INSERT INTO main_model_figure VALUES(31,11507,110);
