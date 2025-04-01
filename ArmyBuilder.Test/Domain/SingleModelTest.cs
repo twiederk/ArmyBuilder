@@ -233,6 +233,25 @@ namespace ArmyBuilder.Test.Domain
             // assert
             displayAttacks.Should().Be("-");
         }
+
+        [Fact]
+        public void should_return_additional_attack_when_carring_pistol()
+        {
+            // arrange
+            MeleeWeapon pistol = new MeleeWeapon { Id = Item.ID_PISTOL };
+            var singleModel = new SingleModel
+            {
+                Profile = new Profile { Attacks = 1 },
+                Equipment = new Equipment { Slots = { new Slot { Item = pistol } } },
+            };
+
+            // act
+            string displayAttacks = singleModel.Attacks;
+
+            // assert
+            displayAttacks.Should().Be("1+1");
+        }
+
     }
 }
 

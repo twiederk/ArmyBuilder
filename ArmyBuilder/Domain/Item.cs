@@ -11,6 +11,7 @@
         public const int ID_EXECUTIONEER_AXE = 7;
         public const int ID_SECOND_HAND_WEAPON = 8;
         public const int ID_TWO_HANDED_SWORD_OF_HOETH = 9;
+        public const int ID_PISTOL = 21;
 
         public int Id { get; set; }
         public string Name { get; set; }

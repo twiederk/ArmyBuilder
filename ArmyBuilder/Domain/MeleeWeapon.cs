@@ -32,10 +32,14 @@ namespace ArmyBuilder.Domain
 
         public string DisplayAttacks(int attacks)
         {
-            if (Id == ID_SECOND_HAND_WEAPON)
-                return $"{attacks}+1";
-            else
-                return attacks.ToString();
+            switch(Id)
+            {
+                case ID_SECOND_HAND_WEAPON:
+                case ID_PISTOL:
+                    return $"{attacks}+1";
+                default:
+                    return attacks.ToString();
+            }
         }
     }
 

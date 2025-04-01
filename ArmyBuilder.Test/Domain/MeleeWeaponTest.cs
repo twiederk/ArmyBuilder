@@ -59,6 +59,19 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
+        public void should_return_second_attack_when_pistol_is_used()
+        {
+            // arrange
+            MeleeWeapon secondHandWeapon = new MeleeWeapon() { Id = Item.ID_PISTOL };
+
+            // act
+            string displayAttacks = secondHandWeapon.DisplayAttacks(1);
+
+            // assert
+            displayAttacks.Should().Be("1+1");
+        }
+
+        [Fact]
         public void should_return_attack_when_no_second_weapon_is_used()
         {
             // arrange
