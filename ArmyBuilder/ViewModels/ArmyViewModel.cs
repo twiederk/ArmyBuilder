@@ -101,6 +101,10 @@ namespace ArmyBuilder.ViewModels
 
         private BitmapImage? loadImage(ArmyMainModelViewModel armyMainModelViewModel)
         {
+            if (armyMainModelViewModel == null)
+            {
+                return null;
+            }
             MainModel mainModel = armyMainModelViewModel.MainModel;
             if (mainModel == null || mainModel.Figures == null || mainModel.Figures.Count == 0)
             {

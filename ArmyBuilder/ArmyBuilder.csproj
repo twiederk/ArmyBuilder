@@ -70,6 +70,9 @@
     <None Update="images\Dwarves\Dwarf_Fighter3_Hammer.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="images\Dwarves\Dwarf_Fighter4_Sword.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\Dwarves\Dwarf_Flammenkanone.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
