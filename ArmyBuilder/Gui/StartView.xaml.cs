@@ -71,9 +71,8 @@ namespace ArmyBuilder
         {
             // Assuming you have a method to get the selected army
             if (lstArmies.SelectedItem is Army selectedArmy) {
-                MessageBox.Show("Open the edit form");
-                // var editForm = new EditArmyForm(selectedArmy);
-                // editForm.ShowDialog();
+                var editForm = new EditArmyForm(selectedArmy);
+                editForm.ShowDialog();
             }
             else
             {
