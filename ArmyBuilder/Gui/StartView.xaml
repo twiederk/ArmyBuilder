@@ -34,12 +34,12 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Name}" FontWeight="Bold" />
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Author}" HorizontalAlignment="Right" Margin="10,0,0,0" />
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Name}" Width="300" FontWeight="Bold" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Author}" Width="120" />
                         <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Content="🗑" Click="DeleteArmyButton_Click" Margin="10" />
 
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding ArmyList.Name}" FontStyle="Italic" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Points}" HorizontalAlignment="Right" />
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding ArmyList.Name}" Width="300" FontStyle="Italic" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Points}" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
