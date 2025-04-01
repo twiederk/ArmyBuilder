@@ -15,6 +15,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -97,16 +98,18 @@
             </ItemsControl>
         </Grid>
 
-        <Label Grid.Row="3" Grid.Column="0" Content="{Binding SelectedMainModel.Description}" />
+        <Label Grid.Row="3" Grid.Column="0" Content="{Binding SelectedMainModel.Equipment}" />
 
-        <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Grid.Row="4" Grid.Column="0" Content="{Binding SelectedMainModel.Description}" />
+
+        <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Bild " />
             <TextBlock Text="{Binding SelectedMainModel.CurrentFigure}" />
             <TextBlock Text=" von " />
             <TextBlock Text="{Binding SelectedMainModel.MaxFigures}" />
         </StackPanel>
 
-        <Grid Grid.Row="5" Grid.Column="0">
+        <Grid Grid.Row="6" Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -118,7 +121,7 @@
             <Button Grid.Column="2" Width="35" Content="&gt;" Click="NextImage_Click" HorizontalAlignment="Left" />
         </Grid>
 
-        <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="7" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Anzahl der Figuren: " />
             <TextBlock Text="{Binding SelectedMainModel.NumberOfFigures}" />
         </StackPanel>
