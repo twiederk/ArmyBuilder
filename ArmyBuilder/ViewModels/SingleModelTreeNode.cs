@@ -42,6 +42,7 @@ namespace ArmyBuilder.ViewModels
             _parent.UpdateTotalPoints();
             OnPropertyChanged("Strength");
             OnPropertyChanged("Attacks");
+            OnPropertyChanged("Initiative");
             OnPropertyChanged("Save");
         }
 

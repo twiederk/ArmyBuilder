@@ -161,7 +161,25 @@ namespace ArmyBuilder.Test.Domain
             string displayStrength = singleModel.Strength;
 
             // assert
-            displayStrength.Should().Be("*5*");
+            displayStrength.Should().Be("5");
+        }
+
+        [Fact]
+        public void shoud_return_display_initiative_when_carring_two_handed_weapon()
+        {
+            // arrange
+            MeleeWeapon twoHandedWeapon = new MeleeWeapon { Id = Item.ID_TWO_HANDED_WEAPON, Strength = 2 };
+            var singleModel = new SingleModel
+            {
+                Profile = new Profile { Initiative = 4 },
+                Equipment = new Equipment { Slots = { new Slot { Item = twoHandedWeapon } } },
+            };
+
+            // act
+            string displayInitiative = singleModel.Initiative;
+
+            // assert
+            displayInitiative.Should().Be("*4*");
         }
 
         [Fact]

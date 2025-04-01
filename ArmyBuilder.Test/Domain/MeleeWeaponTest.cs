@@ -16,7 +16,20 @@ namespace ArmyBuilder.Test.Domain
             string displayStrength = twoHandedweapon.DisplayStrength(3);
 
             // assert
-            displayStrength.Should().Be("*5*");
+            displayStrength.Should().Be("5");
+        }
+
+        [Fact]
+        public void should_return_display_initiative_when_two_handed_weapon_is_used()
+        {
+            // arrange
+            MeleeWeapon twoHandedweapon = new MeleeWeapon() { Id = Item.ID_TWO_HANDED_WEAPON, Strength = 2 };
+
+            // act
+            string displayStrength = twoHandedweapon.DisplayInitiative(3);
+
+            // assert
+            displayStrength.Should().Be("*3*");
         }
 
         [Fact]

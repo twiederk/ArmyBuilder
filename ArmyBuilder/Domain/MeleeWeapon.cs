@@ -15,8 +15,6 @@ namespace ArmyBuilder.Domain
 
             switch (Id)
             {
-                case ID_TWO_HANDED_WEAPON:           
-                    return $"*{totalStrength}*";
                 case ID_SPEAR:
                 case ID_LANCE:
                     if (movementType == MovementType.OnMount)
@@ -38,6 +36,17 @@ namespace ArmyBuilder.Domain
                     return $"{attacks}+1";
                 default:
                     return attacks.ToString();
+            }
+        }
+
+        public string DisplayInitiative(int initiative)
+        {
+            switch(Id)
+            {
+                case ID_TWO_HANDED_WEAPON:
+                    return $"*{initiative}*";
+                default:
+                    return initiative.ToString();
             }
         }
     }

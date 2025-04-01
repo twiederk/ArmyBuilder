@@ -20,7 +20,7 @@ namespace ArmyBuilder.Domain
         public string Strength => DisplayStrength();
         public string Toughness => DisplayValue(Profile.Toughness);
         public string Wounds => DisplayValue(Profile.Wounds);
-        public string Initiative => DisplayValue(Profile.Initiative);
+        public string Initiative => DisplayInitiative();
         public string Attacks => DisplayAttacks();
         public string Moral => DisplayValue(Profile.Moral);
         public string Save => DisplaySave();
@@ -57,6 +57,12 @@ namespace ArmyBuilder.Domain
         {
             MeleeWeapon? meleeWeapon = Equipment.MeleeWeapon();
             return meleeWeapon?.DisplayStrength(Profile.Strength, MovementType) ?? DisplayValue(Profile.Strength);
+        }
+
+        public string DisplayInitiative()
+        {
+            MeleeWeapon? meleeWeapon = Equipment.MeleeWeapon();
+            return meleeWeapon?.DisplayInitiative(Profile.Initiative) ?? DisplayValue(Profile.Initiative);
 
         }
 
