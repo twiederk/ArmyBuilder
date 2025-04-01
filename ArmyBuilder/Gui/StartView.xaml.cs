@@ -62,6 +62,21 @@ namespace ArmyBuilder
             }
         }
 
+        private void NewButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("NewButton_Click");
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("EditButton_Click");
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("DeleteButton_Click");
+        }        
+
     }
 
 }
