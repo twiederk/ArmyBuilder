@@ -63,7 +63,12 @@ namespace ArmyBuilder.Domain
         public string DisplayAttacks()
         {
             MeleeWeapon? meleeWeapon = Equipment.MeleeWeapon();
-            return meleeWeapon?.DisplayAttacks(Profile.Attacks) ?? DisplayValue(Profile.Attacks);
+            if (meleeWeapon == null || meleeWeapon.Id == Item.ID_HAND_WEAPON)
+            {
+                RangedWeapon? rangedWeapon = Equipment.RangedWeapon();
+                return rangedWeapon?.DisplayAttacks(Profile.Attacks) ?? DisplayValue(Profile.Attacks);
+            }
+            return meleeWeapon.DisplayAttacks(Profile.Attacks);
 
         }
 

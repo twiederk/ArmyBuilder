@@ -238,11 +238,12 @@ namespace ArmyBuilder.Test.Domain
         public void should_return_additional_attack_when_carring_pistol()
         {
             // arrange
-            MeleeWeapon pistol = new MeleeWeapon { Id = Item.ID_PISTOL };
+            MeleeWeapon handWeapon = new MeleeWeapon { Id = Item.ID_HAND_WEAPON };
+            RangedWeapon pistol = new RangedWeapon { Id = Item.ID_PISTOL };
             var singleModel = new SingleModel
             {
                 Profile = new Profile { Attacks = 1 },
-                Equipment = new Equipment { Slots = { new Slot { Item = pistol } } },
+                Equipment = new Equipment { Slots = { new Slot { Item = pistol }, new Slot { Item = handWeapon } } },
             };
 
             // act

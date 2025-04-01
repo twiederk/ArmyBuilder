@@ -35,7 +35,6 @@ namespace ArmyBuilder.Domain
             switch(Id)
             {
                 case ID_SECOND_HAND_WEAPON:
-                case ID_PISTOL:
                     return $"{attacks}+1";
                 default:
                     return attacks.ToString();

@@ -11,5 +11,19 @@ namespace ArmyBuilder.Domain
         public int Strength;
         public int Range;
         public int Damage = 1;
+
+        public string DisplayAttacks(int attacks)
+        {
+            switch(Id)
+            {
+                case ID_PISTOL:
+                    return $"{attacks}+1";
+                default:
+                    return attacks.ToString();
+            }
+        }
+
     }
+
+
 }
