@@ -69,7 +69,19 @@ namespace ArmyBuilder
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("EditButton_Click");
+            // Assuming you have a method to get the selected army
+            if (lstArmies.SelectedItem is Army selectedArmy) {
+                MessageBox.Show("Open the edit form");
+                // var editForm = new EditArmyForm(selectedArmy);
+                // editForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bitte eine Armee zum Editieren auswählen.");
+                return;
+            }
+
+
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
