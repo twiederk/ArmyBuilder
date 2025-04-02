@@ -6,7 +6,7 @@ namespace ArmyBuilder
 {
     public partial class SelectMountWindow : Window
     {
-        public MountViewModel? SelectedMount { get; private set; }
+        public SingleModel SelectedMount { get; private set; }
 
         public SelectMountWindow(List<SingleModel> singleModels)
         {
@@ -17,12 +17,20 @@ namespace ArmyBuilder
 
         private List<MountViewModel> convertToMountViewModels(List<SingleModel> singleModels)
         {
-
+            List<MountViewModel> mountViewModels = new List<MountViewModel>();
+            foreach (var singleModel in singleModels)
+            {
+                mountViewModels.Add(new MountViewModel(singleModel));
+            }
+            return mountViewModels;
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-            SelectedMount = MountListBox.SelectedItem.SingleModel as SingleModel;
+            
+            if (MountListBox.SelectedItem != null) {
+                SelectedMount = MountListBox.SelectedItem.SingleModel as SingleModel;
+            }
             DialogResult = true;
             Close();
         }
