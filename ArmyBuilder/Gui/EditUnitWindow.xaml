@@ -17,8 +17,8 @@
         <TextBox x:Name="txtName" Grid.Row="0" Grid.Column="1" Margin="10" VerticalAlignment="Center"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="10">
-            <Button Content="Save" Width="75" Margin="5" Click="SaveButton_Click"/>
-            <Button Content="Cancel" Width="75" Margin="5" Click="CancelButton_Click"/>
+            <Button Content="Speichern" Width="75" Margin="5" Click="SaveButton_Click"/>
+            <Button Content="Abbrechen" Width="75" Margin="5" Click="CancelButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>
