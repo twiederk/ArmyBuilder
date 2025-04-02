@@ -396,6 +396,20 @@ namespace ArmyBuilder.Dao
 
             return singleModel;
         }
+
+        public Unit UpdateUnit(Unit unit)
+        {
+            var sql = @"
+                UPDATE army_unit
+                SET name = @Name
+                WHERE id = @Id";
+            _dbConnection.Execute(sql, new
+            {
+                unit.Name,
+                unit.Id
+            });
+            return unit;
+        }
     }
 
 } 

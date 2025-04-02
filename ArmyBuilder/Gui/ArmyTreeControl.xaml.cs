@@ -155,6 +155,19 @@ namespace ArmyBuilder
             }
         }
 
+        private void EditUnitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is UnitTreeNode unitTreeNode)
+            {
+                var editUnitWindow = new EditUnitWindow(unitTreeNode.Unit);
+                if (editUnitWindow.ShowDialog() == true)
+                {
+                    var armyViewModel = DataContext as ArmyViewModel;
+                    armyViewModel.UpdateUnit(unitTreeNode.Unit);
+                }
+            }
+        }
+
         private void DeleteMainModelButton_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)

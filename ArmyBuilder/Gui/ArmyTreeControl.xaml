@@ -47,10 +47,12 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Label Content="{Binding Name}" Grid.Column="0" HorizontalAlignment="Left" Foreground="Blue"/>
                             <Label Content="{Binding TotalPoints}" Grid.Column="1" HorizontalAlignment="Right" Foreground="Blue"/>
                             <Button Content="🗑" Grid.Column="2" Click="DeleteUnitButton_Click" Tag="{Binding}" Margin="5" />
+                            <Button Content="✏" Grid.Column="3" Click="EditUnitButton_Click" Tag="{Binding}" Margin="5" />
                         </Grid>
                     </HierarchicalDataTemplate>
 

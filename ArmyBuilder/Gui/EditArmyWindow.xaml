@@ -4,7 +4,6 @@
         Title="ArmeeBearbeiten" Height="250" Width="400">
     <Grid>
         <StackPanel>
-            <TextBlock Text="Armee bearbeiten" FontSize="16" FontWeight="Bold" Margin="10"/>
             <TextBlock Text="Name:" Margin="10,10,0,0"/>
             <TextBox x:Name="ArmyNameTextBox" Margin="10,0,10,0"/>
             <TextBlock Text="Autor:" Margin="10,10,0,0"/>

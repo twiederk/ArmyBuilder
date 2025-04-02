@@ -64,6 +64,11 @@ namespace ArmyBuilder.Dao
             return _armyRepository.CreateUnit(armyId, unit);
         }
 
+        public Unit UpdateUnit(Unit unit)
+        {
+            return _armyRepository.UpdateUnit(unit);
+        }
+
         public MainModel AddMainModel(int unitId, MainModel mainModel) {
             return _armyRepository.AddMainModel(unitId, mainModel);
         }

@@ -57,8 +57,8 @@ namespace ArmyBuilder
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             if (lstArmies.SelectedItem is Army selectedArmy) {
-                var editForm = new EditArmyWindow(selectedArmy);
-                if (editForm.ShowDialog() == true)
+                var editArmyWindow = new EditArmyWindow(selectedArmy);
+                if (editArmyWindow.ShowDialog() == true)
                 {
                     _repository.UpdateArmy(selectedArmy);
                     var startViewModel = DataContext as StartViewModel;
