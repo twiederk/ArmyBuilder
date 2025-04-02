@@ -110,7 +110,16 @@
                                         <StackPanel Orientation="Horizontal" Margin="0, 3, 0, 3">
                                             <TextBlock Text="{Binding Name}" Width="80" Margin="0, 0, 3, 0" Foreground="Brown" />
                                             <TextBlock x:Name="TextBlock" Text="{Binding ItemName}" Visibility="{Binding ItemNameVisibility}" Foreground="Brown" />
-                                            <ComboBox x:Name="ComboBox" ItemsSource="{Binding Selection}" Visibility="{Binding ItemSelectionVisibility}" Foreground="Brown" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}" SelectionChanged="ComboBox_SelectionChanged" Tag="{Binding RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+                                            <ComboBox x:Name="ComboBox" ItemsSource="{Binding Selection}" Visibility="{Binding ItemSelectionVisibility}" Foreground="Brown" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}" SelectionChanged="ComboBox_SelectionChanged" Tag="{Binding RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" >
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel>
+                                                            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                                                            <TextBlock Text="{Binding Description}" Visibility="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>                                                
+                                            </ComboBox>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
