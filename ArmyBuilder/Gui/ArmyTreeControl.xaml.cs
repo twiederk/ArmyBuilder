@@ -164,6 +164,7 @@ namespace ArmyBuilder
                 {
                     var armyViewModel = DataContext as ArmyViewModel;
                     armyViewModel.UpdateUnit(unitTreeNode.Unit);
+                    unitTreeNode.UpdateName();
                 }
             }
         }

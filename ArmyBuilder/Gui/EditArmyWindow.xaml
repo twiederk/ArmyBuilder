@@ -1,7 +1,7 @@
 <Window x:Class="ArmyBuilder.EditArmyWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ArmeeBearbeiten" Height="160" Width="400">
+        Title="ArmeeBearbeiten" Height="200" Width="400">
     <Grid>
         <StackPanel>
             <TextBlock Text="Name:" Margin="10,10,0,0"/>
