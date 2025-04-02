@@ -74,6 +74,8 @@ namespace ArmyBuilder
                 if (editForm.ShowDialog() == true)
                 {
                     _repository.UpdateArmy(selectedArmy);
+                    var startViewModel = DataContext as StartViewModel;
+                    startViewModel.LoadArmies();
                 }
             }
             else
