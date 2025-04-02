@@ -64,7 +64,8 @@ namespace ArmyBuilder
 
         private void NewButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("NewButton_Click");
+            Window window = Window.GetWindow(this);
+            window.Content = _serviceProvider.GetRequiredService<NewArmyView>();
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
