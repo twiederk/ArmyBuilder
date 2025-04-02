@@ -52,6 +52,7 @@ namespace ArmyBuilder
         {
             if (sender is Button button && button.DataContext is Army army)
             {
+
                 var result = MessageBox.Show($"Sind Sie sicher, dass Sie die Armee '{army.Name}' löschen möchten?", "Löschung bestätigen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -83,14 +84,25 @@ namespace ArmyBuilder
             {
                 MessageBox.Show("Bitte eine Armee zum Editieren auswählen.");
             }
-
-
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("DeleteButton_Click");
-        }        
+            if (lstArmies.SelectedItem is Army selectedArmy)
+            {
+                var result = MessageBox.Show($"Sind Sie sicher, dass Sie die Armee '{selectedArmy.Name}' löschen möchten?", "Löschung bestätigen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    _repository.DeleteArmy(selectedArmy.Id);
+                    var startViewModel = DataContext as StartViewModel;
+                    startViewModel.LoadArmies();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bitte eine Armee zum Löschen auswählen.");
+            }
+        }
 
     }
 
