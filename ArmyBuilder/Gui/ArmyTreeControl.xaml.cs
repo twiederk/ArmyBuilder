@@ -8,6 +8,9 @@ namespace ArmyBuilder
 {
     public partial class ArmyTreeControl : UserControl
     {
+
+        private int _level = 0;
+
         public ArmyTreeControl()
         {
             InitializeComponent();
@@ -15,12 +18,20 @@ namespace ArmyBuilder
 
         private void CollapseButton_Click(object sender, RoutedEventArgs e)
         {
-            CollapseTreeViewItems(trvArmy, 0);
+            if (_level > 0)
+            {
+                _level--;
+            }
+            CollapseTreeViewItems(trvArmy, _level);
         }
 
         private void ExpandButton_Click(object sender, RoutedEventArgs e)
         {
-            ExpandTreeViewItems(trvArmy, 0);
+            if (_level < 5)
+            {
+                _level++;
+            }
+            ExpandTreeViewItems(trvArmy, _level);
         }
 
 
