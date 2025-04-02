@@ -5,6 +5,7 @@ namespace ArmyBuilder.ViewModels
     public class ItemViewModel
     {
         public string Name => $"{Item.Name} ({Item.Points})";
+        public string Description => Item.Description;
         public Item Item { get; set; }
 
         public ItemViewModel(Item item)
