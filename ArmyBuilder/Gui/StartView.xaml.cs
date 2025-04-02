@@ -48,17 +48,44 @@ namespace ArmyBuilder
 
         }
 
-        private void DeleteArmyButton_Click(object sender, RoutedEventArgs e)
+        private void NewButton_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button && button.DataContext is Army army)
-            {
-                var result = MessageBox.Show($"Sind Sie sicher, dass Sie die Armee '{army.Name}' löschen möchten?", "Löschung bestätigen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-                if (result == MessageBoxResult.Yes)
+            Window window = Window.GetWindow(this);
+            window.Content = _serviceProvider.GetRequiredService<NewArmyView>();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstArmies.SelectedItem is Army selectedArmy) {
+                var editArmyWindow = new EditArmyWindow(selectedArmy);
+                if (editArmyWindow.ShowDialog() == true)
                 {
-                    _repository.DeleteArmy(army.Id);
+                    _repository.UpdateArmy(selectedArmy);
                     var startViewModel = DataContext as StartViewModel;
                     startViewModel.LoadArmies();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Bitte eine Armee zum Editieren auswählen.");
+            }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstArmies.SelectedItem is Army selectedArmy)
+            {
+                var result = MessageBox.Show($"Sind Sie sicher, dass Sie die Armee '{selectedArmy.Name}' löschen möchten?", "Löschung bestätigen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    _repository.DeleteArmy(selectedArmy.Id);
+                    var startViewModel = DataContext as StartViewModel;
+                    startViewModel.LoadArmies();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bitte eine Armee zum Löschen auswählen.");
             }
         }
 

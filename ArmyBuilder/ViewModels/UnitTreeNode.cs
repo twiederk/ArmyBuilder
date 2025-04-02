@@ -35,13 +35,6 @@ namespace ArmyBuilder.ViewModels
             UpdateTotalPoints();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public void UpdateTotalPoints()
         {
             OnPropertyChanged("TotalPoints");
@@ -53,11 +46,21 @@ namespace ArmyBuilder.ViewModels
             _parent.RemoveUnit(this);
         }
 
-        internal void RemoveMainModel(MainModelTreeNode mainModelTreeNode)
+        public void RemoveMainModel(MainModelTreeNode mainModelTreeNode)
         {
             Unit.RemoveMainModel(mainModelTreeNode.MainModel);
             MainModels.Remove(mainModelTreeNode);
         }
+
+        public void UpdateName() => OnPropertyChanged("Name");
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }
 

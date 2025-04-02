@@ -9,6 +9,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -20,7 +21,15 @@
             </MenuItem>
         </Menu>
 
-        <ListBox x:Name="lstArmies" Grid.Row="1" ItemsSource="{Binding Armies}" MouseDoubleClick="lstArmies_MouseDoubleClick">
+        <ToolBarTray Grid.Row="1">
+            <ToolBar>
+                <Button Margin="10 10 10 10" Content="Neu" Click="NewButton_Click"/>
+                <Button Margin="10 10 10 10" Content="Bearbeiten" Click="EditButton_Click"/>
+                <Button Margin="10 10 10 10" Content="Löschen" Click="DeleteButton_Click"/>
+            </ToolBar>
+        </ToolBarTray>
+
+        <ListBox x:Name="lstArmies" Grid.Row="2" ItemsSource="{Binding Armies}" MouseDoubleClick="lstArmies_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -31,15 +40,13 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Name}" FontWeight="Bold" />
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Author}" HorizontalAlignment="Right" Margin="10,0,0,0" />
-                        <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Content="🗑" Click="DeleteArmyButton_Click" Margin="10" />
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Name}" Width="300" FontWeight="Bold" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Author}" Width="120" />
 
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding ArmyList.Name}" FontStyle="Italic" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Points}" HorizontalAlignment="Right" />
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding ArmyList.Name}" Width="300" FontStyle="Italic" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Points}" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

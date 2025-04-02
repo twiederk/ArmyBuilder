@@ -1,5 +1,4 @@
 ﻿using ArmyBuilder.Domain;
-using System.Collections.Generic;
 using System.Windows;
 
 namespace ArmyBuilder

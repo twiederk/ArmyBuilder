@@ -17,6 +17,8 @@ namespace ArmyBuilder.ViewModels
         public MainModel MainModel { get; set; }
         public int CurrentFigure => currentFigure();
         public int MaxFigures => MainModel.Figures.Count;
+        public string Equipment => equipment();
+
 
         private int _currentFigureIndex = 0;
 
@@ -78,6 +80,16 @@ namespace ArmyBuilder.ViewModels
                 return 0;
             }
             return _currentFigureIndex + 1;
+        }
+
+        private string equipment() 
+        {
+            string equipment = "";
+            foreach (var singleModel in MainModel.SingleModels)
+            {
+                equipment += string.Join(", ", singleModel.Equipment.ItemNames());
+            }
+            return equipment;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -70,6 +70,11 @@ namespace ArmyBuilder.Domain
         {
             return Slots.Select(slot => slot.Item).OfType<MeleeWeapon>().FirstOrDefault();
         }
+
+        public RangedWeapon? RangedWeapon()
+        {
+            return Slots.Select(slot => slot.Item).OfType<RangedWeapon>().FirstOrDefault();
+        }
     }
 }
 

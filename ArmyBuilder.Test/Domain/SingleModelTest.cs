@@ -161,7 +161,25 @@ namespace ArmyBuilder.Test.Domain
             string displayStrength = singleModel.Strength;
 
             // assert
-            displayStrength.Should().Be("*5*");
+            displayStrength.Should().Be("5");
+        }
+
+        [Fact]
+        public void shoud_return_display_initiative_when_carring_two_handed_weapon()
+        {
+            // arrange
+            MeleeWeapon twoHandedWeapon = new MeleeWeapon { Id = Item.ID_TWO_HANDED_WEAPON, Strength = 2 };
+            var singleModel = new SingleModel
+            {
+                Profile = new Profile { Initiative = 4 },
+                Equipment = new Equipment { Slots = { new Slot { Item = twoHandedWeapon } } },
+            };
+
+            // act
+            string displayInitiative = singleModel.Initiative;
+
+            // assert
+            displayInitiative.Should().Be("*4*");
         }
 
         [Fact]
@@ -233,6 +251,26 @@ namespace ArmyBuilder.Test.Domain
             // assert
             displayAttacks.Should().Be("-");
         }
+
+        [Fact]
+        public void should_return_additional_attack_when_carring_pistol()
+        {
+            // arrange
+            MeleeWeapon handWeapon = new MeleeWeapon { Id = Item.ID_HAND_WEAPON };
+            RangedWeapon pistol = new RangedWeapon { Id = Item.ID_PISTOL };
+            var singleModel = new SingleModel
+            {
+                Profile = new Profile { Attacks = 1 },
+                Equipment = new Equipment { Slots = { new Slot { Item = pistol }, new Slot { Item = handWeapon } } },
+            };
+
+            // act
+            string displayAttacks = singleModel.Attacks;
+
+            // assert
+            displayAttacks.Should().Be("1+1");
+        }
+
     }
 }
 

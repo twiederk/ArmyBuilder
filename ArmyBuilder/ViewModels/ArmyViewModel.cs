@@ -18,8 +18,6 @@ namespace ArmyBuilder.ViewModels
         private List<ArmyMainModelViewModel> _monsters;
         private List<SingleModel> _mounts;
 
-
-
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
             _repository = repository;
@@ -101,6 +99,10 @@ namespace ArmyBuilder.ViewModels
 
         private BitmapImage? loadImage(ArmyMainModelViewModel armyMainModelViewModel)
         {
+            if (armyMainModelViewModel == null)
+            {
+                return null;
+            }
             MainModel mainModel = armyMainModelViewModel.MainModel;
             if (mainModel == null || mainModel.Figures == null || mainModel.Figures.Count == 0)
             {
@@ -122,8 +124,6 @@ namespace ArmyBuilder.ViewModels
 
         }
 
-
-
         public Army CreateArmy(string armyListName, ArmyListDigest armyList)
         {
             Army army = new Army($"{armyListName} Armee");
@@ -139,6 +139,11 @@ namespace ArmyBuilder.ViewModels
             _repository.CreateUnit(army.Id, unit);
             _repository.AddMainModel(unit.Id, mainModel);
             return unit;
+        }
+
+        public void UpdateUnit(Unit unit)
+        {
+            _repository.UpdateUnit(unit);
         }
 
         public void AddMainModel(int unitId, MainModel mainModel)

@@ -8,25 +8,32 @@ namespace ArmyBuilder
 {
     public partial class ArmyTreeControl : UserControl
     {
+
+        private int _level = 0;
+
         public ArmyTreeControl()
         {
             InitializeComponent();
         }
 
-        private void CollapseLevel1_Click(object sender, RoutedEventArgs e)
+        private void CollapseButton_Click(object sender, RoutedEventArgs e)
         {
-            CollapseTreeViewItems(trvArmy, 1);
+            if (_level > 0)
+            {
+                _level--;
+            }
+            CollapseTreeViewItems(trvArmy, _level);
         }
 
-        private void CollapseLevel2_Click(object sender, RoutedEventArgs e)
+        private void ExpandButton_Click(object sender, RoutedEventArgs e)
         {
-            CollapseTreeViewItems(trvArmy, 2);
+            if (_level < 5)
+            {
+                _level++;
+            }
+            ExpandTreeViewItems(trvArmy, _level);
         }
 
-        private void CollapseLevel3_Click(object sender, RoutedEventArgs e)
-        {
-            CollapseTreeViewItems(trvArmy, 3);
-        }
 
         private void CollapseTreeViewItems(ItemsControl parent, int level)
         {
@@ -44,21 +51,6 @@ namespace ArmyBuilder
                     }
                 }
             }
-        }
-
-        private void ExpandLevel1_Click(object sender, RoutedEventArgs e)
-        {
-            ExpandTreeViewItems(trvArmy, 1);
-        }
-
-        private void ExpandLevel2_Click(object sender, RoutedEventArgs e)
-        {
-            ExpandTreeViewItems(trvArmy, 2);
-        }
-
-        private void ExpandLevel3_Click(object sender, RoutedEventArgs e)
-        {
-            ExpandTreeViewItems(trvArmy, 3);
         }
 
         private void ExpandTreeViewItems(ItemsControl parent, int level)
@@ -151,6 +143,20 @@ namespace ArmyBuilder
                     armyViewModel.DeleteUnit(unit.Id);
                     unitTreeNode.RemoveUnit();
                     unitTreeNode.UpdateTotalPoints();
+                }
+            }
+        }
+
+        private void EditUnitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is UnitTreeNode unitTreeNode)
+            {
+                var editUnitWindow = new EditUnitWindow(unitTreeNode.Unit);
+                if (editUnitWindow.ShowDialog() == true)
+                {
+                    var armyViewModel = DataContext as ArmyViewModel;
+                    armyViewModel.UpdateUnit(unitTreeNode.Unit);
+                    unitTreeNode.UpdateName();
                 }
             }
         }

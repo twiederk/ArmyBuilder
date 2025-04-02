@@ -103,7 +103,7 @@ namespace ArmyBuilder.Dao
                                 currentMainModel = mainModel;
                                 currentMainModel.SingleModels = new List<SingleModel>();
                                 mainModelDictionary.Add(currentMainModel.Id, currentMainModel);
-                                currentUnit.MainModels.Add(currentMainModel);
+                                currentUnit.AddMainModel(currentMainModel);
                             }
 
                             if (singleModel != null)
@@ -395,6 +395,20 @@ namespace ArmyBuilder.Dao
             });
 
             return singleModel;
+        }
+
+        public Unit UpdateUnit(Unit unit)
+        {
+            var sql = @"
+                UPDATE army_unit
+                SET name = @Name
+                WHERE id = @Id";
+            _dbConnection.Execute(sql, new
+            {
+                unit.Name,
+                unit.Id
+            });
+            return unit;
         }
     }
 

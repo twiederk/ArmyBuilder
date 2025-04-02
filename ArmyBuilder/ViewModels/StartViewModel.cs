@@ -2,7 +2,6 @@ using ArmyBuilder.Domain;
 using ArmyBuilder.Dao;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace ArmyBuilder.ViewModels
 {
@@ -23,7 +22,7 @@ namespace ArmyBuilder.ViewModels
             set
             {
                 _armies = value;
-                OnPropertyChanged();
+                OnPropertyChanged("Armies");
             }
         }
 
@@ -35,7 +34,7 @@ namespace ArmyBuilder.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

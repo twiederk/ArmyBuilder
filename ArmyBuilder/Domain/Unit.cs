@@ -26,6 +26,15 @@ namespace ArmyBuilder.Domain
         public void AddMainModel(MainModel mainModel)
         {
             MainModels.Add(mainModel);
+            SortMainModels();
+        }
+
+        private void SortMainModels()
+        {
+            MainModels = MainModels
+                .OrderBy(mm => mm.ArmyCategory != ArmyCategory.Character)
+                .ThenByDescending(mm => mm.ModelPoints())
+                .ToList();
         }
 
         public void RemoveMainModel(MainModel mainModel)
