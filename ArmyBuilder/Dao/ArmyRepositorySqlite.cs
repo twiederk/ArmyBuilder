@@ -103,7 +103,7 @@ namespace ArmyBuilder.Dao
                                 currentMainModel = mainModel;
                                 currentMainModel.SingleModels = new List<SingleModel>();
                                 mainModelDictionary.Add(currentMainModel.Id, currentMainModel);
-                                currentUnit.MainModels.Add(currentMainModel);
+                                currentUnit.AddMainModel(currentMainModel);
                             }
 
                             if (singleModel != null)
