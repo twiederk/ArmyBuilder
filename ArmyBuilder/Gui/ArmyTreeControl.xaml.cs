@@ -13,20 +13,16 @@ namespace ArmyBuilder
             InitializeComponent();
         }
 
-        private void CollapseLevel1_Click(object sender, RoutedEventArgs e)
+        private void CollapseButton_Click(object sender, RoutedEventArgs e)
         {
-            CollapseTreeViewItems(trvArmy, 1);
+            CollapseTreeViewItems(trvArmy, 0);
         }
 
-        private void CollapseLevel2_Click(object sender, RoutedEventArgs e)
+        private void ExpandButton_Click(object sender, RoutedEventArgs e)
         {
-            CollapseTreeViewItems(trvArmy, 2);
+            ExpandTreeViewItems(trvArmy, 0);
         }
 
-        private void CollapseLevel3_Click(object sender, RoutedEventArgs e)
-        {
-            CollapseTreeViewItems(trvArmy, 3);
-        }
 
         private void CollapseTreeViewItems(ItemsControl parent, int level)
         {
@@ -44,21 +40,6 @@ namespace ArmyBuilder
                     }
                 }
             }
-        }
-
-        private void ExpandLevel1_Click(object sender, RoutedEventArgs e)
-        {
-            ExpandTreeViewItems(trvArmy, 1);
-        }
-
-        private void ExpandLevel2_Click(object sender, RoutedEventArgs e)
-        {
-            ExpandTreeViewItems(trvArmy, 2);
-        }
-
-        private void ExpandLevel3_Click(object sender, RoutedEventArgs e)
-        {
-            ExpandTreeViewItems(trvArmy, 3);
         }
 
         private void ExpandTreeViewItems(ItemsControl parent, int level)
