@@ -27,12 +27,12 @@ namespace ArmyBuilder
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-            
             if (MountListBox.SelectedItem != null) {
-                SelectedMount = MountListBox.SelectedItem.SingleModel as SingleModel;
+                SelectedMount = ((MountViewModel)MountListBox.SelectedItem).SingleModel;
             }
             DialogResult = true;
             Close();
         }
+
     }
 }
