@@ -6,7 +6,7 @@ namespace ArmyBuilder.ViewModels
 {
     public class SingleModelTreeNode : INotifyPropertyChanged
     {
-        public string Name => _singleModel.DisplayName();
+        public string Name => _singleModel.DisplayName;
         public string Movement => _singleModel.Movement;
         public string WeaponSkill => _singleModel.WeaponSkill;
         public string BallisticSkill => _singleModel.BallisticSkill;

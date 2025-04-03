@@ -83,7 +83,7 @@ namespace ArmyBuilder.Print
 
         private void composeSingleModel(TableDescriptor table, SingleModel singleModel)
         {
-            table.Cell().Element(CellStyle).Text(singleModel.DisplayName());
+            table.Cell().Element(CellStyle).Text(singleModel.DisplayName);
             table.Cell().Element(CellStyle).Text(singleModel.Movement);
             table.Cell().Element(CellStyle).Text(singleModel.WeaponSkill);
             table.Cell().Element(CellStyle).Text(singleModel.BallisticSkill);
