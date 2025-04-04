@@ -14,8 +14,8 @@
 
         <ToolBarTray Grid.Row="0">
             <ToolBar>
-                <Button Width="25" Height="25" Margin="10 10 10 10" Content="+" Click="ExpandButton_Click"/>
-                <Button Width="25" Height="25" Margin="10 10 10 10" Content="-" Click="CollapseButton_Click"/>
+                <Button Width="35" Height="35" Margin="0 0 10 0" Content="+" Click="ExpandButton_Click"/>
+                <Button Width="35" Height="35" Margin="0 0 10 0" Content="-" Click="CollapseButton_Click"/>
             </ToolBar>
         </ToolBarTray>
 
