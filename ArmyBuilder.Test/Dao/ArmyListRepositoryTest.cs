@@ -64,7 +64,7 @@ namespace ArmyBuilder.Test.Dao
             profile.Save.Should().Be(7);
 
             List<Figure> figures = mainModel.Figures;
-            figures.Should().HaveCount(1);
+            figures.Should().HaveCount(4);
             Figure figure = figures.First();
             figure.ImagePath.Should().Be(@"HighElves\HighElf_SwordMasterOfHoeth.jpg");
 
@@ -178,7 +178,7 @@ namespace ArmyBuilder.Test.Dao
             profile.Moral.Should().Be(8);
 
             List<Figure> figures = mainModel.Figures;
-            figures.Should().HaveCount(1);
+            figures.Should().HaveCount(4);
             Figure figure = figures.First();
             figure.ImagePath.Should().Be(@"HighElves\HighElf_SwordMasterOfHoeth.jpg");
         }
