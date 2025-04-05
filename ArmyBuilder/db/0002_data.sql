@@ -5646,6 +5646,23 @@ INSERT INTO main_model_figure VALUES(158,11997,110);
 INSERT INTO main_model_figure VALUES(159,11997,111);
 INSERT INTO main_model_figure VALUES(160,11997,112);
 INSERT INTO main_model_figure VALUES(161,11997,526);
+INSERT INTO main_model_figure VALUES(162,11580,1);
+INSERT INTO main_model_figure VALUES(163,11579,2);
+INSERT INTO main_model_figure VALUES(164,11574,3);
+INSERT INTO main_model_figure VALUES(165,11574,4);
+INSERT INTO main_model_figure VALUES(166,11574,5);
+INSERT INTO main_model_figure VALUES(167,11575,3);
+INSERT INTO main_model_figure VALUES(168,11575,4);
+INSERT INTO main_model_figure VALUES(169,11575,5);
+INSERT INTO main_model_figure VALUES(170,11576,3);
+INSERT INTO main_model_figure VALUES(171,11576,4);
+INSERT INTO main_model_figure VALUES(172,11576,5);
+INSERT INTO main_model_figure VALUES(173,11577,3);
+INSERT INTO main_model_figure VALUES(174,11577,4);
+INSERT INTO main_model_figure VALUES(175,11577,5);
+INSERT INTO main_model_figure VALUES(176,11568,6);
+INSERT INTO main_model_figure VALUES(177,11570,6);
+INSERT INTO main_model_figure VALUES(178,11572,6);
 
 
 COMMIT;
