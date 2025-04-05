@@ -31,6 +31,96 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="images\DarkElves\DarkElf_Assassin.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Bestienmeister.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Blutkessel.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Champion_mit_Schwert.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Dunkelelfenkrieger_Plasitk.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Echsenritter.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Echsenritter_Champion_mit_Lanze.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Echsenritter_Champion_mit_Schwert.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Echsenritter_Standartentraeger.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Harpie.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Hexenkriegerin.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Hexenkriegerin_Champion.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Hexenkriegerin_Musikerin.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Hexenkriegerin_Standartentraegerin.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Morathi_Die_Hexenkoenigin_auf_Pegasus.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Musiker.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Rakarth_Bestienherrscher_von_Karond_Kar.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Repetier_Speerschleuder.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Schwarzer_Reiter.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Schwarzer_Reiter_Champion.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Schwarzer_Reiter_Standartentraeger.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Schwarze_Garde_von_Naggaroth.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Schwarze_Korsaren_original.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Schwarze_Korsaren_selbstgegossen.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Stadtgarde.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Standartentraeger.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Streitwagen.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Zauberer_mit_Stab.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Zauberin_mit_Schwert.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\DarkElves\DarkElf_Zauberin_mit_Stab.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\Dwarves\Dwarf_Bugman.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
