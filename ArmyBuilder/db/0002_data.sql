@@ -2909,7 +2909,7 @@ INSERT INTO misc VALUES(5897,'Kelch der Zaubertränke',40,'',0,1,1);
 INSERT INTO misc VALUES(5906,'Lebensodem',25,'',1,1,1);
 INSERT INTO misc VALUES(5911,'Othu die Eule',15,'',13,1,1);
 INSERT INTO misc VALUES(5916,'Rolands Kriegshorn',25,'',0,1,1);
-INSERT INTO misc VALUES(5937,'Stärkungstrank',10,'',5,1,1);
+INSERT INTO misc VALUES(5937,'Stärkungstrank',10,'',5,0,1);
 INSERT INTO misc VALUES(5939,'Stern von Avelorn',35,'',7,1,1);
 INSERT INTO misc VALUES(5945,'Trommel aus Orkhaut',25,'',13,1,1);
 INSERT INTO misc VALUES(5948,'Verführer',50,'',4,1,1);

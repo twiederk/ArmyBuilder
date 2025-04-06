@@ -103,19 +103,19 @@ CREATE TABLE IF NOT EXISTS "misc"
 
 
 CREATE VIEW "item" AS
-SELECT id, name, points, description, army_list_id, uniquely, magic, 'Melee Weapon' FROM melee_weapon
+SELECT id, name, points, description, army_list_id, uniquely, magic, 'Melee Weapon' AS item_type FROM melee_weapon
 UNION ALL                                           
-SELECT id, name, points, description, army_list_id, uniquely, magic, 'Ranged Weapon' FROM ranged_weapon
+SELECT id, name, points, description, army_list_id, uniquely, magic, 'Ranged Weapon' AS item_type FROM ranged_weapon
 UNION ALL                                           
-SELECT id, name, points, description, army_list_id, uniquely, magic, 'Armor' FROM armor
+SELECT id, name, points, description, army_list_id, uniquely, magic, 'Armor' AS item_type FROM armor
 UNION ALL                                           
-SELECT id, name, points, description, army_list_id, uniquely, magic, 'Shield' FROM shield
+SELECT id, name, points, description, army_list_id, uniquely, magic, 'Shield' AS item_type FROM shield
 UNION ALL                                           
-SELECT id, name, points, description, army_list_id, uniquely, magic, 'Standard' FROM standard
+SELECT id, name, points, description, army_list_id, uniquely, magic, 'Standard' AS item_type FROM standard
 UNION ALL                                           
-SELECT id, name, points, description, army_list_id, uniquely, magic, 'Instrument' FROM instrument
+SELECT id, name, points, description, army_list_id, uniquely, magic, 'Instrument' AS item_type FROM instrument
 UNION ALL                                           
-SELECT id, name, points, description, army_list_id, uniquely, magic, 'Misc' FROM misc;
+SELECT id, name, points, description, army_list_id, uniquely, magic, 'Misc' AS item_type FROM misc;
 
 
 CREATE TABLE IF NOT EXISTS "profile"
