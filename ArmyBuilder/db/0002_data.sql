@@ -1506,6 +1506,7 @@ INSERT INTO main_model VALUES(12426,14,1,'Speerträger','',0,12.0,0,0);
 INSERT INTO main_model VALUES(12427,14,1,'Bugman','',0,16.0,0,0);
 INSERT INTO main_model VALUES(12428,14,0,'Long Drong Slayerpirat','Zwergenrum: -1 auf Trefferwurf für Feinde. 3" Abstand zu befreundeten Einheiten.',1,138.0,0,0);
 INSERT INTO main_model VALUES(12429,14,1,'Slayerpiraten','Zwergenrum: -1 auf Trefferwurf für Feinde. 3" Abstand zu befreundeten Einheiten.',0,13.0,0,0);
+INSERT INTO main_model VALUES(12430,5,2,'Schwarzer Streitwagen','Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,100.0,0,0);
 
 
 INSERT INTO single_model VALUES(46357,11682,'Tancred, duc de Quenelles',11682,0,0,0,1);
@@ -2513,6 +2514,9 @@ INSERT INTO single_model VALUES(47369,11893,'Speerträger',12426,0,0,0,1);
 INSERT INTO single_model VALUES(47370,11893,'Bugman',12427,0,0,0,1);
 INSERT INTO single_model VALUES(47371,11482,'Long Drong',12428,0,0,0,1);
 INSERT INTO single_model VALUES(47372,11897,'Slayerpirat',12429,0,0,0,1);
+INSERT INTO single_model VALUES(47373,11929,'Streitwagenlenker',12430,0,0,0,2);
+INSERT INTO single_model VALUES(47374,11810,'Kampfechse',12430,0,0,0,2);
+INSERT INTO single_model VALUES(47375,12159,'Streitwagen',12430,0,0,0,1);
 
 
 INSERT INTO melee_weapon VALUES(1,'Handwaffe',0,'',-1,0,0,0);
@@ -4916,6 +4920,11 @@ INSERT INTO slot VALUES(4959,46904,1,1,0,0);
 INSERT INTO slot VALUES(4960,46904,10,1,0,2);
 INSERT INTO slot VALUES(4961,46896,1,1,0,0);
 INSERT INTO slot VALUES(4962,46896,10,1,0,2);
+INSERT INTO slot VALUES(4965,47373,1,1,0,0);
+INSERT INTO slot VALUES(4966,47373,30,1,0,1);
+INSERT INTO slot VALUES(4967,47373,41,1,0,3);
+INSERT INTO slot VALUES(4968,47373,15,0,0,2);
+INSERT INTO slot VALUES(4969,47375,60,1,0,4);
 
 
 INSERT INTO slot_selection VALUES(1,4859,30);
@@ -5018,6 +5027,14 @@ INSERT INTO slot_selection VALUES(161,4961,1);
 INSERT INTO slot_selection VALUES(162,4961,5);
 INSERT INTO slot_selection VALUES(163,4962,10);
 INSERT INTO slot_selection VALUES(164,4962,15);
+INSERT INTO slot_selection VALUES(165,4965,1);
+INSERT INTO slot_selection VALUES(166,4965,5);
+INSERT INTO slot_selection VALUES(167,4966,30);
+INSERT INTO slot_selection VALUES(168,4966,31);
+INSERT INTO slot_selection VALUES(169,4967,41);
+INSERT INTO slot_selection VALUES(170,4967,42);
+INSERT INTO slot_selection VALUES(171,4969,60);
+INSERT INTO slot_selection VALUES(172,4969,200);
 
 
 INSERT INTO figure VALUES(1,'Morathi die Hexenköniging','Games Workshop','Zinn',1,0,5,0,'DarkElves\DarkElf_Morathi_Die_Hexenkoenigin_auf_Pegasus.jpg');
