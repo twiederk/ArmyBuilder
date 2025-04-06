@@ -364,11 +364,11 @@ namespace ArmyBuilder.Dao
                 WHERE id IN (SELECT asm.id FROM army_single_model asm LEFT JOIN army_main_model amm ON amm.id == asm.army_main_model_id WHERE amm.id = @MainModelId)";
             _dbConnection.Execute(sql, new { MainModelId = mainModelId });
 
-            // Delete main models of the unit
+            // Delete main model
             sql = @"
                 DELETE FROM army_main_model
-                WHERE army_unit_id = @UnitId";
-            _dbConnection.Execute(sql, new { UnitId = unitId });
+                WHERE id = @MainModelId";
+            _dbConnection.Execute(sql, new { MainModelId = mainModelId });
         }
 
         public SingleModel UpdateSingleModel(SingleModel singleModel)

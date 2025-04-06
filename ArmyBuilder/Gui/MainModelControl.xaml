@@ -81,7 +81,7 @@
                                 <ColumnDefinition Width="35" />
                             </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Name}" />
+                            <Label Grid.Row="1" Grid.Column="0" Content="{Binding DisplayName}" />
                             <Label Grid.Row="1" Grid.Column="1" Content="{Binding Movement}" />
                             <Label Grid.Row="1" Grid.Column="2" Content="{Binding WeaponSkill}" />
                             <Label Grid.Row="1" Grid.Column="3" Content="{Binding BallisticSkill}" />

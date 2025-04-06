@@ -7,6 +7,7 @@ namespace ArmyBuilder.Domain
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+        public string DisplayName => $"{Name} ({Profile.Points})";
         public Profile Profile { get; set; }
         public MovementType MovementType { get; set; }
         public bool Mount { get; set; }
@@ -46,11 +47,6 @@ namespace ArmyBuilder.Domain
                 6 => "6",
                 _ => $"{save}+"
             };
-        }
-
-        public string DisplayName()
-        {
-            return $"{Name} ({Profile.Points})";
         }
 
         public string DisplayStrength()

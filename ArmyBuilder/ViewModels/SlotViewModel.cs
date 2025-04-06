@@ -1,13 +1,11 @@
 using ArmyBuilder.Domain;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 
 namespace ArmyBuilder.ViewModels
 {
     public class SlotViewModel
     {
-        public string ItemName => SelectedItem.Name;
+        public string ItemName => SelectedItem.NameDescription;
         public string Name => SlotName();
 
         private ItemViewModel _selectedItem;

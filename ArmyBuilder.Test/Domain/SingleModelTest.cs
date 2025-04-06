@@ -140,7 +140,7 @@ namespace ArmyBuilder.Test.Domain
             var singleModel = new SingleModel { Name = "Warrior", Profile = new Profile { Points = 10 } };
 
             // act
-            String displayName = singleModel.DisplayName();
+            String displayName = singleModel.DisplayName;
 
             // assert
             displayName.Should().Be("Warrior (10)");

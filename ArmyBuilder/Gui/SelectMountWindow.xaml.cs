@@ -1,4 +1,5 @@
 ﻿using ArmyBuilder.Domain;
+using ArmyBuilder.ViewModels;
 using System.Windows;
 
 namespace ArmyBuilder
@@ -7,17 +8,31 @@ namespace ArmyBuilder
     {
         public SingleModel SelectedMount { get; private set; }
 
-        public SelectMountWindow(List<SingleModel> mounts)
+        public SelectMountWindow(List<SingleModel> singleModels)
         {
             InitializeComponent();
-            MountListBox.ItemsSource = mounts;
+            List<MountViewModel> mountViewModels = convertToMountViewModels(singleModels);
+            MountListBox.ItemsSource = mountViewModels;
+        }
+
+        private List<MountViewModel> convertToMountViewModels(List<SingleModel> singleModels)
+        {
+            List<MountViewModel> mountViewModels = new List<MountViewModel>();
+            foreach (var singleModel in singleModels)
+            {
+                mountViewModels.Add(new MountViewModel(singleModel));
+            }
+            return mountViewModels;
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-            SelectedMount = MountListBox.SelectedItem as SingleModel;
+            if (MountListBox.SelectedItem != null) {
+                SelectedMount = ((MountViewModel)MountListBox.SelectedItem).SingleModel;
+            }
             DialogResult = true;
             Close();
         }
+
     }
 }
