@@ -367,7 +367,7 @@ namespace ArmyBuilder.Dao
             // Delete main model
             sql = @"
                 DELETE FROM army_main_model
-                WHERE id = @mainModelId";
+                WHERE id = @MainModelId";
             _dbConnection.Execute(sql, new { MainModelId = mainModelId });
         }
 
