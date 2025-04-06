@@ -23,9 +23,9 @@
 
         <ToolBarTray Grid.Row="1">
             <ToolBar>
-                <Button Height="35" Margin="0 0 10 0" Content="Neu" Click="NewButton_Click"/>
-                <Button Height="35" Margin="0 0 10 0" Content="Bearbeiten" Click="EditButton_Click"/>
-                <Button Height="35" Margin="0 0 10 0" Content="Löschen" Click="DeleteButton_Click"/>
+                <Button Height="35" Margin="0 0 10 0" Content="Neu" Click="NewButton_Click" BorderBrush="Black" />
+                <Button Height="35" Margin="0 0 10 0" Content="Bearbeiten" Click="EditButton_Click" BorderBrush="Black" />
+                <Button Height="35" Margin="0 0 10 0" Content="Löschen" Click="DeleteButton_Click" BorderBrush="Black" />
             </ToolBar>
         </ToolBarTray>
 
