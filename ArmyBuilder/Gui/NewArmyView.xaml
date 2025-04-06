@@ -17,7 +17,7 @@
 
         <ToolBarTray Grid.Row="0">
             <ToolBar>
-                <Button Content="←" Click="BackButton_Click"/>
+                <Button Height="35" Width="35" Margin="0 0 10 0" Content="←" Click="BackButton_Click" BorderBrush="Black" />
             </ToolBar>
         </ToolBarTray>
         
