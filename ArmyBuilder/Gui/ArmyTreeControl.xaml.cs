@@ -178,6 +178,20 @@ namespace ArmyBuilder
             }
         }
 
+        private void EditMainModelButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
+            {
+                var editMainModelWindow = new EditMainModelWindow(mainModelTreeNode.MainModel);
+                if (editMainModelWindow.ShowDialog() == true)
+                {
+                    var armyViewModel = DataContext as ArmyViewModel;
+                    armyViewModel.UpdateMainModel(mainModelTreeNode.MainModel);
+                    mainModelTreeNode.UpdateName();
+                }
+            }
+        }
+
         private void AddMountButton_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
@@ -222,7 +236,7 @@ namespace ArmyBuilder
         private void UpdateMainModel(MainModelTreeNode mainModelTreeNode, MainModel mainModel)
         {
             var armyViewModel = DataContext as ArmyViewModel;
-            armyViewModel.UpdateMainModel(mainModelTreeNode.Unit.Id, mainModel);
+            armyViewModel.UpdateMainModel(mainModel);
             mainModelTreeNode.UpdateCount();
         }
 

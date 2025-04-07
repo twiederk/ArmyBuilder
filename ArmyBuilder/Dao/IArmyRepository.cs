@@ -12,7 +12,7 @@ namespace ArmyBuilder.Dao
         Unit CreateUnit(int armyId, Unit unit);
         Unit UpdateUnit(Unit unit);
         MainModel AddMainModel(int unitId, MainModel mainModel);
-        void UpdateMainModel(int unitId, MainModel mainModel);
+        void UpdateMainModel(MainModel mainModel);
         SingleModel AddSingleModel(int main_model_id, SingleModel singleModel);
         SingleModel UpdateSingleModel(SingleModel singleModel);
         void DeleteUnit(int unitId);

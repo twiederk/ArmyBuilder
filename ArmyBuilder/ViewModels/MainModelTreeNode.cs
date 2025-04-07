@@ -96,6 +96,8 @@ namespace ArmyBuilder.ViewModels
             _parent.UpdateTotalPoints();
         }
 
+        public void UpdateName() => OnPropertyChanged("Name");
+
         public Visibility GetMountButtonVisibility()
         {
             return MainModel.ArmyCategory == ArmyCategory.Character ? Visibility.Visible : Visibility.Collapsed;
