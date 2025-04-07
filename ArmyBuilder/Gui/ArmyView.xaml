@@ -25,13 +25,13 @@
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
 
-        <Menu Grid.Row="0" Grid.ColumnSpan="5">
-            <MenuItem Header="Datei">
-                <MenuItem Header="Drucken" Click="Print_Click"/>
-                <Separator />
-                <MenuItem Header="Edition Beenden" Click="QuitEdition_Click"/>
-            </MenuItem>
-        </Menu>
+        <ToolBarTray Grid.Row="0" Grid.ColumnSpan="5">
+            <ToolBar>
+                <Button Height="35" Width="35" Margin="0 0 10 0" Content="←" Click="QuitEdition_Click" BorderBrush="Black" />
+                <Button Height="35" Margin="0 0 10 0" Content="Drucken" Click="Print_Click" BorderBrush="Black" />
+            </ToolBar>
+        </ToolBarTray>
+
 
         <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedArmyList.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" />
 
