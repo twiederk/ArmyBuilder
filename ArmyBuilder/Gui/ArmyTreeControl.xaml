@@ -22,6 +22,11 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="1" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
             <TreeView Name="trvArmy" ItemsSource="{Binding ArmyTreeViewModel.Root}">
                 <TreeView.Resources>
+
+                    <Style TargetType="TreeViewItem">
+                        <Setter Property="Focusable" Value="False"/>
+                    </Style>
+
                     <HierarchicalDataTemplate DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Units}">
                         <Grid AllowDrop="True" Drop="armyTreeNode_Drop">
                             <Grid.ColumnDefinitions>
