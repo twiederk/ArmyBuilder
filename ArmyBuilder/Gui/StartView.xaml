@@ -9,27 +9,19 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0">
-            <MenuItem Header="_Datei">
-                <MenuItem Header="_Neu..." Padding="0,0,0,0" Margin="0,0,0,0" Click="NewMenuItem_Click"/>
-                <Separator />
-                <MenuItem Header="Beenden" Click="QuitMenuItem_Click"/>
-            </MenuItem>
-        </Menu>
-
-        <ToolBarTray Grid.Row="1">
+        <ToolBarTray Grid.Row="0">
             <ToolBar>
                 <Button Height="35" Margin="0 0 10 0" Content="Neu" Click="NewButton_Click" BorderBrush="Black" />
                 <Button Height="35" Margin="0 0 10 0" Content="Bearbeiten" Click="EditButton_Click" BorderBrush="Black" />
                 <Button Height="35" Margin="0 0 10 0" Content="Löschen" Click="DeleteButton_Click" BorderBrush="Black" />
+                <Button Height="35" Margin="0 0 10 0" Content="Beenden" Click="QuitButton_Click" BorderBrush="Black" />
             </ToolBar>
         </ToolBarTray>
 
-        <ListBox x:Name="lstArmies" Grid.Row="2" ItemsSource="{Binding Armies}" MouseDoubleClick="lstArmies_MouseDoubleClick">
+        <ListBox x:Name="lstArmies" Grid.Row="1" ItemsSource="{Binding Armies}" MouseDoubleClick="lstArmies_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

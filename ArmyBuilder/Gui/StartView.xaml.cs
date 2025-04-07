@@ -23,13 +23,7 @@ namespace ArmyBuilder
             DataContext = _serviceProvider.GetRequiredService<StartViewModel>();
         }
 
-        private void NewMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Window window = Window.GetWindow(this);
-            window.Content = _serviceProvider.GetRequiredService<NewArmyView>();
-        }
-
-        private void QuitMenuItem_Click(object sender, RoutedEventArgs e)
+        private void QuitButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }

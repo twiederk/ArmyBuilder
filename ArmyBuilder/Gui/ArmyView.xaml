@@ -27,8 +27,8 @@
 
         <ToolBarTray Grid.Row="0" Grid.ColumnSpan="5">
             <ToolBar>
-                <Button Height="35" Width="35" Margin="0 0 10 0" Content="←" Click="QuitEdition_Click" BorderBrush="Black" />
-                <Button Height="35" Margin="0 0 10 0" Content="Drucken" Click="Print_Click" BorderBrush="Black" />
+                <Button Height="35" Width="35" Margin="0 0 10 0" Content="←" Click="BackButton_Click" BorderBrush="Black" />
+                <Button Height="35" Margin="0 0 10 0" Content="Drucken" Click="PrintButton_Click" BorderBrush="Black" />
             </ToolBar>
         </ToolBarTray>
 

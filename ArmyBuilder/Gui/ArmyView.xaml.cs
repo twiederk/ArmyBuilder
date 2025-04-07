@@ -22,14 +22,14 @@ namespace ArmyBuilder
             DataContext = armyViewModel;
         }
 
-        private void Print_Click(object sender, RoutedEventArgs e)
+        private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
             var armyViewModel = DataContext as ArmyViewModel;
             var army = armyViewModel.ArmyTreeViewModel.Army;
             var armyPrint = new ArmyPrinter();
             armyPrint.PrintArmy(army);
         }
-        private void QuitEdition_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             var armyViewModel = DataContext as ArmyViewModel;
             Army army = armyViewModel.ArmyTreeViewModel.Army;
