@@ -199,6 +199,7 @@ namespace ArmyBuilder
                 ArmyViewModel armyViewModel = DataContext as ArmyViewModel;
                 List<SingleModel> mounts = armyViewModel.Mounts;
 
+                var SelectMountViewModel = new SelectMountViewModel(mounts);
                 var selectMountWindow = new SelectMountWindow(mounts);
                 if (selectMountWindow.ShowDialog() == true)
                 {
