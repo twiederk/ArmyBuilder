@@ -11,14 +11,16 @@ namespace ArmyBuilder
         public SelectMountWindow(SelectMountViewModel selectMountViewModel)
         {
             InitializeComponent();
-            MountListBox.ItemsSource = selectMountViewModel.Mounts;
+            DataContext = selectMountViewModel;
         }
+
 
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             if (MountListBox.SelectedItem != null) {
-                SelectedMount = ((MountViewModel)MountListBox.SelectedItem).SingleModel;
+                var selectMountViewModel = DataContext as SelectMountViewModel;
+                SelectedMount = selectMountViewModel.SelectedMount.SingleModel;
             }
             DialogResult = true;
             Close();
