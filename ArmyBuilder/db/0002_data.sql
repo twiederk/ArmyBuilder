@@ -2979,7 +2979,7 @@ INSERT INTO misc VALUES(6066,'Glyphe des Potec',20,'',6,1,1);
 INSERT INTO misc VALUES(6067,'Goldener Gürtel',60,'',0,1,1);
 INSERT INTO misc VALUES(6069,'Magiebannende Spruchrolle',25,'',5,1,1);
 INSERT INTO misc VALUES(6071,'Schriftrolle von Hoeth',55,'',7,1,1);
-INSERT INTO misc VALUES(6026,'Buch des Nagash',100,'',12,0,1);
+INSERT INTO misc VALUES(6026,'Buch des Nagash',100,'+1 auf Magiestufe für Nekromanten',12,0,1);
 
 
 
