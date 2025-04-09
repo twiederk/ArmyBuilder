@@ -2802,7 +2802,6 @@ INSERT INTO armor VALUES(6005,'Rüstung von Caledor',30,'',7,1,1,0);
 INSERT INTO armor VALUES(6008,'Schwarze Rüstung des Nagash',100,'',12,1,1,0);
 INSERT INTO armor VALUES(6017,'Sternenmantel',45,'',7,1,1,0);
 INSERT INTO armor VALUES(6018,'Strahlende Rüstung',75,'',0,1,1,0);
-INSERT INTO armor VALUES(6026,'Buch des Nagash',100,'',12,1,1,0);
 INSERT INTO armor VALUES(6032,'Drachenmantel',70,'',14,1,1,0);
 INSERT INTO armor VALUES(6047,'Mantel des Großhäuptlings',50,'',11,1,1,0);
 INSERT INTO armor VALUES(6054,'Schattenmantel',50,'',12,1,1,0);
@@ -2980,6 +2979,8 @@ INSERT INTO misc VALUES(6066,'Glyphe des Potec',20,'',6,1,1);
 INSERT INTO misc VALUES(6067,'Goldener Gürtel',60,'',0,1,1);
 INSERT INTO misc VALUES(6069,'Magiebannende Spruchrolle',25,'',5,1,1);
 INSERT INTO misc VALUES(6071,'Schriftrolle von Hoeth',55,'',7,1,1);
+INSERT INTO misc VALUES(6026,'Buch des Nagash',100,'',12,0,1);
+
 
 
 INSERT INTO item_class VALUES (0, 'MeleeWeapon');
