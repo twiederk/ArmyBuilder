@@ -2815,7 +2815,7 @@ INSERT INTO shield VALUES(31,'Schild',1,'',-1,0,0,1);
 INSERT INTO shield VALUES(5771,'Zauberbannender Schild',100,'1-2 Spruch wirkt, aber um Spruch würfeln. Bei 3+ Spruch gebannt.',-1,0,1,0);
 INSERT INTO shield VALUES(5772,'Zauberspruch Schild',50,'Abweichwürfel bestimmt ob der Spruch gebannt oder abgelengt wird.',-1,0,1,0);
 INSERT INTO shield VALUES(5773,'Schild des Ptolos',10,'Schützt bei 1+ gegen Beschuß.',-1,0,1,0);
-INSERT INTO shield VALUES(5774,'Verzauberter Schild',5,'+1 auf RW.',-1,0,1,0);
+INSERT INTO shield VALUES(5774,'Verzauberter Schild',5,'+1 auf RW.',-1,0,1,2);
 INSERT INTO shield VALUES(5775,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',1,0,1,0);
 INSERT INTO shield VALUES(5776,'Silbura Schild',25,'Bei eigenem RW, erleidet der Gegner einen Treffer der Stärke 4.',7,0,1,0);
 INSERT INTO shield VALUES(5777,'Chaos Runenschild',50,'Nimmt magischen Waffen alle speziellen Eigenschaften.',3,0,1,0);
