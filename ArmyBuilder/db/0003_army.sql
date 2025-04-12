@@ -7,7 +7,7 @@ INSERT INTO army VALUES(2,'Teclis Hochelfen Armee','Torsten',7,2519);
 INSERT INTO army VALUES(4,'Die Streitmacht von Prinz Arandir von Ellyrion','Games Workshop',7,1068);
 INSERT INTO army VALUES(5,'Die Zwerge von Karak-Kar','Torsten',14,2093);
 INSERT INTO army VALUES(6,'Zwergen Armee vom Eldin Berg','Torsten',14,2828);
-INSERT INTO army VALUES(7,'Kurl Vraneths Freibeuter','Games Workshop',5,2005);
+INSERT INTO army VALUES(7,'Kurl Vraneths Freibeuter','Games Workshop',5,1996);
 
 
 INSERT INTO army_unit VALUES(1,1,'Tiranoc Streitwagen');
