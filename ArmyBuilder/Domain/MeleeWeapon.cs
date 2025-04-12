@@ -1,6 +1,4 @@
-﻿using System.Data.SQLite;
-using System.Reflection;
-using Dapper.Contrib.Extensions;
+﻿using Dapper.Contrib.Extensions;
 
 namespace ArmyBuilder.Domain
 {
@@ -44,6 +42,7 @@ namespace ArmyBuilder.Domain
             switch(Id)
             {
                 case ID_TWO_HANDED_WEAPON:
+                case ID_EXECUTIONEER_AXE:
                     return $"*{initiative}*";
                 default:
                     return initiative.ToString();
