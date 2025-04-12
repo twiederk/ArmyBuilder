@@ -1,5 +1,4 @@
-﻿using QuestPDF.Elements;
-using QuestPDF.Fluent;
+﻿using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 
@@ -39,9 +38,9 @@ namespace ArmyBuilder.Print
         void ComposeHeader(IContainer container)
         {
             container
-                .Background(Colors.Grey.Lighten5)
                 .AlignCenter()
                 .AlignMiddle()
+                .PaddingBottom(5)
                 .Text(Model.ArmyName).FontSize(16);
 
         }
