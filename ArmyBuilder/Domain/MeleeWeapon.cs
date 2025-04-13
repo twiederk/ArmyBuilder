@@ -42,7 +42,6 @@ namespace ArmyBuilder.Domain
             switch(Id)
             {
                 case ID_TWO_HANDED_WEAPON:
-                case ID_EXECUTIONEER_AXE:
                     return $"*{initiative}*";
                 default:
                     return initiative.ToString();

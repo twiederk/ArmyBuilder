@@ -22,7 +22,7 @@ namespace ArmyBuilder.Test.Dao
             List<MeleeWeapon> AllMeleeWeapon = equipmentRepository.AllMeleeWeapon();
 
             // assert
-            AllMeleeWeapon.Should().HaveCount(201);
+            AllMeleeWeapon.Should().HaveCount(200);
             MeleeWeapon two_handed_weapon = AllMeleeWeapon.FirstOrDefault(a => a.Id == Item.ID_TWO_HANDED_WEAPON);
             two_handed_weapon.Strength.Should().Be(2);
         }
@@ -91,7 +91,7 @@ namespace ArmyBuilder.Test.Dao
             List<Item> AllItems = equipmentRepository.AllItems();
 
             // assert
-            AllItems.Should().HaveCount(447);
+            AllItems.Should().HaveCount(446);
         }
 
         [Fact]

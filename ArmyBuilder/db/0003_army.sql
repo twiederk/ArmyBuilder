@@ -125,7 +125,7 @@ INSERT INTO army_main_model VALUES(76,49,0,'Oberzauberer','Hass auf Hochelfen.',
 INSERT INTO army_main_model VALUES(77,50,1,'Schwarze Garde von Naggaroth','Hass gegen Hochelfen.',0,15.0,7,1,1);
 INSERT INTO army_main_model VALUES(78,50,0,'Leutnant Galroth, Champion','Hass auf Hochelfen.',0,48.0,1,0,0);
 INSERT INTO army_main_model VALUES(79,51,0,'Asperon Khan, Champion der Henker','Hass auf Hochelfen.',0,48.0,1,0,0);
-INSERT INTO army_main_model VALUES(80,51,1,'Henker','Hass gegen Hochelfen.',0,16.0,7,1,1);
+INSERT INTO army_main_model VALUES(80,51,1,'Henker','Henker verursachen W3 LP. Hass gegen Hochelfen.',0,16.0,7,1,1);
 INSERT INTO army_main_model VALUES(81,52,0,'Elon Sulphunet, Hexenchampion','Hass auf Hochelfen, Raserei.',0,62.0,1,0,0);
 INSERT INTO army_main_model VALUES(82,52,1,'Hexenkriegerinnen','Hass gegen Hochelfen, Raserei.',0,12.0,9,0,0);
 INSERT INTO army_main_model VALUES(83,53,1,'Armbrustschützen','Hass gegen Hochelfen.',0,13.0,10,0,0);

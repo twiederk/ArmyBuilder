@@ -1099,7 +1099,7 @@ INSERT INTO main_model VALUES(11927,1,1,'Flußtrolle','Gestank, Blödheit',0,65.
 INSERT INTO main_model VALUES(11928,1,1,'Harpien','Fliegen.',0,15.0,0,0);
 INSERT INTO main_model VALUES(11929,5,1,'Echsenritter','Hass gegen Hochelfen, Angst, Blödheit.',0,38.0,0,0);
 INSERT INTO main_model VALUES(11930,5,1,'Schwarze Reiter','Hass gegen Hochelfen, lockere Formation, zusätzliches Marschieren, fliehen und schießen.',0,25.0,0,0);
-INSERT INTO main_model VALUES(11931,5,1,'Henker','Hass gegen Hochelfen.',0,16.0,0,0);
+INSERT INTO main_model VALUES(11931,5,1,'Henker','Henker verursachen W3 LP. Hass gegen Hochelfen.',0,16.0,0,0);
 INSERT INTO main_model VALUES(11932,5,1,'Schwarze Garde von Naggaroth','Hass gegen Hochelfen.',0,15.0,0,0);
 INSERT INTO main_model VALUES(11933,5,1,'Armbrustschützen','Hass gegen Hochelfen.',0,13.0,0,0);
 INSERT INTO main_model VALUES(11934,5,1,'Dunkelelfenkrieger','Hass gegen Hochelfen.',0,10.0,0,0);
