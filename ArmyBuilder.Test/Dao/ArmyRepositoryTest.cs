@@ -225,7 +225,7 @@ namespace ArmyBuilder.Test.Dao
             mainModel.Musician = true;
 
             // act
-            _repository.UpdateMainModel(unit.Id, mainModel);
+            _repository.UpdateMainModel(mainModel);
 
             // assert
             Army testArmy = _repository.Army(army.Id);
@@ -235,7 +235,7 @@ namespace ArmyBuilder.Test.Dao
             MainModel updatedMainModel = testArmy.Units[0].MainModels[0];
             updatedMainModel.Count.Should().Be(5);
             updatedMainModel.StandardBearer.Should().BeTrue();
-            updatedMainModel.Musician.Should().BeTrue();
+            updatedMainModel.Musician.Should().BeTrue(); 
 
             // teardown
             _repository.DeleteArmy(army.Id);

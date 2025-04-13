@@ -178,6 +178,20 @@ namespace ArmyBuilder
             }
         }
 
+        private void EditMainModelButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
+            {
+                var editMainModelWindow = new EditMainModelWindow(mainModelTreeNode.MainModel);
+                if (editMainModelWindow.ShowDialog() == true)
+                {
+                    var armyViewModel = DataContext as ArmyViewModel;
+                    armyViewModel.UpdateMainModel(mainModelTreeNode.MainModel);
+                    mainModelTreeNode.UpdateName();
+                }
+            }
+        }
+
         private void AddMountButton_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
@@ -185,7 +199,8 @@ namespace ArmyBuilder
                 ArmyViewModel armyViewModel = DataContext as ArmyViewModel;
                 List<SingleModel> mounts = armyViewModel.Mounts;
 
-                var selectMountWindow = new SelectMountWindow(mounts);
+                var selectMountViewModel = new SelectMountViewModel(mounts);
+                var selectMountWindow = new SelectMountWindow(selectMountViewModel);
                 if (selectMountWindow.ShowDialog() == true)
                 {
                     var selectedMount = selectMountWindow.SelectedMount;
@@ -222,7 +237,7 @@ namespace ArmyBuilder
         private void UpdateMainModel(MainModelTreeNode mainModelTreeNode, MainModel mainModel)
         {
             var armyViewModel = DataContext as ArmyViewModel;
-            armyViewModel.UpdateMainModel(mainModelTreeNode.Unit.Id, mainModel);
+            armyViewModel.UpdateMainModel(mainModel);
             mainModelTreeNode.UpdateCount();
         }
 

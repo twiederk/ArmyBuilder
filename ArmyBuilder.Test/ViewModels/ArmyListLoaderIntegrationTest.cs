@@ -79,7 +79,7 @@ namespace ArmyBuilder.Test.ViewModels
             var result = _armyListLoader.selection(slot, highElfArmyList);
 
             // assert
-            result.Should().HaveCount(57);
+            result.Should().HaveCount(61);
         }
 
         [Fact]
@@ -98,7 +98,7 @@ namespace ArmyBuilder.Test.ViewModels
             var result = _armyListLoader.selection(slot, highElfArmyList);
 
             // assert
-            result.Should().HaveCount(7);
+            result.Should().HaveCount(8);
         }
 
         [Fact]

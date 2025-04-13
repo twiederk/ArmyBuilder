@@ -73,9 +73,9 @@ namespace ArmyBuilder.Dao
             return _armyRepository.AddMainModel(unitId, mainModel);
         }
 
-        public void UpdateMainModel(int unitId, MainModel mainModel)
+        public void UpdateMainModel(MainModel mainModel)
         {
-            _armyRepository.UpdateMainModel(unitId, mainModel);
+            _armyRepository.UpdateMainModel(mainModel);
         }
 
         public SingleModel AddSingleModel(int main_model_id, SingleModel singleModel) {

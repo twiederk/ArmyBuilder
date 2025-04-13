@@ -22,6 +22,11 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="1" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
             <TreeView Name="trvArmy" ItemsSource="{Binding ArmyTreeViewModel.Root}">
                 <TreeView.Resources>
+
+                    <Style TargetType="TreeViewItem">
+                        <Setter Property="Focusable" Value="False"/>
+                    </Style>
+
                     <HierarchicalDataTemplate DataType="{x:Type viewModels:ArmyTreeNode}" ItemsSource="{Binding Units}">
                         <Grid AllowDrop="True" Drop="armyTreeNode_Drop">
                             <Grid.ColumnDefinitions>
@@ -59,6 +64,7 @@
                                 <Label Content="{Binding DisplayArmyCategory}" Width="Auto" HorizontalAlignment="Right" Foreground="Blue"/>
                                 <Button Content="*" Width="25" Click="AddMountButton_Click" Tag="{Binding}" Visibility="{Binding MountButtonVisibility}" Margin="2,2,2,2"/>
                                 <Button Content="🗑" Width="Auto" Click="DeleteMainModelButton_Click" Tag="{Binding}" Margin="2,2,2,2"/>
+                                <Button Content="✏" Click="EditMainModelButton_Click" Tag="{Binding}" Margin="2,2,2,2" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Visibility="{Binding TrooperVisiblity}">
                                 <CheckBox Content="{Binding StandardBearerLabel}" IsChecked="{Binding StandardBearer}" Click="TrooperCheckbox_Click" Tag="{Binding}" Foreground="Blue" Margin="2,2,2,2"/>

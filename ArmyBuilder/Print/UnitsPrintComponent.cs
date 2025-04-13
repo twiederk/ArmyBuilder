@@ -1,5 +1,6 @@
 ﻿using QuestPDF.Infrastructure;
 using QuestPDF.Fluent;
+using QuestPDF.Helpers;
 
 namespace ArmyBuilder.Print
 {
@@ -30,7 +31,7 @@ namespace ArmyBuilder.Print
             column.Item().PreventPageBreak().Column(innerColumn =>
             {
                 innerColumn.Spacing(2);
-                innerColumn.Item().BorderBottom(1).PaddingBottom(5).Text(unit.Name).SemiBold();
+                innerColumn.Item().BorderBottom(1).PaddingBottom(5).Background(Colors.Grey.Lighten1).Text(unit.Name).SemiBold();
                 foreach (var mainModel in unit.MainModels)
                 {
                     innerColumn.Item().Component(new MainModelPrintComponent(mainModel));

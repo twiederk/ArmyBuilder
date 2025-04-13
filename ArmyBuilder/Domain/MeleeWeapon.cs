@@ -1,6 +1,4 @@
-﻿using System.Data.SQLite;
-using System.Reflection;
-using Dapper.Contrib.Extensions;
+﻿using Dapper.Contrib.Extensions;
 
 namespace ArmyBuilder.Domain
 {

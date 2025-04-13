@@ -151,9 +151,9 @@ namespace ArmyBuilder.ViewModels
             _repository.AddMainModel(unitId, mainModel);
         }
 
-        public void UpdateMainModel(int unitId, MainModel mainModel)
+        public void UpdateMainModel(MainModel mainModel)
         {
-            _repository.UpdateMainModel(unitId, mainModel);
+            _repository.UpdateMainModel(mainModel);
         }
 
         public void UpdateSingleModel(SingleModel singleModel)

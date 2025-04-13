@@ -1,13 +1,47 @@
 ﻿<Window x:Class="ArmyBuilder.SelectMountWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Select Mount" Height="400" Width="300">
+        Title="Select Mount" Height="400" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
+            <RowDefinition Height="75" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <ListBox Grid.Row="0" x:Name="MountListBox" DisplayMemberPath="Name" SelectionMode="Single" />
-        <Button Grid.Row="1" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Width="75" Click="OkButton_Click"/>
+
+        <ListBox Grid.Row="0" x:Name="MountListBox" ItemsSource="{Binding Mounts}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMount}" SelectionMode="Single"/>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical" >
+            <StackPanel Orientation="Horizontal" >
+                <Label Width="135" Content="Name" />
+                <Label Width="35" Content="B" />
+                <Label Width="35" Content="KG" />
+                <Label Width="35" Content="BF" />
+                <Label Width="35" Content="S" />
+                <Label Width="35" Content="W" />
+                <Label Width="35" Content="LP" />
+                <Label Width="35" Content="I" />
+                <Label Width="35" Content="A" />
+                <Label Width="35" Content="MW" />
+                <Label Width="35" Content="RW" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="{Binding SelectedMount.Name}" Width="135" />
+                <Label Content="{Binding SelectedMount.Movement}" Width="35" />
+                <Label Content="{Binding SelectedMount.WeaponSkill}" Width="35" />
+                <Label Content="{Binding SelectedMount.BallisticSkill}" Width="35" />
+                <Label Content="{Binding SelectedMount.Strength}" Width="35" />
+                <Label Content="{Binding SelectedMount.Toughness}" Width="35" />
+                <Label Content="{Binding SelectedMount.Wounds}" Width="35" />
+                <Label Content="{Binding SelectedMount.Initiative}" Width="35" />
+                <Label Content="{Binding SelectedMount.Attacks}" Width="35" />
+                <Label Content="{Binding SelectedMount.Moral}" Width="35" />
+                <Label Content="{Binding SelectedMount.Save}" Width="35" />
+            </StackPanel>
+        </StackPanel>
+
+        <Button Grid.Row="2" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Width="75" Click="OkButton_Click"/>
+
     </Grid>
 </Window>
