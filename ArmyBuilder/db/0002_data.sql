@@ -646,7 +646,7 @@ INSERT INTO profile VALUES(12423,'Lindwurm',6,5,0,5,6,4,4,3,5,180.0,7);
 INSERT INTO profile VALUES(12424,'Blutkessel',0,0,0,0,0,0,0,0,0,41.0,7);
 INSERT INTO profile VALUES(12425,'Runenamboß',3,5,4,6,4,1,3,2,9,200.0,5);
 INSERT INTO profile VALUES(12426,'Runenthron',3,5,4,4,4,1,3,2,9,140.0,4);
-INSERT INTO profile VALUES(12427,'Dunkelelfen Henker',5,5,4,4,3,1,6,1,8,10.0,7);
+INSERT INTO profile VALUES(12427,'Dunkelelfen Henker',5,5,4,4,3,1,6,1,8,11.0,7);
 
 
 INSERT INTO main_model VALUES(11420,1,0,'Armeestandartenträger des Nurgle','',0,243.0,0,0);
@@ -2526,7 +2526,6 @@ INSERT INTO melee_weapon VALUES(3,'Flegel',1,'',-1,0,0,2);
 INSERT INTO melee_weapon VALUES(4,'Hellebarde',2,'',-1,0,0,1);
 INSERT INTO melee_weapon VALUES(5,'Speer',1,'',-1,0,0,1);
 INSERT INTO melee_weapon VALUES(6,'Lanze',2,'',-1,0,0,2);
-INSERT INTO melee_weapon VALUES(7,'Henkeraxt',3,'Henker verursachen W3 LP',5,0,0,2);
 INSERT INTO melee_weapon VALUES(8,'Zweite Handwaffe',1,'',-1,0,0,0);
 INSERT INTO melee_weapon VALUES(9,'Zweihänder von Hoeth',3,'Der Zweihänder von Hoeth kann so schnell wie eine einhändige Waffe geschwungen werden.',7,0,0,2);
 INSERT INTO melee_weapon VALUES(5637,'Skabskrath',50,'Verurstacht Entsetzen.',12,0,1,0);
@@ -4728,7 +4727,7 @@ INSERT INTO slot VALUES(2420,46886,42,0,0,3);
 INSERT INTO slot VALUES(2449,46895,31,0,0,1);
 INSERT INTO slot VALUES(2450,46895,42,0,0,3);
 INSERT INTO slot VALUES(2454,46896,41,0,0,3);
-INSERT INTO slot VALUES(2455,46897,7,0,0,0);
+INSERT INTO slot VALUES(2455,46897,2,0,0,0);
 INSERT INTO slot VALUES(2458,46897,42,0,0,3);
 INSERT INTO slot VALUES(2459,46898,4,0,0,0);
 INSERT INTO slot VALUES(2462,46898,42,0,0,3);
