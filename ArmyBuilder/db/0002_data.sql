@@ -30,11 +30,11 @@ INSERT INTO movement_type VALUES(1,'OnMount');
 
 
 INSERT INTO profile VALUES(11420,'',4,8,8,5,6,2,8,4,10,0.0,7);
-INSERT INTO profile VALUES(11421,'Orks Grom der Fettsack vom Nebelberg',4,5,6,4,4,3,5,4,7,80.0,7);
-INSERT INTO profile VALUES(11422,'Orks Gorbad Eisenfause',4,6,6,4,5,3,5,4,10,120.0,7);
-INSERT INTO profile VALUES(11423,'Orks Morglum Knochenbrecher',4,7,6,5,5,3,5,5,10,150.0,7);
-INSERT INTO profile VALUES(11424,'Orks Oglock der Fürchtaliche',4,6,5,4,5,2,4,4,9,90.0,7);
-INSERT INTO profile VALUES(11425,'Orks Skarsnik Herrscher der Acht Gipfel',4,5,6,5,4,3,6,4,9,80.0,7);
+INSERT INTO profile VALUES(11421,'Orks Grom der Fettsack vom Nebelberg',4,5,6,4,4,3,5,4,7,78.0,7);
+INSERT INTO profile VALUES(11422,'Orks Gorbad Eisenfaust',4,6,6,4,5,3,5,4,10,110.0,7);
+INSERT INTO profile VALUES(11423,'Orks Morglum Knochenbrecher',4,7,6,5,5,3,5,5,10,147.0,7);
+INSERT INTO profile VALUES(11424,'Orks Oglock der Fürchtaliche',4,6,5,4,5,2,4,4,9,87.0,7);
+INSERT INTO profile VALUES(11425,'Orks Skarsnik Herrscher der Acht Gipfel',4,5,6,5,4,3,6,4,9,78.0,7);
 INSERT INTO profile VALUES(11426,'Orks Ork Chefoberboss',4,6,6,4,5,3,5,4,9,110.0,7);
 INSERT INTO profile VALUES(11427,'Orks Schwarzork Chefoberboss',4,7,6,5,5,3,5,4,10,140.0,7);
 INSERT INTO profile VALUES(11428,'Orks Wildork Chefoberboss',4,6,6,4,5,3,5,8,9,150.0,7);
@@ -183,7 +183,7 @@ INSERT INTO profile VALUES(11581,'Dunkelelfen Kouran',5,6,6,4,4,2,8,3,9,105.0,7)
 INSERT INTO profile VALUES(11582,'Dunkelelfen Helleborn',5,7,7,10,4,3,9,8,10,207.0,7);
 INSERT INTO profile VALUES(11583,'Dunkelelfen Tullaris',5,6,6,7,5,2,6,3,9,120.0,7);
 INSERT INTO profile VALUES(11584,'Dunkelelfen Schattenklinge',5,10,10,4,4,2,10,4,10,115.0,7);
-INSERT INTO profile VALUES(11586,'Orks Gorfan Rotzahn',4,5,5,5,5,3,4,3,8,90.0,7);
+INSERT INTO profile VALUES(11586,'Orks Gorfan Rotzahn',4,5,5,5,5,3,4,3,8,87.0,7);
 INSERT INTO profile VALUES(11587,'',4,6,6,4,5,1,7,2,9,0.0,7);
 INSERT INTO profile VALUES(11588,'',4,6,6,4,5,1,7,2,9,0.0,7);
 INSERT INTO profile VALUES(11589,'',4,6,6,5,5,2,7,2,9,0.0,7);
@@ -232,7 +232,7 @@ INSERT INTO profile VALUES(11639,'',4,7,7,5,5,1,7,3,9,0.0,7);
 INSERT INTO profile VALUES(11640,'',4,5,5,4,4,3,4,3,9,0.0,7);
 INSERT INTO profile VALUES(11641,'',4,8,8,5,5,2,8,4,10,0.0,7);
 INSERT INTO profile VALUES(11642,'',4,8,8,5,6,2,8,4,10,0.0,7);
-INSERT INTO profile VALUES(11643,'Orks Azhag der Vernichter',4,6,6,4,5,3,5,4,10,130.0,7);
+INSERT INTO profile VALUES(11643,'Orks Azhag der Vernichter',4,6,6,4,5,3,5,4,10,127.0,7);
 INSERT INTO profile VALUES(11644,'Zwerge Krudd der Rebell',3,6,5,6,5,2,4,3,10,69.0,7);
 INSERT INTO profile VALUES(11645,'Zwerge Grung Grollbringer',3,7,5,4,6,3,4,3,10,187.0,7);
 INSERT INTO profile VALUES(11646,'Zwerge Skag der Verstohlene',3,6,5,6,5,2,4,3,10,107.0,7);
