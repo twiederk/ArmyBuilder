@@ -1544,7 +1544,7 @@ INSERT INTO single_model VALUES(46403,11728,'Minotaurenchampion',11728,0,0,0,1);
 INSERT INTO single_model VALUES(46404,11729,'Minotaurenheld',11729,0,0,0,1);
 INSERT INTO single_model VALUES(46405,11420,'Armeestandartenträger',11420,0,0,0,1);
 INSERT INTO single_model VALUES(46406,11421,'Grom',11421,0,0,0,1);
-INSERT INTO single_model VALUES(46407,11422,'Gorbad',11422,0,0,0,1);
+INSERT INTO single_model VALUES(46407,11422,'Gorbad',11422,1,0,0,1);
 INSERT INTO single_model VALUES(46408,11423,'Morglum',11423,0,0,0,1);
 INSERT INTO single_model VALUES(46409,11424,'Oglok',11424,0,0,0,1);
 INSERT INTO single_model VALUES(46410,11425,'Skarsnik',11425,0,0,0,1);
@@ -2503,6 +2503,7 @@ INSERT INTO single_model VALUES(47372,11897,'Slayerpirat',12429,0,0,0,1);
 INSERT INTO single_model VALUES(47373,11929,'Streitwagenlenker',12430,0,0,0,2);
 INSERT INTO single_model VALUES(47374,11810,'Kampfechse',12430,0,0,0,2);
 INSERT INTO single_model VALUES(47375,12159,'Streitwagen',12430,0,0,0,1);
+INSERT INTO single_model VALUES(47376,12023,'Wildschwein',11422,0,1,1,1);
 
 
 INSERT INTO melee_weapon VALUES(1,'Handwaffe',0,'',-1,0,0,0);
