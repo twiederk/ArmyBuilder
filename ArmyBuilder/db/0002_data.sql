@@ -2134,7 +2134,7 @@ INSERT INTO single_model VALUES(46996,11799,'Kriegspferd',11872,0,1,0,1);
 INSERT INTO single_model VALUES(46997,11799,'Kriegspferd',11873,0,1,0,1);
 INSERT INTO single_model VALUES(46998,11799,'Kriegspferd',11874,0,1,0,1);
 INSERT INTO single_model VALUES(46999,11796,'Kriegspferd',11884,0,1,0,1);
-INSERT INTO single_model VALUES(47000,11852,'Goblin',12077,0,0,0,1);
+INSERT INTO single_model VALUES(47000,11852,'Goblin',12077,0,0,0,2);
 INSERT INTO single_model VALUES(47001,12078,'Besatzung',12078,0,0,0,1);
 INSERT INTO single_model VALUES(47002,12078,'Besatzung',12079,0,0,0,1);
 INSERT INTO single_model VALUES(47003,12080,'Dampfpanzer',12080,0,0,0,1);
