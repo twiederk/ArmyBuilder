@@ -2010,7 +2010,7 @@ INSERT INTO single_model VALUES(46872,11837,'W''Soraych',11765,0,0,0,1);
 INSERT INTO single_model VALUES(46873,11838,'Chaosroß',11767,0,0,0,1);
 INSERT INTO single_model VALUES(46874,11839,'Khornes Bluthund',11770,0,0,0,1);
 INSERT INTO single_model VALUES(46875,11840,'Baudros',11771,0,0,0,1);
-INSERT INTO single_model VALUES(46876,11841,'Riesenwolf',11421,0,1,0,1);
+INSERT INTO single_model VALUES(46876,11841,'Riesenwolf',11421,0,1,0,3);
 INSERT INTO single_model VALUES(46877,11842,'Kriegsaltar',11498,0,0,0,1);
 INSERT INTO single_model VALUES(46878,11843,'Skelettpferd',11535,0,1,0,1);
 INSERT INTO single_model VALUES(46879,11844,'Schwarzer Streitwagen',11578,0,0,0,1);
@@ -2504,6 +2504,7 @@ INSERT INTO single_model VALUES(47373,11929,'Streitwagenlenker',12430,0,0,0,2);
 INSERT INTO single_model VALUES(47374,11810,'Kampfechse',12430,0,0,0,2);
 INSERT INTO single_model VALUES(47375,12159,'Streitwagen',12430,0,0,0,1);
 INSERT INTO single_model VALUES(47376,12023,'Wildschwein',11422,0,1,1,1);
+INSERT INTO single_model VALUES(47377,12159,'Streitwagen',11421,0,0,0,1);
 
 
 INSERT INTO melee_weapon VALUES(1,'Handwaffe',0,'',-1,0,0,0);
