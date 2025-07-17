@@ -2186,7 +2186,7 @@ INSERT INTO single_model VALUES(47048,11851,'Besatzung',12072,0,0,0,3);
 INSERT INTO single_model VALUES(47049,11851,'Besatzung',12073,0,0,0,3);
 INSERT INTO single_model VALUES(47050,11870,'Snotling',12074,0,0,0,1);
 INSERT INTO single_model VALUES(47051,11852,'Kamikaze',12075,0,0,0,1);
-INSERT INTO single_model VALUES(47052,11851,'Orkbesatzung',12076,0,0,0,1);
+INSERT INTO single_model VALUES(47052,11851,'Orkbesatzung',12076,0,0,0,2);
 INSERT INTO single_model VALUES(47053,12017,'Rosa Horror',12102,0,0,0,1);
 INSERT INTO single_model VALUES(47054,12019,'Feuerdämon',12103,0,0,0,1);
 INSERT INTO single_model VALUES(47055,12104,'Hüter der Geheimniss',12104,0,0,0,1);
