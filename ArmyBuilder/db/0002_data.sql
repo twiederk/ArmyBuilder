@@ -5018,6 +5018,8 @@ INSERT INTO slot VALUES(5073,46454,60,1,1,4);
 INSERT INTO slot VALUES(5074,47047,40,1,0,3);
 INSERT INTO slot VALUES(5075,47048,40,1,0,3);
 INSERT INTO slot VALUES(5076,47049,40,1,0,3);
+INSERT INTO slot VALUES(5077,46760,1,1,0,0);
+INSERT INTO slot VALUES(5078,46760,10,1,0,2);
 
 
 INSERT INTO slot_selection VALUES(1,4859,30);
@@ -5134,6 +5136,10 @@ INSERT INTO slot_selection VALUES(177,5075,40);
 INSERT INTO slot_selection VALUES(178,5075,41);
 INSERT INTO slot_selection VALUES(179,5076,40);
 INSERT INTO slot_selection VALUES(180,5076,41);
+INSERT INTO slot_selection VALUES(181,5077,1);
+INSERT INTO slot_selection VALUES(182,5077,5);
+INSERT INTO slot_selection VALUES(183,5078,10);
+INSERT INTO slot_selection VALUES(184,5078,11);
 
 
 INSERT INTO figure VALUES(1,'Morathi die Hexenköniging','Games Workshop','Zinn',1,0,5,0,'DarkElves\DarkElf_Morathi_Die_Hexenkoenigin_auf_Pegasus.jpg');
