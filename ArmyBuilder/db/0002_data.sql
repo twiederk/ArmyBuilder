@@ -523,7 +523,7 @@ INSERT INTO profile VALUES(12020,'',4,6,5,4,3,1,6,3,10,0.0,7);
 INSERT INTO profile VALUES(12021,'',4,7,6,5,3,1,7,4,10,0.0,7);
 INSERT INTO profile VALUES(12022,'',6,3,0,3,3,1,3,3,8,0.0,7);
 INSERT INTO profile VALUES(12023,'Orks Wildschwein',7,4,0,3,4,1,3,1,3,8,7);
-INSERT INTO profile VALUES(12026,'Orks Riesenspinne',7,3,0,4,3,1,1,1,5,6.5,7);
+INSERT INTO profile VALUES(12026,'Orks Riesenspinne',7,3,0,4,3,1,1,1,5,4,7);
 INSERT INTO profile VALUES(12027,'Orks Höhlensquig',2,4,NULL,5,3,1,5,2,2,20.0,7);
 INSERT INTO profile VALUES(12034,'Hochelfen Elfenroß',9,3,0,3,3,1,4,1,5,3.0,7);
 INSERT INTO profile VALUES(12037,'',8,2,0,3,3,1,2,1,5,0.0,7);
