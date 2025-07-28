@@ -2707,6 +2707,8 @@ INSERT INTO melee_weapon VALUES(6050,'Runenstab',45,'',14,0,1,0);
 INSERT INTO melee_weapon VALUES(6056,'Stab von Avelorn',50,'',7,1,1,0);
 INSERT INTO melee_weapon VALUES(6070,'Schädel des Katam',35,'',2,1,1,0);
 INSERT INTO melee_weapon VALUES(6073,'Stab der Macht',40,'',12,1,1,0);
+INSERT INTO melee_weapon VALUES(6077,'Netz',2,'',9,0,0,0);
+INSERT INTO melee_weapon VALUES(6078,'Prodder',3,'',9,0,0,0);
 
 
 INSERT INTO ranged_weapon VALUES(10,'keine',0,'',-1,0,0,0,0);
@@ -5082,6 +5084,8 @@ INSERT INTO slot VALUES(5137,47000,10,1,0,2);
 INSERT INTO slot VALUES(5138,47103,60,1,0,4);
 INSERT INTO slot VALUES(5139,46760,5784,0,1,3);
 INSERT INTO slot VALUES(5140,46768,5784,0,1,3);
+INSERT INTO slot VALUES(5141,46772,6078,0,0,0);
+INSERT INTO slot VALUES(5142,46773,6077,0,0,0);
 
 
 INSERT INTO slot_selection VALUES(1,4859,30);
