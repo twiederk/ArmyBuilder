@@ -2747,8 +2747,8 @@ INSERT INTO armor VALUES(51,'Roßharnisch',4,'',-1,0,0,1);
 INSERT INTO armor VALUES(5781,'Chaosrüstung',10,'Rettungswurf 4+.',1,0,1,0);
 INSERT INTO armor VALUES(5782,'Meteorrüstung',25,'Rettungswurf 2+.',-1,0,1,0);
 INSERT INTO armor VALUES(5783,'Rüstung des Schutzes',50,'Zweiter unmodifizierter RW von 4+',-1,0,1,0);
-INSERT INTO armor VALUES(5784,'Magische Kriegsbemalung',5,'RW von 3+ gegen Beschuß, 5+ im Nahkampf.',9,0,1,0);
-INSERT INTO armor VALUES(5785,'Magische Kriegsbemalung',5,'RW von 3+ gegen Beschuß, 5+ im Nahkampf.',10,0,1,0);
+INSERT INTO armor VALUES(5784,'Magische Kriegsbemalung',1,'RW von 3+ gegen Beschuß, 5+ im Nahkampf.',9,0,0,1);
+INSERT INTO armor VALUES(5785,'Magische Kriegsbemalung',1,'RW von 3+ gegen Beschuß, 5+ im Nahkampf.',10,0,0,1);
 INSERT INTO armor VALUES(5786,'Rüstung der Ausdauer',5,'Zweiter unmodifizierter RW mit 6.',-1,0,1,0);
 INSERT INTO armor VALUES(5787,'Rüstung des Glücks',15,'Zweiter unmodifizierter Rettungswurf mit 5+.',-1,0,1,0);
 INSERT INTO armor VALUES(5788,'Dragans Karmesinrote Rüstung',25,'Nahkampfgegner muß Moraltest bestehen um zuschlagen zu können.',1,0,1,0);
@@ -5080,6 +5080,8 @@ INSERT INTO slot VALUES(5135,47075,60,1,0,4);
 INSERT INTO slot VALUES(5136,47000,30,1,0,1);
 INSERT INTO slot VALUES(5137,47000,10,1,0,2);
 INSERT INTO slot VALUES(5138,47103,60,1,0,4);
+INSERT INTO slot VALUES(5139,46760,5784,0,1,3);
+INSERT INTO slot VALUES(5140,46768,5784,0,1,3);
 
 
 INSERT INTO slot_selection VALUES(1,4859,30);
