@@ -1910,7 +1910,7 @@ INSERT INTO single_model VALUES(46771,11861,'Nachtgoblin',11861,0,0,0,1);
 INSERT INTO single_model VALUES(46772,11861,'Nachtgoblin',11862,0,0,0,1);
 INSERT INTO single_model VALUES(46773,11861,'Netzgitz',11863,0,0,0,1);
 INSERT INTO single_model VALUES(46774,11864,'Fanatic',11864,0,0,0,1);
-INSERT INTO single_model VALUES(46775,11861,'Nachtgoblin',11865,0,0,0,1);
+INSERT INTO single_model VALUES(46775,11861,'Nachtgoblin',11865,1,0,0,1);
 INSERT INTO single_model VALUES(46776,11866,'Riese',11866,0,0,0,1);
 INSERT INTO single_model VALUES(46777,11867,'Oger',11867,0,0,0,1);
 INSERT INTO single_model VALUES(46778,11868,'Flußtroll',11868,0,0,0,1);
@@ -5072,6 +5072,8 @@ INSERT INTO slot VALUES(5127,46771,10,1,0,2);
 INSERT INTO slot VALUES(5128,46771,40,1,0,3);
 INSERT INTO slot VALUES(5129,46771,100,1,1,5);
 INSERT INTO slot VALUES(5130,46771,90,1,1,6);
+INSERT INTO slot VALUES(5131,46777,1,1,0,0); 
+INSERT INTO slot VALUES(5132,46777,40,1,0,3);
 
 
 INSERT INTO slot_selection VALUES(1,4859,30);
@@ -5274,6 +5276,12 @@ INSERT INTO slot_selection VALUES(264,5127,10);
 INSERT INTO slot_selection VALUES(265,5127,12);
 INSERT INTO slot_selection VALUES(266,5128,40);
 INSERT INTO slot_selection VALUES(267,5128,41);
+INSERT INTO slot_selection VALUES(268,5131,1); 
+INSERT INTO slot_selection VALUES(269,5131,2);
+INSERT INTO slot_selection VALUES(270,5131,4);
+INSERT INTO slot_selection VALUES(271,5131,8);
+INSERT INTO slot_selection VALUES(272,5132,40);
+INSERT INTO slot_selection VALUES(273,5132,41);
 
 
 INSERT INTO figure VALUES(1,'Morathi die Hexenköniging','Games Workshop','Zinn',1,0,5,0,'DarkElves\DarkElf_Morathi_Die_Hexenkoenigin_auf_Pegasus.jpg');
