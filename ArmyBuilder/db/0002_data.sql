@@ -6014,6 +6014,11 @@ INSERT INTO main_model_figure VALUES(238,11858,437);
 INSERT INTO main_model_figure VALUES(239,11445,382);
 INSERT INTO main_model_figure VALUES(240,11439,382);
 INSERT INTO main_model_figure VALUES(241,11426,382);
+INSERT INTO main_model_figure VALUES(242,12072,374);
+INSERT INTO main_model_figure VALUES(243,11867,435);
+INSERT INTO main_model_figure VALUES(244,11867,436);
+INSERT INTO main_model_figure VALUES(245,11854,421);
+INSERT INTO main_model_figure VALUES(246,11854,422);
 
 
 COMMIT;
