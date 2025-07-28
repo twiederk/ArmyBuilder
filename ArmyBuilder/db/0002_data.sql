@@ -403,7 +403,7 @@ INSERT INTO profile VALUES(11851,'Orks Ork Basis',4,4,3,3,4,1,2,1,7,5.5,7);
 INSERT INTO profile VALUES(11852,'Orks Goblin Basis',4,2,3,3,3,1,2,1,5,2.5,7);
 INSERT INTO profile VALUES(11853,'Orks Waldgoblin Basis',4,2,3,3,3,1,2,1,5,2.5,7);
 INSERT INTO profile VALUES(11854,'Orks Grobgitz Basis',4,4,3,4,4,1,3,1,7,6.5,7);
-INSERT INTO profile VALUES(11857,'Orks Schwarzork Basis',4,4,3,4,4,1,2,1,8,8.0,7);
+INSERT INTO profile VALUES(11857,'Orks Schwarzork Basis',4,4,3,4,4,1,2,1,8,7.0,7);
 INSERT INTO profile VALUES(11861,'Orks Nachtgoblin Basis',4,2,3,3,3,1,2,1,5,2.5,7);
 INSERT INTO profile VALUES(11864,'Orks Fanatic',NULL,NULL,NULL,5,3,1,NULL,NULL,NULL,30.0,7);
 INSERT INTO profile VALUES(11866,'Orks Riese',6,3,3,7,6,6,3,NULL,6,200.0,7);
