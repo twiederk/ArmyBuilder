@@ -5624,9 +5624,9 @@ INSERT INTO figure VALUES(377,'Snotling Kurbelwagen','Games Workshop','Zinn',1,0
 INSERT INTO figure VALUES(378,'Azhag der Vernichter','Games Workshop','Zinn',1,0,9,0,'Orcs\Orcs_Azhag_der_Vernichter.jpg');
 INSERT INTO figure VALUES(379,'Schamane auf Lindwurm','Games Workshop','Zinn',1,0,9,0,'Orcs\Orcs_Schamane_auf_Lindwurm.jpg');
 INSERT INTO figure VALUES(380,'Wildork Musiker','Games Workshop','Zinn',1,0,9,1,'Orcs\Orcs_Wildork_Musiker.jpg');
-INSERT INTO figure VALUES(381,'Ork Standartenträger','Games Workshop','Zinn',2,0,9,1,'Orcs\Orcs_Ork_Standartentraeger_1.jpg,Orcs_Ork_Standartentraeger_2.jpg');
+INSERT INTO figure VALUES(381,'Ork Standartenträger','Games Workshop','Zinn',1,0,9,1,'Orcs\Orcs_Ork_Standartentraeger_1.jpg');
 INSERT INTO figure VALUES(382,'Ork Champion mit Axt und Schild','Games Workshop','Zinn',1,0,9,0,'Orcs\Orcs_Champion_mit_Axt_und_Schild.jpg');
-INSERT INTO figure VALUES(383,'Ork Musiker','Games Workshop','Zinn',2,0,9,0,'Orcs\Orcs_Ork_Musiker_1.jpg, Orcs_Ork_Musiker_2.jpg');
+INSERT INTO figure VALUES(383,'Ork Musiker','Games Workshop','Zinn',1,0,9,0,'Orcs\Orcs_Ork_Musiker_1.jpg');
 INSERT INTO figure VALUES(384,'Schwarzork Champion mit zweihändiger Axt','Games Workshop','Zinn',1,0,9,0,'Orcs\Orcs_Schwarzork_Champion_mit_zweihaendiger_Axt.jpg');
 INSERT INTO figure VALUES(385,'Schwarzork Standartenträger','Games Workshop','Zinn',1,0,9,1,'Orcs\Orcs_Schwarzork_Standartentraeger.jpg');
 INSERT INTO figure VALUES(386,'Schwarzork Musiker','Games Workshop','Zinn',1,0,9,1,'Orcs\Orcs_Schwarzork_Musiker.jpg');
@@ -5772,6 +5772,8 @@ INSERT INTO figure VALUES(525,'Drache','Games Workshop','Zinn',0,0,7,3,'HighElve
 INSERT INTO figure VALUES(526,'Champion','Games Workshop','Zinn',1,0,7,0,'HighElves\HighElf_Fighter2_Sword_Dagger.jpg');
 INSERT INTO figure VALUES(527,'Riesenslayer','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_GiantSlayer2.jpg');
 INSERT INTO figure VALUES(528,'Bergwerker Champion','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_Miner_Champion2.jpg');
+INSERT INTO figure VALUES(529,'Ork Musiker','Games Workshop','Zinn',1,0,9,0,'Orcs\Orcs_Ork_Musiker_2.jpg');
+INSERT INTO figure VALUES(530,'Ork Standartenträger','Games Workshop','Zinn',1,0,9,1,'Orcs\Orcs_Ork_Standartentraeger_2.jpg');
 
 
 INSERT INTO main_model_figure VALUES(1,11516,65);
@@ -6043,6 +6045,19 @@ INSERT INTO main_model_figure VALUES(267,11453,395);
 INSERT INTO main_model_figure VALUES(268,11458,395);
 INSERT INTO main_model_figure VALUES(269,11463,395);
 INSERT INTO main_model_figure VALUES(270,11468,395);
+INSERT INTO main_model_figure VALUES(271,11856,431);
+INSERT INTO main_model_figure VALUES(272,11855,383);
+INSERT INTO main_model_figure VALUES(273,11855,529);
+INSERT INTO main_model_figure VALUES(274,11855,381);
+INSERT INTO main_model_figure VALUES(275,11855,530);
+INSERT INTO main_model_figure VALUES(276,11856,383);
+INSERT INTO main_model_figure VALUES(277,11856,529);
+INSERT INTO main_model_figure VALUES(278,11856,381);
+INSERT INTO main_model_figure VALUES(279,11856,530);
+INSERT INTO main_model_figure VALUES(280,11433,530);
+INSERT INTO main_model_figure VALUES(281,11433,530);
+INSERT INTO main_model_figure VALUES(282,11855,427);
+INSERT INTO main_model_figure VALUES(283,11855,432);
 
 
 COMMIT;
