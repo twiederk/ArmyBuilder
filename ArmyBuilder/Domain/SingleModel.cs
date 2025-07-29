@@ -98,7 +98,16 @@ namespace ArmyBuilder.Domain
         }
 
         public float BasePoints() {
-            return (Profile.Points + Equipment.NonMagicItemsPoints()) * Count;
+            float equipmentPoints;
+            if (Profile.Points <= 5)
+            {
+                equipmentPoints = Equipment.NonMagicItemsPoints() / 2f;
+            }
+            else
+            {
+                equipmentPoints = Equipment.NonMagicItemsPoints();
+            }
+            return (Profile.Points + equipmentPoints) * Count;
         }
 
         public float MagicPoints() {
