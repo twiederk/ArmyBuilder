@@ -3,9 +3,7 @@ using ArmyBuilder.Domain;
 using ArmyBuilder.ViewModels;
 using FluentAssertions;
 using Moq;
-using System.Collections.Generic;
-using System.Xaml.Schema;
-using Xunit;
+
 
 namespace ArmyBuilder.Test.ViewModels
 {

@@ -3,11 +3,7 @@ using ArmyBuilder.Domain;
 using ArmyBuilder.Test.Dao;
 using ArmyBuilder.ViewModels;
 using FluentAssertions;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SQLite;
-using System.Runtime.CompilerServices;
-using Xunit;
 
 namespace ArmyBuilder.Test.ViewModels
 {
