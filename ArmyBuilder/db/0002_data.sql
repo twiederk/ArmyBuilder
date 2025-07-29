@@ -2647,7 +2647,7 @@ INSERT INTO melee_weapon VALUES(5767,'Dämonenschwert',60,'Jede Verletzung koste
 INSERT INTO melee_weapon VALUES(5768,'Chaosklinge',75,'Pro verursachten Schadenspunkte, eine zusätzliche Magiekarte.',4,0,1,0);
 INSERT INTO melee_weapon VALUES(5769,'Schwarze Axt des Krells',125,'Träger schlägt zuletzt, kein RW. In Magiephase verliert Opfer bei 1-2 einen LP.',4,0,1,0);
 INSERT INTO melee_weapon VALUES(5770,'Chaosrunenschwert',65,'+1 auf KG, Stärke und Attacken.',4,0,1,1);
-INSERT INTO melee_weapon VALUES(5868,'Axt Morgor',125,'',9,1,1,0);
+INSERT INTO melee_weapon VALUES(5868,'Axt Morgor',125,'',9,0,1,0);
 INSERT INTO melee_weapon VALUES(5869,'Axt von Chayal',65,'',7,0,1,0);
 INSERT INTO melee_weapon VALUES(5872,'Bronns Axt',25,'',14,1,1,0);
 INSERT INTO melee_weapon VALUES(5874,'Bugmans Runenaxt',40,'+1 auf Stärke und Attacken.',14,0,1,0);
@@ -2904,7 +2904,7 @@ INSERT INTO misc VALUES(5948,'Verführer',50,'',4,1,1);
 INSERT INTO misc VALUES(5949,'Vernichter',25,'',1,1,1);
 INSERT INTO misc VALUES(5950,'Vernichter im Namen Khornes',25,'',2,1,1);
 INSERT INTO misc VALUES(5953,'Warpsteinanmulett',10,'',10,1,1);
-INSERT INTO misc VALUES(5954,'Zauberkrone',125,'',9,1,1);
+INSERT INTO misc VALUES(5954,'Zauberkrone',125,'',-1,0,1);
 INSERT INTO misc VALUES(5955,'Zeremonelles Malachitzzepter',50,'',6,1,1);
 INSERT INTO misc VALUES(5957,'Zwei Säbelzahntiger',66,'',13,1,1);
 INSERT INTO misc VALUES(5960,'Amulett von Itza',25,'',6,1,1);
