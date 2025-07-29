@@ -114,6 +114,29 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
+        public void should_pay_half_for_non_magical_equipment_when_profile_points_are_5_or_less()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 5 } };
+            singleModel.MovementType = MovementType.OnFoot;
+
+            // Non-magical: 4 + 2 = 6, Magical: 30
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 4 } }); // non-magical
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } }); // non-magical
+            equipment.Slots.Add(new Slot { Item = new Misc { Points = 30, Magic = true } }); // magical
+            singleModel.Equipment = equipment;
+
+            // act
+            float points = singleModel.BasePoints();
+
+            // assert
+            // profile (5) + (4+2)/2 for non-magical = 5 + 3 = 8
+            points.Should().Be(8);
+        }
+
+
+        [Fact]
         public void should_sum_points_of_magic_items()
         {
             // arrange
