@@ -56,8 +56,8 @@ namespace ArmyBuilder.Print
             {
                 header.Cell().Element(CellStyle).Text("Name");
                 header.Cell().Element(CellStyle).Text("B");
-                header.Cell().Element(CellStyle).Text("WS");
-                header.Cell().Element(CellStyle).Text("BS");
+                header.Cell().Element(CellStyle).Text("KG");
+                header.Cell().Element(CellStyle).Text("BF");
                 header.Cell().Element(CellStyle).Text("S");
                 header.Cell().Element(CellStyle).Text("W");
                 header.Cell().Element(CellStyle).Text("LP");

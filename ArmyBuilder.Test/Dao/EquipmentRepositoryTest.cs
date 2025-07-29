@@ -22,7 +22,7 @@ namespace ArmyBuilder.Test.Dao
             List<MeleeWeapon> AllMeleeWeapon = equipmentRepository.AllMeleeWeapon();
 
             // assert
-            AllMeleeWeapon.Should().HaveCount(200);
+            AllMeleeWeapon.Should().HaveCount(202);
             MeleeWeapon two_handed_weapon = AllMeleeWeapon.FirstOrDefault(a => a.Id == Item.ID_TWO_HANDED_WEAPON);
             two_handed_weapon.Strength.Should().Be(2);
         }
@@ -65,13 +65,13 @@ namespace ArmyBuilder.Test.Dao
             armor.Magic.Should().BeFalse();
             armor.Points.Should().Be(0);
 
-            Armor chaosShield = AllArmor.FirstOrDefault(a => a.Id == 5784);
-            chaosShield.Id.Should().Be(5784);
-            chaosShield.Name.Should().Be("Magische Kriegsbemalung");
-            chaosShield.Description.Should().Be("RW von 3+ gegen Beschuß, 5+ im Nahkampf.");
-            chaosShield.ArmyList.Should().Be(new ArmyListDigest() { Id = 9, Name = "Orks & Goblins" });
-            chaosShield.Magic.Should().BeTrue();
-            chaosShield.Points.Should().Be(5);
+            Armor item = AllArmor.FirstOrDefault(a => a.Id == 5784);
+            item.Id.Should().Be(5784);
+            item.Name.Should().Be("Magische Kriegsbemalung");
+            item.Description.Should().Be("RW von 3+ gegen Beschuß, 5+ im Nahkampf.");
+            item.ArmyList.Should().Be(new ArmyListDigest() { Id = 9, Name = "Orks & Goblins" });
+            item.Magic.Should().BeFalse();
+            item.Points.Should().Be(1);
         }
 
         [Fact]
@@ -91,7 +91,7 @@ namespace ArmyBuilder.Test.Dao
             List<Item> AllItems = equipmentRepository.AllItems();
 
             // assert
-            AllItems.Should().HaveCount(446);
+            AllItems.Should().HaveCount(448);
         }
 
         [Fact]

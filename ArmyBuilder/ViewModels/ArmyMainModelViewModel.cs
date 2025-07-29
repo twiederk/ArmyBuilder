@@ -49,9 +49,13 @@ namespace ArmyBuilder.ViewModels
             if (_currentFigureIndex > 0)
             {
                 _currentFigureIndex--;
-                OnPropertyChanged("NumberOfFigures");
-                OnPropertyChanged("CurrentFigure");
             }
+            else
+            {
+                _currentFigureIndex = MainModel.Figures.Count - 1;
+            }
+            OnPropertyChanged("NumberOfFigures");
+            OnPropertyChanged("CurrentFigure");
         }
 
         public void NextImage()
@@ -59,9 +63,13 @@ namespace ArmyBuilder.ViewModels
             if (_currentFigureIndex < MainModel.Figures.Count - 1)
             {
                 _currentFigureIndex++;
-                OnPropertyChanged("NumberOfFigures");
-                OnPropertyChanged("CurrentFigure");
             }
+            else
+            {
+                _currentFigureIndex = 0;
+            }
+            OnPropertyChanged("NumberOfFigures");
+            OnPropertyChanged("CurrentFigure");
         }
 
         private int numberOfFigures()
