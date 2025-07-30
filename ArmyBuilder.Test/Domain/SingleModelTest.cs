@@ -134,7 +134,6 @@ namespace ArmyBuilder.Test.Domain
             var singleModel = new SingleModel 
             { 
                 Profile = new Profile { Save = 7 }, 
-                MovementType = MovementType.OnFoot,
                 MountSave = 0  // Should be ignored when not mounted
             };
 
@@ -172,8 +171,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_sum_points_of_profile_and_non_magic_equipment()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
-            singleModel.MovementType = MovementType.OnFoot;
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 }, MountSave = 0 };
 
             var equipment = new Equipment();
             equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
@@ -192,8 +190,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_pay_half_for_non_magical_equipment_when_profile_points_are_5_or_less()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 5 } };
-            singleModel.MovementType = MovementType.OnFoot;
+            var singleModel = new SingleModel { Profile = new Profile { Points = 5 }, MountSave = 0 };
 
             // Non-magical: 4 + 2 = 6, Magical: 30
             var equipment = new Equipment();
@@ -215,8 +212,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_sum_points_of_magic_items()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
-            singleModel.MovementType = MovementType.OnFoot;
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 }, MountSave = 0 };
 
             var equipment = new Equipment();
             equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
@@ -375,7 +371,7 @@ namespace ArmyBuilder.Test.Domain
             // arrange
             var singleModel = new SingleModel
             {
-                MovementType = MovementType.OnFoot
+                MountSave = 0
             };
 
             // act

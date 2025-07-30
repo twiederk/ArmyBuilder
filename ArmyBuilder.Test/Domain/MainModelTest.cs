@@ -155,7 +155,7 @@ namespace ArmyBuilder.Test.Domain
                     new SingleModel
                     {
                         Profile = new Profile { Points = 160 },
-                        MovementType = MovementType.OnFoot,
+                        MountSave = 0,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -228,7 +228,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Spearman",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnFoot,
+                        MountSave = 0,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -263,7 +263,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Spearman",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnFoot,
+                        MountSave = 0,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -298,7 +298,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Spearman",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnFoot,
+                        MountSave = 0,
                         Equipment = new Equipment
                         {
                             Slots =
