@@ -94,11 +94,13 @@ namespace ArmyBuilder.Domain
             return Equipment.MagicItemsPoints();
         }
 
-        public float ProfilePoints() {
+        public float ProfilePoints()
+        {
             return Profile.Points;
         }
 
-        public float BasePoints() {
+        public float BasePoints()
+        {
             float equipmentPoints;
             if (Profile.Points <= 5)
             {
@@ -111,8 +113,14 @@ namespace ArmyBuilder.Domain
             return (Profile.Points + equipmentPoints) * Count;
         }
 
-        public float MagicPoints() {
+        public float MagicPoints()
+        {
             return Equipment.MagicItemsPoints();
+        }
+
+        public bool IsMounted()
+        {
+            return MovementType == MovementType.OnMount;
         }
 
     }

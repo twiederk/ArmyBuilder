@@ -372,6 +372,38 @@ namespace ArmyBuilder.Test.Domain
             displayAttacks.Should().Be("1+1");
         }
 
+        [Fact]
+        public void should_return_false_when_single_model_is_not_mounted()
+        {
+            // arrange
+            var singleModel = new SingleModel
+            {
+                MovementType = MovementType.OnFoot
+            };
+
+            // act
+            Boolean mounted = singleModel.IsMounted();
+
+            // assert
+            mounted.Should().BeFalse();
+        }
+
+        [Fact]
+        public void should_return_true_when_single_model_is_mounted()
+        {
+            // arrange
+            var singleModel = new SingleModel
+            {
+                MovementType = MovementType.OnMount
+            };
+
+            // act
+            Boolean mounted = singleModel.IsMounted();
+
+            // assert
+            mounted.Should().BeTrue();
+        }
+
     }
 }
 
