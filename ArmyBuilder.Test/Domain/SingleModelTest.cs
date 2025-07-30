@@ -84,13 +84,91 @@ namespace ArmyBuilder.Test.Domain
         public void should_return_save_5_when_mount_status_is_riding()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Save = 7 }, MovementType = MovementType.OnMount };
+            var singleModel = new SingleModel { Profile = new Profile { Save = 7 }, MovementType = MovementType.OnMount, MountSave = 1 };
 
             // act
             string save = singleModel.Save;
 
             // assert
             save.Should().Be("6");
+        }
+
+        [Fact]
+        public void should_return_save_5_when_mounted_on_standard_mount()
+        {
+            // arrange
+            var singleModel = new SingleModel 
+            { 
+                Profile = new Profile { Save = 7 }, 
+                MovementType = MovementType.OnMount,
+                MountSave = 1  // Standard mount save bonus
+            };
+
+            // act
+            string save = singleModel.Save;
+
+            // assert
+            save.Should().Be("6");
+        }
+
+        [Fact]
+        public void should_return_save_4_when_mounted_on_heavy_mount()
+        {
+            // arrange
+            var singleModel = new SingleModel 
+            { 
+                Profile = new Profile { Save = 7 }, 
+                MovementType = MovementType.OnMount,
+                MountSave = 2  // Heavy mount (Wildschein/Kampfechse) save bonus
+            };
+
+            // act
+            string save = singleModel.Save;
+
+            // assert
+            save.Should().Be("5+");
+        }
+
+        [Fact]
+        public void should_ignore_mount_save_when_not_mounted()
+        {
+            // arrange
+            var singleModel = new SingleModel 
+            { 
+                Profile = new Profile { Save = 7 }, 
+                MovementType = MovementType.OnFoot,
+                MountSave = 2  // Should be ignored when not mounted
+            };
+
+            // act
+            string save = singleModel.Save;
+
+            // assert
+            save.Should().Be("-");
+        }
+
+        [Fact]
+        public void should_stack_mount_save_with_armor_and_shield()
+        {
+            // arrange
+            var lightArmorSlot = new Slot { Item = new Armor { Name = "Light Armor", Save = 1 } };
+            var shieldSlot = new Slot { Item = new Shield { Name = "Shield", Save = 1 } };
+            var equipment = new Equipment();
+            equipment.Slots.Add(lightArmorSlot);
+            equipment.Slots.Add(shieldSlot);
+            var singleModel = new SingleModel 
+            { 
+                Profile = new Profile { Save = 7 }, 
+                MovementType = MovementType.OnMount,
+                MountSave = 2,  // Heavy mount
+                Equipment = equipment 
+            };
+
+            // act
+            string save = singleModel.Save;
+
+            // assert
+            save.Should().Be("3+");
         }
 
         [Fact]

@@ -14,6 +14,7 @@ namespace ArmyBuilder.Domain
         public bool Mountable { get; set; }
         public int Count { get; set; } = 1;
         public Equipment Equipment { get; set; } = new Equipment();
+        public int MountSave { get; set; } = 0;
 
         public string Movement => DisplayValue(Profile.Movement);
         public string WeaponSkill => DisplayValue(Profile.WeaponSkill);
@@ -35,7 +36,7 @@ namespace ArmyBuilder.Domain
             int save = Profile.Save;
             int armorSave = Equipment.Armor().Sum(a => a?.Save ?? 0);
             int shieldSave = Equipment.Shield().Sum(s => s?.Save ?? 0);
-            int mountSave = MovementType == MovementType.OnMount ? 1 : 0;
+            int mountSave = MovementType == MovementType.OnMount ? MountSave : 0;
             return displaySave(save - armorSave - shieldSave - mountSave);
         }
 
