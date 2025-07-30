@@ -165,6 +165,7 @@ CREATE TABLE IF NOT EXISTS "single_model"
  "mount"             BIT,
  "mountable"         BIT,
  "count"             INTEGER,
+ "mount_save"        INTEGER,
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
  FOREIGN KEY (movement_type_id) REFERENCES movement_type(id) ON DELETE CASCADE
@@ -234,6 +235,7 @@ CREATE TABLE IF NOT EXISTS "army_single_model"
  "mount"                BIT,
  "mountable"            BIT,
  "count"                INTEGER,
+ "mount_save"           INTEGER,
  FOREIGN KEY (army_main_model_id) REFERENCES army_main_model(id) ON DELETE CASCADE 
  FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
  FOREIGN KEY (movement_type_id) REFERENCES movement_type(id) ON DELETE CASCADE 
