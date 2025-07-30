@@ -61,6 +61,7 @@ namespace ArmyBuilder.Test.Dao
             singleModel.Name.Should().Be("Streitwagenlenker");
             singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
+            singleModel.MountSave.Should().Be(0);
 
             Profile profile = singleModel.Profile;
             profile.Movement.Should().Be(5);

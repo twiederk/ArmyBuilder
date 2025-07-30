@@ -92,6 +92,7 @@ namespace ArmyBuilder.Domain
             if (singleModel.Mount)
             {
                 SingleModels[0].MovementType = MovementType.OnMount;
+                SingleModels[0].MountSave = singleModel.MountSave;
             }
             AddSingleModel(singleModel);
         }
@@ -115,6 +116,7 @@ namespace ArmyBuilder.Domain
                     MovementType = sm.MovementType,
                     Mount = sm.Mount,
                     Count = sm.Count,
+                    MountSave = sm.MountSave,
                     Profile = new Profile
                     {
                         Id = sm.Profile.Id,
