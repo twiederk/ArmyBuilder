@@ -36,7 +36,7 @@ namespace ArmyBuilder.Domain
             int save = Profile.Save;
             int armorSave = Equipment.Armor().Sum(a => a?.Save ?? 0);
             int shieldSave = Equipment.Shield().Sum(s => s?.Save ?? 0);
-            int mountSave = MovementType == MovementType.OnMount ? MountSave : 0;
+            int mountSave = IsMounted() ? MountSave : 0;
             return displaySave(save - armorSave - shieldSave - mountSave);
         }
 
@@ -53,7 +53,7 @@ namespace ArmyBuilder.Domain
         public string DisplayStrength()
         {
             MeleeWeapon? meleeWeapon = Equipment.MeleeWeapon();
-            return meleeWeapon?.DisplayStrength(Profile.Strength, MovementType) ?? DisplayValue(Profile.Strength);
+            return meleeWeapon?.DisplayStrength(Profile.Strength, IsMounted()) ?? DisplayValue(Profile.Strength);
         }
 
         public string DisplayInitiative()

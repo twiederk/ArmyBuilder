@@ -38,7 +38,7 @@ namespace ArmyBuilder.Domain
             float modelPoints = 0;
             foreach (var singleModel in SingleModels)
             {
-                if (singleModel.MovementType == MovementType.OnMount)
+                if (singleModel.IsMounted())
                 {
                     modelPoints += singleModel.BasePoints() * 2;
                 }

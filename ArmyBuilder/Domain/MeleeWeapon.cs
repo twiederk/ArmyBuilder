@@ -7,7 +7,7 @@ namespace ArmyBuilder.Domain
     {
         public int Strength { get; set; }
 
-        public string DisplayStrength(int profileStrength, MovementType movementType = MovementType.OnFoot)
+        public string DisplayStrength(int profileStrength, bool mounted = false)
         {
             int totalStrength = profileStrength + Strength;
 
@@ -15,7 +15,7 @@ namespace ArmyBuilder.Domain
             {
                 case ID_SPEAR:
                 case ID_LANCE:
-                    if (movementType == MovementType.OnMount)
+                    if (mounted)
                         return $"{totalStrength}/{profileStrength}";
                     else
                         return $"{profileStrength}";
