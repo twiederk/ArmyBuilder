@@ -63,7 +63,6 @@ namespace ArmyBuilder.Test.Domain
                     new SingleModel
                     {
                         Profile = new Profile { Id = 2, Points = 20 },
-                        MovementType = MovementType.OnMount,
                         Mount = true,
                         MountSave = 1
                     }
@@ -84,7 +83,6 @@ namespace ArmyBuilder.Test.Domain
 
             clone.SingleModels[1].Profile.Id.Should().Be(2);
             clone.SingleModels[1].Profile.Points.Should().Be(20);
-            clone.SingleModels[1].MovementType.Should().Be(MovementType.OnMount);
             clone.SingleModels[1].Mount.Should().BeTrue();
             clone.SingleModels[1].MountSave.Should().Be(1);
         }
@@ -143,7 +141,6 @@ namespace ArmyBuilder.Test.Domain
             // assert
             mainModel.SingleModels.Should().HaveCount(2);
             mainModel.SingleModels.Should().ContainSingle(sm => sm.Id == singleModel.Id && sm.Name == singleModel.Name);
-            mainModel.SingleModels[0].MovementType.Should().Be(MovementType.OnMount);
             mainModel.SingleModels[0].MountSave.Should().Be(1);
         }
 
@@ -192,7 +189,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "General",
                         Profile = new Profile { Points = 160 },
-                        MovementType = MovementType.OnMount,
+                        MountSave = 1,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -336,7 +333,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Knight",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnMount,
+                        MountSave = 1,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -376,7 +373,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Knight",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnMount,
+                        MountSave = 1,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -416,7 +413,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Knight",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnMount,
+                        MountSave = 1,
                         Equipment = new Equipment
                         {
                             Slots =

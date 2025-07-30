@@ -293,7 +293,7 @@ namespace ArmyBuilder.Test.Dao
                 Id = 46812,
                 Name = "Mount",
                 Profile = new Profile { Id = 11902, Movement = 6, WeaponSkill = 4, BallisticSkill = 3, Strength = 4, Toughness = 4, Wounds = 2, Initiative = 6, Attacks = 2, Moral = 7, Points = 15, Save = 6 },
-                MovementType = MovementType.OnMount,
+                MountSave = 1,
                 Equipment = new Equipment()
             };
 

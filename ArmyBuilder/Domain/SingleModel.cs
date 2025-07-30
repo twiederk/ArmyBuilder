@@ -120,7 +120,7 @@ namespace ArmyBuilder.Domain
 
         public bool IsMounted()
         {
-            return MovementType == MovementType.OnMount;
+            return MountSave > 0;
         }
 
     }

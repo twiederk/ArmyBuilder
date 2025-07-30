@@ -78,7 +78,6 @@ namespace ArmyBuilder.Test.Dao
 
             singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.MovementType.Should().Be(MovementType.OnMount);
             singleModel.Mount.Should().BeFalse();
             singleModel.MountSave.Should().Be(1);
 
@@ -138,7 +137,6 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.MovementType.Should().Be(MovementType.OnMount);
             singleModel.Mount.Should().BeFalse();     
             singleModel.MountSave.Should().Be(1);
             singleModel.Profile.Movement.Should().Be(5);

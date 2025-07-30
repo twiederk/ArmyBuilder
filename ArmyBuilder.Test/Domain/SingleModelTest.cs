@@ -84,7 +84,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_return_save_5_when_mount_status_is_riding()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Save = 7 }, MovementType = MovementType.OnMount, MountSave = 1 };
+            var singleModel = new SingleModel { Profile = new Profile { Save = 7 }, MountSave = 1 };
 
             // act
             string save = singleModel.Save;
@@ -100,7 +100,6 @@ namespace ArmyBuilder.Test.Domain
             var singleModel = new SingleModel 
             { 
                 Profile = new Profile { Save = 7 }, 
-                MovementType = MovementType.OnMount,
                 MountSave = 1  // Standard mount save bonus
             };
 
@@ -118,7 +117,6 @@ namespace ArmyBuilder.Test.Domain
             var singleModel = new SingleModel 
             { 
                 Profile = new Profile { Save = 7 }, 
-                MovementType = MovementType.OnMount,
                 MountSave = 2  // Heavy mount (Wildschein/Kampfechse) save bonus
             };
 
@@ -137,7 +135,7 @@ namespace ArmyBuilder.Test.Domain
             { 
                 Profile = new Profile { Save = 7 }, 
                 MovementType = MovementType.OnFoot,
-                MountSave = 2  // Should be ignored when not mounted
+                MountSave = 0  // Should be ignored when not mounted
             };
 
             // act
@@ -159,7 +157,6 @@ namespace ArmyBuilder.Test.Domain
             var singleModel = new SingleModel 
             { 
                 Profile = new Profile { Save = 7 }, 
-                MovementType = MovementType.OnMount,
                 MountSave = 2,  // Heavy mount
                 Equipment = equipment 
             };
@@ -308,7 +305,7 @@ namespace ArmyBuilder.Test.Domain
             {
                 Profile = new Profile { Strength = 3 },
                 Equipment = new Equipment { Slots = { new Slot { Item = lance } } },
-                MovementType = MovementType.OnMount
+                MountSave = 1
             };
 
             // act
@@ -394,7 +391,7 @@ namespace ArmyBuilder.Test.Domain
             // arrange
             var singleModel = new SingleModel
             {
-                MovementType = MovementType.OnMount
+                MountSave = 1
             };
 
             // act

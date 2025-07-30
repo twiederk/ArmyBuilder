@@ -89,11 +89,7 @@ namespace ArmyBuilder.Domain
 
         public void AddMount(SingleModel singleModel)
         {
-            if (singleModel.Mount)
-            {
-                SingleModels[0].MovementType = MovementType.OnMount;
-                SingleModels[0].MountSave = singleModel.MountSave;
-            }
+            SingleModels[0].MountSave = singleModel.MountSave;
             AddSingleModel(singleModel);
         }
 
