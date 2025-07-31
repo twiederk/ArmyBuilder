@@ -129,7 +129,7 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
-        public void should_set_movement_type_to_on_mount_when_adding_mount_to_main_model()
+        public void should_set_mount_save_to_on_mount_when_adding_mount_to_main_model()
         {
             // arrange
             var mainModel = new MainModel { SingleModels = { new SingleModel { Id = 1, Name = "Existing Single Model" } } };

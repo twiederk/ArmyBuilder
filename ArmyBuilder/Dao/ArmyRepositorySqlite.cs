@@ -53,7 +53,7 @@ namespace ArmyBuilder.Dao
                     al.Id, al.Name,
                     au.Id, au.Name,
                     amm.Id, amm.army_category_id as ArmyCategory, amm.Name, amm.Description, amm.Points as OldPoints, amm.count as Count, amm.Uniquely, amm.standard_bearer AS StandardBearer, amm.musician,
-                    asm.Id, asm.Name, asm.profile_id as ProfileId, asm.movement_type_id as MovementType, asm.mount, asm.mountable, asm.count, asm.mount_save As MountSave,
+                    asm.Id, asm.Name, asm.profile_id as ProfileId, asm.mount, asm.mountable, asm.count, asm.mount_save As MountSave,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
                     army a
@@ -223,8 +223,8 @@ namespace ArmyBuilder.Dao
         public SingleModel AddSingleModel(int mainModelId, SingleModel singleModel)
         {
             var sql = @"
-                INSERT INTO army_single_model (army_main_model_id, name, profile_id, movement_type_id, mount, mountable, count, mount_save)
-                VALUES (@MainModelId, @Name, @ProfileId, @MovementType, @Mount, @Mountable, @Count, @MountSave);
+                INSERT INTO army_single_model (army_main_model_id, name, profile_id, mount, mountable, count, mount_save)
+                VALUES (@MainModelId, @Name, @ProfileId, @Mount, @Mountable, @Count, @MountSave);
                 SELECT last_insert_rowid();";
 
             var singleModelId = _dbConnection.ExecuteScalar<int>(sql, new
@@ -378,7 +378,6 @@ namespace ArmyBuilder.Dao
                 UPDATE army_single_model
                 SET name = @Name,
                     profile_id = @ProfileId,
-                    movement_type_id = @MovementType,
                     mount = @Mount,
                     mountable = @Mountable,
                     count = @Count,
@@ -389,7 +388,6 @@ namespace ArmyBuilder.Dao
             {
                 singleModel.Name,
                 ProfileId = singleModel.Profile.Id,
-                singleModel.MovementType,
                 singleModel.Mount,
                 singleModel.Mountable,
                 singleModel.Count,
