@@ -66,7 +66,7 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public void AddSingleModel(SingleModel singleModel)
+        public void AddMount(SingleModel singleModel)
         {
             MainModel.AddMount(singleModel);
             SingleModels.Add(new SingleModelTreeNode(singleModel, this));
