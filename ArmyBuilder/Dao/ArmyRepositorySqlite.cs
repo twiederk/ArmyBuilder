@@ -232,7 +232,6 @@ namespace ArmyBuilder.Dao
                 MainModelId = mainModelId,
                 singleModel.Name,
                 ProfileId = singleModel.Profile.Id,
-                singleModel.MovementType,
                 singleModel.Mount,
                 singleModel.Mountable,
                 singleModel.Count,
