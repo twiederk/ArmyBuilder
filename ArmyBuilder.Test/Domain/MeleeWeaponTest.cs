@@ -39,7 +39,7 @@ namespace ArmyBuilder.Test.Domain
             MeleeWeapon lance = new MeleeWeapon() { Id = Item.ID_LANCE, Strength = 2 };
 
             // act
-            string displayStrength = lance.DisplayStrength(3, MovementType.OnMount);
+            string displayStrength = lance.DisplayStrength(3, true);
 
             // assert
             displayStrength.Should().Be("5/3");
@@ -52,7 +52,7 @@ namespace ArmyBuilder.Test.Domain
             MeleeWeapon lance = new MeleeWeapon() { Id = Item.ID_LANCE, Strength = 2 };
 
             // act
-            string displayStrength = lance.DisplayStrength(3, MovementType.OnFoot);
+            string displayStrength = lance.DisplayStrength(3, false);
 
             // assert
             displayStrength.Should().Be("3");

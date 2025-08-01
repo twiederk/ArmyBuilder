@@ -59,8 +59,8 @@ namespace ArmyBuilder.Test.Dao
 
             SingleModel singleModel = general.SingleModels[0];
             singleModel.Name.Should().Be("Streitwagenlenker");
-            singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
+            singleModel.MountSave.Should().Be(0);
 
             Profile profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
@@ -179,7 +179,7 @@ namespace ArmyBuilder.Test.Dao
                 Id = 46811,
                 Name = "Schwertmeister",
                 Profile = new Profile { Id = 11901 },
-                MovementType = MovementType.OnFoot,
+                MountSave = 0,
                 Equipment = equipment
             };
             MainModel mainModel = new MainModel { Id = 11901, Name = "Schwertmeister von Hoeth", Count = 3 };
@@ -201,7 +201,7 @@ namespace ArmyBuilder.Test.Dao
             testMainModel.SingleModels.Should().HaveCount(1);
             var testSingleModel = testMainModel.SingleModels[0];
             testSingleModel.Name.Should().Be("Schwertmeister");
-            testSingleModel.MovementType.Should().Be(MovementType.OnFoot);
+            testSingleModel.MountSave.Should().Be(0);
             testSingleModel.Mount.Should().BeFalse();
 
             // teardown
@@ -279,7 +279,7 @@ namespace ArmyBuilder.Test.Dao
                 Id = 46811,
                 Name = "General",
                 Profile = new Profile { Id = 11901, Movement = 5, WeaponSkill = 5, BallisticSkill = 4, Strength = 3, Toughness = 3, Wounds = 1, Initiative = 7, Attacks = 1, Moral = 8, Points = 10, Save = 7 },
-                MovementType = MovementType.OnFoot,
+                MountSave = 0,
             };
             MainModel mainModel = new MainModel { Name = "General", Count = 1 };
             mainModel.AddSingleModel(generalSingleModel);
@@ -292,7 +292,7 @@ namespace ArmyBuilder.Test.Dao
                 Id = 46812,
                 Name = "Mount",
                 Profile = new Profile { Id = 11902, Movement = 6, WeaponSkill = 4, BallisticSkill = 3, Strength = 4, Toughness = 4, Wounds = 2, Initiative = 6, Attacks = 2, Moral = 7, Points = 15, Save = 6 },
-                MovementType = MovementType.OnMount,
+                MountSave = 1,
                 Equipment = new Equipment()
             };
 

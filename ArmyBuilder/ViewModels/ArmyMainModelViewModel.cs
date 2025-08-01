@@ -92,12 +92,8 @@ namespace ArmyBuilder.ViewModels
 
         private string equipment() 
         {
-            string equipment = "";
-            foreach (var singleModel in MainModel.SingleModels)
-            {
-                equipment += string.Join(", ", singleModel.Equipment.ItemNames());
-            }
-            return equipment;
+            return string.Join(", ", MainModel.SingleModels
+                .Select(sm => string.Join(", ", sm.Equipment.ItemNames())));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

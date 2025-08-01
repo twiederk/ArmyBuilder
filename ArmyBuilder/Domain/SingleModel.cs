@@ -9,11 +9,11 @@ namespace ArmyBuilder.Domain
         public string Name { get; set; }
         public string DisplayName => $"{Name} ({Profile.Points})";
         public Profile Profile { get; set; }
-        public MovementType MovementType { get; set; }
         public bool Mount { get; set; }
         public bool Mountable { get; set; }
         public int Count { get; set; } = 1;
         public Equipment Equipment { get; set; } = new Equipment();
+        public int MountSave { get; set; } = 0;
 
         public string Movement => DisplayValue(Profile.Movement);
         public string WeaponSkill => DisplayValue(Profile.WeaponSkill);
@@ -35,7 +35,7 @@ namespace ArmyBuilder.Domain
             int save = Profile.Save;
             int armorSave = Equipment.Armor().Sum(a => a?.Save ?? 0);
             int shieldSave = Equipment.Shield().Sum(s => s?.Save ?? 0);
-            int mountSave = MovementType == MovementType.OnMount ? 1 : 0;
+            int mountSave = IsMounted() ? MountSave : 0;
             return displaySave(save - armorSave - shieldSave - mountSave);
         }
 
@@ -52,7 +52,7 @@ namespace ArmyBuilder.Domain
         public string DisplayStrength()
         {
             MeleeWeapon? meleeWeapon = Equipment.MeleeWeapon();
-            return meleeWeapon?.DisplayStrength(Profile.Strength, MovementType) ?? DisplayValue(Profile.Strength);
+            return meleeWeapon?.DisplayStrength(Profile.Strength, IsMounted()) ?? DisplayValue(Profile.Strength);
         }
 
         public string DisplayInitiative()
@@ -93,16 +93,33 @@ namespace ArmyBuilder.Domain
             return Equipment.MagicItemsPoints();
         }
 
-        public float ProfilePoints() {
+        public float ProfilePoints()
+        {
             return Profile.Points;
         }
 
-        public float BasePoints() {
-            return (Profile.Points + Equipment.NonMagicItemsPoints()) * Count;
+        public float BasePoints()
+        {
+            float equipmentPoints;
+            if (Profile.Points <= 5)
+            {
+                equipmentPoints = Equipment.NonMagicItemsPoints() / 2f;
+            }
+            else
+            {
+                equipmentPoints = Equipment.NonMagicItemsPoints();
+            }
+            return (Profile.Points + equipmentPoints) * Count;
         }
 
-        public float MagicPoints() {
+        public float MagicPoints()
+        {
             return Equipment.MagicItemsPoints();
+        }
+
+        public bool IsMounted()
+        {
+            return MountSave > 0;
         }
 
     }

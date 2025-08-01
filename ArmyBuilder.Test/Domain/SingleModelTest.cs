@@ -84,7 +84,7 @@ namespace ArmyBuilder.Test.Domain
         public void should_return_save_5_when_mount_status_is_riding()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Save = 7 }, MovementType = MovementType.OnMount };
+            var singleModel = new SingleModel { Profile = new Profile { Save = 7 }, MountSave = 1 };
 
             // act
             string save = singleModel.Save;
@@ -94,11 +94,84 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
+        public void should_return_save_5_when_mounted_on_standard_mount()
+        {
+            // arrange
+            var singleModel = new SingleModel 
+            { 
+                Profile = new Profile { Save = 7 }, 
+                MountSave = 1  // Standard mount save bonus
+            };
+
+            // act
+            string save = singleModel.Save;
+
+            // assert
+            save.Should().Be("6");
+        }
+
+        [Fact]
+        public void should_return_save_4_when_mounted_on_heavy_mount()
+        {
+            // arrange
+            var singleModel = new SingleModel 
+            { 
+                Profile = new Profile { Save = 7 }, 
+                MountSave = 2  // Heavy mount (Wildschein/Kampfechse) save bonus
+            };
+
+            // act
+            string save = singleModel.Save;
+
+            // assert
+            save.Should().Be("5+");
+        }
+
+        [Fact]
+        public void should_ignore_mount_save_when_not_mounted()
+        {
+            // arrange
+            var singleModel = new SingleModel 
+            { 
+                Profile = new Profile { Save = 7 }, 
+                MountSave = 0  // Should be ignored when not mounted
+            };
+
+            // act
+            string save = singleModel.Save;
+
+            // assert
+            save.Should().Be("-");
+        }
+
+        [Fact]
+        public void should_stack_mount_save_with_armor_and_shield()
+        {
+            // arrange
+            var lightArmorSlot = new Slot { Item = new Armor { Name = "Light Armor", Save = 1 } };
+            var shieldSlot = new Slot { Item = new Shield { Name = "Shield", Save = 1 } };
+            var equipment = new Equipment();
+            equipment.Slots.Add(lightArmorSlot);
+            equipment.Slots.Add(shieldSlot);
+            var singleModel = new SingleModel 
+            { 
+                Profile = new Profile { Save = 7 }, 
+                MountSave = 2,  // Heavy mount
+                Equipment = equipment 
+            };
+
+            // act
+            string save = singleModel.Save;
+
+            // assert
+            save.Should().Be("3+");
+        }
+
+        [Fact]
         public void should_sum_points_of_profile_and_non_magic_equipment()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
-            singleModel.MovementType = MovementType.OnFoot;
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 }, MountSave = 0 };
 
             var equipment = new Equipment();
             equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
@@ -114,11 +187,32 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
+        public void should_pay_half_for_non_magical_equipment_when_profile_points_are_5_or_less()
+        {
+            // arrange
+            var singleModel = new SingleModel { Profile = new Profile { Points = 5 }, MountSave = 0 };
+
+            // Non-magical: 4 + 2 = 6, Magical: 30
+            var equipment = new Equipment();
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 4 } }); // non-magical
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } }); // non-magical
+            equipment.Slots.Add(new Slot { Item = new Misc { Points = 30, Magic = true } }); // magical
+            singleModel.Equipment = equipment;
+
+            // act
+            float points = singleModel.BasePoints();
+
+            // assert
+            // profile (5) + (4+2)/2 for non-magical = 5 + 3 = 8
+            points.Should().Be(8);
+        }
+
+
+        [Fact]
         public void should_sum_points_of_magic_items()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 10 } };
-            singleModel.MovementType = MovementType.OnFoot;
+            var singleModel = new SingleModel { Profile = new Profile { Points = 10 }, MountSave = 0 };
 
             var equipment = new Equipment();
             equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 1 } });
@@ -207,7 +301,7 @@ namespace ArmyBuilder.Test.Domain
             {
                 Profile = new Profile { Strength = 3 },
                 Equipment = new Equipment { Slots = { new Slot { Item = lance } } },
-                MovementType = MovementType.OnMount
+                MountSave = 1
             };
 
             // act
@@ -269,6 +363,38 @@ namespace ArmyBuilder.Test.Domain
 
             // assert
             displayAttacks.Should().Be("1+1");
+        }
+
+        [Fact]
+        public void should_return_false_when_single_model_is_not_mounted()
+        {
+            // arrange
+            var singleModel = new SingleModel
+            {
+                MountSave = 0
+            };
+
+            // act
+            Boolean mounted = singleModel.IsMounted();
+
+            // assert
+            mounted.Should().BeFalse();
+        }
+
+        [Fact]
+        public void should_return_true_when_single_model_is_mounted()
+        {
+            // arrange
+            var singleModel = new SingleModel
+            {
+                MountSave = 1
+            };
+
+            // act
+            Boolean mounted = singleModel.IsMounted();
+
+            // assert
+            mounted.Should().BeTrue();
         }
 
     }

@@ -47,8 +47,8 @@ namespace ArmyBuilder.Test.Dao
 
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
+            singleModel.MountSave.Should().Be(0);
 
             var profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
@@ -77,8 +77,8 @@ namespace ArmyBuilder.Test.Dao
 
             singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.MovementType.Should().Be(MovementType.OnMount);
             singleModel.Mount.Should().BeFalse();
+            singleModel.MountSave.Should().Be(1);
 
             profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
@@ -111,8 +111,8 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
+            singleModel.MountSave.Should().Be(0);
             singleModel.Profile.Movement.Should().Be(5);
             singleModel.Profile.WeaponSkill.Should().Be(5);
             singleModel.Profile.BallisticSkill.Should().Be(4);
@@ -135,8 +135,8 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.MovementType.Should().Be(MovementType.OnMount);
-            singleModel.Mount.Should().BeFalse();            
+            singleModel.Mount.Should().BeFalse();     
+            singleModel.MountSave.Should().Be(1);
             singleModel.Profile.Movement.Should().Be(5);
             singleModel.Profile.WeaponSkill.Should().Be(5);
             singleModel.Profile.BallisticSkill.Should().Be(4);
@@ -163,8 +163,8 @@ namespace ArmyBuilder.Test.Dao
 
             SingleModel singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
+            singleModel.MountSave.Should().Be(0);
 
             Profile profile = singleModel.Profile;
             profile.Movement.Should().Be(5);
@@ -198,8 +198,8 @@ namespace ArmyBuilder.Test.Dao
 
             SingleModel singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Seegardist");
-            singleModel.MovementType.Should().Be(MovementType.OnFoot);
             singleModel.Mount.Should().BeFalse();
+            singleModel.MountSave.Should().Be(0);
 
             Profile profile = singleModel.Profile;
             profile.Movement.Should().Be(5);

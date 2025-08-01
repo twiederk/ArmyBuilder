@@ -38,7 +38,7 @@ namespace ArmyBuilder.Domain
             float modelPoints = 0;
             foreach (var singleModel in SingleModels)
             {
-                if (singleModel.MovementType == MovementType.OnMount)
+                if (singleModel.IsMounted())
                 {
                     modelPoints += singleModel.BasePoints() * 2;
                 }
@@ -89,10 +89,7 @@ namespace ArmyBuilder.Domain
 
         public void AddMount(SingleModel singleModel)
         {
-            if (singleModel.Mount)
-            {
-                SingleModels[0].MovementType = MovementType.OnMount;
-            }
+            SingleModels[0].MountSave = singleModel.MountSave;
             AddSingleModel(singleModel);
         }
 
@@ -112,9 +109,9 @@ namespace ArmyBuilder.Domain
                 {
                     Id = sm.Id,
                     Name = sm.Name,
-                    MovementType = sm.MovementType,
                     Mount = sm.Mount,
                     Count = sm.Count,
+                    MountSave = sm.MountSave,
                     Profile = new Profile
                     {
                         Id = sm.Profile.Id,

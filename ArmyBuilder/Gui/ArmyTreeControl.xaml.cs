@@ -206,7 +206,7 @@ namespace ArmyBuilder
                     var selectedMount = selectMountWindow.SelectedMount;
                     if (selectedMount != null)
                     {
-                        mainModelTreeNode.AddSingleModel(selectedMount);
+                        mainModelTreeNode.AddMount(selectedMount);
                         armyViewModel.AddSingleModelToMainModel(mainModelTreeNode.MainModel.Id, selectedMount);
                         armyViewModel.UpdateSingleModel(mainModelTreeNode.MainModel.SingleModels[0]);
                     }

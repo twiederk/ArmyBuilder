@@ -63,8 +63,8 @@ namespace ArmyBuilder.Test.Domain
                     new SingleModel
                     {
                         Profile = new Profile { Id = 2, Points = 20 },
-                        MovementType = MovementType.OnMount,
-                        Mount = true
+                        Mount = true,
+                        MountSave = 1
                     }
                 }
             };
@@ -83,8 +83,8 @@ namespace ArmyBuilder.Test.Domain
 
             clone.SingleModels[1].Profile.Id.Should().Be(2);
             clone.SingleModels[1].Profile.Points.Should().Be(20);
-            clone.SingleModels[1].MovementType.Should().Be(MovementType.OnMount);
             clone.SingleModels[1].Mount.Should().BeTrue();
+            clone.SingleModels[1].MountSave.Should().Be(1);
         }
 
         [Fact]
@@ -121,7 +121,7 @@ namespace ArmyBuilder.Test.Domain
             var singleModel = new SingleModel { Id = 2, Name = "Additional Single Model" };
 
             // act
-            mainModel.AddMount(singleModel);
+            mainModel.AddSingleModel(singleModel);
 
             // assert
             mainModel.SingleModels.Should().HaveCount(2);
@@ -129,11 +129,11 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
-        public void should_set_movement_type_to_on_mount_when_adding_mount_to_main_model()
+        public void should_set_mount_save_to_on_mount_when_adding_mount_to_main_model()
         {
             // arrange
             var mainModel = new MainModel { SingleModels = { new SingleModel { Id = 1, Name = "Existing Single Model" } } };
-            var singleModel = new SingleModel { Id = 2, Name = "Additional Single Model", Mount = true };
+            var singleModel = new SingleModel { Id = 2, Name = "Additional Single Model", Mount = true, MountSave = 1 };
 
             // act
             mainModel.AddMount(singleModel);
@@ -141,7 +141,7 @@ namespace ArmyBuilder.Test.Domain
             // assert
             mainModel.SingleModels.Should().HaveCount(2);
             mainModel.SingleModels.Should().ContainSingle(sm => sm.Id == singleModel.Id && sm.Name == singleModel.Name);
-            mainModel.SingleModels[0].MovementType.Should().Be(MovementType.OnMount);
+            mainModel.SingleModels[0].MountSave.Should().Be(1);
         }
 
         [Fact]
@@ -155,7 +155,7 @@ namespace ArmyBuilder.Test.Domain
                     new SingleModel
                     {
                         Profile = new Profile { Points = 160 },
-                        MovementType = MovementType.OnFoot,
+                        MountSave = 0,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -189,7 +189,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "General",
                         Profile = new Profile { Points = 160 },
-                        MovementType = MovementType.OnMount,
+                        MountSave = 1,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -228,7 +228,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Spearman",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnFoot,
+                        MountSave = 0,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -263,7 +263,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Spearman",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnFoot,
+                        MountSave = 0,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -298,7 +298,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Spearman",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnFoot,
+                        MountSave = 0,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -333,7 +333,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Knight",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnMount,
+                        MountSave = 1,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -373,7 +373,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Knight",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnMount,
+                        MountSave = 1,
                         Equipment = new Equipment
                         {
                             Slots =
@@ -413,7 +413,7 @@ namespace ArmyBuilder.Test.Domain
                     {
                         Name = "Knight",
                         Profile = new Profile { Points = 10 },
-                        MovementType = MovementType.OnMount,
+                        MountSave = 1,
                         Equipment = new Equipment
                         {
                             Slots =
