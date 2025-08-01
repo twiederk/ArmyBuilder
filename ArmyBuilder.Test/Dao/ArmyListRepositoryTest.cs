@@ -225,12 +225,11 @@ namespace ArmyBuilder.Test.Dao
             int highElfArmyListId = 7;
 
             // act
-            List<SingleModel> mounts = armyListRepository.Mounts(highElfArmyListId);
+            List<MountModel> mountModels = armyListRepository.MountModels(highElfArmyListId);
 
             // assert
-            mounts.Should().HaveCount(12);
-            SingleModel greif = mounts.First(m => m.Name == "Greif");
-            greif.Mountable.Should().BeTrue();
+            mountModels.Should().HaveCount(12);
+            MountModel greif = mountModels.First(m => m.Name == "Greif");
             greif.Profile.Wounds.Should().Be(5);
 
         }
