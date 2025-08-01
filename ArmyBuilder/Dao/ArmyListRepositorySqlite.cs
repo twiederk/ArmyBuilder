@@ -208,7 +208,7 @@ namespace ArmyBuilder.Dao
             return mainModelDictionary.Values.FirstOrDefault();
         }
 
-        public List<SingleModel> Mounts(int armyListId)
+        public List<MountModel> MountModels(int armyListId)
         {
             var sql = @"
                 SELECT 
@@ -223,16 +223,16 @@ namespace ArmyBuilder.Dao
                 WHERE 
                     sm.mountable = 1 AND mm.army_list_id = @ArmyListId";
 
-            var singleModelDictionary = new Dictionary<int, SingleModel>();
+            var mountModelDictionary = new Dictionary<int, MountModel>();
 
-            var result = _dbConnection.Query<SingleModel, Profile, SingleModel>(
+            var result = _dbConnection.Query<MountModel, Profile, MountModel>(
                 sql,
-                (singleModel, profile) =>
+                (mountModel, profile) =>
                 {
-                    if (!singleModelDictionary.TryGetValue(singleModel.Id, out var currentSingleModel))
+                    if (!mountModelDictionary.TryGetValue(mountModel.Id, out var currentSingleModel))
                     {
-                        currentSingleModel = singleModel;
-                        singleModelDictionary.Add(currentSingleModel.Id, currentSingleModel);
+                        currentSingleModel = mountModel;
+                        mountModelDictionary.Add(currentSingleModel.Id, currentSingleModel);
                     }
 
                     currentSingleModel.Profile = profile;

@@ -133,15 +133,16 @@ namespace ArmyBuilder.Test.Domain
         {
             // arrange
             var mainModel = new MainModel { SingleModels = { new SingleModel { Id = 1, Name = "Existing Single Model" } } };
-            var singleModel = new SingleModel { Id = 2, Name = "Additional Single Model", Mount = true, MountSave = 1 };
+            var mountModel = new MountModel { Id = 2, Name = "Additional Single Model", MountSave = 1 };
 
             // act
-            mainModel.AddMount(singleModel);
+            mainModel.AddMount(mountModel);
 
             // assert
             mainModel.SingleModels.Should().HaveCount(2);
-            mainModel.SingleModels.Should().ContainSingle(sm => sm.Id == singleModel.Id && sm.Name == singleModel.Name);
+            mainModel.SingleModels.Should().ContainSingle(sm => sm.Id == mountModel.Id && sm.Name == mountModel.Name);
             mainModel.SingleModels[0].MountSave.Should().Be(1);
+            mainModel.SingleModels[1].MountSave.Should().Be(0);
         }
 
         [Fact]

@@ -5,23 +5,23 @@ namespace ArmyBuilder.ViewModels
 {
     public class MountViewModel
     {
-        public string Name => SingleModel.DisplayName;
-        public string Movement => SingleModel.Movement;
-        public string WeaponSkill => SingleModel.WeaponSkill;
-        public string BallisticSkill => SingleModel.BallisticSkill;
-        public string Strength => SingleModel.Strength;
-        public string Toughness => SingleModel.Toughness;
-        public string Wounds => SingleModel.Wounds;
-        public string Initiative => SingleModel.Initiative;
-        public string Attacks => SingleModel.Attacks;
-        public string Moral => SingleModel.Moral;
-        public string Save => SingleModel.Save;
+        public string Name => MountModel.DisplayName;
+        public string Movement => MountModel.Movement;
+        public string WeaponSkill => MountModel.WeaponSkill;
+        public string BallisticSkill => MountModel.BallisticSkill;
+        public string Strength => MountModel.Strength;
+        public string Toughness => MountModel.Toughness;
+        public string Wounds => MountModel.Wounds;
+        public string Initiative => MountModel.Initiative;
+        public string Attacks => MountModel.Attacks;
+        public string Moral => MountModel.Moral;
+        public string Save => MountModel.Save;
 
-        public SingleModel SingleModel { get; set;}
+        public MountModel MountModel { get; set;}
 
-        public MountViewModel(SingleModel singleModel)
+        public MountViewModel(MountModel moundModel)
         {
-            SingleModel = singleModel;
+            MountModel = moundModel;
         }        
 
     }

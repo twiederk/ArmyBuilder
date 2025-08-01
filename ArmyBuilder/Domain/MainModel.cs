@@ -87,10 +87,12 @@ namespace ArmyBuilder.Domain
             SingleModels.Add(singleModel);
         }
 
-        public void AddMount(SingleModel singleModel)
+        public SingleModel AddMount(MountModel mountModel)
         {
-            SingleModels[0].MountSave = singleModel.MountSave;
+            SingleModels[0].MountSave = mountModel.MountSave;
+            SingleModel singleModel = mountModel.ToSingleModel();
             AddSingleModel(singleModel);
+            return singleModel;
         }
 
         public MainModel Clone()

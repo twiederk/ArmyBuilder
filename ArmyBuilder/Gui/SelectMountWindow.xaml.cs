@@ -6,7 +6,7 @@ namespace ArmyBuilder
 {
     public partial class SelectMountWindow : Window
     {
-        public SingleModel SelectedMount { get; private set; }
+        public MountModel SelectedMount { get; private set; }
 
         public SelectMountWindow(SelectMountViewModel selectMountViewModel)
         {
@@ -20,7 +20,7 @@ namespace ArmyBuilder
         {
             if (MountListBox.SelectedItem != null) {
                 var selectMountViewModel = DataContext as SelectMountViewModel;
-                SelectedMount = selectMountViewModel.SelectedMount.SingleModel;
+                SelectedMount = selectMountViewModel.SelectedMount.MountModel;
             }
             DialogResult = true;
             Close();

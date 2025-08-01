@@ -197,9 +197,9 @@ namespace ArmyBuilder
             if (sender is Button button && button.Tag is MainModelTreeNode mainModelTreeNode)
             {
                 ArmyViewModel armyViewModel = DataContext as ArmyViewModel;
-                List<SingleModel> mounts = armyViewModel.Mounts;
+                List<MountModel> mountModels = armyViewModel.Mounts;
 
-                var selectMountViewModel = new SelectMountViewModel(mounts);
+                var selectMountViewModel = new SelectMountViewModel(mountModels);
                 var selectMountWindow = new SelectMountWindow(selectMountViewModel);
                 if (selectMountWindow.ShowDialog() == true)
                 {
@@ -207,7 +207,7 @@ namespace ArmyBuilder
                     if (selectedMount != null)
                     {
                         mainModelTreeNode.AddMount(selectedMount);
-                        armyViewModel.AddSingleModelToMainModel(mainModelTreeNode.MainModel.Id, selectedMount);
+                        armyViewModel.AddSingleModelToMainModel(mainModelTreeNode.MainModel.Id, selectedMount.ToSingleModel());
                         armyViewModel.UpdateSingleModel(mainModelTreeNode.MainModel.SingleModels[0]);
                     }
                 }

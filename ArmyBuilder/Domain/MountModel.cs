@@ -7,6 +7,7 @@ namespace ArmyBuilder.Domain
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+        public string DisplayName => $"{Name} ({Profile.Points})";
         public Profile Profile { get; set; }
         public int MountSave { get; set; }
 
@@ -19,11 +20,21 @@ namespace ArmyBuilder.Domain
         public string Initiative => DisplayValue(Profile.Initiative);
         public string Attacks => DisplayValue(Profile.Attacks);
         public string Moral => DisplayValue(Profile.Moral);
-        public string Save => DisplayValue(Profile.Save);
+        public string Save => DisplaySave(Profile.Save);
 
         public string DisplayValue(int value)
         {
             return value > 0 ? value.ToString() : "-";
+        }
+
+        public string DisplaySave(int save)
+        {
+            return save switch
+            {
+                > 6 => "-",
+                6 => "6",
+                _ => $"{save}+"
+            };
         }
 
         public SingleModel ToSingleModel()

@@ -28,8 +28,8 @@ namespace ArmyBuilder.Dao
             return _armyListRepository.MainModels(armyListId);
         }
 
-        public List<SingleModel> Mounts(int armyListId) {
-            return _armyListRepository.Mounts(armyListId);
+        public List<MountModel> MountModels(int armyListId) {
+            return _armyListRepository.MountModels(armyListId);
         }
 
         public SingleModel SingleModel(int id) {

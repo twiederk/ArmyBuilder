@@ -16,7 +16,7 @@ namespace ArmyBuilder.ViewModels
         private List<ArmyMainModelViewModel> _troopers;
         private List<ArmyMainModelViewModel> _warMachines;
         private List<ArmyMainModelViewModel> _monsters;
-        private List<SingleModel> _mounts;
+        private List<MountModel> _mounts;
 
         public ArmyViewModel(IArmyBuilderRepository repository)
         {
@@ -74,7 +74,7 @@ namespace ArmyBuilder.ViewModels
                 OnPropertyChanged(nameof(Monsters));
             }
         }
-        public List<SingleModel> Mounts
+        public List<MountModel> Mounts
         {
             get => _mounts;
             private set
@@ -171,7 +171,7 @@ namespace ArmyBuilder.ViewModels
                 Troopers = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Trooper).OrderBy(mm => mm.Name).Select(mm => new ArmyMainModelViewModel(mm)).ToList();
                 WarMachines = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.WarMachine).OrderBy(mm => mm.Name).Select(mm => new ArmyMainModelViewModel(mm)).ToList();
                 Monsters = armyList.MainModels.Where(mm => mm.ArmyCategory == ArmyCategory.Monster).OrderBy(mm => mm.Name).Select(mm => new ArmyMainModelViewModel(mm)).ToList();
-                Mounts = _repository.Mounts(_selectedArmyList.Id).OrderBy(mm => mm.Name).ToList();
+                Mounts = _repository.MountModels(_selectedArmyList.Id).OrderBy(mm => mm.Name).ToList();
 
             }
             else
@@ -180,7 +180,7 @@ namespace ArmyBuilder.ViewModels
                 Troopers = new List<ArmyMainModelViewModel>();
                 WarMachines = new List<ArmyMainModelViewModel>();
                 Monsters = new List<ArmyMainModelViewModel>();
-                Mounts = new List<SingleModel>();
+                Mounts = new List<MountModel>();
             }
         }
 
