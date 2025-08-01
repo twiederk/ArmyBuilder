@@ -5322,7 +5322,6 @@ INSERT INTO mount_model VALUES(17,'Lindwurm',12423,0,5);
 INSERT INTO mount_model VALUES(18,'Lindwurm',12423,0,8);
 INSERT INTO mount_model VALUES(19,'Lindwurm',12423,0,9);
 INSERT INTO mount_model VALUES(20,'Lindwurm',12423,0,12);
-INSERT INTO mount_model VALUES(77,'Manticor',12422,0,7);
 INSERT INTO mount_model VALUES(78,'Manticor',12422,0,9);
 INSERT INTO mount_model VALUES(79,'Manticor',12422,0,8);
 INSERT INTO mount_model VALUES(80,'Manticor',12422,0,1);

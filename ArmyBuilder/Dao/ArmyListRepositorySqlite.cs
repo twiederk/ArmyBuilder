@@ -212,37 +212,27 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.mount, sm.mountable, sm.count, sm.mount_save As MountSave,
-                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
+                    m.Id, m.Name, m.mount_save AS MountSave,
+                    p.Id, p.Movement, p.weapon_skill AS WeaponSkill, p.ballistic_skill AS BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
-                    single_model sm
+                    mount_model m
                 INNER JOIN 
-                    main_model mm ON sm.main_model_id = mm.id
-                INNER JOIN 
-                    profile p ON sm.profile_id = p.id
+                    profile p ON m.profile_id = p.Id
                 WHERE 
-                    sm.mountable = 1 AND mm.army_list_id = @ArmyListId";
+                    m.army_list_id = @ArmyListId";
 
-            var mountModelDictionary = new Dictionary<int, MountModel>();
-
+            var mountModels = new List<MountModel>();
             var result = _dbConnection.Query<MountModel, Profile, MountModel>(
                 sql,
                 (mountModel, profile) =>
                 {
-                    if (!mountModelDictionary.TryGetValue(mountModel.Id, out var currentSingleModel))
-                    {
-                        currentSingleModel = mountModel;
-                        mountModelDictionary.Add(currentSingleModel.Id, currentSingleModel);
-                    }
-
-                    currentSingleModel.Profile = profile;
-                    return currentSingleModel;
+                    mountModel.Profile = profile;
+                    return mountModel;
                 },
                 new { ArmyListId = armyListId },
                 splitOn: "Id"
             );
-
-            return result.Distinct().ToList();
+            return result.ToList();
         }
 
     }
