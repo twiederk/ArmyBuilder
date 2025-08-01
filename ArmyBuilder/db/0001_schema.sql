@@ -184,6 +184,17 @@ CREATE TABLE IF NOT EXISTS "slot_selection"
 );
 
 
+CREATE TABLE IF NOT EXISTS "mount_model"
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
+ "name"              VARCHAR(60),
+ "profile_id"        INTEGER,
+ "mount_save"        INTEGER,
+ "army_list_id"      INTEGER,
+ FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
+ FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
+);
+
+
 CREATE TABLE IF NOT EXISTS "army"
 ("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
  "name"              VARCHAR(256),
