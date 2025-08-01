@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ArmyBuilder.Domain
+﻿namespace ArmyBuilder.Domain
 {
     public class Profile
     {
@@ -20,6 +14,25 @@ namespace ArmyBuilder.Domain
         public int Moral { get; set; }
         public int Save { get; set; }
         public float Points { get; set; }
+
+        public Profile Clone()
+        {
+            return new Profile
+            {
+                Id = Id,
+                Movement = Movement,
+                WeaponSkill = WeaponSkill,
+                BallisticSkill = BallisticSkill,
+                Strength = Strength,
+                Toughness = Toughness,
+                Wounds = Wounds,
+                Initiative = Initiative,
+                Attacks = Attacks,
+                Moral = Moral,
+                Save = Save,
+                Points = Points
+            };
+        }
 
         public override bool Equals(object obj)
         {
