@@ -1482,8 +1482,6 @@ INSERT INTO main_model VALUES(12420,4,3,'Hippogreif','Fliegen, Entsetzen.',0,125
 INSERT INTO main_model VALUES(12421,4,3,'Hydra','Entsetzen, Feueratem, Schuppenhaut',0,225.0,0,0);
 INSERT INTO main_model VALUES(12422,4,3,'Mantikor','Entsetzen, Fliegen',0,200.0,0,0);
 INSERT INTO main_model VALUES(12423,4,3,'Lindwurm','Entsetzen, Fiegen, Schuppenhaut',0,180.0,0,0);
-INSERT INTO main_model VALUES(12424,14,0,'Runenamboß','Wachen immun gegen Psychologie. Beschuß: 1 Schmied; 2-3 Wachen; 4+ Amboß',0,200.0,0,0);
-INSERT INTO main_model VALUES(12425,14,0,'Runenthron','Im Thron sind 4 LP gespeichert. Beschuß: 1 Hochkönig; 2-3 Träger; 4+ Thron.',0,200.0,0,0);
 INSERT INTO main_model VALUES(12426,14,1,'Speerträger','',0,12.0,0,0);
 INSERT INTO main_model VALUES(12427,14,1,'Bugman','',0,16.0,0,0);
 INSERT INTO main_model VALUES(12428,14,0,'Long Drong Slayerpirat','Zwergenrum: -1 auf Trefferwurf für Feinde. 3" Abstand zu befreundeten Einheiten.',1,138.0,0,0);
@@ -2490,8 +2488,6 @@ INSERT INTO single_model VALUES(47363,12336,'Pegasus',12336,0,1,1,0);
 INSERT INTO single_model VALUES(47364,12320,'Rattenschwarm',12337,0,1,1,0);
 INSERT INTO single_model VALUES(47365,12315,'Froschschwarm',12338,0,1,1,0);
 INSERT INTO single_model VALUES(47366,12424,'Blutkessel',12107,0,0,1,0);
-INSERT INTO single_model VALUES(47367,12425,'Runenamboß',12424,0,1,1,0);
-INSERT INTO single_model VALUES(47368,12426,'Runenthron',12425,0,1,1,0);
 INSERT INTO single_model VALUES(47369,11893,'Speerträger',12426,0,0,1,0);
 INSERT INTO single_model VALUES(47370,11893,'Bugman',12427,0,0,1,0);
 INSERT INTO single_model VALUES(47371,11482,'Long Drong',12428,0,0,1,0);
