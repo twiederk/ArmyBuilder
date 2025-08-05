@@ -9,7 +9,6 @@ namespace ArmyBuilder.Domain
         public string Name { get; set; }
         public string DisplayName => $"{Name} ({Profile.Points})";
         public Profile Profile { get; set; }
-        public bool Mount { get; set; }
         public bool Mountable { get; set; }
         public int Count { get; set; } = 1;
         public Equipment Equipment { get; set; } = new Equipment();
