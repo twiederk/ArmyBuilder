@@ -24,7 +24,7 @@ namespace ArmyBuilder.Dao
             var sql = @"
                 SELECT 
                     mm.id, mm.army_category_id as ArmyCategory, mm.name, mm.description, mm.points as OldPoints, mm.Uniquely, mm.standard_bearer AS StandardBearer, mm.musician,
-                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.mount, sm.mountable, sm.count, sm.mount_save As MountSave,
+                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.mount, sm.count, sm.mount_save As MountSave,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save,
                     f.Id, f.number_of_figures as NumberOfFigures, f.image_path as ImagePath
                 FROM 
@@ -99,7 +99,7 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.mount, sm.mountable, sm.count, sm.mount_save As MountSave,
+                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.mount, sm.count, sm.mount_save As MountSave,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.strength, p.toughness, p.wounds, p.initiative, p.attacks, p.moral, p.points, p.save
                 FROM 
                     single_model sm
@@ -135,7 +135,7 @@ namespace ArmyBuilder.Dao
             var sql = @"
                 SELECT 
                     mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, mm.Uniquely, mm.standard_bearer AS StandardBearer, mm.musician,
-                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.mount, sm.mountable, sm.count, sm.mount_save As MountSave,
+                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.mount, sm.count, sm.mount_save As MountSave,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save,
                     f.Id, f.number_of_figures as NumberOfFigures, f.image_path as ImagePath
                 FROM 
