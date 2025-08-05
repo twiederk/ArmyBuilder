@@ -223,8 +223,8 @@ namespace ArmyBuilder.Dao
         public SingleModel AddSingleModel(int mainModelId, SingleModel singleModel)
         {
             var sql = @"
-                INSERT INTO army_single_model (army_main_model_id, name, profile_id, mount, mountable, count, mount_save)
-                VALUES (@MainModelId, @Name, @ProfileId, @Mount, @Mountable, @Count, @MountSave);
+                INSERT INTO army_single_model (army_main_model_id, name, profile_id, mountable, count, mount_save)
+                VALUES (@MainModelId, @Name, @ProfileId, @Mountable, @Count, @MountSave);
                 SELECT last_insert_rowid();";
 
             var singleModelId = _dbConnection.ExecuteScalar<int>(sql, new
@@ -232,7 +232,6 @@ namespace ArmyBuilder.Dao
                 MainModelId = mainModelId,
                 singleModel.Name,
                 ProfileId = singleModel.Profile.Id,
-                singleModel.Mount,
                 singleModel.Mountable,
                 singleModel.Count,
                 singleModel.MountSave
@@ -377,7 +376,6 @@ namespace ArmyBuilder.Dao
                 UPDATE army_single_model
                 SET name = @Name,
                     profile_id = @ProfileId,
-                    mount = @Mount,
                     mountable = @Mountable,
                     count = @Count,
                     mount_save = @MountSave
@@ -387,7 +385,6 @@ namespace ArmyBuilder.Dao
             {
                 singleModel.Name,
                 ProfileId = singleModel.Profile.Id,
-                singleModel.Mount,
                 singleModel.Mountable,
                 singleModel.Count,
                 singleModel.Id,

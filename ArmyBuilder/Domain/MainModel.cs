@@ -111,7 +111,6 @@ namespace ArmyBuilder.Domain
                 {
                     Id = sm.Id,
                     Name = sm.Name,
-                    Mount = sm.Mount,
                     Count = sm.Count,
                     MountSave = sm.MountSave,
                     Profile = sm.Profile.Clone(),

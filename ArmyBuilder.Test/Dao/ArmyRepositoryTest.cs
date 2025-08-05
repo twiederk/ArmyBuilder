@@ -59,7 +59,6 @@ namespace ArmyBuilder.Test.Dao
 
             SingleModel singleModel = general.SingleModels[0];
             singleModel.Name.Should().Be("Streitwagenlenker");
-            singleModel.Mount.Should().BeFalse();
             singleModel.MountSave.Should().Be(0);
 
             Profile profile = singleModel.Profile;
@@ -202,7 +201,6 @@ namespace ArmyBuilder.Test.Dao
             var testSingleModel = testMainModel.SingleModels[0];
             testSingleModel.Name.Should().Be("Schwertmeister");
             testSingleModel.MountSave.Should().Be(0);
-            testSingleModel.Mount.Should().BeFalse();
 
             // teardown
             _repository.DeleteArmy(army.Id);
