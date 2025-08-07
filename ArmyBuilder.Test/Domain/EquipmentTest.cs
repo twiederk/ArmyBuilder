@@ -200,6 +200,24 @@ namespace ArmyBuilder.Test.Domain
             result.Should().BeNull();
         }
 
+        [Fact]
+        public void should_clone_equipment_with_slots()
+        {
+            // arrange
+            var slot = new Slot { Id = 1, Item = new Item { Id = 2, Name = "Sword" } };
+            var equipment = new Equipment { Id = 3, Slots = new List<Slot> { slot } };
+
+            // act
+            var clone = equipment.Clone();
+
+            // assert
+            clone.Id.Should().Be(3);
+            clone.Slots.Should().HaveCount(1);
+            clone.Slots[0].Id.Should().Be(1);
+            clone.Slots[0].Item.Should().Be(slot.Item);
+            clone.Slots[0].Should().NotBeSameAs(slot);
+        }        
+
 
     }
 }

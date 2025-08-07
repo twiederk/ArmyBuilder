@@ -107,28 +107,7 @@ namespace ArmyBuilder.Domain
                 Uniquely = this.Uniquely,
                 StandardBearer = this.StandardBearer,
                 Musician = this.Musician,
-                SingleModels = this.SingleModels.Select(sm => new SingleModel
-                {
-                    Id = sm.Id,
-                    Name = sm.Name,
-                    Count = sm.Count,
-                    MountSave = sm.MountSave,
-                    Profile = sm.Profile.Clone(),
-                    Equipment = new Equipment
-                    {
-                        Id = sm.Equipment.Id,
-                        Slots = sm.Equipment.Slots.Select(slot => new Slot
-                        {
-                            Id = slot.Id,
-                            Item = slot.Item,
-                            ItemClass = slot.ItemClass,
-                            Editable = slot.Editable,
-                            AllItems = slot.AllItems,
-                            Magic = slot.Magic,
-                            Selection = slot.Selection.ToList()
-                        }).ToList()
-                    }
-                }).ToList()
+                SingleModels = this.SingleModels.Select(sm => sm.Clone()).ToList()                
             };
             return clone;
         }

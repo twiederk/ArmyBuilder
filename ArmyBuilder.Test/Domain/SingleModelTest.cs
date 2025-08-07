@@ -396,6 +396,34 @@ namespace ArmyBuilder.Test.Domain
             mounted.Should().BeTrue();
         }
 
+        [Fact]
+        public void should_clone_single_model()
+        {
+            // arrange
+            var equipment = new Equipment { Id = 1 };
+            var profile = new Profile { Id = 2, Points = 10 };
+            var singleModel = new SingleModel
+            {
+                Id = 5,
+                Name = "Test",
+                Count = 2,
+                MountSave = 1,
+                Profile = profile,
+                Equipment = equipment
+            };
+
+            // act
+            var clone = singleModel.Clone();
+
+            // assert
+            clone.Id.Should().Be(5);
+            clone.Name.Should().Be("Test");
+            clone.Count.Should().Be(2);
+            clone.MountSave.Should().Be(1);
+            clone.Profile.Should().NotBeNull().And.NotBeSameAs(profile);
+            clone.Equipment.Should().NotBeNull().And.NotBeSameAs(equipment);
+        }
+
     }
 }
 
