@@ -1,6 +1,5 @@
 using ArmyBuilder.Domain;
 using FluentAssertions;
-using Xunit;
 
 namespace ArmyBuilder.Test.Domain
 {

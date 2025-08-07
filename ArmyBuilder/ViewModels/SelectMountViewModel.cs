@@ -22,17 +22,17 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public SelectMountViewModel(List<SingleModel> singleModels)
+        public SelectMountViewModel(List<MountModel> mountModels)
         {
-            Mounts = new ObservableCollection<MountViewModel>(convertToMountViewModels(singleModels));
+            Mounts = new ObservableCollection<MountViewModel>(convertToMountViewModels(mountModels));
         }
 
-        private List<MountViewModel> convertToMountViewModels(List<SingleModel> singleModels)
+        private List<MountViewModel> convertToMountViewModels(List<MountModel> mountModels)
         {
             List<MountViewModel> mountViewModels = new List<MountViewModel>();
-            foreach (var singleModel in singleModels)
+            foreach (var mountModel in mountModels)
             {
-                mountViewModels.Add(new MountViewModel(singleModel));
+                mountViewModels.Add(new MountViewModel(mountModel));
             }
             return mountViewModels;
         }

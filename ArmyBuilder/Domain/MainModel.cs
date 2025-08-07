@@ -87,10 +87,12 @@ namespace ArmyBuilder.Domain
             SingleModels.Add(singleModel);
         }
 
-        public void AddMount(SingleModel singleModel)
+        public SingleModel AddMount(MountModel mountModel)
         {
-            SingleModels[0].MountSave = singleModel.MountSave;
+            SingleModels[0].MountSave = mountModel.MountSave;
+            SingleModel singleModel = mountModel.ToSingleModel();
             AddSingleModel(singleModel);
+            return singleModel;
         }
 
         public MainModel Clone()
@@ -109,24 +111,9 @@ namespace ArmyBuilder.Domain
                 {
                     Id = sm.Id,
                     Name = sm.Name,
-                    Mount = sm.Mount,
                     Count = sm.Count,
                     MountSave = sm.MountSave,
-                    Profile = new Profile
-                    {
-                        Id = sm.Profile.Id,
-                        Movement = sm.Profile.Movement,
-                        WeaponSkill = sm.Profile.WeaponSkill,
-                        BallisticSkill = sm.Profile.BallisticSkill,
-                        Strength = sm.Profile.Strength,
-                        Toughness = sm.Profile.Toughness,
-                        Wounds = sm.Profile.Wounds,
-                        Initiative = sm.Profile.Initiative,
-                        Attacks = sm.Profile.Attacks,
-                        Moral = sm.Profile.Moral,
-                        Points = sm.Profile.Points,
-                        Save = sm.Profile.Save
-                    },
+                    Profile = sm.Profile.Clone(),
                     Equipment = new Equipment
                     {
                         Id = sm.Equipment.Id,

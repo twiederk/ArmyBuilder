@@ -22,7 +22,7 @@ namespace ArmyBuilder.Test.Dao
             List<Army> armies = _repository.Armies();
 
             // assert
-            armies.Should().HaveCount(6);
+            armies.Should().HaveCount(7);
             Army army = armies.First();
             army.Name.Should().Be("Die Hochelfen von Tyr");
             army.Author.Should().Be("Torsten");
@@ -59,7 +59,6 @@ namespace ArmyBuilder.Test.Dao
 
             SingleModel singleModel = general.SingleModels[0];
             singleModel.Name.Should().Be("Streitwagenlenker");
-            singleModel.Mount.Should().BeFalse();
             singleModel.MountSave.Should().Be(0);
 
             Profile profile = singleModel.Profile;
@@ -86,9 +85,9 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             List<Army> armies = _repository.Armies();
-            armies.Should().HaveCount(7);
+            armies.Should().HaveCount(8);
 
-            Army testArmy = armies[6];
+            Army testArmy = armies[7];
             testArmy.Name.Should().Be("Testarmee");
             testArmy.Author.Should().Be("Testautor");
             testArmy.ArmyList.Id.Should().Be(7);
@@ -134,7 +133,7 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             List<Army> armies = _repository.Armies();
-            armies.Should().HaveCount(6);
+            armies.Should().HaveCount(7);
         }
 
         [Fact]
@@ -202,7 +201,6 @@ namespace ArmyBuilder.Test.Dao
             var testSingleModel = testMainModel.SingleModels[0];
             testSingleModel.Name.Should().Be("Schwertmeister");
             testSingleModel.MountSave.Should().Be(0);
-            testSingleModel.Mount.Should().BeFalse();
 
             // teardown
             _repository.DeleteArmy(army.Id);

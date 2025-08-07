@@ -47,7 +47,6 @@ namespace ArmyBuilder.Test.Dao
 
             var singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.Mount.Should().BeFalse();
             singleModel.MountSave.Should().Be(0);
 
             var profile = singleModel.Profile;
@@ -77,7 +76,6 @@ namespace ArmyBuilder.Test.Dao
 
             singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.Mount.Should().BeFalse();
             singleModel.MountSave.Should().Be(1);
 
             profile = singleModel.Profile;
@@ -111,7 +109,6 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.Mount.Should().BeFalse();
             singleModel.MountSave.Should().Be(0);
             singleModel.Profile.Movement.Should().Be(5);
             singleModel.Profile.WeaponSkill.Should().Be(5);
@@ -135,7 +132,6 @@ namespace ArmyBuilder.Test.Dao
 
             // assert
             singleModel.Name.Should().Be("Drachenprinz");
-            singleModel.Mount.Should().BeFalse();     
             singleModel.MountSave.Should().Be(1);
             singleModel.Profile.Movement.Should().Be(5);
             singleModel.Profile.WeaponSkill.Should().Be(5);
@@ -163,7 +159,6 @@ namespace ArmyBuilder.Test.Dao
 
             SingleModel singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Schwertmeister");
-            singleModel.Mount.Should().BeFalse();
             singleModel.MountSave.Should().Be(0);
 
             Profile profile = singleModel.Profile;
@@ -198,7 +193,6 @@ namespace ArmyBuilder.Test.Dao
 
             SingleModel singleModel = mainModel.SingleModels.First();
             singleModel.Name.Should().Be("Seegardist");
-            singleModel.Mount.Should().BeFalse();
             singleModel.MountSave.Should().Be(0);
 
             Profile profile = singleModel.Profile;
@@ -225,12 +219,11 @@ namespace ArmyBuilder.Test.Dao
             int highElfArmyListId = 7;
 
             // act
-            List<SingleModel> mounts = armyListRepository.Mounts(highElfArmyListId);
+            List<MountModel> mountModels = armyListRepository.MountModels(highElfArmyListId);
 
             // assert
-            mounts.Should().HaveCount(12);
-            SingleModel greif = mounts.First(m => m.Name == "Greif");
-            greif.Mountable.Should().BeTrue();
+            mountModels.Should().HaveCount(9);
+            MountModel greif = mountModels.First(m => m.Name == "Greif");
             greif.Profile.Wounds.Should().Be(5);
 
         }

@@ -586,6 +586,9 @@
     <None Update="images\Orcs\Orcs_Ork_Standartentraeger_2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="images\Orcs\Orcs_Ork_Streitwagen_1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\Orcs\Orcs_Riese.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

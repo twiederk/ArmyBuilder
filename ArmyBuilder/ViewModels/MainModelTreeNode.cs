@@ -66,9 +66,9 @@ namespace ArmyBuilder.ViewModels
             }
         }
 
-        public void AddMount(SingleModel singleModel)
+        public void AddMount(MountModel mountModel)
         {
-            MainModel.AddMount(singleModel);
+            SingleModel singleModel = MainModel.AddMount(mountModel);
             SingleModels.Add(new SingleModelTreeNode(singleModel, this));
             OnPropertyChanged("TotalPoints");
             SingleModels[0].OnPropertyChanged("Save");

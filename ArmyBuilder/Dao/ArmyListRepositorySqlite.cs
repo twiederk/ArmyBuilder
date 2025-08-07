@@ -24,7 +24,7 @@ namespace ArmyBuilder.Dao
             var sql = @"
                 SELECT 
                     mm.id, mm.army_category_id as ArmyCategory, mm.name, mm.description, mm.points as OldPoints, mm.Uniquely, mm.standard_bearer AS StandardBearer, mm.musician,
-                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.mount, sm.mountable, sm.count, sm.mount_save As MountSave,
+                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.count, sm.mount_save As MountSave,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save,
                     f.Id, f.number_of_figures as NumberOfFigures, f.image_path as ImagePath
                 FROM 
@@ -99,7 +99,7 @@ namespace ArmyBuilder.Dao
         {
             var sql = @"
                 SELECT 
-                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.mount, sm.mountable, sm.count, sm.mount_save As MountSave,
+                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.count, sm.mount_save As MountSave,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.strength, p.toughness, p.wounds, p.initiative, p.attacks, p.moral, p.points, p.save
                 FROM 
                     single_model sm
@@ -135,7 +135,7 @@ namespace ArmyBuilder.Dao
             var sql = @"
                 SELECT 
                     mm.Id, mm.army_category_id as ArmyCategory, mm.Name, mm.Description, mm.Points, mm.Uniquely, mm.standard_bearer AS StandardBearer, mm.musician,
-                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.mount, sm.mountable, sm.count, sm.mount_save As MountSave,
+                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.count, sm.mount_save As MountSave,
                     p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save,
                     f.Id, f.number_of_figures as NumberOfFigures, f.image_path as ImagePath
                 FROM 
@@ -208,41 +208,31 @@ namespace ArmyBuilder.Dao
             return mainModelDictionary.Values.FirstOrDefault();
         }
 
-        public List<SingleModel> Mounts(int armyListId)
+        public List<MountModel> MountModels(int armyListId)
         {
             var sql = @"
                 SELECT 
-                    sm.Id, sm.Name, sm.profile_id as ProfileId, sm.mount, sm.mountable, sm.count, sm.mount_save As MountSave,
-                    p.Id, p.Movement, p.weapon_skill as WeaponSkill, p.ballistic_skill as BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
+                    m.Id, m.Name, m.mount_save AS MountSave,
+                    p.Id, p.Movement, p.weapon_skill AS WeaponSkill, p.ballistic_skill AS BallisticSkill, p.Strength, p.Toughness, p.Wounds, p.Initiative, p.Attacks, p.Moral, p.Points, p.Save
                 FROM 
-                    single_model sm
+                    mount_model m
                 INNER JOIN 
-                    main_model mm ON sm.main_model_id = mm.id
-                INNER JOIN 
-                    profile p ON sm.profile_id = p.id
+                    profile p ON m.profile_id = p.Id
                 WHERE 
-                    sm.mountable = 1 AND mm.army_list_id = @ArmyListId";
+                    m.army_list_id = @ArmyListId";
 
-            var singleModelDictionary = new Dictionary<int, SingleModel>();
-
-            var result = _dbConnection.Query<SingleModel, Profile, SingleModel>(
+            var mountModels = new List<MountModel>();
+            var result = _dbConnection.Query<MountModel, Profile, MountModel>(
                 sql,
-                (singleModel, profile) =>
+                (mountModel, profile) =>
                 {
-                    if (!singleModelDictionary.TryGetValue(singleModel.Id, out var currentSingleModel))
-                    {
-                        currentSingleModel = singleModel;
-                        singleModelDictionary.Add(currentSingleModel.Id, currentSingleModel);
-                    }
-
-                    currentSingleModel.Profile = profile;
-                    return currentSingleModel;
+                    mountModel.Profile = profile;
+                    return mountModel;
                 },
                 new { ArmyListId = armyListId },
                 splitOn: "Id"
             );
-
-            return result.Distinct().ToList();
+            return result.ToList();
         }
 
     }

@@ -155,8 +155,6 @@ CREATE TABLE IF NOT EXISTS "single_model"
  "profile_id"        INTEGER,
  "name"              VARCHAR(60),
  "main_model_id"     INTEGER,
- "mount"             BIT,
- "mountable"         BIT,
  "count"             INTEGER,
  "mount_save"        INTEGER,
  FOREIGN KEY (main_model_id) REFERENCES main_model(id) ON DELETE CASCADE 
@@ -181,6 +179,17 @@ CREATE TABLE IF NOT EXISTS "slot_selection"
  "slot_id"    INTEGER,
  "item_id"    INTEGER,
  FOREIGN KEY(slot_id) REFERENCES slot(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE IF NOT EXISTS "mount_model"
+("id"                INTEGER PRIMARY KEY AUTOINCREMENT,
+ "name"              VARCHAR(60),
+ "profile_id"        INTEGER,
+ "mount_save"        INTEGER,
+ "army_list_id"      INTEGER,
+ FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE 
+ FOREIGN KEY (army_list_id) REFERENCES army_list(id) ON DELETE CASCADE 
 );
 
 
@@ -223,8 +232,6 @@ CREATE TABLE IF NOT EXISTS "army_single_model"
  "profile_id"           INTEGER,
  "name"                 VARCHAR(60),
  "army_main_model_id"   INTEGER,
- "mount"                BIT,
- "mountable"            BIT,
  "count"                INTEGER,
  "mount_save"           INTEGER,
  FOREIGN KEY (army_main_model_id) REFERENCES army_main_model(id) ON DELETE CASCADE 
