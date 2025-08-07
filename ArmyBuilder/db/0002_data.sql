@@ -5865,6 +5865,7 @@ INSERT INTO figure VALUES(527,'Riesenslayer','Games Workshop','Zinn',1,0,14,0,'D
 INSERT INTO figure VALUES(528,'Bergwerker Champion','Games Workshop','Zinn',1,0,14,0,'Dwarves\Dwarf_Miner_Champion2.jpg');
 INSERT INTO figure VALUES(529,'Ork Musiker','Games Workshop','Zinn',1,0,9,0,'Orcs\Orcs_Ork_Musiker_2.jpg');
 INSERT INTO figure VALUES(530,'Ork Standartenträger','Games Workshop','Zinn',1,0,9,1,'Orcs\Orcs_Ork_Standartentraeger_2.jpg');
+INSERT INTO figure VALUES(531,'Ork Streitwagen','Games Workshop','Plastik',1,1,9,2,'Orcs\Orcs_Ork_Streitwagen_1.jpg');
 
 
 INSERT INTO main_model_figure VALUES(1,11516,65);
@@ -6209,6 +6210,7 @@ INSERT INTO main_model_figure VALUES(340,11442,438);
 INSERT INTO main_model_figure VALUES(341,11430,438);
 INSERT INTO main_model_figure VALUES(342,11434,393);
 INSERT INTO main_model_figure VALUES(343,11434,413);
+INSERT INTO main_model_figure VALUES(344,12076,531);
 
 
 COMMIT;
