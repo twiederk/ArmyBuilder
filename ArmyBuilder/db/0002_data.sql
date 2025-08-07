@@ -394,7 +394,7 @@ INSERT INTO profile VALUES(11843,'',8,2,3,3,3,1,2,1,5,0.0,7);
 INSERT INTO profile VALUES(11844,'Dunkelelfen Schwarzer Streitwagen',NULL,NULL,NULL,NULL,7,3,NULL,NULL,NULL,70.0,7);
 INSERT INTO profile VALUES(11846,'',4,3,4,3,3,1,3,1,7,0.0,7);
 INSERT INTO profile VALUES(11849,'',7,3,0,4,4,2,2,1,3,0.0,7);
-INSERT INTO profile VALUES(11850,'Orks Wildork Basis',4,3,3,3,4,1,2,2,6,6.5,7);
+INSERT INTO profile VALUES(11850,'Orks Wildork Basis',4,3,3,3,4,1,2,2,7,6.5,7);
 INSERT INTO profile VALUES(11851,'Orks Ork Basis',4,4,3,3,4,1,2,1,7,5.5,7);
 INSERT INTO profile VALUES(11852,'Orks Goblin Basis',4,2,3,3,3,1,2,1,5,2.5,7);
 INSERT INTO profile VALUES(11853,'Orks Waldgoblin Basis',4,2,3,3,3,1,2,1,5,2.5,7);
