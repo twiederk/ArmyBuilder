@@ -2705,16 +2705,16 @@ INSERT INTO melee_weapon VALUES(6078,'Prodder',3,'',9,0,0,0);
 
 
 INSERT INTO ranged_weapon VALUES(10,'keine',0,'',-1,0,0,0,0);
-INSERT INTO ranged_weapon VALUES(11,'Bogen',2,'',-1,0,0,3,24);
-INSERT INTO ranged_weapon VALUES(12,'Kurzbogen',1,'',-1,0,0,3,16);
-INSERT INTO ranged_weapon VALUES(13,'Langbogen',3,'',-1,0,0,3,30);
-INSERT INTO ranged_weapon VALUES(14,'Armbrust',3,'',-1,0,0,4,30);
-INSERT INTO ranged_weapon VALUES(15,'Repetierarmbrust',3,'',-1,0,0,3,24);
-INSERT INTO ranged_weapon VALUES(16,'Wurfspeer',1,'',-1,0,0,0,8);
+INSERT INTO ranged_weapon VALUES(11,'Bogen',2,'RW: 24" Stärke: 3',-1,0,0,3,24);
+INSERT INTO ranged_weapon VALUES(12,'Kurzbogen',1,'RW: 16" Stärke: 3',-1,0,0,3,16);
+INSERT INTO ranged_weapon VALUES(13,'Langbogen',3,'RW: 30" Stärke: 3',-1,0,0,3,30);
+INSERT INTO ranged_weapon VALUES(14,'Armbrust',3,'RW: 30" Stärke: 4, nicht bewegen und schießen',-1,0,0,4,30);
+INSERT INTO ranged_weapon VALUES(15,'Repetierarmbrust',3,'RW: 24" Stärke: 3, kann 2x schießen mit -1 auf TW',-1,0,0,3,24);
+INSERT INTO ranged_weapon VALUES(16,'Wurfspeer',1,'RW: 8"',-1,0,0,0,8);
 INSERT INTO ranged_weapon VALUES(17,'Wurfaxt',1,'',-1,0,0,0,4);
 INSERT INTO ranged_weapon VALUES(18,'Wurfmesser',1,'',-1,0,0,0,6);
 INSERT INTO ranged_weapon VALUES(19,'Schleuder',1,'',-1,0,0,3,18);
-INSERT INTO ranged_weapon VALUES(20,'Muskete',3,'',-1,0,0,4,24);
+INSERT INTO ranged_weapon VALUES(20,'Muskete',3,'RW: 24 Stärke: 4, nicht bewegen und schießen, 1 Runde nachladen',-1,0,0,4,24);
 INSERT INTO ranged_weapon VALUES(21,'Pistole',2,'',-1,0,0,4,6);
 INSERT INTO ranged_weapon VALUES(22,'Blasrohr',0,'',-1,0,0,5,12);
 INSERT INTO ranged_weapon VALUES(23,'Blunderbuss',4,'',3,0,0,3,12);
