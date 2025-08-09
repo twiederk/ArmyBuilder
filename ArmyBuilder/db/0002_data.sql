@@ -1177,7 +1177,7 @@ INSERT INTO main_model VALUES(12071,9,2,'Schädelquetscha','Reichweite: 48", St�
 INSERT INTO main_model VALUES(12072,9,2,'Menschenfetza','Reichweite: 60", Stärke: 10, Schaden: W6, RW: keiner',0,96.5,0,0);
 INSERT INTO main_model VALUES(12073,9,2,'Speerschleuder','',0,46.5,0,0);
 INSERT INTO main_model VALUES(12074,9,2,'Snotling Kurbelwagen','Beschuß: 1-2 Snotlings; 3+ Wagen. Nah.: 1-2 Wagen; 3+ Snotlings.',0,40.0,0,0);
-INSERT INTO main_model VALUES(12075,9,2,'Kamikaze Katapult','',0,100.0,0,0);
+INSERT INTO main_model VALUES(12075,9,2,'Kamikaze Katapult','Direkter/Indirekter Treffer: Reichweite: gesamtes Spielfeld, Stärke: 10/7, Schaden: W6/W3, RW: keiner/-2',0,100.0,0,0);
 INSERT INTO main_model VALUES(12076,9,2,'Ork Streitwagen','Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Zugtiere.',0,81.0,0,0);
 INSERT INTO main_model VALUES(12077,9,2,'Goblin Wolfsstreitwagen','Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,65.0,0,0);
 INSERT INTO main_model VALUES(12078,8,2,'Mörser','',0,100.0,0,0);
