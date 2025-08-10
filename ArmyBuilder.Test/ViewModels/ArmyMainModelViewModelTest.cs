@@ -60,7 +60,7 @@ namespace ArmyBuilder.Test.ViewModels
             var result = viewModel.Equipment;
 
             // Assert
-            result.Should().Be(", ");
+            result.Should().Be("");
         }
 
         [Fact]
@@ -98,7 +98,7 @@ namespace ArmyBuilder.Test.ViewModels
             var result = viewModel.Equipment;
 
             // Assert
-            result.Should().Be(", Leichte Rüstung (2), ");
+            result.Should().Be("Leichte Rüstung (2)");
         }
     }
 }
