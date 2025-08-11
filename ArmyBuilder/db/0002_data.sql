@@ -629,6 +629,7 @@ INSERT INTO profile VALUES(12424,'Blutkessel',0,0,0,0,0,0,0,0,0,41.0,7);
 INSERT INTO profile VALUES(12425,'Runenamboß',3,5,4,6,4,1,3,2,9,200.0,5);
 INSERT INTO profile VALUES(12426,'Runenthron',3,5,4,4,4,1,3,2,9,140.0,4);
 INSERT INTO profile VALUES(12427,'Dunkelelfen Henker',5,5,4,4,3,1,6,1,8,11.0,7);
+INSERT INTO profile VALUES(12428,'Dunkelelfen Hexenkönigin',5,7,7,4,4,3,9,4,10,207,7);
 
 
 INSERT INTO main_model VALUES(11420,1,0,'Armeestandartenträger des Nurgle','',0,243.0,0,0);
@@ -1488,6 +1489,7 @@ INSERT INTO main_model VALUES(12427,14,1,'Bugman','',0,16.0,0,0);
 INSERT INTO main_model VALUES(12428,14,0,'Long Drong Slayerpirat','Zwergenrum: -1 auf Trefferwurf für Feinde. 3" Abstand zu befreundeten Einheiten.',1,138.0,0,0);
 INSERT INTO main_model VALUES(12429,14,1,'Slayerpiraten','Zwergenrum: -1 auf Trefferwurf für Feinde. 3" Abstand zu befreundeten Einheiten.',0,13.0,0,0);
 INSERT INTO main_model VALUES(12430,5,2,'Schwarzer Streitwagen','Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,100.0,0,0);
+INSERT INTO main_model VALUES(12431,5,0,'Hexenkönigin','Hass auf Hochelfen, Raserei.',0,207.0,0,0);
 
 
 INSERT INTO single_model VALUES(46357,11682,'Tancred, duc de Quenelles',11682,1,0);
@@ -2498,6 +2500,7 @@ INSERT INTO single_model VALUES(47374,11810,'Kampfechse',12430,2,0);
 INSERT INTO single_model VALUES(47375,12159,'Streitwagen',12430,1,0);
 INSERT INTO single_model VALUES(47376,12023,'Wildschwein',11422,1,0);
 INSERT INTO single_model VALUES(47377,12159,'Streitwagen',11421,1,0);
+INSERT INTO single_model VALUES(47378,12428,'Hexenkönigin',12431,1,0);
 
 
 INSERT INTO melee_weapon VALUES(1,'Handwaffe',0,'',-1,0,0,0);
@@ -5079,6 +5082,13 @@ INSERT INTO slot VALUES(5139,46760,5784,0,1,3);
 INSERT INTO slot VALUES(5140,46768,5784,0,1,3);
 INSERT INTO slot VALUES(5141,46772,6078,0,0,0);
 INSERT INTO slot VALUES(5142,46773,6077,0,0,0);
+INSERT INTO slot VALUES(5143,47378,1,1,1,0);
+INSERT INTO slot VALUES(5144,47378,30,1,1,1);
+INSERT INTO slot VALUES(5145,47378,10,1,1,2);
+INSERT INTO slot VALUES(5146,47378,40,1,1,3);
+INSERT INTO slot VALUES(5147,47378,60,1,1,4);
+INSERT INTO slot VALUES(5148,47378,60,1,1,4);
+INSERT INTO slot VALUES(5149,47378,60,1,1,4);
 
 
 INSERT INTO slot_selection VALUES(1,4859,30);
@@ -6212,6 +6222,7 @@ INSERT INTO main_model_figure VALUES(341,11430,438);
 INSERT INTO main_model_figure VALUES(342,11434,393);
 INSERT INTO main_model_figure VALUES(343,11434,413);
 INSERT INTO main_model_figure VALUES(344,12076,531);
+INSERT INTO main_model_figure VALUES(345,12431,11);
 
 
 COMMIT;
