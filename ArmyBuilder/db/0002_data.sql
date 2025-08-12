@@ -412,7 +412,7 @@ INSERT INTO profile VALUES(11871,'Imperium Elite',4,4,3,6,3,1,4,1,7,8.0,7);
 INSERT INTO profile VALUES(11872,'Imperium Elite',4,4,3,4,3,1,4,1,7,8.0,7);
 INSERT INTO profile VALUES(11873,'Imperium Elite',4,4,3,4,3,1,4,1,7,8.0,7);
 INSERT INTO profile VALUES(11874,'Imperium Elite',4,4,3,4,3,1,4,1,7,8.0,7);
-INSERT INTO profile VALUES(11875,'Imperium Reiter',8,3,3,4,3,1,3,2,7,7.0,7);
+INSERT INTO profile VALUES(11875,'Imperium Reiter',8,3,3,3,3,1,3,1,7,7.0,7);
 INSERT INTO profile VALUES(11876,'Imperium Reiter',8,3,3,3,3,1,3,1,7,7.0,7);
 INSERT INTO profile VALUES(11877,'Imperium Basis',4,3,3,4,3,1,3,1,7,5.0,7);
 INSERT INTO profile VALUES(11878,'Imperium Elite',3,4,3,4,3,1,4,1,7,8.0,7);
@@ -1917,7 +1917,7 @@ INSERT INTO single_model VALUES(46781,11871,'Ritter des Weißen Wolfes',11871,1,
 INSERT INTO single_model VALUES(46782,11872,'Pantherritter',11872,1,0);
 INSERT INTO single_model VALUES(46783,11873,'Ritter der Reichsgarde',11873,1,0);
 INSERT INTO single_model VALUES(46784,11874,'Ritter des Sonnenordens',11874,1,0);
-INSERT INTO single_model VALUES(46785,11875,'Pistoliere',11875,1,0);
+INSERT INTO single_model VALUES(46785,11875,'Pistoliere',11875,1,1);
 INSERT INTO single_model VALUES(46786,11876,'Schützenreiter',11876,1,0);
 INSERT INTO single_model VALUES(46787,11877,'Hellebardenträger',11877,1,0);
 INSERT INTO single_model VALUES(46788,11878,'Reichsgardist',11878,1,0);
