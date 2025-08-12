@@ -1927,7 +1927,7 @@ INSERT INTO single_model VALUES(46791,11881,'Schwertkämpfer',11881,1,0);
 INSERT INTO single_model VALUES(46792,11882,'Bogenschütze',11882,1,0);
 INSERT INTO single_model VALUES(46793,11883,'Armbrustschützen',11883,1,0);
 INSERT INTO single_model VALUES(46794,11884,'Flügulan',11884,1,0);
-INSERT INTO single_model VALUES(46795,11885,'Bogenschützenreiter',11885,1,0);
+INSERT INTO single_model VALUES(46795,11885,'Bogenschützenreiter',11885,1,1);
 INSERT INTO single_model VALUES(46796,11886,'Flagellanten',11886,1,0);
 INSERT INTO single_model VALUES(46797,11887,'Imperialer Zwerg',11887,1,0);
 INSERT INTO single_model VALUES(46798,11888,'Halbling',11888,1,0);
