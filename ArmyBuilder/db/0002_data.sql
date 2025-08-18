@@ -1165,12 +1165,12 @@ INSERT INTO main_model VALUES(12074,9,2,'Snotling Kurbelwagen','Beschuß: 1-2 Sn
 INSERT INTO main_model VALUES(12075,9,2,'Kamikaze Katapult','Direkter/Indirekter Treffer: Reichweite: gesamtes Spielfeld, Stärke: 10/7, Schaden: W6/W3, RW: keiner/-2',0,100.0,0,0);
 INSERT INTO main_model VALUES(12076,9,2,'Ork Streitwagen','Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Zugtiere.',0,81.0,0,0);
 INSERT INTO main_model VALUES(12077,9,2,'Goblin Wolfsstreitwagen','Beschuß:1 Besatzung; 2-3 Zugtiere; 4+ Wagen. Nah.:1 Wagen; 2-3 Zugtiere; 4+ Besatzung.',0,65.0,0,0);
-INSERT INTO main_model VALUES(12078,8,2,'Mörser','',0,100.0,0,0);
-INSERT INTO main_model VALUES(12079,8,2,'Großkanone','',0,100.0,0,0);
-INSERT INTO main_model VALUES(12080,8,2,'Dampfpanzer','',0,200.0,0,0);
+INSERT INTO main_model VALUES(12078,8,2,'Mörser','Reichweite: 12-48", S: 7, Schaden: W3, RW: -4',0,100.0,0,0);
+INSERT INTO main_model VALUES(12079,8,2,'Großkanone','Reichweite: 60", S: 10, Schaden: W6, RW: keiner',0,100.0,0,0);
+INSERT INTO main_model VALUES(12080,8,2,'Dampfpanzer','Reichweite: 36", S: 10, Schaden: W4, RW: keiner',0,200.0,0,0);
 INSERT INTO main_model VALUES(12081,8,2,'Kriegswagen','Beschuß:1 Besatz.; 2 Pferd; 3+ Wagen.  Nah.:1-2 Wagen.; 3-4 Pferd; 5-6 Besatz.',0,150.0,0,0);
-INSERT INTO main_model VALUES(12082,8,2,'Höllenfeuer Salvenkanone','',0,100.0,0,0);
-INSERT INTO main_model VALUES(12083,8,2,'Halbling Suppenkatapult','',0,50.0,0,0);
+INSERT INTO main_model VALUES(12082,8,2,'Höllenfeuer Salvenkanone','0-12": Artilleriewürfel, S: 5; 12-24": Halber Artilleriewürfel, S: 4',0,100.0,0,0);
+INSERT INTO main_model VALUES(12083,8,2,'Halbling Suppenkatapult','Direkter/Indirekter Treffer: Reichweite: 36", Stärke: 5/3, Schaden: 1, RW: keiner',0,50.0,0,0);
 INSERT INTO main_model VALUES(12084,14,2,'Gyrokopter','Beschuß und Nahkampf: 1-4 Gyrokopter; 5+ Pilot.',0,100.0,0,0);
 INSERT INTO main_model VALUES(12085,14,2,'Speerschleuder','',0,54.0,0,0);
 INSERT INTO main_model VALUES(12086,14,2,'Kleine Steinschleuder','',0,74.0,0,0);
