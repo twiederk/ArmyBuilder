@@ -191,18 +191,16 @@ namespace ArmyBuilder.Test.Domain
             // arrange
             var singleModel = new SingleModel { Profile = new Profile { Points = 4.5F }, MountSave = 0 };
 
-            // Non-magical: 4 + 2 = 6, Magical: 30
             var equipment = new Equipment();
-            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 4 } }); // non-magical
-            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } }); // non-magical
-            equipment.Slots.Add(new Slot { Item = new Misc { Points = 30, Magic = true } }); // magical
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 4 } });
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
+            equipment.Slots.Add(new Slot { Item = new Misc { Points = 30, Magic = true } });
             singleModel.Equipment = equipment;
 
             // act
             float points = singleModel.BasePoints();
 
             // assert
-            // profile (4.5) + (4+2)/2 for non-magical = 5 + 3 = 8
             points.Should().Be(7.5F);
         }
 
