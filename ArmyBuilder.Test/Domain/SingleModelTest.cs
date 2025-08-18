@@ -186,10 +186,10 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
-        public void should_pay_half_for_non_magical_equipment_when_profile_points_are_5_or_less()
+        public void should_pay_half_for_non_magical_equipment_when_profile_points_are_less_than_5()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 5 }, MountSave = 0 };
+            var singleModel = new SingleModel { Profile = new Profile { Points = 4.5F }, MountSave = 0 };
 
             // Non-magical: 4 + 2 = 6, Magical: 30
             var equipment = new Equipment();
@@ -202,8 +202,8 @@ namespace ArmyBuilder.Test.Domain
             float points = singleModel.BasePoints();
 
             // assert
-            // profile (5) + (4+2)/2 for non-magical = 5 + 3 = 8
-            points.Should().Be(8);
+            // profile (4.5) + (4+2)/2 for non-magical = 5 + 3 = 8
+            points.Should().Be(7.5F);
         }
 
 

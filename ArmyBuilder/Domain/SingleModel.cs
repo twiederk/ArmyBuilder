@@ -99,7 +99,7 @@ namespace ArmyBuilder.Domain
         public float BasePoints()
         {
             float equipmentPoints;
-            if (Profile.Points <= 5)
+            if (Profile.Points < 5)
             {
                 equipmentPoints = Equipment.NonMagicItemsPoints() / 2f;
             }
