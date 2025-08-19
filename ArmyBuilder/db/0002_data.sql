@@ -5943,6 +5943,7 @@ INSERT INTO figure VALUES(528,'Bergwerker Champion','Games Workshop','Zinn',1,0,
 INSERT INTO figure VALUES(529,'Ork Musiker','Games Workshop','Zinn',1,0,9,0,'Orcs\Orcs_Ork_Musiker_2.jpg');
 INSERT INTO figure VALUES(530,'Ork Standartenträger','Games Workshop','Zinn',1,0,9,1,'Orcs\Orcs_Ork_Standartentraeger_2.jpg');
 INSERT INTO figure VALUES(531,'Ork Streitwagen','Games Workshop','Plastik',1,1,9,2,'Orcs\Orcs_Ork_Streitwagen_1.jpg');
+INSERT INTO figure VALUES(532,'Blutdämon','Games Workshop','Zinn',1,0,1,0,'Chaos\Chaos_Daemon_Blutdaemon.jpg');
 
 
 INSERT INTO main_model_figure VALUES(1,11516,65);
