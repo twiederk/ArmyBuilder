@@ -5705,7 +5705,7 @@ INSERT INTO figure VALUES(290,'Kurfürst von Middenland','Games Workshop','Zinn'
 INSERT INTO figure VALUES(291,'Kurfürst von Ostland','Games Workshop','Zinn',1,0,8,0,'Empire\Empire_Kurfuerst_von_Ostland.jpg');
 INSERT INTO figure VALUES(292,'Legolas','Games Workshop','Zinn',1,0,8,0,'Empire\Empire_Legolas.jpg');
 INSERT INTO figure VALUES(293,'Lichtmagier','Games Workshop','Zinn',1,0,8,0,'Empire\Empire_Lichtmagier.jpg');
-INSERT INTO figure VALUES(294,'Ludwig Schwarzhelm','Games Workshop','Zinn',1,0,8,0,'Empire\Empire_Ludwig_Schwartzhelm.jpg');
+INSERT INTO figure VALUES(294,'Ludwig Schwarzhelm','Games Workshop','Zinn',1,0,8,0,'Empire\Empire_Ludwig_Schwarzhelm.jpg');
 INSERT INTO figure VALUES(295,'Merry','Games Workshop','Zinn',1,0,8,0,'Empire\Empire_Merry.jpg');
 INSERT INTO figure VALUES(296,'Musiker','Games Workshop','Zinn',2,0,8,1,'Empire\Empire_Musiker.jpg');
 INSERT INTO figure VALUES(297,'Nebelmagier','Games Workshop','Zinn',1,0,8,0,'Empire\Empire_Nebelmagier.jpg');
