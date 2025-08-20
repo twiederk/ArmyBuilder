@@ -154,8 +154,8 @@ INSERT INTO army_main_model VALUES(91,60,0,'Gorfang Rotzahn','Hass gegen Zwerge.
 INSERT INTO army_main_model VALUES(92,60,1,'Orks','',0,5.5,18,1,1);
 INSERT INTO army_main_model VALUES(93,59,1,'Goblins','',0,2.5,24,1,1);
 INSERT INTO army_main_model VALUES(94,61,1,'Goblins','',0,2.5,24,1,1);
-INSERT INTO army_main_model VALUES(95,62,2,'Schädelquetscha','',0,66.5,1,0,0);
-INSERT INTO army_main_model VALUES(96,63,2,'Kamikaze Katapult','',0,100.0,1,0,0);
+INSERT INTO army_main_model VALUES(95,62,2,'Schädelquetscha','Reichweite: 48", Stärke: 7, Schaden: W3; RW: keiner',0,66.5,1,0,0);
+INSERT INTO army_main_model VALUES(96,63,2,'Kamikaze Katapult','Direkter/Indirekter Treffer: Reichweite: gesamtes Spielfeld, Stärke: 10/7, Schaden: W6/W3, RW: keiner/-2',0,100.0,1,0,0);
 INSERT INTO army_main_model VALUES(97,64,0,'Schwarzork Chefoberboss','Keine Stänkerei',0,140.0,1,0,0);
 INSERT INTO army_main_model VALUES(98,64,0,'Schwarzork Armeestandarte','Keine Stänkerei',0,92.0,1,0,0);
 INSERT INTO army_main_model VALUES(99,64,1,'Schwarzorks','keine Stänkerei',0,9.0,20,0,1);

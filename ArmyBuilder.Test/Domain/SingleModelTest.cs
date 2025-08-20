@@ -186,24 +186,22 @@ namespace ArmyBuilder.Test.Domain
         }
 
         [Fact]
-        public void should_pay_half_for_non_magical_equipment_when_profile_points_are_5_or_less()
+        public void should_pay_half_for_non_magical_equipment_when_profile_points_are_less_than_5()
         {
             // arrange
-            var singleModel = new SingleModel { Profile = new Profile { Points = 5 }, MountSave = 0 };
+            var singleModel = new SingleModel { Profile = new Profile { Points = 4.5F }, MountSave = 0 };
 
-            // Non-magical: 4 + 2 = 6, Magical: 30
             var equipment = new Equipment();
-            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 4 } }); // non-magical
-            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } }); // non-magical
-            equipment.Slots.Add(new Slot { Item = new Misc { Points = 30, Magic = true } }); // magical
+            equipment.Slots.Add(new Slot { Item = new MeleeWeapon { Points = 4 } });
+            equipment.Slots.Add(new Slot { Item = new Armor { Points = 2 } });
+            equipment.Slots.Add(new Slot { Item = new Misc { Points = 30, Magic = true } });
             singleModel.Equipment = equipment;
 
             // act
             float points = singleModel.BasePoints();
 
             // assert
-            // profile (5) + (4+2)/2 for non-magical = 5 + 3 = 8
-            points.Should().Be(8);
+            points.Should().Be(7.5F);
         }
 
 
@@ -394,6 +392,34 @@ namespace ArmyBuilder.Test.Domain
 
             // assert
             mounted.Should().BeTrue();
+        }
+
+        [Fact]
+        public void should_clone_single_model()
+        {
+            // arrange
+            var equipment = new Equipment { Id = 1 };
+            var profile = new Profile { Id = 2, Points = 10 };
+            var singleModel = new SingleModel
+            {
+                Id = 5,
+                Name = "Test",
+                Count = 2,
+                MountSave = 1,
+                Profile = profile,
+                Equipment = equipment
+            };
+
+            // act
+            var clone = singleModel.Clone();
+
+            // assert
+            clone.Id.Should().Be(5);
+            clone.Name.Should().Be("Test");
+            clone.Count.Should().Be(2);
+            clone.MountSave.Should().Be(1);
+            clone.Profile.Should().NotBeNull().And.NotBeSameAs(profile);
+            clone.Equipment.Should().NotBeNull().And.NotBeSameAs(equipment);
         }
 
     }

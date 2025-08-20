@@ -75,6 +75,25 @@ namespace ArmyBuilder.Domain
         {
             return Slots.Select(slot => slot.Item).OfType<RangedWeapon>().FirstOrDefault();
         }
+
+        public Equipment Clone()
+        {
+            return new Equipment
+            {
+                Id = this.Id,
+                Slots = this.Slots.Select(slot => new Slot
+                {
+                    Id = slot.Id,
+                    Item = slot.Item,
+                    ItemClass = slot.ItemClass,
+                    Editable = slot.Editable,
+                    AllItems = slot.AllItems,
+                    Magic = slot.Magic,
+                    Selection = slot.Selection?.ToList()
+                }).ToList()
+            };
+        }
+
     }
 }
 

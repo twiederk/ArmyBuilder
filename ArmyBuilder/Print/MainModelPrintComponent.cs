@@ -129,7 +129,7 @@ namespace ArmyBuilder.Print
             {
                 output += $"Standartenträger ({_mainModel.ModelPoints() * 2}) ";
             }
-            if (_mainModel.StandardBearer)
+            if (_mainModel.Musician)
             {
                 output += $"Musiker ({_mainModel.ModelPoints() * 2})";
             }

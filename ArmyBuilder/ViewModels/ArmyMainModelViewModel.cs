@@ -92,8 +92,12 @@ namespace ArmyBuilder.ViewModels
 
         private string equipment() 
         {
-            return string.Join(", ", MainModel.SingleModels
-                .Select(sm => string.Join(", ", sm.Equipment.ItemNames())));
+            var itemNames = MainModel.SingleModels
+                .Select(sm => string.Join(", ", sm.Equipment?.ItemNames() ?? new List<string>()))
+                .Where(s => !string.IsNullOrWhiteSpace(s))
+                .ToList();
+
+            return itemNames.Count > 0 ? string.Join(", ", itemNames) : string.Empty;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -99,7 +99,7 @@ namespace ArmyBuilder.Domain
         public float BasePoints()
         {
             float equipmentPoints;
-            if (Profile.Points <= 5)
+            if (Profile.Points < 5)
             {
                 equipmentPoints = Equipment.NonMagicItemsPoints() / 2f;
             }
@@ -120,5 +120,17 @@ namespace ArmyBuilder.Domain
             return MountSave > 0;
         }
 
+        public SingleModel Clone()
+        {
+            return new SingleModel
+            {
+                Id = this.Id,
+                Name = this.Name,
+                Count = this.Count,
+                MountSave = this.MountSave,
+                Profile = this.Profile?.Clone(),
+                Equipment = this.Equipment?.Clone()
+            };
+        }
     }
 }
