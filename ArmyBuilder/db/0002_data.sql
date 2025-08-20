@@ -6290,6 +6290,7 @@ INSERT INTO main_model_figure VALUES(342,11434,393);
 INSERT INTO main_model_figure VALUES(343,11434,413);
 INSERT INTO main_model_figure VALUES(344,12076,531);
 INSERT INTO main_model_figure VALUES(345,12431,11);
+INSERT INTO main_model_figure VALUES(346,11883,254);
 
 
 COMMIT;
