@@ -5925,8 +5925,8 @@ INSERT INTO figure VALUES(510,'Musiker','Games Workshop','Plastik',3,1,8,1,'Empi
 INSERT INTO figure VALUES(511,'Mörser','Games Workshop','Plastik',2,1,8,2,'Empire\Empire_Moerser_bemalt.jpg');
 INSERT INTO figure VALUES(512,'Magier beritten mit Schwert und Zauberstab','Games Workshop','Zinn',1,1,8,0,'Empire\Empire_Magier_beritten_mit_Schwert_und_Zauberstab_bemalt.jpg');
 INSERT INTO figure VALUES(513,'Höllenfeuersalvenkanone','Games Workshop','Zinn',1,1,8,2,'Empire\Empire_Hoellenfeuersalvenkanone_bemalt.jpg');
-INSERT INTO figure VALUES(514,'Hellebardenträger','Games Workshop','Plastik',24,1,8,1,'Empire\Empire_Hellebardentraeger_bemalt_blau.jpg');
-INSERT INTO figure VALUES(515,'Hellebardenträger','Games Workshop','Plastik',3,1,8,1,'Empire\Empire_Hellebardentraeger_bemalt.jpg');
+INSERT INTO figure VALUES(514,'Hellebardenträger','Games Workshop','Plastik',23,1,8,1,'Empire\Empire_Hellebardentraeger_bemalt_blau.jpg');
+INSERT INTO figure VALUES(515,'Hellebardenträger','Games Workshop','Plastik',4,1,8,1,'Empire\Empire_Hellebardentraeger_bemalt.jpg');
 INSERT INTO figure VALUES(516,'Held beritten mit Lanze und Hammer','Games Workshop','Zinn',1,1,8,0,'Empire\Empire_Held_beritten_mit_Lanze_und_Hammer_bemalt.jpg');
 INSERT INTO figure VALUES(517,'Held beritten mit Lanze und Schild','Games Workshop','Zinn',1,1,8,0,'Empire\Empire_Held_beritten_mit_Lanze_und_Schild_bemalt.jpg');
 INSERT INTO figure VALUES(518,'Heiliger Patriarch der Magieorden','Games Workshop','Zinn',1,1,8,0,'Empire\Empire_Heiliger_Patriarch_der_Magierorden_bemalt.jpg');
