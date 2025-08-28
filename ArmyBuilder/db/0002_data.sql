@@ -5474,6 +5474,7 @@ INSERT INTO mount_model VALUES(248,'Kampfechse',11810,2,5);
 INSERT INTO mount_model VALUES(249,'Wildschwein',12023,2,9);
 INSERT INTO mount_model VALUES(250,'Dunkelelfenroß',12042,1,5);
 INSERT INTO mount_model VALUES(251,'Riesenwolf',11841,1,9);
+INSERT INTO mount_model VALUES(252,'Kriegspferd',11796,1,8);
 
 
 INSERT INTO figure VALUES(1,'Morathi die Hexenköniging','Games Workshop','Zinn',1,0,5,0,'DarkElves\DarkElf_Morathi_Die_Hexenkoenigin_auf_Pegasus.jpg');
