@@ -5945,6 +5945,7 @@ INSERT INTO figure VALUES(529,'Ork Musiker','Games Workshop','Zinn',1,0,9,0,'Orc
 INSERT INTO figure VALUES(530,'Ork Standartenträger','Games Workshop','Zinn',1,0,9,1,'Orcs\Orcs_Ork_Standartentraeger_2.jpg');
 INSERT INTO figure VALUES(531,'Ork Streitwagen','Games Workshop','Plastik',1,1,9,2,'Orcs\Orcs_Ork_Streitwagen_1.jpg');
 INSERT INTO figure VALUES(532,'Blutdämon','Games Workshop','Zinn',1,0,1,0,'Chaos\Chaos_Daemon_Blutdaemon.jpg');
+INSERT INTO figure VALUES(533,'Dampfpanzer','Games Workshop','Zinn',1,0,8,2,'Empire\Empire_Dampfpanzer.jpg');
 
 
 INSERT INTO main_model_figure VALUES(1,11516,65);
@@ -6398,6 +6399,7 @@ INSERT INTO main_model_figure VALUES(449,11881,296);
 INSERT INTO main_model_figure VALUES(450,11881,510);
 INSERT INTO main_model_figure VALUES(451,11889,435);
 INSERT INTO main_model_figure VALUES(452,11889,436);
+INSERT INTO main_model_figure VALUES(453,12080,533);
 
 
 COMMIT;
