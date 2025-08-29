@@ -9,7 +9,7 @@ INSERT INTO army VALUES(5,'Die Zwerge von Karak-Kar','Torsten',14,2093);
 INSERT INTO army VALUES(6,'Zwergen Armee vom Eldin Berg','Torsten',14,2828);
 INSERT INTO army VALUES(7,'Kurl Vraneths Freibeuter','Games Workshop',5,1996);
 INSERT INTO army VALUES(8,'Skarsniks Schwarzork Waaagh!','Torsten',9,2919);
-INSERT INTO army VALUES(9,'Der Schaffner von der HSB','IN57KC',8,2108);
+INSERT INTO army VALUES(9,'Der Schaffner von der HSB','IN57KC',8,2109);
 
 
 INSERT INTO army_unit VALUES(1,1,'Tiranoc Streitwagen');
@@ -722,7 +722,7 @@ INSERT INTO army_slot VALUES(438,156,31,0,0,1);
 INSERT INTO army_slot VALUES(439,156,41,1,0,3);
 INSERT INTO army_slot VALUES(446,159,1,1,1,0);
 INSERT INTO army_slot VALUES(447,159,10,1,1,2);
-INSERT INTO army_slot VALUES(448,159,30,1,1,1);
+INSERT INTO army_slot VALUES(448,159,31,1,1,1);
 INSERT INTO army_slot VALUES(449,159,41,1,1,3);
 INSERT INTO army_slot VALUES(450,159,60,1,1,4);
 INSERT INTO army_slot VALUES(451,160,5,0,0,0);
