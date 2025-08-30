@@ -290,5 +290,36 @@ INNER JOIN main_model mm ON sm.main_model_id = mm.id
 INNER JOIN profile p ON sm.profile_id = p.id;
 
 
+CREATE INDEX IF NOT EXISTS idx_melee_weapon_army_list_id ON melee_weapon(army_list_id);
+CREATE INDEX IF NOT EXISTS idx_ranged_weapon_army_list_id ON ranged_weapon(army_list_id);
+CREATE INDEX IF NOT EXISTS idx_armor_army_list_id ON armor(army_list_id);
+CREATE INDEX IF NOT EXISTS idx_shield_army_list_id ON shield(army_list_id);
+CREATE INDEX IF NOT EXISTS idx_standard_army_list_id ON standard(army_list_id);
+CREATE INDEX IF NOT EXISTS idx_instrument_army_list_id ON instrument(army_list_id);
+CREATE INDEX IF NOT EXISTS idx_misc_army_list_id ON misc(army_list_id);
+CREATE INDEX IF NOT EXISTS idx_main_model_army_list_id ON main_model(army_list_id);
+CREATE INDEX IF NOT EXISTS idx_main_model_army_category_id ON main_model(army_category_id);
+CREATE INDEX IF NOT EXISTS idx_single_model_main_model_id ON single_model(main_model_id);
+CREATE INDEX IF NOT EXISTS idx_single_model_profile_id ON single_model(profile_id);
+CREATE INDEX IF NOT EXISTS idx_slot_single_model_id ON slot(single_model_id);
+CREATE INDEX IF NOT EXISTS idx_slot_item_class_id ON slot(item_class_id);
+CREATE INDEX IF NOT EXISTS idx_slot_selection_slot_id ON slot_selection(slot_id);
+CREATE INDEX IF NOT EXISTS idx_mount_model_profile_id ON mount_model(profile_id);
+CREATE INDEX IF NOT EXISTS idx_mount_model_army_list_id ON mount_model(army_list_id);
+CREATE INDEX IF NOT EXISTS idx_army_army_list_id ON army(army_list_id);
+CREATE INDEX IF NOT EXISTS idx_army_unit_army_id ON army_unit(army_id);
+CREATE INDEX IF NOT EXISTS idx_army_main_model_army_unit_id ON army_main_model(army_unit_id);
+CREATE INDEX IF NOT EXISTS idx_army_main_model_army_category_id ON army_main_model(army_category_id);
+CREATE INDEX IF NOT EXISTS idx_army_single_model_army_main_model_id ON army_single_model(army_main_model_id);
+CREATE INDEX IF NOT EXISTS idx_army_single_model_profile_id ON army_single_model(profile_id);
+CREATE INDEX IF NOT EXISTS idx_army_slot_army_single_model_id ON army_slot(army_single_model_id);
+CREATE INDEX IF NOT EXISTS idx_army_slot_item_class_id ON army_slot(item_class_id);
+CREATE INDEX IF NOT EXISTS idx_army_slot_selection_army_slot_id ON army_slot_selection(army_slot_id);
+CREATE INDEX IF NOT EXISTS idx_figure_army_list_id ON figure(army_list_id);
+CREATE INDEX IF NOT EXISTS idx_figure_army_category_id ON figure(army_category_id);
+CREATE INDEX IF NOT EXISTS idx_main_model_figure_main_model_id ON main_model_figure(main_model_id);
+CREATE INDEX IF NOT EXISTS idx_main_model_figure_figure_id ON main_model_figure(figure_id);
+
+
 COMMIT;
 

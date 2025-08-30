@@ -292,6 +292,9 @@
     <None Update="images\Dwarves\Dwarf_WhiteDwarf.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="images\Empire\Empire_Dampfpanzer.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\Empire\Empire_Ludwig_Schwarzhelm.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

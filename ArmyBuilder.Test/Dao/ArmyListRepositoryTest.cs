@@ -74,7 +74,7 @@ namespace ArmyBuilder.Test.Dao
             mainModel.Description.Should().Be("Banner von Caledor");
             mainModel.OldPoints.Should().Be(43.0F);
 
-            singleModel = mainModel.SingleModels.First();
+            singleModel = mainModel.SingleModels.Last();
             singleModel.Name.Should().Be("Drachenprinz");
             singleModel.MountSave.Should().Be(1);
 
@@ -94,9 +94,9 @@ namespace ArmyBuilder.Test.Dao
             figures.Should().HaveCount(3);
             figures[0].ImagePath.Should().Be(@"HighElves\HighElf_Dragonprince.jpg");
             figures[0].NumberOfFigures.Should().Be(9);
-            figures[1].ImagePath.Should().Be(@"HighElves\HighElf_Dragonprince_Fighter.jpg");
+            figures[1].ImagePath.Should().Be(@"HighElves\HighElf_Dragonprince_StandardBearer.jpg");
             figures[1].NumberOfFigures.Should().Be(1);
-            figures[2].ImagePath.Should().Be(@"HighElves\HighElf_Dragonprince_StandardBearer.jpg");
+            figures[2].ImagePath.Should().Be(@"HighElves\HighElf_Dragonprince_Fighter.jpg");
             figures[2].NumberOfFigures.Should().Be(1);
         }
 
