@@ -2941,7 +2941,7 @@ INSERT INTO misc VALUES(6055,'Stab des Cyeos',25,'Verstärkt jeden Zauberspruch 
 INSERT INTO misc VALUES(6057,'Talisman des Qwarr',15,'',13,1,1);
 INSERT INTO misc VALUES(6058,'Talisman von Hoeth',85,'Träger erhält die magischen Fähigkeiten eines Stufe 2 Obermagiers.',7,0,1);
 INSERT INTO misc VALUES(6062,'Beerenwein',25,'',13,1,1);
-INSERT INTO misc VALUES(6063,'Buch des Phönix',25,'',7,1,1);
+INSERT INTO misc VALUES(6063,'Buch des Phönix',75,'',7,1,1);
 INSERT INTO misc VALUES(6064,'Chaos Homunkulus',50,'',1,1,1);
 INSERT INTO misc VALUES(6065,'Eiserner Reif',50,'1x pro Magiephase eine Energiekarte oder ein Magie Bann',5,1,1);
 INSERT INTO misc VALUES(6066,'Glyphe des Potec',20,'',6,1,1);
