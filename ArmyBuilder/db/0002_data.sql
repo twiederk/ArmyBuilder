@@ -2631,7 +2631,7 @@ INSERT INTO melee_weapon VALUES(5868,'Axt Morgor',125,'',9,0,1,0);
 INSERT INTO melee_weapon VALUES(5869,'Axt von Chayal',65,'',7,0,1,0);
 INSERT INTO melee_weapon VALUES(5872,'Bronns Axt',25,'',14,1,1,0);
 INSERT INTO melee_weapon VALUES(5874,'Bugmans Runenaxt',40,'+1 auf Stärke und Attacken.',14,0,1,0);
-INSERT INTO melee_weapon VALUES(5875,'Burlocks Hammer',25,'',14,0,1,0);
+INSERT INTO melee_weapon VALUES(5875,'Burloks Hammer',25,'',14,0,1,0);
 INSERT INTO melee_weapon VALUES(5878,'Chaos-Runenklinge',45,'',1,1,1,0);
 INSERT INTO melee_weapon VALUES(5880,'Chaos-Runenschwert',45,'',2,1,1,0);
 INSERT INTO melee_weapon VALUES(5881,'Dargos Axt',90,'',14,0,1,0);
@@ -2755,7 +2755,7 @@ INSERT INTO armor VALUES(5807,'Helm der vielen Augen',25,'Helmträger attackiert
 INSERT INTO armor VALUES(5929,'Skags Helm',30,'',14,1,1,0);
 INSERT INTO armor VALUES(5931,'Snikchs Schattenmantel',75,'',10,1,1,0);
 INSERT INTO armor VALUES(5959,'Aenarions Drachenrüstung',75,'',7,1,1,5);
-INSERT INTO armor VALUES(5967,'Burlocks Rüstung',55,'',14,1,1,3);
+INSERT INTO armor VALUES(5967,'Burloks Rüstung',55,'',14,1,1,3);
 INSERT INTO armor VALUES(5978,'Helm des Drachentöters',10,'',0,1,1,0);
 INSERT INTO armor VALUES(5979,'Helm von Yvresse',10,'',7,1,1,0);
 INSERT INTO armor VALUES(5984,'Königsrüstung von Karak Azul',100,'',14,0,1,4);
