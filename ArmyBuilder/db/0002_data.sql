@@ -1617,7 +1617,7 @@ INSERT INTO single_model VALUES(46495,11510,'Zauberer',11510,1,0);
 INSERT INTO single_model VALUES(46496,11511,'Oberzauberer',11511,1,0);
 INSERT INTO single_model VALUES(46497,11512,'Großzauberer',11512,1,0);
 INSERT INTO single_model VALUES(46498,11513,'Meisterzauberer',11513,1,0);
-INSERT INTO single_model VALUES(46499,11514,'Tyrion',11514,1,0);
+INSERT INTO single_model VALUES(46499,11514,'Tyrion',11514,1,1);
 INSERT INTO single_model VALUES(46500,11515,'Teclis',11515,1,0);
 INSERT INTO single_model VALUES(46501,11516,'Eltharion',11516,1,0);
 INSERT INTO single_model VALUES(46502,11517,'Prinz Imrik',11517,1,0);
