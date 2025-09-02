@@ -2506,7 +2506,6 @@ INSERT INTO melee_weapon VALUES(5644,'Knochenklinge',35,'Jede Verletzung kostet 
 INSERT INTO melee_weapon VALUES(5645,'Giftschwert',70,'Jede Verletzung kostet W6 Lebenspunkte.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5646,'Borks Schwert',10,'Erster Verpatzter Stänkereitest kann ignoriert werden. Nur für Orks und Wildorks',9,0,1,0);
 INSERT INTO melee_weapon VALUES(5647,'Skarsniks Prodder',75,'+1 auf Stärke. Pro Mob ein Blitz mit Reichweite: 24", Stärke: 4, RW: keiner.',9,0,1,1);
-INSERT INTO melee_weapon VALUES(5648,'Morgors Axt',125,'Träger attackiert immer zuerst. +1 auf KG, S und W, kein RW oder mit -3.',9,0,1,1);
 INSERT INTO melee_weapon VALUES(5649,'Bannendes Schwert',25,'Untote verlieren bei jeder Verletztung W3 Lebenspunkte.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5650,'Goldenes Runenschwert',20,'Initiative 10.',-1,0,1,0);
 INSERT INTO melee_weapon VALUES(5651,'Seelenklinge',25,'Jede Verletztung kostet zusätzlich einen Widerstandspunkt.',1,0,1,0);
